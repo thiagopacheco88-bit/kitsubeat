@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-grammar-noun: #3b82f6;
+  --color-grammar-verb: #ef4444;
+  --color-grammar-adjective: #22c55e;
+  --color-grammar-adverb: #f97316;
+  --color-grammar-particle: #6b7280;
+  --color-grammar-expression: #8b5cf6;
+  --color-grammar-other: #6b7280;
+
+  --color-jlpt-n5: #22c55e;
+  --color-jlpt-n4: #3b82f6;
+  --color-jlpt-n3: #f59e0b;
+  --color-jlpt-n2: #f97316;
+  --color-jlpt-n1: #ef4444;
+}
+
+/* Thin scrollbar for horizontal carousels */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #374151 transparent;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}

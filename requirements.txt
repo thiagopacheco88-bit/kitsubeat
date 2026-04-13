@@ -1,0 +1,17 @@
+# Python dependencies for Kitsubeat timing pipeline
+# Install with: pip install -r requirements.txt
+#
+# GPU (recommended): requires CUDA 11.8+ and cuDNN 8+
+# CPU: works but significantly slower (use int8 compute_type)
+
+# Core timing pipeline
+whisperx>=3.1.1
+yt-dlp>=2024.1.0
+
+# WhisperX backend dependencies
+faster-whisper>=1.0.0
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# Audio processing (required by WhisperX for alignment)
+pyannote.audio>=3.1.0
