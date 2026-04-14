@@ -112,17 +112,61 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 ## Traceability
 
-Updated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| — | — | — |
+| DATA-01 | Phase 7 | Pending |
+| DATA-02 | Phase 7 | Pending |
+| EXER-01 | Phase 8 | Pending |
+| EXER-02 | Phase 8 | Pending |
+| EXER-03 | Phase 8 | Pending |
+| EXER-04 | Phase 8 | Pending |
+| EXER-08 | Phase 8 | Pending |
+| EXER-09 | Phase 8 | Pending |
+| EXER-10 | Phase 8 | Pending |
+| STAR-01 | Phase 8 | Pending |
+| STAR-02 | Phase 8 | Pending |
+| STAR-03 | Phase 8 | Pending |
+| STAR-05 | Phase 8 | Pending |
+| FREE-01 | Phase 8 | Pending |
+| FREE-02 | Phase 8 | Pending |
+| FREE-06 | Phase 8 | Pending |
+| KANA-01 | Phase 9 | Pending |
+| KANA-02 | Phase 9 | Pending |
+| KANA-03 | Phase 9 | Pending |
+| KANA-04 | Phase 9 | Pending |
+| KANA-05 | Phase 9 | Pending |
+| KANA-06 | Phase 9 | Pending |
+| KANA-07 | Phase 9 | Pending |
+| KANA-08 | Phase 9 | Pending |
+| FREE-03 | Phase 9 | Pending |
+| EXER-05 | Phase 10 | Pending |
+| EXER-06 | Phase 10 | Pending |
+| EXER-07 | Phase 10 | Pending |
+| STAR-04 | Phase 10 | Pending |
+| STAR-06 | Phase 10 | Pending |
+| FREE-05 | Phase 10 | Pending |
+| CROSS-01 | Phase 11 | Pending |
+| CROSS-02 | Phase 11 | Pending |
+| CROSS-03 | Phase 11 | Pending |
+| CROSS-04 | Phase 11 | Pending |
+| CROSS-05 | Phase 11 | Pending |
+| FREE-04 | Phase 11 | Pending |
+| SCENE-01 | Phase 12 | Pending |
+| SCENE-02 | Phase 12 | Pending |
+| SCENE-03 | Phase 12 | Pending |
+| SCENE-04 | Phase 12 | Pending |
+| SCENE-05 | Phase 12 | Pending |
+| CULT-01 | Phase 12 | Pending |
+| CULT-02 | Phase 12 | Pending |
+| CULT-03 | Phase 12 | Pending |
+| CULT-04 | Phase 12 | Pending |
+| DATA-03 | Phase 12 | Pending |
 
 **Coverage:**
-- v2.0 requirements: 38 total
-- Mapped to phases: 0
-- Unmapped: 38
+- v2.0 requirements: 47 total
+- Mapped to phases: 47
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-14*
-*Last updated: 2026-04-14 after initial definition*
+*Last updated: 2026-04-14 — traceability populated after roadmap creation (Phases 7-12)*

@@ -4,6 +4,13 @@
 
 KitsuBeat is built in six phases that follow strict dependency order: content must exist before the player can render it, the player must prove its learning value before auth adds friction, auth must gate access before payments can charge for it, and exercises layer on top of a proven player. The pipeline is: pre-generate all 200 lessons offline → build the synced player → add accounts and catalog → add AI search and billing → add exercises and gamification → add Anki export. Every phase delivers a complete, independently verifiable capability before the next begins.
 
+v2.0 adds 6 additional phases (7-12) that transform KitsuBeat from a passive listening tool into an active learning platform: a normalized vocabulary identity layer enables all progress tracking; the exercise engine delivers the core learning loop; a standalone kana trainer runs in parallel; advanced exercises unlock the full 3-star mastery system; cross-song vocabulary tracking becomes the platform differentiator; and anime scenes plus cultural vocabulary expand the content universe.
+
+## Milestones
+
+- 🚧 **v1.0 Core Learning Experience** - Phases 1-6 (in progress)
+- 📋 **v2.0 Exercise & Learning System** - Phases 7-12 (planned)
+
 ## Phases
 
 **Phase Numbering:**
@@ -12,12 +19,23 @@ KitsuBeat is built in six phases that follow strict dependency order: content mu
 
 Decimal phases appear between their surrounding integers in numeric order.
 
+### v1.0 Core Learning Experience
+
 - [ ] **Phase 1: Content Pipeline** - Pre-generate all lesson content for 200 anime songs offline via Claude API and validate 100% coverage with the QA agent
 - [ ] **Phase 2: Player Experience** - Build the synced YouTube player with furigana, grammar color-coding, vocabulary breakdown, and verse-by-verse explanations
 - [ ] **Phase 3: Auth, Catalog, and Freemium Gate** - Add user accounts, song catalog browse, progress tracking, and database-layer freemium gating
 - [ ] **Phase 4: AI Search and Payments** - Add natural-language song search via semantic embeddings and Lemon Squeezy subscription checkout
 - [ ] **Phase 5: Exercises and Gamification** - Add fill-in-the-blank and translation exercises with XP, levels, and JLPT progression gating
 - [ ] **Phase 6: Export and Polish** - Add Anki CSV vocabulary export and close any remaining UX gaps
+
+### v2.0 Exercise & Learning System
+
+- [ ] **Phase 7: Data Foundation** - Normalize vocabulary identity with UUIDs and audit grammar conjugation paths to unblock all progress tracking
+- [ ] **Phase 8: Exercise Engine & Star Mastery** - Build the full per-song exercise loop (4 core exercise types) with SRS progress persistence and 2-star mastery
+- [ ] **Phase 9: Kana Trainer** - Deliver a standalone hiragana/katakana trainer with row-by-row unlock and SRS-lite 10-star mastery
+- [ ] **Phase 10: Advanced Exercises & Full Mastery** - Add grammar conjugation, listening drill, and sentence order exercises to complete the 3-star system
+- [ ] **Phase 11: Cross-Song Vocabulary** - Surface vocabulary mastery across all songs and deliver the premium cross-song review dashboard
+- [ ] **Phase 12: Anime Scenes & Cultural Vocabulary** - Extend the content universe with iconic anime scenes and anime-anchored cultural vocabulary drills
 
 ## Phase Details
 
@@ -97,16 +115,106 @@ Plans:
   2. The exported CSV imports cleanly into Anki Desktop without formatting errors or missing fields
 **Plans**: TBD
 
+---
+
+## v2.0 Exercise & Learning System
+
+**Milestone Goal:** Transform KitsuBeat from a passive listening tool into an active learning platform. Users can drill vocabulary and grammar from any song, train hiragana and katakana to mastery, see how words they have learned appear across multiple songs, study iconic anime scenes, and explore vocabulary anchored to anime cultural references — all gated by a clean freemium architecture enforced at the data layer.
+
+**Depends on:** v1.0 Phases 1-4 complete (content pipeline, player, auth/catalog, payments)
+
+### Phase 7: Data Foundation
+**Goal**: A normalized vocabulary identity layer exists and grammar conjugation data is machine-parseable, enabling all downstream progress tracking and exercise generation to work from stable UUIDs rather than fragile text keys
+**Depends on**: Phase 6 (v1.0 complete — auth, schema, player all exist)
+**Requirements**: DATA-01, DATA-02
+**Success Criteria** (what must be TRUE):
+  1. Every distinct (surface, reading) vocabulary pair across all song lessons has a stable UUID row in the vocabulary_items table — content corrections do not orphan existing progress rows
+  2. The vocab_global materialized view aggregates vocabulary across all song_versions.lesson JSONB and can be refreshed without downtime
+  3. Grammar conjugation paths for all songs with grammar data have been audited; structured question/answer pairs can be derived programmatically for at least 80% of conjugation entries
+  4. A Drizzle migration creates user_vocab_mastery, user_exercise_log, and subscriptions tables with FSRS scalar columns indexed for due-date queries
+**Plans**: TBD
+
+### Phase 8: Exercise Engine & Star Mastery
+**Goal**: Users can complete four core exercise types for any song, receive immediate explanatory feedback, resume sessions across browser refreshes, and earn up to 2 stars per song as mastery is demonstrated
+**Depends on**: Phase 7
+**Requirements**: EXER-01, EXER-02, EXER-03, EXER-04, EXER-08, EXER-09, EXER-10, STAR-01, STAR-02, STAR-03, STAR-05, FREE-01, FREE-02, FREE-06
+**Success Criteria** (what must be TRUE):
+  1. User can open any song's exercise page and complete Vocab→Meaning, Meaning→Vocab, Reading Match, and Fill-the-Lyric exercises in sequence — all answer options drawn from same-song vocabulary or same-JLPT-level words, never random
+  2. After each answer the user sees immediate feedback explaining why the correct answer is correct, regardless of whether they chose right or wrong
+  3. User can close the browser mid-session and return to find their progress exactly where they left it
+  4. Song card and song page display a per-song completion percentage that updates after each session
+  5. User earns Star 1 when vocab recognition exercises (Ex 1+2+3) pass at >=80%, and Star 2 when Fill-the-Lyric (Ex 4) passes at >=80% — stars are visible on the song card
+  6. Premium gate abstraction is in place: feature flags can toggle any exercise type free/premium without code changes; enforcement happens at the data access layer, not the UI
+**Plans**: TBD
+
+### Phase 9: Kana Trainer
+**Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
+**Depends on**: Phase 7
+**Requirements**: KANA-01, KANA-02, KANA-03, KANA-04, KANA-05, KANA-06, KANA-07, KANA-08, FREE-03
+**Success Criteria** (what must be TRUE):
+  1. User can navigate to /kana and drill hiragana recognition (see kana, pick correct romaji from 4 options) without being signed in
+  2. User can switch between hiragana and katakana modes in the same trainer interface
+  3. Each character tracks a 10-star mastery level: correct answers add 1 star, wrong answers subtract 2 (floor 0); characters at 0 stars show the answer pre-revealed and award 1 star for acknowledgment; characters at 10 stars appear at 1/5th normal frequency
+  4. Kana rows unlock sequentially — user must reach the star threshold on the a-row before the ka-row appears; dakuten, handakuten, and combo rows unlock the same way
+  5. Each session is exactly 20 questions with weighted random selection: lower-star characters appear more frequently than higher-star characters
+**Plans**: TBD
+
+### Phase 10: Advanced Exercises & Full Mastery
+**Goal**: Users can complete grammar conjugation, listening drill, and sentence order exercises, earning Star 3 mastery for a song when listening drills pass at >=80%, with bonus mastery recognition for conjugation and sentence order work
+**Depends on**: Phase 8
+**Requirements**: EXER-05, EXER-06, EXER-07, STAR-04, STAR-06, FREE-05
+**Success Criteria** (what must be TRUE):
+  1. User can complete Grammar Conjugation exercises for songs with audited conjugation data — given a base form and context, picking the correct conjugated form from 4 options
+  2. User can complete Fill-the-Lyric Listening Drill exercises where the verse audio plays without lyrics shown and the user identifies the target word by ear
+  3. User can complete Sentence Order exercises by tapping scrambled verse tokens into the correct sequence
+  4. User earns Star 3 when Listening Drill (Ex 6) passes at >=80%; Sentence Order and Grammar Conjugation contribute to a bonus mastery badge visible on the song page but do not gate stars
+  5. Listening drills are free for a user's first 3 songs; subsequent listening drill access is premium-gated and enforced at the data access layer
+**Plans**: TBD
+
+### Phase 11: Cross-Song Vocabulary
+**Goal**: Users can see how vocabulary they have mastered in one song carries across other songs, track their total unique Japanese words learned, and access a full vocabulary dashboard — with the cross-song SRS review queue as a premium differentiator
+**Depends on**: Phase 8
+**Requirements**: CROSS-01, CROSS-02, CROSS-03, CROSS-04, CROSS-05, FREE-04
+**Success Criteria** (what must be TRUE):
+  1. When a user views a song page they have not yet completed, they see a count of words they already know from other songs ("You know 8/12 words in this song")
+  2. When a user views vocabulary details for any word, they see which other songs contain that word ("Seen in: Attack on Titan OP, Demon Slayer OP")
+  3. User sees a global counter of unique Japanese words learned across all songs on their profile or dashboard
+  4. Mastering a word in one song automatically reflects in all other songs sharing that vocabulary item — mastery is stored against the vocabulary_items UUID, not per-song
+  5. Premium users can open a vocabulary dashboard listing all learned words with mastery level and source songs; the cross-song SRS review queue is premium-gated with free users seeing word counts but not the review queue
+**Plans**: TBD
+
+### Phase 12: Anime Scenes & Cultural Vocabulary
+**Goal**: Users can study iconic anime scenes with the same exercise and vocabulary mechanics as songs, and access standalone anime cultural vocabulary drills where anime references anchor Japanese word learning — with scene vocabulary contributing to cross-song tracking
+**Depends on**: Phase 11
+**Requirements**: SCENE-01, SCENE-02, SCENE-03, SCENE-04, SCENE-05, CULT-01, CULT-02, CULT-03, CULT-04, DATA-03
+**Success Criteria** (what must be TRUE):
+  1. User can browse anime scenes (Pain's speech, AoT pre-battle, One Piece narrator intros, etc.) alongside songs in the catalog, identified by a "Scene" content type tag
+  2. A scene page shows an embedded YouTube clip with synced text display, tokenized vocabulary, grammar breakdown, and translations — identical structure to a song lesson
+  3. All 7 exercise types work on scene content: user can earn stars from a scene the same way they earn them from a song
+  4. Vocabulary mastered in anime scenes appears in the cross-song vocabulary dashboard and contributes to the global unique-words counter
+  5. User can open a standalone "Anime Vocabulary" drill mode organized by anime series/theme (Naruto elements, Pokemon creatures, Dragon Ball references) and drill cultural vocabulary using the same multiple-choice + star mastery mechanics
+  6. When a vocabulary word in any song or scene exercise has a known anime cultural reference, a contextual hint is shown inline (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
+**Plans**: TBD
+
+---
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12
+Note: Phase 9 (Kana Trainer) can be built in parallel with Phase 8 (Exercise Engine) — both depend only on Phase 7.
 
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Content Pipeline | 6/8 | In Progress (checkpoint) |  |
-| 2. Player Experience | 0/TBD | Not started | - |
-| 3. Auth, Catalog, and Freemium Gate | 0/TBD | Not started | - |
-| 4. AI Search and Payments | 0/TBD | Not started | - |
-| 5. Exercises and Gamification | 0/TBD | Not started | - |
-| 6. Export and Polish | 0/TBD | Not started | - |
+| Phase | Milestone | Plans Complete | Status | Completed |
+|-------|-----------|----------------|--------|-----------|
+| 1. Content Pipeline | v1.0 | 6/8 | In Progress (checkpoint) | - |
+| 2. Player Experience | v1.0 | 0/TBD | Not started | - |
+| 3. Auth, Catalog, and Freemium Gate | v1.0 | 0/TBD | Not started | - |
+| 4. AI Search and Payments | v1.0 | 0/TBD | Not started | - |
+| 5. Exercises and Gamification | v1.0 | 0/TBD | Not started | - |
+| 6. Export and Polish | v1.0 | 0/TBD | Not started | - |
+| 7. Data Foundation | v2.0 | 0/TBD | Not started | - |
+| 8. Exercise Engine & Star Mastery | v2.0 | 0/TBD | Not started | - |
+| 9. Kana Trainer | v2.0 | 0/TBD | Not started | - |
+| 10. Advanced Exercises & Full Mastery | v2.0 | 0/TBD | Not started | - |
+| 11. Cross-Song Vocabulary | v2.0 | 0/TBD | Not started | - |
+| 12. Anime Scenes & Cultural Vocabulary | v2.0 | 0/TBD | Not started | - |
