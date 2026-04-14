@@ -1,171 +1,128 @@
-# Requirements: KitsuBeat
+# Requirements: KitsuBeat v2.0 — Exercise & Learning System
 
-**Defined:** 2026-04-06
-**Core Value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
+**Defined:** 2026-04-14
+**Core Value:** Users actively learn and retain Japanese through comprehensive exercises tied to anime songs and scenes, with mastery tracking across all content.
+**Depends on:** v1.0 Phases 1-4 complete (content pipeline, player, auth/catalog, payments)
 
-## v1 Requirements
+## v2.0 Requirements
 
-Requirements for initial release. Each maps to roadmap phases.
+Requirements for milestone v2.0. Each maps to roadmap phases.
 
-### Content Pipeline
+### Exercise Engine
 
-- [x] **CONT-01**: 200 anime OP/ED songs curated with metadata (title, artist, anime, JLPT level, difficulty tier)
-- [x] **CONT-02**: AI-generated Japanese lyrics for all 200 songs via Claude API
-- [x] **CONT-03**: Furigana (ruby text) pre-generated for all kanji in lyrics
-- [x] **CONT-04**: Romaji transliteration pre-generated for all lyrics with user toggle
-- [x] **CONT-05**: Multi-language translations pre-generated (English, Portuguese, Spanish minimum)
-- [x] **CONT-06**: Verse-by-verse explanations pre-generated (grammar, cultural context, nuances)
-- [x] **CONT-07**: Vocabulary extracted and categorized by grammatical type (nouns, verbs, adjectives, adverbs, particles, expressions)
-- [x] **CONT-08**: Grammar color-coding tags pre-generated per word token (nouns=blue, verbs=red, adjectives=green, adverbs=orange, particles=grey)
-- [x] **CONT-09**: Verse timing data (start/end timestamps) for verse-by-verse sync with YouTube playback
-- [x] **CONT-10**: JLPT level (N5-N1) and difficulty tier (basic, intermediate, advanced) assigned per song
-- [ ] **CONT-11**: Verse Coverage Agent that checks all 200 songs have complete content (lyrics, furigana, romaji, translation, explanation, vocabulary, grammar tags) and flags gaps
+- [ ] **EXER-01**: User can complete Vocab→Meaning exercises (show Japanese word, pick correct meaning from 4 options) for any song
+- [ ] **EXER-02**: User can complete Meaning→Vocab exercises (show meaning, pick correct Japanese word from 4 options) for any song
+- [ ] **EXER-03**: User can complete Reading Match exercises (match kanji/kana to correct romaji reading) for any song
+- [ ] **EXER-04**: User can complete Fill-the-Lyric exercises (hear verse playing, pick the blanked-out word) for any song
+- [ ] **EXER-05**: User can complete Grammar Conjugation exercises (given base form + context, pick correct conjugated form) for songs with structured conjugation data
+- [ ] **EXER-06**: User can complete Listening Drill exercises (hear verse audio without lyrics, identify the target word) for any song
+- [ ] **EXER-07**: User can complete Sentence Order exercises (rebuild a scrambled verse by tapping tokens in correct order) for any song
+- [ ] **EXER-08**: User receives immediate feedback after each answer with explanation of why the answer is correct/incorrect
+- [ ] **EXER-09**: User can resume incomplete exercise sessions across browser refreshes
+- [ ] **EXER-10**: Exercise distractors are generated from same-song vocabulary or same-JLPT-level words, never random
 
-### Player Experience
+### Star & Mastery System
 
-- [ ] **PLAY-01**: Embedded YouTube player via iframe API on song page (left on desktop, top on mobile)
-- [ ] **PLAY-02**: Verse-by-verse synced lesson panel beside the player (right on desktop, bottom on mobile)
-- [ ] **PLAY-03**: Current verse highlighted/scrolled as song plays (~250ms polling sync)
-- [ ] **PLAY-04**: Complete lyrics view below the player with furigana displayed as ruby text
-- [ ] **PLAY-05**: Romaji toggle to show/hide romanized pronunciation
-- [ ] **PLAY-06**: Language selector to switch translation language (English, Portuguese, Spanish, etc.)
-- [ ] **PLAY-07**: Grammar color-coded words in lyrics view by grammatical category
-- [ ] **PLAY-08**: Click-to-define on any word in lyrics to show dictionary popup (reading, meaning, part of speech, example usage)
-- [ ] **PLAY-09**: Vocabulary section below lyrics split by grammatical category
-- [ ] **PLAY-10**: Verse-by-verse explanation section (grammar, cultural context, nuances)
-- [ ] **PLAY-11**: Responsive layout — desktop split view, mobile stacked view
+- [ ] **STAR-01**: User sees a 3-star rating for each song reflecting their exercise mastery level
+- [ ] **STAR-02**: Star 1 is earned when vocab recognition exercises (Ex 1+2+3) are passed at >=80%
+- [ ] **STAR-03**: Star 2 is earned when Fill-the-Lyric exercise (Ex 4) is passed at >=80%
+- [ ] **STAR-04**: Star 3 is earned when Listening Drill exercise (Ex 6) is passed at >=80%
+- [ ] **STAR-05**: User sees per-song completion percentage on the song card and song page
+- [ ] **STAR-06**: Sentence Order (Ex 7) and Grammar Conjugation (Ex 5) contribute to a bonus mastery badge, not gated on stars
 
-### Exercises
+### Kana Trainer
 
-- [ ] **EXER-01**: Fill-in-the-blank exercises per song (missing words in lyrics, user fills correct Japanese)
-- [ ] **EXER-02**: JP→target language translation exercises per verse
-- [ ] **EXER-03**: Target language→JP translation exercises per verse
-- [ ] **EXER-04**: Exercise difficulty scales with song JLPT level
+- [ ] **KANA-01**: User can drill hiragana recognition (see kana, pick correct romaji from 4 options) in a standalone trainer
+- [ ] **KANA-02**: User can drill katakana recognition in the same trainer interface
+- [ ] **KANA-03**: Each kana character has a 10-star mastery level; correct answer adds 1 star, wrong answer removes 2 stars (minimum 0)
+- [ ] **KANA-04**: Characters at 0 stars appear with the answer pre-shown (learning mode) and award 1 star for acknowledgment
+- [ ] **KANA-05**: Characters at 10 stars (mastered) appear at 1/5th normal frequency but still appear
+- [ ] **KANA-06**: Kana are introduced row-by-row (a-row, ka-row, etc.) — user must reach threshold on current row before next row unlocks
+- [ ] **KANA-07**: Trainer sessions are 20-question rounds with weighted random selection based on star level
+- [ ] **KANA-08**: Dakuten, handakuten, and combo kana (ya/yu/yo variants) are included as separate unlockable rows
 
-### Discovery & Search
+### Cross-Song Vocabulary
 
-- [ ] **DISC-01**: Song catalog page to browse all 200 songs with filters (anime, artist, JLPT level, difficulty)
-- [ ] **DISC-02**: AI chatbox for natural language song search (e.g. "Naruto opening 4", "beginner Ghibli songs")
-- [ ] **DISC-03**: Search results show thumbnail, title, artist, anime, JLPT level before loading lesson
-- [ ] **DISC-04**: JLPT difficulty tags displayed on all song cards and catalog entries
+- [ ] **CROSS-01**: User sees how many vocabulary words they already know from other songs when viewing a song page ("You know 8/12 words")
+- [ ] **CROSS-02**: User sees which songs share a vocabulary word ("Seen in: Attack on Titan OP, Demon Slayer OP")
+- [ ] **CROSS-03**: User sees a global counter of unique Japanese words learned across all songs
+- [ ] **CROSS-04**: Mastering a word in one song automatically reflects in all other songs containing that word
+- [ ] **CROSS-05**: User can view a vocabulary dashboard showing all learned words, their mastery level, and source songs
 
-### User Accounts & Profile
+### Anime Scenes
 
-- [ ] **USER-01**: User can sign up and log in (email/password)
-- [ ] **USER-02**: User session persists across browser refresh
-- [ ] **USER-03**: Progress tracking per song (which songs started, verses completed, exercises done)
-- [ ] **USER-04**: Personal learning profile showing accumulated vocabulary and grammar rules learned
-- [ ] **USER-05**: Each learned term/rule linked back to the song where it was first encountered
-- [ ] **USER-06**: One full lesson accessible without login (research shows gating first experience kills retention)
+- [ ] **SCENE-01**: User can study iconic anime scenes/speeches (e.g., Pain's speech, AoT pre-battle speeches, One Piece narrator intros) with the same lesson structure as songs (tokens, vocabulary, grammar, translations)
+- [ ] **SCENE-02**: Anime scenes have embedded video clips (YouTube) with synced text display
+- [ ] **SCENE-03**: All 7 exercise types work on anime scene content identically to song content
+- [ ] **SCENE-04**: Anime scenes appear in the catalog alongside songs with a "Scene" content type tag
+- [ ] **SCENE-05**: User's vocabulary mastery from scenes contributes to cross-song tracking (shared vocabulary identity)
 
-### Gamification
+### Anime Cultural Vocabulary
 
-- [ ] **GAME-01**: XP earned from completing lessons, exercises, and song milestones
-- [ ] **GAME-02**: User levels based on accumulated XP (visible on profile)
-- [ ] **GAME-03**: Progression system tied to JLPT levels (unlock harder songs as user levels up)
+- [ ] **CULT-01**: User can access a standalone "Anime Vocabulary" drill mode featuring vocabulary taught through anime cultural references (Naruto elements to weekdays, Pokemon names to vocabulary, character names to numbers)
+- [ ] **CULT-02**: Cultural vocabulary drills use the same exercise mechanics (multiple choice, star mastery) as song exercises
+- [ ] **CULT-03**: When a vocabulary word appears in song/scene exercises that has a known anime cultural reference, a contextual hint is shown (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
+- [ ] **CULT-04**: Cultural vocabulary is organized by anime series/theme (Naruto elements, Pokemon creatures, Dragon Ball references, etc.)
 
-### Monetization
+### Freemium Architecture
 
-- [ ] **MONE-01**: Freemium gating — free tier with limited song access, paid tier for full library
-- [ ] **MONE-02**: Subscription plan for full library access (monthly/annual)
-- [ ] **MONE-03**: Individual song purchase option (a la carte, permanent unlock)
-- [ ] **MONE-04**: Payment integration (Lemon Squeezy or Stripe)
+- [ ] **FREE-01**: Exercise system is built with a premium gate abstraction so individual features can be toggled free/premium without code changes
+- [ ] **FREE-02**: Per-song exercises (all 7 types) are free for all users
+- [ ] **FREE-03**: Kana trainer is free for all users
+- [ ] **FREE-04**: Cross-song SRS review queue is premium-only (view-only counts are free)
+- [ ] **FREE-05**: Listening drills are free for first 3 songs, then premium-gated
+- [ ] **FREE-06**: Free/premium boundaries are enforced at the data access layer, not hidden UI elements
 
-### Export
+### Data Quality
 
-- [ ] **EXPO-01**: Export song vocabulary to Anki-compatible CSV file
-- [ ] **EXPO-02**: Export includes word, reading, meaning, part of speech, and source song
+- [ ] **DATA-01**: Grammar conjugation paths are audited and converted to structured format (parseable into question/answer pairs) for all songs with grammar data
+- [ ] **DATA-02**: A normalized vocabulary identity table exists with UUIDs, enabling cross-song word matching by (surface, reading) composite key
+- [ ] **DATA-03**: Anime scene content is generated through the same Claude API pipeline as songs, with equivalent quality validation
 
-## v2 Requirements
+## v3.0 Requirements (Deferred)
 
-Deferred to future release. Tracked but not in current roadmap.
+### Payments & Billing
 
-### Social & Community
+- **PAY-01**: User can subscribe via Stripe for premium access
+- **PAY-02**: Webhook handling updates plan state immediately after payment
+- **PAY-03**: Premium unlock is instant without re-login
 
-- **SOCL-01**: Per-verse user comments and notes
-- **SOCL-02**: Song ratings and reviews
-- **SOCL-03**: Community-contributed translations
+### Social & Gamification
 
-### Advanced Learning
+- **SOC-01**: User can see personal streaks and daily goals
+- **SOC-02**: User can view async leaderboards per song
 
-- **ADVL-01**: Built-in SRS (spaced repetition) flashcard system
-- **ADVL-02**: Line-by-line karaoke sync (word-level highlighting)
-- **ADVL-03**: Listening comprehension quizzes (audio-only mode)
-- **ADVL-04**: Streaks and daily learning goals
+### Advanced Content
 
-### Platform
-
-- **PLAT-01**: Progressive Web App (PWA) with offline support
-- **PLAT-02**: Native mobile apps (iOS/Android)
-- **PLAT-03**: Custom YouTube link support (user-pasted songs with on-the-fly lesson generation)
+- **ADV-01**: User-submitted song requests via voting system
+- **ADV-02**: PWA with offline exercise caching
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| User-uploaded songs / custom lyrics | DMCA liability, content quality degradation — curated only |
-| Real-time multiplayer / competitive mode | WebSocket infrastructure overkill for 200-song catalog at launch |
-| Full social network (follows, feed, messages) | Infinite product surface, moderation overhead |
-| Native mobile app | Web-first with responsive design; native is v2+ |
-| Audio extraction from YouTube | Violates YouTube ToS — using embedded player only |
-| Full SRS system at launch | 6-8 week project on its own; Anki export covers v1 |
-| Verbatim lyric reproduction | Copyright risk — design around grammatical breakdowns and educational paraphrasing |
+| Handwriting/stroke order practice | Separate product; low ROI for music/scene-based learners |
+| Hearts/lives system | Duolingo's most-complained feature; punishes committed learners |
+| IME typing input (kana keyboard) | Mobile friction; multiple choice is primary input |
+| Social leaderboards | Requires moderation infrastructure; personal bests sufficient for v2.0 |
+| Full Anki-style card editing | Anki already does this better; opinionated auto-SRS preferred |
+| Native mobile app | Web-first; responsive design covers mobile |
+| Real-time multiplayer | WebSocket infrastructure for small audience; defer to proven traction |
+| Stripe payments implementation | Deferred to v3.0; v2.0 builds freemium architecture/gates only |
 
 ## Traceability
 
+Updated during roadmap creation.
+
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| CONT-01 | Phase 1 | Complete |
-| CONT-02 | Phase 1 | Complete |
-| CONT-03 | Phase 1 | Complete |
-| CONT-04 | Phase 1 | Complete |
-| CONT-05 | Phase 1 | Pending |
-| CONT-06 | Phase 1 | Pending |
-| CONT-07 | Phase 1 | Pending |
-| CONT-08 | Phase 1 | Pending |
-| CONT-09 | Phase 1 | Complete |
-| CONT-10 | Phase 1 | Complete |
-| CONT-11 | Phase 1 | Pending |
-| PLAY-01 | Phase 2 | Pending |
-| PLAY-02 | Phase 2 | Pending |
-| PLAY-03 | Phase 2 | Pending |
-| PLAY-04 | Phase 2 | Pending |
-| PLAY-05 | Phase 2 | Pending |
-| PLAY-06 | Phase 2 | Pending |
-| PLAY-07 | Phase 2 | Pending |
-| PLAY-08 | Phase 2 | Pending |
-| PLAY-09 | Phase 2 | Pending |
-| PLAY-10 | Phase 2 | Pending |
-| PLAY-11 | Phase 2 | Pending |
-| DISC-01 | Phase 3 | Pending |
-| DISC-04 | Phase 3 | Pending |
-| USER-01 | Phase 3 | Pending |
-| USER-02 | Phase 3 | Pending |
-| USER-03 | Phase 3 | Pending |
-| USER-04 | Phase 3 | Pending |
-| USER-05 | Phase 3 | Pending |
-| USER-06 | Phase 3 | Pending |
-| DISC-02 | Phase 4 | Pending |
-| DISC-03 | Phase 4 | Pending |
-| MONE-01 | Phase 4 | Pending |
-| MONE-02 | Phase 4 | Pending |
-| MONE-03 | Phase 4 | Pending |
-| MONE-04 | Phase 4 | Pending |
-| EXER-01 | Phase 5 | Pending |
-| EXER-02 | Phase 5 | Pending |
-| EXER-03 | Phase 5 | Pending |
-| EXER-04 | Phase 5 | Pending |
-| GAME-01 | Phase 5 | Pending |
-| GAME-02 | Phase 5 | Pending |
-| GAME-03 | Phase 5 | Pending |
-| EXPO-01 | Phase 6 | Pending |
-| EXPO-02 | Phase 6 | Pending |
+| — | — | — |
 
 **Coverage:**
-- v1 requirements: 44 total
-- Mapped to phases: 44
-- Unmapped: 0 ✓
+- v2.0 requirements: 38 total
+- Mapped to phases: 0
+- Unmapped: 38
 
 ---
-*Requirements defined: 2026-04-06*
-*Last updated: 2026-04-06 after roadmap creation*
+*Requirements defined: 2026-04-14*
+*Last updated: 2026-04-14 after initial definition*
