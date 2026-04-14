@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 
 ## Current Position
 
-Phase: 1 of 6 (Content Pipeline)
-Plan: 7 of 8 in current phase
-Status: In progress (checkpoint — awaiting human action for env setup + pipeline execution)
-Last activity: 2026-04-06 — Completed plan 01-07 Task 1: Pipeline orchestrator; blocked at checkpoint for env setup
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements for v2.0 milestone
+Last activity: 2026-04-14 — Milestone v2.0 started (Exercise & Learning System)
 
-Progress: [█████░░░░░] 14%
+Note: v1.0 phases 1-6 remain in ROADMAP.md. v2.0 phases will continue numbering from Phase 7.
 
 ## Performance Metrics
 

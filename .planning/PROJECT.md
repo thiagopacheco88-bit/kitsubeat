@@ -31,13 +31,23 @@ Users can watch an anime song and understand exactly what every word means — w
 - [ ] Verse Coverage Agent — automated QA checking all verses have lyrics, furigana, translation, and explanation
 - [ ] Freemium model — free tier with limited songs, paid tier for full library access
 
+## Current Milestone: v2.0 Exercise & Learning System
+
+**Goal:** Transform KitsuBeat from a passive listening tool into an active learning platform with comprehensive Babbel-style exercises, cross-song vocabulary mastery tracking, and a standalone Hiragana/Katakana trainer.
+
+**Target features:**
+- Per-song exercises (vocab recall, reading match, fill-the-lyric, grammar conjugation, listening drills, sentence order) with star-based mastery
+- Cross-song vocabulary tracking — users see mastery % per song and shared vocabulary across songs
+- Standalone Hiragana/Katakana trainer with SRS-lite algorithm (10-star system, weighted random selection)
+- User progress dashboard with per-song completion percentages
+- Freemium gating for exercise features (Stripe payments)
+
 ### Out of Scope
 
-- Custom YouTube link pasting (user-submitted songs) — defer to v2, focus on curated quality first
+- Custom YouTube link pasting (user-submitted songs) — defer to v3, focus on curated quality first
 - Native mobile apps — web-first, responsive design covers mobile for now
-- Line-by-line karaoke sync — verse-by-verse is sufficient for v1, karaoke precision deferred
-- Social features (sharing, leaderboards) — defer to v2 for virality layer
-- Spaced repetition / flashcards — defer to v2, focus on the core music+lesson experience
+- Line-by-line karaoke sync — verse-by-verse is sufficient, karaoke precision deferred
+- Social features (sharing, leaderboards) — defer to v3 for virality layer
 - Audio extraction from YouTube — violates ToS, using embedded player instead
 
 ## Context
@@ -69,4 +79,4 @@ Users can watch an anime song and understand exactly what every word means — w
 | AI-generated lyrics (not database-sourced) | Cheaper, more flexible, covers niche songs databases may miss | — Pending |
 
 ---
-*Last updated: 2026-04-06 after initialization*
+*Last updated: 2026-04-14 after v2.0 milestone initialization*
