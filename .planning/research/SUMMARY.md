@@ -1,235 +1,204 @@
 # Project Research Summary
 
-**Project:** KitsuBeat
-**Domain:** Anime music-based Japanese language learning web app
-**Researched:** 2026-04-06
-**Confidence:** MEDIUM-HIGH
+**Project:** KitsuBeat v2.0 Exercise and Learning System
+**Domain:** Music-based language learning with SRS, exercise engine, auth, and freemium payments
+**Researched:** 2026-04-13
+**Confidence:** HIGH (stack, architecture, pitfalls) / MEDIUM (features)
 
 ## Executive Summary
 
-KitsuBeat is a niche but well-defined product: a freemium web app that teaches Japanese through curated anime songs using synchronized lyrics, furigana, grammar annotation, and AI-generated lesson content. The market gap is real — no competitor combines Japanese-specific features (furigana, grammar color-coding, kanji/kana/romaji toggles) with anime-focused curated content and an AI search interface. The recommended approach is to pre-generate all lesson content offline using Claude API at authoring time, store it as structured JSONB in Neon Postgres, and serve it as static data at runtime — eliminating AI latency from the user path entirely. The full-stack is Next.js 15 App Router with Clerk for auth, Lemon Squeezy for payments, and Vercel for deployment.
+KitsuBeat v2.0 adds a structured exercise system, kana trainer, cross-song vocabulary tracking, spaced repetition, user auth, and a freemium payment layer on top of the existing Next.js 15 / Neon Postgres / Drizzle baseline. This is a well-understood domain: FSRS v6 via ts-fsrs, Clerk Core 3, Stripe Embedded Checkout, and Zustand + Server Actions all have established, battle-tested implementations that map directly onto the existing stack. The baseline infrastructure does not need to change.
 
-The most defensible competitive position comes from content quality, not features. LyricsTraining, Musixmatch, Lirica, and Lingopie all exist but none offer the combination of furigana, inline grammar color-coding, structured vocabulary tables, and anime-specific curation that KitsuBeat targets. The core product loop — watch anime song, see synced grammar-annotated lesson, learn vocabulary in context — is validated by Migaku and Language Reactor's traction in the broader "learn from media" niche, but no one has built this specifically for anime music on the web.
+The recommended approach is to build auth and the database schema additions first, followed by the per-song exercise session, then the kana trainer and cross-song vocabulary dashboard, and finally Stripe subscription gating. Exercise content should be generated client-side from the already-fetched lesson JSONB. SRS state is server-authoritative but schedule computation runs client-side via ts-fsrs, keeping review sessions latency-free with one DB write per session end.
 
-The two non-negotiable risks to address before writing a line of application code are: (1) the lyric copyright question — displaying verbatim song lyrics synced to media is a controlled exploitation of music composition rights under both US and Japanese law, and the product must be designed around AI-generated grammatical breakdowns rather than verbatim reproduction; and (2) the YouTube API policy constraint — lesson annotation panels must be placed beside or below the YouTube iframe, never overlaid on top of it. Both require foundational design decisions that are expensive to retrofit.
+The two critical risks are: (1) vocabulary identity -- if progress is tracked by surface string instead of a stable UUID, a single content correction orphans all user progress; and (2) auth depth -- Next.js middleware alone is insufficient for security (CVE-2025-29927, CVSS 9.1), and every server action must independently validate session and plan tier via a Data Access Layer helper.
 
 ## Key Findings
 
 ### Recommended Stack
 
-The stack is modern and well-validated for this use case. Next.js 15 with App Router is the correct foundation — Server Components handle data fetching, Server Actions eliminate API boilerplate, and Vercel deployment is zero-config. Neon Postgres is preferred over Supabase because its serverless connection pooling (PgBouncer built in) avoids the connection exhaustion issues Supabase exhibits under high Vercel serverless concurrency. Drizzle ORM is preferred over Prisma for its smaller bundle and SQL-transparent query model, which matters for Vercel Edge deployment. Clerk Core 3 (March 2026) is the correct auth choice for its native Next.js 15 App Router integration and built-in freemium gating primitives. Lemon Squeezy (Stripe Managed Payments) handles billing as Merchant of Record, removing VAT/GST complexity for an international anime audience.
+The existing stack (Next.js 15, React 19, Neon Postgres, Drizzle ORM, Tailwind 4, Zustand, TanStack Query, shadcn/ui) requires only targeted additions for v2.0. No major migrations or replacements are warranted.
 
-For the AI pipeline, the Vercel AI SDK (`generateObject`) is used for any on-demand generation, but the primary approach is `@anthropic-ai/sdk` directly in offline seeding scripts that pre-populate all 200 songs before launch. The YouTube integration uses react-player (maintained by Mux), not react-youtube (unmaintained). Lyrics sync is implemented via 250ms polling of `getCurrentTime()` — the YouTube iframe API emits no time events; polling is the only approach.
+**Core technologies (net-new):**
+- @clerk/nextjs ^6.x: User auth and session management -- deepest Next.js 15 App Router integration; Clerk Core 3 (Mar 2026) resolves RSC compatibility issues; clerk_user_id becomes the FK on all user-scoped tables
+- stripe + stripe-js: Freemium subscriptions via Embedded Checkout -- Stripe direct is correct at pre-revenue stage; MoR alternatives (Lemon Squeezy, Polar) are meaningfully more expensive
+- ts-fsrs ^5.x: FSRS v6 spaced repetition scheduler -- purpose-built TypeScript, zero dependencies, actively maintained; Node.js >=20 required
+- motion ^12.x: Exercise answer animations and transitions -- formerly framer-motion, React 19 fully supported
+- sonner ^2.x: Toast notifications -- shadcn/ui official toast, 31.2M weekly downloads
 
-**Core technologies:**
-- **Next.js 15 + React 19**: Full-stack framework with App Router — Server Components, Server Actions, zero-config Vercel deploy
-- **Neon Postgres + Drizzle ORM**: Serverless Postgres with built-in connection pooling; Drizzle preferred for edge bundle size and TypeScript-first schema
-- **Clerk Core 3**: Auth with native Next.js 15 RSC support; `has()` helper and `<Protect>` for freemium gating without custom middleware
-- **Lemon Squeezy (Stripe Managed Payments)**: Merchant of Record billing; handles VAT/GST globally — critical for Japan/EU/Brazil audience
-- **Vercel AI SDK + @anthropic-ai/sdk**: Structured offline content generation; `generateObject()` for schema-constrained lesson output
-- **react-player**: YouTube embed with `onProgress` callback at 250ms — maintained by Mux; replaces unmaintained react-youtube
-- **Zustand + TanStack Query**: Client state (player position, active lyric index) + server state (song library, progress) — coexist cleanly
-- **kuroshiro + @sglkc/kuromoji**: Server-side furigana generation during content seeding only; zero NLP shipped to browser
-- **Upstash Rate Limiting**: HTTP-based rate limiter for AI chatbox and content generation endpoints; works on Vercel Edge
+**New Drizzle tables required:** users_meta, subscriptions, user_vocab_mastery, user_exercise_log, processed_stripe_events
+
+**Do not add:** XState, Lemon Squeezy at launch, IndexedDB/Dexie, custom SRS algorithm, NextAuth/Auth.js.
 
 ### Expected Features
 
-No direct competitor offers the full combination of furigana, inline grammar color-coding, and anime-specific curation. The competitive white space is clear, but table stakes must be met first or the product feels unfinished before users encounter the differentiators.
+The exercise system research (verified against WaniKani, Bunpro, Duolingo, LyricsTraining) defines a clear two-tier feature set.
 
 **Must have (table stakes):**
-- YouTube embed with synced karaoke-style lyrics — without this, the product is a lyrics site, not a learning tool
-- Furigana (ruby text) over kanji — beginners cannot engage without pronunciation help; no competitor offers this
-- Romaji toggle — training wheels for absolute beginners; LyricsTraining's Japanese support is Romaji-only for a reason
-- Line-by-line English translation synced to playback — core learning value; Musixmatch built a business on this alone
-- Song catalog browse with JLPT difficulty and genre filters — 200 songs require structured discovery
-- User accounts and progress tracking — required for freemium model and return visits
-- Freemium gating — users expect to try before buying; free tier must deliver genuine value, not a paywall at the door
-- Mobile-responsive design — anime fan demographic skews heavily mobile; 375px viewport must work during playback
+- Vocab recognition (surface to meaning, meaning to surface) -- every SRS app baseline
+- Reading match (kana to romaji) -- Japanese-specific, distinct skill from meaning recall
+- Fill-the-lyric cloze -- LyricsTraining built an entire product on this; omitting it fails the music-learning premise
+- Immediate feedback with explanation -- Duolingo standard user expectation
+- Per-song exercise completion percentage and cross-session progress persistence
+- Kana trainer with row-by-row unlock (hiragana first, 46+46+variants total)
+- User accounts with freemium plan gating
 
-**Should have (competitive):**
-- Grammar color-coding by grammatical category — no competitor does inline grammar annotation within synced lyrics; this is the primary differentiator
-- Vocabulary breakdown table per song categorized by part of speech — separates KitsuBeat from LyricsTraining immediately
-- AI chatbox song search — conversational song discovery ("beginner song about seasons from Ghibli") is unique in this space
-- JLPT difficulty tagging — gives users a progression ladder, drives return visits
+**Should have (differentiators):**
+- Grammar conjugation drill tied to actual song context -- no competitor does this
+- Sentence order / token scramble -- 56% syntactic improvement in peer-reviewed research
+- Listening drill (audio-only cloze) -- unique in music learning space; star 3 mastery
+- Cross-song vocabulary tracking: same word in two songs shares SRS state
+- 3-star mastery system per song (Star 1 = recognition, Star 2 = fill-the-lyric, Star 3 = listening drill)
+- JLPT-aware exercise ordering within songs
+- Context-anchored prompts referencing which song introduced a word
 
 **Defer (v2+):**
-- Built-in SRS review queue (FSRS algorithm) — significant engineering; validate demand with Anki CSV export first
-- Progressive Web App with offline mode — validate mobile web usage data before investing
-- Native iOS/Android app — after web traction is proven and revenue supports dual-platform investment
-- Social graph, follows, shared decks — after async community features (v1.x) prove social demand exists
+- Hearts/lives system -- use score degradation instead
+- Social leaderboards for initial milestone -- personal bests and streaks only
+- IME typing input -- multiple choice first
+- Handwriting/stroke order -- separate product scope
 
 ### Architecture Approach
 
-The architecture separates concerns cleanly into three layers: an offline content generation pipeline (Claude API → structured JSON → Neon Postgres), a Next.js App Router server layer (Server Components for data fetching, Route Handlers for AI search), and a client layer with three tightly coupled components — YouTubePlayer, LyricSyncEngine, and LyricDisplay — that share state via a single `useYouTubeSync` hook. Freemium gating is enforced at the database layer via Row-Level Security, not in application code — free users receive a structurally empty lesson response for premium songs, not hidden UI elements. The AI search chatbox calls a Route Handler that embeds the query and runs pgvector similarity search — one embedding API call per unique query, cached with Upstash Redis to prevent quota drain.
+The architecture follows a clear RSC + Client SPA hybrid: Server Components fetch data once per session start, pass it to a client-side ExerciseSession component that drives the full exercise loop in memory, and a single Server Action upserts SRS state to the DB when the session ends. No pre-computation pipeline; no interactive DB transactions; no per-answer writes.
 
 **Major components:**
-1. **Offline Content Pipeline** — CLI script reads song manifest, calls Claude API for structured lesson JSON (verses, furigana tokens, grammar tags, translations, vocabulary), generates embeddings, upserts to Postgres; runs at authoring time, never at request time
-2. **Song Player (Client)** — YouTubePlayer wraps react-player; LyricSyncEngine polls `getCurrentTime()` at 250ms and computes active verse index; LyricDisplay renders active verse with `<ruby>` furigana markup and grammar color classes
-3. **AI Search Route Handler** — embeds user query via OpenAI text-embedding-3-small, runs pgvector cosine similarity against song embeddings, returns ranked song cards; rate-limited per user via Upstash
-4. **Freemium Gate (DB Layer)** — Postgres RLS policy: premium song `lesson` JSONB column returns null for free-tier users; Clerk middleware enforces session before rendering song routes
-5. **Webhook Handler** — Lemon Squeezy webhook fires on successful payment → updates Clerk user metadata `plan: 'pro'` → no polling or client-side trust required
+1. lib/exercises/generator.ts -- Pure function: Lesson JSONB + user SRS state to Exercise[]; no DB dependency; generates questions in under 5ms client-side
+2. lib/exercises/srs.ts -- Thin wrapper around ts-fsrs; schedule computation runs client-side; result POSTed to /api/progress as a single-row upsert
+3. middleware.ts -- Clerk auth check + plan-tier gating on route level; reads JWT only; UX convenience only, not the security gate
+4. vocab_global materialized view -- PostgreSQL view aggregating vocabulary across all song_versions.lesson JSONB; enables cross-song dashboard
+5. app/api/webhooks/stripe/route.ts -- Stripe subscription sync; idempotent via processed_stripe_events table
+
+**Key patterns:**
+- FSRS columns as individual scalar columns (not JSONB) -- required for indexed due queries
+- Server Actions carry the security gate via requireAuth() + requirePlan() helpers; middleware is redirect-only
+- vocab_key as UUID FK to vocabulary_items table -- not surface string composite
 
 ### Critical Pitfalls
 
-1. **Verbatim lyric reproduction without a license** — JASRAC (Japan) and NMPA (US) actively enforce synced lyric display rights; LyricFind sued Musixmatch for $1B in 2025. Design the content model as AI-generated grammatical breakdowns, not lyric reproduction. Legal review required before launch in Japan and US.
+1. **Vocabulary identity crisis** -- Track progress by UUID FK to vocabulary_items table, never by surface string. Any content correction orphans all progress rows if the key is text-based. Recovery cost after data exists is HIGH.
 
-2. **Overlaying lesson content on the YouTube iframe** — YouTube Developer Policies explicitly prohibit HTML overlays on the player. The furigana/grammar panel must be placed beside or below the video, never on top. This must be locked in as a layout constraint before the sync engine is built.
+2. **Middleware-only auth (CVE-2025-29927, CVSS 9.1)** -- middleware.ts can be bypassed via crafted headers. Every server action must call requireAuth(). Feature gates must query users.plan from DB at request time.
 
-3. **AI-generated Japanese grammar errors at scale** — LLMs hallucinate particle assignments (は vs. が), furigana readings, and grammar rules for Japanese. Every lesson in the 200-song catalog requires a human review pass before going live. Build a review queue into the content pipeline. Add a user-facing "flag this explanation" button from day one.
+3. **Stripe webhook race condition** -- Checkout redirect arrives 1-5 seconds before webhook. Success page must show processing state and poll /api/me/plan. Webhooks must be idempotent via processed_stripe_events table.
 
-4. **YouTube Data API quota exhaustion** — Default quota is 10,000 units/day; a search costs 100 units. Pre-populate all catalog metadata at build time and cache AI chatbox queries in Redis. Never hit the YouTube Data API at user request time for catalog songs.
+4. **SRS review queue explosion** -- Auto-adding all encountered vocabulary causes 80-200+ overdue reviews within a week. Must enforce daily new-item cap (default 10-15) and implement two-phase learning.
 
-5. **Lyric sync timing tied to a specific video ID** — If a YouTube video is removed or region-blocked, all timing data for that song is orphaned. Store timing data scoped to a specific video ID, maintain a backup video ID field per song, and run a periodic health check job against all 200 catalog videos.
+5. **JSONB write amplification** -- Postgres cannot HOT-update indexed JSONB columns. Buffer exercise session state in React state; write to DB once per session end, not per answer.
 
 ## Implications for Roadmap
 
-Architecture research explicitly defines a build order based on component dependencies. The recommended phase structure follows that order, with legal and content architecture decisions front-loaded because they are expensive to retrofit.
+Based on the dependency graph and pitfall prevention requirements, the following phase structure is recommended:
 
-### Phase 1: Foundation — Legal, Schema, and Content Pipeline
+### Phase 1: Auth Foundation
+**Rationale:** clerk_user_id is the FK on every user table; middleware CVE demands DAL from day one; public-to-auth cache boundaries must be audited before adding user-specific content to existing song pages.
+**Delivers:** Sign in/out with Clerk, requireAuth() / requirePlan() DAL helpers, middleware for route redirects, plan-tier JWT encoding, public/authenticated render boundaries
+**Addresses:** Auth table stakes (FEATURES.md), CVE-2025-29927 DAL pattern (PITFALLS.md P2), cache boundary audit (PITFALLS.md P3), cookie write correctness (PITFALLS.md P10)
+**Research flag:** Standard -- Clerk + Next.js 15 is thoroughly documented; skip /gsd:research-phase
 
-**Rationale:** Two critical constraints (lyric copyright, YouTube overlay policy) require foundational design decisions that affect every subsequent phase. The database schema and content pipeline must exist before any UI can be built — the player needs real lesson data to develop against. This phase has no user-facing output but makes everything else possible.
+### Phase 2: Database Schema + Vocab Identity
+**Rationale:** All progress tables must exist and vocab identity must be resolved before any exercise or payment code writes data. Retrofitting vocabulary_items UUID table after progress data exists requires a HIGH-cost ambiguous migration.
+**Delivers:** Drizzle schema additions (vocabulary_items, user_vocab_mastery, subscriptions, processed_stripe_events), vocab_global materialized view, all scalar FSRS columns, user_exercise_log
+**Addresses:** Vocabulary identity crisis (PITFALLS.md P1), JSONB mutable state prevention (PITFALLS.md P9)
+**Research flag:** Standard for Drizzle + Neon; may need brief data audit if existing JSONB vocabulary quality is inconsistent
 
-**Delivers:** Validated content model (legally sound, no verbatim lyrics), finalized database schema, working offline content pipeline producing structured lesson JSON, 10-20 seeded songs for development use.
+### Phase 3: Exercise Engine (Per-Song)
+**Rationale:** Core learning loop. Depends on auth (Phase 1) and schema (Phase 2). Pure-function generator and ts-fsrs wrapper can be unit-tested independently before UI exists.
+**Delivers:** lib/exercises/generator.ts, lib/exercises/srs.ts, /songs/[slug]/exercises route, ExerciseSession client component, /api/progress upsert, Exercises 1-4, star 1 and star 2 mastery
+**Uses:** ts-fsrs, Zustand useExerciseStore, motion for feedback animations, sonner for toasts
+**Avoids:** Per-answer DB writes, same-song-only distractor pool (pull from vocabulary_items)
+**Research flag:** Standard -- skip /gsd:research-phase
 
-**Addresses:** Table stakes feature dependencies — synced lyrics requires LRC/timestamp data; grammar color-coding requires POS-tagged tokens; vocabulary breakdown requires categorized vocabulary. All these come from the pipeline.
+### Phase 4: Kana Trainer
+**Rationale:** Self-contained module with no server state for anonymous users. Can be built in parallel with Phase 3 if resources allow.
+**Delivers:** /kana route, hiragana/katakana recognition drills, row-by-row unlock, SRS scheduling via ts-fsrs, anonymous localStorage fallback, migration endpoint on account creation
+**Addresses:** Kana trainer features (FEATURES.md), row-by-row unlock pattern (PITFALLS.md P4)
+**Research flag:** Standard -- skip /gsd:research-phase
 
-**Avoids:** Lyric copyright pitfall (design decision made here), AI grammar hallucination at scale (human review queue built into pipeline), video ID rot (timing data scoped to video ID from day one).
+### Phase 5: Cross-Song Vocabulary Dashboard
+**Rationale:** Depends on vocab_global view (Phase 2) and exercise session pattern (Phase 3). The core differentiator that separates KitsuBeat from all music-learning competitors; must be premium-gated.
+**Delivers:** /vocabulary dashboard (premium), /vocabulary/review global SRS session, seen-in-N-songs display, due-for-review queue
+**Addresses:** Cross-song tracking differentiator (FEATURES.md), distractor quality (PITFALLS.md P7)
+**Avoids:** Full JSONB scan for cross-song queries (use materialized view), feature gate data leak
+**Research flag:** Standard -- skip /gsd:research-phase
 
-**Research flag:** NEEDS RESEARCH — lyric copyright strategy requires legal domain research specific to target markets (US + Japan). The content model (grammatical breakdowns vs. verbatim lyrics) should be reviewed by a lawyer before Phase 1 ends.
+### Phase 6: Stripe Payments
+**Rationale:** Build last -- all premium gates are structurally in place after Phase 5; Stripe activates them.
+**Delivers:** /upgrade page, Stripe Embedded Checkout, /api/webhooks/stripe idempotent handler, processing-payment polling pattern, Customer Portal link, post-cancellation gating
+**Addresses:** Freemium model (FEATURES.md), gating leak prevention (PITFALLS.md P6), webhook race condition (PITFALLS.md P5)
+**Research flag:** Recommend /gsd:research-phase -- webhook race condition handling should be validated against current Stripe docs before implementation
 
----
-
-### Phase 2: Core Player Experience
-
-**Rationale:** The synced player is the product's core value proposition. All differentiating features (grammar color-coding, furigana, vocabulary breakdown) live inside the player. This phase must ship before auth or payments — it validates the core learning loop. Architecture identifies YouTube integration as the "highest-risk component (browser API, cross-origin iframe)" and recommends isolating it early.
-
-**Delivers:** Functional song player with synced karaoke display, furigana toggle, romaji toggle, grammar color-coding, line-by-line translation, vocabulary breakdown table. Static rendering (no auth, no paywall) — just the core lesson experience working end-to-end.
-
-**Uses:** react-player with 250ms `onProgress` polling; `useYouTubeSync` hook; LyricDisplay with `<ruby>` markup; GrammarTag color components; pre-generated lesson JSON from Phase 1.
-
-**Implements:** YouTubePlayer + LyricSyncEngine + LyricDisplay component group; FuriganaText and VocabCard presentational components.
-
-**Avoids:** YouTube overlay policy violation (lesson panel beside/below player, not over it — verified in visual QA before moving on).
-
-**Research flag:** STANDARD PATTERNS — YouTube iframe polling, React component architecture, and Tailwind responsive layout are well-documented. No phase research needed.
-
----
-
-### Phase 3: Auth, Catalog, and Freemium Gate
-
-**Rationale:** Auth must exist before payments and before user progress can be saved. The song catalog and freemium gating give the player phase commercial viability. FEATURES.md notes: "the free tier must deliver genuine value — don't gate the homepage." PITFALLS.md confirms that requiring account creation before showing content causes 20%+ next-day retention drop.
-
-**Delivers:** User accounts (Clerk), song library browse with JLPT + genre filters, freemium gate (first N songs free, premium for full catalog), user progress tracking (completed songs, current lesson position), mobile-responsive layout.
-
-**Uses:** Clerk Core 3 with `has()` gating; Neon Postgres with Drizzle; Postgres RLS for lesson access control; Zustand + TanStack Query for client/server state split; next-themes for dark mode default.
-
-**Implements:** Auth middleware, freemium gate at database layer (RLS), user_profiles table, song library Server Component with filter UI.
-
-**Avoids:** Account-before-value UX pitfall (one full lesson accessible without sign-in); freemium conversion failure (free tier defined as N full lessons before building, not after).
-
-**Research flag:** STANDARD PATTERNS — Clerk Next.js 15 integration has official documentation and Core 3 resolves RSC issues. Drizzle + Neon patterns are well-documented. No phase research needed.
-
----
-
-### Phase 4: AI Search and Payments
-
-**Rationale:** AI chatbox search requires auth (for rate limiting per user) and the embeddings generated in Phase 1. Payments require auth. Both are enablers of the freemium revenue model but not required for the core learning experience validation. Shipping after auth ensures rate limiting is built on real user sessions.
-
-**Delivers:** AI chatbox song search (natural language → ranked song cards), Lemon Squeezy subscription checkout, webhook handler to flip user plan on successful payment, contextual upgrade prompts at value moments.
-
-**Uses:** Vercel AI SDK or `@anthropic-ai/sdk` for chatbox; OpenAI text-embedding-3-small for query embedding; pgvector similarity search in Neon; Upstash rate limiting on chatbox endpoint; Lemon Squeezy webhook handler updating Clerk user metadata.
-
-**Implements:** `/api/search/semantic` Route Handler; AIChatbox Client Component; `/api/webhooks/lemonsqueezy` Route Handler; upgrade CTA components.
-
-**Avoids:** YouTube Data API quota exhaustion (all catalog metadata pre-populated in Phase 1; chatbox only searches internal embeddings, not YouTube API); Claude API key exposure (all AI calls server-side only); freemium hard paywall before value (5 free chatbox queries before upgrade prompt).
-
-**Research flag:** NEEDS RESEARCH — pgvector semantic search configuration (IVFFlat index tuning, match threshold calibration) and Lemon Squeezy webhook integration may benefit from targeted research during planning.
-
----
-
-### Phase 5: Content Expansion and Engagement Loop
-
-**Rationale:** Once the core loop is validated (target: 30%+ week-2 retention), add the engagement mechanics that drive return visits and word-of-mouth. These are explicitly called out as v1.x in FEATURES.md — defer until the core is proven.
-
-**Delivers:** Vocabulary save + Anki CSV export, streak and daily goal gamification, verse-by-verse lesson mode (for users overwhelmed by full songs), async leaderboards (high score per song), user-facing error reporting on lesson content.
-
-**Uses:** FSRS-lite scheduling logic (simplified, not full SRS system); Zustand for streak/goal client state; TanStack Query for leaderboard data.
-
-**Avoids:** Full SRS at launch anti-feature (export to Anki CSV is the right v1.x scope); gamification without learning scaffold (active recall before streaks reward anything).
-
-**Research flag:** STANDARD PATTERNS for Anki CSV export and leaderboard async patterns. NEEDS RESEARCH if building even a simplified in-app SRS review queue — FSRS algorithm implementation has nuances.
-
----
+### Phase 7: Advanced Exercises + Mastery Depth
+**Rationale:** Grammar conjugation drill requires grammar_points[].conjugation_path to be machine-parseable -- a content data quality dependency that may require re-generation of existing grammar JSONB. Listening drill requires YouTube IFrame segment isolation with hidden lyrics.
+**Delivers:** Grammar conjugation drill (Ex 5), listening drill / star 3 mastery (Ex 6), sentence order / token scramble (Ex 7), JLPT-aware exercise ordering, stuck-word needs-review escalation
+**Addresses:** Differentiator exercises and star 3 mastery (FEATURES.md), star purgatory trap (PITFALLS.md P8)
+**Research flag:** Recommend /gsd:research-phase -- grammar data quality audit needed before writing the generator
 
 ### Phase Ordering Rationale
 
-- **Legal and schema before player:** Lyric copyright and YouTube overlay constraints are foundational design decisions. Building the player before these are resolved risks a full rework of the content model and UI layout.
-- **Player before auth:** The core learning loop must be validated before adding the conversion funnel. Auth adds friction; validate the product is worth the friction first.
-- **Auth before payments:** Clerk must be operational before Lemon Squeezy webhooks can update user plan metadata.
-- **AI search after auth:** Rate limiting per user requires user sessions. Without auth, the chatbox is vulnerable to quota exhaustion.
-- **Engagement after core validation:** SRS, streaks, and leaderboards solve retention problems that only matter once users are arriving. Build them when retention data justifies the investment.
+- Auth precedes all: clerk_user_id is the FK on all user tables; the DAL pattern must be established before any user-scoped code is written
+- Schema before exercises: retrofitting vocabulary UUID table after progress data is the single highest-cost pitfall identified
+- Per-song exercises before cross-song: the cross-song dashboard reuses the same ExerciseSession component
+- Kana trainer can be parallelized with Phase 3: same SRS library and exercise component patterns, no cross-dependencies
+- Stripe last: premium gates are structurally present before Stripe is wired; avoids payment complexity blocking feature validation
+- Advanced exercises last: grammar conjugation depends on content data quality that requires an audit step
 
 ### Research Flags
 
-Phases likely needing deeper research during planning:
-- **Phase 1:** Lyric copyright strategy for US + Japan markets — specific legal requirements, JASRAC licensing mechanics, "AI-generated breakdown vs. verbatim" legal standard. Recommend consulting legal counsel before content model is finalized.
-- **Phase 4:** pgvector IVFFlat index tuning for 200-song catalog; Lemon Squeezy webhook integration and idempotency patterns. Both have specific implementation nuances worth researching before building.
-- **Phase 5 (if in-app SRS):** FSRS algorithm implementation has known complexity; research before committing to build vs. using an existing library.
+Phases likely needing /gsd:research-phase during planning:
+- **Phase 6 (Stripe Payments):** Webhook race condition handling and pending-state polling pattern
+- **Phase 7 (Advanced Exercises):** Grammar conjugation_path field structure audit across existing songs
 
-Phases with standard patterns (skip research-phase):
-- **Phase 2:** YouTube iframe polling, React component architecture — well-documented; official YouTube IFrame API reference covers the sync pattern explicitly.
-- **Phase 3:** Clerk Core 3 + Next.js 15 integration has official docs; Drizzle + Neon patterns are well-documented.
+Phases with standard patterns (skip /gsd:research-phase):
+- **Phase 1 (Auth):** Clerk + Next.js 15 App Router is thoroughly documented
+- **Phase 2 (Schema):** Drizzle + Neon, FSRS column structure, materialized view DDL all well-documented
+- **Phase 3 (Exercise Engine):** ts-fsrs API is simple; Zustand + Server Actions patterns are standard
+- **Phase 4 (Kana Trainer):** Static data + same SRS pattern as Phase 3
+- **Phase 5 (Cross-Song Dashboard):** Materialized view + premium gating patterns established in Phase 1-3
 
 ## Confidence Assessment
 
 | Area | Confidence | Notes |
 |------|------------|-------|
-| Stack | HIGH | Core stack (Next.js 15, Clerk, Neon, Drizzle, Lemon Squeezy) verified against official documentation and release notes. Japanese NLP libraries (kuroshiro/@sglkc/kuromoji) are MEDIUM — kuromoji fork is the recommended path but has less community documentation. |
-| Features | MEDIUM | Competitor analysis across LyricsTraining, Musixmatch, Lirica, Lingopie, Migaku is solid. Engagement metric claims (retention percentages, conversion rates) are LOW confidence — vendor blog sources, not verified studies. Feature categories themselves are HIGH confidence. |
-| Architecture | MEDIUM-HIGH | YouTube iframe polling pattern and pgvector similarity search have official documentation. Freemium RLS gating pattern is verified against Supabase official docs. The architecture diagram references Supabase for auth (inconsistent with the stack recommendation of Clerk + Neon) — the synthesized architecture in this summary uses Clerk + Neon as the correct combination. |
-| Pitfalls | HIGH for legal/API policy; MEDIUM for UX | YouTube API policy pitfalls sourced from official Google developer documentation. Lyric copyright findings sourced from official music rights organizations and court records. UX retention claims (20% drop from pre-registration gate) are MEDIUM confidence — corroborated by Duolingo case studies but not primary research. |
+| Stack | HIGH | Clerk + Next.js 15, ts-fsrs, Stripe + Next.js all verified against official docs and working reference implementations |
+| Features | MEDIUM | Core exercise types verified across WaniKani/Duolingo/Bunpro/LyricsTraining; engagement metrics are secondary sources |
+| Architecture | HIGH | Drizzle + Neon HTTP constraints, FSRS client-side pattern, materialized view sourced from official docs |
+| Pitfalls | HIGH | CVE sourced from official report; JSONB write amplification from Postgres internals; SRS abandonment from peer-reviewed research |
 
-**Overall confidence:** MEDIUM-HIGH
+**Overall confidence:** HIGH
 
 ### Gaps to Address
 
-- **Architecture inconsistency:** ARCHITECTURE.md was researched using Supabase as the reference auth/database provider, but the STACK.md recommendation is Clerk (auth) + Neon (database). During roadmap and implementation planning, use Clerk + Neon. The architectural patterns (RLS, middleware, webhook) translate directly — the provider names change, not the patterns. Specifically: Supabase RLS → Neon Postgres RLS enforced via Drizzle; Supabase Auth → Clerk; Supabase SSR client → Neon serverless client.
+- **Grammar data quality:** Exercise 5 requires grammar_points[].conjugation_path to be machine-parseable. This field may be free-text prose in existing songs. Audit a sample before Phase 7 planning.
 
-- **Lyric content legality:** Research identifies this as a critical risk but cannot resolve the legal question — that requires jurisdiction-specific legal review. The content model design (grammatical breakdowns, not verbatim lyrics) is the recommended mitigation, but validation by a lawyer before launch in Japan and the US is a hard gap.
+- **Vocabulary identity resolution:** STACK.md recommends composite key; PITFALLS.md argues for normalized vocabulary_items UUID table. Recommendation: use UUID from Phase 2 onward. Do not defer.
 
-- **Furigana accuracy for song lyrics:** The research recommends cross-validating AI-generated furigana with a morphological analyzer (MeCab, Sudachi) during the content pipeline. The specific integration pattern between Claude API output and a Japanese NLP library for verification was not researched in detail — this needs a focused spike during Phase 1 pipeline development.
+- **Distractor pool at small catalog size:** Pool is thin until 30+ songs are seeded. Add validateDistractorPool() in the generator with a same-JLPT-level fallback strategy.
 
-- **Video timing data sourcing:** The research identifies LRC/timestamp data as the hardest content production constraint but does not resolve where to obtain it for 200 songs. Options include: manually authoring timings, sourcing from licensed providers, or using AI to generate approximate timings. This is an operational gap that affects Phase 1 scope significantly.
-
-- **Embedding model consistency:** ARCHITECTURE.md references OpenAI text-embedding-3-small for both indexing and query time. STACK.md does not explicitly call out an embedding model. The architectural choice to use OpenAI embeddings (rather than Anthropic's native embeddings) adds a second AI provider dependency. This is a minor but explicit gap to decide during Phase 1.
+- **Daily SRS cap calibration:** Research supports 10-15 new items/day. Ship with 10 as default, surface the setting prominently, review analytics at 30 days.
 
 ## Sources
 
 ### Primary (HIGH confidence)
-- [Next.js App Router docs](https://nextjs.org/docs/app/getting-started) — App Router status, Server Components, Server Actions
-- [Clerk Billing for B2C docs](https://clerk.com/docs/nextjs/guides/billing/for-b2c) — `has()` gating, Core 3 RSC compatibility
-- [YouTube Developer Policies](https://developers.google.com/youtube/terms/developer-policies) — Overlay prohibition, quota system
-- [YouTube IFrame API Reference](https://developers.google.com/youtube/iframe_api_reference) — No time events; polling required
-- [Supabase pgvector docs](https://supabase.com/docs/guides/ai/semantic-search) — Semantic search patterns
-- [Supabase RLS docs](https://supabase.com/docs/guides/database/postgres/row-level-security) — Freemium gating pattern
-- [WaniKani SRS docs](https://knowledge.wanikani.com/wanikani/srs-stages/) — SRS feature scope reference
-- [AI hallucinations in language learning (Tandfonline 2025)](https://www.tandfonline.com/doi/full/10.1080/17501229.2025.2509759) — Grammar hallucination risk
+- Neon: Next.js auth with Clerk + Drizzle + Neon -- Clerk + Drizzle integration pattern confirmed
+- ts-fsrs GitHub (open-spaced-repetition/ts-fsrs) -- FSRS v6 algorithm, Node >=20, API surface
+- Next.js CVE-2025-29927 (CVSS 9.1, WorkOS) -- Auth bypass via middleware, DAL pattern requirement
+- Next.js official authentication guide (nextjs.org/docs) -- DAL pattern, RSC cookie write constraints
+- Stripe webhook idempotency documentation (docs.stripe.com) -- constructEvent, raw body pattern
+- PostgreSQL materialized view indexing (Crunchy Data) -- REFRESH CONCURRENTLY index requirement
+- Drizzle + Neon HTTP driver docs (orm.drizzle.team) -- Non-interactive transaction constraint
+- FSRS algorithm overview (domenic.me/fsrs) -- Learning phase vs. review phase distinction
 
 ### Secondary (MEDIUM confidence)
-- [shadcn/ui Tailwind v4 guide](https://ui.shadcn.com/docs/tailwind-v4) — v4 compatibility
-- [Neon + Vercel integration](https://vercel.com/marketplace/neon) — Connection pooling behavior
-- [Drizzle vs Prisma 2026](https://makerkit.dev/blog/tutorials/drizzle-vs-prisma) — Serverless recommendation
-- [LyricFind vs. Musixmatch $1B lawsuit (2025)](https://www.digitalmusicnews.com/2025/03/06/lyricfind-musixmatch-lawsuit/) — Lyric rights enforcement
-- [Lyric rights requirements](https://www.musicadmin.com/guides/what-are-lyric-rights/) — JASRAC and NMPA enforcement scope
-- [AI hallucinations in Japanese grammar](https://selftaughtjapanese.com/2025/07/10/the-dangers-of-using-ai-to-learn-japanese-grammar-a-case-of-hallucinating-chatgpt/) — Japanese-specific LLM error modes
-- [Stop Using kuromoji.js](https://aiktb.dev/blog/better-kuromoji-fork) — @sglkc/kuromoji recommendation
-- [Lemon Squeezy 2026 update](https://www.lemonsqueezy.com/blog/2026-update) — Stripe Managed Payments, MoR model
+- Stripe + Next.js 2026 integration guides -- Server Action checkout pattern, Embedded Checkout
+- SRS queue overflow and abandonment (LessWrong, 7 years classroom data) -- Daily cap rationale
+- React state management 2025 (Makers Den) -- XState vs. Zustand complexity tradeoff
+- Competitor feature analysis (LyricsTraining, Musixmatch, Lirica, Lingopie, WaniKani, Migaku) -- Feature expectations
 
 ### Tertiary (LOW confidence)
-- [Language learning app statistics — ElectroIQ](https://electroiq.com/stats/language-learning-app-statistics/) — 60%+ mobile usage claim; needs validation
-- [Freemium app monetization — Adapty](https://adapty.io/blog/freemium-app-monetization-strategies/) — 67% freemium preference claim; vendor source
-- [Onboarding retention lift — Design Bootcamp](https://medium.com/design-bootcamp/case-study-the-onboarding-of-a-language-learning-app-dc70d7e467f8) — 20% retention drop claim; corroborated by Duolingo case studies but not primary research
+- Freemium conversion rate benchmarks (67% user preference for freemium) -- Single secondary source; directional only
+- 56% syntactic improvement from sentence scramble exercises -- Cited in feature research; study not directly verified
 
 ---
-*Research completed: 2026-04-06*
+*Research completed: 2026-04-13*
 *Ready for roadmap: yes*

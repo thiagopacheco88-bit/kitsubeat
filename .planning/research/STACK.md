@@ -1,112 +1,140 @@
 # Stack Research
 
-**Domain:** Anime music-based Japanese language learning web app
-**Project:** KitsuBeat
-**Researched:** 2026-04-06
-**Confidence:** HIGH (core framework, auth, DB, AI) / MEDIUM (Japanese NLP libraries)
+**Domain:** Anime music-based Japanese language learning web app — exercise/learning system additions
+**Project:** KitsuBeat (Milestone 2 additions only)
+**Researched:** 2026-04-13
+**Confidence:** HIGH (auth, payments, SRS algorithm, animation) / MEDIUM (exercise engine state patterns)
+
+> This file covers ONLY net-new additions for Milestone 2. The baseline stack (Next.js 15, React 19,
+> TypeScript, Neon Postgres, Drizzle ORM 0.41, Tailwind 4, kuroshiro/kuromoji, Anthropic SDK,
+> wavesurfer.js) is already in place and not re-litigated here.
 
 ---
 
-## Recommended Stack
+## Net-New Stack Additions
 
-### Core Technologies
+### Authentication — User Accounts & Session
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| Next.js | 15.x | Full-stack React framework | App Router is stable and the 2026 standard for full-stack React. Server Components reduce bundle size, Server Actions eliminate API boilerplate, and Vercel deployment is zero-config. The Pages Router is entering maintenance mode — new projects should not start there. |
-| React | 19.x | UI library | Bundled with Next.js 15. React 19 Server Components, improved Suspense, and the new `use()` hook matter for streaming lesson content from Claude. |
-| TypeScript | 5.x | Type safety | Non-negotiable for a project with complex domain objects (lyrics timings, furigana tokens, lesson schemas). Drizzle and Zod are designed around TypeScript-first usage. |
-| Tailwind CSS | 4.x | Styling | v4 (CSS-first config, no tailwind.config.js) ships ~70% smaller production CSS than v3. shadcn/ui components are updated for v4. Use for all layout, spacing, and responsive design. |
-| shadcn/ui | latest | Component library | Not an npm package — copies components into your project. Best library for production-quality accessible components (dialogs, dropdowns, toasts). Ships with Tailwind v4 as of 2026. |
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| @clerk/nextjs | ^6.x (Core 3, Mar 2026) | User auth, session management, JWT claims | Deepest Next.js 15 App Router integration of any auth provider. `clerkMiddleware()` in middleware.ts, `auth()` server helper, and `<ClerkProvider>` client wrapper. Core 3 (released March 3, 2026) resolves RSC compatibility issues. The `userId` from `auth()` becomes the foreign key in every user-scoped Drizzle table. Free tier: 10,000 MAU. No self-hosted infrastructure. |
 
-### Database
+**Integration with Drizzle:** Clerk stores identity. Neon stores progress. The pattern is: `clerk_user_id TEXT NOT NULL` as the FK on all user tables (no separate `users` table needed initially). Clerk's `userId` is stable, globally unique, and available in every Server Action via `auth()`. Neon's official guide confirms this exact Clerk + Drizzle + Neon pattern.
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| Neon Postgres | managed | Primary database (users, songs, lessons, progress, subscriptions) | Serverless Postgres that powers Vercel Postgres natively. Built-in connection pooling (PgBouncer) is essential for Next.js serverless — avoids the connection exhaustion problem that plagues Supabase on high-traffic Vercel deployments. Database branching creates preview environments automatically. Free tier is usable for development. |
-| Drizzle ORM | 0.30.x | Database access layer | Chosen over Prisma for this project specifically: KitsuBeat will likely deploy to Vercel's serverless Edge infrastructure, where Drizzle's smaller bundle and SQL-transparent query model outperforms Prisma. Schema is defined in TypeScript (no separate .prisma file), which simplifies the monorepo. Drizzle surpassed Prisma in weekly downloads in late 2025. |
+### Payments — Freemium Subscriptions
 
-### Authentication
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| stripe | ^17.x | Checkout sessions, webhook verification, Customer Portal | Stripe direct is the right choice at pre-revenue/early stage. MoR fees (Lemon Squeezy: 5% + $0.50; Polar: 4%) are meaningfully higher than Stripe's ~2.9% + $0.30. At this stage, tax complexity is not yet a real burden — "there's no point preparing for global tax remittance before you have a viable business" (Geoff Roberts, Outseta). Stripe Managed Payments (MoR mode) is still in limited preview as of 2026. Migrate to Polar or Lemon Squeezy when EU VAT compliance becomes operationally painful (typically $100K+ ARR). |
+| @stripe/stripe-js | ^5.x | Browser-side Embedded Checkout | Stripe now strongly recommends Embedded Checkout (iframe mode, `ui_mode: 'embedded'`). Keeps users on your domain, offloads PCI compliance to Stripe, no redirect required. Pairs with Server Actions for session creation. |
+| @stripe/react-stripe-js | ^3.x | `<EmbeddedCheckout>` React component | Renders the embedded Stripe checkout UI inside a Next.js page. Works with App Router. |
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| Clerk | Core 3.x (released March 2026) | User accounts, session management, freemium gating | Clerk has the deepest Next.js 15 App Router integration of any auth provider. The `has()` method and `<Protect>` component handle freemium feature gating natively without building custom middleware. Free tier covers 50,000 MAU — more than enough for launch. Core 3 (released March 3, 2026) resolves previous RSC compatibility issues. Better Auth is a valid self-hosted alternative but adds operational overhead. |
+**Webhook pattern for Next.js 15:** Route handler at `app/api/webhooks/stripe/route.ts`. Use `await request.text()` (not `request.body()`) for raw body required by `stripe.webhooks.constructEvent()`. Handle `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`, and `invoice.payment_succeeded`. Store subscription status in a `subscriptions` Drizzle table keyed by `clerk_user_id`.
 
-### Payments
+**Freemium gating:** Store `plan: 'free' | 'pro'` derived from the `subscriptions` table. Check in Server Components via a DB query — do not rely solely on Clerk metadata (keep Stripe as source of truth, sync to Clerk public metadata on webhook for faster reads if needed).
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| Lemon Squeezy (via Stripe Managed Payments) | latest | Freemium subscriptions, one-time purchases | Stripe acquired Lemon Squeezy in 2024. The combined product (Stripe Managed Payments) gives you Lemon Squeezy's simple API plus Stripe's infrastructure. Critically: it acts as Merchant of Record, handling VAT/GST globally. For an anime/language learning app with an international audience (Japan, Brazil, EU, US), MoR removes significant tax compliance burden. Stripe direct requires you to collect and remit sales tax yourself. Use Lemon Squeezy's official Next.js billing package. |
+### SRS Algorithm — Kana Trainer & Mastery Decay
 
-### AI / Content Generation
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| ts-fsrs | ^5.x | FSRS v6 spaced repetition scheduler | Purpose-built TypeScript SRS library. Implements the FSRS v6 algorithm (the current gold standard, replacing SM-2). Core API: `createEmptyCard()`, `fsrs()`, `scheduler.repeat()`, `scheduler.next(Rating.Good)`. Supports ES modules, CommonJS, and UMD. Actively maintained (78 releases, March 2026 update). Node.js >=20 required — matches current Next.js 15 deployment targets. Zero dependencies. Works in browser and server. |
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| Vercel AI SDK | 4.x (ai@4.x) | Structured output generation from Claude | Wraps Anthropic API with `generateObject()` for schema-constrained outputs. This is the right tool for pre-generating lessons (furigana, grammar annotations, translations) in a type-safe way. `@ai-sdk/anthropic@1.x` is the Anthropic provider. |
-| @anthropic-ai/sdk | 0.82.x | Direct Claude API access | Use this for background content generation scripts (seeding the 200 song lessons) where you don't need the Vercel AI SDK streaming abstractions. Requires Node 18+. |
+**Why not custom weighted random:** The project spec describes a "10-star decay system with weighted random selection." FSRS v6 subsumes this: it outputs `due` timestamps and `stability`/`difficulty` floats per card. Map the star system onto FSRS state: `Rating.Again` = stars decrease, `Rating.Good/Easy` = stars increase. Persist the FSRS card state (stability, difficulty, due, reps) per vocab item per user in Drizzle. Use FSRS for scheduling, display stars as a UI metaphor for retention strength.
 
-### YouTube Integration
+**Schema addition (Drizzle):**
+```typescript
+// user_vocab_mastery table
+export const userVocabMastery = pgTable('user_vocab_mastery', {
+  id: serial('id').primaryKey(),
+  clerk_user_id: text('clerk_user_id').notNull(),
+  vocab_surface: text('vocab_surface').notNull(), // joins to lesson JSONB
+  song_slug: text('song_slug'),                   // null = cross-song index
+  // FSRS fields
+  stability: real('stability').default(0),
+  difficulty: real('difficulty').default(5),
+  elapsed_days: integer('elapsed_days').default(0),
+  scheduled_days: integer('scheduled_days').default(0),
+  reps: integer('reps').default(0),
+  lapses: integer('lapses').default(0),
+  state: integer('state').default(0),  // FSRS State enum
+  due: timestamp('due').defaultNow(),
+  last_review: timestamp('last_review'),
+  // Star UI
+  stars: integer('stars').default(0).notNull(), // 0-10
+  updated_at: timestamp('updated_at').defaultNow(),
+}, (t) => ({
+  userVocabIdx: uniqueIndex('user_vocab_idx').on(t.clerk_user_id, t.vocab_surface),
+}));
+```
 
-| Technology | Version | Purpose | Why Recommended |
-|------------|---------|---------|-----------------|
-| react-player | 2.x | YouTube embed with playback control | Maintained by Mux (taken over 2024), actively developed. Supports YouTube, provides `onProgress` callback at configurable intervals (use 250ms for lyrics sync). Critical advantage over react-youtube: react-youtube's latest version (10.1.0) was published 3 years ago and has one maintainer — too risky for a core dependency. react-player has broader multi-platform support and better maintenance posture. |
+### Exercise Engine — State Management
 
-### Supporting Libraries
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| Zustand | ^5.x (already in existing STACK.md) | Exercise session state | Already in the recommended stack. Use a dedicated `useExerciseStore` slice: `currentExercise`, `queue`, `score`, `sessionComplete`. Zustand is sufficient — XState adds significant complexity overhead for a 7-exercise-type engine at this scale. The quiz engine GitHub examples consistently use Zustand. |
 
-| Library | Version | Purpose | When to Use |
-|---------|---------|---------|-------------|
-| Zod | 3.x | Schema validation | Validate all API inputs, Claude-generated lesson content, and form submissions. Use with react-hook-form for client forms. Pairs with Drizzle for runtime type safety. |
-| react-hook-form | 7.x | Form handling | Sign-up/login forms, settings. Minimal re-renders. Use with Zod resolver. |
-| kuroshiro + kuromoji | 1.x + 0.1.x | Japanese tokenization and furigana generation | Used during content pre-generation (server-side, not client-side). kuroshiro converts kanji to hiragana with furigana mode; kuromoji is its tokenizer backend. Pre-generate all furigana and store in DB — do not run tokenization on the client or at request time. Note: kuromoji.js core package is 8 years old but has no modern full replacement in JS. Use @sglkc/kuromoji fork if kuromoji.js exhibits Node 18+ compatibility issues. |
-| react-furi | latest | Render furigana (ruby text) in UI | Thin React component rendering kanji+reading pairs as HTML `<ruby>` elements. Use with pre-generated furigana data from DB. Do not use as a tokenizer — it only renders. |
-| @upstash/ratelimit + @upstash/redis | latest | Rate limiting Claude API calls and content gen endpoints | HTTP-based, works in Vercel serverless and Edge. Prevents abuse of Claude API endpoints. Essential for any API route that proxies to Claude. |
-| Zustand | 5.x | Client state (player state, current lyric index) | Lightweight client state for video player position, active verse tracking, and vocabulary panel open/close. Do not use Redux — overkill. Do not use TanStack Query for this (it's server state, not client state). |
-| TanStack Query | 5.x | Server state caching | Song library fetching, lesson data, user progress. Handles stale-while-revalidate, background refetching, and optimistic updates for progress tracking. Coexists with Zustand: TanStack Query = server state, Zustand = client state. |
-| next-themes | latest | Dark mode | Single-dependency dark mode with system preference detection. KitsuBeat's anime aesthetic calls for dark mode as default. |
+**Exercise session architecture:** Do NOT use XState unless the exercise graph has more than ~15 distinct states with guard conditions. Zustand + a `phase` enum (`'idle' | 'question' | 'feedback' | 'complete'`) covers all 7 exercise types cleanly. Generate exercise queues server-side (Server Action returns array of exercise items), client holds queue in Zustand, submits answers via Server Actions that update Drizzle mastery rows.
 
-### Development Tools
+### Animation — Exercise Feedback
 
-| Tool | Purpose | Notes |
-|------|---------|-------|
-| Vitest | Unit and integration tests | Faster than Jest, native TypeScript, compatible with Next.js 15. Test lesson generation logic, furigana parsing utilities, and Clerk webhook handlers. |
-| Playwright | E2E tests | Test the full "play song + lyrics sync" flow and checkout flow. Run against a Neon preview branch. |
-| Drizzle Kit | Migration management | `drizzle-kit generate` and `drizzle-kit migrate` for schema evolution. Part of the Drizzle ecosystem. |
-| ESLint + Prettier | Linting and formatting | Use Next.js ESLint config. Add eslint-plugin-tailwindcss to catch Tailwind class ordering issues. |
-| Turbopack | Dev server bundler | Enabled by default in Next.js 15 dev mode. Do not switch to Webpack — Turbopack is 10-700x faster for HMR. |
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| motion | ^12.x | Correct/wrong answer animations, exercise transitions | Formerly framer-motion, rebranded to `motion` in late 2024. Import from `"motion/react"`. React 19 fully supported in v12. API surface identical to framer-motion — same `<motion.div>`, `AnimatePresence`, `useAnimation`. Used by quiz apps for answer reveal animations, confetti-on-complete, and card flip transitions. shadcn/ui is converging on motion. |
+
+**Note:** `framer-motion` still works as a package name (aliased) but new installs should use `motion`. The package name on npm is `motion`, not `framer-motion`.
+
+### Notifications — Feedback Toasts
+
+| Technology | Version | Purpose | Why |
+|------------|---------|---------|-----|
+| sonner | ^2.x | Toast notifications for exercise feedback, errors | shadcn/ui's official toast component. 31.2M weekly downloads vs react-hot-toast's 3.5M. No hook required — call `toast.success()` from anywhere. Global observer pattern persists toasts across route changes in Next.js. TypeScript-first. One `<Toaster />` in layout.tsx. |
 
 ---
 
-## Installation
+## Existing Libraries — Confirmed Still Correct
+
+These were already in the prior STACK.md and remain the right choice:
+
+- **Zod 3.x** — Validate exercise answer payloads in Server Actions
+- **Zustand 5.x** — Exercise session state (see above)
+- **TanStack Query 5.x** — Fetch user mastery data, cross-song vocab index
+- **shadcn/ui latest** — Exercise card UI components, progress bars, dialogs
+
+---
+
+## What NOT to Add
+
+| Avoid | Why | Use Instead |
+|-------|-----|-------------|
+| Lemon Squeezy (at launch) | 5% + $0.50 per transaction is ~10% on $10 products; Stripe Managed Payments (their MoR) is still limited preview | Stripe direct; revisit Polar/LemonSqueezy at $100K+ ARR |
+| XState | Adds 40KB+ and significant cognitive overhead for an exercise state machine that fits in a 15-line Zustand store | Zustand + `phase` enum |
+| Custom SRS algorithm | Requires careful tuning, academic validation; FSRS v6 is peer-reviewed and battle-tested in Anki | ts-fsrs |
+| NextAuth / Auth.js | More setup than Clerk for the same outcome; no built-in user management UI, MFA, or plan gating helpers | Clerk |
+| Prisma | Already using Drizzle; no reason to add a second ORM | Drizzle (continue) |
+| react-hot-toast | Lower weekly downloads, less shadcn/ui ecosystem integration than sonner | sonner |
+| IndexedDB / Dexie (offline SRS) | Adds sync complexity; users expect server-backed progress | Server-side Drizzle rows |
+| react-confetti | Standalone package for one use case; motion handles confetti via keyframe animations | motion |
+| Stripe Tax add-on | Adds cost (0.5-2% of transaction) without removing legal responsibility; you still file returns yourself | Handle manually at small scale, migrate to Polar when needed |
+
+---
+
+## Installation (net-new only)
 
 ```bash
-# Bootstrap project
-npx create-next-app@latest kitsubeat --typescript --tailwind --eslint --app --src-dir
-
-# Core runtime deps
-npm install drizzle-orm @neondatabase/serverless
+# Authentication
 npm install @clerk/nextjs
-npm install ai @ai-sdk/anthropic @anthropic-ai/sdk
-npm install react-player
-npm install react-hook-form zod @hookform/resolvers
-npm install zustand @tanstack/react-query
-npm install react-furi
-npm install next-themes
-npm install kuroshiro @sglkc/kuromoji
 
-# Lemon Squeezy payments
-npm install @lemonsqueezy/lemonsqueezy.js
+# Payments
+npm install stripe @stripe/stripe-js @stripe/react-stripe-js
 
-# Rate limiting
-npm install @upstash/ratelimit @upstash/redis
+# SRS algorithm
+npm install ts-fsrs
 
-# Dev dependencies
-npm install -D drizzle-kit
-npm install -D vitest @vitejs/plugin-react
-npm install -D @playwright/test
-npm install -D eslint-plugin-tailwindcss
+# Animation
+npm install motion
 
-# shadcn/ui (installs components into project, not as a package)
-npx shadcn@latest init
+# Toast notifications
+npm install sonner
 ```
 
 ---
@@ -115,54 +143,12 @@ npx shadcn@latest init
 
 | Recommended | Alternative | When to Use Alternative |
 |-------------|-------------|-------------------------|
-| Drizzle ORM | Prisma | If the team prefers a visual schema editor, automated migrations, or is unfamiliar with SQL. Prisma 7 narrowed the performance gap. |
-| Clerk | Better Auth | If you want zero auth vendor lock-in and are comfortable hosting your own auth server. Adds 1-2 days of setup vs Clerk's <2 hours. |
-| Clerk | NextAuth v5 (Auth.js) | If auth budget is zero and user management features (MFA, org management) are not needed. Higher implementation effort. |
-| Lemon Squeezy | Stripe direct | If you expect >$50K MRR and need custom checkout flows. Stripe direct requires you to handle VAT/tax compliance yourself. |
-| Neon Postgres | Supabase | If you want a Firebase-alternative with realtime subscriptions and a built-in admin dashboard. Supabase has connection pooling issues under heavy Vercel serverless load. |
-| react-player | Custom YouTube IFrame API | If you need sub-100ms timing precision for lyrics sync. react-player's `onProgress` fires at ~250ms intervals by default, which is acceptable for verse-level sync. For word-level karaoke sync, you'd need to poll `player.getCurrentTime()` manually via the underlying YT player instance. |
-| Vercel AI SDK | @anthropic-ai/sdk direct | For background/offline content generation scripts (seeding songs). Use the Anthropic SDK directly there — no need for streaming UI abstractions. |
-| TanStack Query | SWR | Both are valid. TanStack Query has better TypeScript inference, more cache control, and better Zustand coexistence patterns. SWR is simpler but less powerful. |
-
----
-
-## What NOT to Use
-
-| Avoid | Why | Use Instead |
-|-------|-----|-------------|
-| react-youtube | Last published 3 years ago (v10.1.0), single maintainer, no active development | react-player (maintained by Mux, multi-source support) |
-| Pages Router | Entering maintenance mode, no Server Components, no Server Actions | App Router |
-| Tailwind v3 | v4 is the current standard; shadcn/ui is updating all components for v4 | Tailwind v4 |
-| Redux / Redux Toolkit | Overcomplicated for this scale; Server Components + TanStack Query + Zustand cover all state cases | Zustand (client state) + TanStack Query (server state) |
-| kuromoji.js (vanilla) | 8-year-old package, potential Node 18+ issues | @sglkc/kuromoji (modern fork) or use Claude API to generate furigana server-side during content pre-gen |
-| Client-side furigana tokenization | Kuromoji ships a 30MB dictionary; loading it in the browser is impractical | Pre-generate all furigana data during content seeding, store in DB, serve as JSON |
-| Supabase auth | Auth and database entangled — hard to migrate one without the other; use separate best-of-breed services | Clerk (auth) + Neon (database) separately |
-| OpenAI API | The project explicitly uses Claude; mixing AI providers adds complexity and cost unpredictability | Anthropic Claude via Vercel AI SDK |
-
----
-
-## Stack Patterns by Variant
-
-**For content pre-generation (offline seeding pipeline):**
-- Use `@anthropic-ai/sdk` directly with structured prompts
-- Run kuroshiro + kuromoji server-side in a Node script
-- Output lesson JSON to database via Drizzle
-- Do not run this at request time
-
-**For the production web app:**
-- Use Vercel AI SDK (`generateObject`) only if users trigger on-demand generation (e.g., custom song requests in a future phase)
-- All 200 curated songs: pre-generated, no Claude calls at request time
-
-**For lyrics timing sync:**
-- Store lyric timings as `{ startMs: number, endMs: number, text: string }[]` in Postgres (jsonb column)
-- Use react-player's `onProgress` callback (interval: 250ms) to get current playback position
-- Match active lyric in Zustand client state using `currentTimeMs >= startMs && currentTimeMs < endMs`
-- Do NOT rely on YouTube API's native time events — there are none; polling is the standard approach
-
-**For freemium gating:**
-- Store `plan` field on Clerk user metadata (`free` | `pro`)
-- Use Clerk's `has()` server-side helper in Server Components to gate premium songs
-- Sync Lemon Squeezy webhook events → update Clerk user metadata on successful payment
+| Stripe direct | Polar.sh (MoR) | When EU VAT compliance becomes operationally painful; Polar's 4% fee is the lowest MoR option with good DX for indie developers |
+| Stripe direct | Lemon Squeezy | If you want MoR from day one and can absorb the ~5% + $0.50 fees; simpler API than Stripe |
+| ts-fsrs (FSRS v6) | Custom weighted random | Only if you need a simpler "score 0-10" system without full SRS scheduling; loses the scientifically-validated review interval calculation |
+| Clerk | Better Auth (self-hosted) | If vendor lock-in is unacceptable and you have DevOps capacity to maintain auth infrastructure |
+| motion | CSS animations only | If animation budget is 0 and you want zero JS overhead; CSS handles simple transitions adequately |
+| sonner | shadcn/ui `<Toast>` component | If you're already using shadcn's toast primitive and don't want an extra dependency |
 
 ---
 
@@ -170,36 +156,48 @@ npx shadcn@latest init
 
 | Package | Compatible With | Notes |
 |---------|-----------------|-------|
-| Next.js 15.x | React 19.x | Next.js 15 requires React 19. Some third-party libraries may not support React 19 yet — check before installing. |
-| Clerk Core 3.x | Next.js 15 App Router | Core 3 (March 2026) resolves RSC compatibility issues from Core 2. Do not use Clerk <3.0 with Next.js 15. |
-| Tailwind v4 | shadcn/ui latest | shadcn/ui CLI as of early 2026 initializes with Tailwind v4. Older shadcn component installs may use v3 syntax — use `npx shadcn@latest` to get updated components. |
-| drizzle-orm 0.30.x | @neondatabase/serverless | Use Neon's serverless HTTP driver (`neon()`) with Drizzle, not `pg` or `postgres.js` — the serverless driver works without persistent connections, which is required on Vercel. |
-| ai@4.x | @ai-sdk/anthropic@1.x | Must use `@ai-sdk/anthropic` provider package, not `@anthropic-ai/sdk` directly, when using Vercel AI SDK's `generateObject`. Both can coexist in the same project for different use cases. |
-| kuroshiro@1.x | @sglkc/kuromoji (fork) | kuroshiro's docs reference `kuromoji`, but the vanilla `kuromoji` package has Node 18+ async issues. Use `@sglkc/kuromoji` as a drop-in replacement with the same API. |
+| @clerk/nextjs ^6.x | Next.js 15 + React 19 | Clerk Core 3 (Mar 2026) resolves previous RSC issues. Requires `clerkMiddleware()` in `middleware.ts`, not the legacy `authMiddleware`. |
+| ts-fsrs ^5.x | Node.js >=20 | Next.js 15 on Vercel deploys on Node 20+. Confirm with `node --version` locally. |
+| motion ^12.x | React 19 + Next.js 15 | Full React 19 support in motion v12. Import from `"motion/react"`, NOT `"framer-motion"` for new code. |
+| stripe ^17.x | Node.js 18+ | Server-only. Never import `stripe` in Client Components. Use Server Actions or Route Handlers exclusively. |
+| @stripe/stripe-js ^5.x | React 19 | Browser-only. Loaded lazily via `loadStripe()`. Compatible with Next.js App Router. |
+| sonner ^2.x | React 19 + Next.js 15 | Works in Client Components. Place `<Toaster />` in `app/layout.tsx` inside `<ClerkProvider>`. |
+
+---
+
+## Drizzle Schema Additions (Summary)
+
+New tables needed for this milestone, all keyed by `clerk_user_id`:
+
+```
+users_meta         — plan ('free'|'pro'), display preferences, onboarding state
+subscriptions      — stripe_customer_id, stripe_subscription_id, status, plan, period_end
+user_vocab_mastery — FSRS state per vocab item per user (see schema above)
+user_exercise_log  — exercise_type, song_slug, score, completed_at (analytics/streaks)
+```
+
+No changes needed to existing `songs`, `song_versions`, or lesson JSONB columns. Exercise content is derived at runtime from existing JSONB lesson data — no separate exercise storage table needed.
 
 ---
 
 ## Sources
 
-- [Next.js App Router docs](https://nextjs.org/docs/app/getting-started) — App Router status, Server Components, Server Actions
-- [shadcn/ui Tailwind v4 guide](https://ui.shadcn.com/docs/tailwind-v4) — Tailwind v4 + shadcn compatibility confirmed
-- [Clerk Billing for B2C docs](https://clerk.com/docs/nextjs/guides/billing/for-b2c) — `has()` gating method, Core 3 release date
-- [Neon + Vercel integration](https://vercel.com/marketplace/neon) — Neon as Vercel Postgres, connection pooling
-- [Vercel AI SDK docs](https://vercel.com/docs/ai-sdk) — `generateObject`, `@ai-sdk/anthropic` provider
-- [AI SDK 6 announcement](https://vercel.com/blog/ai-sdk-6) — Unified generateObject/generateText, Agent abstraction
-- [Anthropic SDK npm](https://www.npmjs.com/package/@anthropic-ai/sdk) — v0.82.0 current, Node 18+ required
-- [react-player GitHub](https://github.com/cookpete/react-player) — Mux maintenance takeover, active status
-- [react-youtube npm](https://www.npmjs.com/package/react-youtube) — v10.1.0, last published 3 years ago (maintenance concern)
-- [Drizzle vs Prisma 2026](https://makerkit.dev/blog/tutorials/drizzle-vs-prisma) — Drizzle recommendation for serverless/edge
-- [Upstash ratelimit docs](https://upstash.com/docs/redis/sdks/ratelimit-ts/overview) — HTTP-based, Vercel Edge compatible
-- [Stop Using kuromoji.js](https://aiktb.dev/blog/better-kuromoji-fork) — @sglkc/kuromoji as modern fork
-- [Lemon Squeezy 2026 update](https://www.lemonsqueezy.com/blog/2026-update) — Stripe Managed Payments, MoR model
-- [YouTube IFrame API reference](https://developers.google.com/youtube/iframe_api_reference) — No native timeupdate event; polling required
-- WebSearch: "Next.js 15 App Router full stack web app 2026" — MEDIUM confidence, corroborated by official docs
-- WebSearch: "Drizzle ORM vs Prisma Next.js 2025 2026" — MEDIUM confidence, multiple sources agree
-- WebSearch: "Better Auth vs Clerk vs NextAuth 2026" — MEDIUM confidence, corroborated by Clerk official docs
+- [Neon: Next.js auth with Clerk + Drizzle + Neon](https://neon.com/blog/nextjs-authentication-using-clerk-drizzle-orm-and-neon) — Clerk + Drizzle integration pattern confirmed, HIGH confidence
+- [GitHub: neon-clerk-drizzle-nextjs example](https://github.com/raoufchebri/neon-clerk-drizzle-nextjs) — Working reference implementation
+- [ts-fsrs GitHub](https://github.com/open-spaced-repetition/ts-fsrs) — v5.x, FSRS v6, Node >=20, active maintenance confirmed
+- [ts-fsrs npm](https://www.npmjs.com/package/ts-fsrs) — Package metadata and install size
+- [Stripe + Next.js 2026 guide](https://dev.to/sameer_saleem/the-ultimate-guide-to-stripe-nextjs-2026-edition-2f33) — Server Action checkout pattern, Embedded Checkout
+- [Stripe subscription lifecycle Next.js](https://dev.to/thekarlesi/stripe-subscription-lifecycle-in-nextjs-the-complete-developer-guide-2026-4l9d) — Webhook events, `request.text()` pattern
+- [Just use Stripe directly (Prototypr)](https://prototypr.io/post/stripe-merchant-of-record) — MoR threshold argument, Geoff Roberts quote
+- [Stripe vs Lemon Squeezy vs Polar vs Creem (TurboStarter)](https://www.turbostarter.dev/blog/stripe-vs-lemonsqueezy-vs-polar-vs-creem-choosing-the-right-saas-payment-provider) — Fee comparison table
+- [Motion docs](https://motion.dev/docs/react) — React 19 support confirmed in v12, import path change
+- [motion v12 + React 19 RC thread](https://www.framer.community/c/developers/framer-motion-v12-alpha-for-react-19-rc) — Compatibility confirmed
+- [Sonner vs react-hot-toast comparison (LogRocket 2025)](https://blog.logrocket.com/react-toast-libraries-compared-2025/) — Download stats, API comparison
+- [React state management 2025 (Makers Den)](https://makersden.io/blog/react-state-management-in-2025) — XState vs Zustand complexity tradeoff
+- WebSearch: "Stripe Next.js 15 App Router freemium subscription integration 2026" — MEDIUM confidence, corroborated by official Stripe docs pattern
+- WebSearch: "ts-fsrs FSRS algorithm TypeScript npm 2025" — HIGH confidence after GitHub verification
 
 ---
 
-*Stack research for: Anime music-based language learning web app (KitsuBeat)*
-*Researched: 2026-04-06*
+*Stack research for: KitsuBeat Milestone 2 — exercise system, kana trainer, vocab tracking, auth, payments*
+*Researched: 2026-04-13*

@@ -1,8 +1,8 @@
 # Architecture Research
 
-**Domain:** Music-based language learning web app (KitsuBeat)
-**Researched:** 2026-04-06
-**Confidence:** MEDIUM-HIGH
+**Domain:** Exercise/learning system integration into existing KitsuBeat (Next.js 15 + Neon Postgres)
+**Researched:** 2026-04-13
+**Confidence:** HIGH
 
 ---
 
@@ -12,353 +12,429 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                        CLIENT LAYER (Browser)                        │
-├───────────────────┬─────────────────────┬───────────────────────────┤
-│   Player Page     │   Library / Search  │   Account / Settings      │
-│  ┌─────────────┐  │  ┌───────────────┐  │  ┌─────────────────────┐  │
-│  │ YouTube     │  │  │ AI Search     │  │  │ Auth / Profile      │  │
-│  │ iframe      │  │  │ Chatbox       │  │  │ Subscription Status │  │
-│  │ (Client     │  │  │ (Client Comp) │  │  │ (Server + Client)   │  │
-│  │ Component)  │  │  └───────────────┘  │  └─────────────────────┘  │
-│  ├─────────────┤  │                     │                            │
-│  │ Lyric Sync  │  │                     │                            │
-│  │ Engine      │  │                     │                            │
-│  │ (Client     │  │                     │                            │
-│  │ Component)  │  │                     │                            │
-│  ├─────────────┤  │                     │                            │
-│  │ Lyric       │  │                     │                            │
-│  │ Display     │  │                     │                            │
-│  │ (Client     │  │                     │                            │
-│  │ Component)  │  │                     │                            │
-│  └─────────────┘  │                     │                            │
-├───────────────────┴─────────────────────┴───────────────────────────┤
-│                      NEXT.JS APP ROUTER                              │
-│   Server Components (page data)  +  Route Handlers (API endpoints)  │
-├───────────────────┬─────────────────────┬───────────────────────────┤
-│   Song API        │   Search API        │   Auth / User API         │
-│   /api/songs/     │   /api/search/      │   (Supabase Auth)         │
-│   [slug]          │   semantic          │                            │
-├───────────────────┴─────────────────────┴───────────────────────────┤
-│                         SUPABASE (Postgres + Auth + RLS)             │
-│  ┌──────────────┐  ┌──────────────┐  ┌────────────┐  ┌───────────┐  │
-│  │ songs        │  │ lyrics       │  │ embeddings │  │ users     │  │
-│  │ (metadata)   │  │ (timed JSON) │  │ (pgvector) │  │ (plans)   │  │
-│  └──────────────┘  └──────────────┘  └────────────┘  └───────────┘  │
-├─────────────────────────────────────────────────────────────────────┤
-│                 OFFLINE / BUILD-TIME PIPELINE                        │
-│   Claude API → Content Generator → Supabase Insert + Embed          │
-└─────────────────────────────────────────────────────────────────────┘
+│                         BROWSER LAYER                                │
+├──────────────┬──────────────┬──────────────┬────────────────────────┤
+│  Song Player │  Exercise UI │ Kana Trainer │  Vocab Dashboard       │
+│  (existing)  │  (new RSC +  │  (new RSC +  │  (new RSC)             │
+│              │  client SPA) │  client SPA) │                        │
+└──────┬───────┴──────┬───────┴──────┬───────┴──────┬─────────────────┘
+       │              │              │              │
+┌──────┴──────────────┴──────────────┴──────────────┴─────────────────┐
+│                     NEXT.JS APP ROUTER (existing)                     │
+├──────────────┬───────────────────────────┬────────────────────────────┤
+│  Server      │  Route Handlers (new)      │  middleware.ts (new)       │
+│  Components  │  /api/progress/*           │  - session check           │
+│  (data fetch)│  /api/webhooks/stripe      │  - plan tier gating        │
+│              │                            │  (reads JWT, no DB)        │
+└──────┬───────┴──────────────┬────────────┴────────────────────────────┘
+       │                      │
+┌──────┴──────────────────────┴────────────────────────────────────────┐
+│                        DATA LAYER                                     │
+├───────────────┬──────────────┬──────────────┬──────────────────────── │
+│  songs        │  song_       │  users +     │  vocab_global           │
+│  (existing)   │  versions    │  user_       │  (materialized view     │
+│               │  (existing)  │  progress +  │   — new, created via    │
+│               │              │  kana_prog.  │   raw SQL migration)    │
+│               │              │  (new tables)│                         │
+├───────────────┴──────────────┴──────────────┴─────────────────────────┤
+│                  Neon Postgres (serverless HTTP, existing)              │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Component Responsibilities
 
-| Component | Responsibility | Communicates With |
-|-----------|----------------|-------------------|
-| YouTube iframe (Client) | Video playback; exposes `getCurrentTime()` and `onStateChange` events | Lyric Sync Engine via ref/callback |
-| Lyric Sync Engine (Client) | Polls `getCurrentTime()` at ~250ms interval; maps timestamp → active lyric verse index | YouTube iframe ref, Lyric Display |
-| Lyric Display (Client) | Renders active verse with furigana `<ruby>` markup, color-coded grammar, translations | Lyric Sync Engine (receives active index) |
-| AI Search Chatbox (Client) | Takes natural-language user query; calls `/api/search/semantic`; renders matched song cards | Search API Route Handler |
-| Search API Route Handler (Server) | Embeds user query via OpenAI; runs pgvector similarity search in Supabase | OpenAI Embeddings API, Supabase |
-| Song Page (Server Component) | Fetches static song + lyrics from Supabase at request time; passes to client components | Supabase, Lyric Display, YouTube iframe |
-| Auth Middleware (Next.js) | Protects premium routes; checks Supabase session; redirects to upgrade if plan = free | Supabase Auth, User table |
-| Content Generation Pipeline (CLI/script) | Calls Claude API to generate vocabulary breakdowns, grammar annotations, translations; inserts into Supabase; generates and stores embeddings | Claude API, OpenAI Embeddings, Supabase |
+| Component | Responsibility | Typical Implementation |
+|-----------|----------------|------------------------|
+| Song Player (existing) | Playback sync, lyric display, token popups | React client components, PlayerContext — no changes |
+| Exercise UI | Present questions, capture answers, update SRS state | Client SPA component tree, server actions for DB writes |
+| Kana Trainer | Kana flashcard drills, character group selection, SRS | Client SPA; localStorage for anonymous users |
+| Vocab Dashboard | Cross-song mastery view, due-for-review queue | RSC reading from vocab_global materialized view + user_progress JOIN |
+| Auth Layer | Session management, JWT with plan tier encoded | Auth.js v5 (next-auth@beta) with Drizzle adapter |
+| Progress API | Save exercise results, advance SRS schedule | Route handler at /api/progress, single-row upsert |
+| Stripe Webhook | Sync subscription status to DB | Route handler at /api/webhooks/stripe, excluded from auth middleware |
 
 ---
 
 ## Recommended Project Structure
 
 ```
-kitsubeat/
-├── app/                          # Next.js App Router
-│   ├── (marketing)/              # Public pages (landing, pricing)
+src/
+├── app/
+│   ├── songs/[slug]/
+│   │   ├── components/          # existing — VocabularySection gains SRS badge
+│   │   └── exercises/           # NEW route: /songs/[slug]/exercises
+│   │       └── page.tsx         # RSC shell; passes lesson + userProgress to client
+│   ├── kana/                    # NEW route group
 │   │   └── page.tsx
-│   ├── (app)/                    # Authenticated app shell
-│   │   ├── layout.tsx            # Auth check, session provider
-│   │   ├── library/              # Song library + search
-│   │   │   └── page.tsx          # Server Component — fetches song list
-│   │   └── songs/
-│   │       └── [slug]/
-│   │           └── page.tsx      # Server Component — fetches lesson data
-│   ├── api/
-│   │   ├── search/
-│   │   │   └── semantic/route.ts # Embedding + pgvector similarity search
-│   │   └── user/
-│   │       └── subscription/route.ts
-│   └── layout.tsx
-├── components/
-│   ├── player/
-│   │   ├── YouTubePlayer.tsx     # Client Component — iframe API wrapper
-│   │   ├── LyricSyncEngine.tsx   # Client Component — polling + active index
-│   │   └── LyricDisplay.tsx      # Client Component — renders verse with ruby
-│   ├── lyrics/
-│   │   ├── FuriganaText.tsx      # Renders <ruby> markup from structured data
-│   │   ├── GrammarTag.tsx        # Color-coded grammar label
-│   │   └── VocabCard.tsx         # Inline vocabulary breakdown tooltip
-│   ├── search/
-│   │   └── AIChatbox.tsx         # Client Component — semantic search UI
-│   └── ui/                       # Shared buttons, cards, layout primitives
+│   ├── vocabulary/              # NEW route group (premium)
+│   │   └── page.tsx             # cross-song vocab dashboard
+│   │   └── review/
+│   │       └── page.tsx         # global SRS review session
+│   ├── upgrade/                 # NEW — payment/upgrade page
+│   │   └── page.tsx
+│   └── api/
+│       ├── progress/
+│       │   └── route.ts         # POST: save SRS review result
+│       └── webhooks/
+│           └── stripe/
+│               └── route.ts     # Stripe subscription sync
 ├── lib/
-│   ├── supabase/
-│   │   ├── client.ts             # Browser client
-│   │   ├── server.ts             # Server-side client (cookies)
-│   │   └── types.ts              # Generated Supabase types
-│   ├── youtube/
-│   │   └── useYouTubeSync.ts     # Hook: player ref + polling + active verse
-│   └── auth/
-│       └── middleware.ts         # Route protection + plan checks
-├── scripts/
-│   └── generate-lesson/
-│       ├── index.ts              # CLI entry: process song list
-│       ├── claude-prompt.ts      # Claude API prompt builder
-│       ├── embed.ts              # OpenAI embedding generator
-│       └── insert.ts             # Supabase upsert logic
-├── types/
-│   ├── song.ts                   # Song + lesson data types
-│   └── lyrics.ts                 # Timed lyric line / token types
-└── supabase/
-    └── migrations/               # SQL migrations for schema
+│   ├── db/
+│   │   ├── schema.ts            # MODIFIED — add users, userProgress, kanaProgress
+│   │   ├── queries.ts           # UNCHANGED — existing content queries
+│   │   └── progress-queries.ts  # NEW — SRS queries, vocab_global reads
+│   ├── exercises/
+│   │   ├── generator.ts         # NEW — pure fn: Lesson JSONB → Exercise[]
+│   │   └── srs.ts               # NEW — thin wrapper around ts-fsrs
+│   ├── auth/
+│   │   └── index.ts             # NEW — Auth.js v5 config
+│   └── types/
+│       ├── lesson.ts            # UNCHANGED
+│       └── progress.ts          # NEW — UserCard, SRSState, ExerciseResult
+├── middleware.ts                 # NEW — auth + plan gating (reads JWT only)
+└── migrations/
+    └── 0002_vocab_global.sql    # NEW — raw SQL for materialized view
 ```
 
 ### Structure Rationale
 
-- **`app/(marketing)` vs `app/(app)`:** Route groups separate public pages (no auth) from the authenticated app shell. The `(app)` group applies a layout with session checks once, not per-page.
-- **`components/player/`:** The YouTube iframe, sync engine, and lyric display are grouped because they share state via a single `useYouTubeSync` hook. They are all Client Components because they depend on browser APIs and real-time polling.
-- **`components/lyrics/`:** Presentational components for furigana, grammar, vocabulary — no side effects, can be used in both the player page and static previews.
-- **`lib/youtube/useYouTubeSync.ts`:** Centralizes all polling logic. Other components only consume the `activeVerseIndex` it emits — they never touch `getCurrentTime()` directly.
-- **`scripts/generate-lesson/`:** Entirely separate from the app runtime. This pipeline runs offline (locally or in CI) to populate the database. Keeping it outside `app/` prevents accidental exposure.
-- **`supabase/migrations/`:** Schema-as-code prevents drift between environments. Required when you have complex RLS policies.
+- **exercises/ route under songs/[slug]/:** Keeps exercise context coupled to the song it derives from. Navigation flows naturally: song → exercises.
+- **lib/exercises/generator.ts:** Exercise generation is pure computation over lesson JSONB with no DB dependency. Lives in lib/ so both Server Components (first question set SSR) and client hooks can import it.
+- **lib/exercises/srs.ts:** FSRS schedule math is pure TypeScript. Separation from DB queries keeps it testable in isolation.
+- **progress-queries.ts separate from queries.ts:** Progress logic is conceptually distinct from content queries; avoids bloating the existing file.
+- **migrations/0002_vocab_global.sql:** Drizzle Kit does not support materialized view DDL. The view is created via a raw migration file run alongside the normal schema push.
 
 ---
 
 ## Architectural Patterns
 
-### Pattern 1: Polling-Based Lyric Sync via Interval
+### Pattern 1: Client-Side Exercise Generation from Server-Fetched JSONB
 
-**What:** A `useEffect` sets up a `setInterval` at ~250ms that calls `player.getCurrentTime()` and computes which lyric verse is active by binary searching the timed lyrics array.
+**What:** The server fetches the song's lesson JSONB once (via the existing `getSongBySlug` query). The client receives the full lesson object and generates exercise questions deterministically in the browser using a pure function. No additional DB query, no pre-computation step.
 
-**When to use:** YouTube iframe API does not emit time-update events. Polling is the only supported approach for time-based sync. 250ms gives sub-quarter-second accuracy — sufficient for verse-level (not word-level) sync.
+**When to use:** All exercise question generation. The JSONB already contains `surface`, `reading`, `romaji`, `meaning`, `jlpt_level`, `grammar` per token and vocab entry.
 
-**Trade-offs:** Small CPU cost from constant polling; acceptable because it only runs when video is playing. Pause `onStateChange` to stop the interval when the video is not in state `PLAYING`.
+**Trade-offs:** Eliminates a pre-computation pipeline and round-trip. Questions generate in <5ms for ~20-50 vocab items. Distractors are sampled from the same in-memory vocab array. The downside is that exercise sets cannot be pre-seeded — they only exist for songs a user has opened.
 
+**Example:**
 ```typescript
-// lib/youtube/useYouTubeSync.ts
-export function useYouTubeSync(player: YT.Player | null, verses: TimedVerse[]) {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (!player) return;
-
-    const interval = setInterval(() => {
-      const state = player.getPlayerState();
-      if (state !== YT.PlayerState.PLAYING) return;
-
-      const t = player.getCurrentTime();
-      const idx = verses.findLastIndex(v => v.startTime <= t);
-      setActiveIndex(Math.max(0, idx));
-    }, 250);
-
-    return () => clearInterval(interval);
-  }, [player, verses]);
-
-  return activeIndex;
+// lib/exercises/generator.ts — pure, no DB
+export function generateVocabExercises(
+  vocab: VocabEntry[],
+  userMastery: Map<string, SRSState>
+): Exercise[] {
+  return vocab.map(entry => ({
+    id: `${entry.surface}::${entry.reading}`,
+    type: "meaning-recall",
+    prompt: entry.surface,
+    answer: localize(entry.meaning, "en"),
+    distractors: sampleDistractors(vocab, entry, 3),
+    srsState: userMastery.get(`${entry.surface}::${entry.reading}`) ?? newCard(),
+  }));
 }
 ```
 
-**Source confidence:** HIGH — pattern confirmed by official YouTube IFrame API docs + multiple React integration examples.
-
 ---
 
-### Pattern 2: Pre-Generated Content as Structured JSON in Postgres
+### Pattern 2: Server-Authoritative SRS State, Client-Side Schedule Computation
 
-**What:** Run the Claude API pipeline offline (not at request time). Store the full structured lesson object (verses, tokens, furigana, translations, grammar tags, vocabulary) as a JSONB column in Postgres alongside normalized relational fields for querying.
+**What:** The DB owns the canonical SRS state (difficulty, stability, due date) per (user_id, vocab_key). The Server Component fetches the current state for a song's vocab keys. The user rates their recall (Again / Hard / Good / Easy). The `ts-fsrs` library runs client-side to compute the next schedule. The result is POSTed to `/api/progress` as a single-row upsert.
 
-**When to use:** With 200 songs and content that changes rarely, there is no reason to call Claude at request time. Pre-generation gives instant page loads, predictable costs, and zero AI latency in the user path.
+**When to use:** All SRS scheduling for authenticated users. For anonymous users, state lives in `localStorage` until account creation, then migrated server-side.
 
-**Trade-offs:** Requires a re-run pipeline when content needs updating. JSONB avoids over-normalizing a complex nested structure that is read-only after generation.
+**Trade-offs:** Running FSRS client-side keeps the review loop latency-free (no mid-session DB reads). Each review is a single-row upsert — well within Neon HTTP driver's non-interactive transaction support. The server always wins on conflicts (last-write wins is acceptable for SRS).
 
-```sql
--- songs table
-CREATE TABLE songs (
-  id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  slug        text UNIQUE NOT NULL,        -- URL-safe identifier
-  title       text NOT NULL,
-  artist      text NOT NULL,
-  anime       text,
-  youtube_id  text NOT NULL,               -- The YouTube video ID
-  tier        text NOT NULL DEFAULT 'free', -- 'free' | 'premium'
-  lesson      jsonb NOT NULL,              -- Full pre-generated lesson blob
-  embedding   vector(1536),               -- For pgvector search
-  created_at  timestamptz DEFAULT now()
-);
+**Example:**
+```typescript
+// Client component — after user rates a card
+import { fsrs, createEmptyCard, Rating } from "ts-fsrs";
 
--- Index for fast vector similarity search
-CREATE INDEX songs_embedding_idx ON songs
-  USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+const f = fsrs();
+const scheduling = f.repeat(card.srsState, new Date());
+const nextState = scheduling[rating].card;
+
+// Single HTTP call to persist
+await fetch("/api/progress", {
+  method: "POST",
+  body: JSON.stringify({ vocabKey: card.id, nextState }),
+});
+```
+
+```typescript
+// /api/progress/route.ts
+await db.insert(userProgress)
+  .values({ userId, vocabKey, ...nextState })
+  .onConflictDoUpdate({
+    target: [userProgress.userId, userProgress.vocabKey],
+    set: { ...nextState, updated_at: new Date() }
+  });
 ```
 
 ---
 
-### Pattern 3: pgvector Semantic Search via Route Handler
+### Pattern 3: Middleware-Based Plan Gating (Not Component-Level)
 
-**What:** AI chatbox POSTs the user's natural-language query to `/api/search/semantic`. The route handler embeds the query using the same model used at index time (text-embedding-3-small), then runs a Supabase RPC `match_songs` function that uses pgvector cosine similarity. Returns the top-N songs ranked by similarity.
+**What:** Route protection happens entirely in `middleware.ts`. Auth checks block unauthenticated access to `/exercises/*`, `/vocabulary/*`, `/kana/*`. Plan-tier checks redirect free users from premium routes. Middleware reads only the JWT — no DB call.
 
-**When to use:** User wants to search by feel ("sad anime song about leaving home") not exact keywords. With only 200 songs, exact-keyword search would be too brittle.
+**When to use:** Any route that must be completely inaccessible (not just visually disabled). The user's plan tier is encoded in the JWT at sign-in via Auth.js `jwt()` callback by reading `users.plan` from the DB.
 
-**Trade-offs:** Requires one OpenAI embedding API call per search (~$0.00002 per call — negligible). Embedding quality determines search quality; use the same model for indexing and querying.
+**Trade-offs:** JWT-encoded plan means a downgrade takes effect only at next session refresh (acceptable for a learning app). Stripe webhook updates `users.plan` in DB; next login reissues the JWT with the correct plan. This is the standard Next.js pattern for subscription gating without Edge DB access.
 
-```sql
--- Supabase RPC for similarity search
-CREATE OR REPLACE FUNCTION match_songs(
-  query_embedding vector(1536),
-  match_threshold float DEFAULT 0.7,
-  match_count int DEFAULT 10
-)
-RETURNS TABLE (id uuid, title text, artist text, similarity float)
-LANGUAGE sql STABLE AS $$
-  SELECT id, title, artist, 1 - (embedding <=> query_embedding) AS similarity
-  FROM songs
-  WHERE 1 - (embedding <=> query_embedding) > match_threshold
-  ORDER BY similarity DESC
-  LIMIT match_count;
-$$;
+**Example:**
+```typescript
+// middleware.ts
+import { auth } from "@/lib/auth";
+export default auth((req) => {
+  const premiumRoutes = ["/vocabulary", "/vocabulary/review"];
+  const isPremium = premiumRoutes.some(r => req.nextUrl.pathname.startsWith(r));
+  
+  if (isPremium && req.auth?.user?.plan !== "premium") {
+    return NextResponse.redirect(new URL("/upgrade", req.url));
+  }
+});
+
+export const config = {
+  matcher: ["/exercises/:path*", "/vocabulary/:path*", "/kana/:path*"],
+};
 ```
 
 ---
 
-### Pattern 4: Freemium Gating via Supabase RLS + Middleware
+### Pattern 4: Materialized View for Cross-Song Vocabulary Index
 
-**What:** Each user has a `plan` field (`free` | `premium`) in a `user_profiles` table. Songs have a `tier` field. RLS policies on the `songs` table expose all metadata but gate the `lesson` JSONB column for premium songs. Next.js middleware checks the session before rendering `/songs/[slug]` for premium content.
+**What:** A PostgreSQL materialized view (`vocab_global`) aggregates all vocab entries from all `song_versions.lesson` JSONB columns, deduplicating by `(surface, reading)` and collecting song_id references. Drizzle reads from it via raw SQL. Refreshed as part of the seeding pipeline.
 
-**When to use:** This is simpler and more secure than application-level checks. The database refuses to return premium lesson data for free users — there is no way to accidentally expose it from a missed API check.
+**When to use:** The cross-song vocabulary dashboard, "words appearing in X songs" display, and global vocab search. Data changes only when new songs are seeded (rare), so stale-by-refresh is acceptable.
 
-**Trade-offs:** RLS adds query complexity; test policies carefully in Supabase Studio before deploying.
+**Trade-offs:** Simpler than maintaining a separate normalized `vocabulary` table with FK rows per song. No application-side sync logic — refresh is a single SQL command in the pipeline. The tradeoff is Drizzle does not manage the DDL, so it lives in a separate migration file.
 
+**Example:**
 ```sql
--- RLS policy: premium lesson content
-CREATE POLICY "lesson_access" ON songs
-  AS RESTRICTIVE
-  USING (
-    tier = 'free'  -- Free songs: always accessible
-    OR EXISTS (
-      SELECT 1 FROM user_profiles
-      WHERE user_profiles.user_id = auth.uid()
-        AND user_profiles.plan = 'premium'
-    )
-  );
+-- migrations/0002_vocab_global.sql
+CREATE MATERIALIZED VIEW vocab_global AS
+SELECT
+  v->>'surface'                  AS surface,
+  v->>'reading'                  AS reading,
+  v->>'romaji'                   AS romaji,
+  v->>'jlpt_level'               AS jlpt_level,
+  jsonb_agg(DISTINCT sv.song_id) AS song_ids,
+  count(DISTINCT sv.song_id)     AS song_count
+FROM song_versions sv,
+     jsonb_array_elements(sv.lesson->'vocabulary') AS v
+WHERE sv.lesson IS NOT NULL
+GROUP BY v->>'surface', v->>'reading', v->>'romaji', v->>'jlpt_level';
+
+-- Required for REFRESH CONCURRENTLY
+CREATE UNIQUE INDEX ON vocab_global (surface, reading);
+CREATE INDEX ON vocab_global (jlpt_level);
 ```
+
+---
+
+## Database Schema Design
+
+### New Tables (extend schema.ts)
+
+```typescript
+// Users table — populated by Auth.js Drizzle adapter
+export const users = pgTable("users", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  email: text("email").unique().notNull(),
+  name: text("name"),
+  image: text("image"),
+  plan: text("plan").default("free").notNull(),       // "free" | "premium"
+  stripe_customer_id: text("stripe_customer_id"),
+  stripe_subscription_id: text("stripe_subscription_id"),
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+// Per-user SRS state — one row per (user, vocab_key)
+// vocab_key = `${surface}::${reading}` — stable, derived from JSONB
+export const userProgress = pgTable("user_progress", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  user_id: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  vocab_key: text("vocab_key").notNull(),  // `${surface}::${reading}`
+  // FSRS v5 fields
+  due: timestamp("due", { withTimezone: true }).notNull(),
+  stability: real("stability").notNull().default(0),
+  difficulty: real("difficulty").notNull().default(0),
+  elapsed_days: integer("elapsed_days").notNull().default(0),
+  scheduled_days: integer("scheduled_days").notNull().default(0),
+  reps: integer("reps").notNull().default(0),
+  lapses: integer("lapses").notNull().default(0),
+  state: text("state").notNull().default("New"), // New | Learning | Review | Relearning
+  last_review: timestamp("last_review", { withTimezone: true }),
+  updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+}, (table) => ({
+  user_vocab_idx: uniqueIndex("user_progress_user_vocab_idx").on(table.user_id, table.vocab_key),
+  due_idx: index("user_progress_due_idx").on(table.user_id, table.due),
+}));
+
+// Per-user kana mastery — one row per (user, kana character)
+export const kanaProgress = pgTable("kana_progress", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  user_id: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  kana: text("kana").notNull(),        // the character e.g. "あ"
+  script: text("script").notNull(),    // "hiragana" | "katakana"
+  // Same FSRS fields
+  due: timestamp("due", { withTimezone: true }).notNull(),
+  stability: real("stability").notNull().default(0),
+  difficulty: real("difficulty").notNull().default(0),
+  reps: integer("reps").notNull().default(0),
+  lapses: integer("lapses").notNull().default(0),
+  state: text("state").notNull().default("New"),
+  last_review: timestamp("last_review", { withTimezone: true }),
+}, (table) => ({
+  user_kana_idx: uniqueIndex("kana_progress_user_kana_idx").on(table.user_id, table.kana),
+}));
+```
+
+### Key Schema Decisions
+
+- **vocab_key as string composite** (`surface::reading`) rather than a FK to a vocabulary table: Avoids the migration complexity of normalizing all JSONB vocab. The key is stable because it derives from the canonical Japanese identifiers in the JSONB. Progress rows can be written before any vocabulary normalization exists.
+- **FSRS fields as individual columns**, not JSONB blob: The `due` column needs a standard index for the "cards due today" query. JSONB would require a functional index and more complex Drizzle queries.
+- **No song_id FK on user_progress**: Progress is per vocab item globally. The same word appearing in two songs shares one progress row. This is the desired behavior for cross-song mastery tracking.
 
 ---
 
 ## Data Flow
 
-### Song Player Page Load
+### Exercise Session Flow
 
 ```
-Browser requests /songs/[slug]
+User opens /songs/[slug]/exercises
     ↓
-Next.js Server Component
-    ↓ Supabase server client (service role or user session)
-Postgres: SELECT song + lesson WHERE slug = ?
-    ↓ (RLS filters lesson if user is free-tier and song is premium)
-Server Component renders HTML shell + passes lesson JSON to Client Components
+Server Component (page.tsx):
+  1. getSongBySlug(slug) — existing query, no change
+  2. getUserProgressForSong(userId, vocabKeys) — new query
+     SELECT * FROM user_progress WHERE user_id = $1 AND vocab_key = ANY($2)
     ↓
-Client hydrates:
-  - YouTubePlayer (loads iframe, waits for onReady)
-  - LyricDisplay (receives pre-rendered verse array)
+Props passed to <ExerciseSession> client component:
+  { lesson: Lesson, userProgress: Record<string, SRSState> }
     ↓
-useYouTubeSync hook starts 250ms polling interval
+generator.ts builds Exercise[] from lesson.vocabulary + existing SRS states
+(pure computation, <5ms, no network)
     ↓
-activeVerseIndex updates → LyricDisplay re-renders active verse
+User answers each question (client-side only)
+    ↓
+ts-fsrs computes next schedule client-side (no network)
+    ↓
+POST /api/progress { vocabKey, nextSrsState, rating }
+    ↓
+Server upserts user_progress row (single-row, Neon HTTP-safe)
+    ↓
+Client updates local state optimistically
 ```
 
-### AI Song Search
+### Cross-Song Vocabulary Dashboard Flow
 
 ```
-User types query in AIChatbox
+User opens /vocabulary (premium route — already checked by middleware)
     ↓
-POST /api/search/semantic { query: "..." }
+Server Component queries:
+  SELECT vg.*, up.state, up.due
+  FROM vocab_global vg
+  LEFT JOIN user_progress up ON up.vocab_key = vg.surface || '::' || vg.reading
+    AND up.user_id = $userId
+  ORDER BY up.due ASC NULLS LAST
     ↓
-Route Handler: OpenAI text-embedding-3-small(query) → vector[1536]
+Rendered as server-side HTML table/grid
     ↓
-Supabase RPC match_songs(vector) → ranked song list
+"Review due items" → /vocabulary/review
     ↓
-Response: [{ id, title, artist, similarity }]
-    ↓
-AIChatbox renders song cards
+/vocabulary/review: same ExerciseSession component
+  seeded from global due-for-review items, not a single song
 ```
 
-### Content Generation Pipeline (offline)
+### Auth + Plan Gating Flow
 
 ```
-scripts/generate-lesson/index.ts reads song manifest CSV
+User requests /vocabulary (premium route)
     ↓
-For each song:
-  Claude API (claude-3-5-sonnet) → structured lesson JSON
-    (verses, tokens, furigana, translations, grammar_tags, vocab)
+middleware.ts (Edge runtime, reads JWT only — no DB)
     ↓
-  OpenAI text-embedding-3-small(title + artist + anime + themes) → vector
+session.user.plan === "free" → redirect /upgrade
     ↓
-  Supabase upsert: songs table (lesson JSONB + embedding)
+User subscribes → Stripe webhook fires → POST /api/webhooks/stripe
+    ↓
+Route handler updates: users SET plan = 'premium' WHERE stripe_customer_id = $id
+    ↓
+User signs out + signs in → Auth.js jwt() callback reads users.plan from DB
+    → encodes plan: "premium" in JWT
+    ↓
+middleware.ts reads plan from JWT → allows /vocabulary
 ```
 
-### Auth + Freemium Check
+### Kana Trainer Anonymous → Auth Migration Flow
 
 ```
-User navigates to /songs/[slug]
+Anonymous user opens /kana
     ↓
-Next.js Middleware checks Supabase session cookie
-  - No session → redirect /login
-  - Has session → continue
+No DB query — 46 hiragana + 46 katakana are static data
+Exercise state → localStorage key "kana_progress"
     ↓
-Server Component fetches lesson
-  - RLS: if song.tier = 'premium' AND user.plan = 'free' → lesson = null
+User creates account
     ↓
-Client Component: if lesson = null → render upgrade CTA, not player
+On first authenticated load of /kana:
+  client reads localStorage, POSTs to /api/kana/migrate
+  server writes kanaProgress rows from the localStorage payload
+  localStorage cleared
 ```
+
+---
+
+## Integration Points with Existing Code
+
+### Component Change Summary
+
+| File | Action | What Changes |
+|------|--------|--------------|
+| `src/lib/db/schema.ts` | Modify | Add `users`, `userProgress`, `kanaProgress` tables + Auth.js tables |
+| `src/lib/db/queries.ts` | No change | All existing queries remain intact |
+| `src/lib/db/progress-queries.ts` | New | getUserProgressForSong, getDueCards, upsertProgress |
+| `src/lib/types/lesson.ts` | No change | Existing types consumed as-is by exercise generator |
+| `src/app/songs/[slug]/page.tsx` | Modify | Fetch userProgress for song vocab keys; pass to SongContent |
+| `src/app/songs/[slug]/components/SongContent.tsx` | Modify | Accept exerciseData prop; add Exercise tab alongside Vocabulary tab |
+| `src/app/songs/[slug]/components/VocabularySection.tsx` | Modify | Accept mastery map; render SRS state badge per vocab entry |
+| `src/app/songs/[slug]/components/PlayerContext.tsx` | No change | Untouched |
+| `src/app/layout.tsx` | Modify | Add SessionProvider; add Vocab/Kana nav links |
+| `middleware.ts` | New | Auth check + plan gating; matcher covers /exercises, /vocabulary, /kana |
+| `src/lib/auth/index.ts` | New | Auth.js v5 config (Drizzle adapter, JWT callback encodes plan) |
+| `src/lib/exercises/generator.ts` | New | Pure fn: VocabEntry[] + SRS map → Exercise[] |
+| `src/lib/exercises/srs.ts` | New | Thin wrapper: ts-fsrs createEmptyCard, fsrs().repeat() |
+| `src/app/songs/[slug]/exercises/page.tsx` | New | RSC shell for exercise session |
+| `src/app/kana/page.tsx` | New | Kana trainer (static chars + localStorage SRS) |
+| `src/app/vocabulary/page.tsx` | New | Cross-song vocab dashboard (premium) |
+| `src/app/api/progress/route.ts` | New | POST: upsert user_progress row |
+| `src/app/api/webhooks/stripe/route.ts` | New | Stripe subscription sync |
+| `migrations/0002_vocab_global.sql` | New | Raw SQL: CREATE MATERIALIZED VIEW vocab_global |
+
+### Neon HTTP Driver Constraint
+
+The existing codebase uses `drizzle-orm/neon-http`, which supports non-interactive (batch) transactions only — no interactive multi-statement transactions. All new writes are single-row upserts; none require interactive transactions. If a future feature requires atomic multi-row operations, switch only that endpoint to the WebSocket driver (`@neondatabase/serverless` with `drizzle-orm/neon-serverless`) while keeping all other routes on HTTP.
 
 ---
 
 ## Suggested Build Order
 
-The component dependencies create a natural build order:
+Dependencies create the following natural sequence:
 
-1. **Database schema + migrations** — Everything depends on this. Define `songs`, `lyrics` (timed JSON structure), `user_profiles`, and `embeddings` tables with RLS policies before any app code.
+1. **Auth layer** (users table + Auth.js v5 + middleware): Everything gated or user-specific depends on this. Build it first with no features behind it — just sign in/out working.
 
-2. **Content generation pipeline** — Before building the player UI, you need real lesson data in the database. Build the CLI script first, run it on 5-10 songs, and use that data to drive UI development. This also validates your data model before it gets used everywhere.
+2. **Database schema additions** (userProgress, kanaProgress tables + drizzle-kit generate/push): Required before any progress writes. Migrations are fast to run but must precede exercise work.
 
-3. **Song page + static lyric display** — Build the Server Component page that fetches and renders a lesson. No sync, no YouTube yet — just verify the data model renders correctly as HTML with furigana.
+3. **vocab_global materialized view** (raw SQL migration + refresh hook in seeding pipeline): Enables the cross-song dashboard. Can be built in parallel with auth.
 
-4. **YouTube iframe integration + sync engine** — Add the player and wire up `useYouTubeSync`. This is the highest-risk component (browser API, cross-origin iframe) so isolate it. Test on multiple browsers.
+4. **Exercise generator + ts-fsrs wrapper** (pure TypeScript, no DB): lib/exercises/*.ts can be written and unit-tested with no server dependency. Build this before any UI that depends on it.
 
-5. **Auth + freemium gating** — Add Supabase Auth, user profiles, and RLS policies. Implement middleware. At this point the app is functional but unprotected.
+5. **Per-song exercise session** (/songs/[slug]/exercises page + ExerciseSession component + /api/progress route): First user-facing exercise feature. Depends on auth (1), schema (2), and generator (4).
 
-6. **AI search chatbox** — Add semantic search route handler and UI. Depends on embeddings being populated (from step 2) and auth (from step 5) for rate-limiting.
+6. **Kana trainer** (/kana page): Simpler than exercises — no server state for anonymous users. Depends on auth for the migration endpoint only.
 
-7. **Payments (Stripe)** — Wire Stripe to flip `user_profiles.plan`. Depends on auth working correctly.
+7. **Cross-song vocabulary dashboard** (/vocabulary, /vocabulary/review pages): Depends on vocab_global (3), exercise session pattern (5), and premium gating in middleware (1).
 
----
-
-## Integration Points
-
-### External Services
-
-| Service | Integration Pattern | Notes |
-|---------|---------------------|-------|
-| YouTube iframe API | Browser-loaded script (`youtube.com/iframe_api`), instantiated via `YT.Player` constructor in a `useEffect` | No API key required for basic embedding. Must handle `onReady` before calling any methods. Cross-origin restrictions limit some event access. |
-| Claude API (Anthropic) | Called only in offline pipeline script, never from browser or request path | Use `claude-3-5-sonnet` for structured output (tool_use / JSON mode). Batch song generation in series to manage rate limits. |
-| OpenAI Embeddings API | Called in offline pipeline (indexing) and in `/api/search/semantic` route handler (query time) | Use `text-embedding-3-small` consistently for both. Dimension: 1536. Cost is negligible at 200 songs. |
-| Supabase Auth | Supabase SSR client with cookie-based sessions; Next.js middleware validates session on each request | Use `@supabase/ssr` package (not deprecated `@supabase/auth-helpers-nextjs`). |
-| Stripe | Webhook → Supabase Edge Function → flip `user_profiles.plan` | Do not trust client-side Stripe events to update plan. Webhook is authoritative. |
-
-### Internal Boundaries
-
-| Boundary | Communication | Notes |
-|----------|---------------|-------|
-| Server Component ↔ Client Component | Props (serializable only — no functions, no class instances) | Pass the full `lesson` JSON from server; Client Components consume it locally without further fetches. |
-| YouTubePlayer ↔ LyricSyncEngine | React ref forwarding; the ref holds the `YT.Player` instance | Do not lift player state to a global store — keep it scoped to the player page. |
-| LyricSyncEngine ↔ LyricDisplay | `activeVerseIndex: number` passed as prop | Keep the sync engine and display decoupled — display only needs the index, not the player. |
-| App ↔ Supabase | `@supabase/ssr` browser client for client components; server client via Next.js `cookies()` for server components and route handlers | Never use the anon key in route handlers when user context is needed — always use the session-scoped server client. |
-| Pipeline Script ↔ Supabase | Supabase service-role key (bypasses RLS) | Store in `.env.local`, never commit. Only used in offline scripts, never deployed to Vercel. |
+8. **Stripe integration** (upgrade page + /api/webhooks/stripe): Depends on users table (2) and auth (1). Build last to avoid payment complexity blocking feature development.
 
 ---
 
@@ -366,98 +442,82 @@ The component dependencies create a natural build order:
 
 | Scale | Architecture Adjustments |
 |-------|--------------------------|
-| 0-1k users | Current architecture is sufficient. Supabase free tier handles it. No CDN caching needed beyond Vercel's default. |
-| 1k-10k users | Add ISR (Incremental Static Regeneration) to song pages — content is pre-generated and changes rarely, so pages can be cached at the edge. Add rate limiting to `/api/search/semantic` to prevent embedding API cost runaway. |
-| 10k-100k users | pgvector IVFFlat index needs reindexing as song count grows (rebuild when lists parameter is tuned). Consider caching popular search queries (Redis/Upstash) to avoid repeated embedding calls. Supabase Pro tier needed for connection pooling. |
-| 100k+ users | Song content is static — move to CDN-delivered JSON blobs (R2/S3) rather than database reads per page load. Supabase remains only for auth and user progress data. |
+| 0-1k users | Current approach is sufficient; no additional caching needed |
+| 1k-10k users | Add `REFRESH MATERIALIZED VIEW CONCURRENTLY vocab_global` to a cron job. Cache due-card count per user in Upstash Redis for nav badge (avoid per-request DB hit) |
+| 10k-100k users | Partition `user_progress` by `user_id` hash range. Read replica for vocab dashboard queries. Ensure covering indexes exist on `(user_id, due)` |
+| 100k+ users | Queue SRS write path via Vercel Queue or Upstash QStash to handle burst review traffic without overwhelming Neon's connection pool |
 
 ### Scaling Priorities
 
-1. **First bottleneck: OpenAI embedding API calls at search time.** Every search fires an API call. Fix: cache embeddings for frequent queries in Redis (Upstash), or pre-embed common search categories.
-
-2. **Second bottleneck: Supabase connection pool exhaustion.** Next.js Server Components can open many concurrent DB connections. Fix: use Supabase's connection pooler (PgBouncer) on Pro tier, or switch to Supabase Edge Functions for DB-heavy routes.
+1. **First bottleneck:** `user_progress` table growing to millions of rows. Mitigation: composite unique index on `(user_id, vocab_key)` and separate index on `(user_id, due)` from day one — included in schema above.
+2. **Second bottleneck:** `vocab_global` refresh blocking concurrent reads. Mitigation: use `REFRESH MATERIALIZED VIEW CONCURRENTLY` which requires the unique index (already specified).
 
 ---
 
 ## Anti-Patterns
 
-### Anti-Pattern 1: Calling Claude API at Request Time
+### Anti-Pattern 1: Storing SRS State in JSONB or Session Cookies
 
-**What people do:** Build a `/api/lesson/generate` endpoint that calls Claude when a user loads a song page — treating it like a real-time AI app.
+**What people do:** Add a `user_progress JSONB` column to the users table or store SRS cards in session cookies as a blob.
 
-**Why it's wrong:** Claude API latency (2-10 seconds) makes page load unbearable. Costs scale with users, not with content. You lose control over content quality (can't review before users see it). You risk rate limits under traffic spikes.
+**Why it's wrong:** JSONB cannot be efficiently indexed by `due` date. "Cards due today" becomes a full table scan. No conflict resolution on concurrent writes across devices. Cookies have size limits.
 
-**Do this instead:** Pre-generate all 200 songs offline, store the structured output in Postgres, serve it as static data. The app has no AI latency in the user path at all.
-
----
-
-### Anti-Pattern 2: Storing Lyrics as Flat Strings
-
-**What people do:** Store lyrics as a single `text` field (one big string with newlines), then try to do timestamp matching and furigana rendering client-side.
-
-**Why it's wrong:** You cannot efficiently binary-search timestamps in a flat string. Furigana data has no place to live. Grammar color-coding has no structure. This forces fragile text-parsing on every render.
-
-**Do this instead:** Store lyrics as a structured JSON array of verse objects at generation time:
-
-```json
-{
-  "verses": [
-    {
-      "startTime": 12.4,
-      "endTime": 16.8,
-      "tokens": [
-        {
-          "surface": "夢",
-          "reading": "ゆめ",
-          "romaji": "yume",
-          "grammar": "noun",
-          "meaning": "dream"
-        }
-      ],
-      "translation": "A dream..."
-    }
-  ]
-}
-```
-
-The Claude generation pipeline produces this structure. The player consumes it directly.
+**Do this instead:** One row per (user_id, vocab_key) in a dedicated `user_progress` table with a typed `due timestamp` column and a composite index.
 
 ---
 
-### Anti-Pattern 3: Deriving Furigana Client-Side with a Library
+### Anti-Pattern 2: Pre-Computing All Exercise Questions Server-Side
 
-**What people do:** Ship a Japanese NLP library (like kuromoji.js, ~30MB) to the browser to auto-generate furigana at render time.
+**What people do:** Add a pipeline step to generate all possible exercises and store them as DB rows before any user visits.
 
-**Why it's wrong:** 30MB bundle addition. Auto-generated furigana for song lyrics has significant error rates on poetic/archaic usage. No room for manual correction.
+**Why it's wrong:** Overkill for content that is already fully machine-readable JSONB. Adds pipeline complexity, storage cost, and a new table to maintain. Questions break if the lesson JSONB is corrected.
 
-**Do this instead:** Pre-generate furigana per-token during the Claude pipeline (or supplement with a server-side NLP call at generation time). Store verified furigana as part of the lesson JSON. Ship zero NLP code to the browser.
+**Do this instead:** Generate exercises client-side from the lesson JSONB at session start. The generation is O(n) over ~20-50 vocab items — imperceptible latency. Distractors are sampled from the same in-memory vocab array.
 
 ---
 
-### Anti-Pattern 4: Implementing Feature Gating Only in UI
+### Anti-Pattern 3: Component-Level Plan Checks as the Only Gate
 
-**What people do:** Hide the premium content in React (don't render the component for free users) but still fetch all lesson data from the API.
+**What people do:** Render premium content but wrap it in `if (user.plan !== 'premium') return <UpgradePrompt />`.
 
-**Why it's wrong:** Any user can inspect network traffic and retrieve the premium lesson JSON. React rendering is not a security boundary.
+**Why it's wrong:** Server Components still run their data queries. The premium data may appear in page source. Route protection is fragmented across many files and easy to miss.
 
-**Do this instead:** Enforce gating at the database layer via RLS. The `lesson` JSONB column for premium songs simply does not return data for free-tier users. The API response is structurally empty, not just hidden.
+**Do this instead:** Block at `middleware.ts` for full pages. The route handler for `/api/progress` must also verify the user's plan for premium-gated exercise types. Component-level checks are acceptable only for UI teasing (showing a lock icon on a locked feature), not for data security.
+
+---
+
+### Anti-Pattern 4: Normalizing All Vocab into Relational Tables as a Prerequisite
+
+**What people do:** Refactor lesson JSONB into `vocabulary`, `tokens`, and `grammar_points` tables before building any exercise features, treating normalization as required scaffolding.
+
+**Why it's wrong:** The JSONB model is working and efficient for current use. A normalization migration is high-effort with risk of data loss. Exercise generation does not require normalized tables — it reads from the already-fetched lesson object.
+
+**Do this instead:** Keep JSONB. Use the `vocab_global` materialized view for cross-song aggregation. Use string composite keys for progress FK. Normalize only if you hit a concrete limitation that the materialized view cannot solve.
+
+---
+
+## External Service Integration
+
+| Service | Integration Pattern | Notes |
+|---------|---------------------|-------|
+| Auth.js v5 (`next-auth@beta`) | Database adapter using Drizzle; JWT `jwt()` callback encodes `users.plan` | Use `@auth/drizzle-adapter`. Plan in JWT avoids per-request DB read in Edge middleware. Social OAuth (Google/GitHub) requires no extra tables |
+| ts-fsrs (npm) | Client-side import only; pure computation, no server dependency | v6 preferred; ~13KB gzipped. Run schedule computation in the browser after each user rating |
+| Stripe | Embedded Checkout for subscription; webhook at `/api/webhooks/stripe` syncs plan to DB | Exclude `/api/webhooks/stripe` from auth middleware matcher. Store `stripe_customer_id` on users table for customer portal access |
 
 ---
 
 ## Sources
 
-- YouTube IFrame Player API Reference (updated March 15, 2026): https://developers.google.com/youtube/iframe_api_reference — HIGH confidence
-- Supabase pgvector / Vector Search docs: https://supabase.com/docs/guides/ai/semantic-search — HIGH confidence
-- Supabase Row Level Security docs: https://supabase.com/docs/guides/database/postgres/row-level-security — HIGH confidence
-- Next.js App Router data fetching: https://nextjs.org/docs/app/getting-started/fetching-data — HIGH confidence
-- Next.js Server vs Client Components: https://nextjs.org/docs/app/getting-started/server-and-client-components — HIGH confidence
-- freemium gating Next.js + Supabase pattern: https://www.skene.ai/nextjs-supabase-nextauth-stripe-freemium-gating-apps — MEDIUM confidence (third-party, consistent with official Supabase RLS docs)
-- React YouTube iframe polling pattern: https://www.freecodecamp.org/news/use-the-youtube-iframe-api-in-react/ — MEDIUM confidence
-- LRC/JSON lyric data model research: https://www.blog.brightcoding.dev/2025/12/13/the-ultimate-guide-to-automating-synchronized-lyrics-for-your-music-library-2025/ — MEDIUM confidence
-- HTML ruby/furigana spec: https://www.w3.org/International/questions/qa-ruby — HIGH confidence
-- Supabase + Next.js vector search example: https://supabase.com/docs/guides/ai/examples/nextjs-vector-search — HIGH confidence
+- Drizzle + Neon HTTP driver docs: https://orm.drizzle.team/docs/connect-neon — HIGH confidence
+- Neon HTTP driver transaction limitations: https://github.com/neondatabase/serverless/issues/31 — HIGH confidence
+- ts-fsrs TypeScript FSRS implementation: https://github.com/open-spaced-repetition/ts-fsrs — HIGH confidence
+- FSRS algorithm overview: https://open-spaced-repetition.github.io/ts-fsrs/ — HIGH confidence
+- Auth.js v5 migration guide: https://authjs.dev/getting-started/migrating-to-v5 — HIGH confidence
+- Stripe + Next.js 15 App Router integration: https://www.pedroalonso.net/blog/stripe-nextjs-complete-guide-2025/ — MEDIUM confidence
+- PostgreSQL materialized view indexing: https://www.crunchydata.com/blog/indexing-materialized-views-in-postgres — HIGH confidence
+- Neon Postgres serverless driver docs: https://neon.com/docs/serverless/serverless-driver — HIGH confidence
 
 ---
 
-*Architecture research for: KitsuBeat — anime song Japanese learning web app*
-*Researched: 2026-04-06*
+*Architecture research for: KitsuBeat exercise/learning system integration*
+*Researched: 2026-04-13*
