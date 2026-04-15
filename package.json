@@ -15,7 +15,8 @@
     "qa:coverage": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/06-qa-agent.ts",
     "seed:dev": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/07-dev-seed.ts",
     "pipeline": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/run-pipeline.ts",
-    "generate:lessons": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/03b-generate-content-sequential.ts"
+    "generate:lessons": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/03b-generate-content-sequential.ts",
+    "backfill:vocab": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-vocab-identity.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
