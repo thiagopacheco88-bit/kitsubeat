@@ -25,6 +25,13 @@ const GrammarColorEnum = z.enum(["blue", "red", "green", "orange", "grey", "none
 const JlptLevelEnum = z.enum(["N5", "N4", "N3", "N2", "N1", "unknown"]);
 
 /**
+ * Localizable field: multilingual object with en/pt-BR/es keys.
+ */
+const LocalizableSchema = z.record(z.string(), z.string()).describe(
+  'Multilingual text keyed by language code: {"en": "...", "pt-BR": "...", "es": "..."}'
+);
+
+/**
  * TokenSchema: a single word token within a verse.
  * Stores kanji surface form, furigana reading, romaji, grammar info, and JLPT level.
  */
@@ -34,7 +41,7 @@ export const TokenSchema = z.object({
   romaji: z.string().describe("Hepburn romaji transliteration (from kuroshiro)"),
   grammar: GrammarTypeEnum.describe("Grammatical category for color-coding"),
   grammar_color: GrammarColorEnum.describe("UI color assigned to this grammar type"),
-  meaning: z.string().describe("English gloss / meaning of this word"),
+  meaning: LocalizableSchema.describe("Multilingual meaning/gloss for this word"),
   jlpt_level: JlptLevelEnum.describe("JLPT level assigned to this token"),
 });
 
@@ -58,13 +65,12 @@ export const VerseSchema = z.object({
     .describe(
       'Translations keyed by language code, e.g., { "en": "...", "pt-BR": "...", "es": "..." }'
     ),
-  literal_meaning: z
-    .string()
-    .describe("Word-for-word literal breakdown of the verse"),
-  cultural_context: z
-    .string()
-    .optional()
-    .describe("Cultural or emotional context note for this verse"),
+  literal_meaning: LocalizableSchema.describe(
+    "Multilingual word-for-word literal breakdown of the verse"
+  ),
+  cultural_context: LocalizableSchema.optional().describe(
+    "Multilingual cultural or emotional context note for this verse"
+  ),
 });
 
 export type Verse = z.infer<typeof VerseSchema>;
@@ -80,7 +86,7 @@ export const VocabEntrySchema = z.object({
     .enum(["noun", "verb", "adjective", "adverb", "particle", "expression"])
     .describe("Grammatical part of speech"),
   jlpt_level: JlptLevelEnum.describe("JLPT level for this vocabulary entry"),
-  meaning: z.string().describe("English meaning"),
+  meaning: LocalizableSchema.describe("Multilingual meaning"),
   example_from_song: z
     .string()
     .describe("Quoted verse text where this word appears"),
@@ -88,6 +94,11 @@ export const VocabEntrySchema = z.object({
     .array(z.string())
     .max(3)
     .describe("Up to 3 additional example sentences at lower visual prominence"),
+  vocab_item_id: z
+    .string()
+    .uuid()
+    .optional()
+    .describe("UUID FK to vocabulary_items table, added by backfill script"),
 });
 
 export type VocabEntry = z.infer<typeof VocabEntrySchema>;
@@ -100,7 +111,7 @@ export const GrammarPointSchema = z.object({
   jlpt_reference: z
     .string()
     .describe('JLPT reference level, e.g., "JLPT N4"'),
-  explanation: z.string().describe("Plain-language explanation of this grammar pattern"),
+  explanation: LocalizableSchema.describe("Multilingual explanation of this grammar pattern"),
   conjugation_path: z
     .string()
     .optional()

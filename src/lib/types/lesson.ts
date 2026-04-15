@@ -13,13 +13,25 @@ export type JlptLevel = "N5" | "N4" | "N3" | "N2" | "N1" | "unknown";
 
 export type DifficultyTier = "basic" | "intermediate" | "advanced";
 
+/** A field that can be either a plain string (legacy English-only) or a per-language map. */
+export type Localizable = string | Record<string, string>;
+
+/**
+ * Extract the localized string for the given language, falling back to English
+ * and then to the raw string value for legacy data.
+ */
+export function localize(value: Localizable, lang: string): string {
+  if (typeof value === "string") return value;
+  return value[lang] ?? value["en"] ?? Object.values(value)[0] ?? "";
+}
+
 export interface Token {
   surface: string;
   reading: string;
   romaji: string;
   grammar: GrammarType;
   grammar_color: GrammarColor;
-  meaning: string;
+  meaning: Localizable;
   jlpt_level: JlptLevel;
 }
 
@@ -29,8 +41,8 @@ export interface Verse {
   end_time_ms: number;
   tokens: Token[];
   translations: Record<string, string>;
-  literal_meaning: string;
-  cultural_context?: string;
+  literal_meaning: Localizable;
+  cultural_context?: Localizable;
 }
 
 export interface VocabEntry {
@@ -39,15 +51,17 @@ export interface VocabEntry {
   romaji: string;
   part_of_speech: "noun" | "verb" | "adjective" | "adverb" | "particle" | "expression";
   jlpt_level: JlptLevel;
-  meaning: string;
+  meaning: Localizable;
   example_from_song: string;
   additional_examples: string[];
+  /** UUID FK to vocabulary_items table, added by backfill script (Phase 7 Plan 02) */
+  vocab_item_id?: string;
 }
 
 export interface GrammarPoint {
   name: string;
   jlpt_reference: string;
-  explanation: string;
+  explanation: Localizable;
   conjugation_path?: string;
 }
 
