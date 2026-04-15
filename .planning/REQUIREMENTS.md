@@ -76,7 +76,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 ### Data Quality
 
 - [ ] **DATA-01**: Grammar conjugation paths are audited and converted to structured format (parseable into question/answer pairs) for all songs with grammar data
-- [ ] **DATA-02**: A normalized vocabulary identity table exists with UUIDs, enabling cross-song word matching by (surface, reading) composite key
+- [x] **DATA-02**: A normalized vocabulary identity table exists with UUIDs, enabling cross-song word matching by (surface, reading) composite key
 - [ ] **DATA-03**: Anime scene content is generated through the same Claude API pipeline as songs, with equivalent quality validation
 
 ## v3.0 Requirements (Deferred)
@@ -115,7 +115,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | DATA-01 | Phase 7 | Pending |
-| DATA-02 | Phase 7 | Pending |
+| DATA-02 | Phase 7 | Complete |
 | EXER-01 | Phase 8 | Pending |
 | EXER-02 | Phase 8 | Pending |
 | EXER-03 | Phase 8 | Pending |

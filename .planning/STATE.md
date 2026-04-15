@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 7 of 12 (Data Foundation — first phase of v2.0)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-04-14 — v2.0 roadmap created (Phases 7-12, 47 requirements mapped)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-04-15 — Plan 07-01 complete (schema tables, FSRS presets, migration)
 
 Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 not started
 
@@ -47,6 +47,8 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - v2.0: Exercise generation is client-side from existing JSONB — no pre-computation pipeline needed
 - v2.0: FSRS columns as individual scalar columns (not JSONB) — required for indexed due-date queries
 - v2.0: Phase 9 (Kana Trainer) can be built in parallel with Phase 8 (Exercise Engine)
+- 07-01: Materialized view refresh on song update (not cron) via refreshVocabGlobal() with CONCURRENTLY fallback
+- 07-01: Migration written manually — drizzle-kit generate interactive due to unregistered 0001 migration in journal
 
 ### Pending Todos
 
@@ -61,6 +63,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-14
-Stopped at: v2.0 roadmap creation complete (Phases 7-12 appended to ROADMAP.md)
-Resume file: .planning/phases/01-content-pipeline/01-07-PLAN.md (v1.0 still in progress — Task 2 awaiting env setup)
+Last session: 2026-04-15
+Stopped at: Completed 07-01-PLAN.md (schema tables, FSRS presets, vocab_global view, migration)
+Resume file: .planning/phases/07-data-foundation/07-02-PLAN.md (backfill script)

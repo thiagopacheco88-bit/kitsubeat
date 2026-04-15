@@ -132,7 +132,7 @@ Plans:
   2. The vocab_global materialized view aggregates vocabulary across all song_versions.lesson JSONB and can be refreshed without downtime
   3. Grammar conjugation paths for all songs with grammar data have been audited; structured question/answer pairs can be derived programmatically for at least 80% of conjugation entries
   4. A Drizzle migration creates user_vocab_mastery, user_exercise_log, and subscriptions tables with FSRS scalar columns indexed for due-date queries
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 - [ ] 07-01-PLAN.md — Schema additions (vocabulary_items, user_vocab_mastery, user_exercise_log, subscriptions, vocab_global mat view), FSRS presets, lesson type updates, and migration generation
 - [ ] 07-02-PLAN.md — Conjugation path parser and idempotent vocabulary backfill script (extract, deduplicate, patch JSONB, audit conjugations, refresh mat view)
@@ -215,7 +215,7 @@ Note: Phase 9 (Kana Trainer) can be built in parallel with Phase 8 (Exercise Eng
 | 4. AI Search and Payments | v1.0 | 0/TBD | Not started | - |
 | 5. Exercises and Gamification | v1.0 | 0/TBD | Not started | - |
 | 6. Export and Polish | v1.0 | 0/TBD | Not started | - |
-| 7. Data Foundation | v2.0 | 0/2 | Not started | - |
+| 7. Data Foundation | 1/2 | In Progress|  | - |
 | 8. Exercise Engine & Star Mastery | v2.0 | 0/TBD | Not started | - |
 | 9. Kana Trainer | v2.0 | 0/TBD | Not started | - |
 | 10. Advanced Exercises & Full Mastery | v2.0 | 0/TBD | Not started | - |
