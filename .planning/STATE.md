@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 7 — Data Foundation (next milestone, ready to plan)
+**Current focus:** v2.0 Phase 7 — Data Foundation (COMPLETE — ready for Phase 8)
 
 ## Current Position
 
 Phase: 7 of 12 (Data Foundation — first phase of v2.0)
-Plan: 1 of 2 in current phase
-Status: In progress
-Last activity: 2026-04-15 — Plan 07-01 complete (schema tables, FSRS presets, migration)
+Plan: 2 of 2 in current phase
+Status: Phase Complete
+Last activity: 2026-04-15 — Plan 07-02 complete (conjugation parser, vocab backfill script, 705 items across 116 songs)
 
 Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 not started
 
@@ -34,6 +34,7 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - Trend: stable
 
 *Updated after each plan completion*
+| Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -49,6 +50,8 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - v2.0: Phase 9 (Kana Trainer) can be built in parallel with Phase 8 (Exercise Engine)
 - 07-01: Materialized view refresh on song update (not cron) via refreshVocabGlobal() with CONCURRENTLY fallback
 - 07-01: Migration written manually — drizzle-kit generate interactive due to unregistered 0001 migration in journal
+- [Phase 07-02]: parseConjugationPath called on-demand at exercise time, no JSONB mutation for grammar points
+- [Phase 07-02]: Full vocabulary_items table scan for UUID resolution avoids large parameterized IN clauses
 
 ### Pending Todos
 
@@ -58,11 +61,11 @@ None yet.
 
 - Phase 1: Lyric copyright strategy requires legal review for US and Japan markets
 - Phase 1: Pipeline execution blocked pending env setup: YOUTUBE_API_KEY, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, ANTHROPIC_API_KEY
-- v2.0 Phase 7: Grammar conjugation_path field may be free-text prose in existing songs — audit required before Phase 10 planning
+- v2.0 Phase 7: [RESOLVED] Conjugation audit complete — 91% structured, 9% unstructured (pattern labels). Exercise eligibility filter now well-defined.
 - v2.0 Phase 8: Distractor pool is thin until 30+ songs are seeded — validateDistractorPool() fallback to same-JLPT-level words needed
 
 ## Session Continuity
 
 Last session: 2026-04-15
-Stopped at: Completed 07-01-PLAN.md (schema tables, FSRS presets, vocab_global view, migration)
-Resume file: .planning/phases/07-data-foundation/07-02-PLAN.md (backfill script)
+Stopped at: Completed 07-02-PLAN.md (conjugation parser, vocab backfill script)
+Resume file: .planning/phases/08-exercise-engine/ (next phase)
