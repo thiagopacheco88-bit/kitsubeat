@@ -55,7 +55,7 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 
 ### Pending Todos
 
-None yet.
+- [Enforce full Japanese-line coverage in lesson prompt](todos/pending/2026-04-16-enforce-full-japanese-line-coverage-in-lesson-prompt.md) — tooling — lesson prompt skips filler Japanese lines (~30s stale highlight on sign-flow; likely systemic)
 
 ### Blockers/Concerns
 
