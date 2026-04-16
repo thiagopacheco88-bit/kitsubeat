@@ -59,7 +59,7 @@ export default function ExerciseTab({
           onClick={handleRetry}
           className="text-xs text-gray-500 underline hover:text-gray-300"
         >
-          Start over
+          Return
         </button>
       </div>
       <ExerciseSession

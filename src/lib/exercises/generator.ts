@@ -227,7 +227,10 @@ function makeQuestion(
 
   switch (type) {
     case "vocab_meaning":
-      prompt = surface;
+      prompt =
+        vocab.reading && vocab.reading !== surface
+          ? `${surface} (${vocab.reading})`
+          : surface;
       correctAnswer = meaning;
       break;
     case "meaning_vocab":
