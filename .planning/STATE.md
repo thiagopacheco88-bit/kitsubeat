@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 8 — Exercise Engine (in progress)
+**Current focus:** v2.0 Phase 8 — Exercise Engine (complete, awaiting verification)
 
 ## Current Position
 
 Phase: 8 of 12 (Exercise Engine)
-Plan: 3 of 7 in current phase
-Status: In Progress
-Last activity: 2026-04-16 — Plan 08-03 complete (exercise session UI: Zustand store, JLPT pool API, ExerciseTab/Session/QuestionCard/FeedbackPanel, Practice tab in SongContent)
+Plan: 4 of 4 in current phase
+Status: Phase Complete (all 4 plans shipped, Phase 7 DB artifacts live)
+Last activity: 2026-04-16 — Plan 08-04 complete (session summary, star display with confetti, circular progress ring on song cards, star criteria on song page). DB migrations 0002/0003 applied and vocab backfill executed — 705 vocabulary_items, 112/116 song versions patched.
 
 Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 not started
 
