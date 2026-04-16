@@ -10,16 +10,16 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 ### Exercise Engine
 
-- [ ] **EXER-01**: User can complete Vocab→Meaning exercises (show Japanese word, pick correct meaning from 4 options) for any song
-- [ ] **EXER-02**: User can complete Meaning→Vocab exercises (show meaning, pick correct Japanese word from 4 options) for any song
-- [ ] **EXER-03**: User can complete Reading Match exercises (match kanji/kana to correct romaji reading) for any song
-- [ ] **EXER-04**: User can complete Fill-the-Lyric exercises (hear verse playing, pick the blanked-out word) for any song
+- [x] **EXER-01**: User can complete Vocab→Meaning exercises (show Japanese word, pick correct meaning from 4 options) for any song
+- [x] **EXER-02**: User can complete Meaning→Vocab exercises (show meaning, pick correct Japanese word from 4 options) for any song
+- [x] **EXER-03**: User can complete Reading Match exercises (match kanji/kana to correct romaji reading) for any song
+- [x] **EXER-04**: User can complete Fill-the-Lyric exercises (hear verse playing, pick the blanked-out word) for any song
 - [ ] **EXER-05**: User can complete Grammar Conjugation exercises (given base form + context, pick correct conjugated form) for songs with structured conjugation data
 - [ ] **EXER-06**: User can complete Listening Drill exercises (hear verse audio without lyrics, identify the target word) for any song
 - [ ] **EXER-07**: User can complete Sentence Order exercises (rebuild a scrambled verse by tapping tokens in correct order) for any song
 - [ ] **EXER-08**: User receives immediate feedback after each answer with explanation of why the answer is correct/incorrect
 - [ ] **EXER-09**: User can resume incomplete exercise sessions across browser refreshes
-- [ ] **EXER-10**: Exercise distractors are generated from same-song vocabulary or same-JLPT-level words, never random
+- [x] **EXER-10**: Exercise distractors are generated from same-song vocabulary or same-JLPT-level words, never random
 
 ### Star & Mastery System
 
@@ -116,13 +116,13 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 |-------------|-------|--------|
 | DATA-01 | Phase 7 | Complete |
 | DATA-02 | Phase 7 | Complete |
-| EXER-01 | Phase 8 | Pending |
-| EXER-02 | Phase 8 | Pending |
-| EXER-03 | Phase 8 | Pending |
-| EXER-04 | Phase 8 | Pending |
+| EXER-01 | Phase 8 | Complete |
+| EXER-02 | Phase 8 | Complete |
+| EXER-03 | Phase 8 | Complete |
+| EXER-04 | Phase 8 | Complete |
 | EXER-08 | Phase 8 | Pending |
 | EXER-09 | Phase 8 | Pending |
-| EXER-10 | Phase 8 | Pending |
+| EXER-10 | Phase 8 | Complete |
 | STAR-01 | Phase 8 | Pending |
 | STAR-02 | Phase 8 | Pending |
 | STAR-03 | Phase 8 | Pending |

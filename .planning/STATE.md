@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 7 — Data Foundation (COMPLETE — ready for Phase 8)
+**Current focus:** v2.0 Phase 8 — Exercise Engine (in progress)
 
 ## Current Position
 
-Phase: 7 of 12 (Data Foundation — first phase of v2.0)
-Plan: 2 of 2 in current phase
-Status: Phase Complete
-Last activity: 2026-04-15 — Plan 07-02 complete (conjugation parser, vocab backfill script, 705 items across 116 songs)
+Phase: 8 of 12 (Exercise Engine)
+Plan: 2 of 7 in current phase
+Status: In Progress
+Last activity: 2026-04-16 — Plan 08-02 complete (exercise question generator: buildQuestions, pickDistractors, 18 vitest tests)
 
 Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 not started
 
@@ -35,6 +35,8 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
+| Phase 08-exercise-engine P01 | 3 | 3 tasks | 5 files |
+| Phase 08-exercise-engine P02 | 4 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -52,6 +54,12 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - 07-01: Migration written manually — drizzle-kit generate interactive due to unregistered 0001 migration in journal
 - [Phase 07-02]: parseConjugationPath called on-demand at exercise time, no JSONB mutation for grammar points
 - [Phase 07-02]: Full vocabulary_items table scan for UUID resolution avoids large parameterized IN clauses
+- [Phase 08-01]: Stars derived at read time via deriveStars() — never stored as a DB column
+- [Phase 08-01]: checkExerciseAccess() is single gate — UI never checks feature flags directly
+- [Phase 08-01]: All 4 Phase 8 exercise types declared free — no subscription lookup needed for MVP
+- [Phase 08-02]: Generator is pure TypeScript (no DB/network) — enables isolated vitest testing without mocking
+- [Phase 08-02]: fill_lyric disabled when < 3 vocab entries in song (can't form 4 unique options)
+- [Phase 08-02]: Distractor dedup uses trim+lowercase normalization to prevent synonym collisions
 
 ### Pending Todos
 
@@ -68,6 +76,6 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 
 ## Session Continuity
 
-Last session: 2026-04-15
-Stopped at: Completed 07-02-PLAN.md (conjugation parser, vocab backfill script)
-Resume file: .planning/phases/08-exercise-engine/ (next phase)
+Last session: 2026-04-16
+Stopped at: Completed 08-02-PLAN.md (exercise question generator, vitest tests)
+Resume file: .planning/phases/08-exercise-engine/ (continue with plan 08-03)
