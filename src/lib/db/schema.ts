@@ -257,6 +257,62 @@ export const subscriptions = pgTable("subscriptions", {
 export type Subscription = typeof subscriptions.$inferSelect;
 export type NewSubscription = typeof subscriptions.$inferInsert;
 
+// =============================================================================
+// Phase 8: Exercise Engine — song-level progress tracking
+// =============================================================================
+
+/**
+ * user_song_progress table — per-user progress for each song version.
+ *
+ * Tracks completion percentage and best accuracy across exercise types.
+ * Stars are ALWAYS derived at read time via deriveStars() — never stored.
+ *
+ * - completion_pct: 0.0–1.0 fraction of exercises completed for the song
+ * - ex1_2_3_best_accuracy: best accuracy across vocab_meaning, meaning_vocab, reading_match
+ * - ex4_best_accuracy: best accuracy for fill_lyric (separate — different difficulty profile)
+ */
+export const userSongProgress = pgTable("user_song_progress", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  user_id: text("user_id").notNull(),
+  song_version_id: uuid("song_version_id").notNull().references(() => songVersions.id),
+
+  // Progress
+  completion_pct: real("completion_pct").default(0).notNull(),
+
+  // Best accuracy per exercise group (null until attempted)
+  ex1_2_3_best_accuracy: real("ex1_2_3_best_accuracy"),
+  ex4_best_accuracy: real("ex4_best_accuracy"),
+
+  // Session counter
+  sessions_completed: integer("sessions_completed").default(0).notNull(),
+
+  // Timestamps
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+}, (table) => [
+  unique("user_song_progress_user_version_unique").on(table.user_id, table.song_version_id),
+  index("user_song_progress_user_id_idx").on(table.user_id),
+]);
+
+export type UserSongProgress = typeof userSongProgress.$inferSelect;
+export type NewUserSongProgress = typeof userSongProgress.$inferInsert;
+
+/**
+ * deriveStars — compute star rating from progress at read time.
+ *
+ * Stars are NEVER stored as a column — they are always derived from accuracy values.
+ * - 2 stars: both ex1_2_3 and ex4 accuracy >= 80%
+ * - 1 star: ex1_2_3 accuracy >= 80% (ex4 not yet attempted or below threshold)
+ * - 0 stars: below threshold or no attempts yet
+ */
+export function deriveStars(
+  progress: { ex1_2_3_best_accuracy: number | null; ex4_best_accuracy: number | null }
+): 0 | 1 | 2 {
+  if ((progress.ex1_2_3_best_accuracy ?? 0) >= 0.80 && (progress.ex4_best_accuracy ?? 0) >= 0.80) return 2;
+  if ((progress.ex1_2_3_best_accuracy ?? 0) >= 0.80) return 1;
+  return 0;
+}
+
 /**
  * vocab_global materialized view — aggregates vocabulary items across all song versions.
  *
