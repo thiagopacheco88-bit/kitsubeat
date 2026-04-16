@@ -69,6 +69,7 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Enforce full Japanese-line coverage in lesson prompt](todos/pending/2026-04-16-enforce-full-japanese-line-coverage-in-lesson-prompt.md) — tooling — lesson prompt skips filler Japanese lines (~30s stale highlight on sign-flow; likely systemic)
 - [Replace 19 remaining geo-restricted YouTube videos](todos/pending/2026-04-16-replace-19-remaining-geo-restricted-youtube-videos.md) — tooling — `npm run audit:geo:replace` hit quota after 2/21; run again after quota reset (~2000 units needed)
 - [Label song page sections so lesson is discoverable](todos/pending/2026-04-16-label-song-page-sections-so-lesson-is-discoverable.md) — ui — song page has no "Lesson" label; users think lesson is missing (surfaced QAing Sign 2026-04-16)
+- [Amend bogus "--help" commit message on 3109fcf](todos/pending/2026-04-16-amend-bogus-help-commit-message.md) — tooling — commit 3109fcf has literal message "--help" (CLI mis-parse); content is harmless Phase 7 doc cleanup, just needs message reword while still local
 
 ### Blockers/Concerns
 
