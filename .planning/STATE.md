@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 8 of 12 (Exercise Engine)
-Plan: 2 of 7 in current phase
+Plan: 3 of 7 in current phase
 Status: In Progress
-Last activity: 2026-04-16 — Plan 08-02 complete (exercise question generator: buildQuestions, pickDistractors, 18 vitest tests)
+Last activity: 2026-04-16 — Plan 08-03 complete (exercise session UI: Zustand store, JLPT pool API, ExerciseTab/Session/QuestionCard/FeedbackPanel, Practice tab in SongContent)
 
 Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 not started
 
@@ -37,6 +37,7 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
 | Phase 08-exercise-engine P01 | 3 | 3 tasks | 5 files |
 | Phase 08-exercise-engine P02 | 4 | 2 tasks | 4 files |
+| Phase 08-exercise-engine P03 | 5 | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -60,6 +61,8 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08-02]: Generator is pure TypeScript (no DB/network) — enables isolated vitest testing without mocking
 - [Phase 08-02]: fill_lyric disabled when < 3 vocab entries in song (can't form 4 unique options)
 - [Phase 08-02]: Distractor dedup uses trim+lowercase normalization to prevent synonym collisions
+- [Phase 08-03]: isSessionForSong guards against stale cross-song sessions in ExerciseTab
+- [Phase 08-03]: Exercise bundle lazy-loaded via React.lazy — keeps initial song page fast
 
 ### Pending Todos
 
@@ -77,5 +80,5 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-16
-Stopped at: Completed 08-02-PLAN.md (exercise question generator, vitest tests)
-Resume file: .planning/phases/08-exercise-engine/ (continue with plan 08-03)
+Stopped at: Completed 08-03-PLAN.md (exercise session loop UI)
+Resume file: .planning/phases/08-exercise-engine/ (continue with plan 08-04)

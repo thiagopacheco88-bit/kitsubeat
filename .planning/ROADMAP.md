@@ -148,7 +148,7 @@ Plans:
   4. Song card and song page display a per-song completion percentage that updates after each session
   5. User earns Star 1 when vocab recognition exercises (Ex 1+2+3) pass at >=80%, and Star 2 when Fill-the-Lyric (Ex 4) passes at >=80% — stars are visible on the song card
   6. Premium gate abstraction is in place: feature flags can toggle any exercise type free/premium without code changes; enforcement happens at the data access layer, not the UI
-**Plans:** 2/4 plans executed
+**Plans:** 3/4 plans executed
 Plans:
 - [ ] 08-01-PLAN.md -- DB schema (user_song_progress), dependencies (zustand, canvas-confetti), feature flags, premium gate abstraction
 - [ ] 08-02-PLAN.md -- Exercise question generator (TDD: buildQuestions, pickDistractors, Fisher-Yates shuffle)
@@ -221,7 +221,7 @@ Note: Phase 9 (Kana Trainer) can be built in parallel with Phase 8 (Exercise Eng
 | 5. Exercises and Gamification | v1.0 | 0/TBD | Not started | - |
 | 6. Export and Polish | v1.0 | 0/TBD | Not started | - |
 | 7. Data Foundation | 2/2 | Complete   | 2026-04-15 | - |
-| 8. Exercise Engine & Star Mastery | 2/4 | In Progress|  | - |
+| 8. Exercise Engine & Star Mastery | 3/4 | In Progress|  | - |
 | 9. Kana Trainer | v2.0 | 0/TBD | Not started | - |
 | 10. Advanced Exercises & Full Mastery | v2.0 | 0/TBD | Not started | - |
 | 11. Cross-Song Vocabulary | v2.0 | 0/TBD | Not started | - |

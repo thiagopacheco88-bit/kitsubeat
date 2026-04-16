@@ -17,8 +17,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [ ] **EXER-05**: User can complete Grammar Conjugation exercises (given base form + context, pick correct conjugated form) for songs with structured conjugation data
 - [ ] **EXER-06**: User can complete Listening Drill exercises (hear verse audio without lyrics, identify the target word) for any song
 - [ ] **EXER-07**: User can complete Sentence Order exercises (rebuild a scrambled verse by tapping tokens in correct order) for any song
-- [ ] **EXER-08**: User receives immediate feedback after each answer with explanation of why the answer is correct/incorrect
-- [ ] **EXER-09**: User can resume incomplete exercise sessions across browser refreshes
+- [x] **EXER-08**: User receives immediate feedback after each answer with explanation of why the answer is correct/incorrect
+- [x] **EXER-09**: User can resume incomplete exercise sessions across browser refreshes
 - [x] **EXER-10**: Exercise distractors are generated from same-song vocabulary or same-JLPT-level words, never random
 
 ### Star & Mastery System
@@ -120,8 +120,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | EXER-02 | Phase 8 | Complete |
 | EXER-03 | Phase 8 | Complete |
 | EXER-04 | Phase 8 | Complete |
-| EXER-08 | Phase 8 | Pending |
-| EXER-09 | Phase 8 | Pending |
+| EXER-08 | Phase 8 | Complete |
+| EXER-09 | Phase 8 | Complete |
 | EXER-10 | Phase 8 | Complete |
 | STAR-01 | Phase 8 | Pending |
 | STAR-02 | Phase 8 | Complete |
