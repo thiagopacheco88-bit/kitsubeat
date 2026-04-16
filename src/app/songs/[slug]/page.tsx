@@ -42,6 +42,7 @@ export default async function SongPlayerPage({
     <SongContent
       song={{
         title: song.title,
+        slug: song.slug,
         artist: song.artist,
         anime: song.anime,
         season_info: song.season_info,

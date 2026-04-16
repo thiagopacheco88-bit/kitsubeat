@@ -3,31 +3,55 @@
 import { useState } from "react";
 import { useExerciseSession } from "@/stores/exerciseSession";
 import QuestionCard from "./QuestionCard";
+import SessionSummary from "./SessionSummary";
 
 /**
  * ExerciseSession — question loop orchestrator.
  *
  * Reads session state from Zustand store.
  * Renders: progress bar, question counter, current QuestionCard.
- * On completion, signals parent via onComplete callback.
+ * When all questions are answered, renders SessionSummary inline.
  */
 export default function ExerciseSession({
-  onComplete,
+  songSlug,
+  songVersionId,
+  userId,
+  onRetry,
 }: {
-  onComplete: () => void;
+  songSlug: string;
+  songVersionId: string;
+  /** TODO: replace with Clerk userId from auth() */
+  userId: string;
+  onRetry: () => void;
 }) {
   const store = useExerciseSession();
-  const { questions, currentIndex, recordAnswer, advanceQuestion } = store;
+  const { questions, currentIndex, answers, mode, recordAnswer, advanceQuestion } =
+    store;
 
   // Fade transition state — used to animate between questions
   const [visible, setVisible] = useState(true);
 
   const total = questions.length;
   const current = questions[currentIndex];
+  const progressPct = total > 0 ? (currentIndex / total) * 100 : 0;
+
+  // --- Session complete: show summary ---
+  if (currentIndex >= total && total > 0) {
+    return (
+      <SessionSummary
+        questions={questions}
+        answers={answers}
+        mode={mode ?? "short"}
+        songSlug={songSlug}
+        songVersionId={songVersionId}
+        userId={userId}
+        onRetry={onRetry}
+        onClose={onRetry}
+      />
+    );
+  }
 
   if (!current) return null;
-
-  const progressPct = total > 0 ? (currentIndex / total) * 100 : 0;
 
   const handleAnswered = (
     chosen: string,
@@ -42,12 +66,7 @@ export default function ExerciseSession({
     setVisible(false);
     setTimeout(() => {
       advanceQuestion();
-      const nextIndex = currentIndex + 1;
-      if (nextIndex >= total) {
-        onComplete();
-      } else {
-        setVisible(true);
-      }
+      setVisible(true);
     }, 300);
   };
 

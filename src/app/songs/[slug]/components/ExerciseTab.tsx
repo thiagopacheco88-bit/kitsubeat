@@ -12,18 +12,23 @@ import ExerciseSession from "./ExerciseSession";
 interface ExerciseTabProps {
   lesson: Lesson;
   songVersionId: string;
+  songSlug: string;
+  // TODO: replace with Clerk userId from auth()
+  userId: string;
 }
 
-type TabState = "config" | "session" | "complete";
+type TabState = "config" | "session";
 
-export default function ExerciseTab({ lesson, songVersionId }: ExerciseTabProps) {
+export default function ExerciseTab({
+  lesson,
+  songVersionId,
+  songSlug,
+  userId,
+}: ExerciseTabProps) {
   const store = useExerciseSession();
   const { _hasHydrated, startSession, clearSession } = store;
 
-  const [tabState, setTabState] = useState<TabState>(() => {
-    // Can't determine session state until hydrated — start with config
-    return "config";
-  });
+  const [tabState, setTabState] = useState<TabState>("config");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -41,68 +46,38 @@ export default function ExerciseTab({ lesson, songVersionId }: ExerciseTabProps)
   // --- Resume existing session if it matches this song ---
   const hasActiveSession = isSessionForSong(store, songVersionId);
 
-  // If we just hydrated and have an active session, jump to session view
-  // (Only do this check once — user can choose to restart from config)
-  if (hasActiveSession && tabState === "config") {
-    // Use a side-effect-free check: render session directly
-    return (
-      <div className="py-4">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-white">Practice</h2>
-          <button
-            onClick={() => {
-              clearSession();
-              setTabState("config");
-            }}
-            className="text-xs text-gray-500 underline hover:text-gray-300"
-          >
-            Start over
-          </button>
-        </div>
-        <ExerciseSession onComplete={() => setTabState("complete")} />
+  const handleRetry = () => {
+    clearSession();
+    setTabState("config");
+  };
+
+  const sessionView = (
+    <div className="py-4">
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="text-lg font-semibold text-white">Practice</h2>
+        <button
+          onClick={handleRetry}
+          className="text-xs text-gray-500 underline hover:text-gray-300"
+        >
+          Start over
+        </button>
       </div>
-    );
+      <ExerciseSession
+        songSlug={songSlug}
+        songVersionId={songVersionId}
+        userId={userId}
+        onRetry={handleRetry}
+      />
+    </div>
+  );
+
+  // If we just hydrated and have an active session, jump to session view
+  if (hasActiveSession && tabState === "config") {
+    return sessionView;
   }
 
   if (tabState === "session") {
-    return (
-      <div className="py-4">
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-white">Practice</h2>
-          <button
-            onClick={() => {
-              clearSession();
-              setTabState("config");
-            }}
-            className="text-xs text-gray-500 underline hover:text-gray-300"
-          >
-            Start over
-          </button>
-        </div>
-        <ExerciseSession onComplete={() => setTabState("complete")} />
-      </div>
-    );
-  }
-
-  if (tabState === "complete") {
-    return (
-      <div className="py-8 text-center">
-        <p className="mb-2 text-4xl">&#127881;</p>
-        <h2 className="mb-2 text-xl font-bold text-white">Session Complete!</h2>
-        <p className="mb-6 text-gray-400">
-          Great work practicing with this song.
-        </p>
-        <button
-          onClick={() => {
-            clearSession();
-            setTabState("config");
-          }}
-          className="rounded-lg bg-red-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
-        >
-          Practice Again
-        </button>
-      </div>
-    );
+    return sessionView;
   }
 
   // --- Config screen ---
@@ -124,14 +99,16 @@ export default function ExerciseTab({ lesson, songVersionId }: ExerciseTabProps)
         if (res.ok) {
           const data = await res.json();
           // Map API response to VocabEntry shape (partial — used only for distractors)
-          jlptPool = (data as Array<{
-            id: string;
-            dictionary_form: string;
-            reading: string;
-            romaji: string;
-            part_of_speech: string;
-            meaning: string | Record<string, string>;
-          }>).map((item) => ({
+          jlptPool = (
+            data as Array<{
+              id: string;
+              dictionary_form: string;
+              reading: string;
+              romaji: string;
+              part_of_speech: string;
+              meaning: string | Record<string, string>;
+            }>
+          ).map((item) => ({
             surface: item.dictionary_form,
             reading: item.reading,
             romaji: item.romaji,
@@ -221,8 +198,74 @@ export default function ExerciseTab({ lesson, songVersionId }: ExerciseTabProps)
       </div>
 
       <p className="mt-4 text-xs text-gray-600">
-        {vocabCount} vocabulary {vocabCount === 1 ? "item" : "items"} available in this lesson.
+        {vocabCount} vocabulary {vocabCount === 1 ? "item" : "items"} available
+        in this lesson.
       </p>
+
+      {/* Star criteria — guides learner to next achievement */}
+      <div className="mt-6 rounded-xl border border-gray-800 bg-gray-900/50 p-4">
+        <h3 className="mb-3 text-sm font-semibold text-white">
+          Star Mastery Criteria
+        </h3>
+        <ul className="flex flex-col gap-2 text-sm text-gray-400">
+          <li className="flex items-start gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="mt-0.5 h-4 w-4 shrink-0 text-yellow-400"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>
+              <span className="text-white font-medium">Star 1:</span> Score 80%+
+              on vocabulary exercises (meaning, reading, recognition)
+            </span>
+          </li>
+          <li className="flex items-start gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="mt-0.5 h-4 w-4 shrink-0 text-yellow-400"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>
+              <span className="text-white font-medium">Star 2:</span> Score 80%+
+              on Fill-the-Lyric exercises
+            </span>
+          </li>
+          <li className="flex items-start gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="mt-0.5 h-4 w-4 shrink-0 text-gray-600"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+              />
+            </svg>
+            <span className="text-gray-600">
+              <span className="font-medium">Star 3:</span> Coming in a future
+              update
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

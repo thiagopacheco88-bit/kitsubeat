@@ -16,6 +16,7 @@ const ExerciseTab = lazy(() => import("./ExerciseTab"));
 
 interface SongMeta {
   title: string;
+  slug: string;
   artist: string;
   anime: string;
   season_info: string | null;
@@ -169,6 +170,8 @@ export default function SongContent({
               <ExerciseTab
                 lesson={active.lesson}
                 songVersionId={active.id}
+                songSlug={song.slug}
+                userId="anonymous"
               />
             </Suspense>
           )}
