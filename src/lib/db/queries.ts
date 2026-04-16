@@ -1,6 +1,13 @@
-import { eq, sql, asc } from "drizzle-orm";
+import { eq, sql, asc, inArray } from "drizzle-orm";
 import { db } from "./index";
-import { songs, songVersions, vocabGlobal, type SongVersion } from "./schema";
+import {
+  songs,
+  songVersions,
+  vocabGlobal,
+  userSongProgress,
+  deriveStars,
+  type SongVersion,
+} from "./schema";
 
 // ---------------------------------------------------------------------------
 // Song detail page
@@ -48,7 +55,7 @@ export async function getAllSongs() {
       season_info: songs.season_info,
       youtube_id: sql<string | null>`(
         SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
@@ -85,7 +92,7 @@ export async function getFeaturedSongs(limit: number = 6) {
       anime: songs.anime,
       youtube_id: sql<string | null>`(
         SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
@@ -111,12 +118,15 @@ export async function getTopAnime(limit: number = 8) {
     .select({
       anime: songs.anime,
       count: sql<number>`count(*)::int`,
-      youtube_id: sql<string | null>`min((
-        SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
-        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
-        LIMIT 1
-      ))`,
+      youtube_id: sql<string | null>`(array_agg(
+        (SELECT sv.youtube_id FROM song_versions sv
+         WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+         LIMIT 1)
+        ORDER BY songs.popularity_rank ASC NULLS LAST
+      ) FILTER (WHERE EXISTS (
+        SELECT 1 FROM song_versions sv
+        WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+      )))[1]`,
     })
     .from(songs)
     .where(sql`EXISTS (
@@ -143,12 +153,15 @@ export async function getTopAnimeFranchises(limit: number = 10) {
         'i'
       )`,
       count: sql<number>`count(*)::int`,
-      youtube_id: sql<string | null>`min((
-        SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
-        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
-        LIMIT 1
-      ))`,
+      youtube_id: sql<string | null>`(array_agg(
+        (SELECT sv.youtube_id FROM song_versions sv
+         WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+         LIMIT 1)
+        ORDER BY songs.popularity_rank ASC NULLS LAST
+      ) FILTER (WHERE EXISTS (
+        SELECT 1 FROM song_versions sv
+        WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+      )))[1]`,
     })
     .from(songs)
     .where(sql`EXISTS (
@@ -175,12 +188,13 @@ export async function getTopArtists(limit: number = 10) {
     .select({
       artist: songs.artist,
       count: sql<number>`count(*)::int`,
-      youtube_id: sql<string | null>`min((
-        SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
-        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
-        LIMIT 1
-      ))`,
+      youtube_id: sql<string | null>`(array_agg(
+        (SELECT sv.youtube_id FROM song_versions sv
+         WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
+         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+         LIMIT 1)
+        ORDER BY songs.popularity_rank ASC NULLS LAST
+      ))[1]`,
     })
     .from(songs)
     .where(sql`EXISTS (
@@ -239,7 +253,7 @@ export async function getBeginnerSongs(limit: number = 10) {
       anime: songs.anime,
       youtube_id: sql<string | null>`(
         SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
@@ -268,7 +282,7 @@ export async function getRecentSongs(limit: number = 10) {
       anime: songs.anime,
       youtube_id: sql<string | null>`(
         SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
@@ -284,6 +298,75 @@ export async function getRecentSongs(limit: number = 10) {
     .limit(limit);
 }
 
+// ---------------------------------------------------------------------------
+// User song progress
+// ---------------------------------------------------------------------------
+
+/**
+ * Get a user's progress for a single song version.
+ * Returns the row with derived stars, or null if no progress yet.
+ */
+export async function getUserSongProgress(
+  userId: string,
+  songVersionId: string
+) {
+  const rows = await db
+    .select()
+    .from(userSongProgress)
+    .where(
+      sql`${userSongProgress.user_id} = ${userId} AND ${userSongProgress.song_version_id} = ${songVersionId}::uuid`
+    )
+    .limit(1);
+
+  const row = rows[0] ?? null;
+  if (!row) return null;
+
+  return {
+    ...row,
+    stars: deriveStars({
+      ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
+      ex4_best_accuracy: row.ex4_best_accuracy,
+    }),
+  };
+}
+
+export type UserSongProgressWithStars = NonNullable<
+  Awaited<ReturnType<typeof getUserSongProgress>>
+>;
+
+/**
+ * Get a user's progress for a batch of song versions.
+ * Returns a Map<songVersionId, progress> using a single IN query.
+ * Prevents N+1 queries on the browse page (Phase 8 Research Pitfall 6).
+ *
+ * TODO: call this when Clerk auth is integrated — fetch user progress batch when Clerk auth is integrated
+ */
+export async function getUserSongProgressBatch(
+  userId: string,
+  songVersionIds: string[]
+): Promise<Map<string, UserSongProgressWithStars>> {
+  if (songVersionIds.length === 0) return new Map();
+
+  const rows = await db
+    .select()
+    .from(userSongProgress)
+    .where(
+      sql`${userSongProgress.user_id} = ${userId} AND ${userSongProgress.song_version_id} = ANY(${sql.raw(`ARRAY[${songVersionIds.map((id) => `'${id}'`).join(",")}]::uuid[]`)})`
+    );
+
+  const result = new Map<string, UserSongProgressWithStars>();
+  for (const row of rows) {
+    result.set(row.song_version_id, {
+      ...row,
+      stars: deriveStars({
+        ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
+        ex4_best_accuracy: row.ex4_best_accuracy,
+      }),
+    });
+  }
+  return result;
+}
+
 /**
  * Get classic/most popular songs.
  */
@@ -297,7 +380,7 @@ export async function getClassicSongs(limit: number = 10) {
       anime: songs.anime,
       youtube_id: sql<string | null>`(
         SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
