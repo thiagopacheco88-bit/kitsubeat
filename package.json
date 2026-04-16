@@ -16,7 +16,11 @@
     "seed:dev": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/07-dev-seed.ts",
     "pipeline": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/run-pipeline.ts",
     "generate:lessons": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/03b-generate-content-sequential.ts",
-    "backfill:vocab": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-vocab-identity.ts"
+    "backfill:vocab": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-vocab-identity.ts",
+    "audit:geo": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts",
+    "audit:geo:replace": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts --replace",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
@@ -24,6 +28,7 @@
     "@sglkc/kuromoji": "^1.1.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@wavesurfer/react": "^1.0.12",
+    "canvas-confetti": "^1.9.4",
     "drizzle-orm": "^0.41.0",
     "kuroshiro": "^1.2.0",
     "kuroshiro-analyzer-kuromoji": "^1.1.0",
@@ -36,17 +41,21 @@
     "ts-fsrs": "^5.3.2",
     "wavesurfer.js": "^7.12.5",
     "zod": "^3.24.3",
-    "zod-to-json-schema": "^3.24.5"
+    "zod-to-json-schema": "^3.24.5",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
     "@playwright/test": "^1.59.1",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.14.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/youtube": "^0.2.0",
+    "@vitest/coverage-v8": "^4.1.4",
     "dotenv": "^16.5.0",
     "drizzle-kit": "^0.30.6",
     "tsx": "^4.19.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.4"
   }
 }
