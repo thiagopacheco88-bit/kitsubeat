@@ -24,8 +24,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 ### Star & Mastery System
 
 - [ ] **STAR-01**: User sees a 3-star rating for each song reflecting their exercise mastery level
-- [ ] **STAR-02**: Star 1 is earned when vocab recognition exercises (Ex 1+2+3) are passed at >=80%
-- [ ] **STAR-03**: Star 2 is earned when Fill-the-Lyric exercise (Ex 4) is passed at >=80%
+- [x] **STAR-02**: Star 1 is earned when vocab recognition exercises (Ex 1+2+3) are passed at >=80%
+- [x] **STAR-03**: Star 2 is earned when Fill-the-Lyric exercise (Ex 4) is passed at >=80%
 - [ ] **STAR-04**: Star 3 is earned when Listening Drill exercise (Ex 6) is passed at >=80%
 - [ ] **STAR-05**: User sees per-song completion percentage on the song card and song page
 - [ ] **STAR-06**: Sentence Order (Ex 7) and Grammar Conjugation (Ex 5) contribute to a bonus mastery badge, not gated on stars
@@ -66,12 +66,12 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 ### Freemium Architecture
 
-- [ ] **FREE-01**: Exercise system is built with a premium gate abstraction so individual features can be toggled free/premium without code changes
-- [ ] **FREE-02**: Per-song exercises (all 7 types) are free for all users
+- [x] **FREE-01**: Exercise system is built with a premium gate abstraction so individual features can be toggled free/premium without code changes
+- [x] **FREE-02**: Per-song exercises (all 7 types) are free for all users
 - [ ] **FREE-03**: Kana trainer is free for all users
 - [ ] **FREE-04**: Cross-song SRS review queue is premium-only (view-only counts are free)
 - [ ] **FREE-05**: Listening drills are free for first 3 songs, then premium-gated
-- [ ] **FREE-06**: Free/premium boundaries are enforced at the data access layer, not hidden UI elements
+- [x] **FREE-06**: Free/premium boundaries are enforced at the data access layer, not hidden UI elements
 
 ### Data Quality
 
@@ -124,12 +124,12 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | EXER-09 | Phase 8 | Pending |
 | EXER-10 | Phase 8 | Complete |
 | STAR-01 | Phase 8 | Pending |
-| STAR-02 | Phase 8 | Pending |
-| STAR-03 | Phase 8 | Pending |
+| STAR-02 | Phase 8 | Complete |
+| STAR-03 | Phase 8 | Complete |
 | STAR-05 | Phase 8 | Pending |
-| FREE-01 | Phase 8 | Pending |
-| FREE-02 | Phase 8 | Pending |
-| FREE-06 | Phase 8 | Pending |
+| FREE-01 | Phase 8 | Complete |
+| FREE-02 | Phase 8 | Complete |
+| FREE-06 | Phase 8 | Complete |
 | KANA-01 | Phase 9 | Pending |
 | KANA-02 | Phase 9 | Pending |
 | KANA-03 | Phase 9 | Pending |
