@@ -56,6 +56,12 @@ export default function RootLayout({
               >
                 Songs
               </Link>
+              <Link
+                href="/profile"
+                className="text-sm text-gray-400 transition-colors hover:text-white"
+              >
+                Profile
+              </Link>
             </div>
           </nav>
         </header>
