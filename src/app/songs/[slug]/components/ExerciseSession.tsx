@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useExerciseSession } from "@/stores/exerciseSession";
 import QuestionCard from "./QuestionCard";
 import SessionSummary from "./SessionSummary";
@@ -35,19 +35,27 @@ export default function ExerciseSession({
   const current = questions[currentIndex];
   const progressPct = total > 0 ? (currentIndex / total) * 100 : 0;
 
+  // Bring the active question to the top of the viewport on advance / mount.
+  const sessionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    sessionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [currentIndex]);
+
   // --- Session complete: show summary ---
   if (currentIndex >= total && total > 0) {
     return (
-      <SessionSummary
-        questions={questions}
-        answers={answers}
-        mode={mode ?? "short"}
-        songSlug={songSlug}
-        songVersionId={songVersionId}
-        userId={userId}
-        onRetry={onRetry}
-        onClose={onRetry}
-      />
+      <div ref={sessionRef} className="scroll-mt-16">
+        <SessionSummary
+          questions={questions}
+          answers={answers}
+          mode={mode ?? "short"}
+          songSlug={songSlug}
+          songVersionId={songVersionId}
+          userId={userId}
+          onRetry={onRetry}
+          onClose={onRetry}
+        />
+      </div>
     );
   }
 
@@ -71,7 +79,7 @@ export default function ExerciseSession({
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div ref={sessionRef} className="flex flex-col gap-4 scroll-mt-16">
       {/* Progress bar */}
       <div className="h-1.5 w-full overflow-hidden rounded-full bg-gray-800">
         <div

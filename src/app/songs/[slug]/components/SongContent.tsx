@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense, useRef, useEffect } from "react";
 import type { Lesson } from "@/lib/types/lesson";
 import { JLPT_COLOR_CLASS } from "@/lib/types/lesson";
 import { PlayerProvider } from "./PlayerContext";
@@ -52,6 +52,18 @@ export default function SongContent({
   const [activeTab, setActiveTab] = useState<ContentTab>("vocabulary");
 
   const active = activeType === "tv" && tvVersion ? tvVersion : fullVersion!;
+
+  // Scroll the tabbed section into view on tab activation (skip first render
+  // so the user still lands at the top of the page).
+  const tabSectionRef = useRef<HTMLDivElement>(null);
+  const isFirstTabRender = useRef(true);
+  useEffect(() => {
+    if (isFirstTabRender.current) {
+      isFirstTabRender.current = false;
+      return;
+    }
+    tabSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [activeTab]);
 
   return (
     <PlayerProvider key={activeType}>
@@ -126,7 +138,7 @@ export default function SongContent({
         />
 
         {/* Tabbed section: Vocabulary / Grammar / Practice */}
-        <div className="mx-auto mt-8 max-w-3xl">
+        <div ref={tabSectionRef} className="mx-auto mt-8 max-w-3xl scroll-mt-16">
           {/* Tab bar */}
           <div className="mb-6 flex border-b border-gray-800">
             {(["vocabulary", "grammar", "practice"] as ContentTab[]).map(

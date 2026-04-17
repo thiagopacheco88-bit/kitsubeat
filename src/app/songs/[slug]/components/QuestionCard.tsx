@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import type { Question } from "@/lib/exercises/generator";
 import FeedbackPanel from "./FeedbackPanel";
 
@@ -30,6 +30,14 @@ export default function QuestionCard({
   const [chosen, setChosen] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState(false);
   const startTimeRef = useRef<number>(Date.now());
+  const feedbackRef = useRef<HTMLDivElement>(null);
+
+  // Pull the feedback panel (including Continue button) into view after answering.
+  useEffect(() => {
+    if (chosen !== null) {
+      feedbackRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  }, [chosen]);
 
   // Shuffle options ONCE per question ID (stable across re-renders)
   const options = useMemo(
@@ -93,12 +101,14 @@ export default function QuestionCard({
 
       {/* Inline feedback — shown after answering */}
       {chosen !== null && (
-        <FeedbackPanel
-          question={question}
-          chosenAnswer={chosen}
-          isCorrect={isCorrect}
-          onContinue={onContinue}
-        />
+        <div ref={feedbackRef} className="scroll-mb-4">
+          <FeedbackPanel
+            question={question}
+            chosenAnswer={chosen}
+            isCorrect={isCorrect}
+            onContinue={onContinue}
+          />
+        </div>
       )}
     </div>
   );
