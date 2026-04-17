@@ -261,6 +261,25 @@ export const subscriptions = pgTable("subscriptions", {
 export type Subscription = typeof subscriptions.$inferSelect;
 export type NewSubscription = typeof subscriptions.$inferInsert;
 
+/**
+ * users table — Phase 08.4.
+ * Home for user preferences. Provider-agnostic (id is a text PK matching Clerk user_id).
+ * Intentionally minimal for now; grows as Phase 10+ add more prefs.
+ *
+ * skip_learning=false means "do NOT skip" (cards show) — default matches CONTEXT "default ON".
+ * new_card_cap=10 is the locked default from research (Phase 08.4 RESEARCH Area 7).
+ */
+export const users = pgTable("users", {
+  id: text("id").primaryKey(),
+  skip_learning: boolean("skip_learning").default(false).notNull(),
+  new_card_cap: integer("new_card_cap").default(10).notNull(),
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export type User = typeof users.$inferSelect;
+export type NewUser = typeof users.$inferInsert;
+
 // =============================================================================
 // Phase 8: Exercise Engine — song-level progress tracking
 // =============================================================================
