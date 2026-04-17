@@ -11,8 +11,8 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 
 Phase: 08.4 of 11 (Learn Phase Session Pacing) — COMPLETE
 Plan: 5 of 5 complete; next: Phase 08.5 or next phase in roadmap
-Status: Plan 08.4-05 complete — /profile page (server component) + ProfileForm client component with skip_learning toggle + new_card_cap input, free user gating via isPremium, inline save feedback. Commits bccc10b, ecd643a.
-Last activity: 2026-04-17 — Plan 08.4-05 complete (commits bccc10b, ecd643a).
+Status: Plan 08.4-04 complete (executed after 05) — ExerciseTab cap filter + prefs fetch + skipLearning plumbing; ExerciseSession JIT LearnCard render-interrupt. Commits c28cf4f, ec8d8c1. Phase 08.4 fully complete.
+Last activity: 2026-04-17 — Plan 08.4-04 complete (commits c28cf4f, ec8d8c1). All 5 plans done.
 
 Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
 
@@ -60,6 +60,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P01 | 8 | 3 tasks | 4 files |
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P03 | 5 | 2 tasks | 2 files |
 | Phase 08.4 P05 | 2 | 2 tasks | 2 files |
+| Phase 08.4 P04 | 3 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -158,6 +159,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.4]: isPremium exported from userPrefs.ts as single subscriptions query source of truth
 - [Phase 08.4]: isPremium imported from userPrefs.ts — no inline subscriptions query on profile page (single abstraction)
 - [Phase 08.4]: Profile page: PLACEHOLDER_USER_ID matches existing app auth TODO pattern; Clerk auth deferred to Phase 10
+- [Phase 08.4]: React hooks before hydration guard in ExerciseTab — useEffect cannot follow conditional return
+- [Phase 08.4]: Cap filter applied at ExerciseTab call-site before buildQuestions, not inside generator
 
 ### Pending Todos
 
