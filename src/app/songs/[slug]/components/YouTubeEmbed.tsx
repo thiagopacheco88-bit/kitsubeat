@@ -78,6 +78,19 @@ export default function YouTubeEmbed({
         },
         events: {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          onReady: (event: any) => {
+            // Test-only instrumentation. Exposes the YT player so Playwright specs
+            // can call seekTo/playVideo across the cross-origin iframe boundary.
+            // Gated EXCLUSIVELY on NEXT_PUBLIC_APP_ENV === 'test' — never leaks
+            // into dev or prod (single-condition gate; do NOT OR with NODE_ENV).
+            // See plan 08.1-05 Task 2 + verification: grep "NEXT_PUBLIC_APP_ENV" must
+            // return only this comparison and the VerseBlock data-start-ms gate.
+            if (process.env.NEXT_PUBLIC_APP_ENV === "test") {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              (window as any).__kbPlayer = event.target;
+            }
+          },
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onStateChange: (event: any) => {
             if (event.data === 1) {
               // YT.PlayerState.PLAYING = 1

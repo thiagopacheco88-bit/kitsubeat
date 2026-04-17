@@ -17,8 +17,20 @@ export default function VerseBlock({
   const translation =
     verse.translations[translationLang] ?? verse.translations["en"] ?? "";
 
+  // Test-only attribute. Lets Playwright look up a verse's start_time_ms without
+  // re-parsing synced_lrc on the client side. Gated EXCLUSIVELY on
+  // NEXT_PUBLIC_APP_ENV === 'test' — single-condition gate, never leaks to dev/prod.
+  // See plan 08.1-05 Task 2 verification.
+  const testDataAttr =
+    process.env.NEXT_PUBLIC_APP_ENV === "test"
+      ? { "data-start-ms": String(verse.start_time_ms ?? "") }
+      : {};
+
   return (
     <div
+      data-verse-number={verse.verse_number}
+      data-active={isActive ? "true" : "false"}
+      {...testDataAttr}
       className={`rounded-lg border p-4 transition-all duration-300 ${
         isActive
           ? "border-red-500/50 bg-red-950/20 shadow-lg shadow-red-500/5"
