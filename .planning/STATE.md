@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 4/8 complete)
+**Current focus:** v2.0 Phase 08.2 — FSRS Progressive Disclosure (in progress, plan 1/3 complete)
 
 ## Current Position
 
-Phase: 08.1 of 11 (End-to-End QA Suite)
-Plan: 4 of 8 in current phase complete; next: 08.1-05
-Status: Plan 08.1-04 complete (seed/content QA extensions — vocab_item_id integrity + furigana completeness + TV-pack skip wired into 06-qa-agent.ts; standalone 06-qa-uuid-integrity.ts and 06-qa-geo-check.ts modules; npm test:qa:uuid + test:qa:geo. Verified against dev DB: 60 TV rows skipped, 0 UUID gaps, 0 furigana gaps, 19 known geo-restricted videos surfaced)
-Last activity: 2026-04-17 — Plan 08.1-04 complete (2 commits 9cdeb1c, de601e1; full 176-row geo audit completes in ~3s with p-limit concurrency 8; single source of truth preserved — both backfill-geo-check.ts and 06-qa-geo-check.ts import probe helpers from scripts/lib/youtube-search.ts).
+Phase: 08.2 of 11 (FSRS Progressive Disclosure)
+Plan: 1 of 3 in current phase complete; next: 08.2-02
+Status: Plan 08.2-01 complete (FSRS core — ratingFor + RATING_WEIGHTS in rating.ts, scheduleReview + MasteryRow + ScheduledUpdate in scheduler.ts, tierFor in tier.ts; 29 vitest tests; zero DB/React coupling)
+Last activity: 2026-04-17 — Plan 08.2-01 complete (commits 7e10ecc, 48e0fc8; 29 tests green; pure TS with no DB imports; ScheduledUpdate maps 1:1 to user_vocab_mastery scalar columns for Plan 02 Drizzle spread).
 
 Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (4/8 plans)
 
@@ -43,6 +43,7 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.1 P02 | 4 | 3 tasks | 4 files |
 | Phase 08.1-end-to-end-qa-suite P03 | 4 | 3 tasks | 6 files |
 | Phase 08.1 P04 | 9 | 2 tasks | 4 files |
+| Phase 08.2-fsrs-progressive-disclosure P01 | 3 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -92,6 +93,10 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1]: [Phase 08.1-04]: TV-pack skip heuristic = version_type='tv' AND lesson IS NULL — matches the 60 pending-WhisperX rows without needing a new schema flag
 - [Phase 08.1]: [Phase 08.1-04]: Single source of truth for YouTube probe — fetchVideosMetadata + classifyAvailability stay in scripts/lib/youtube-search.ts; no scripts/lib/youtube-availability.ts created (would be empty proxy)
 - [Phase 08.1]: [Phase 08.1-04]: Geo-check exit semantics — GONE always fails; GEO fails by default; --allow-geo flag is operator's regional escape (CI deterministic, no IP probing)
+- [Phase 08.2-01]: RATING_WEIGHTS locked: meaning_vocab=4, vocab_meaning=3, fill_lyric=3, reading_match=2
+- [Phase 08.2-01]: Reveal hatch (revealedReading=true) always forces rating=1 regardless of correct flag
+- [Phase 08.2-01]: Relearning state collapses to TIER_LEARNING (2) — pure state-driven tier, no stability thresholds
+- [Phase 08.2-01]: ScheduledUpdate matches user_vocab_mastery scalar columns 1:1 for direct Drizzle spread in Plan 02
 
 ### Pending Todos
 
