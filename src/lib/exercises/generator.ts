@@ -19,6 +19,19 @@ export type ExerciseType =
   | "reading_match"
   | "fill_lyric";
 
+/**
+ * Minimal vocab representation for tier-aware rendering in exercise UI.
+ * Extracted from VocabEntry so renderer components don't depend on the full
+ * lesson type tree.
+ */
+export interface VocabInfo {
+  surface: string;
+  reading: string;
+  romaji: string;
+  /** vocab_item_id UUID — optional for legacy data; required for mastery popovers */
+  vocab_item_id?: string;
+}
+
 export interface Question {
   /** UUID for deduplication */
   id: string;
@@ -40,6 +53,18 @@ export interface Question {
     verseNumber: number;
     startMs: number;
   };
+  /**
+   * VocabInfo for the target word — used by TierText for tier-aware rendering.
+   * Populated for all question types.
+   */
+  vocabInfo: VocabInfo;
+  /**
+   * Map from distractor surface string → VocabInfo for distractor vocab.
+   * Populated for meaning_vocab and fill_lyric (where options are vocab surfaces).
+   * Used by TierText to render distractor options with the correct VocabInfo,
+   * and by FeedbackPanel to show the mastery popover for wrong-pick distractors.
+   */
+  distractorVocab?: Record<string, VocabInfo>;
 }
 
 export interface SessionConfig {
@@ -101,6 +126,12 @@ function findVerseForVocab(
 // Distractor selection
 // ---------------------------------------------------------------------------
 
+/** Pair of distractor surface string and its VocabInfo for tier rendering */
+interface DistractorEntry {
+  field: string;
+  vocabInfo: VocabInfo;
+}
+
 /**
  * Returns exactly 3 distractor strings.
  * Strategy:
@@ -116,6 +147,24 @@ export function pickDistractors(
   sameSongPool: VocabEntry[],
   jlptPool: VocabEntry[]
 ): string[] {
+  return pickDistractorsWithVocab(correct, type, sameSongPool, jlptPool).map(
+    (d) => d.field
+  );
+}
+
+/**
+ * Extended variant of pickDistractors that also returns the VocabInfo for each
+ * distractor. Used by makeQuestion to populate Question.distractorVocab so that
+ * TierText can render distractor options with the correct tier-aware display.
+ *
+ * @internal — not exported; only used within this file.
+ */
+function pickDistractorsWithVocab(
+  correct: VocabEntry,
+  type: ExerciseType,
+  sameSongPool: VocabEntry[],
+  jlptPool: VocabEntry[]
+): DistractorEntry[] {
   const correctField = extractField(correct, type);
   const correctNorm = correctField.trim().toLowerCase();
 
@@ -125,16 +174,23 @@ export function pickDistractors(
     return field !== correctNorm && field.length > 0;
   };
 
+  const toVocabInfo = (v: VocabEntry): VocabInfo => ({
+    surface: v.surface,
+    reading: v.reading,
+    romaji: v.romaji,
+    vocab_item_id: v.vocab_item_id,
+  });
+
   // 1. Same-song candidates (excluding correct vocab entry)
-  const songCandidates = sameSongPool
+  const songCandidates: DistractorEntry[] = sameSongPool
     .filter(isValid)
-    .map((v) => extractField(v, type));
+    .map((v) => ({ field: extractField(v, type), vocabInfo: toVocabInfo(v) }));
 
   // Deduplicate within candidates
   const seen = new Set<string>();
-  const unique: string[] = [];
+  const unique: DistractorEntry[] = [];
   for (const c of songCandidates) {
-    const norm = c.trim().toLowerCase();
+    const norm = c.field.trim().toLowerCase();
     if (!seen.has(norm)) {
       seen.add(norm);
       unique.push(c);
@@ -153,7 +209,7 @@ export function pickDistractors(
       const norm = field.trim().toLowerCase();
       if (!seen.has(norm)) {
         seen.add(norm);
-        unique.push(field);
+        unique.push({ field, vocabInfo: toVocabInfo(v) });
       }
     }
   }
@@ -167,7 +223,7 @@ export function pickDistractors(
       const norm = field.trim().toLowerCase();
       if (!seen.has(norm)) {
         seen.add(norm);
-        unique.push(field);
+        unique.push({ field, vocabInfo: toVocabInfo(v) });
       }
     }
   }
@@ -216,7 +272,8 @@ function makeQuestion(
   vocab: VocabEntry,
   type: ExerciseType,
   distractors: string[],
-  verses: Verse[]
+  verses: Verse[],
+  distractorVocabEntries?: DistractorEntry[]
 ): Question | null {
   const surface = vocab.surface;
   const meaning = localize(vocab.meaning, "en");
@@ -254,6 +311,23 @@ function makeQuestion(
     }
   }
 
+  // Build distractorVocab map (field → VocabInfo) for TierText rendering
+  // and FeedbackPanel mastery popovers (meaning_vocab and fill_lyric options
+  // are vocab surfaces; reading_match and vocab_meaning options are strings).
+  const distractorVocab: Record<string, VocabInfo> | undefined =
+    distractorVocabEntries
+      ? Object.fromEntries(
+          distractorVocabEntries.map((d) => [d.field, d.vocabInfo])
+        )
+      : undefined;
+
+  const vocabInfo: VocabInfo = {
+    surface: vocab.surface,
+    reading: vocab.reading,
+    romaji: vocab.romaji,
+    vocab_item_id: vocab.vocab_item_id,
+  };
+
   return {
     id: crypto.randomUUID(),
     type,
@@ -264,6 +338,8 @@ function makeQuestion(
     explanation: makeExplanation(vocab, type),
     detailedExplanation: makeDetailedExplanation(vocab),
     verseRef,
+    vocabInfo,
+    distractorVocab,
   };
 }
 
@@ -300,8 +376,9 @@ export function buildQuestions(
       // fill_lyric requires at least 3 vocab entries (to form 4 distinct options)
       if (type === "fill_lyric" && base.length < 3) continue;
 
-      const distractors = pickDistractors(vocab, type, base, jlptPool);
-      const question = makeQuestion(vocab, type, distractors, lesson.verses);
+      const distractorEntries = pickDistractorsWithVocab(vocab, type, base, jlptPool);
+      const distractors = distractorEntries.map((d) => d.field);
+      const question = makeQuestion(vocab, type, distractors, lesson.verses, distractorEntries);
       if (question) {
         questions.push(question);
       }

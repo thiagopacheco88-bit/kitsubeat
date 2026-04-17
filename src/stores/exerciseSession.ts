@@ -11,6 +11,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { Question } from "@/lib/exercises/generator";
+import type { Tier } from "@/lib/fsrs/tier";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -30,6 +31,11 @@ interface ExerciseSessionState {
   startedAt: number | null;
   mode: "short" | "full" | null;
   _hasHydrated: boolean;
+  /** Per-vocab display tiers keyed by vocabItemId. Persisted so a paused session
+   *  resumes at the correct tier without a re-fetch. */
+  tiers: Record<string, Tier>;
+  /** Question IDs where the user tapped "Reveal reading" — keyed by question.id. */
+  revealedQuestionIds: Record<string, true>;
 }
 
 interface ExerciseSessionActions {
@@ -47,6 +53,12 @@ interface ExerciseSessionActions {
   advanceQuestion: () => void;
   clearSession: () => void;
   setHasHydrated: (v: boolean) => void;
+  /** Bulk-set tiers after prefetch from /api/exercises/vocab-tiers */
+  setTiers: (tiers: Record<string, Tier>) => void;
+  /** Optimistically update a single vocab's tier after recordVocabAnswer response */
+  setTier: (vocabItemId: string, tier: Tier) => void;
+  /** Record that the user tapped "Reveal reading" for a question */
+  markRevealed: (questionId: string) => void;
 }
 
 type ExerciseSessionStore = ExerciseSessionState & ExerciseSessionActions;
@@ -63,6 +75,8 @@ const initialState: ExerciseSessionState = {
   startedAt: null,
   mode: null,
   _hasHydrated: false,
+  tiers: {},
+  revealedQuestionIds: {},
 };
 
 // ---------------------------------------------------------------------------
@@ -82,6 +96,11 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
           answers: {},
           startedAt: Date.now(),
           mode,
+          // Reset tier and reveal state so a new session doesn't inherit stale data.
+          // ExerciseTab calls setTiers() immediately after startSession() with the
+          // freshly-fetched tiers, so this reset is safe.
+          tiers: {},
+          revealedQuestionIds: {},
         }),
 
       recordAnswer: (questionId, chosen, correct, timeMs) =>
@@ -104,6 +123,18 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
         }),
 
       setHasHydrated: (v) => set({ _hasHydrated: v }),
+
+      setTiers: (tiers) => set({ tiers }),
+
+      setTier: (vocabItemId, tier) =>
+        set((state) => ({
+          tiers: { ...state.tiers, [vocabItemId]: tier },
+        })),
+
+      markRevealed: (questionId) =>
+        set((state) => ({
+          revealedQuestionIds: { ...state.revealedQuestionIds, [questionId]: true },
+        })),
     }),
     {
       name: "kitsubeat-exercise-session",
