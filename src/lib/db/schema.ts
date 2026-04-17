@@ -155,6 +155,10 @@ export const vocabularyItems = pgTable("vocabulary_items", {
   // Localizable multilingual meaning object e.g. {"en": "...", "pt-BR": "..."}
   meaning: jsonb("meaning").notNull(),
 
+  // Phase 08.3 enrichment fields — nullable. Populated by scripts/seed/11-enrich-vocab.ts.
+  mnemonic: jsonb("mnemonic"),
+  kanji_breakdown: jsonb("kanji_breakdown"),
+
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 }, (table) => [
   unique("vocabulary_items_form_reading_unique").on(table.dictionary_form, table.reading),
