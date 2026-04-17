@@ -150,6 +150,24 @@ Extract the most educationally valuable vocabulary from the song (typically 10-2
 - Include readings, romaji, part_of_speech, jlpt_level, and meaning
 - **example_from_song**: quote the specific verse or phrase where this word appears
 - **additional_examples**: 1-3 natural example sentences using the word in different contexts, ordered from simpler to more complex
+- **mnemonic**: \`{ "en": "...", "pt-BR": "...", "es": "..." }\` — ONE short sentence per language (10-15 words). Tone: playful + visual. Use wordplay, vivid imagery, or sound-alikes to the Japanese reading. NOT etymology. NOT anime references. Example EN for 王様 (OO-SAM-A): "Picture a KING on a GOLDEN throne — that's royalty in Japan."
+- **kanji_breakdown**: IF the surface contains kanji, emit:
+  \`\`\`json
+  {
+    "characters": [
+      {
+        "char": "<single kanji>",
+        "meaning": { "en": "...", "pt-BR": "...", "es": "..." },
+        "on_yomi": "<kana, empty string if none>",
+        "kun_yomi": "<kana, empty string if none>",
+        "jlpt_level": "N5" | "N4" | "N3" | "N2" | "N1" | null,
+        "radical_hint": { "en": "<short like 'fire + person'>", "pt-BR": "...", "es": "..." }
+      }
+    ],
+    "compound_note": { "en": "...", "pt-BR": "...", "es": "..." }
+  }
+  \`\`\`
+  One entry per kanji character in surface. Include \`compound_note\` ONLY if surface has 2+ kanji — bridge per-character meanings to the compound word. IF the surface is kana-only (no kanji), emit: \`"kanji_breakdown": null\`
 
 ### 7. Grammar Points
 Identify 3-8 notable grammar patterns in the song:
@@ -185,7 +203,7 @@ The schema structure is:
   jlpt_level: "N5" | "N4" | "N3" | "N2" | "N1",
   difficulty_tier: "basic" | "intermediate" | "advanced",
   verses: [{ verse_number, start_time_ms, end_time_ms, tokens, translations, literal_meaning, cultural_context? }],
-  vocabulary: [{ surface, reading, romaji, part_of_speech, jlpt_level, meaning, example_from_song, additional_examples }],
+  vocabulary: [{ surface, reading, romaji, part_of_speech, jlpt_level, meaning, example_from_song, additional_examples, mnemonic, kanji_breakdown }],
   grammar_points: [{ name, jlpt_reference, explanation, conjugation_path? }]
 }
 \`\`\``;
