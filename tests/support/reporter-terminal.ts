@@ -7,15 +7,15 @@
  * scripts, not a web dashboard.
  *
  * Output format:
- *   PASS  tests/app.spec.ts::Home Page > loads with hero (123ms)
- *   FAIL  tests/app.spec.ts::Songs > search filter works
+ *   PASS  tests/e2e/home-and-browse.spec.ts::Home page > loads with hero (123ms)
+ *   FAIL  tests/e2e/home-and-browse.spec.ts::Songs browse page > search filter narrows results to matching titles
  *     Error: expect(received).toBe(expected) ...
  *
  *   --- Suite summary ---
  *   Total:   12  Passed: 10  Failed: 2  Skipped: 0
  *   2 failed:
- *     - tests/app.spec.ts::Songs > search filter works
- *     - tests/app.spec.ts::Songs > JLPT filter works
+ *     - tests/e2e/home-and-browse.spec.ts::Songs browse page > search filter narrows results to matching titles
+ *     - tests/e2e/home-and-browse.spec.ts::Songs browse page > JLPT N3 filter surfaces N3 badge spans
  *
  * Used as the default Playwright reporter; the HTML reporter is opt-in via
  * `npm run test:report` (see package.json).

@@ -5,35 +5,35 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 7/8 complete) + 08.2 FSRS Progressive Disclosure (COMPLETE — all 3 plans done) + 08.3 Mnemonic/Kanji Breakdown (in progress, plan 3/5 complete)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite COMPLETE (8/8 plans) + 08.2 FSRS Progressive Disclosure COMPLETE (3/3 plans) + 08.3 Mnemonic/Kanji Breakdown (in progress, plan 4/5 complete)
 
 ## Current Position
 
-Phase: 08.1 of 11 (End-to-End QA Suite) — concurrent with 08.2
-Plan: 7 of 8 in current phase complete; next: 08.1-08
-Status: Plan 08.1-07 complete (regression suite — 4 spec files / 19 tests covering cross-song leakage, premium-gate bypass, geo-restricted YouTube fallback, and stale/malformed lesson JSONB; YouTubeEmbed gained data-yt-state error fallback UI with 15s watchdog and locked copy "Video unavailable"; single-gate architectural invariant statically enforced via UI directory walk in regression-stale-lesson-data.test.ts)
-Last activity: 2026-04-17 — Plan 08.1-07 complete (commits 3791daa, 6889130, a521f14; integration spec runs live 9/10 passing + 1 DB-gated skip; E2E specs ship + collect, live-run blocked by same pre-existing Localizable rendering bug — same fix unblocks plans 05/06/07 simultaneously).
+Phase: 08.1 of 11 (End-to-End QA Suite) — COMPLETE
+Plan: 8 of 8 in current phase complete; next active phase: 08.3 (mnemonic/kanji breakdown — plan 5 remaining), then phase 09 (Kana Trainer)
+Status: Plan 08.1-08 complete — Phase 08.1 fully shipped. measure-suite-runtime.ts asserts <15min budget programmatically; quarantine convention wired (Playwright grepInvert + Vitest helper); GitHub Actions CI ships PR-fast (qa+unit+integration) and nightly-full (test:measure with E2E + budget assertion + artifact upload on failure); README-testing.md is the single 100-line entry point; legacy tests/app.spec.ts retired after porting home + browse scenarios to tests/e2e/home-and-browse.spec.ts (6 tests, +6 to E2E suite).
+Last activity: 2026-04-17 — Plan 08.1-08 complete (commits 299743e, addfe88, 86ca5fa). Final E2E inventory: 12 spec files / 39 tests. Unit: 71 tests. Integration: 9 tests. 0 quarantined. retries:0 still locked.
 
-Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (7/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans)
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 in progress (4/5 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
+- Total plans completed: 12
 - Average duration: 8 min
-- Total execution time: 1.50 hours
+- Total execution time: 1.61 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-content-pipeline | 6/8 | 60 min | 10 min |
-| 08.1-end-to-end-qa-suite | 7/8 | 57 min | 8 min |
+| 08.1-end-to-end-qa-suite | 8/8 | 66 min | 8 min |
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min), 08.1-06 (14.5 min), 08.2-03 (8 min), 08.1-07 (7 min)
-- Trend: rising-then-stable (08.1-07 dropped back to 7 min — regression specs benefited from heavy reuse of plans 05/06 fixtures + test hooks)
+- Last 7 plans: 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min), 08.1-06 (14.5 min), 08.2-03 (8 min), 08.1-07 (7 min), 08.1-08 (9 min)
+- Trend: stable (08.1-08 — hardening plan landed in 9 min by reusing existing tsx/script + npm-script + Playwright config conventions; deviation 1 — quarantine env-sentinel — was the only architectural detour)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -54,6 +54,7 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P03 | 2 | 2 tasks | 2 files |
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P02 | 3 | 2 tasks | 3 files |
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P04 | 12 | 3 tasks | 5 files |
+| Phase 08.1-end-to-end-qa-suite P08 | 9 | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -136,6 +137,10 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.3]: 08.3-02: isNull(mnemonic) sole skip gate — kanji_breakdown IS NULL valid for kana-only words
 - [Phase 08.3]: moreAccordionOpen in Zustand resets on startSession preventing cross-song UI leakage
 - [Phase 08.3]: Server enrichment batch: collect IDs, single SELECT WHERE id IN, merge into VocabEntry
+- [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: Quarantine grepInvert override uses env-var-driven sentinel ('__never_match_kb_quarantine_sentinel__') — Playwright AND-combines grep + grepInvert and rejects empty --grep-invert, so neutralizing the config-level invert via env var is the only way to opt quarantined tests INTO a run
+- [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: measure-suite-runtime.ts uses fastest-first layer order (test:qa -> test:unit -> test:integration -> test:e2e) — regression in fast layer kills the run before E2E starts the dev server, saving ~10 min per failed run
+- [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: PR job runs test:ci-pr (no E2E) — explicit speed/cost tradeoff; nightly is the only place E2E + 15-min budget gate live; concurrency-cancels in-flight runs on the same ref to save runner minutes
+- [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: home + songs-browse scenarios from app.spec.ts ported to standalone tests/e2e/home-and-browse.spec.ts (6 tests) BEFORE deletion — plan 05's player-*.spec.ts only covered /songs/[slug], not / and /songs
 
 ### Pending Todos
 
@@ -156,9 +161,11 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 - Phase 08.1-06: Pre-existing Localizable rendering bug in LyricsPanel/VerseBlock blocks ALL exercise E2E specs from running live; specs are sound and committed but pass requires fixing Localizable consumers (wrap with localize() helper)
 - Phase 08.1-07: Same Localizable rendering blocker continues to gate live E2E runs of regression-cross-song-leak / regression-premium-gate (UI tests) / regression-geo-fallback. Integration spec regression-stale-lesson-data.test.ts runs live (9/10 passing + 1 DB-gated skip); E2E specs are sound and committed; one Localizable fix unblocks plans 05/06/07 simultaneously.
 - Phase 08.3-02: ANTHROPIC_API_KEY not set — script ships ready but operator must set key (https://console.anthropic.com API Keys → .env.local) then run `npm run seed:enrich-vocab` to enrich ~705 vocabulary_items rows.
+- Phase 08.1-08: CI workflow .github/workflows/qa-suite.yml is INERT until operator adds TEST_DATABASE_URL as a GitHub Actions repo secret (Settings → Secrets and variables → Actions). PR job will fail at the test:seed step without it. Once added, first PR exercises pr-checks; first 06:00 UTC tick exercises nightly-full.
+- Phase 08.1-08: Live `npm run test:measure` end-to-end run NOT exercised in this environment — same TEST_DATABASE_URL + Localizable bug blockers from plans 05/06/07. The 15-min budget assertion is implemented and TS-clean; first true verification happens once those blockers clear.
 
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.3-04-PLAN.md (enrichment server join + moreAccordionOpen store + FeedbackPanel inline accordion + KanjiBreakdownSection); next active plan: 08.3-05-PLAN.md
+Stopped at: Completed 08.1-08-PLAN.md (suite hardening — measure-suite-runtime.ts asserts <15min budget; quarantine convention via Playwright grepInvert + Vitest helper; GitHub Actions CI tiered PR-fast vs nightly-full; README-testing.md single 100-line entry point; tests/app.spec.ts retired with home + browse scenarios ported to tests/e2e/home-and-browse.spec.ts). Phase 08.1 COMPLETE 8/8. Commits 299743e, addfe88, 86ca5fa.
 Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-05-PLAN.md
