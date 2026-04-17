@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { Token } from "@/lib/types/lesson";
-import { JLPT_COLOR_CLASS } from "@/lib/types/lesson";
+import { JLPT_COLOR_CLASS, localize } from "@/lib/types/lesson";
+import { usePlayer } from "./PlayerContext";
 
 export default function TokenPopup({
   token,
@@ -11,6 +12,7 @@ export default function TokenPopup({
   token: Token;
   onClose: () => void;
 }) {
+  const { translationLang } = usePlayer();
   const ref = useRef<HTMLDivElement>(null);
   const [alignRight, setAlignRight] = useState(false);
 
@@ -57,7 +59,9 @@ export default function TokenPopup({
       <div className="mb-2 text-center text-sm text-gray-400">
         {token.reading} &middot; {token.romaji}
       </div>
-      <div className="mb-2 text-center text-sm text-white">{token.meaning}</div>
+      <div className="mb-2 text-center text-sm text-white">
+        {localize(token.meaning, translationLang)}
+      </div>
       <div className="flex items-center justify-center gap-2">
         <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[10px] capitalize text-gray-400">
           {token.grammar}

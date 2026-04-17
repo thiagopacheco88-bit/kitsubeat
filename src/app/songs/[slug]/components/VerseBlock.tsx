@@ -1,7 +1,7 @@
 "use client";
 
 import type { Verse } from "@/lib/types/lesson";
-import { GRAMMAR_COLOR_CLASS } from "@/lib/types/lesson";
+import { GRAMMAR_COLOR_CLASS, localize } from "@/lib/types/lesson";
 import { usePlayer } from "./PlayerContext";
 import TokenSpan from "./TokenSpan";
 
@@ -79,18 +79,20 @@ export default function VerseBlock({
                   {token.reading !== token.surface ? token.reading + " = " : ""}
                   {token.romaji}
                 </span>
-                <span className="text-gray-400">= {token.meaning}</span>
+                <span className="text-gray-400">
+                  = {localize(token.meaning, translationLang)}
+                </span>
               </div>
             ))}
         </div>
         {verse.literal_meaning && (
           <p className="mt-2 text-xs text-gray-500">
-            {verse.literal_meaning}
+            {localize(verse.literal_meaning, translationLang)}
           </p>
         )}
         {verse.cultural_context && (
           <p className="mt-1 text-xs italic text-gray-600">
-            {verse.cultural_context}
+            {localize(verse.cultural_context, translationLang)}
           </p>
         )}
       </details>

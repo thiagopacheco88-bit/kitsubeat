@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import type { GrammarPoint } from "@/lib/types/lesson";
+import { localize } from "@/lib/types/lesson";
+import { usePlayer } from "./PlayerContext";
 
 export default function GrammarSection({
   points,
@@ -63,10 +65,10 @@ function GrammarCard({
   point: GrammarPoint;
   showRomaji: boolean;
 }) {
+  const { translationLang } = usePlayer();
   const [open, setOpen] = useState(false);
-  const explanation = showRomaji
-    ? point.explanation
-    : stripRomaji(point.explanation);
+  const rawExplanation = localize(point.explanation, translationLang);
+  const explanation = showRomaji ? rawExplanation : stripRomaji(rawExplanation);
 
   return (
     <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
