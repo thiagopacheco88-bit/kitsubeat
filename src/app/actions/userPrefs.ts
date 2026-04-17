@@ -3,23 +3,11 @@
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { users, subscriptions } from "@/lib/db/schema";
-
-/**
- * Default new-card cap — research-locked value from Phase 08.4 RESEARCH Area 7.
- * This is the ceiling for free users and the floor for new users regardless of tier.
- */
-export const DEFAULT_NEW_CARD_CAP = 10;
-
-/**
- * Maximum cap a premium user is allowed to set. Protects against runaway
- * session size (cap=500 would break the UI budget + exhaust the distractor pool).
- */
-export const PREMIUM_NEW_CARD_CAP_CEILING = 30;
-
-export interface UserPrefs {
-  skipLearning: boolean;
-  newCardCap: number;
-}
+import {
+  DEFAULT_NEW_CARD_CAP,
+  PREMIUM_NEW_CARD_CAP_CEILING,
+  type UserPrefs,
+} from "@/lib/user-prefs";
 
 /**
  * Fetches the user's prefs row, seeding defaults via upsert if no row exists.

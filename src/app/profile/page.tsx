@@ -1,9 +1,8 @@
+import { getUserPrefs, isPremium } from "@/app/actions/userPrefs";
 import {
-  getUserPrefs,
-  isPremium,
   DEFAULT_NEW_CARD_CAP,
   PREMIUM_NEW_CARD_CAP_CEILING,
-} from "@/app/actions/userPrefs";
+} from "@/lib/user-prefs";
 import ProfileForm from "./ProfileForm";
 
 // TODO(Phase 10 auth): replace with Clerk auth() and redirect unauthenticated users.
