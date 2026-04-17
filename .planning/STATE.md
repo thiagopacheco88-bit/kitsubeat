@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 7/8 complete) + 08.2 FSRS Progressive Disclosure (COMPLETE — all 3 plans done) + 08.3 Mnemonic/Kanji Breakdown (in progress, plan 1/5 complete)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 7/8 complete) + 08.2 FSRS Progressive Disclosure (COMPLETE — all 3 plans done) + 08.3 Mnemonic/Kanji Breakdown (in progress, plan 3/5 complete)
 
 ## Current Position
 
@@ -51,6 +51,8 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.2-fsrs-progressive-disclosure P03 | 8 | 3 tasks | 8 files |
 | Phase 08.1-end-to-end-qa-suite P07 | 7 | 3 tasks | 5 files |
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P01 | 2 | 2 tasks | 4 files |
+| Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P03 | 2 | 2 tasks | 2 files |
+| Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P02 | 3 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -127,6 +129,10 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1-07]: Cross-song leak round-trip (BOTH directions) proves preservation as well as rejection — Song A->B refuses + B->A still resumes
 - [Phase 08.3]: Nullable jsonb mnemonic/kanji_breakdown columns — NULL means not yet enriched, Wave 2 skip signal
 - [Phase 08.3]: No indexes on new columns — sequential scan faster for 705-row mnemonic IS NULL filter
+- [Phase 08.3-03]: Inline enrich sub-schemas in lesson.ts avoid cross-module runtime import for generation
+- [Phase 08.3-03]: mnemonic + kanji_breakdown optional in VocabEntrySchema — legacy lessons still validate
+- [Phase 08.3]: 08.3-02: inline client.messages.create (NOT Batch API) for vocab enrichment — user locked preference
+- [Phase 08.3]: 08.3-02: isNull(mnemonic) sole skip gate — kanji_breakdown IS NULL valid for kana-only words
 
 ### Pending Todos
 
@@ -150,5 +156,5 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.3-01-PLAN.md (schema migration + type foundation — mnemonic + kanji_breakdown jsonb columns on vocabulary_items, KanjiCharEntry/KanjiBreakdown types, VocabEntry + Question enrichment carry-through); next active plan: 08.3-02-PLAN.md
-Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-02-PLAN.md
+Stopped at: Completed 08.3-02-PLAN.md (Zod schemas enrich.ts + idempotent 11-enrich-vocab.ts enrichment script; ANTHROPIC_API_KEY required to run against DB — set in .env.local then npm run seed:enrich-vocab); next active plan: 08.3-03-PLAN.md
+Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-03-PLAN.md
