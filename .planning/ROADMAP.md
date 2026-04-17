@@ -179,13 +179,13 @@ Plans:
 
 **Goal:** Ship the cross-cutting QA test infrastructure (Playwright + Vitest + Node integration + seed QA) that verifies the v1.0 player experience and the v2.0 Phase 8 exercise engine end-to-end before Phase 9 extends the codebase further. Enforces a 15-minute speed budget and a zero-flake policy (retries: 0 everywhere).
 **Depends on:** Phase 8
-**Plans:** 3/8 plans executed
+**Plans:** 4/8 plans executed
 
 Plans:
 - [x] 08.1-01-PLAN.md -- Test infra scaffolding (playwright + vitest configs, test-DB strategy, fixtures, terminal reporter, npm scripts)
-- [ ] 08.1-02-PLAN.md -- Vitest unit layer (generator extensions, checkExerciseAccess, deriveStars, distractor picker)
-- [ ] 08.1-03-PLAN.md -- Node integration layer (jlpt-pool API, saveSessionResults, progress queries, admin songs)
-- [ ] 08.1-04-PLAN.md -- Seed/content QA extensions (UUID integrity, furigana completeness, geo audit, TV-pack skip)
+- [x] 08.1-02-PLAN.md -- Vitest unit layer (generator extensions, checkExerciseAccess, deriveStars, distractor picker)
+- [x] 08.1-03-PLAN.md -- Node integration layer (jlpt-pool API, saveSessionResults, progress queries, admin songs)
+- [x] 08.1-04-PLAN.md -- Seed/content QA extensions (UUID integrity, furigana completeness, geo audit, TV-pack skip)
 - [ ] 08.1-05-PLAN.md -- Playwright E2E for player flows (load, lesson toggles, sync/seek with real YouTube, panels)
 - [ ] 08.1-06-PLAN.md -- Playwright E2E for exercise flows (full session, stars+confetti, resume mid-session, FSRS writes)
 - [ ] 08.1-07-PLAN.md -- Regression guards (cross-song leakage, premium gate bypass, geo fallback, stale lesson data)

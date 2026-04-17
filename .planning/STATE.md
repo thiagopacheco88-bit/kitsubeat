@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 3/8 complete)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 4/8 complete)
 
 ## Current Position
 
 Phase: 08.1 of 11 (End-to-End QA Suite)
-Plan: 3 of 8 in current phase complete; next: 08.1-04
-Status: Plan 08.1-03 complete (integration layer — 4 test files, 16 tests covering jlpt-pool API, admin songs API, saveSessionResults upsert semantics, queries.ts read-time star derivation + information_schema invariant; setupFiles redirects DATABASE_URL → TEST_DATABASE_URL; suite skips cleanly when env unset, runs in <30s when provisioned)
-Last activity: 2026-04-17 — Plan 08.1-03 complete (3 commits ae96508, 67a1853, 7cc0d81; tests authored hermetically with describe.skip guards; pending env: TEST_DATABASE_URL still required for plans 03/06/07 to actually exercise assertions).
+Plan: 4 of 8 in current phase complete; next: 08.1-05
+Status: Plan 08.1-04 complete (seed/content QA extensions — vocab_item_id integrity + furigana completeness + TV-pack skip wired into 06-qa-agent.ts; standalone 06-qa-uuid-integrity.ts and 06-qa-geo-check.ts modules; npm test:qa:uuid + test:qa:geo. Verified against dev DB: 60 TV rows skipped, 0 UUID gaps, 0 furigana gaps, 19 known geo-restricted videos surfaced)
+Last activity: 2026-04-17 — Plan 08.1-04 complete (2 commits 9cdeb1c, de601e1; full 176-row geo audit completes in ~3s with p-limit concurrency 8; single source of truth preserved — both backfill-geo-check.ts and 06-qa-geo-check.ts import probe helpers from scripts/lib/youtube-search.ts).
 
-Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (3/8 plans)
+Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (4/8 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: 8 min
-- Total execution time: 1.12 hours
+- Total execution time: 1.27 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-content-pipeline | 6/8 | 60 min | 10 min |
-| 08.1-end-to-end-qa-suite | 3/8 | 16 min | 5 min |
+| 08.1-end-to-end-qa-suite | 4/8 | 25 min | 6 min |
 
 **Recent Trend:**
-- Last 6 plans: 01-04 (7 min), 01-05 (22 min), 01-07 (8 min), 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min)
-- Trend: stable-to-fast (08.1 plans averaging well under the 10-min mean)
+- Last 6 plans: 01-05 (22 min), 01-07 (8 min), 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min)
+- Trend: stable (08.1 plans averaging 6 min — UUID/geo plan a touch heavier due to live API verification)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -42,6 +42,7 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.1-end-to-end-qa-suite P01 | 8 | 3 tasks | 8 files |
 | Phase 08.1 P02 | 4 | 3 tasks | 4 files |
 | Phase 08.1-end-to-end-qa-suite P03 | 4 | 3 tasks | 6 files |
+| Phase 08.1 P04 | 9 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,9 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1-03]: information_schema invariant test asserts `user_song_progress` has NO `stars` column — locks the read-time star derivation decision at the schema level; a future refactor that adds the column will fail this test loudly
 - [Phase 08.1-03]: Direct route handler invocation in integration tests (`import { GET } from "@/app/.../route"` + `new NextRequest`) — no Next.js dev server, ~3s faster per run, exercises the same handler the framework would invoke
 - [Phase 08.1-03]: Defensive `Array.isArray(raw) ? raw : (raw.rows ?? [])` pattern for drizzle .execute(sql) — neon-http return shape varies by query and silently masks failures otherwise
+- [Phase 08.1]: [Phase 08.1-04]: TV-pack skip heuristic = version_type='tv' AND lesson IS NULL — matches the 60 pending-WhisperX rows without needing a new schema flag
+- [Phase 08.1]: [Phase 08.1-04]: Single source of truth for YouTube probe — fetchVideosMetadata + classifyAvailability stay in scripts/lib/youtube-search.ts; no scripts/lib/youtube-availability.ts created (would be empty proxy)
+- [Phase 08.1]: [Phase 08.1-04]: Geo-check exit semantics — GONE always fails; GEO fails by default; --allow-geo flag is operator's regional escape (CI deterministic, no IP probing)
 
 ### Pending Todos
 
@@ -108,5 +112,5 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Phase 08.3 context gathered
-Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-CONTEXT.md
+Stopped at: Plan 08.1-04 complete (seed/content QA extensions); next plan: 08.1-05-PLAN.md (Playwright E2E player flows)
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-05-PLAN.md
