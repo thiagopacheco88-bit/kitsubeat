@@ -56,6 +56,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P04 | 12 | 3 tasks | 5 files |
 | Phase 08.1-end-to-end-qa-suite P08 | 9 | 3 tasks | 7 files |
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P05 | 2 | 2 tasks | 5 files |
+| Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P02 | 2 | 1 tasks | 2 files |
+| Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P01 | 8 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -64,6 +66,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - Phase 08.1 inserted after Phase 8: End-to-End QA Suite (URGENT) — cross-cutting Playwright + Node-side QA infra to verify v1.0 player + v2.0 Phase 8 exercise engine before Phase 9 (Kana Trainer) builds further
 - Phase 08.2 inserted after Phase 8: FSRS progressive disclosure (URGENT) — wire user_vocab_mastery/user_exercise_log writes (currently dead infra) and derive a per-word display tier (kanji+furigana+romaji → kanji+furigana → kanji only) so exercise options stop starting at bare kanji; also unblocks Phase 11's assumption that per-vocab mastery is being persisted
 - Phase 08.3 inserted after Phase 8: Mnemonic and kanji breakdown for vocabulary feedback — extend VocabEntry with `mnemonic` + `kanji_breakdown` fields, update content-generation prompt in scripts/seed/03-generate-content.ts, backfill ~60 songs (~1200 vocab items), surface in FeedbackPanel "More" accordion. Separated from Phase 8 refactor (which landed vocab block + wrong-pick callout + verse context without re-seed).
+- Phase 08.4 inserted after Phase 8: Learn phase + session pacing for new vocabulary — presentation step before first exercise, skip_learning user preset, new-card cap per session (URGENT)
 
 ### Decisions
 
@@ -144,6 +147,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: home + songs-browse scenarios from app.spec.ts ported to standalone tests/e2e/home-and-browse.spec.ts (6 tests) BEFORE deletion — plan 05's player-*.spec.ts only covered /songs/[slug], not / and /songs
 - [Phase 08.3]: test:qa:enrichment exits 1 pre-enrichment by design — gates DESIGNED to fail until seed:enrich-vocab runs
 - [Phase 08.3-05]: tests/unit/ added to vitest include; MIN_WORDS=5 MAX_WORDS=25 bounds locked per CONTEXT.md
+- [Phase 08.4-learn-phase-session-pacing-for-new-vocabulary]: LearnCard is 100% props-driven — no Zustand imports; session coupling deferred to Plan 04
+- [Phase 08.4-learn-phase-session-pacing-for-new-vocabulary]: tts.ts uses Web Speech API (browser-native); no external TTS service or API key needed
 
 ### Pending Todos
 
@@ -170,5 +175,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.3-05-PLAN.md (QA enrichment gate + unit tests — phase 08.3 all 5 plans complete; 12 unit tests green; test:qa:enrichment exits 1 pre-enrichment by design). Commits 001ca84, 9bb70fc.
-Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-08-PLAN.md
+Stopped at: Completed 08.4-02-PLAN.md (LearnCard component + tts.ts — props-driven learn card with tap-dismiss, Show-more reveal, speaker TTS gated on hasJapaneseVoice). Commit b0448e3.
+Resume file: .planning/phases/08.4-learn-phase-session-pacing-for-new-vocabulary-presentation-step-before-first-exercise-skip-learning-user-preset-new-card-cap-per-session/08.4-03-PLAN.md

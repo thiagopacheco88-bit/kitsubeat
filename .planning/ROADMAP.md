@@ -155,6 +155,19 @@ Plans:
 - [ ] 08-03-PLAN.md -- Zustand session store, JLPT pool API, exercise UI (config screen, question card, feedback panel, Practice tab)
 - [ ] 08-04-PLAN.md -- Session summary, star display with confetti, circular progress ring, SongCard/SongPage integration
 
+### Phase 08.4: Learn phase + session pacing for new vocabulary — presentation step before first exercise, skip_learning user preset, new-card cap per session (INSERTED)
+
+**Goal:** Insert a just-in-time learn card before the first exercise for any New or Relearning vocabulary word (with mnemonic + kanji_breakdown behind a single tap-to-reveal and tap-to-play Japanese TTS), expose a global `skip_learning` user preset (default ON — cards show), and enforce a per-session new-card cap (default 10) gated by a premium-only cap-raising ceiling (30) — all wired into the existing Phase 8 exercise engine with a new `/profile` settings surface.
+**Depends on:** Phase 8, Phase 08.2 (FSRS state), Phase 08.3 (KanjiBreakdownSection + mnemonic column)
+**Plans:** 2/5 plans executed
+
+Plans:
+- [ ] 08.4-01-PLAN.md -- Users table migration (0005_user_prefs.sql) + vocab-tiers API states extension + Web Speech TTS helper
+- [ ] 08.4-02-PLAN.md -- LearnCard component (tap-to-dismiss + "Show more" reveal + speaker icon; no Zustand coupling)
+- [ ] 08.4-03-PLAN.md -- userPrefs server actions (getUserPrefs + updateUserPrefs + getEffectiveCap premium gate) + session store extensions (learnedVocabIds, introducedNewVocabIds, vocabStates)
+- [ ] 08.4-04-PLAN.md -- Wiring: ExerciseTab cap filter (parallel prefs+cap+JLPT fetch; filter new/relearning beyond cap pre-buildQuestions) + ExerciseSession JIT LearnCard insertion (skip_learning bypass; currentIndex never advances)
+- [ ] 08.4-05-PLAN.md -- /profile page (server component) + ProfileForm client component (skip_learning toggle + new_card_cap input; cap disabled for free users)
+
 ### Phase 08.3: Mnemonic and kanji breakdown for vocabulary feedback (INSERTED)
 
 **Goal:** Extend `vocabulary_items` with `mnemonic` and `kanji_breakdown` jsonb columns, enrich all ~705 existing rows via inline LLM generation, and render both inside the FeedbackPanel "More" accordion with cross-question persistence. Future songs ship enriched by updating the shared generation prompt. Surgical enrichment only — existing lesson JSONB is untouched.
