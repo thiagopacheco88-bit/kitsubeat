@@ -14,7 +14,7 @@ Plan: 2 of 3 in current phase complete; next: 08.2-03
 Status: Plan 08.2-02 complete (FSRS DB writes — recordVocabAnswer server action, vocab-tiers batch endpoint, vocab-mastery detail endpoint; per-answer atomic transactions; cold-start tier defaults)
 Last activity: 2026-04-17 — Plan 08.2-02 complete (commits 208233e, df795f5; recordVocabAnswer wires Phase 7 tables; two read endpoints ready for Plan 03 UI wiring).
 
-Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (4/8 plans)
+Progress: [██████░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (5/8 plans); v2.0 Phase 08.2 in progress (2/3 plans)
 
 ## Performance Metrics
 
@@ -28,11 +28,11 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-content-pipeline | 6/8 | 60 min | 10 min |
-| 08.1-end-to-end-qa-suite | 4/8 | 25 min | 6 min |
+| 08.1-end-to-end-qa-suite | 5/8 | 36 min | 7 min |
 
 **Recent Trend:**
-- Last 6 plans: 01-05 (22 min), 01-07 (8 min), 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min)
-- Trend: stable (08.1 plans averaging 6 min — UUID/geo plan a touch heavier due to live API verification)
+- Last 6 plans: 01-07 (8 min), 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min)
+- Trend: stable (08.1 plans averaging 7 min — player E2E plan slightly heavier due to test-only instrumentation + real-iframe verification surface)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -45,6 +45,7 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.1 P04 | 9 | 2 tasks | 4 files |
 | Phase 08.2-fsrs-progressive-disclosure P01 | 3 | 2 tasks | 6 files |
 | Phase 08.2-fsrs-progressive-disclosure P02 | 5 | 2 tasks | 4 files |
+| Phase 08.1-end-to-end-qa-suite P05 | 11 | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -103,6 +104,11 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.2-02]: Cold-start missing mastery row defaults to Tier 1 (state=0); no backfill per CONTEXT
 - [Phase 08.2-02]: vocab-mastery detail never 404 on missing mastery — synthesized new-word shape returned
 - [Phase 08.2-02]: vocab-tiers batch enforces max 200 IDs to prevent over-fetching
+- [Phase 08.1-05]: Real YouTube iframe in E2E (no postMessage stubs on critical sync path) — CONTEXT-locked; cross-origin player surfaced via window.__kbPlayer test gate
+- [Phase 08.1-05]: Test-only instrumentation gated EXCLUSIVELY on NEXT_PUBLIC_APP_ENV === 'test' (single-condition; never OR'd with NODE_ENV) — applies to __kbPlayer + data-start-ms + __kbExerciseStore
+- [Phase 08.1-05]: 1500ms verse-highlight regression floor in E2E (not the 250ms perception target — that stays a manual check to avoid CI flake)
+- [Phase 08.1-05]: Sync tests test.skip() (not fail) when YouTube iframe unreachable — graceful geo-restriction fallback per CONTEXT
+- [Phase 08.1-05]: data-verse-number + data-active are unconditional (cheap + useful in dev devtools); only data-start-ms (raw timing) sits behind the test-env gate
 
 ### Pending Todos
 
@@ -119,6 +125,7 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - v2.0 Phase 8: Distractor pool is thin until 30+ songs are seeded — validateDistractorPool() fallback to same-JLPT-level words needed
 - Phase 08.1-01: TEST_DATABASE_URL not yet provisioned — operator must create separate Neon DB, run `npm run seed:dev` against it, and `npm run test:seed` before plans 08.1-03 / 08.1-06 / 08.1-07 execute (plans 02 and 04 are pure unit/script and can run without).
 - Phase 08.1-03: 16 new integration tests are authored but currently SKIPPED end-to-end — operator must complete TEST_DATABASE_URL provisioning (create DB, db:push migrations, npm run seed:dev, npm run test:seed) for them to actually exercise assertions. Suite is hermetic and will activate automatically once env is set; no test code change needed.
+- Phase 08.1-05: Pre-existing 500 on /songs/[slug] blocks live spec runs — `Localizable` (Record<lang,string>) is being rendered as React child in VerseBlock, TokenPopup, VocabularySection, GrammarSection. Specs ARE authored + committed; will pass once the rendering bug is fixed. See deferred-items.md in phase dir.
 
 ## Session Continuity
 
