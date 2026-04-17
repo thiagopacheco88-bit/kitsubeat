@@ -76,6 +76,32 @@ export const VerseSchema = z.object({
 export type Verse = z.infer<typeof VerseSchema>;
 
 /**
+ * Enrichment sub-schemas — mirror shapes from scripts/types/enrich.ts but inlined here
+ * to avoid cross-module imports at generation time. Used only by VocabEntrySchema.
+ */
+const EnrichLocalizableSchema = z.object({
+  en: z.string().min(1),
+  "pt-BR": z.string().min(1),
+  es: z.string().min(1),
+});
+
+const EnrichKanjiCharSchema = z.object({
+  char: z.string().refine((c) => [...c].length === 1, {
+    message: "char must be exactly one character",
+  }),
+  meaning: EnrichLocalizableSchema,
+  on_yomi: z.string(),
+  kun_yomi: z.string(),
+  jlpt_level: z.enum(["N5", "N4", "N3", "N2", "N1"]).nullable(),
+  radical_hint: EnrichLocalizableSchema,
+});
+
+const EnrichKanjiBreakdownSchema = z.object({
+  characters: z.array(EnrichKanjiCharSchema).min(1),
+  compound_note: EnrichLocalizableSchema.optional(),
+});
+
+/**
  * VocabEntrySchema: a vocabulary word extracted from the song.
  */
 export const VocabEntrySchema = z.object({
@@ -99,6 +125,14 @@ export const VocabEntrySchema = z.object({
     .uuid()
     .optional()
     .describe("UUID FK to vocabulary_items table, added by backfill script"),
+  mnemonic: EnrichLocalizableSchema.optional().describe(
+    "Short memory-aid sentence per language (en/pt-BR/es) — emitted by generation prompt; optional so existing lessons without enrichment still validate"
+  ),
+  kanji_breakdown: EnrichKanjiBreakdownSchema.nullable()
+    .optional()
+    .describe(
+      "Per-kanji character breakdown; null when surface is kana-only; undefined when field was not emitted by the model"
+    ),
 });
 
 export type VocabEntry = z.infer<typeof VocabEntrySchema>;
