@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { saveSessionResults } from "@/app/actions/exercises";
 import StarDisplay from "./StarDisplay";
+import MasteryDetailPopover from "./MasteryDetailPopover";
 import type { Question } from "@/lib/exercises/generator";
 
 interface AnswerRecord {
@@ -54,6 +55,7 @@ export default function SessionSummary({
   const [previousStars, setPreviousStars] = useState<0 | 1 | 2 | 3>(0);
   const [completionPct, setCompletionPct] = useState(0);
   const [saveError, setSaveError] = useState(false);
+  const [wordsExpanded, setWordsExpanded] = useState(false);
 
   // --- Compute stats ---
   const totalQuestions = questions.length;
@@ -145,6 +147,53 @@ export default function SessionSummary({
           </div>
         )}
       </div>
+
+      {/* Words reviewed disclosure list with mastery popovers */}
+      {(() => {
+        const reviewedWords = questions.filter((q) => q.vocabItemId && answers[q.id]);
+        // Deduplicate by vocabItemId to show each word once
+        const seen = new Set<string>();
+        const uniqueWords = reviewedWords.filter((q) => {
+          if (seen.has(q.vocabItemId)) return false;
+          seen.add(q.vocabItemId);
+          return true;
+        });
+        if (uniqueWords.length === 0) return null;
+        return (
+          <div className="w-full max-w-xs text-left">
+            <button
+              type="button"
+              onClick={() => setWordsExpanded((v) => !v)}
+              className="flex w-full items-center justify-between rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-sm text-gray-300 hover:bg-gray-800"
+            >
+              <span>Words reviewed ({uniqueWords.length})</span>
+              <span className="text-gray-500">{wordsExpanded ? "▲" : "▼"}</span>
+            </button>
+            {wordsExpanded && (
+              <ul className="mt-1 rounded-lg border border-gray-700 bg-gray-900/80 px-3 py-2 text-sm text-gray-200 flex flex-col gap-1.5">
+                {uniqueWords.map((q) => (
+                  <li key={q.vocabItemId} className="flex items-center gap-2">
+                    <MasteryDetailPopover
+                      vocabItemId={q.vocabItemId}
+                      userId={userId}
+                      trigger={
+                        <span className="font-medium text-white">
+                          {q.vocabInfo.surface}
+                        </span>
+                      }
+                    />
+                    <span className="text-gray-500 text-xs">
+                      {q.vocabInfo.reading !== q.vocabInfo.surface
+                        ? q.vocabInfo.reading
+                        : ""}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Stars */}
       {!saving && (

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import type { Question } from "@/lib/exercises/generator";
+import TierText from "./TierText";
+import MasteryDetailPopover from "./MasteryDetailPopover";
 
 interface FeedbackPanelProps {
   question: Question;
@@ -19,8 +21,6 @@ export default function FeedbackPanel({
   onContinue,
   userId,
 }: FeedbackPanelProps) {
-  // userId will be used for MasteryDetailPopover in Task 3 wiring
-  void userId;
   const [showDetail, setShowDetail] = useState(false);
 
   const handleContinue = () => {
@@ -33,6 +33,12 @@ export default function FeedbackPanel({
     !isCorrect && chosenAnswer !== question.correctAnswer
       ? `「${chosenAnswer}」is not the answer being asked for here.`
       : null;
+
+  // Distractor VocabInfo for wrong-pick callout popover (if available)
+  const wrongVocab =
+    !isCorrect && question.distractorVocab
+      ? question.distractorVocab[chosenAnswer]
+      : undefined;
 
   return (
     <>
@@ -67,10 +73,48 @@ export default function FeedbackPanel({
           </p>
         )}
 
-        {/* Wrong answer: explain why user's choice was wrong */}
+        {/* Wrong answer: explain why user's choice was wrong.
+            If distractorVocab is available, wrap in a mastery popover. */}
         {wrongChoiceNote && (
-          <p className="mb-2 text-sm text-gray-400">{wrongChoiceNote}</p>
+          <p className="mb-2 text-sm text-gray-400">
+            {wrongVocab?.vocab_item_id ? (
+              <MasteryDetailPopover
+                vocabItemId={wrongVocab.vocab_item_id}
+                userId={userId}
+                trigger={
+                  <span className="text-red-400">
+                    「{wrongVocab.surface}」
+                  </span>
+                }
+              />
+            ) : (
+              <span>「{chosenAnswer}」</span>
+            )}
+            {" "}is not the answer being asked for here.
+          </p>
         )}
+
+        {/* Vocab block — always Tier 1 (forceTier1), wrapped in mastery popover */}
+        <div className="mb-3 rounded-md bg-gray-900/60 p-3">
+          <MasteryDetailPopover
+            vocabItemId={question.vocabItemId}
+            userId={userId}
+            trigger={
+              <TierText
+                vocab={question.vocabInfo}
+                tier={3}
+                forceTier1
+                mode="feedback"
+              />
+            }
+          />
+          {/* Meaning below the vocab surface block */}
+          <p className="mt-1 text-sm text-gray-400">
+            {typeof question.vocabInfo.surface !== "undefined"
+              ? question.explanation
+              : null}
+          </p>
+        </div>
 
         {/* Explanation */}
         <p className="text-sm text-gray-300">{question.explanation}</p>
