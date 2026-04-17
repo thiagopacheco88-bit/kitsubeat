@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.2 — FSRS Progressive Disclosure (in progress, plan 2/3 complete)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 6/8 complete) + 08.2 FSRS Progressive Disclosure (in progress, plan 2/3 complete)
 
 ## Current Position
 
-Phase: 08.2 of 11 (FSRS Progressive Disclosure)
-Plan: 2 of 3 in current phase complete; next: 08.2-03
-Status: Plan 08.2-02 complete (FSRS DB writes — recordVocabAnswer server action, vocab-tiers batch endpoint, vocab-mastery detail endpoint; per-answer atomic transactions; cold-start tier defaults)
-Last activity: 2026-04-17 — Plan 08.2-02 complete (commits 208233e, df795f5; recordVocabAnswer wires Phase 7 tables; two read endpoints ready for Plan 03 UI wiring).
+Phase: 08.1 of 11 (End-to-End QA Suite) — concurrent with 08.2
+Plan: 6 of 8 in current phase complete; next: 08.1-07
+Status: Plan 08.1-06 complete (exercise E2E suite — 4 spec files / 12 tests covering full session, stars/confetti, resume, and HARD FSRS DB-write assertions; window.__kbExerciseStore test hook gated single-condition NEXT_PUBLIC_APP_ENV === 'test'; saveSessionResults Step 7 wires per-vocab user_vocab_mastery upsert via 08.2-01 FSRS scheduler)
+Last activity: 2026-04-17 — Plan 08.1-06 complete (commits d782df3, 50b2367, 082c815; saveSessionResults FSRS wiring rolled into parallel 208233e by 08.2-02 agent; live-run blocked by pre-existing Localizable rendering bug — documented in phase deferred-items.md).
 
-Progress: [██████░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (5/8 plans); v2.0 Phase 08.2 in progress (2/3 plans)
+Progress: [███████░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (6/8 plans); v2.0 Phase 08.2 in progress (2/3 plans)
 
 ## Performance Metrics
 
@@ -28,11 +28,12 @@ Progress: [██████░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-content-pipeline | 6/8 | 60 min | 10 min |
-| 08.1-end-to-end-qa-suite | 5/8 | 36 min | 7 min |
+| 08.1-end-to-end-qa-suite | 6/8 | 50 min | 8 min |
+| 08.2-fsrs-progressive-disclosure | 2/3 | 8 min | 4 min |
 
 **Recent Trend:**
-- Last 6 plans: 01-07 (8 min), 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min)
-- Trend: stable (08.1 plans averaging 7 min — player E2E plan slightly heavier due to test-only instrumentation + real-iframe verification surface)
+- Last 6 plans: 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min), 08.1-06 (14.5 min)
+- Trend: rising (08.1-06 the heaviest 08.1 plan — 4 spec files + production-code test hook + FSRS server-action wiring)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -46,6 +47,7 @@ Progress: [██████░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.2-fsrs-progressive-disclosure P01 | 3 | 2 tasks | 6 files |
 | Phase 08.2-fsrs-progressive-disclosure P02 | 5 | 2 tasks | 4 files |
 | Phase 08.1-end-to-end-qa-suite P05 | 11 | 3 tasks | 7 files |
+| Phase 08.1-end-to-end-qa-suite P06 | 14 | 3 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -109,6 +111,8 @@ Progress: [██████░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1-05]: 1500ms verse-highlight regression floor in E2E (not the 250ms perception target — that stays a manual check to avoid CI flake)
 - [Phase 08.1-05]: Sync tests test.skip() (not fail) when YouTube iframe unreachable — graceful geo-restriction fallback per CONTEXT
 - [Phase 08.1-05]: data-verse-number + data-active are unconditional (cheap + useful in dev devtools); only data-start-ms (raw timing) sits behind the test-env gate
+- [Phase 08.1-06]: window.__kbExerciseStore gated single-condition NEXT_PUBLIC_APP_ENV === 'test' (no NODE_ENV fallback) — production bundle tree-shakes the dead branch
+- [Phase 08.1-06]: No data-correct attribute in production DOM — tests read correctAnswer via the window hook only; data-* attrs carry IDs/state, never answers
 
 ### Pending Todos
 
@@ -126,9 +130,10 @@ Progress: [██████░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - Phase 08.1-01: TEST_DATABASE_URL not yet provisioned — operator must create separate Neon DB, run `npm run seed:dev` against it, and `npm run test:seed` before plans 08.1-03 / 08.1-06 / 08.1-07 execute (plans 02 and 04 are pure unit/script and can run without).
 - Phase 08.1-03: 16 new integration tests are authored but currently SKIPPED end-to-end — operator must complete TEST_DATABASE_URL provisioning (create DB, db:push migrations, npm run seed:dev, npm run test:seed) for them to actually exercise assertions. Suite is hermetic and will activate automatically once env is set; no test code change needed.
 - Phase 08.1-05: Pre-existing 500 on /songs/[slug] blocks live spec runs — `Localizable` (Record<lang,string>) is being rendered as React child in VerseBlock, TokenPopup, VocabularySection, GrammarSection. Specs ARE authored + committed; will pass once the rendering bug is fixed. See deferred-items.md in phase dir.
+- Phase 08.1-06: Pre-existing Localizable rendering bug in LyricsPanel/VerseBlock blocks ALL exercise E2E specs from running live; specs are sound and committed but pass requires fixing Localizable consumers (wrap with localize() helper)
 
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Plan 08.2-02 complete (FSRS DB writes — recordVocabAnswer + read endpoints); next plan: 08.2-03-PLAN.md (UI wiring — tier-based display + per-answer feedback)
-Resume file: .planning/phases/08.2-fsrs-progressive-disclosure/08.2-03-PLAN.md
+Stopped at: Plan 08.1-06 complete (exercise E2E suite — 4 spec files, 12 tests, gated test hook, FSRS Step 7 wired); next 08.1 plan: 08.1-07-PLAN.md (regression suite); concurrent 08.2 next plan: 08.2-03-PLAN.md (UI wiring)
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-07-PLAN.md
