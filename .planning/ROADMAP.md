@@ -183,7 +183,7 @@ Plans:
 
 **Goal:** Ship the cross-cutting QA test infrastructure (Playwright + Vitest + Node integration + seed QA) that verifies the v1.0 player experience and the v2.0 Phase 8 exercise engine end-to-end before Phase 9 extends the codebase further. Enforces a 15-minute speed budget and a zero-flake policy (retries: 0 everywhere).
 **Depends on:** Phase 8
-**Plans:** 6/8 plans executed
+**Plans:** 7/8 plans executed
 
 Plans:
 - [x] 08.1-01-PLAN.md -- Test infra scaffolding (playwright + vitest configs, test-DB strategy, fixtures, terminal reporter, npm scripts)

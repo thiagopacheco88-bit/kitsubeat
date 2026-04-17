@@ -5,35 +5,35 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 6/8 complete) + 08.2 FSRS Progressive Disclosure (COMPLETE — all 3 plans done)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 7/8 complete) + 08.2 FSRS Progressive Disclosure (COMPLETE — all 3 plans done)
 
 ## Current Position
 
 Phase: 08.1 of 11 (End-to-End QA Suite) — concurrent with 08.2
-Plan: 6 of 8 in current phase complete; next: 08.1-07
-Status: Plan 08.1-06 complete (exercise E2E suite — 4 spec files / 12 tests covering full session, stars/confetti, resume, and HARD FSRS DB-write assertions; window.__kbExerciseStore test hook gated single-condition NEXT_PUBLIC_APP_ENV === 'test'; saveSessionResults Step 7 wires per-vocab user_vocab_mastery upsert via 08.2-01 FSRS scheduler)
-Last activity: 2026-04-17 — Plan 08.1-06 complete (commits d782df3, 50b2367, 082c815; saveSessionResults FSRS wiring rolled into parallel 208233e by 08.2-02 agent; live-run blocked by pre-existing Localizable rendering bug — documented in phase deferred-items.md).
+Plan: 7 of 8 in current phase complete; next: 08.1-08
+Status: Plan 08.1-07 complete (regression suite — 4 spec files / 19 tests covering cross-song leakage, premium-gate bypass, geo-restricted YouTube fallback, and stale/malformed lesson JSONB; YouTubeEmbed gained data-yt-state error fallback UI with 15s watchdog and locked copy "Video unavailable"; single-gate architectural invariant statically enforced via UI directory walk in regression-stale-lesson-data.test.ts)
+Last activity: 2026-04-17 — Plan 08.1-07 complete (commits 3791daa, 6889130, a521f14; integration spec runs live 9/10 passing + 1 DB-gated skip; E2E specs ship + collect, live-run blocked by same pre-existing Localizable rendering bug — same fix unblocks plans 05/06/07 simultaneously).
 
-Progress: [███████░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (6/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans)
+Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (7/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
+- Total plans completed: 11
 - Average duration: 8 min
-- Total execution time: 1.27 hours
+- Total execution time: 1.50 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-content-pipeline | 6/8 | 60 min | 10 min |
-| 08.1-end-to-end-qa-suite | 6/8 | 50 min | 8 min |
-| 08.2-fsrs-progressive-disclosure | 2/3 | 8 min | 4 min |
+| 08.1-end-to-end-qa-suite | 7/8 | 57 min | 8 min |
+| 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 6 plans: 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min), 08.1-06 (14.5 min)
-- Trend: rising (08.1-06 the heaviest 08.1 plan — 4 spec files + production-code test hook + FSRS server-action wiring)
+- Last 7 plans: 08.1-02 (4 min), 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min), 08.1-06 (14.5 min), 08.2-03 (8 min), 08.1-07 (7 min)
+- Trend: rising-then-stable (08.1-07 dropped back to 7 min — regression specs benefited from heavy reuse of plans 05/06 fixtures + test hooks)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -49,6 +49,7 @@ Progress: [███████░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.1-end-to-end-qa-suite P05 | 11 | 3 tasks | 7 files |
 | Phase 08.1-end-to-end-qa-suite P06 | 14 | 3 tasks | 12 files |
 | Phase 08.2-fsrs-progressive-disclosure P03 | 8 | 3 tasks | 8 files |
+| Phase 08.1-end-to-end-qa-suite P07 | 7 | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -117,6 +118,12 @@ Progress: [███████░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.2]: VocabInfo type added to generator.ts so renderer components don't depend on full VocabEntry
 - [Phase 08.2]: distractorVocab map keyed by surface string on Question enables TierText for options without extra fetch
 - [Phase 08.2]: FeedbackPanel vocab block built with TierText forceTier1 + MasteryDetailPopover for always-Tier-1 invariant
+- [Phase 08.1-07]: Route-intercept (page.route abort + 404 fulfill) for geo-fallback testing — deterministic, exercises both watchdog and onError paths
+- [Phase 08.1-07]: YouTubeEmbed 15s WATCHDOG_MS with functional setState guard — covers iframe-never-loads case where neither onReady nor onError fires
+- [Phase 08.1-07]: Locked fallback copy committed in BOTH YouTubeEmbed and the spec — copy changes must update both files (brittle by design)
+- [Phase 08.1-07]: Single-gate static check colocated in regression-stale-lesson-data.test.ts — avoids shipping an undeclared regression-single-gate.test.ts artifact
+- [Phase 08.1-07]: Premium-gate test.fixme is intentional Phase 10 follow-up (server-side checkExerciseAccess routing) — not a test bug
+- [Phase 08.1-07]: Cross-song leak round-trip (BOTH directions) proves preservation as well as rejection — Song A->B refuses + B->A still resumes
 
 ### Pending Todos
 
@@ -135,9 +142,10 @@ Progress: [███████░░░░░] v1.0 Phase 1 in progress (6/8 p
 - Phase 08.1-03: 16 new integration tests are authored but currently SKIPPED end-to-end — operator must complete TEST_DATABASE_URL provisioning (create DB, db:push migrations, npm run seed:dev, npm run test:seed) for them to actually exercise assertions. Suite is hermetic and will activate automatically once env is set; no test code change needed.
 - Phase 08.1-05: Pre-existing 500 on /songs/[slug] blocks live spec runs — `Localizable` (Record<lang,string>) is being rendered as React child in VerseBlock, TokenPopup, VocabularySection, GrammarSection. Specs ARE authored + committed; will pass once the rendering bug is fixed. See deferred-items.md in phase dir.
 - Phase 08.1-06: Pre-existing Localizable rendering bug in LyricsPanel/VerseBlock blocks ALL exercise E2E specs from running live; specs are sound and committed but pass requires fixing Localizable consumers (wrap with localize() helper)
+- Phase 08.1-07: Same Localizable rendering blocker continues to gate live E2E runs of regression-cross-song-leak / regression-premium-gate (UI tests) / regression-geo-fallback. Integration spec regression-stale-lesson-data.test.ts runs live (9/10 passing + 1 DB-gated skip); E2E specs are sound and committed; one Localizable fix unblocks plans 05/06/07 simultaneously.
 
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Plan 08.2-03 complete (FSRS UI wiring — TierText, MasteryDetailPopover, tier prefetch, reveal hatch, mastery popovers; phase 08.2 COMPLETE); next active plan: 08.1-07-PLAN.md (regression suite)
-Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-07-PLAN.md
+Stopped at: Plan 08.1-07 complete (regression suite — 4 spec files / 19 tests; YouTubeEmbed gained graceful error fallback with 15s watchdog + locked copy "Video unavailable"); next active plan: 08.1-08-PLAN.md (cadence + suite hardening)
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-08-PLAN.md
