@@ -16,6 +16,7 @@
     "seed:dev": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/07-dev-seed.ts",
     "pipeline": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/run-pipeline.ts",
     "generate:lessons": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/03b-generate-content-sequential.ts",
+    "seed:enrich-vocab": "tsx --tsconfig tsconfig.scripts.json scripts/seed/11-enrich-vocab.ts",
     "backfill:vocab": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-vocab-identity.ts",
     "audit:geo": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts",
     "audit:geo:replace": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts --replace",
@@ -33,7 +34,7 @@
     "test:measure": "tsx scripts/qa/measure-suite-runtime.ts",
     "test:ci-pr": "npm run test:qa && npm run test:unit && npm run test:integration",
     "test:ci-nightly": "tsx scripts/qa/measure-suite-runtime.ts",
-    "test:quarantine": "playwright test --grep '\\[kb-quarantine\\]'"
+    "test:quarantine": "tsx scripts/qa/run-quarantined.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
