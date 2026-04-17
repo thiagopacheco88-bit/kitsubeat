@@ -303,43 +303,56 @@ export async function recordVocabAnswer(
     throw new Error("recordVocabAnswer: vocabItemId must be a non-empty UUID");
   }
 
-  return db.transaction(async (tx) => {
-    // 1. Compute FSRS rating from exercise outcome
-    const rating = ratingFor(exerciseType, correct, { revealedReading });
+  // neon-http driver does not support callback-form transactions.
+  // Mastery upsert is the durability-critical write; the log row is analytics-only,
+  // so we accept the (rare) window where the upsert succeeds but the log insert fails.
+  const rating = ratingFor(exerciseType, correct, { revealedReading });
 
-    // 2. SELECT existing mastery row (if any)
-    const existingRows = await tx
-      .select()
-      .from(userVocabMastery)
-      .where(
-        sql`${userVocabMastery.user_id} = ${userId} AND ${userVocabMastery.vocab_item_id} = ${vocabItemId}::uuid`
-      )
-      .limit(1);
+  const existingRows = await db
+    .select()
+    .from(userVocabMastery)
+    .where(
+      sql`${userVocabMastery.user_id} = ${userId} AND ${userVocabMastery.vocab_item_id} = ${vocabItemId}::uuid`
+    )
+    .limit(1);
 
-    const prev: MasteryRow | null = existingRows[0]
-      ? {
-          stability: existingRows[0].stability,
-          difficulty: existingRows[0].difficulty,
-          elapsed_days: existingRows[0].elapsed_days,
-          scheduled_days: existingRows[0].scheduled_days,
-          reps: existingRows[0].reps,
-          lapses: existingRows[0].lapses,
-          state: existingRows[0].state as 0 | 1 | 2 | 3,
-          due: existingRows[0].due,
-          last_review: existingRows[0].last_review,
-          intensity_preset: (existingRows[0].intensity_preset as "normal" | "intensive" | "light") ?? "normal",
-        }
-      : null;
+  const prev: MasteryRow | null = existingRows[0]
+    ? {
+        stability: existingRows[0].stability,
+        difficulty: existingRows[0].difficulty,
+        elapsed_days: existingRows[0].elapsed_days,
+        scheduled_days: existingRows[0].scheduled_days,
+        reps: existingRows[0].reps,
+        lapses: existingRows[0].lapses,
+        state: existingRows[0].state as 0 | 1 | 2 | 3,
+        due: existingRows[0].due,
+        last_review: existingRows[0].last_review,
+        intensity_preset: (existingRows[0].intensity_preset as "normal" | "intensive" | "light") ?? "normal",
+      }
+    : null;
 
-    // 3. Compute next FSRS schedule
-    const next = scheduleReview(prev, rating, prev?.intensity_preset ?? "normal");
+  const next = scheduleReview(prev, rating, prev?.intensity_preset ?? "normal");
 
-    // 4. UPSERT user_vocab_mastery
-    await tx
-      .insert(userVocabMastery)
-      .values({
-        user_id: userId,
-        vocab_item_id: vocabItemId,
+  await db
+    .insert(userVocabMastery)
+    .values({
+      user_id: userId,
+      vocab_item_id: vocabItemId,
+      stability: next.stability,
+      difficulty: next.difficulty,
+      elapsed_days: next.elapsed_days,
+      scheduled_days: next.scheduled_days,
+      reps: next.reps,
+      lapses: next.lapses,
+      state: next.state,
+      due: next.due,
+      last_review: next.last_review,
+      intensity_preset: "normal",
+      updated_at: sql`NOW()`,
+    })
+    .onConflictDoUpdate({
+      target: [userVocabMastery.user_id, userVocabMastery.vocab_item_id],
+      set: {
         stability: next.stability,
         difficulty: next.difficulty,
         elapsed_days: next.elapsed_days,
@@ -349,42 +362,24 @@ export async function recordVocabAnswer(
         state: next.state,
         due: next.due,
         last_review: next.last_review,
-        intensity_preset: "normal",
         updated_at: sql`NOW()`,
-      })
-      .onConflictDoUpdate({
-        target: [userVocabMastery.user_id, userVocabMastery.vocab_item_id],
-        set: {
-          stability: next.stability,
-          difficulty: next.difficulty,
-          elapsed_days: next.elapsed_days,
-          scheduled_days: next.scheduled_days,
-          reps: next.reps,
-          lapses: next.lapses,
-          state: next.state,
-          due: next.due,
-          last_review: next.last_review,
-          updated_at: sql`NOW()`,
-        },
-      });
-
-    // 5. INSERT user_exercise_log — one row per question attempt
-    await tx.insert(userExerciseLog).values({
-      user_id: userId,
-      vocab_item_id: vocabItemId,
-      song_version_id: songVersionId,
-      exercise_type: exerciseType,
-      rating,
-      response_time_ms: responseTimeMs,
+      },
     });
 
-    // 6. Return tier + key FSRS metrics
-    return {
-      newTier: tierFor(next.state),
-      newState: next.state,
-      reps: next.reps,
-      lapses: next.lapses,
-      due: next.due.toISOString(),
-    };
+  await db.insert(userExerciseLog).values({
+    user_id: userId,
+    vocab_item_id: vocabItemId,
+    song_version_id: songVersionId,
+    exercise_type: exerciseType,
+    rating,
+    response_time_ms: responseTimeMs,
   });
+
+  return {
+    newTier: tierFor(next.state),
+    newState: next.state,
+    reps: next.reps,
+    lapses: next.lapses,
+    due: next.due.toISOString(),
+  };
 }
