@@ -157,18 +157,22 @@ Plans:
 
 ### Phase 08.3: Mnemonic and kanji breakdown for vocabulary feedback (INSERTED)
 
-**Goal:** [Urgent work - to be planned]
-**Depends on:** Phase 8
-**Plans:** 0 plans
+**Goal:** Extend `vocabulary_items` with `mnemonic` and `kanji_breakdown` jsonb columns, enrich all ~705 existing rows via inline LLM generation, and render both inside the FeedbackPanel "More" accordion with cross-question persistence. Future songs ship enriched by updating the shared generation prompt. Surgical enrichment only — existing lesson JSONB is untouched.
+**Depends on:** Phase 7 (vocabulary_items UUID identity), Phase 8 (exercise engine UI)
+**Plans:** 5 plans
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 08.3 to break down)
+- [ ] 08.3-01-PLAN.md -- Schema migration (0004_vocab_enrichment.sql) + drizzle schema + lesson/generator type extensions
+- [ ] 08.3-02-PLAN.md -- Enrichment script (scripts/seed/11-enrich-vocab.ts) + Zod validator; inline Messages API, per-row idempotent
+- [ ] 08.3-03-PLAN.md -- Forward-generation prompt update in scripts/lib/lesson-prompt.ts + scripts/types/lesson.ts VocabEntrySchema
+- [ ] 08.3-04-PLAN.md -- UI: page.tsx SSR join + exerciseSession accordion flag + FeedbackPanel inline accordion + KanjiBreakdownSection
+- [ ] 08.3-05-PLAN.md -- QA gate (scripts/seed/12-qa-enrichment.ts) + Vitest unit tests for Zod shape and accordion state
 
 ### Phase 08.2: FSRS progressive disclosure (INSERTED)
 
 **Goal:** Wire the dead `user_vocab_mastery` and `user_exercise_log` tables (Phase 7 schema) so each Phase 8 exercise answer persists per-vocab FSRS state, then derive a 3-tier display per word (kanji+furigana+romaji → kanji+furigana → kanji-only) driven by FSRS state — exercise flow only.
 **Depends on:** Phase 8
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 08.2-01-PLAN.md — FSRS core: ratingFor + scheduleReview + tierFor (TDD, pure)

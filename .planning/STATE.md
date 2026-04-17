@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.2 — FSRS Progressive Disclosure (in progress, plan 1/3 complete)
+**Current focus:** v2.0 Phase 08.2 — FSRS Progressive Disclosure (in progress, plan 2/3 complete)
 
 ## Current Position
 
 Phase: 08.2 of 11 (FSRS Progressive Disclosure)
-Plan: 1 of 3 in current phase complete; next: 08.2-02
-Status: Plan 08.2-01 complete (FSRS core — ratingFor + RATING_WEIGHTS in rating.ts, scheduleReview + MasteryRow + ScheduledUpdate in scheduler.ts, tierFor in tier.ts; 29 vitest tests; zero DB/React coupling)
-Last activity: 2026-04-17 — Plan 08.2-01 complete (commits 7e10ecc, 48e0fc8; 29 tests green; pure TS with no DB imports; ScheduledUpdate maps 1:1 to user_vocab_mastery scalar columns for Plan 02 Drizzle spread).
+Plan: 2 of 3 in current phase complete; next: 08.2-03
+Status: Plan 08.2-02 complete (FSRS DB writes — recordVocabAnswer server action, vocab-tiers batch endpoint, vocab-mastery detail endpoint; per-answer atomic transactions; cold-start tier defaults)
+Last activity: 2026-04-17 — Plan 08.2-02 complete (commits 208233e, df795f5; recordVocabAnswer wires Phase 7 tables; two read endpoints ready for Plan 03 UI wiring).
 
 Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (4/8 plans)
 
@@ -44,6 +44,7 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.1-end-to-end-qa-suite P03 | 4 | 3 tasks | 6 files |
 | Phase 08.1 P04 | 9 | 2 tasks | 4 files |
 | Phase 08.2-fsrs-progressive-disclosure P01 | 3 | 2 tasks | 6 files |
+| Phase 08.2-fsrs-progressive-disclosure P02 | 5 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -97,6 +98,11 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.2-01]: Reveal hatch (revealedReading=true) always forces rating=1 regardless of correct flag
 - [Phase 08.2-01]: Relearning state collapses to TIER_LEARNING (2) — pure state-driven tier, no stability thresholds
 - [Phase 08.2-01]: ScheduledUpdate matches user_vocab_mastery scalar columns 1:1 for direct Drizzle spread in Plan 02
+- [Phase 08.2-02]: recordVocabAnswer uses db.transaction() — both upsert and log insert succeed or both roll back
+- [Phase 08.2-02]: Distractors never persisted — caller invariant; only target vocabItemId writes to DB
+- [Phase 08.2-02]: Cold-start missing mastery row defaults to Tier 1 (state=0); no backfill per CONTEXT
+- [Phase 08.2-02]: vocab-mastery detail never 404 on missing mastery — synthesized new-word shape returned
+- [Phase 08.2-02]: vocab-tiers batch enforces max 200 IDs to prevent over-fetching
 
 ### Pending Todos
 
@@ -117,5 +123,5 @@ Progress: [█████░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Plan 08.1-04 complete (seed/content QA extensions); next plan: 08.1-05-PLAN.md (Playwright E2E player flows)
-Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-05-PLAN.md
+Stopped at: Plan 08.2-02 complete (FSRS DB writes — recordVocabAnswer + read endpoints); next plan: 08.2-03-PLAN.md (UI wiring — tier-based display + per-answer feedback)
+Resume file: .planning/phases/08.2-fsrs-progressive-disclosure/08.2-03-PLAN.md
