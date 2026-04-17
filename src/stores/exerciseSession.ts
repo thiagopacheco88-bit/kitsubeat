@@ -36,6 +36,8 @@ interface ExerciseSessionState {
   tiers: Record<string, Tier>;
   /** Question IDs where the user tapped "Reveal reading" — keyed by question.id. */
   revealedQuestionIds: Record<string, true>;
+  /** Phase 08.3: whether the More details accordion is open — persists across questions within a session. */
+  moreAccordionOpen: boolean;
 }
 
 interface ExerciseSessionActions {
@@ -59,6 +61,7 @@ interface ExerciseSessionActions {
   setTier: (vocabItemId: string, tier: Tier) => void;
   /** Record that the user tapped "Reveal reading" for a question */
   markRevealed: (questionId: string) => void;
+  setMoreAccordionOpen: (v: boolean) => void;
 }
 
 type ExerciseSessionStore = ExerciseSessionState & ExerciseSessionActions;
@@ -77,6 +80,7 @@ const initialState: ExerciseSessionState = {
   _hasHydrated: false,
   tiers: {},
   revealedQuestionIds: {},
+  moreAccordionOpen: false,
 };
 
 // ---------------------------------------------------------------------------
@@ -101,6 +105,7 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
           // freshly-fetched tiers, so this reset is safe.
           tiers: {},
           revealedQuestionIds: {},
+          moreAccordionOpen: false, // Phase 08.3: reset across sessions
         }),
 
       recordAnswer: (questionId, chosen, correct, timeMs) =>
@@ -135,6 +140,8 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
         set((state) => ({
           revealedQuestionIds: { ...state.revealedQuestionIds, [questionId]: true },
         })),
+
+      setMoreAccordionOpen: (v) => set({ moreAccordionOpen: v }),
     }),
     {
       name: "kitsubeat-exercise-session",
