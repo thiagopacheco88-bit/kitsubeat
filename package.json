@@ -25,6 +25,8 @@
     "test:integration": "vitest run tests/integration/",
     "test:e2e": "playwright test",
     "test:qa": "tsx --tsconfig tsconfig.scripts.json scripts/seed/06-qa-agent.ts",
+    "test:qa:uuid": "tsx --tsconfig tsconfig.scripts.json scripts/seed/06-qa-uuid-integrity.ts",
+    "test:qa:geo": "tsx --tsconfig tsconfig.scripts.json scripts/seed/06-qa-geo-check.ts",
     "test:seed": "tsx tests/support/seed-test-db.ts",
     "test:report": "playwright show-report",
     "test:all": "npm run test:seed && npm run test:unit && npm run test:integration && npm run test:qa && npm run test:e2e"
