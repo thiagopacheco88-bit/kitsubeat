@@ -85,6 +85,6 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 
 ## Session Continuity
 
-Last session: 2026-04-16
-Stopped at: Completed 08-03-PLAN.md (exercise session loop UI)
-Resume file: .planning/phases/08-exercise-engine/ (continue with plan 08-04)
+Last session: 2026-04-17
+Stopped at: Phase 08.1 context gathered
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-CONTEXT.md
