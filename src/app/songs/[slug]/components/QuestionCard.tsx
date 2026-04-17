@@ -74,7 +74,11 @@ export default function QuestionCard({
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    // data-question-id is a UUID — production-safe (reveals nothing about the answer).
+    // Used by tests/e2e/exercise-resume-mid-session.spec.ts to track question identity
+    // across reloads. The correct answer is NEVER exposed as a data-attribute — tests
+    // read it via window.__kbExerciseStore (gated on NEXT_PUBLIC_APP_ENV === 'test').
+    <div data-question-id={question.id} data-question-type={question.type} className="flex flex-col gap-4">
       {/* Question type label */}
       <p className="text-xs uppercase tracking-wider text-gray-500">
         {question.type.replace(/_/g, " ")}

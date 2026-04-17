@@ -35,6 +35,17 @@ export default defineConfig({
     port: 7000,
     reuseExistingServer: true,
     timeout: 120_000,
+    // NEXT_PUBLIC_APP_ENV=test is the SINGLE gate that exposes test-only hooks:
+    //   - window.__kbExerciseStore (see src/stores/exerciseSession.ts) — exercise E2E
+    //   - window.__kbPlayer (see src/app/songs/[slug]/components/YouTubeEmbed.tsx) —
+    //     player sync E2E (plan 08.1-05)
+    //   - data-start-ms attribute on VerseBlock (see VerseBlock.tsx) — verse timing lookup
+    // Without this env var, those specs cannot read state across the cross-origin iframe
+    // boundary or look up verse timing, and will skip / hang at waitForFunction.
+    // This env var is benign in any other context — it only flips the test-only hooks.
+    env: {
+      NEXT_PUBLIC_APP_ENV: "test",
+    },
   },
   projects: [{ name: "chromium", use: { browserName: "chromium" } }],
 });

@@ -39,7 +39,7 @@ export default function StarDisplay({
   }, [animate, stars]);
 
   return (
-    <div className="flex items-center gap-1" aria-label={`${stars} star${stars !== 1 ? "s" : ""} earned`}>
+    <div data-stars={stars} className="flex items-center gap-1" aria-label={`${stars} star${stars !== 1 ? "s" : ""} earned`}>
       {[0, 1, 2].map((i) => {
         const earned = i < stars;
         const isNew = i === newlyEarnedIndex;

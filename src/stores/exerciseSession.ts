@@ -124,6 +124,30 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
 );
 
 // ---------------------------------------------------------------------------
+// Test-only window hook (Phase 08.1-06)
+// ---------------------------------------------------------------------------
+//
+// Exposes the Zustand store on `window.__kbExerciseStore` for Playwright E2E
+// tests so they can read the current question's correctAnswer without us
+// rendering it as a `data-correct` attribute in production DOM (trivially
+// cheatable via devtools).
+//
+// Gate is a SINGLE condition: `process.env.NEXT_PUBLIC_APP_ENV === 'test'`.
+// In dev (NEXT_PUBLIC_APP_ENV unset) and production (NEXT_PUBLIC_APP_ENV='production'
+// or 'staging'), `window.__kbExerciseStore` is `undefined` — answer-leak guard.
+//
+// Why NEXT_PUBLIC_*: Next.js inlines NEXT_PUBLIC_* env vars at build time so
+// the comparison evaluates to `false` in the production bundle and the dead
+// code is tree-shaken — the store reference never reaches the client.
+//
+// Audit: `grep -n "__kbExerciseStore" src/stores/exerciseSession.ts` should
+// show this single assignment inside one `=== 'test'` comparison; no `||`,
+// no `process.env.NODE_ENV` fallback.
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_APP_ENV === "test") {
+  (window as unknown as { __kbExerciseStore: typeof useExerciseSession }).__kbExerciseStore = useExerciseSession;
+}
+
+// ---------------------------------------------------------------------------
 // Helper: guard against stale cross-song sessions
 // ---------------------------------------------------------------------------
 

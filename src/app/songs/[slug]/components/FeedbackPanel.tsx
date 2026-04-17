@@ -33,6 +33,7 @@ export default function FeedbackPanel({
     <>
       {/* Inline feedback panel */}
       <div
+        data-feedback={isCorrect ? "correct" : "wrong"}
         className={`mt-4 rounded-lg border p-4 ${
           isCorrect
             ? "border-green-500/30 bg-green-500/10"
