@@ -34,7 +34,8 @@
     "test:measure": "tsx scripts/qa/measure-suite-runtime.ts",
     "test:ci-pr": "npm run test:qa && npm run test:unit && npm run test:integration",
     "test:ci-nightly": "tsx scripts/qa/measure-suite-runtime.ts",
-    "test:quarantine": "tsx scripts/qa/run-quarantined.ts"
+    "test:quarantine": "tsx scripts/qa/run-quarantined.ts",
+    "test:qa:enrichment": "tsx --tsconfig tsconfig.scripts.json scripts/seed/12-qa-enrichment.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
