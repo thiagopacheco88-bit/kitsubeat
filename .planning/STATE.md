@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite COMPLETE (8/8 plans) + 08.2 FSRS Progressive Disclosure COMPLETE (3/3 plans) + 08.3 Mnemonic/Kanji Breakdown COMPLETE (5/5 plans)
+**Current focus:** v2.0 Phase 08.4 — Learn Phase + Session Pacing for New Vocabulary (1/5 plans complete)
 
 ## Current Position
 
-Phase: 08.1 of 11 (End-to-End QA Suite) — COMPLETE
-Plan: 8 of 8 in current phase complete; next active phase: 08.3 (mnemonic/kanji breakdown — plan 5 remaining), then phase 09 (Kana Trainer)
-Status: Plan 08.1-08 complete — Phase 08.1 fully shipped. measure-suite-runtime.ts asserts <15min budget programmatically; quarantine convention wired (Playwright grepInvert + Vitest helper); GitHub Actions CI ships PR-fast (qa+unit+integration) and nightly-full (test:measure with E2E + budget assertion + artifact upload on failure); README-testing.md is the single 100-line entry point; legacy tests/app.spec.ts retired after porting home + browse scenarios to tests/e2e/home-and-browse.spec.ts (6 tests, +6 to E2E suite).
-Last activity: 2026-04-17 — Plan 08.1-08 complete (commits 299743e, addfe88, 86ca5fa). Final E2E inventory: 12 spec files / 39 tests. Unit: 71 tests. Integration: 9 tests. 0 quarantined. retries:0 still locked.
+Phase: 08.4 of 11 (Learn Phase Session Pacing) — In Progress
+Plan: 1 of 5 complete; next: 08.4-02 (LearnCard component)
+Status: Plan 08.4-01 complete — users table applied to Neon DB (skip_learning + new_card_cap), vocab-tiers API extended with states map, tts.ts confirmed present with all three exports. Foundation unblocks Plans 02–05.
+Last activity: 2026-04-17 — Plan 08.4-01 complete (commits 941621f, 7adb961).
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 in progress (4/5 plans)
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (1/5 plans)
 
 ## Performance Metrics
 
@@ -149,6 +149,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.3-05]: tests/unit/ added to vitest include; MIN_WORDS=5 MAX_WORDS=25 bounds locked per CONTEXT.md
 - [Phase 08.4-learn-phase-session-pacing-for-new-vocabulary]: LearnCard is 100% props-driven — no Zustand imports; session coupling deferred to Plan 04
 - [Phase 08.4-learn-phase-session-pacing-for-new-vocabulary]: tts.ts uses Web Speech API (browser-native); no external TTS service or API key needed
+- [Phase 08.4]: skip_learning DEFAULT false = do NOT skip (cards show) — column polarity matches CONTEXT default-ON behavior
+- [Phase 08.4]: states map in vocab-tiers additive — existing callers destructuring only tiers unaffected
+- [Phase 08.4]: tts.ts already existed from 08.4-02 pre-commit with all required exports
 
 ### Pending Todos
 
@@ -175,5 +178,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.4-02-PLAN.md (LearnCard component + tts.ts — props-driven learn card with tap-dismiss, Show-more reveal, speaker TTS gated on hasJapaneseVoice). Commit b0448e3.
-Resume file: .planning/phases/08.4-learn-phase-session-pacing-for-new-vocabulary-presentation-step-before-first-exercise-skip-learning-user-preset-new-card-cap-per-session/08.4-03-PLAN.md
+Stopped at: Completed 08.4-01-PLAN.md (users table migration + Drizzle schema + vocab-tiers states map — data foundation for learn phase). Commits 941621f, 7adb961.
+Resume file: .planning/phases/08.4-learn-phase-session-pacing-for-new-vocabulary-presentation-step-before-first-exercise-skip-learning-user-preset-new-card-cap-per-session/08.4-02-PLAN.md
