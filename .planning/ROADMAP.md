@@ -155,6 +155,24 @@ Plans:
 - [ ] 08-03-PLAN.md -- Zustand session store, JLPT pool API, exercise UI (config screen, question card, feedback panel, Practice tab)
 - [ ] 08-04-PLAN.md -- Session summary, star display with confetti, circular progress ring, SongCard/SongPage integration
 
+### Phase 08.2: FSRS progressive disclosure (INSERTED)
+
+**Goal:** [Urgent work - to be planned]
+**Depends on:** Phase 8
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 08.2 to break down)
+
+### Phase 08.1: End-to-End QA Suite (INSERTED)
+
+**Goal:** [Urgent work - to be planned]
+**Depends on:** Phase 8
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 08.1 to break down)
+
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
 **Depends on**: Phase 7
@@ -181,7 +199,7 @@ Plans:
 
 ### Phase 11: Cross-Song Vocabulary
 **Goal**: Users can see how vocabulary they have mastered in one song carries across other songs, track their total unique Japanese words learned, and access a full vocabulary dashboard — with the cross-song SRS review queue as a premium differentiator
-**Depends on**: Phase 8
+**Depends on**: Phase 08.2 (per-vocab FSRS mastery must be persisted before cross-song aggregation is possible)
 **Requirements**: CROSS-01, CROSS-02, CROSS-03, CROSS-04, CROSS-05, FREE-04
 **Success Criteria** (what must be TRUE):
   1. When a user views a song page they have not yet completed, they see a count of words they already know from other songs ("You know 8/12 words in this song")

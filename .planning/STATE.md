@@ -41,6 +41,11 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 
 ## Accumulated Context
 
+### Roadmap Evolution
+
+- Phase 08.1 inserted after Phase 8: End-to-End QA Suite (URGENT) — cross-cutting Playwright + Node-side QA infra to verify v1.0 player + v2.0 Phase 8 exercise engine before Phase 9 (Kana Trainer) builds further
+- Phase 08.2 inserted after Phase 8: FSRS progressive disclosure (URGENT) — wire user_vocab_mastery/user_exercise_log writes (currently dead infra) and derive a per-word display tier (kanji+furigana+romaji → kanji+furigana → kanji only) so exercise options stop starting at bare kanji; also unblocks Phase 11's assumption that per-vocab mastery is being persisted
+
 ### Decisions
 
 - Foundation: Use YouTube iframe embed API (not audio extraction) — legal compliance
