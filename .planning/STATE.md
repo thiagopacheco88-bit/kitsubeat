@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.4 — Learn Phase + Session Pacing for New Vocabulary (3/5 plans complete)
+**Current focus:** v2.0 Phase 08.4 — Learn Phase + Session Pacing for New Vocabulary (5/5 plans complete — DONE)
 
 ## Current Position
 
-Phase: 08.4 of 11 (Learn Phase Session Pacing) — In Progress
-Plan: 3 of 5 complete; next: 08.4-04 (JIT insertion wiring)
-Status: Plan 08.4-03 complete — userPrefs server actions (getUserPrefs, updateUserPrefs, getEffectiveCap, isPremium) + exerciseSession store extended with learnedVocabIds, introducedNewVocabIds, vocabStates. Unblocks Plans 04 and 05.
-Last activity: 2026-04-17 — Plan 08.4-03 complete (commits 3041002, ca436d0).
+Phase: 08.4 of 11 (Learn Phase Session Pacing) — COMPLETE
+Plan: 5 of 5 complete; next: Phase 08.5 or next phase in roadmap
+Status: Plan 08.4-05 complete — /profile page (server component) + ProfileForm client component with skip_learning toggle + new_card_cap input, free user gating via isPremium, inline save feedback. Commits bccc10b, ecd643a.
+Last activity: 2026-04-17 — Plan 08.4-05 complete (commits bccc10b, ecd643a).
 
 Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
 
@@ -59,6 +59,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P02 | 2 | 1 tasks | 2 files |
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P01 | 8 | 3 tasks | 4 files |
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P03 | 5 | 2 tasks | 2 files |
+| Phase 08.4 P05 | 2 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -155,6 +156,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.4]: tts.ts already existed from 08.4-02 pre-commit with all required exports
 - [Phase 08.4]: getUserPrefs returns raw stored value; getEffectiveCap is sole premium enforcement point
 - [Phase 08.4]: isPremium exported from userPrefs.ts as single subscriptions query source of truth
+- [Phase 08.4]: isPremium imported from userPrefs.ts — no inline subscriptions query on profile page (single abstraction)
+- [Phase 08.4]: Profile page: PLACEHOLDER_USER_ID matches existing app auth TODO pattern; Clerk auth deferred to Phase 10
 
 ### Pending Todos
 
@@ -181,5 +184,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.4-03-PLAN.md (userPrefs server actions + exerciseSession store extensions). Commits 3041002, ca436d0.
-Resume file: .planning/phases/08.4-learn-phase-session-pacing-for-new-vocabulary-presentation-step-before-first-exercise-skip-learning-user-preset-new-card-cap-per-session/08.4-04-PLAN.md
+Stopped at: Completed 08.4-05-PLAN.md (/profile page + ProfileForm, free-user gating). Commits bccc10b, ecd643a. Phase 08.4 COMPLETE (5/5 plans).
+Resume file: Next phase after 08.4 in roadmap.
