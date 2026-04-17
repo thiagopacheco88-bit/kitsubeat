@@ -172,7 +172,7 @@ Plans:
 
 **Goal:** Wire the dead `user_vocab_mastery` and `user_exercise_log` tables (Phase 7 schema) so each Phase 8 exercise answer persists per-vocab FSRS state, then derive a 3-tier display per word (kanji+furigana+romaji → kanji+furigana → kanji-only) driven by FSRS state — exercise flow only.
 **Depends on:** Phase 8
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
 - [ ] 08.2-01-PLAN.md — FSRS core: ratingFor + scheduleReview + tierFor (TDD, pure)
