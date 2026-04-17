@@ -9,7 +9,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 
 ## Current Position
 
-Phase: 8 of 12 (Exercise Engine)
+Phase: 8 of 11 (Exercise Engine)
 Plan: 4 of 4 in current phase
 Status: Phase Complete (all 4 plans shipped, Phase 7 DB artifacts live)
 Last activity: 2026-04-16 — Plan 08-04 complete (session summary, star display with confetti, circular progress ring on song cards, star criteria on song page). DB migrations 0002/0003 applied and vocab backfill executed — 705 vocabulary_items, 112/116 song versions patched.
@@ -45,6 +45,7 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 
 - Phase 08.1 inserted after Phase 8: End-to-End QA Suite (URGENT) — cross-cutting Playwright + Node-side QA infra to verify v1.0 player + v2.0 Phase 8 exercise engine before Phase 9 (Kana Trainer) builds further
 - Phase 08.2 inserted after Phase 8: FSRS progressive disclosure (URGENT) — wire user_vocab_mastery/user_exercise_log writes (currently dead infra) and derive a per-word display tier (kanji+furigana+romaji → kanji+furigana → kanji only) so exercise options stop starting at bare kanji; also unblocks Phase 11's assumption that per-vocab mastery is being persisted
+- Phase 08.3 inserted after Phase 8: Mnemonic and kanji breakdown for vocabulary feedback — extend VocabEntry with `mnemonic` + `kanji_breakdown` fields, update content-generation prompt in scripts/seed/03-generate-content.ts, backfill ~60 songs (~1200 vocab items), surface in FeedbackPanel "More" accordion. Separated from Phase 8 refactor (which landed vocab block + wrong-pick callout + verse context without re-seed).
 
 ### Decisions
 
@@ -86,5 +87,5 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Phase 08.1 context gathered
-Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-CONTEXT.md
+Stopped at: Phase 08.2 context gathered
+Resume file: .planning/phases/08.2-fsrs-progressive-disclosure/08.2-CONTEXT.md
