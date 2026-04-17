@@ -1,0 +1,36 @@
+import {
+  getUserPrefs,
+  isPremium,
+  DEFAULT_NEW_CARD_CAP,
+  PREMIUM_NEW_CARD_CAP_CEILING,
+} from "@/app/actions/userPrefs";
+import ProfileForm from "./ProfileForm";
+
+// TODO(Phase 10 auth): replace with Clerk auth() and redirect unauthenticated users.
+// For now the placeholder user matches the rest of the app's auth TODO pattern.
+const PLACEHOLDER_USER_ID = "test-user-e2e";
+
+export default async function ProfilePage() {
+  const userId = PLACEHOLDER_USER_ID;
+  const [prefs, premium] = await Promise.all([
+    getUserPrefs(userId),
+    isPremium(userId),
+  ]);
+
+  return (
+    <main className="mx-auto max-w-xl px-4 py-8 text-white">
+      <h1 className="mb-6 text-2xl font-semibold">Profile</h1>
+      <section className="rounded-xl border border-gray-700 bg-gray-900 p-6">
+        <h2 className="mb-4 text-lg font-semibold">Learning preferences</h2>
+        <ProfileForm
+          userId={userId}
+          initialSkipLearning={prefs.skipLearning}
+          initialNewCardCap={prefs.newCardCap}
+          isPremium={premium}
+          defaultCap={DEFAULT_NEW_CARD_CAP}
+          maxCap={PREMIUM_NEW_CARD_CAP_CEILING}
+        />
+      </section>
+    </main>
+  );
+}
