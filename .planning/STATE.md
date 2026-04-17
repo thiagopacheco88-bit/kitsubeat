@@ -83,6 +83,11 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1-02]: Thin-pool 3-distractor invariant encoded as `it.fails` (not deleted) — flips RED automatically the moment generator gains a fallback for empty JLPT pool
 - [Phase 08.1-02]: Access tests derive FREE/PREMIUM lists programmatically from EXERCISE_FEATURE_FLAGS — no test edits needed when Phase 10 adds premium types
 - [Phase 08.1-02]: deriveStars test imports from @/lib/db/schema (not @/lib/db/index) — preserves the no-DB-in-unit-layer invariant for plan 08.1-08 grep audit
+- [Phase 08.1-03]: Single global setupFiles entry (tests/integration/setup.ts) instead of vitest projects — loads .env.test/.env.local and redirects DATABASE_URL → TEST_DATABASE_URL before any DB-touching import resolves; safe for unit tests since they don't read DATABASE_URL
+- [Phase 08.1-03]: Per-file describe.skip guard when TEST_DATABASE_URL is unset — keeps `npm run test:integration` green pre-provisioning instead of failing at import time
+- [Phase 08.1-03]: information_schema invariant test asserts `user_song_progress` has NO `stars` column — locks the read-time star derivation decision at the schema level; a future refactor that adds the column will fail this test loudly
+- [Phase 08.1-03]: Direct route handler invocation in integration tests (`import { GET } from "@/app/.../route"` + `new NextRequest`) — no Next.js dev server, ~3s faster per run, exercises the same handler the framework would invoke
+- [Phase 08.1-03]: Defensive `Array.isArray(raw) ? raw : (raw.rows ?? [])` pattern for drizzle .execute(sql) — neon-http return shape varies by query and silently masks failures otherwise
 
 ### Pending Todos
 
@@ -98,9 +103,10 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - v2.0 Phase 7: [RESOLVED] Conjugation audit complete — 91% structured, 9% unstructured (pattern labels). Exercise eligibility filter now well-defined.
 - v2.0 Phase 8: Distractor pool is thin until 30+ songs are seeded — validateDistractorPool() fallback to same-JLPT-level words needed
 - Phase 08.1-01: TEST_DATABASE_URL not yet provisioned — operator must create separate Neon DB, run `npm run seed:dev` against it, and `npm run test:seed` before plans 08.1-03 / 08.1-06 / 08.1-07 execute (plans 02 and 04 are pure unit/script and can run without).
+- Phase 08.1-03: 16 new integration tests are authored but currently SKIPPED end-to-end — operator must complete TEST_DATABASE_URL provisioning (create DB, db:push migrations, npm run seed:dev, npm run test:seed) for them to actually exercise assertions. Suite is hermetic and will activate automatically once env is set; no test code change needed.
 
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Plan 08.1-02 complete; next plan: 08.1-03-PLAN.md
-Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-03-PLAN.md
+Stopped at: Plan 08.1-03 complete; next plan: 08.1-04-PLAN.md
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-04-PLAN.md
