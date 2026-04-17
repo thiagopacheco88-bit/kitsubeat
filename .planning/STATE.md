@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.4 — Learn Phase + Session Pacing for New Vocabulary (1/5 plans complete)
+**Current focus:** v2.0 Phase 08.4 — Learn Phase + Session Pacing for New Vocabulary (3/5 plans complete)
 
 ## Current Position
 
 Phase: 08.4 of 11 (Learn Phase Session Pacing) — In Progress
-Plan: 1 of 5 complete; next: 08.4-02 (LearnCard component)
-Status: Plan 08.4-01 complete — users table applied to Neon DB (skip_learning + new_card_cap), vocab-tiers API extended with states map, tts.ts confirmed present with all three exports. Foundation unblocks Plans 02–05.
-Last activity: 2026-04-17 — Plan 08.4-01 complete (commits 941621f, 7adb961).
+Plan: 3 of 5 complete; next: 08.4-04 (JIT insertion wiring)
+Status: Plan 08.4-03 complete — userPrefs server actions (getUserPrefs, updateUserPrefs, getEffectiveCap, isPremium) + exerciseSession store extended with learnedVocabIds, introducedNewVocabIds, vocabStates. Unblocks Plans 04 and 05.
+Last activity: 2026-04-17 — Plan 08.4-03 complete (commits 3041002, ca436d0).
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (1/5 plans)
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
 
 ## Performance Metrics
 
@@ -58,6 +58,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P05 | 2 | 2 tasks | 5 files |
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P02 | 2 | 1 tasks | 2 files |
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P01 | 8 | 3 tasks | 4 files |
+| Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P03 | 5 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -152,6 +153,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.4]: skip_learning DEFAULT false = do NOT skip (cards show) — column polarity matches CONTEXT default-ON behavior
 - [Phase 08.4]: states map in vocab-tiers additive — existing callers destructuring only tiers unaffected
 - [Phase 08.4]: tts.ts already existed from 08.4-02 pre-commit with all required exports
+- [Phase 08.4]: getUserPrefs returns raw stored value; getEffectiveCap is sole premium enforcement point
+- [Phase 08.4]: isPremium exported from userPrefs.ts as single subscriptions query source of truth
 
 ### Pending Todos
 
@@ -178,5 +181,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.4-01-PLAN.md (users table migration + Drizzle schema + vocab-tiers states map — data foundation for learn phase). Commits 941621f, 7adb961.
-Resume file: .planning/phases/08.4-learn-phase-session-pacing-for-new-vocabulary-presentation-step-before-first-exercise-skip-learning-user-preset-new-card-cap-per-session/08.4-02-PLAN.md
+Stopped at: Completed 08.4-03-PLAN.md (userPrefs server actions + exerciseSession store extensions). Commits 3041002, ca436d0.
+Resume file: .planning/phases/08.4-learn-phase-session-pacing-for-new-vocabulary-presentation-step-before-first-exercise-skip-learning-user-preset-new-card-cap-per-session/08.4-04-PLAN.md

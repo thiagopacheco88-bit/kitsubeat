@@ -159,7 +159,7 @@ Plans:
 
 **Goal:** Insert a just-in-time learn card before the first exercise for any New or Relearning vocabulary word (with mnemonic + kanji_breakdown behind a single tap-to-reveal and tap-to-play Japanese TTS), expose a global `skip_learning` user preset (default ON — cards show), and enforce a per-session new-card cap (default 10) gated by a premium-only cap-raising ceiling (30) — all wired into the existing Phase 8 exercise engine with a new `/profile` settings surface.
 **Depends on:** Phase 8, Phase 08.2 (FSRS state), Phase 08.3 (KanjiBreakdownSection + mnemonic column)
-**Plans:** 2/5 plans executed
+**Plans:** 3/5 plans executed
 
 Plans:
 - [ ] 08.4-01-PLAN.md -- Users table migration (0005_user_prefs.sql) + vocab-tiers API states extension + Web Speech TTS helper
