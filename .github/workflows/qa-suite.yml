@@ -1,0 +1,117 @@
+# .github/workflows/qa-suite.yml
+#
+# Plan 08.1-08 Task 3 — KitsuBeat QA suite CI.
+#
+# Two jobs split by speed/cost tradeoff:
+#
+#   pr-checks      — runs on every PR to master. Unit + integration + content QA
+#                    (no E2E, no browser install). Target: under ~3 minutes so PR
+#                    feedback stays fast. Uses the test:ci-pr npm script.
+#
+#   nightly-full   — runs on schedule (daily 06:00 UTC) and on workflow_dispatch.
+#                    Full measure-suite-runtime.ts including Playwright E2E with
+#                    the chromium browser. Asserts the 15-minute budget. Uploads
+#                    test-results/ + playwright-report/ as artifacts on failure.
+#
+# Required GitHub repo secret (Settings -> Secrets and variables -> Actions):
+#   TEST_DATABASE_URL — Neon Postgres URL for the test DB. The test:seed script
+#                       and integration suite both consume it. Without it the
+#                       integration layer self-skips at the file level (see
+#                       tests/integration/setup.ts) but PR checks will fail
+#                       because test:integration would not exercise its assertions.
+#
+# Zero-flake policy: continue-on-error is FALSE everywhere; no retry-on-failure
+# steps. A failed step fails the job. See README-testing.md > Zero-flake policy.
+
+name: QA Suite
+
+on:
+  pull_request:
+    branches: [master]
+  schedule:
+    # 06:00 UTC daily — chosen for low-contention CI runners.
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+# Cancel in-flight runs of the same workflow on the same ref to save minutes.
+concurrency:
+  group: qa-suite-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr-checks:
+    name: PR checks (unit + integration + qa)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+      # NEXT_PUBLIC_APP_ENV is unused on PR checks (no Playwright) but kept for
+      # consistency with the nightly job env.
+      NEXT_PUBLIC_APP_ENV: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Seed test DB
+        run: npm run test:seed
+
+      - name: Run PR suite (qa + unit + integration)
+        run: npm run test:ci-pr
+
+  nightly-full:
+    name: Nightly full suite (test:measure)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    # 20-minute ceiling — the suite budget itself is 15min. The extra 5min
+    # absorbs install + seed + runner cold-start.
+    timeout-minutes: 20
+    env:
+      TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+      NEXT_PUBLIC_APP_ENV: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Install Playwright chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Seed test DB
+        run: npm run test:seed
+
+      - name: Run full suite (measured + 15min budget assertion)
+        run: npm run test:ci-nightly
+
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Upload test-results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 7
