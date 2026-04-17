@@ -29,7 +29,11 @@
     "test:qa:geo": "tsx --tsconfig tsconfig.scripts.json scripts/seed/06-qa-geo-check.ts",
     "test:seed": "tsx tests/support/seed-test-db.ts",
     "test:report": "playwright show-report",
-    "test:all": "npm run test:seed && npm run test:unit && npm run test:integration && npm run test:qa && npm run test:e2e"
+    "test:all": "npm run test:seed && npm run test:unit && npm run test:integration && npm run test:qa && npm run test:e2e",
+    "test:measure": "tsx scripts/qa/measure-suite-runtime.ts",
+    "test:ci-pr": "npm run test:qa && npm run test:unit && npm run test:integration",
+    "test:ci-nightly": "tsx scripts/qa/measure-suite-runtime.ts",
+    "test:quarantine": "playwright test --grep '\\[kb-quarantine\\]'"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
