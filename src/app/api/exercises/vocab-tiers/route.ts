@@ -79,8 +79,22 @@ export async function GET(request: NextRequest) {
     }
   }
 
+  // Build raw state map alongside tier map.
+  // Needed by Phase 08.4 learn card: distinguishes state=0 (New) from state=3 (Relearning),
+  // which both collapse to the same tier via tierFor() and are otherwise indistinguishable on the client.
+  const stateMap: Record<string, 0 | 1 | 2 | 3> = {};
+  for (const row of rows) {
+    stateMap[row.vocab_item_id] = row.state as 0 | 1 | 2 | 3;
+  }
+  // Cold-start: any requested ID with no mastery row defaults to state=0 (New), mirroring tierMap.
+  for (const id of idArray) {
+    if (!(id in stateMap)) {
+      stateMap[id] = 0;
+    }
+  }
+
   return NextResponse.json(
-    { tiers: tierMap },
+    { tiers: tierMap, states: stateMap },
     {
       headers: {
         "Cache-Control": "private, no-store",
