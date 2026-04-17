@@ -5,32 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 8 — Exercise Engine (complete, awaiting verification)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 1/8 complete)
 
 ## Current Position
 
-Phase: 8 of 11 (Exercise Engine)
-Plan: 4 of 4 in current phase
-Status: Phase Complete (all 4 plans shipped, Phase 7 DB artifacts live)
-Last activity: 2026-04-16 — Plan 08-04 complete (session summary, star display with confetti, circular progress ring on song cards, star criteria on song page). DB migrations 0002/0003 applied and vocab backfill executed — 705 vocabulary_items, 112/116 song versions patched.
+Phase: 08.1 of 11 (End-to-End QA Suite)
+Plan: 1 of 8 in current phase complete; next: 08.1-02
+Status: Plan 08.1-01 complete (QA suite infrastructure — Playwright + Vitest + fixtures + scripts)
+Last activity: 2026-04-17 — Plan 08.1-01 complete (zero-flake Playwright config, vitest src/+integration include, terminal reporter, TEST_DATABASE_URL helpers, Playwright fixtures, idempotent seed script, 7 new npm scripts). Operator must set TEST_DATABASE_URL before plans 03/06/07 run.
 
 Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 not started
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: 10 min
-- Total execution time: 0.8 hours
+- Total execution time: 1.0 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-content-pipeline | 6/8 | 60 min | 10 min |
+| 08.1-end-to-end-qa-suite | 1/8 | 8 min | 8 min |
 
 **Recent Trend:**
-- Last 6 plans: 01-01 (13 min), 01-02 (6 min), 01-03 (4 min), 01-04 (7 min), 01-05 (22 min), 01-07 (8 min)
+- Last 6 plans: 01-02 (6 min), 01-03 (4 min), 01-04 (7 min), 01-05 (22 min), 01-07 (8 min), 08.1-01 (8 min)
 - Trend: stable
 
 *Updated after each plan completion*
@@ -38,6 +39,7 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08-exercise-engine P01 | 3 | 3 tasks | 5 files |
 | Phase 08-exercise-engine P02 | 4 | 2 tasks | 4 files |
 | Phase 08-exercise-engine P03 | 5 | 3 tasks | 8 files |
+| Phase 08.1-end-to-end-qa-suite P01 | 8 | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -69,6 +71,12 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08-02]: Distractor dedup uses trim+lowercase normalization to prevent synonym collisions
 - [Phase 08-03]: isSessionForSong guards against stale cross-song sessions in ExerciseTab
 - [Phase 08-03]: Exercise bundle lazy-loaded via React.lazy — keeps initial song page fast
+- [Phase 08.1-01]: QA test DB strategy — dedicated TEST_DATABASE_URL on the same Neon project (not ephemeral, not dev DB with test users)
+- [Phase 08.1-01]: TEST_USER_ID constant 'test-user-e2e' — single string used everywhere; seedTestUser() seam reserved for Clerk auth
+- [Phase 08.1-01]: SEEDED_SLUGS = again-yui + red-swan-yoshiki-feat-hyde + mayonaka-no-orchestra-aqua-timez (last is geo-restricted for plan 08.1-07 regression)
+- [Phase 08.1-01]: Zero-flake policy enforced at playwright.config.ts (retries:0, single line) — plan 08.1-08 audits via grep
+- [Phase 08.1-01]: Custom plain-ASCII Playwright Reporter — terminal-first; HTML report opt-in via `npm run test:report`
+- [Phase 08.1-01]: test:all chains test:seed FIRST so the suite aborts early on stale catalog (saves the 15-min budget)
 
 ### Pending Todos
 
@@ -83,9 +91,10 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - Phase 1: Pipeline execution blocked pending env setup: YOUTUBE_API_KEY, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, ANTHROPIC_API_KEY
 - v2.0 Phase 7: [RESOLVED] Conjugation audit complete — 91% structured, 9% unstructured (pattern labels). Exercise eligibility filter now well-defined.
 - v2.0 Phase 8: Distractor pool is thin until 30+ songs are seeded — validateDistractorPool() fallback to same-JLPT-level words needed
+- Phase 08.1-01: TEST_DATABASE_URL not yet provisioned — operator must create separate Neon DB, run `npm run seed:dev` against it, and `npm run test:seed` before plans 08.1-03 / 08.1-06 / 08.1-07 execute (plans 02 and 04 are pure unit/script and can run without).
 
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Phase 08.2 context gathered
-Resume file: .planning/phases/08.2-fsrs-progressive-disclosure/08.2-CONTEXT.md
+Stopped at: Plan 08.1-01 complete; next plan: 08.1-02-PLAN.md (unit-coverage)
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-02-PLAN.md

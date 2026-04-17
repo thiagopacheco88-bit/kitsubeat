@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 ### v2.0 Exercise & Learning System
 
-- [x] **Phase 7: Data Foundation** - Normalize vocabulary identity with UUIDs and audit grammar conjugation paths to unblock all progress tracking (completed 2026-04-15)
+- [x] **Phase 7: Data Foundation** - Normalize vocabulary identity with UUIDs and audit grammar conjugation paths to unblock all progress tracking (completed 2013-04-15)
 - [ ] **Phase 8: Exercise Engine & Star Mastery** - Build the full per-song exercise loop (4 core exercise types) with SRS progress persistence and 2-star mastery
 - [ ] **Phase 9: Kana Trainer** - Deliver a standalone hiragana/katakana trainer with row-by-row unlock and SRS-lite 10-star mastery
 - [ ] **Phase 10: Advanced Exercises & Full Mastery** - Add grammar conjugation, listening drill, and sentence order exercises to complete the 3-star system
@@ -155,23 +155,41 @@ Plans:
 - [ ] 08-03-PLAN.md -- Zustand session store, JLPT pool API, exercise UI (config screen, question card, feedback panel, Practice tab)
 - [ ] 08-04-PLAN.md -- Session summary, star display with confetti, circular progress ring, SongCard/SongPage integration
 
-### Phase 08.2: FSRS progressive disclosure (INSERTED)
+### Phase 08.3: Mnemonic and kanji breakdown for vocabulary feedback (INSERTED)
 
 **Goal:** [Urgent work - to be planned]
 **Depends on:** Phase 8
 **Plans:** 0 plans
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 08.2 to break down)
+- [ ] TBD (run /gsd:plan-phase 08.3 to break down)
+
+### Phase 08.2: FSRS progressive disclosure (INSERTED)
+
+**Goal:** Wire the dead `user_vocab_mastery` and `user_exercise_log` tables (Phase 7 schema) so each Phase 8 exercise answer persists per-vocab FSRS state, then derive a 3-tier display per word (kanji+furigana+romaji → kanji+furigana → kanji-only) driven by FSRS state — exercise flow only.
+**Depends on:** Phase 8
+**Plans:** 3 plans
+
+Plans:
+- [ ] 08.2-01-PLAN.md — FSRS core: ratingFor + scheduleReview + tierFor (TDD, pure)
+- [ ] 08.2-02-PLAN.md — Server: recordVocabAnswer action + vocab-tiers / vocab-mastery API routes
+- [ ] 08.2-03-PLAN.md — UI: TierText, MasteryDetailPopover, ExerciseTab/QuestionCard/FeedbackPanel wiring with leak-override + reveal-reading hatch
 
 ### Phase 08.1: End-to-End QA Suite (INSERTED)
 
-**Goal:** [Urgent work - to be planned]
+**Goal:** Ship the cross-cutting QA test infrastructure (Playwright + Vitest + Node integration + seed QA) that verifies the v1.0 player experience and the v2.0 Phase 8 exercise engine end-to-end before Phase 9 extends the codebase further. Enforces a 15-minute speed budget and a zero-flake policy (retries: 0 everywhere).
 **Depends on:** Phase 8
-**Plans:** 0 plans
+**Plans:** 1/8 plans executed
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 08.1 to break down)
+- [x] 08.1-01-PLAN.md -- Test infra scaffolding (playwright + vitest configs, test-DB strategy, fixtures, terminal reporter, npm scripts)
+- [ ] 08.1-02-PLAN.md -- Vitest unit layer (generator extensions, checkExerciseAccess, deriveStars, distractor picker)
+- [ ] 08.1-03-PLAN.md -- Node integration layer (jlpt-pool API, saveSessionResults, progress queries, admin songs)
+- [ ] 08.1-04-PLAN.md -- Seed/content QA extensions (UUID integrity, furigana completeness, geo audit, TV-pack skip)
+- [ ] 08.1-05-PLAN.md -- Playwright E2E for player flows (load, lesson toggles, sync/seek with real YouTube, panels)
+- [ ] 08.1-06-PLAN.md -- Playwright E2E for exercise flows (full session, stars+confetti, resume mid-session, FSRS writes)
+- [ ] 08.1-07-PLAN.md -- Regression guards (cross-song leakage, premium gate bypass, geo fallback, stale lesson data)
+- [ ] 08.1-08-PLAN.md -- Suite hardening (15-min speed budget enforcement, quarantine convention, CI workflow, docs)
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
@@ -221,26 +239,3 @@ Plans:
   5. User can open a standalone "Anime Vocabulary" drill mode organized by anime series/theme (Naruto elements, Pokemon creatures, Dragon Ball references) and drill cultural vocabulary using the same multiple-choice + star mastery mechanics
   6. When a vocabulary word in any song or scene exercise has a known anime cultural reference, a contextual hint is shown inline (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
 **Plans**: TBD
-
----
-
-## Progress
-
-**Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12
-Note: Phase 9 (Kana Trainer) can be built in parallel with Phase 8 (Exercise Engine) — both depend only on Phase 7.
-
-| Phase | Milestone | Plans Complete | Status | Completed |
-|-------|-----------|----------------|--------|-----------|
-| 1. Content Pipeline | v1.0 | 6/8 | In Progress (checkpoint) | - |
-| 2. Player Experience | v1.0 | 0/TBD | Not started | - |
-| 3. Auth, Catalog, and Freemium Gate | v1.0 | 0/TBD | Not started | - |
-| 4. AI Search and Payments | v1.0 | 0/TBD | Not started | - |
-| 5. Exercises and Gamification | v1.0 | 0/TBD | Not started | - |
-| 6. Export and Polish | v1.0 | 0/TBD | Not started | - |
-| 7. Data Foundation | 2/2 | Complete   | 2026-04-15 | - |
-| 8. Exercise Engine & Star Mastery | 3/4 | In Progress|  | - |
-| 9. Kana Trainer | v2.0 | 0/TBD | Not started | - |
-| 10. Advanced Exercises & Full Mastery | v2.0 | 0/TBD | Not started | - |
-| 11. Cross-Song Vocabulary | v2.0 | 0/TBD | Not started | - |
-| 12. Anime Scenes & Cultural Vocabulary | v2.0 | 0/TBD | Not started | - |
