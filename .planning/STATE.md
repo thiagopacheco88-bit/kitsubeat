@@ -108,5 +108,5 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Plan 08.1-03 complete; next plan: 08.1-04-PLAN.md
-Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-04-PLAN.md
+Stopped at: Phase 08.3 context gathered
+Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-CONTEXT.md
