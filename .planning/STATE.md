@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite COMPLETE (8/8 plans) + 08.2 FSRS Progressive Disclosure COMPLETE (3/3 plans) + 08.3 Mnemonic/Kanji Breakdown (in progress, plan 4/5 complete)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite COMPLETE (8/8 plans) + 08.2 FSRS Progressive Disclosure COMPLETE (3/3 plans) + 08.3 Mnemonic/Kanji Breakdown COMPLETE (5/5 plans)
 
 ## Current Position
 
@@ -55,6 +55,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P02 | 3 | 2 tasks | 3 files |
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P04 | 12 | 3 tasks | 5 files |
 | Phase 08.1-end-to-end-qa-suite P08 | 9 | 3 tasks | 7 files |
+| Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P05 | 2 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -141,6 +142,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: measure-suite-runtime.ts uses fastest-first layer order (test:qa -> test:unit -> test:integration -> test:e2e) — regression in fast layer kills the run before E2E starts the dev server, saving ~10 min per failed run
 - [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: PR job runs test:ci-pr (no E2E) — explicit speed/cost tradeoff; nightly is the only place E2E + 15-min budget gate live; concurrency-cancels in-flight runs on the same ref to save runner minutes
 - [Phase 08.1-end-to-end-qa-suite]: [Phase 08.1-08]: home + songs-browse scenarios from app.spec.ts ported to standalone tests/e2e/home-and-browse.spec.ts (6 tests) BEFORE deletion — plan 05's player-*.spec.ts only covered /songs/[slug], not / and /songs
+- [Phase 08.3]: test:qa:enrichment exits 1 pre-enrichment by design — gates DESIGNED to fail until seed:enrich-vocab runs
+- [Phase 08.3-05]: tests/unit/ added to vitest include; MIN_WORDS=5 MAX_WORDS=25 bounds locked per CONTEXT.md
 
 ### Pending Todos
 
@@ -167,5 +170,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.1-08-PLAN.md (suite hardening — measure-suite-runtime.ts asserts <15min budget; quarantine convention via Playwright grepInvert + Vitest helper; GitHub Actions CI tiered PR-fast vs nightly-full; README-testing.md single 100-line entry point; tests/app.spec.ts retired with home + browse scenarios ported to tests/e2e/home-and-browse.spec.ts). Phase 08.1 COMPLETE 8/8. Commits 299743e, addfe88, 86ca5fa.
-Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-05-PLAN.md
+Stopped at: Completed 08.3-05-PLAN.md (QA enrichment gate + unit tests — phase 08.3 all 5 plans complete; 12 unit tests green; test:qa:enrichment exits 1 pre-enrichment by design). Commits 001ca84, 9bb70fc.
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-08-PLAN.md

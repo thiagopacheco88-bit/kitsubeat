@@ -159,7 +159,7 @@ Plans:
 
 **Goal:** Extend `vocabulary_items` with `mnemonic` and `kanji_breakdown` jsonb columns, enrich all ~705 existing rows via inline LLM generation, and render both inside the FeedbackPanel "More" accordion with cross-question persistence. Future songs ship enriched by updating the shared generation prompt. Surgical enrichment only — existing lesson JSONB is untouched.
 **Depends on:** Phase 7 (vocabulary_items UUID identity), Phase 8 (exercise engine UI)
-**Plans:** 4/5 plans executed
+**Plans:** 5/5 plans complete
 
 Plans:
 - [ ] 08.3-01-PLAN.md -- Schema migration (0004_vocab_enrichment.sql) + drizzle schema + lesson/generator type extensions
