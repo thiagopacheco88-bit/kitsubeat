@@ -5,34 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 1/8 complete)
+**Current focus:** v2.0 Phase 08.1 — End-to-End QA Suite (in progress, plan 3/8 complete)
 
 ## Current Position
 
 Phase: 08.1 of 11 (End-to-End QA Suite)
-Plan: 1 of 8 in current phase complete; next: 08.1-02
-Status: Plan 08.1-01 complete (QA suite infrastructure — Playwright + Vitest + fixtures + scripts)
-Last activity: 2026-04-17 — Plan 08.1-01 complete (zero-flake Playwright config, vitest src/+integration include, terminal reporter, TEST_DATABASE_URL helpers, Playwright fixtures, idempotent seed script, 7 new npm scripts). Operator must set TEST_DATABASE_URL before plans 03/06/07 run.
+Plan: 3 of 8 in current phase complete; next: 08.1-04
+Status: Plan 08.1-03 complete (integration layer — 4 test files, 16 tests covering jlpt-pool API, admin songs API, saveSessionResults upsert semantics, queries.ts read-time star derivation + information_schema invariant; setupFiles redirects DATABASE_URL → TEST_DATABASE_URL; suite skips cleanly when env unset, runs in <30s when provisioned)
+Last activity: 2026-04-17 — Plan 08.1-03 complete (3 commits ae96508, 67a1853, 7cc0d81; tests authored hermetically with describe.skip guards; pending env: TEST_DATABASE_URL still required for plans 03/06/07 to actually exercise assertions).
 
-Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 not started
+Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 in progress (3/8 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 10 min
-- Total execution time: 1.0 hours
+- Total plans completed: 8
+- Average duration: 8 min
+- Total execution time: 1.12 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-content-pipeline | 6/8 | 60 min | 10 min |
-| 08.1-end-to-end-qa-suite | 1/8 | 8 min | 8 min |
+| 08.1-end-to-end-qa-suite | 3/8 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 6 plans: 01-02 (6 min), 01-03 (4 min), 01-04 (7 min), 01-05 (22 min), 01-07 (8 min), 08.1-01 (8 min)
-- Trend: stable
+- Last 6 plans: 01-04 (7 min), 01-05 (22 min), 01-07 (8 min), 08.1-01 (8 min), 08.1-02 (4 min), 08.1-03 (4 min)
+- Trend: stable-to-fast (08.1 plans averaging well under the 10-min mean)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -40,6 +40,8 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08-exercise-engine P02 | 4 | 2 tasks | 4 files |
 | Phase 08-exercise-engine P03 | 5 | 3 tasks | 8 files |
 | Phase 08.1-end-to-end-qa-suite P01 | 8 | 3 tasks | 8 files |
+| Phase 08.1 P02 | 4 | 3 tasks | 4 files |
+| Phase 08.1-end-to-end-qa-suite P03 | 4 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -77,6 +79,10 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.1-01]: Zero-flake policy enforced at playwright.config.ts (retries:0, single line) — plan 08.1-08 audits via grep
 - [Phase 08.1-01]: Custom plain-ASCII Playwright Reporter — terminal-first; HTML report opt-in via `npm run test:report`
 - [Phase 08.1-01]: test:all chains test:seed FIRST so the suite aborts early on stale catalog (saves the 15-min budget)
+- [Phase 08.1-02]: Determinism test asserts length-stability + per-type bounds (not exact ordering) — Fisher-Yates shuffle is unseeded today; tightens automatically when generator gains a seeded shuffle
+- [Phase 08.1-02]: Thin-pool 3-distractor invariant encoded as `it.fails` (not deleted) — flips RED automatically the moment generator gains a fallback for empty JLPT pool
+- [Phase 08.1-02]: Access tests derive FREE/PREMIUM lists programmatically from EXERCISE_FEATURE_FLAGS — no test edits needed when Phase 10 adds premium types
+- [Phase 08.1-02]: deriveStars test imports from @/lib/db/schema (not @/lib/db/index) — preserves the no-DB-in-unit-layer invariant for plan 08.1-08 grep audit
 
 ### Pending Todos
 
@@ -96,5 +102,5 @@ Progress: [████░░░░░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Plan 08.1-01 complete; next plan: 08.1-02-PLAN.md (unit-coverage)
-Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-02-PLAN.md
+Stopped at: Plan 08.1-02 complete; next plan: 08.1-03-PLAN.md
+Resume file: .planning/phases/08.1-end-to-end-qa-suite/08.1-03-PLAN.md
