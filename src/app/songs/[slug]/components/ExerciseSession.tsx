@@ -104,6 +104,8 @@ export default function ExerciseSession({
           question={current}
           onAnswered={handleAnswered}
           onContinue={handleContinue}
+          userId={userId}
+          songVersionId={songVersionId}
         />
       </div>
     </div>

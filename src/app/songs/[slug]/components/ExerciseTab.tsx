@@ -135,7 +135,33 @@ export default function ExerciseTab({
         return;
       }
 
+      // Prefetch per-vocab FSRS tiers in one batch call.
+      // startSession FIRST (resets tiers slice), then setTiers so prefetched
+      // tiers survive the reset. Tier fetch failure is non-fatal — every word
+      // defaults to Tier 1 (cold-start behavior), so the session still works.
       startSession(songVersionId, questions, mode);
+
+      try {
+        const uniqueIds = [
+          ...new Set(questions.map((q) => q.vocabItemId).filter(Boolean)),
+        ];
+        if (uniqueIds.length > 0) {
+          const tiersRes = await fetch(
+            `/api/exercises/vocab-tiers?ids=${uniqueIds.join(",")}&userId=${encodeURIComponent(userId)}`
+          );
+          if (tiersRes.ok) {
+            const tiersData = (await tiersRes.json()) as {
+              tiers: Record<string, 1 | 2 | 3>;
+            };
+            store.setTiers(tiersData.tiers);
+          }
+          // Non-fatal: on failure every word defaults to Tier 1
+        }
+      } catch (tierErr) {
+        console.error("Failed to prefetch vocab tiers:", tierErr);
+        // Continue — cold-start Tier 1 default applies
+      }
+
       setTabState("session");
     } catch (err) {
       console.error("Failed to start exercise session:", err);

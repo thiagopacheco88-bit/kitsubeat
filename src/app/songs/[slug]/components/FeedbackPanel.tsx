@@ -8,6 +8,8 @@ interface FeedbackPanelProps {
   chosenAnswer: string;
   isCorrect: boolean;
   onContinue: () => void;
+  /** The authenticated user's ID — used for mastery detail popovers */
+  userId: string;
 }
 
 export default function FeedbackPanel({
@@ -15,7 +17,10 @@ export default function FeedbackPanel({
   chosenAnswer,
   isCorrect,
   onContinue,
+  userId,
 }: FeedbackPanelProps) {
+  // userId will be used for MasteryDetailPopover in Task 3 wiring
+  void userId;
   const [showDetail, setShowDetail] = useState(false);
 
   const handleContinue = () => {
