@@ -20,7 +20,14 @@
     "audit:geo": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts",
     "audit:geo:replace": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts --replace",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:unit": "vitest run src/",
+    "test:integration": "vitest run tests/integration/",
+    "test:e2e": "playwright test",
+    "test:qa": "tsx --tsconfig tsconfig.scripts.json scripts/seed/06-qa-agent.ts",
+    "test:seed": "tsx tests/support/seed-test-db.ts",
+    "test:report": "playwright show-report",
+    "test:all": "npm run test:seed && npm run test:unit && npm run test:integration && npm run test:qa && npm run test:e2e"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
