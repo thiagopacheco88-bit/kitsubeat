@@ -20,6 +20,20 @@ export default defineConfig({
   timeout: 30_000,
   // Zero-flake policy: never auto-retry. See CONTEXT.md > "Zero-tolerance flaky-test policy".
   retries: 0,
+  // Quarantine convention (plan 08.1-08): tests whose title contains [kb-quarantine]
+  // are FILTERED OUT of the default run via grepInvert. Use `npm run test:quarantine`
+  // to run them for debugging — that script sets KB_RUN_QUARANTINE=1 which:
+  //   1. Flips grepInvert here to a never-match sentinel (so config no longer hides
+  //      quarantined titles)
+  //   2. Combines with the script's own `--grep '\[kb-quarantine\]'` so ONLY
+  //      quarantined tests run.
+  // Quarantine is a TEMPORARY measure — every quarantined test must carry a TODO
+  // with date + reason. If more than 3 tests are ever quarantined at once, the
+  // suite is considered degraded (see README-testing.md > Zero-flake policy).
+  grepInvert:
+    process.env.KB_RUN_QUARANTINE === "1"
+      ? /__never_match_kb_quarantine_sentinel__/
+      : /\[kb-quarantine\]/,
   fullyParallel: true,
   reporter: [
     ["./tests/support/reporter-terminal.ts"],
