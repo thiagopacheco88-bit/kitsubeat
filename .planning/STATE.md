@@ -187,5 +187,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Phase 11 context gathered (commit 1d215bf). Decisions captured across 4 areas: known-word counts, dashboard UX, review queue, freemium gating.
-Resume file: .planning/phases/11-cross-song-vocabulary/11-CONTEXT.md
+Stopped at: Phase 9 context gathered (commit 638553f). Decisions captured across 4 areas: drill interaction & feedback, mastery & row unlock display, session & entry flow, anonymous state & script scope.
+Resume file: .planning/phases/09-kana-trainer/09-CONTEXT.md
