@@ -53,6 +53,7 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P01 | 2 | 2 tasks | 4 files |
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P03 | 2 | 2 tasks | 2 files |
 | Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P02 | 3 | 2 tasks | 3 files |
+| Phase 08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback P04 | 12 | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -133,6 +134,8 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.3-03]: mnemonic + kanji_breakdown optional in VocabEntrySchema — legacy lessons still validate
 - [Phase 08.3]: 08.3-02: inline client.messages.create (NOT Batch API) for vocab enrichment — user locked preference
 - [Phase 08.3]: 08.3-02: isNull(mnemonic) sole skip gate — kanji_breakdown IS NULL valid for kana-only words
+- [Phase 08.3]: moreAccordionOpen in Zustand resets on startSession preventing cross-song UI leakage
+- [Phase 08.3]: Server enrichment batch: collect IDs, single SELECT WHERE id IN, merge into VocabEntry
 
 ### Pending Todos
 
@@ -157,5 +160,5 @@ Progress: [████████░░░░] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-17
-Stopped at: Completed 08.3-02-PLAN.md (Zod schemas enrich.ts + idempotent 11-enrich-vocab.ts enrichment script; ANTHROPIC_API_KEY required to run against DB — set in .env.local then npm run seed:enrich-vocab); next active plan: 08.3-03-PLAN.md
-Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-03-PLAN.md
+Stopped at: Completed 08.3-04-PLAN.md (enrichment server join + moreAccordionOpen store + FeedbackPanel inline accordion + KanjiBreakdownSection); next active plan: 08.3-05-PLAN.md
+Resume file: .planning/phases/08.3-mnemonic-and-kanji-breakdown-for-vocabulary-feedback/08.3-05-PLAN.md
