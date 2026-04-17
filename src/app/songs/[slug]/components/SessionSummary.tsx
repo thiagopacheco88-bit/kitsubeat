@@ -75,6 +75,9 @@ export default function SessionSummary({
           .map((q) => ({
             questionId: q.id,
             type: q.type,
+            // Phase 08.1-06: thread vocabItemId so saveSessionResults can
+            // upsert user_vocab_mastery rows for FSRS scheduling.
+            vocabItemId: q.vocabItemId,
             chosen: answers[q.id]!.chosen,
             correct: answers[q.id]!.correct,
             timeMs: answers[q.id]!.timeMs,

@@ -12,8 +12,11 @@ import { defineConfig } from "@playwright/test";
  */
 export default defineConfig({
   testDir: "./tests",
-  // Skip support helpers (fixtures, reporter, db helpers) — they're not test files.
-  testIgnore: ["**/support/**"],
+  // Only collect Playwright .spec.ts files. tests/integration/**/*.test.ts are
+  // vitest tests (plan 08.1-03) and would error on @vitest/expect imports if
+  // Playwright tried to load them. tests/support/** are helpers, not tests.
+  testMatch: ["**/*.spec.ts"],
+  testIgnore: ["**/support/**", "**/integration/**"],
   timeout: 30_000,
   // Zero-flake policy: never auto-retry. See CONTEXT.md > "Zero-tolerance flaky-test policy".
   retries: 0,
