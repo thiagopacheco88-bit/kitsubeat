@@ -38,6 +38,16 @@ interface ExerciseSessionState {
   revealedQuestionIds: Record<string, true>;
   /** Phase 08.3: whether the More details accordion is open — persists across questions within a session. */
   moreAccordionOpen: boolean;
+  /** Phase 08.4: vocabItemIds whose learn card has been shown this session.
+   *  Persisted so a reload mid-session doesn't re-show the card for a word already taught. */
+  learnedVocabIds: Record<string, true>;
+  /** Phase 08.4: vocabItemIds introduced as new/relearning this session.
+   *  Tracks cap accounting across repeated question encounters of the same word.
+   *  Persisted so reloads don't double-count. */
+  introducedNewVocabIds: Record<string, true>;
+  /** Phase 08.4: raw FSRS state per vocab (0|1|2|3), from the extended /api/exercises/vocab-tiers response.
+   *  Needed to distinguish New (0) from Relearning (3) for learn-card trigger (Plan 04). */
+  vocabStates: Record<string, 0 | 1 | 2 | 3>;
 }
 
 interface ExerciseSessionActions {
@@ -62,6 +72,12 @@ interface ExerciseSessionActions {
   /** Record that the user tapped "Reveal reading" for a question */
   markRevealed: (questionId: string) => void;
   setMoreAccordionOpen: (v: boolean) => void;
+  /** Phase 08.4: flag that the learn card for a given vocab has been shown this session. */
+  markLearnCardShown: (vocabItemId: string) => void;
+  /** Phase 08.4: flag that a new/relearning vocab has been introduced (for cap accounting). */
+  markVocabIntroduced: (vocabItemId: string) => void;
+  /** Phase 08.4: bulk-set raw FSRS states after the vocab-tiers batch fetch. */
+  setVocabStates: (states: Record<string, 0 | 1 | 2 | 3>) => void;
 }
 
 type ExerciseSessionStore = ExerciseSessionState & ExerciseSessionActions;
@@ -81,6 +97,9 @@ const initialState: ExerciseSessionState = {
   tiers: {},
   revealedQuestionIds: {},
   moreAccordionOpen: false,
+  learnedVocabIds: {},
+  introducedNewVocabIds: {},
+  vocabStates: {},
 };
 
 // ---------------------------------------------------------------------------
@@ -106,6 +125,10 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
           tiers: {},
           revealedQuestionIds: {},
           moreAccordionOpen: false, // Phase 08.3: reset across sessions
+          // Phase 08.4: reset learn-card + cap-accounting + raw states on each new session
+          learnedVocabIds: {},
+          introducedNewVocabIds: {},
+          vocabStates: {},
         }),
 
       recordAnswer: (questionId, chosen, correct, timeMs) =>
@@ -142,6 +165,18 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
         })),
 
       setMoreAccordionOpen: (v) => set({ moreAccordionOpen: v }),
+
+      markLearnCardShown: (vocabItemId) =>
+        set((state) => ({
+          learnedVocabIds: { ...state.learnedVocabIds, [vocabItemId]: true },
+        })),
+
+      markVocabIntroduced: (vocabItemId) =>
+        set((state) => ({
+          introducedNewVocabIds: { ...state.introducedNewVocabIds, [vocabItemId]: true },
+        })),
+
+      setVocabStates: (states) => set({ vocabStates: states }),
     }),
     {
       name: "kitsubeat-exercise-session",
