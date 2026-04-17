@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import type { VocabEntry } from "@/lib/types/lesson";
-import { GRAMMAR_COLOR_CLASS, JLPT_COLOR_CLASS } from "@/lib/types/lesson";
+import { GRAMMAR_COLOR_CLASS, JLPT_COLOR_CLASS, localize } from "@/lib/types/lesson";
+import { usePlayer } from "./PlayerContext";
 
-const TABS = [
+const POS_TABS = [
   "all",
   "noun",
   "verb",
@@ -13,19 +14,32 @@ const TABS = [
   "expression",
 ] as const;
 
+const JLPT_TABS = ["all", "N5", "N4", "N3", "N2", "N1", "unknown"] as const;
+
+type ViewMode = "pos" | "jlpt";
+
 export default function VocabularySection({
   vocabulary,
 }: {
   vocabulary: VocabEntry[];
 }) {
+  const [viewMode, setViewMode] = useState<ViewMode>("pos");
   const [tab, setTab] = useState<string>("all");
   const [expanded, setExpanded] = useState<number | null>(null);
   const [sectionOpen, setSectionOpen] = useState(true);
 
-  const filtered =
-    tab === "all"
-      ? vocabulary
-      : vocabulary.filter((v) => v.part_of_speech === tab);
+  const TABS = viewMode === "pos" ? POS_TABS : JLPT_TABS;
+
+  const matchTab = (v: VocabEntry) =>
+    viewMode === "pos" ? v.part_of_speech === tab : v.jlpt_level === tab;
+
+  const filtered = tab === "all" ? vocabulary : vocabulary.filter(matchTab);
+
+  const switchMode = (next: ViewMode) => {
+    setViewMode(next);
+    setTab("all");
+    setExpanded(null);
+  };
 
   return (
     <div>
@@ -49,12 +63,39 @@ export default function VocabularySection({
           {vocabulary.length}
         </span>
       </button>
-      {sectionOpen && <><div className="mb-4 flex flex-wrap gap-1">
+      {sectionOpen && <>
+      <div className="mb-3 inline-flex rounded-md border border-gray-800 bg-gray-900/60 p-0.5 text-xs">
+        <button
+          onClick={() => switchMode("pos")}
+          className={`rounded px-2 py-1 transition-colors ${
+            viewMode === "pos"
+              ? "bg-white text-gray-900"
+              : "text-gray-400 hover:text-gray-200"
+          }`}
+        >
+          By type
+        </button>
+        <button
+          onClick={() => switchMode("jlpt")}
+          className={`rounded px-2 py-1 transition-colors ${
+            viewMode === "jlpt"
+              ? "bg-white text-gray-900"
+              : "text-gray-400 hover:text-gray-200"
+          }`}
+        >
+          By JLPT
+        </button>
+      </div>
+      <div className="mb-4 flex flex-wrap gap-1">
         {TABS.map((t) => {
           const count =
             t === "all"
               ? vocabulary.length
-              : vocabulary.filter((v) => v.part_of_speech === t).length;
+              : vocabulary.filter((v) =>
+                  viewMode === "pos"
+                    ? v.part_of_speech === t
+                    : v.jlpt_level === t
+                ).length;
           if (t !== "all" && count === 0) return null;
           return (
             <button
@@ -94,6 +135,7 @@ function VocabRow({
   isExpanded: boolean;
   onToggle: () => void;
 }) {
+  const { translationLang } = usePlayer();
   const colorClass =
     GRAMMAR_COLOR_CLASS[
       entry.part_of_speech as keyof typeof GRAMMAR_COLOR_CLASS
@@ -113,7 +155,9 @@ function VocabRow({
         <span className="text-sm text-gray-400">
           {entry.reading} &middot; {entry.romaji}
         </span>
-        <span className="ml-auto text-sm text-gray-300">{entry.meaning}</span>
+        <span className="ml-auto text-sm text-gray-300">
+          {localize(entry.meaning, translationLang)}
+        </span>
         {entry.jlpt_level !== "unknown" && (
           <span
             className={`shrink-0 rounded px-1 py-0.5 text-[10px] font-bold text-white ${JLPT_COLOR_CLASS[entry.jlpt_level] ?? "bg-gray-600"}`}

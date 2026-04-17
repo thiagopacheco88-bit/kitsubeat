@@ -31,6 +31,10 @@ export interface LyricsToken {
   romaji: string;
   /** Part-of-speech tag from kuromoji (Japanese) */
   pos: string;
+  /** Finer POS subtype from kuromoji (e.g. 非自立, 代名詞, 数) — used to filter aux/pronouns */
+  pos_detail_1: string;
+  /** Dictionary (lemma) form from kuromoji — 戻らない → 戻る */
+  basic_form: string;
 }
 
 let kuroshiroInstance: InstanceType<typeof Kuroshiro> | null = null;
@@ -98,6 +102,10 @@ export async function tokenizeLyrics(lyrics: string): Promise<LyricsToken[]> {
     if (!surface || /^\s+$/.test(surface)) continue;
 
     const pos: string = token.pos ?? "その他";
+    const pos_detail_1: string = token.pos_detail_1 ?? "*";
+    const rawBasic: string = token.basic_form ?? "";
+    // kuromoji emits "*" when no basic form is recorded (e.g. non-Japanese tokens) — fall back to surface
+    const basic_form: string = rawBasic && rawBasic !== "*" ? rawBasic : surface;
 
     // Determine reading: katakana → hiragana conversion
     let reading: string;
@@ -121,7 +129,7 @@ export async function tokenizeLyrics(lyrics: string): Promise<LyricsToken[]> {
       romaji = surface;
     }
 
-    result.push({ surface, reading, romaji, pos });
+    result.push({ surface, reading, romaji, pos, pos_detail_1, basic_form });
   }
 
   return result;

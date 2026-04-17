@@ -144,10 +144,12 @@ Use your discretion per case:
 - Sometimes a natural translation captures the meaning without needing explanation
 Prioritize what helps the learner understand the intended feeling.
 
-### 6. Vocabulary Extraction
-Extract the most educationally valuable vocabulary from the song (typically 10-20 words):
-- Focus on words that are: frequently useful in Japanese (not just song-specific), representative of the song's JLPT level, or culturally significant
-- Include readings, romaji, part_of_speech, jlpt_level, and meaning
+### 6. Vocabulary Annotation (NOT selection)
+Vocabulary candidates are pre-extracted deterministically from the lyrics by scripts/lib/vocab-extractor.ts (tokenized by kuromoji, filtered to content words, deduped by dictionary form). Your job is to ANNOTATE every candidate — not to select or drop.
+- Annotate all candidates provided. Do NOT omit any. Do NOT add new ones.
+- Only drop entries that are clear tokenization noise (grammatical ない, single-kana fragments, malformed lemmas where no real word exists).
+- Fix potential-form lemmas to dictionary form (見れる → 見る) and silently correct kuromoji POS mis-tags (na-adjectives tagged "noun" → "adjective"; pronouns tagged "noun" → drop or mark).
+- For each candidate, emit: readings, romaji, part_of_speech, jlpt_level, and meaning
 - **example_from_song**: quote the specific verse or phrase where this word appears
 - **additional_examples**: 1-3 natural example sentences using the word in different contexts, ordered from simpler to more complex
 - **mnemonic**: \`{ "en": "...", "pt-BR": "...", "es": "..." }\` — ONE short sentence per language (10-15 words). Tone: playful + visual. Use wordplay, vivid imagery, or sound-alikes to the Japanese reading. NOT etymology. NOT anime references. Example EN for 王様 (OO-SAM-A): "Picture a KING on a GOLDEN throne — that's royalty in Japan."
