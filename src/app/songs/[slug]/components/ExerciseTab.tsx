@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Lesson, VocabEntry } from "@/lib/types/lesson";
 import { buildQuestions } from "@/lib/exercises/generator";
 import {
   useExerciseSession,
   isSessionForSong,
 } from "@/stores/exerciseSession";
+import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
 import ExerciseSession from "./ExerciseSession";
 
 interface ExerciseTabProps {
@@ -31,8 +32,26 @@ export default function ExerciseTab({
   const [tabState, setTabState] = useState<TabState>("config");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [skipLearning, setSkipLearning] = useState(false);
 
-  // --- Hydration guard ---
+  // --- Resume path: re-fetch prefs so skipLearning is accurate for the remaining questions.
+  // Do NOT re-fetch the effective cap — the filtering decision was already baked
+  // into the persisted questions array.
+  const hasActiveSession = isSessionForSong(store, songVersionId);
+  useEffect(() => {
+    if (!_hasHydrated) return;
+    if (!hasActiveSession) return;
+    let cancelled = false;
+    (async () => {
+      const prefs = await getUserPrefs(userId);
+      if (!cancelled) setSkipLearning(prefs.skipLearning);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [_hasHydrated, hasActiveSession, userId]);
+
+  // --- Hydration guard (after hooks — React rules require all hooks called unconditionally) ---
   if (!_hasHydrated) {
     return (
       <div className="flex flex-col gap-4 py-8 animate-pulse">
@@ -42,9 +61,6 @@ export default function ExerciseTab({
       </div>
     );
   }
-
-  // --- Resume existing session if it matches this song ---
-  const hasActiveSession = isSessionForSong(store, songVersionId);
 
   const handleRetry = () => {
     clearSession();
@@ -63,10 +79,12 @@ export default function ExerciseTab({
         </button>
       </div>
       <ExerciseSession
+        lesson={lesson}
         songSlug={songSlug}
         songVersionId={songVersionId}
         userId={userId}
         onRetry={handleRetry}
+        skipLearning={skipLearning}
       />
     </div>
   );
@@ -90,16 +108,21 @@ export default function ExerciseTab({
     setError(null);
 
     try {
-      // Fetch JLPT distractor pool
-      let jlptPool: VocabEntry[] = [];
-      if (lesson.jlpt_level) {
-        const res = await fetch(
-          `/api/exercises/jlpt-pool?jlpt_level=${lesson.jlpt_level}`
-        );
-        if (res.ok) {
+      // Fetch user prefs, effective cap, and JLPT distractor pool in parallel.
+      // getEffectiveCap is the authoritative cap value — free users always get
+      // DEFAULT_NEW_CARD_CAP regardless of what's stored on users.new_card_cap.
+      const [prefs, effectiveCap, jlptPool] = await Promise.all([
+        getUserPrefs(userId),
+        getEffectiveCap(userId),
+        (async (): Promise<VocabEntry[]> => {
+          if (!lesson.jlpt_level) return [];
+          const res = await fetch(
+            `/api/exercises/jlpt-pool?jlpt_level=${lesson.jlpt_level}`
+          );
+          if (!res.ok) return [];
           const data = await res.json();
           // Map API response to VocabEntry shape (partial — used only for distractors)
-          jlptPool = (
+          return (
             data as Array<{
               id: string;
               dictionary_form: string;
@@ -123,44 +146,90 @@ export default function ExerciseTab({
             example_from_song: "",
             additional_examples: [],
           }));
+        })(),
+      ]);
+
+      // Remember skipLearning for the session view (controls learn-card rendering).
+      setSkipLearning(prefs.skipLearning);
+
+      // Pre-fetch FSRS tiers + states for ALL lesson vocab_item_ids before we
+      // filter. We need states to know which words are new (0) vs review (1/2)
+      // vs relearning (3). The cap filter excludes new+relearning beyond cap;
+      // review/learning words always pass through untouched.
+      const allVocabIds = lesson.vocabulary
+        .map((v) => v.vocab_item_id)
+        .filter((id): id is string => !!id);
+
+      let tierMap: Record<string, 1 | 2 | 3> = {};
+      let stateMap: Record<string, 0 | 1 | 2 | 3> = {};
+
+      if (allVocabIds.length > 0) {
+        // Chunk to 200 IDs per batch (API limit). Most songs fit in one call.
+        for (let i = 0; i < allVocabIds.length; i += 200) {
+          const chunk = allVocabIds.slice(i, i + 200);
+          const res = await fetch(
+            `/api/exercises/vocab-tiers?ids=${chunk.join(",")}&userId=${encodeURIComponent(userId)}`
+          );
+          if (res.ok) {
+            const data = (await res.json()) as {
+              tiers: Record<string, 1 | 2 | 3>;
+              states: Record<string, 0 | 1 | 2 | 3>;
+            };
+            tierMap = { ...tierMap, ...data.tiers };
+            stateMap = { ...stateMap, ...data.states };
+          }
         }
       }
 
-      // Build questions (pure, client-side)
-      const questions = buildQuestions(lesson, mode, jlptPool);
+      // Apply per-session cap: keep only the first `effectiveCap` new/relearning
+      // vocab. Review + learning words always pass through. Words excluded here
+      // never enter the session at all — they're deferred to the next session.
+      //
+      // Order: preserve the lesson's vocabulary order — the first N new/relearning
+      // words in document order are kept. Random shuffling happens later in
+      // buildQuestions(). This is predictable for users and doesn't require an
+      // extra server-side ordering contract.
+      const newAndRelearningIds: string[] = [];
+      for (const v of lesson.vocabulary) {
+        const id = v.vocab_item_id;
+        if (!id) continue;
+        const state = stateMap[id] ?? 0;
+        if (state === 0 || state === 3) newAndRelearningIds.push(id);
+      }
+      const allowedNewIds = new Set(
+        newAndRelearningIds.slice(0, effectiveCap)
+      );
+
+      const filteredVocab = lesson.vocabulary.filter((v) => {
+        if (!v.vocab_item_id) return false; // no id => can't track mastery, exclude (matches existing vocabCount calc)
+        const state = stateMap[v.vocab_item_id] ?? 0;
+        if (state === 0 || state === 3) {
+          return allowedNewIds.has(v.vocab_item_id);
+        }
+        return true; // learning (1) + review (2) always pass through
+      });
+
+      // Build questions from the capped vocab.
+      const questions = buildQuestions(
+        { ...lesson, vocabulary: filteredVocab },
+        mode,
+        jlptPool
+      );
 
       if (questions.length === 0) {
-        setError("Not enough vocabulary in this song to build questions yet.");
+        setError(
+          "Not enough vocabulary in this song to build questions yet. Try skipping the new-word cap from your profile."
+        );
         setLoading(false);
         return;
       }
 
-      // Prefetch per-vocab FSRS tiers in one batch call.
-      // startSession FIRST (resets tiers slice), then setTiers so prefetched
-      // tiers survive the reset. Tier fetch failure is non-fatal — every word
-      // defaults to Tier 1 (cold-start behavior), so the session still works.
+      // Start session, then populate tiers + states.
+      // startSession FIRST (resets tiers/states slices), then setTiers/setVocabStates
+      // so the freshly-fetched data survives the reset.
       startSession(songVersionId, questions, mode);
-
-      try {
-        const uniqueIds = [
-          ...new Set(questions.map((q) => q.vocabItemId).filter(Boolean)),
-        ];
-        if (uniqueIds.length > 0) {
-          const tiersRes = await fetch(
-            `/api/exercises/vocab-tiers?ids=${uniqueIds.join(",")}&userId=${encodeURIComponent(userId)}`
-          );
-          if (tiersRes.ok) {
-            const tiersData = (await tiersRes.json()) as {
-              tiers: Record<string, 1 | 2 | 3>;
-            };
-            store.setTiers(tiersData.tiers);
-          }
-          // Non-fatal: on failure every word defaults to Tier 1
-        }
-      } catch (tierErr) {
-        console.error("Failed to prefetch vocab tiers:", tierErr);
-        // Continue — cold-start Tier 1 default applies
-      }
+      store.setTiers(tierMap);
+      store.setVocabStates(stateMap);
 
       setTabState("session");
     } catch (err) {
