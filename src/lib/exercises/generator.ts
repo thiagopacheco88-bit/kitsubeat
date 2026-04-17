@@ -7,7 +7,7 @@
  */
 
 import { localize } from "@/lib/types/lesson";
-import type { Lesson, VocabEntry, Verse } from "@/lib/types/lesson";
+import type { KanjiBreakdown, Lesson, Localizable, VocabEntry, Verse } from "@/lib/types/lesson";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -48,6 +48,10 @@ export interface Question {
   explanation: string;
   /** Detailed explanation for the "More" panel */
   detailedExplanation?: string;
+  /** Phase 08.3: memory mnemonic for the target vocab (nullable). */
+  mnemonic?: Localizable;
+  /** Phase 08.3: per-character kanji breakdown for the target vocab (null for kana-only). */
+  kanji_breakdown?: KanjiBreakdown | null;
   /** For Fill-the-Lyric: the verse reference for audio seek */
   verseRef?: {
     verseNumber: number;
@@ -337,6 +341,8 @@ function makeQuestion(
     distractors,
     explanation: makeExplanation(vocab, type),
     detailedExplanation: makeDetailedExplanation(vocab),
+    mnemonic: vocab.mnemonic,
+    kanji_breakdown: vocab.kanji_breakdown ?? null,
     verseRef,
     vocabInfo,
     distractorVocab,

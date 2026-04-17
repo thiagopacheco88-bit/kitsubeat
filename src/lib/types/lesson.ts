@@ -25,6 +25,32 @@ export function localize(value: Localizable, lang: string): string {
   return value[lang] ?? value["en"] ?? Object.values(value)[0] ?? "";
 }
 
+/**
+ * One entry in a kanji breakdown — describes a single kanji character.
+ * Populated per row of vocabulary_items.kanji_breakdown.characters (Phase 08.3).
+ *
+ * on_yomi / kun_yomi are kana strings (locale-agnostic). kun_yomi may be empty.
+ * radical_hint is a single short localizable string, e.g. "fire + person".
+ * jlpt_level is nullable for kanji that aren't JLPT-listed.
+ */
+export interface KanjiCharEntry {
+  char: string;              // exactly one kanji character
+  meaning: Localizable;      // e.g. {"en": "iron", "pt-BR": "ferro", "es": "hierro"}
+  on_yomi: string;           // kana
+  kun_yomi: string;          // kana; empty string if none
+  jlpt_level: JlptLevel | null;
+  radical_hint: Localizable; // short string per language
+}
+
+/**
+ * Full kanji breakdown for a vocabulary word. One entry per kanji in surface.
+ * compound_note is only defined when the word has 2+ kanji.
+ */
+export interface KanjiBreakdown {
+  characters: KanjiCharEntry[];
+  compound_note?: Localizable;
+}
+
 export interface Token {
   surface: string;
   reading: string;
@@ -56,6 +82,10 @@ export interface VocabEntry {
   additional_examples: string[];
   /** UUID FK to vocabulary_items table, added by backfill script (Phase 7 Plan 02) */
   vocab_item_id?: string;
+  /** Phase 08.3: memory mnemonic, per-language. Populated at page load from vocabulary_items join. */
+  mnemonic?: Localizable;
+  /** Phase 08.3: per-character kanji breakdown. Null for kana-only words. */
+  kanji_breakdown?: KanjiBreakdown | null;
 }
 
 export interface GrammarPoint {
