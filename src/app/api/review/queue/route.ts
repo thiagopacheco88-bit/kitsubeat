@@ -7,10 +7,14 @@
  * Response shape:
  * {
  *   items: ReviewQueueItem[],
+ *   vocabData: Record<string, VocabRow>,  // keyed by vocab_item_id
  *   due_count: number,
  *   new_count: number,
  *   budget_remaining: number,
  * }
+ *
+ * vocabData is included in the response so ReviewSession can construct
+ * renderable questions without a separate fetch per card.
  *
  * The queue is built at request time from:
  * 1. Due cards (state IN 1,2,3, due <= now) — uncapped.
@@ -24,12 +28,26 @@
 export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
-import { sql } from "drizzle-orm";
+import { sql, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
+import { vocabularyItems } from "@/lib/db/schema";
 import { isPremium } from "@/app/actions/userPrefs";
 import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
 import { getDueReviewQueue } from "@/lib/db/queries";
 import { buildReviewQueue } from "@/lib/review/queue-builder";
+
+/** Minimal vocab data needed to render questions in ReviewSession */
+export interface VocabRow {
+  id: string;
+  dictionary_form: string;
+  reading: string;
+  romaji: string;
+  part_of_speech: string;
+  jlpt_level: string | null;
+  meaning: unknown; // Localizable JSON
+  mnemonic: unknown | null;
+  kanji_breakdown: unknown | null;
+}
 
 // Placeholder — replace with Clerk auth when Phase 10 ships.
 const PLACEHOLDER_USER_ID = "test-user-e2e";
@@ -86,9 +104,35 @@ export async function GET() {
   const dueCount = due.length;
   const newCount = items.filter((i) => i.isNew).length;
 
+  // Fetch vocab data for all items in the queue so ReviewSession can construct
+  // renderable questions without a per-card roundtrip.
+  let vocabData: Record<string, VocabRow> = {};
+  if (items.length > 0) {
+    const vocabIds = items.map((i) => i.vocab_item_id);
+    const rows = await db
+      .select({
+        id: vocabularyItems.id,
+        dictionary_form: vocabularyItems.dictionary_form,
+        reading: vocabularyItems.reading,
+        romaji: vocabularyItems.romaji,
+        part_of_speech: vocabularyItems.part_of_speech,
+        jlpt_level: vocabularyItems.jlpt_level,
+        meaning: vocabularyItems.meaning,
+        mnemonic: vocabularyItems.mnemonic,
+        kanji_breakdown: vocabularyItems.kanji_breakdown,
+      })
+      .from(vocabularyItems)
+      .where(inArray(vocabularyItems.id, vocabIds));
+
+    for (const row of rows) {
+      vocabData[row.id] = row as VocabRow;
+    }
+  }
+
   return NextResponse.json(
     {
       items,
+      vocabData,
       due_count: dueCount,
       new_count: newCount,
       budget_remaining: budgetRemaining,
