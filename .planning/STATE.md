@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 08.4 — Learn Phase + Session Pacing for New Vocabulary (5/5 plans complete — DONE)
+**Current focus:** v2.0 Phase 11 — Cross-Song Vocabulary (1/5 plans complete)
 
 ## Current Position
 
-Phase: 08.4 of 11 (Learn Phase Session Pacing) — COMPLETE
-Plan: 5 of 5 complete; next: Phase 08.5 or next phase in roadmap
-Status: Plan 08.4-04 complete (executed after 05) — ExerciseTab cap filter + prefs fetch + skipLearning plumbing; ExerciseSession JIT LearnCard render-interrupt. Commits c28cf4f, ec8d8c1. Phase 08.4 fully complete.
-Last activity: 2026-04-17 — Plan 08.4-04 complete (commits c28cf4f, ec8d8c1). All 5 plans done.
+Phase: 11 of 11 (Cross-Song Vocabulary) — In Progress
+Plan: 1 of 5 complete; next: Phase 11 Plan 02 (song-page vocabulary pill)
+Status: Plan 11-01 complete — migration + schema + REVIEW_NEW_DAILY_CAP + five read queries (getKnownWordCountForSong, getGlobalLearnedCount, getSeenInSongsForVocab, getVocabularyDashboard, getDueReviewQueue). Commits 73ab97e, 68ca68f.
+Last activity: 2026-04-18 — Plan 11-01 complete (commits 73ab97e, 68ca68f). Data layer foundation delivered.
 
 Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
 
@@ -61,6 +61,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.4-learn-phase-session-pacing-for-new-vocabulary P03 | 5 | 2 tasks | 2 files |
 | Phase 08.4 P05 | 2 | 2 tasks | 2 files |
 | Phase 08.4 P04 | 3 | 2 tasks | 2 files |
+| Phase 11-cross-song-vocabulary P01 | 20 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -161,6 +162,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 08.4]: Profile page: PLACEHOLDER_USER_ID matches existing app auth TODO pattern; Clerk auth deferred to Phase 10
 - [Phase 08.4]: React hooks before hydration guard in ExerciseTab — useEffect cannot follow conditional return
 - [Phase 08.4]: Cap filter applied at ExerciseTab call-site before buildQuestions, not inside generator
+- [Phase 11-cross-song-vocabulary]: state IN (1,2,3) for known check everywhere — NOT state >= 2 (Pitfall 1)
+- [Phase 11-cross-song-vocabulary]: REVIEW_NEW_DAILY_CAP=20: researcher recommendation, matches Phase 08.4 premium ceiling / 1.5
+- [Phase 11-cross-song-vocabulary]: Phase-local 3-bucket tier→state mapping in getVocabularyDashboard diverges from tier.ts (deliberate, dashboard-local only)
 
 ### Pending Todos
 
@@ -187,5 +191,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Phase 10 context gathered (commit 9e5ecdb). Decisions captured across 4 areas: Grammar Conjugation format, Listening Drill behavior, Sentence Order interaction, Premium gate + Star 3 flow. Key reshape: FREE-05 becomes two independent counters (10 free listening songs, 3 free shared conjugation+sentence-order songs).
+Stopped at: Completed 11-01-PLAN.md (commits 73ab97e, 68ca68f). Migration + schema + REVIEW_NEW_DAILY_CAP + five Phase 11 data layer queries delivered. Plans 02-05 can now run in parallel.
 Resume file: .planning/phases/10-advanced-exercises-full-mastery/10-CONTEXT.md
