@@ -284,6 +284,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-06: test.fixme UNFIXED in regression-premium-gate.spec.ts — replaced with live QuotaExhaustedError test (seeds 10 listening counter rows, invokes recordVocabAnswer on 11th song, asserts throw + refund). Synthetic UNKNOWN-type marker replaces grammar_conjugation as the 'premium default' target since grammar_conjugation is now a real song_quota type.
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-07: Star 3 reuses the existing Stars 1/2 confetti + star-shine code path verbatim (Plan 08-04 primitive). No new animation library, no new CSS keyframes. StarDisplay already widened in Plan 10-01; Plan 10-07 adds only the JSDoc lock.
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-07: bonus badge transition gets a subtle callout (muted amber text, no animation), NOT confetti. CONTEXT-locked — stars remain primary signal, bonus is secondary.
+- [Phase 10-07]: Star 3 reuses Plan 08-04 confetti primitive verbatim; no new animation library or CSS keyframes per CONTEXT lock
+- [Phase 10-07]: QuotaExhaustedError moved to lib/exercises/errors.ts — 'use server' files cannot export non-async values (Next.js 15 constraint)
+- [Phase 10-07]: getAllSongs uses correlated subqueries (not LEFT JOIN) for per-user accuracy; matches existing tv-preferred youtube_id selector pattern
 
 ### Pending Todos
 
