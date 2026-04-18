@@ -16,7 +16,7 @@
 
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import { songs } from "@/lib/db/schema";
+import { songs, songVersions } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import TimingEditor from "../components/TimingEditor";
 import TimingSaveHandler from "../components/TimingSaveHandler";
@@ -32,17 +32,30 @@ interface PageProps {
 export default async function TimingEditorPage({ params }: PageProps) {
   const { songId } = await params;
 
-  const [song] = await db
-    .select()
-    .from(songs)
-    .where(eq(songs.id, songId))
+  // songId is actually a song_versions.id — timing lives on versions.
+  const [row] = await db
+    .select({
+      id: songVersions.id,
+      version_type: songVersions.version_type,
+      slug: songs.slug,
+      title: songs.title,
+      artist: songs.artist,
+      anime: songs.anime,
+      timing_data: songVersions.timing_data,
+      timing_verified: songVersions.timing_verified,
+      timing_youtube_id: songVersions.timing_youtube_id,
+    })
+    .from(songVersions)
+    .innerJoin(songs, eq(songs.id, songVersions.song_id))
+    .where(eq(songVersions.id, songId))
     .limit(1);
 
-  if (!song) {
+  if (!row) {
     notFound();
   }
 
-  // Parse timing data from JSONB
+  const song = row;
+
   const timingData = song.timing_data as TimingData | null;
   const words: WordTiming[] = timingData?.words ?? [];
 

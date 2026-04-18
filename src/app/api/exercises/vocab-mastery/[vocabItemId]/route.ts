@@ -40,14 +40,9 @@ export interface MasteryDetail {
 
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ vocabItemId: string }> } | { params: { vocabItemId: string } }
+  context: { params: Promise<{ vocabItemId: string }> }
 ) {
-  // Next 15 dynamic route signature — params may be a Promise
-  const params = await (context.params instanceof Promise
-    ? context.params
-    : Promise.resolve(context.params));
-
-  const { vocabItemId } = params;
+  const { vocabItemId } = await context.params;
   const { searchParams } = request.nextUrl;
   const userId = searchParams.get("userId");
 

@@ -11,8 +11,8 @@
  * and is intentionally ignored by scheduleReview().
  */
 
-import { fsrs, Rating, State, createEmptyCard } from "ts-fsrs";
-import type { Card } from "ts-fsrs";
+import { fsrs, State, createEmptyCard } from "ts-fsrs";
+import type { Card, Grade } from "ts-fsrs";
 import { INTENSITY_PRESETS, type IntensityPreset } from "@/lib/fsrs-presets";
 import type { FSRSRating } from "./rating";
 
@@ -87,6 +87,7 @@ export function scheduleReview(
       difficulty: prev.difficulty ?? 0,
       elapsed_days: prev.elapsed_days ?? 0,
       scheduled_days: prev.scheduled_days ?? 0,
+      learning_steps: 0,
       reps: prev.reps,
       lapses: prev.lapses,
       state: prev.state as State,
@@ -97,8 +98,8 @@ export function scheduleReview(
   // Instantiate FSRS with the selected intensity preset parameters
   const f = fsrs(INTENSITY_PRESETS[intensity]);
 
-  // Compute the next card state
-  const nextCard = f.next(card, now, rating as Rating).card;
+  // Compute the next card state. FSRSRating excludes Manual (0), matching Grade.
+  const nextCard = f.next(card, now, rating as Grade).card;
 
   // Map back to scalar ScheduledUpdate columns
   return {
