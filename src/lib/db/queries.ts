@@ -228,6 +228,22 @@ export async function getTopAnimeFranchises(limit: number = 10) {
         SELECT 1 FROM song_versions sv
         WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
       )))[1]`,
+      banner_image: sql<string | null>`(array_agg(
+        (SELECT am.banner_image FROM anime_metadata am
+         WHERE am.anime = songs.anime LIMIT 1)
+        ORDER BY songs.popularity_rank ASC NULLS LAST
+      ) FILTER (WHERE EXISTS (
+        SELECT 1 FROM anime_metadata am
+        WHERE am.anime = songs.anime AND am.banner_image IS NOT NULL
+      )))[1]`,
+      cover_image: sql<string | null>`(array_agg(
+        (SELECT am.cover_image FROM anime_metadata am
+         WHERE am.anime = songs.anime LIMIT 1)
+        ORDER BY songs.popularity_rank ASC NULLS LAST
+      ) FILTER (WHERE EXISTS (
+        SELECT 1 FROM anime_metadata am
+        WHERE am.anime = songs.anime AND am.cover_image IS NOT NULL
+      )))[1]`,
     })
     .from(songs)
     .where(sql`EXISTS (

@@ -82,6 +82,7 @@ export default async function HomePage() {
               title={anime.anime}
               subtitle={`${anime.count} song${anime.count !== 1 ? "s" : ""}`}
               youtubeId={anime.youtube_id}
+              bannerImage={anime.banner_image ?? anime.cover_image}
             />
           ))}
         </Carousel>
@@ -181,12 +182,20 @@ function MediaCard({
   title,
   subtitle,
   youtubeId,
+  bannerImage,
 }: {
   href: string;
   title: string;
   subtitle: string;
   youtubeId: string | null;
+  bannerImage?: string | null;
 }) {
+  const imageSrc = bannerImage
+    ? bannerImage
+    : youtubeId
+    ? `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`
+    : null;
+
   return (
     <Link
       href={href}
@@ -194,10 +203,10 @@ function MediaCard({
       style={{ width: "220px" }}
     >
       <div className="relative aspect-video w-full overflow-hidden bg-gray-800">
-        {youtubeId ? (
+        {imageSrc ? (
           <>
             <img
-              src={`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`}
+              src={imageSrc}
               alt={title}
               className="h-full w-full object-cover opacity-60 transition-all group-hover:opacity-80 group-hover:scale-105"
               loading="lazy"

@@ -451,3 +451,22 @@ export const vocabGlobal = pgMaterializedView("vocab_global", {
   WHERE sv.lesson IS NOT NULL
     AND elem->>'vocab_item_id' IS NOT NULL
 `);
+
+/**
+ * anime_metadata table — per-anime visuals pulled from AniList.
+ *
+ * Keyed on the raw `songs.anime` title so a franchise's seasons/movies each
+ * get their own banner when AniList has one. Seeded by
+ * scripts/seed/13-fetch-anime-metadata.ts.
+ */
+export const animeMetadata = pgTable("anime_metadata", {
+  anime: text("anime").primaryKey(),
+  anilist_id: integer("anilist_id"),
+  title_english: text("title_english"),
+  title_native: text("title_native"),
+  banner_image: text("banner_image"),
+  cover_image: text("cover_image"),
+  fetched_at: timestamp("fetched_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export type AnimeMetadata = typeof animeMetadata.$inferSelect;
