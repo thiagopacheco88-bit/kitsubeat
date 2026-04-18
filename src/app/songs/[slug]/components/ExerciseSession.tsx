@@ -7,6 +7,8 @@ import { useExerciseSession } from "@/stores/exerciseSession";
 import QuestionCard from "./QuestionCard";
 import SessionSummary from "./SessionSummary";
 import LearnCard from "./LearnCard";
+import ListeningDrillCard from "./ListeningDrillCard";
+import SentenceOrderCard from "./SentenceOrderCard";
 import { usePlayer } from "./PlayerContext";
 
 /**
@@ -194,7 +196,26 @@ export default function ExerciseSession({
             throw new Error("ConjugationCard dispatch not implemented (Plan 10-03)");
           }
           if (current.type === "listening_drill") {
-            throw new Error("ListeningDrillCard dispatch not implemented (Plan 10-04)");
+            // Plan 10-04: resolve verse tokens from the lesson via the
+            // question's verseRef (populated by the listening_drill generator
+            // branch). Question.verseTokens is also populated, but sourcing
+            // from the lesson keeps a single source of truth.
+            const verseNumber = current.verseRef?.verseNumber;
+            const verse = verseNumber
+              ? lesson.verses.find((v) => v.verse_number === verseNumber)
+              : undefined;
+            const verseTokens = verse?.tokens ?? current.verseTokens ?? [];
+            return (
+              <ListeningDrillCard
+                key={current.id}
+                question={current}
+                verseTokens={verseTokens}
+                onAnswered={handleAnswered}
+                onContinue={handleContinue}
+                userId={userId}
+                songVersionId={songVersionId}
+              />
+            );
           }
           if (current.type === "sentence_order") {
             throw new Error("SentenceOrderCard dispatch not implemented (Plan 10-05)");

@@ -40,6 +40,14 @@ Unrelated to Phase 10.
 `'environmentMatchGlobs' does not exist in type 'InlineConfig'` — Vitest
 upstream API deprecated this config key. Cosmetic; tests still run.
 
+### src/app/api/exercises/vocab-mastery/[vocabItemId]/route.ts (Next.js 15 build)
+
+`npm run build` fails during `.next/types/app/api/.../route.ts` type check:
+`Type '{ params: { vocabItemId: string } }' is not assignable to RouteContext
+... missing properties from 'Promise<any>'`. Next.js 15 requires `params` to
+be `Promise<...>` now. Route signature needs update. Pre-dates Phase 10.
+Unrelated to Plan 10-03 grammar_conjugation work.
+
 ## Stale narrow type on SongCard progress prop
 
 `src/app/songs/components/SongCard.tsx` line 18 declares:

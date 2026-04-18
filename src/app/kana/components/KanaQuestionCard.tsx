@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { hasJapaneseVoice, onVoicesChanged, speakJapanese } from "@/lib/tts";
 
 function shuffle<T>(arr: T[]): T[] {
@@ -17,9 +17,14 @@ interface Props {
   correctRomaji: string;
   distractors: string[]; // typically 3
   onAnswer: (correct: boolean) => void;
-  onContinue: () => void; // called when user taps "Continue" after seeing feedback
+  onContinue: () => void; // called when user taps "Continue" after seeing feedback (or auto-fired)
   questionKey: string; // change this to reset the card (caller passes question index + kana)
+  autoAdvanceMsCorrect?: number; // delay before auto-firing onContinue on a correct pick
+  autoAdvanceMsWrong?: number; // delay before auto-firing onContinue on a wrong pick
 }
+
+const DEFAULT_AUTO_ADVANCE_CORRECT = 800;
+const DEFAULT_AUTO_ADVANCE_WRONG = 1500;
 
 export function KanaQuestionCard({
   kana,
@@ -28,6 +33,8 @@ export function KanaQuestionCard({
   onAnswer,
   onContinue,
   questionKey,
+  autoAdvanceMsCorrect = DEFAULT_AUTO_ADVANCE_CORRECT,
+  autoAdvanceMsWrong = DEFAULT_AUTO_ADVANCE_WRONG,
 }: Props) {
   const options = useMemo(
     () => shuffle([correctRomaji, ...distractors]),
@@ -47,6 +54,22 @@ export function KanaQuestionCard({
   useEffect(() => {
     setChosen(null);
   }, [questionKey]);
+
+  // Auto-advance after showing feedback. Correct picks get a short confirmation
+  // glance; wrong picks linger slightly longer so the correct answer registers
+  // before the parent transitions to the miss-relearn card.
+  // onContinue is held in a ref so parent re-renders don't reset the timer.
+  const onContinueRef = useRef(onContinue);
+  useEffect(() => {
+    onContinueRef.current = onContinue;
+  }, [onContinue]);
+  useEffect(() => {
+    if (chosen === null) return;
+    const delay =
+      chosen === correctRomaji ? autoAdvanceMsCorrect : autoAdvanceMsWrong;
+    const t = setTimeout(() => onContinueRef.current(), delay);
+    return () => clearTimeout(t);
+  }, [chosen, correctRomaji, autoAdvanceMsCorrect, autoAdvanceMsWrong]);
 
   const handlePick = (option: string) => {
     if (chosen !== null) return;
@@ -74,13 +97,13 @@ export function KanaQuestionCard({
 
   const getOptionStyle = (option: string): string => {
     if (chosen === null) {
-      return "border-zinc-300 hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800";
+      return "border-gray-600 text-white hover:bg-white/10";
     }
     if (option === correctRomaji)
-      return "border-emerald-500 bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-emerald-100";
+      return "border-emerald-500 bg-emerald-900 text-emerald-100";
     if (option === chosen)
-      return "border-rose-500 bg-rose-100 text-rose-900 dark:bg-rose-900 dark:text-rose-100";
-    return "border-zinc-200 text-zinc-400 dark:border-zinc-800";
+      return "border-rose-500 bg-rose-900 text-rose-100";
+    return "border-gray-800 text-gray-500";
   };
 
   return (

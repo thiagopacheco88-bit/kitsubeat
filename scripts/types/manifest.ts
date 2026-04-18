@@ -23,7 +23,7 @@ export const SongManifestEntrySchema = z.object({
   year_launched: z
     .number()
     .int()
-    .min(1980)
+    .min(1960)
     .max(2030)
     .describe("Year the song was released"),
   genre_tags: z.array(z.string()).describe("Genre tags, e.g., ['rock', 'jpop']"),

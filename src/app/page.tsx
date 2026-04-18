@@ -38,6 +38,15 @@ export default async function HomePage() {
               All Songs
             </Link>
           </div>
+          <p className="mt-5 text-sm text-gray-500">
+            New to Japanese?{" "}
+            <Link
+              href="/kana"
+              className="font-medium text-gray-300 underline-offset-4 transition-colors hover:text-white hover:underline"
+            >
+              Learn Hiragana &amp; Katakana &rarr;
+            </Link>
+          </p>
         </div>
       </section>
 

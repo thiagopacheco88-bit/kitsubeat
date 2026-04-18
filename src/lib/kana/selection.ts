@@ -76,8 +76,11 @@ export function pickWeighted<T extends { weight: number }>(
  * Empty pool -> returns []. The caller is responsible for ensuring at least
  * one row is unlocked before invoking this.
  *
- * Duplicates within a session ARE allowed by design — this is a weighted
- * with-replacement draw so that low-mastery chars surface repeatedly.
+ * Back-to-back duplicates are avoided: never two adjacent draws with the same
+ * rendered glyph. If the unlocked pool has no non-repeating alternative (i.e.
+ * a single-glyph unlocked pool) we expand into LOCKED rows to introduce a
+ * fresh kana rather than repeating. This keeps variety up even when only one
+ * row is unlocked.
  */
 export function buildKanaSession(params: {
   script: Script | "mixed";
@@ -96,25 +99,50 @@ export function buildKanaSession(params: {
     rng = Math.random,
   } = params;
 
-  const pool: EligibleChar[] = [];
-  for (const c of chart) {
-    if (
-      (script === "hiragana" || script === "mixed") &&
-      unlockedRows.hiragana.has(c.rowId)
-    ) {
-      const stars = mastery.hiragana[c.hiragana] ?? 0;
-      pool.push({ char: c, stars, weight: weightFor(stars), script: "hiragana" });
+  const wantsHiragana = script === "hiragana" || script === "mixed";
+  const wantsKatakana = script === "katakana" || script === "mixed";
+
+  const buildPool = (hRows: Set<string>, kRows: Set<string>): EligibleChar[] => {
+    const out: EligibleChar[] = [];
+    for (const c of chart) {
+      if (wantsHiragana && hRows.has(c.rowId)) {
+        const stars = mastery.hiragana[c.hiragana] ?? 0;
+        out.push({ char: c, stars, weight: weightFor(stars), script: "hiragana" });
+      }
+      if (wantsKatakana && kRows.has(c.rowId)) {
+        const stars = mastery.katakana[c.katakana] ?? 0;
+        out.push({ char: c, stars, weight: weightFor(stars), script: "katakana" });
+      }
     }
-    if (
-      (script === "katakana" || script === "mixed") &&
-      unlockedRows.katakana.has(c.rowId)
-    ) {
-      const stars = mastery.katakana[c.katakana] ?? 0;
-      pool.push({ char: c, stars, weight: weightFor(stars), script: "katakana" });
+    return out;
+  };
+
+  const unlockedPool = buildPool(unlockedRows.hiragana, unlockedRows.katakana);
+  if (unlockedPool.length === 0) return [];
+
+  const allRowIds = new Set(chart.map((c) => c.rowId));
+  const fullPool = buildPool(allRowIds, allRowIds);
+
+  const glyphOf = (e: EligibleChar) =>
+    e.script === "hiragana" ? e.char.hiragana : e.char.katakana;
+
+  const result: EligibleChar[] = [];
+  for (let i = 0; i < questionCount; i++) {
+    const prev = i > 0 ? glyphOf(result[i - 1]) : null;
+    let candidates =
+      prev == null ? unlockedPool : unlockedPool.filter((e) => glyphOf(e) !== prev);
+    if (candidates.length === 0) {
+      // Unlocked pool collapsed to just the previous glyph — reach into locked
+      // rows to introduce a fresh kana instead of repeating.
+      candidates = fullPool.filter((e) => glyphOf(e) !== prev);
+      if (candidates.length === 0) {
+        // Pathological: chart has a single glyph in the active script(s).
+        candidates = unlockedPool;
+      }
     }
+    result.push(pickWeighted(candidates, rng));
   }
-  if (pool.length === 0) return [];
-  return Array.from({ length: questionCount }, () => pickWeighted(pool, rng));
+  return result;
 }
 
 /**

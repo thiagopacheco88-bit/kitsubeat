@@ -71,12 +71,17 @@ export function KanaSession({ mode }: Props) {
   }, [hasHydrated, mode]);
 
   const [index, setIndex] = useState(0);
-  const [phase, setPhase] = useState<"question" | "feedback">("question");
+  const [phase, setPhase] = useState<"question" | "feedback" | "miss-relearn">(
+    "question",
+  );
   const [unlockedDuringSession, setUnlockedDuringSession] = useState<
     Set<string>
   >(new Set());
   const [pendingUnlock, setPendingUnlock] = useState<string | null>(null); // rowId
   const [answerLog, setAnswerLog] = useState<AnswerLog[]>([]);
+  // Latched by onAnswer so the auto-fired onContinue can branch correct vs wrong
+  // without re-reading the log.
+  const lastCorrectRef = useRef<boolean | null>(null);
 
   // Persist answer log to sessionStorage when the session completes (Plan 09-06 reads it).
   // Done in an effect (NOT inline during render) to avoid React StrictMode double-write warnings.
@@ -136,6 +141,29 @@ export function KanaSession({ mode }: Props) {
   const correctStarsBefore =
     (script === "hiragana" ? hiragana : katakana)[glyph] ?? 0;
 
+  // Post-miss relearn: re-teach the just-missed kana before advancing.
+  if (phase === "miss-relearn") {
+    return (
+      <SessionFrame index={index} total={SESSION_LENGTH}>
+        <KanaLearnCard
+          kana={glyph}
+          romaji={current.char.romaji}
+          label="Missed — review"
+          onGotIt={() => {
+            setPhase("question");
+            setIndex((i) => i + 1);
+          }}
+        />
+        {pendingUnlock && (
+          <RowUnlockModal
+            rowLabel={labelForRow(script, pendingUnlock)}
+            onClose={() => setPendingUnlock(null)}
+          />
+        )}
+      </SessionFrame>
+    );
+  }
+
   // 0-star → KanaLearnCard variant.
   if (correctStarsBefore === 0 && phase === "question") {
     return (
@@ -188,6 +216,7 @@ export function KanaSession({ mode }: Props) {
         correctRomaji={current.char.romaji}
         distractors={distractors}
         onAnswer={(correct) => {
+          lastCorrectRef.current = correct;
           applyAnswer(script, glyph, correct);
           const after = correct
             ? Math.min(10, correctStarsBefore + 1)
@@ -231,8 +260,14 @@ export function KanaSession({ mode }: Props) {
           setPhase("feedback");
         }}
         onContinue={() => {
-          setPhase("question");
-          setIndex((i) => i + 1);
+          if (lastCorrectRef.current === false) {
+            // Miss: re-teach the just-missed kana before moving on.
+            setPhase("miss-relearn");
+          } else {
+            setPhase("question");
+            setIndex((i) => i + 1);
+          }
+          lastCorrectRef.current = null;
         }}
       />
       {pendingUnlock && (

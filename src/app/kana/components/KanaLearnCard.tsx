@@ -7,9 +7,15 @@ interface Props {
   kana: string;
   romaji: string;
   onGotIt: () => void; // caller awards 1 star (setStars to 1) and advances
+  label?: string; // override the top heading (e.g. "Missed — review" for relearn)
 }
 
-export function KanaLearnCard({ kana, romaji, onGotIt }: Props) {
+export function KanaLearnCard({
+  kana,
+  romaji,
+  onGotIt,
+  label = "New character",
+}: Props) {
   const [voiceReady, setVoiceReady] = useState(() => hasJapaneseVoice());
   useEffect(() => {
     const unsub = onVoicesChanged(() => setVoiceReady(hasJapaneseVoice()));
@@ -30,7 +36,7 @@ export function KanaLearnCard({ kana, romaji, onGotIt }: Props) {
   return (
     <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
       <span className="text-xs uppercase tracking-wide text-zinc-400">
-        New character
+        {label}
       </span>
       <div className="flex items-center gap-3">
         <span className="text-7xl font-semibold leading-none">{kana}</span>

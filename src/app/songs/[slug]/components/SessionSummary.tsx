@@ -53,7 +53,12 @@ export default function SessionSummary({
   const [saving, setSaving] = useState(true);
   const [stars, setStars] = useState<0 | 1 | 2 | 3>(0);
   const [previousStars, setPreviousStars] = useState<0 | 1 | 2 | 3>(0);
-  const [completionPct, setCompletionPct] = useState(0);
+  const [songMastery, setSongMastery] = useState<{
+    total: number;
+    mastered: number;
+    learning: number;
+    new: number;
+  } | null>(null);
   const [saveError, setSaveError] = useState(false);
   const [wordsExpanded, setWordsExpanded] = useState(false);
 
@@ -93,9 +98,9 @@ export default function SessionSummary({
           durationMs: totalTimeMs,
         });
 
-        setCompletionPct(result.completionPct);
         setStars(result.stars as 0 | 1 | 2 | 3);
         setPreviousStars(result.previousStars as 0 | 1 | 2 | 3);
+        setSongMastery(result.songMastery);
       } catch (err) {
         console.error("Failed to save session results:", err);
         setSaveError(true);
@@ -140,13 +145,57 @@ export default function SessionSummary({
           <span className="text-xl font-semibold text-white">{formatTime(totalTimeMs)}</span>
           <span>time</span>
         </div>
-        {!saving && completionPct > 0 && (
-          <div className="flex flex-col items-center gap-0.5">
-            <span className="text-xl font-semibold text-white">{Math.round(completionPct)}%</span>
-            <span>progress</span>
-          </div>
-        )}
       </div>
+
+      {/* Song mastery breakdown — real coverage (new/learning/mastered of total),
+          replaces the session-credit "progress" number which overstated closeness. */}
+      {!saving && songMastery && songMastery.total > 0 && (() => {
+        const { total, mastered, learning, new: newCount } = songMastery;
+        const pct = (n: number) => (n / total) * 100;
+        const masteredPct = Math.round(pct(mastered));
+        return (
+          <div className="w-full max-w-xs flex flex-col gap-1.5 text-left">
+            <div className="flex items-baseline justify-between text-xs text-gray-400">
+              <span>Song mastery</span>
+              <span>
+                <span className="font-semibold text-white">{masteredPct}%</span>
+                {" "}mastered
+              </span>
+            </div>
+            <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-gray-800">
+              {mastered > 0 && (
+                <div
+                  className="bg-green-500"
+                  style={{ width: `${pct(mastered)}%` }}
+                  aria-label={`${mastered} mastered`}
+                />
+              )}
+              {learning > 0 && (
+                <div
+                  className="bg-yellow-500"
+                  style={{ width: `${pct(learning)}%` }}
+                  aria-label={`${learning} learning`}
+                />
+              )}
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-400">
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-green-500" />
+                {mastered} mastered
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-yellow-500" />
+                {learning} learning
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-gray-600" />
+                {newCount} new
+              </span>
+              <span className="text-gray-500">/ {total}</span>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Words reviewed disclosure list with mastery popovers */}
       {(() => {
