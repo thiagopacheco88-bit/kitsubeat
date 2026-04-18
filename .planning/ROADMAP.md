@@ -218,7 +218,14 @@ Plans:
   3. Each character tracks a 10-star mastery level: correct answers add 1 star, wrong answers subtract 2 (floor 0); characters at 0 stars show the answer pre-revealed and award 1 star for acknowledgment; characters at 10 stars appear at 1/5th normal frequency
   4. Kana rows unlock sequentially — user must reach the star threshold on the a-row before the ka-row appears; dakuten, handakuten, and combo rows unlock the same way
   5. Each session is exactly 20 questions with weighted random selection: lower-star characters appear more frequently than higher-star characters
-**Plans**: TBD
+**Plans:** 6 plans
+Plans:
+- [ ] 09-01-PLAN.md — Kana reference data module (chart.ts + types + invariant tests)
+- [ ] 09-02-PLAN.md — Pure logic: weighted selection + mastery + row-unlock predicate (TDD)
+- [ ] 09-03-PLAN.md — kanaProgress Zustand store with persist + hydration + test hook
+- [ ] 09-04-PLAN.md — /kana landing grid + mode toggle + sign-up nudge banner
+- [ ] 09-05-PLAN.md — Drill session UI: KanaSession + KanaQuestionCard + KanaLearnCard + RowUnlockModal
+- [ ] 09-06-PLAN.md — Post-session summary screen + manual end-to-end checkpoint
 
 ### Phase 10: Advanced Exercises & Full Mastery
 **Goal**: Users can complete grammar conjugation, listening drill, and sentence order exercises, earning Star 3 mastery for a song when listening drills pass at >=80%, with bonus mastery recognition for conjugation and sentence order work
