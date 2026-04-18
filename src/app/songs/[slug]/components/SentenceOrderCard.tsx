@@ -60,12 +60,14 @@ export default function SentenceOrderCard({
   const startTimeRef = useRef<number>(Date.now());
   const feedbackRef = useRef<HTMLDivElement>(null);
 
-  const pool = useExerciseSession(
-    (s) => s.sentenceOrderPool[question.id] ?? []
-  );
-  const answer = useExerciseSession(
-    (s) => s.sentenceOrderAnswer[question.id] ?? []
-  );
+  // Select the raw Record<string, Token[]> then derive by id — returning
+  // `s.sentenceOrderPool[question.id] ?? []` inline would allocate a new []
+  // each render for pre-init states, tripping React 19's getSnapshot-cache
+  // warning. Slicing the Record by id is stable.
+  const poolMap = useExerciseSession((s) => s.sentenceOrderPool);
+  const answerMap = useExerciseSession((s) => s.sentenceOrderAnswer);
+  const pool = poolMap[question.id];
+  const answer = answerMap[question.id];
   const hintShown = useExerciseSession(
     (s) => s.sentenceOrderHintShown[question.id] === true
   );
@@ -94,24 +96,29 @@ export default function SentenceOrderCard({
     if (!submitted) return new Set<number>();
     const original = (question.verseTokens ?? []).map((t) => t.surface);
     const set = new Set<number>();
-    for (let i = 0; i < answer.length; i++) {
-      if (answer[i].surface !== original[i]) set.add(i);
+    const ans = answer ?? [];
+    for (let i = 0; i < ans.length; i++) {
+      if (ans[i].surface !== original[i]) set.add(i);
     }
     return set;
   }, [submitted, answer, question.verseTokens]);
 
   // Scroll feedback into view after submission (mirrors QuestionCard behavior).
+  // JSDOM doesn't implement scrollIntoView — guard to keep unit tests green.
   useEffect(() => {
-    if (submitted) {
-      feedbackRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    if (submitted && typeof feedbackRef.current?.scrollIntoView === "function") {
+      feedbackRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
     }
   }, [submitted]);
 
-  const canSubmit = pool.length === 0 && answer.length > 0 && !submitted;
+  const poolView = pool ?? [];
+  const answerView = answer ?? [];
+  const canSubmit =
+    poolView.length === 0 && answerView.length > 0 && !submitted;
 
   const handleSubmit = () => {
     if (!canSubmit || disabled) return;
-    const answerStr = answer.map((t) => t.surface).join("");
+    const answerStr = answerView.map((t) => t.surface).join("");
     const correct = answerStr === question.correctAnswer;
     const timeMs = Date.now() - startTimeRef.current;
     setIsCorrect(correct);
@@ -154,12 +161,12 @@ export default function SentenceOrderCard({
         aria-label="Your answer"
         className="flex min-h-[60px] flex-wrap items-start gap-2 rounded-lg border border-dashed border-gray-700 bg-gray-900/40 p-3"
       >
-        {answer.length === 0 && (
+        {answerView.length === 0 && (
           <span className="text-sm text-gray-500">
             Tap words below to build the verse
           </span>
         )}
-        {answer.map((token, i) => (
+        {answerView.map((token, i) => (
           <button
             key={token.uuid}
             type="button"
@@ -181,7 +188,7 @@ export default function SentenceOrderCard({
         aria-label="Word pool"
         className="flex flex-wrap items-start gap-2 rounded-lg border border-gray-800 bg-gray-900/20 p-3"
       >
-        {pool.map((token) => (
+        {poolView.map((token) => (
           <button
             key={token.uuid}
             type="button"
@@ -193,7 +200,7 @@ export default function SentenceOrderCard({
             {token.surface}
           </button>
         ))}
-        {pool.length === 0 && answer.length > 0 && !submitted && (
+        {poolView.length === 0 && answerView.length > 0 && !submitted && (
           <span className="text-sm text-gray-500">
             All words placed — ready to submit.
           </span>

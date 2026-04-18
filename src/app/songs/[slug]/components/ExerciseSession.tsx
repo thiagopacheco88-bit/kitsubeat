@@ -236,7 +236,24 @@ export default function ExerciseSession({
             );
           }
           if (current.type === "sentence_order") {
-            throw new Error("SentenceOrderCard dispatch not implemented (Plan 10-05)");
+            // Plan 10-05 — Sentence Order tap-to-build. SentenceOrderCard owns
+            // its own FeedbackPanel-equivalent strip (all-or-nothing + wrong-
+            // position highlights). We thread onAnswered so session-store
+            // answer records stay consistent; meta.revealedReading propagates
+            // via handleAnswered → Plan 10-06 saveSessionResults which maps
+            // it to FSRS rating=1. No direct recordVocabAnswer here —
+            // sentence_order has an empty vocabItemId (verse-centric).
+            return (
+              <SentenceOrderCard
+                key={current.id}
+                question={current}
+                onAnswer={(chosen, correct, timeMs, _meta) => {
+                  void _meta; // Surfaced in session results via the answer record; Plan 10-06 consumes.
+                  handleAnswered(chosen, correct, timeMs);
+                }}
+                onContinue={handleContinue}
+              />
+            );
           }
           return (
             <QuestionCard
