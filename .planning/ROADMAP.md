@@ -220,9 +220,9 @@ Plans:
   5. Each session is exactly 20 questions with weighted random selection: lower-star characters appear more frequently than higher-star characters
 **Plans:** 6 plans
 Plans:
-- [ ] 09-01-PLAN.md — Kana reference data module (chart.ts + types + invariant tests)
-- [ ] 09-02-PLAN.md — Pure logic: weighted selection + mastery + row-unlock predicate (TDD)
-- [ ] 09-03-PLAN.md — kanaProgress Zustand store with persist + hydration + test hook
+- [x] 09-01-PLAN.md — Kana reference data module (chart.ts + types + invariant tests)
+- [x] 09-02-PLAN.md — Pure logic: weighted selection + mastery + row-unlock predicate (TDD)
+- [x] 09-03-PLAN.md — kanaProgress Zustand store with persist + hydration + test hook
 - [ ] 09-04-PLAN.md — /kana landing grid + mode toggle + sign-up nudge banner
 - [ ] 09-05-PLAN.md — Drill session UI: KanaSession + KanaQuestionCard + KanaLearnCard + RowUnlockModal
 - [ ] 09-06-PLAN.md — Post-session summary screen + manual end-to-end checkpoint

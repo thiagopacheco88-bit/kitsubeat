@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 09 — Kana Trainer (1/6 plans complete); Phase 11 Plan 05 (/review queue) deferred
+**Current focus:** v2.0 Phase 09 — Kana Trainer (3/6 plans summarized: 09-01, 09-02, 09-03); Phase 11 COMPLETE
 
 ## Current Position
 
 Phase: 09 of 11 (Kana Trainer) — In Progress
-Plan: 1 of 6 complete; next: Phase 09 Plan 02
-Status: Plan 09-01 complete — kana reference data module shipped: src/lib/kana/types.ts (KanaChar/KanaRow/Script/RowKind/KanaMode/MasteryMap), src/lib/kana/chart.ts (KANA_CHART with 104 entries — 46 base + 20 dakuten + 5 handakuten + 33 yoon — plus HIRAGANA_ROWS/KATAKANA_ROWS and ROW_UNLOCK tuning constants), src/lib/kana/__tests__/chart.test.ts (12 invariant tests passing). Commits de8d2f6, 018899e, c63d88c.
-Last activity: 2026-04-18 — Plan 09-01 complete (Wave 1). Authoritative kana data + types + invariant suite ready for downstream plans 09-02..09-06.
+Plan: 3 of 6 complete (09-01 ✓, 09-02 ✓, 09-03 ✓); next: Phase 09 Plan 04
+Status: Plan 09-02 complete — pure-function gameplay engine shipped: src/lib/kana/mastery.ts (applyStarDelta + isRowMastered + computeUnlockedRows — KANA-03 + KANA-06) and src/lib/kana/selection.ts (weightFor + pickWeighted + buildKanaSession + buildDistractors + EligibleChar — KANA-05 + KANA-07), with 49 new unit tests (24 mastery + 25 selection) bringing the kana suite to 61 green. TDD discipline followed (RED + GREEN per module). Commits 79d54a7 (test mastery), d2d21eb (feat mastery), fa5587f (test selection), 985537f (feat selection). Plan 09-03 (kanaProgress Zustand store) also landed in parallel: 0570044 + 31446fc.
+Last activity: 2026-04-18 — Plan 09-02 SUMMARY complete (Wave 2). Pure rules + persisted store both ready for plans 09-04 (landing page), 09-05 (drill session), 09-06 (session summary).
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 in progress (3/6 plans)
 
 ## Performance Metrics
 
@@ -32,8 +32,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 08.1-05 (11 min), 08.1-06 (14.5 min), 08.2-03 (8 min), 08.1-07 (7 min), 08.1-08 (9 min), 11-04 (4 min), 09-01 (3 min)
-- Trend: improving (09-01 landed in 3 min — pure data + types + tests, no DB or runtime concerns; deviation 1 caught a plan-level off-by-one before it shipped)
+- Last 7 plans: 08.1-07 (7 min), 08.1-08 (9 min), 11-04 (4 min), 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min)
+- Trend: stable-fast (09-03 landed in 3 min — store + persist + 14 unit tests; Plan 02 GREEN had pre-landed so the store import resolved with zero deviation)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -66,6 +66,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 11-cross-song-vocabulary P05 | 8 | 3 tasks | 12 files |
 | Phase 09-kana-trainer P01 | 3 | 3 tasks | 3 files |
 | Phase 09-kana-trainer P01 | 3 | 3 tasks | 3 files |
+| Phase 09 P03 | 3 | 2 tasks | 2 files |
+| Phase 09-kana-trainer P02 | 4 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -191,6 +193,16 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 09-kana-trainer]: Plan 09-01: KANA_CHART hardcoded with Modified Hepburn (no wanakana dep) — single source of truth for hiragana/katakana/romaji
 - [Phase 09-kana-trainer]: Plan 09-01: char count locked at 104 (plan stated 105 but row breakdown sums to 104 — n-row was double-counted in the plan)
 - [Phase 09-kana-trainer]: Plan 09-01: ROW_UNLOCK_MASTERY_PCT (0.8) and ROW_UNLOCK_MIN_STARS (5) tuning constants exported from chart.ts — re-tuning is a 2-line edit
+- [Phase 09]: Plan 09-03: Persist key kitsubeat-kana-mastery-v1 (versioned for forward migration)
+- [Phase 09]: Plan 09-03: applyAnswer delegates to applyStarDelta from mastery.ts (single source of truth for KANA-03 +1/-2 clamp)
+- [Phase 09]: Plan 09-03: No nudgeShown flag — banner derives purely from sessionsCompleted (cleaner; no bookkeeping)
+- [Phase 09]: Plan 09-03: __kbKanaStore window hook gated single-condition NEXT_PUBLIC_APP_ENV==='test' (no NODE_ENV fallback — production tree-shakes)
+- [Phase 09-kana-trainer]: [Plan 09-02]: applyStarDelta clamped [0,10] (KANA-03); +1 correct, -2 wrong
+- [Phase 09-kana-trainer]: [Plan 09-02]: isRowMastered uses Math.ceil(N * 0.8) so ya-row (3 chars) needs all 3 at >= 5 stars
+- [Phase 09-kana-trainer]: [Plan 09-02]: computeUnlockedRows uses break (not continue) — non-contiguous mastery does NOT skip ahead
+- [Phase 09-kana-trainer]: [Plan 09-02]: weightFor anchor 0->10, 5->5, 10->1 with 5:1 ratio between mid and ceiling locked by test (KANA-05)
+- [Phase 09-kana-trainer]: [Plan 09-02]: buildKanaSession returns [] on empty pool (no throw); duplicates allowed by design (with-replacement weighted draw)
+- [Phase 09-kana-trainer]: [Plan 09-02]: buildDistractors keeps 'script' param on signature (currently unused) — reserved for future cross-script confusable variants
 
 ### Pending Todos
 
@@ -217,5 +229,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 11 Plan 05 (/review queue). buildReviewQueue + 13 tests, server actions, reviewSession Zustand store, /review page + all UI components. Phase 11 COMPLETE (5/5 plans).
-Resume file: .planning/phases/09-kana-trainer/09-02-PLAN.md
+Stopped at: Completed Phase 09 Plan 02 (mastery + selection rules — 49 unit tests, TDD RED+GREEN per module). Plans 09-01, 09-02, 09-03 all complete with SUMMARYs on disk. Phase 09 at 3/6.
+Resume file: .planning/phases/09-kana-trainer/09-04-PLAN.md

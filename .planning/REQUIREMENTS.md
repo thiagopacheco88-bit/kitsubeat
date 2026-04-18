@@ -34,11 +34,11 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 - [ ] **KANA-01**: User can drill hiragana recognition (see kana, pick correct romaji from 4 options) in a standalone trainer
 - [ ] **KANA-02**: User can drill katakana recognition in the same trainer interface
-- [ ] **KANA-03**: Each kana character has a 10-star mastery level; correct answer adds 1 star, wrong answer removes 2 stars (minimum 0)
+- [x] **KANA-03**: Each kana character has a 10-star mastery level; correct answer adds 1 star, wrong answer removes 2 stars (minimum 0)
 - [ ] **KANA-04**: Characters at 0 stars appear with the answer pre-shown (learning mode) and award 1 star for acknowledgment
-- [ ] **KANA-05**: Characters at 10 stars (mastered) appear at 1/5th normal frequency but still appear
-- [ ] **KANA-06**: Kana are introduced row-by-row (a-row, ka-row, etc.) — user must reach threshold on current row before next row unlocks
-- [ ] **KANA-07**: Trainer sessions are 20-question rounds with weighted random selection based on star level
+- [x] **KANA-05**: Characters at 10 stars (mastered) appear at 1/5th normal frequency but still appear
+- [x] **KANA-06**: Kana are introduced row-by-row (a-row, ka-row, etc.) — user must reach threshold on current row before next row unlocks
+- [x] **KANA-07**: Trainer sessions are 20-question rounds with weighted random selection based on star level
 - [x] **KANA-08**: Dakuten, handakuten, and combo kana (ya/yu/yo variants) are included as separate unlockable rows
 
 ### Cross-Song Vocabulary
@@ -132,11 +132,11 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | FREE-06 | Phase 8 | Complete |
 | KANA-01 | Phase 9 | Pending |
 | KANA-02 | Phase 9 | Pending |
-| KANA-03 | Phase 9 | Pending |
+| KANA-03 | Phase 9 | Complete |
 | KANA-04 | Phase 9 | Pending |
-| KANA-05 | Phase 9 | Pending |
-| KANA-06 | Phase 9 | Pending |
-| KANA-07 | Phase 9 | Pending |
+| KANA-05 | Phase 9 | Complete |
+| KANA-06 | Phase 9 | Complete |
+| KANA-07 | Phase 9 | Complete |
 | KANA-08 | Phase 9 | Complete |
 | FREE-03 | Phase 9 | Pending |
 | EXER-05 | Phase 10 | Pending |
