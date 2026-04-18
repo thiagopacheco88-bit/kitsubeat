@@ -242,7 +242,13 @@ Plans:
   3. User sees a global counter of unique Japanese words learned across all songs on their profile or dashboard
   4. Mastering a word in one song automatically reflects in all other songs sharing that vocabulary item — mastery is stored against the vocabulary_items UUID, not per-song
   5. Premium users can open a vocabulary dashboard listing all learned words with mastery level and source songs; the cross-song SRS review queue is premium-gated with free users seeing word counts but not the review queue
-**Plans**: TBD
+**Plans:** 5 plans
+Plans:
+- [ ] 11-01-PLAN.md — Schema migration (review_new_today cols) + five read queries (known-count, global counter, seen-in-songs, dashboard, due-queue) + REVIEW_NEW_DAILY_CAP constant
+- [ ] 11-02-PLAN.md — Song-page "You know X/Y words" pill: SSR in page.tsx, client refresh component, /api/review/known-count route
+- [ ] 11-03-PLAN.md — Seen-in-songs on MasteryDetailPopover + global learned counter in header nav and profile page
+- [ ] 11-04-PLAN.md — /vocabulary dashboard: tier-grouped list, searchParams filters, SeenInExpander, free-tier 20-row preview
+- [ ] 11-05-PLAN.md — /review route: queue builder (TDD), server actions (startReviewSession/recordReviewAnswer/consumeNewCardBudget), review Zustand store, ReviewLanding + ReviewSession + UpsellModal
 
 ### Phase 12: Anime Scenes & Cultural Vocabulary
 **Goal**: Users can study iconic anime scenes with the same exercise and vocabulary mechanics as songs, and access standalone anime cultural vocabulary drills where anime references anchor Japanese word learning — with scene vocabulary contributing to cross-song tracking
