@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 09 — Kana Trainer (5/6 plans summarized: 09-01, 09-02, 09-03, 09-04, 09-05); Phase 11 COMPLETE
+**Current focus:** v2.0 Phase 10 — Advanced Exercises & Full Mastery (Plan 10-02 complete; PlayerContext imperative API ready for Plan 10-04 Listening Drill)
 
 ## Current Position
 
-Phase: 09 of 11 (Kana Trainer) — In Progress
-Plan: 5 of 6 complete (09-01 ✓, 09-02 ✓, 09-03 ✓, 09-04 ✓, 09-05 ✓); next: Phase 09 Plan 06
-Status: Plan 09-05 complete — drill loop shipped: /kana/session?mode=... (page.tsx + KanaSession orchestrator + KanaQuestionCard + KanaLearnCard + RowUnlockModal). 20-question loop with weighted-random selection (buildKanaSession), 4-option tap card with 1/2/3/4 + Space/Enter shortcuts, 0-star pre-reveal LearnCard variant (KANA-04 awards exactly 1 star via setStars), queueMicrotask-gated unlock-detection diff against startSnapshot ref so mid-session unlocks fire RowUnlockModal once but DON'T expand the current pool. KanaMode imported from @/lib/kana/types in BOTH page.tsx and KanaSession.tsx — wave-3 plans 09-04/09-05 stay parallel-safe. sessionStorage handoff key kitsubeat-kana-last-session ({mode, log: AnswerLog[], unlocked}) ready for Plan 09-06. One Rule-1 deviation: sessionStorage.setItem moved into useEffect (not inline-during-render). Commits 41ca008 (presentational components), 964715c (orchestrator + route).
-Last activity: 2026-04-18 — Plan 09-05 SUMMARY complete (Wave 3). Plan 09-06 (session summary) unblocked — reads kitsubeat-kana-last-session sessionStorage payload.
+Phase: 10 of 11 (Advanced Exercises & Full Mastery) — In Progress
+Plan: 1 of 7 complete (10-02 ✓); next: Plan 10-01 or 10-03 (wave-independent — 10-02 is Wave 1, no depends_on)
+Status: Plan 10-02 complete — PlayerContext extended with production-grade imperative API (seekTo(ms), play(), pause(), seekAndPlay(ms) with 400ms debounce + 50ms seek->play delay, isReady, embedState promoted from YouTubeEmbed-local). YouTubeEmbed.onReady registers the api bundle via _registerApi; cleanup clears it. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (Phase 08.1-05 test gate intact: single-condition NEXT_PUBLIC_APP_ENV === 'test'). New 10-test jsdom suite (PlayerContext.test.tsx) covers registration, dispatch, isReady derivation, debounce coalescing of 10 rapid calls, trailing-edge pause->seek->50ms->play sequencing, and pre/post-registration no-ops. Test infra added: @vitejs/plugin-react + jsdom + @testing-library/react + @testing-library/jest-dom (devDeps); vitest.config.ts includes *.test.tsx with per-file `// @vitest-environment jsdom` directive (vitest v4 dropped environmentMatchGlobs). Four auto-fix deviations logged (all Rule-3 blocking: RTL/jsdom install, environmentMatchGlobs removal, setEmbedState widening to Dispatch<SetStateAction>, doc-comment rewording for grep audit). Commits 1ae57fc (Task 1 context), 65c4fad (Task 2 YouTubeEmbed + tests), cdacd21 (verify doc tweak). Plan 10-04 Listening Drill unblocked — usePlayer().seekAndPlay(verseStartMs) handles replay UX end-to-end.
+Last activity: 2026-04-18 — Plan 10-02 SUMMARY complete. Plan 10-04 unblocked for its Listening Drill card integration.
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 in progress (5/6 plans)
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 COMPLETE (6/6 plans); v2.0 Phase 10 in progress (1/7 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
-- Average duration: 7.3 min
-- Total execution time: 1.76 hours
+- Total plans completed: 16
+- Average duration: 7.4 min
+- Total execution time: 1.91 hours
 
 **By Phase:**
 
@@ -32,8 +32,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 11-04 (4 min), 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min), 09-05 (3 min)
-- Trend: stable-fast (09-05 landed in 3 min — three presentational components + KanaSession orchestrator + route; one Rule-1 deviation moved sessionStorage write from inline-during-render into useEffect to avoid React StrictMode double-write)
+- Last 7 plans: 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min), 09-05 (3 min), 10-02 (9 min)
+- Trend: 10-02 at 9 min is the phase's first plan with React-testing infra bootstrap (added @vitejs/plugin-react + jsdom + RTL + jest-dom as devDeps to land the .tsx context test — Rule-3 blocking); subsequent .tsx component tests across Plan 10-04/07 will be sub-5-min since the infra is now inert-on-disk
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -70,6 +70,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 09-kana-trainer P02 | 4 | 2 tasks | 4 files |
 | Phase 09 P04 | 3 | 2 tasks | 5 files |
 | Phase 09 P05 | 3 | 2 tasks | 5 files |
+| Phase 10-advanced-exercises-full-mastery P02 | 9 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -218,6 +219,17 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 09-kana-trainer]: Plan 09-05: queueMicrotask wraps unlock-detection diff so useKanaProgress.getState() reads the post-applyAnswer store
 - [Phase 09-kana-trainer]: Plan 09-05: One RowUnlockModal per question (loop break) — multi-row simultaneous unlock collapses to first
 - [Phase 09-kana-trainer]: Plan 09-05: sessionStorage.setItem moved into useEffect (not inline-during-render, deviation from plan text) — avoids React StrictMode double-write; same key/shape preserved
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: Ref-based dispatch (not state) for PlayerContext.seekTo/play/pause — consumed by 13 files incl. verse-sync TokenSpan; registration must not ripple re-renders. Wrappers use empty-deps useCallback; apiRef.current lookup on each call.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: Single _registerApi(bundle) call instead of planner's four discrete setters (setSeekTo/setPlay/setPause/setIsReady) — atomic register/clear prevents desync; comment preserves the planner's pattern name.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: embedState promoted from YouTubeEmbed-local to PlayerContext (Pitfall 3) — Plan 10-04 Listening Drill reads embedState === 'error' to render fallback without importing YouTubeEmbed internals.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: seekAndPlay keeps pause->seek->50ms->play sequencing INSIDE the debounce fn (not three separate context wrappers) — one atomic replay verb for consumers; inner api-null short-circuit handles mid-debounce tear-down.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: SEEK_DEBOUNCE_MS=400ms + SEEK_TO_PLAY_DELAY_MS=50ms locked at module-level (10-RESEARCH Pitfall 2 empirical values).
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: setEmbedState typed Dispatch<SetStateAction<EmbedState>> (not (v:EmbedState)=>void) — preserves YouTubeEmbed watchdog functional-updater race guard against onReady-in-same-tick.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: Added @vitejs/plugin-react + jsdom + @testing-library/react + @testing-library/jest-dom as devDeps (Rule-3 blocking) — pre-10-02 tests were pure TS on vitest node env; testing React context requires DOM + JSX transform.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: Per-file `// @vitest-environment jsdom` directive over globbing — vitest v4 removed environmentMatchGlobs; node remains fast default for pure TS tests.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: IS_REACT_ACT_ENVIRONMENT=true at top of .tsx test files — silences React 19 act() stderr spam without pulling in RTL's act wrapper.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: __kbPlayer test gate (Plan 08.1-05 single-condition NEXT_PUBLIC_APP_ENV === 'test') preserved verbatim — PlayerContext imperative API sits ALONGSIDE, not in place of, the e2e instrumentation.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: Probe consumer pattern for context tests — tiny `<Probe>` component captures ctx into a module-level ref on each render; tests invoke `getCtx().seekTo(...)` between act() blocks.
 
 ### Pending Todos
 
@@ -244,5 +256,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 09 Plan 05 (drill loop — /kana/session?mode=... + KanaSession orchestrator + KanaQuestionCard + KanaLearnCard + RowUnlockModal). 20-question loop with weighted-random selection, 4-option tap card, 0-star pre-reveal LearnCard, mid-session unlock confetti modal, sessionStorage handoff to Plan 09-06. KanaMode imported from @/lib/kana/types in both files (wave-3 parallelism preserved). One Rule-1 deviation: sessionStorage.setItem moved into useEffect. Plans 09-01..09-05 complete with SUMMARYs on disk. Phase 09 at 5/6.
-Resume file: .planning/phases/09-kana-trainer/09-06-PLAN.md
+Stopped at: Completed Phase 10 Plan 02 (PlayerContext imperative API). PlayerContext exposes seekTo(ms)/play()/pause()/seekAndPlay(ms) via ref dispatch (no re-renders on registration); 400ms debounce + 50ms seek->play delay for replay-safe UX; embedState promoted from YouTubeEmbed-local so Listening Drill can read 'error' fallback directly. YouTubeEmbed.onReady registers bundle via _registerApi, cleanup clears it, raw YT player reference stays scoped to embed. Phase 08.1-05 __kbPlayer test gate intact (NEXT_PUBLIC_APP_ENV === 'test' single-condition). New 10-test jsdom suite: PlayerContext.test.tsx (first .tsx test in repo). Test infra added: @vitejs/plugin-react + jsdom + @testing-library/react + @testing-library/jest-dom; vitest.config.ts includes *.test.tsx + per-file directive pattern. Four auto-fix deviations (all Rule-3 blocking). Commits 1ae57fc, 65c4fad, cdacd21. Plan 10-04 Listening Drill unblocked.
+Resume file: .planning/phases/10-advanced-exercises-full-mastery/10-01-PLAN.md (Wave 1 parallel peer — was already in uncommitted working state; needs its own execution) or 10-03-PLAN.md (Wave 2 depends on 10-01/10-02).

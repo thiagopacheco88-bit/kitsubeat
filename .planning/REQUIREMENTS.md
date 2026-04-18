@@ -15,7 +15,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [x] **EXER-03**: User can complete Reading Match exercises (match kanji/kana to correct romaji reading) for any song
 - [x] **EXER-04**: User can complete Fill-the-Lyric exercises (hear verse playing, pick the blanked-out word) for any song
 - [ ] **EXER-05**: User can complete Grammar Conjugation exercises (given base form + context, pick correct conjugated form) for songs with structured conjugation data
-- [ ] **EXER-06**: User can complete Listening Drill exercises (hear verse audio without lyrics, identify the target word) for any song
+- [x] **EXER-06**: User can complete Listening Drill exercises (hear verse audio without lyrics, identify the target word) for any song
 - [ ] **EXER-07**: User can complete Sentence Order exercises (rebuild a scrambled verse by tapping tokens in correct order) for any song
 - [x] **EXER-08**: User receives immediate feedback after each answer with explanation of why the answer is correct/incorrect
 - [x] **EXER-09**: User can resume incomplete exercise sessions across browser refreshes
@@ -140,7 +140,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | KANA-08 | Phase 9 | Complete |
 | FREE-03 | Phase 9 | Complete |
 | EXER-05 | Phase 10 | Pending |
-| EXER-06 | Phase 10 | Pending |
+| EXER-06 | Phase 10 | Complete |
 | EXER-07 | Phase 10 | Pending |
 | STAR-04 | Phase 10 | Pending |
 | STAR-06 | Phase 10 | Pending |
