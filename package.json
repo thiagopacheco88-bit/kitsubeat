@@ -20,6 +20,7 @@
     "backfill:vocab": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-vocab-identity.ts",
     "audit:geo": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts",
     "audit:geo:replace": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts --replace",
+    "audit:verse-tokens": "tsx --tsconfig tsconfig.scripts.json scripts/audit/verse-token-distribution.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:unit": "vitest run src/",
