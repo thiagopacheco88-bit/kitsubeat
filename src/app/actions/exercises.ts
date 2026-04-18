@@ -173,6 +173,15 @@ export async function saveSessionResults(
   const { userId, songVersionId, answers, mode } = input;
 
   // --- Step 1: Split answers by group ---
+  //
+  // Phase 10 Plan 06 adds three more exercise-type buckets for the Advanced
+  // Drills mode. Each bucket writes to its own best-accuracy column via the
+  // same GREATEST(COALESCE) pattern as ex1_2_3 / ex4, so mastery never
+  // regresses on a lower-accuracy retry.
+  //
+  //   ex5 → grammar_conjugation  (bonus badge component)
+  //   ex6 → listening_drill      (drives Star 3)
+  //   ex7 → sentence_order       (bonus badge component)
   const ex1_2_3Types: ExerciseType[] = [
     "vocab_meaning",
     "meaning_vocab",
@@ -182,6 +191,9 @@ export async function saveSessionResults(
     ex1_2_3Types.includes(a.type)
   );
   const ex4Answers = answers.filter((a) => a.type === "fill_lyric");
+  const ex5Answers = answers.filter((a) => a.type === "grammar_conjugation");
+  const ex6Answers = answers.filter((a) => a.type === "listening_drill");
+  const ex7Answers = answers.filter((a) => a.type === "sentence_order");
 
   // --- Step 2: Compute accuracy per group ---
   const computeAccuracy = (group: AnswerRecord[]): number | null => {
@@ -191,6 +203,9 @@ export async function saveSessionResults(
 
   const newEx1_2_3Accuracy = computeAccuracy(ex1_2_3Answers);
   const newEx4Accuracy = computeAccuracy(ex4Answers);
+  const newEx5Accuracy = computeAccuracy(ex5Answers);
+  const newEx6Accuracy = computeAccuracy(ex6Answers);
+  const newEx7Accuracy = computeAccuracy(ex7Answers);
 
   // --- Step 3: Completion increment ---
   const completionIncrement = mode === "short" ? 15 : 30;
@@ -217,6 +232,11 @@ export async function saveSessionResults(
     : 0;
 
   // --- Step 5: Upsert with GREATEST/LEAST patterns ---
+  //
+  // Phase 10 Plan 06: ex5 / ex6 / ex7 accuracy columns join the same upsert.
+  // Each uses GREATEST(COALESCE(col, 0), newAcc) so bests never regress. If
+  // the current session has zero answers for a given type, the existing
+  // column value is preserved verbatim (no-op assignment).
   await db
     .insert(userSongProgress)
     .values({
@@ -225,6 +245,9 @@ export async function saveSessionResults(
       completion_pct: Math.min(100, completionIncrement),
       ex1_2_3_best_accuracy: newEx1_2_3Accuracy,
       ex4_best_accuracy: newEx4Accuracy,
+      ex5_best_accuracy: newEx5Accuracy,
+      ex6_best_accuracy: newEx6Accuracy,
+      ex7_best_accuracy: newEx7Accuracy,
       sessions_completed: 1,
     })
     .onConflictDoUpdate({
@@ -239,6 +262,18 @@ export async function saveSessionResults(
           newEx4Accuracy !== null
             ? sql`GREATEST(COALESCE(${userSongProgress.ex4_best_accuracy}, 0), ${newEx4Accuracy})`
             : userSongProgress.ex4_best_accuracy,
+        ex5_best_accuracy:
+          newEx5Accuracy !== null
+            ? sql`GREATEST(COALESCE(${userSongProgress.ex5_best_accuracy}, 0), ${newEx5Accuracy})`
+            : userSongProgress.ex5_best_accuracy,
+        ex6_best_accuracy:
+          newEx6Accuracy !== null
+            ? sql`GREATEST(COALESCE(${userSongProgress.ex6_best_accuracy}, 0), ${newEx6Accuracy})`
+            : userSongProgress.ex6_best_accuracy,
+        ex7_best_accuracy:
+          newEx7Accuracy !== null
+            ? sql`GREATEST(COALESCE(${userSongProgress.ex7_best_accuracy}, 0), ${newEx7Accuracy})`
+            : userSongProgress.ex7_best_accuracy,
         sessions_completed: sql`${userSongProgress.sessions_completed} + 1`,
         updated_at: sql`NOW()`,
       },
@@ -419,6 +454,41 @@ export async function saveSessionResults(
     new: Number(first?.new_count ?? 0),
   };
 
+  // --- Step 9: Counter-increment safety-net for ex5/6/7 ---
+  //
+  // Phase 10 Plan 06: recordVocabAnswer already increments the counter on the
+  // first per-vocab write for listening_drill / grammar_conjugation (when
+  // vocabItemId is present). sentence_order AND synthetic-vocab grammar_
+  // conjugation answers carry the empty-string sentinel and do not go through
+  // recordVocabAnswer — so the counter would never get stamped via that path.
+  //
+  // At end-of-session we stamp one counter row per family present in the
+  // answer batch. ON CONFLICT DO NOTHING guarantees no double-increment
+  // against any prior per-answer stamp. This is the durable backstop for the
+  // "first answer of first question" CONTEXT requirement when answers bypass
+  // the per-vocab FSRS path.
+  //
+  // No server-side re-check here — that path is owned by recordVocabAnswer /
+  // recordAdvancedDrillAttempt. By the time saveSessionResults runs, the
+  // session has completed; tightening the quota post-hoc would invalidate
+  // work already rewarded in the ex5/6/7 columns.
+  const familiesTouched = new Set<QuotaFamily>();
+  for (const a of answers) {
+    const fam = QUOTA_FAMILY[a.type] as QuotaFamily | undefined;
+    if (fam) familiesTouched.add(fam);
+  }
+  for (const family of familiesTouched) {
+    try {
+      await recordSongAttempt(userId, family, songVersionId);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(
+        `[saveSessionResults] counter safety-net increment failed (family=${family}, song=${songVersionId}):`,
+        err
+      );
+    }
+  }
+
   return {
     completionPct: updated.completion_pct,
     stars,
@@ -542,6 +612,68 @@ export async function recordVocabAnswer(
     response_time_ms: responseTimeMs,
   });
 
+  // Phase 10 Plan 06 — Counter-increment on first answer per song.
+  //
+  // When the exercise type is song_quota-gated (listening_drill /
+  // grammar_conjugation / sentence_order) AND the caller supplied a real
+  // songVersionId, stamp the counter. ON CONFLICT DO NOTHING guarantees
+  // idempotency across session resumes + rapid consecutive answers (Pitfall 5
+  // immune by construction).
+  //
+  // Counter increment happens AFTER the successful FSRS + log writes so a
+  // failed mastery upsert short-circuits without consuming a quota slot.
+  //
+  // Premium users still get a counter row — this preserves downgrade-
+  // reconciliation semantics (set of attempted songs is known without
+  // retroactive backfill when premium lapses).
+  //
+  // Server-side re-check: after the insert, we re-count rows for the family.
+  // If the user is now OVER limit (cross-device / cross-tab race overshot the
+  // tab-open gate) AND they're not premium, we refund the insert + throw a
+  // QuotaExhaustedError. RESEARCH Pitfall 6 trade-off: one answer of slippage
+  // possible before the refund — documented in upsell copy.
+  if (songVersionId && QUOTA_FAMILY[exerciseType]) {
+    const family = QUOTA_FAMILY[exerciseType] as QuotaFamily;
+    try {
+      await recordSongAttempt(userId, family, songVersionId);
+
+      // Re-check after the insert. Premium users skip the re-check — their
+      // quota is effectively unbounded, so a post-insert count that exceeds
+      // the free-tier limit is expected.
+      const premium = await isPremium(userId);
+      if (!premium) {
+        const count = await getSongCountForFamily(userId, family);
+        const limit = QUOTA_LIMITS[family];
+        if (count > limit) {
+          // Refund — delete THIS (user, family, song) row so the user retains
+          // access to their already-counted songs. `count > limit` implies
+          // the current insert is the overshoot; deleting it brings count
+          // back to the limit.
+          await db
+            .delete(userExerciseSongCounters)
+            .where(
+              and(
+                eq(userExerciseSongCounters.user_id, userId),
+                eq(userExerciseSongCounters.exercise_family, family),
+                eq(userExerciseSongCounters.song_version_id, songVersionId)
+              )
+            );
+          throw new QuotaExhaustedError(family);
+        }
+      }
+    } catch (err) {
+      // Re-throw QuotaExhaustedError so the caller can surface the upsell.
+      if (err instanceof QuotaExhaustedError) throw err;
+      // Other errors (connection drop, transient) are logged but do not fail
+      // the answer record — the FSRS write is the durability-critical path.
+      // eslint-disable-next-line no-console
+      console.error(
+        `[recordVocabAnswer] counter increment failed (family=${family}, song=${songVersionId}):`,
+        err
+      );
+    }
+  }
+
   return {
     newTier: tierFor(next.state),
     newState: next.state,
@@ -549,4 +681,63 @@ export async function recordVocabAnswer(
     lapses: next.lapses,
     due: next.due.toISOString(),
   };
+}
+
+// ---------------------------------------------------------------------------
+// Phase 10 Plan 06 — recordAdvancedDrillAttempt
+//
+// Used by SentenceOrderCard and any caller where vocabItemId is the empty-
+// string sentinel (verse-centric questions). Performs the same counter insert
+// + server-side re-check as recordVocabAnswer — decoupled so callers that
+// bypass per-vocab FSRS writes still consume the free-tier quota.
+//
+// Exposed as its own server action (not inlined) so:
+//   1. SentenceOrderCard stays free of FSRS imports.
+//   2. The re-check + refund path has a single, testable code path.
+//   3. Future verse-centric exercise types can reuse it without modifying
+//      recordVocabAnswer's signature.
+// ---------------------------------------------------------------------------
+
+export async function recordAdvancedDrillAttempt(
+  userId: string,
+  songVersionId: string,
+  exerciseType: ExerciseType
+): Promise<{ ok: true } | { ok: false; reason: "quota_exhausted"; family: QuotaFamily }> {
+  const family = QUOTA_FAMILY[exerciseType] as QuotaFamily | undefined;
+  if (!family) {
+    // Non-gated type — nothing to do.
+    return { ok: true };
+  }
+  if (!userId || !songVersionId) return { ok: true };
+
+  try {
+    await recordSongAttempt(userId, family, songVersionId);
+
+    const premium = await isPremium(userId);
+    if (premium) return { ok: true };
+
+    const count = await getSongCountForFamily(userId, family);
+    const limit = QUOTA_LIMITS[family];
+    if (count > limit) {
+      await db
+        .delete(userExerciseSongCounters)
+        .where(
+          and(
+            eq(userExerciseSongCounters.user_id, userId),
+            eq(userExerciseSongCounters.exercise_family, family),
+            eq(userExerciseSongCounters.song_version_id, songVersionId)
+          )
+        );
+      return { ok: false, reason: "quota_exhausted", family };
+    }
+    return { ok: true };
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(
+      `[recordAdvancedDrillAttempt] counter increment failed (family=${family}, song=${songVersionId}):`,
+      err
+    );
+    // On transient error, allow through (the tab-open gate already approved).
+    return { ok: true };
+  }
 }
