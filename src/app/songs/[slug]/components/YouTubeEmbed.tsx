@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import { usePlayer } from "./PlayerContext";
+import { useEffect, useRef, useCallback, useState } from "react";
+import { usePlayer, type EmbedState } from "./PlayerContext";
 
 // YouTube IFrame API global types
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -14,7 +14,8 @@ declare global {
 }
 
 /**
- * Embed states surfaced via the `data-yt-state` attribute.
+ * Embed state semantics (type imported from ./PlayerContext, owned there since
+ * Plan 10-02 promoted it out of YouTubeEmbed-local state):
  *
  * - "loading": initial state; iframe API has not yet fired onReady or onError.
  * - "ready":   onReady fired; the player is interactive.
@@ -28,7 +29,6 @@ declare global {
  * tests/e2e/regression-geo-fallback.spec.ts asserts both that it appears and
  * that the surrounding lesson content is not gated by the player failing.
  */
-type EmbedState = "loading" | "ready" | "error";
 
 /**
  * Watchdog timeout (ms). If the player has not transitioned to "ready" within
@@ -45,7 +45,8 @@ export default function YouTubeEmbed({
   videoId: string;
   videoIdShort?: string | null;
 }) {
-  const { setCurrentTimeMs } = usePlayer();
+  const { setCurrentTimeMs, setEmbedState, _registerApi, embedState } =
+    usePlayer();
   const hasShort = !!videoIdShort;
   const [version, setVersion] = useState<"short" | "full">(
     hasShort ? "short" : "full"
@@ -58,10 +59,11 @@ export default function YouTubeEmbed({
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const watchdogRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Single-source-of-truth for the embed UI state. Separate state per `currentId`
-  // is achieved by resetting it on the same effect that re-creates the player
-  // (see useEffect below) — version toggles also reset the loading clock.
-  const [embedState, setEmbedState] = useState<EmbedState>("loading");
+  // Plan 10-02: embedState is owned by PlayerContext (promoted from local
+  // state). YouTubeEmbed drives it via `setEmbedState` so downstream consumers
+  // (ListeningDrillCard, etc.) can read it without importing YouTubeEmbed.
+  // EmbedState is re-imported above to keep this file's type contract
+  // self-documenting even though the value lives in the context.
 
   const startTracking = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -125,6 +127,25 @@ export default function YouTubeEmbed({
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (window as any).__kbPlayer = event.target;
             }
+            // Plan 10-02: production-grade imperative API registration. The raw
+            // YT.Player reference stays scoped to this closure — only the three
+            // verbs (seekTo/play/pause) cross the PlayerContext boundary. The
+            // seekTo signature converts ms → seconds internally so consumers
+            // speak the same ms vocabulary as Verse.start_time_ms.
+            //
+            // Registration-bundle pattern (equivalent surface to the plan's
+            // setSeekTo / setPlay / setPause / setIsReady discrete setters —
+            // one _registerApi call dispatches all four via a single ref).
+            _registerApi({
+              seekTo: (ms: number) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (event.target as any).seekTo(ms / 1000, true);
+              },
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              play: () => (event.target as any).playVideo(),
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              pause: () => (event.target as any).pauseVideo(),
+            });
           },
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           onStateChange: (event: any) => {
@@ -165,7 +186,7 @@ export default function YouTubeEmbed({
     watchdogRef.current = setTimeout(() => {
       // Use the functional form so we don't accidentally overwrite a "ready"
       // state set by onReady firing in the same tick as the watchdog.
-      setEmbedState((prev) => (prev === "loading" ? "error" : prev));
+      setEmbedState((prev: EmbedState) => (prev === "loading" ? "error" : prev));
     }, WATCHDOG_MS);
 
     return () => {
@@ -178,8 +199,13 @@ export default function YouTubeEmbed({
         playerRef.current.destroy();
         playerRef.current = null;
       }
+      // Plan 10-02: clear the registered imperative API so ListeningDrillCard
+      // and other consumers see `isReady === false` after the embed tears down
+      // (version toggle, unmount). Prevents stale seekTo/play calls from
+      // reaching a destroyed YT.Player.
+      _registerApi(null);
     };
-  }, [currentId, startTracking, stopTracking]);
+  }, [currentId, startTracking, stopTracking, setEmbedState, _registerApi]);
 
   return (
     <div>

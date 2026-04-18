@@ -1,4 +1,5 @@
 import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
 import path from "path";
 
 /**
@@ -12,11 +13,22 @@ import path from "path";
  * Test helpers live in tests/support/** and are NOT test files (excluded).
  */
 export default defineConfig({
+  // React plugin handles the JSX transform for .tsx test files. tsconfig has
+  // `jsx: "preserve"` (Next.js owns the transform in prod) so Vite must supply
+  // its own JSX loader for the test-time compile.
+  plugins: [react()],
   test: {
     globals: true,
     environment: "node",
+    // Per-file environment override is done via a `// @vitest-environment jsdom`
+    // directive on the first line of a component test. Phase 10-02 introduced
+    // the first .tsx test in the repo (src/app/songs/[slug]/components/
+    // __tests__/PlayerContext.test.tsx). `node` stays the default because it
+    // is ~2-3x faster and every pre-10-02 test is pure TS. Legacy
+    // `environmentMatchGlobs` was removed in vitest v4 — use the directive.
     include: [
       "src/**/*.{test,spec}.ts",
+      "src/**/*.{test,spec}.tsx",
       "tests/integration/**/*.{test,spec}.ts",
       "tests/unit/**/*.{test,spec}.ts",
     ],
