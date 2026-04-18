@@ -14,6 +14,7 @@ import {
   QUOTA_LIMITS,
   type QuotaFamily,
 } from "@/lib/exercises/feature-flags";
+import { QuotaExhaustedError } from "@/lib/exercises/errors";
 import { recordSongAttempt, getSongCountForFamily } from "@/lib/exercises/counters";
 import { isPremium } from "@/app/actions/userPrefs";
 import { userExerciseSongCounters } from "@/lib/db/schema";
@@ -88,27 +89,9 @@ export async function getAdvancedDrillAccess(
   };
 }
 
-// ---------------------------------------------------------------------------
-// Phase 10 Plan 06 — Quota-exhausted error signal (thrown from recordVocabAnswer
-// after the counter insert + re-count uncovers a race-condition overshoot).
-//
-// The caller (ExerciseSession / ConjugationCard / ListeningDrillCard /
-// SentenceOrderCard) can catch this and show the post-answer upsell modal.
-// RESEARCH Pitfall 6 trade-off: one answer of slippage is possible under
-// cross-device race — documented in the upsell copy ("You just used your
-// last free song").
-// ---------------------------------------------------------------------------
-
-export class QuotaExhaustedError extends Error {
-  readonly family: QuotaFamily;
-  readonly quotaLimit: number;
-  constructor(family: QuotaFamily) {
-    super(`Quota exhausted for family ${family}`);
-    this.name = "QuotaExhaustedError";
-    this.family = family;
-    this.quotaLimit = QUOTA_LIMITS[family];
-  }
-}
+// Phase 10 Plan 06 — QuotaExhaustedError lives in lib/exercises/errors.ts so
+// it can be imported by test files without violating the "use server" rule that
+// prohibits exporting non-async values from this file. Imported above.
 
 // ---------------------------------------------------------------------------
 // Types

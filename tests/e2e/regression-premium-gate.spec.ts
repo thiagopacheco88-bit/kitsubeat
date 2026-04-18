@@ -46,7 +46,8 @@ import { sql } from "drizzle-orm";
 import { test, expect } from "../support/fixtures";
 import { checkExerciseAccess } from "@/lib/exercises/access";
 import { EXERCISE_FEATURE_FLAGS } from "@/lib/exercises/feature-flags";
-import { recordVocabAnswer, QuotaExhaustedError } from "@/app/actions/exercises";
+import { recordVocabAnswer } from "@/app/actions/exercises";
+import { QuotaExhaustedError } from "@/lib/exercises/errors";
 import { getTestDb, TEST_USER_ID } from "../support/test-db";
 
 const SLUG = "again-yui";
