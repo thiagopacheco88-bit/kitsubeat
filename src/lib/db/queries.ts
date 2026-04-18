@@ -172,39 +172,6 @@ export async function getFeaturedSongs(limit: number = 6) {
     .limit(limit);
 }
 
-export type FeaturedSong = Awaited<ReturnType<typeof getFeaturedSongs>>[number];
-
-/**
- * Get anime names with song counts for the "Browse by Anime" section.
- */
-export async function getTopAnime(limit: number = 8) {
-  return db
-    .select({
-      anime: songs.anime,
-      count: sql<number>`count(*)::int`,
-      youtube_id: sql<string | null>`(array_agg(
-        (SELECT sv.youtube_id FROM song_versions sv
-         WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
-         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
-         LIMIT 1)
-        ORDER BY songs.popularity_rank ASC NULLS LAST
-      ) FILTER (WHERE EXISTS (
-        SELECT 1 FROM song_versions sv
-        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
-      )))[1]`,
-    })
-    .from(songs)
-    .where(sql`EXISTS (
-      SELECT 1 FROM song_versions sv
-      WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    )`)
-    .groupBy(songs.anime)
-    .orderBy(sql`count(*) desc`)
-    .limit(limit);
-}
-
-export type AnimeGroup = Awaited<ReturnType<typeof getTopAnime>>[number];
-
 /**
  * Get anime franchises (merging seasons/movies) with song counts.
  */
@@ -260,8 +227,6 @@ export async function getTopAnimeFranchises(limit: number = 10) {
     .limit(limit);
 }
 
-export type AnimeFranchise = Awaited<ReturnType<typeof getTopAnimeFranchises>>[number];
-
 /**
  * Get top artists with song counts.
  */
@@ -287,8 +252,6 @@ export async function getTopArtists(limit: number = 10) {
     .orderBy(sql`count(*) desc`)
     .limit(limit);
 }
-
-export type ArtistGroup = Awaited<ReturnType<typeof getTopArtists>>[number];
 
 // ---------------------------------------------------------------------------
 // vocab_global materialized view
@@ -451,35 +414,6 @@ export async function getUserSongProgressBatch(
     });
   }
   return result;
-}
-
-/**
- * Get classic/most popular songs.
- */
-export async function getClassicSongs(limit: number = 10) {
-  return db
-    .select({
-      id: songs.id,
-      slug: songs.slug,
-      title: songs.title,
-      artist: songs.artist,
-      anime: songs.anime,
-      youtube_id: sql<string | null>`(
-        SELECT sv.youtube_id FROM song_versions sv
-        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
-        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
-        LIMIT 1
-      )`,
-      jlpt_level: songs.jlpt_level,
-      difficulty_tier: songs.difficulty_tier,
-    })
-    .from(songs)
-    .where(sql`EXISTS (
-      SELECT 1 FROM song_versions sv
-      WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.popularity_rank} IS NOT NULL`)
-    .orderBy(asc(songs.popularity_rank))
-    .limit(limit);
 }
 
 // =============================================================================

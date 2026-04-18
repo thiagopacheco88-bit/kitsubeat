@@ -123,9 +123,7 @@ export const songVersions = pgTable("song_versions", {
 ]);
 
 export type Song = typeof songs.$inferSelect;
-export type NewSong = typeof songs.$inferInsert;
 export type SongVersion = typeof songVersions.$inferSelect;
-export type NewSongVersion = typeof songVersions.$inferInsert;
 
 // =============================================================================
 // Phase 7: Data Foundation — vocabulary tracking and subscriptions
@@ -166,7 +164,6 @@ export const vocabularyItems = pgTable("vocabulary_items", {
 ]);
 
 export type VocabularyItem = typeof vocabularyItems.$inferSelect;
-export type NewVocabularyItem = typeof vocabularyItems.$inferInsert;
 
 /**
  * user_vocab_mastery table — per-user FSRS state for each vocabulary item.
@@ -205,7 +202,6 @@ export const userVocabMastery = pgTable("user_vocab_mastery", {
 ]);
 
 export type UserVocabMastery = typeof userVocabMastery.$inferSelect;
-export type NewUserVocabMastery = typeof userVocabMastery.$inferInsert;
 
 /**
  * user_exercise_log table — immutable record of every exercise attempt.
@@ -230,7 +226,6 @@ export const userExerciseLog = pgTable("user_exercise_log", {
 });
 
 export type UserExerciseLog = typeof userExerciseLog.$inferSelect;
-export type NewUserExerciseLog = typeof userExerciseLog.$inferInsert;
 
 /**
  * subscriptions table — generic subscription record, not tied to a specific provider.
@@ -260,7 +255,6 @@ export const subscriptions = pgTable("subscriptions", {
 });
 
 export type Subscription = typeof subscriptions.$inferSelect;
-export type NewSubscription = typeof subscriptions.$inferInsert;
 
 /**
  * users table — Phase 08.4.
@@ -283,7 +277,6 @@ export const users = pgTable("users", {
 });
 
 export type User = typeof users.$inferSelect;
-export type NewUser = typeof users.$inferInsert;
 
 // =============================================================================
 // Phase 8: Exercise Engine — song-level progress tracking
@@ -332,7 +325,6 @@ export const userSongProgress = pgTable("user_song_progress", {
 ]);
 
 export type UserSongProgress = typeof userSongProgress.$inferSelect;
-export type NewUserSongProgress = typeof userSongProgress.$inferInsert;
 
 /**
  * user_exercise_song_counters table — Phase 10 premium quota gate.
@@ -366,7 +358,6 @@ export const userExerciseSongCounters = pgTable("user_exercise_song_counters", {
 ]);
 
 export type UserExerciseSongCounter = typeof userExerciseSongCounters.$inferSelect;
-export type NewUserExerciseSongCounter = typeof userExerciseSongCounters.$inferInsert;
 
 /**
  * deriveStars — compute star rating from progress at read time.

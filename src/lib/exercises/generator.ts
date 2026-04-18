@@ -499,7 +499,7 @@ function makeQuestion(
 // questions. Songs whose grammar points yield zero structured conjugations
 // simply contribute zero grammar_conjugation questions — no throw.
 
-export function makeGrammarConjugationQuestion(
+function makeGrammarConjugationQuestion(
   grammarPoint: GrammarPoint,
   vocabulary: VocabEntry[],
   verses: Verse[],
