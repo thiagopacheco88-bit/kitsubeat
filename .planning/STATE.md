@@ -187,5 +187,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Phase 9 context gathered (commit 638553f). Decisions captured across 4 areas: drill interaction & feedback, mastery & row unlock display, session & entry flow, anonymous state & script scope.
-Resume file: .planning/phases/09-kana-trainer/09-CONTEXT.md
+Stopped at: Phase 10 context gathered (commit 9e5ecdb). Decisions captured across 4 areas: Grammar Conjugation format, Listening Drill behavior, Sentence Order interaction, Premium gate + Star 3 flow. Key reshape: FREE-05 becomes two independent counters (10 free listening songs, 3 free shared conjugation+sentence-order songs).
+Resume file: .planning/phases/10-advanced-exercises-full-mastery/10-CONTEXT.md
