@@ -82,6 +82,7 @@ export function getTestDb(): NeonHttpDatabase {
  *   - user_song_progress
  *   - user_vocab_mastery
  *   - user_exercise_log
+ *   - user_exercise_song_counters  (Phase 10 premium quota gate)
  *
  * Idempotent. Safe to call when the user has no rows.
  */
@@ -92,6 +93,12 @@ export async function resetTestProgress(userId: string): Promise<void> {
   await db.execute(sql`DELETE FROM user_song_progress WHERE user_id = ${userId}`);
   await db.execute(sql`DELETE FROM user_vocab_mastery WHERE user_id = ${userId}`);
   await db.execute(sql`DELETE FROM user_exercise_log WHERE user_id = ${userId}`);
+  // Phase 10: clear per-user-per-family song-counter rows so the quota gate
+  // tests start from zero for each run. Guarded with IF EXISTS because the
+  // table may not yet exist in TEST_DATABASE_URL if migrations haven't run.
+  await db.execute(
+    sql`DELETE FROM user_exercise_song_counters WHERE user_id = ${userId}`
+  );
 }
 
 /**
