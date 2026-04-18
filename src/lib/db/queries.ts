@@ -184,12 +184,13 @@ export async function getTopAnime(limit: number = 8) {
       count: sql<number>`count(*)::int`,
       youtube_id: sql<string | null>`(array_agg(
         (SELECT sv.youtube_id FROM song_versions sv
-         WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+         WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
+         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
          LIMIT 1)
         ORDER BY songs.popularity_rank ASC NULLS LAST
       ) FILTER (WHERE EXISTS (
         SELECT 1 FROM song_versions sv
-        WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
       )))[1]`,
     })
     .from(songs)
@@ -219,12 +220,13 @@ export async function getTopAnimeFranchises(limit: number = 10) {
       count: sql<number>`count(*)::int`,
       youtube_id: sql<string | null>`(array_agg(
         (SELECT sv.youtube_id FROM song_versions sv
-         WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+         WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
+         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
          LIMIT 1)
         ORDER BY songs.popularity_rank ASC NULLS LAST
       ) FILTER (WHERE EXISTS (
         SELECT 1 FROM song_versions sv
-        WHERE sv.song_id = songs.id AND sv.version_type = 'tv' AND sv.youtube_id IS NOT NULL
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
       )))[1]`,
     })
     .from(songs)

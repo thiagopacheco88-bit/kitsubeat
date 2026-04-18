@@ -1,14 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getFeaturedSongs, getTopAnime } from "@/lib/db/queries";
+import {
+  getFeaturedSongs,
+  getTopAnimeFranchises,
+  getBeginnerSongs,
+  getRecentSongs,
+  getTopArtists,
+} from "@/lib/db/queries";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [featured, topAnime] = await Promise.all([
-    getFeaturedSongs(6),
-    getTopAnime(20),
-  ]);
+  const [featured, topFranchises, beginner, recent, topArtists] =
+    await Promise.all([
+      getFeaturedSongs(12),
+      getTopAnimeFranchises(20),
+      getBeginnerSongs(12),
+      getRecentSongs(12),
+      getTopArtists(12),
+    ]);
 
   return (
     <div className="mx-auto max-w-6xl px-4">
@@ -63,103 +73,147 @@ export default async function HomePage() {
         />
       </div>
 
-      {/* Browse by Anime */}
-      {topAnime.length > 0 && (
-        <section className="pb-12">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-white">
-              Browse by Anime
-            </h2>
-            <Link
-              href="/songs"
-              className="text-sm text-gray-400 transition-colors hover:text-white"
-            >
-              View all &rarr;
-            </Link>
-          </div>
-          <div className="relative">
-            <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-thin snap-x snap-mandatory">
-              {topAnime.map((anime) => (
-                <Link
-                  key={anime.anime}
-                  href={`/songs?search=${encodeURIComponent(anime.anime)}`}
-                  className="group relative shrink-0 snap-start overflow-hidden rounded-lg border border-gray-800 bg-gray-900 transition-colors hover:border-gray-600"
-                  style={{ width: "220px" }}
-                >
-                  {anime.youtube_id && (
-                    <div className="aspect-video w-full overflow-hidden bg-gray-800">
-                      <img
-                        src={`https://img.youtube.com/vi/${anime.youtube_id}/mqdefault.jpg`}
-                        alt={anime.anime}
-                        className="h-full w-full object-cover opacity-60 transition-all group-hover:opacity-80 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent" />
-                    </div>
-                  )}
-                  <div className="absolute bottom-0 left-0 right-0 p-3">
-                    <h3 className="text-sm font-semibold text-white truncate">
-                      {anime.anime}
-                    </h3>
-                    <p className="text-xs text-gray-400">
-                      {anime.count} song{anime.count !== 1 ? "s" : ""}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+      {topFranchises.length > 0 && (
+        <Carousel title="Browse by Anime" viewAllHref="/songs">
+          {topFranchises.map((anime) => (
+            <MediaCard
+              key={anime.anime}
+              href={`/songs?search=${encodeURIComponent(anime.anime)}`}
+              title={anime.anime}
+              subtitle={`${anime.count} song${anime.count !== 1 ? "s" : ""}`}
+              youtubeId={anime.youtube_id}
+            />
+          ))}
+        </Carousel>
       )}
 
-      {/* Featured Songs */}
       {featured.length > 0 && (
-        <section className="pb-16">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-white">
-              Featured Songs
-            </h2>
-            <Link
-              href="/songs?view=all"
-              className="text-sm text-gray-400 transition-colors hover:text-white"
-            >
-              View all &rarr;
-            </Link>
-          </div>
-          <div className="relative">
-            <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-thin snap-x snap-mandatory">
-              {featured.map((song) => (
-                <Link
-                  key={song.id}
-                  href={`/songs/${song.slug}`}
-                  className="group relative shrink-0 snap-start overflow-hidden rounded-lg border border-gray-800 bg-gray-900 transition-colors hover:border-gray-600"
-                  style={{ width: "220px" }}
-                >
-                  {song.youtube_id && (
-                    <div className="aspect-video w-full overflow-hidden bg-gray-800">
-                      <img
-                        src={`https://img.youtube.com/vi/${song.youtube_id}/mqdefault.jpg`}
-                        alt={song.title}
-                        className="h-full w-full object-cover opacity-60 transition-all group-hover:opacity-80 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent" />
-                    </div>
-                  )}
-                  <div className="absolute bottom-0 left-0 right-0 p-3">
-                    <h3 className="text-sm font-semibold text-white truncate">
-                      {song.title}
-                    </h3>
-                    <p className="text-xs text-gray-400 truncate">
-                      {song.artist}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Carousel title="Featured Songs" viewAllHref="/songs?view=all">
+          {featured.map((song) => (
+            <MediaCard
+              key={song.id}
+              href={`/songs/${song.slug}`}
+              title={song.title}
+              subtitle={song.artist}
+              youtubeId={song.youtube_id}
+            />
+          ))}
+        </Carousel>
+      )}
+
+      {beginner.length > 0 && (
+        <Carousel
+          title="Beginner-Friendly (N5/N4)"
+          viewAllHref="/songs?view=all&jlpt=beginner"
+        >
+          {beginner.map((song) => (
+            <MediaCard
+              key={song.id}
+              href={`/songs/${song.slug}`}
+              title={song.title}
+              subtitle={song.artist}
+              youtubeId={song.youtube_id}
+            />
+          ))}
+        </Carousel>
+      )}
+
+      {recent.length > 0 && (
+        <Carousel title="Recently Added" viewAllHref="/songs?view=all">
+          {recent.map((song) => (
+            <MediaCard
+              key={song.id}
+              href={`/songs/${song.slug}`}
+              title={song.title}
+              subtitle={song.artist}
+              youtubeId={song.youtube_id}
+            />
+          ))}
+        </Carousel>
+      )}
+
+      {topArtists.length > 0 && (
+        <Carousel title="Top Artists" viewAllHref="/songs?view=all">
+          {topArtists.map((a) => (
+            <MediaCard
+              key={a.artist}
+              href={`/songs?search=${encodeURIComponent(a.artist)}`}
+              title={a.artist}
+              subtitle={`${a.count} song${a.count !== 1 ? "s" : ""}`}
+              youtubeId={a.youtube_id}
+            />
+          ))}
+        </Carousel>
       )}
     </div>
+  );
+}
+
+function Carousel({
+  title,
+  viewAllHref,
+  children,
+}: {
+  title: string;
+  viewAllHref: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="pb-12">
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="text-xl font-semibold text-white">{title}</h2>
+        <Link
+          href={viewAllHref}
+          className="text-sm text-gray-400 transition-colors hover:text-white"
+        >
+          View all &rarr;
+        </Link>
+      </div>
+      <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-thin snap-x snap-mandatory">
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function MediaCard({
+  href,
+  title,
+  subtitle,
+  youtubeId,
+}: {
+  href: string;
+  title: string;
+  subtitle: string;
+  youtubeId: string | null;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group relative shrink-0 snap-start overflow-hidden rounded-lg border border-gray-800 bg-gray-900 transition-colors hover:border-gray-600"
+      style={{ width: "220px" }}
+    >
+      <div className="relative aspect-video w-full overflow-hidden bg-gray-800">
+        {youtubeId ? (
+          <>
+            <img
+              src={`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`}
+              alt={title}
+              className="h-full w-full object-cover opacity-60 transition-all group-hover:opacity-80 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent" />
+          </>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-800 to-gray-950 text-3xl font-bold text-gray-700">
+            ♪
+          </div>
+        )}
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 p-3">
+        <h3 className="truncate text-sm font-semibold text-white">{title}</h3>
+        <p className="truncate text-xs text-gray-400">{subtitle}</p>
+      </div>
+    </Link>
   );
 }

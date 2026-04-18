@@ -53,7 +53,7 @@ export default async function GlobalLearnedCounter({ variant = "nav" }: Props) {
   return (
     <Link
       href="/vocabulary"
-      className="text-sm text-gray-400 transition-colors hover:text-white"
+      className="whitespace-nowrap text-sm text-gray-400 transition-colors hover:text-white"
       aria-label={`${count} unique Japanese words learned`}
     >
       {count} {count === 1 ? "word" : "words"}
