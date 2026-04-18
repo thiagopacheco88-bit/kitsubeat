@@ -46,7 +46,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [ ] **CROSS-01**: User sees how many vocabulary words they already know from other songs when viewing a song page ("You know 8/12 words")
 - [ ] **CROSS-02**: User sees which songs share a vocabulary word ("Seen in: Attack on Titan OP, Demon Slayer OP")
 - [ ] **CROSS-03**: User sees a global counter of unique Japanese words learned across all songs
-- [ ] **CROSS-04**: Mastering a word in one song automatically reflects in all other songs containing that word
+- [x] **CROSS-04**: Mastering a word in one song automatically reflects in all other songs containing that word
 - [x] **CROSS-05**: User can view a vocabulary dashboard showing all learned words, their mastery level, and source songs
 
 ### Anime Scenes
@@ -69,7 +69,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [x] **FREE-01**: Exercise system is built with a premium gate abstraction so individual features can be toggled free/premium without code changes
 - [x] **FREE-02**: Per-song exercises (all 7 types) are free for all users
 - [ ] **FREE-03**: Kana trainer is free for all users
-- [ ] **FREE-04**: Cross-song SRS review queue is premium-only (view-only counts are free)
+- [x] **FREE-04**: Cross-song SRS review queue is premium-only (view-only counts are free)
 - [ ] **FREE-05**: Listening drills are free for first 3 songs, then premium-gated
 - [x] **FREE-06**: Free/premium boundaries are enforced at the data access layer, not hidden UI elements
 
@@ -148,9 +148,9 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | CROSS-01 | Phase 11 | Pending |
 | CROSS-02 | Phase 11 | Pending |
 | CROSS-03 | Phase 11 | Pending |
-| CROSS-04 | Phase 11 | Pending |
+| CROSS-04 | Phase 11 | Complete |
 | CROSS-05 | Phase 11 | Complete |
-| FREE-04 | Phase 11 | Pending |
+| FREE-04 | Phase 11 | Complete |
 | SCENE-01 | Phase 12 | Pending |
 | SCENE-02 | Phase 12 | Pending |
 | SCENE-03 | Phase 12 | Pending |

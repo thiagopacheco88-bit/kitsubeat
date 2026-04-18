@@ -63,6 +63,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.4 P04 | 3 | 2 tasks | 2 files |
 | Phase 11-cross-song-vocabulary P01 | 20 | 2 tasks | 4 files |
 | Phase 11-cross-song-vocabulary P04 | 4 | 2 tasks | 4 files |
+| Phase 11-cross-song-vocabulary P05 | 8 | 3 tasks | 12 files |
 | Phase 09-kana-trainer P01 | 3 | 3 tasks | 3 files |
 | Phase 09-kana-trainer P01 | 3 | 3 tasks | 3 files |
 
@@ -180,6 +181,12 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 11-04]: In-memory FREE_PREVIEW_LIMIT=20 slice vs SQL LIMIT — single query, accurate total for CTA; revisit if scale degrades
 - [Phase 11-04]: getVocabularySources private to page.tsx — page-local only, not exported from queries.ts
 - [Phase 11-04]: SeenInExpander lazy fetch + useState cache — one API hit per word per session, no O(N) page-load storms
+- [Phase 11-05]: QuestionCard/FeedbackPanel WRAPPED (not reused) because both call useExerciseSession(); wrappers copy JSX and swap stores; refactoring deferred
+- [Phase 11-05]: hashVocabId polynomial rolling hash (base 31, bitwise-OR 0, Math.abs) for deterministic exercise-type rotation in review queue
+- [Phase 11-05]: consumeNewCardBudget uses INSERT...ON CONFLICT DO UPDATE with CASE for atomic daily-counter rollover at UTC midnight; no cron job needed
+- [Phase 11-05]: users.new_card_cap (Phase 08.4, per-session, user-tunable) and users.review_new_today (Phase 11, per-day, fixed at REVIEW_NEW_DAILY_CAP) are independent columns with distinct semantics
+- [Phase 11-05]: daily_new_card_cap_reached error-code contract: ReviewSession catches, prunes new cards, refetches /api/review/budget, shows non-blocking toast; card NOT marked answered
+- [Phase 11-05]: /api/review/queue includes vocabData inline (Record<id,VocabRow>) to avoid per-card roundtrip in ReviewSession
 - [Phase 09-kana-trainer]: Plan 09-01: KanaMode lives in src/lib/kana/types.ts (not in any UI component) so wave-3 plans 09-04 / 09-05 stay parallel-safe
 - [Phase 09-kana-trainer]: Plan 09-01: KANA_CHART hardcoded with Modified Hepburn (no wanakana dep) — single source of truth for hiragana/katakana/romaji
 - [Phase 09-kana-trainer]: Plan 09-01: char count locked at 104 (plan stated 105 but row breakdown sums to 104 — n-row was double-counted in the plan)
@@ -210,5 +217,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 09 Plan 01 — kana reference data module (types.ts, chart.ts, chart.test.ts). KANA_CHART has 104 entries (46 base + 20 dakuten + 5 handakuten + 33 yoon); 12 invariant tests passing. Plan 11 Plan 05 (/review queue) remains deferred.
+Stopped at: Completed Phase 11 Plan 05 (/review queue). buildReviewQueue + 13 tests, server actions, reviewSession Zustand store, /review page + all UI components. Phase 11 COMPLETE (5/5 plans).
 Resume file: .planning/phases/09-kana-trainer/09-02-PLAN.md

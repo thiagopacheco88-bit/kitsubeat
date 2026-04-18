@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 8: Exercise Engine & Star Mastery** - Build the full per-song exercise loop (4 core exercise types) with SRS progress persistence and 2-star mastery
 - [ ] **Phase 9: Kana Trainer** - Deliver a standalone hiragana/katakana trainer with row-by-row unlock and SRS-lite 10-star mastery
 - [ ] **Phase 10: Advanced Exercises & Full Mastery** - Add grammar conjugation, listening drill, and sentence order exercises to complete the 3-star system
-- [ ] **Phase 11: Cross-Song Vocabulary** - Surface vocabulary mastery across all songs and deliver the premium cross-song review dashboard
+- [x] **Phase 11: Cross-Song Vocabulary** - Surface vocabulary mastery across all songs and deliver the premium cross-song review dashboard (completed 2026-04-18)
 - [ ] **Phase 12: Anime Scenes & Cultural Vocabulary** - Extend the content universe with iconic anime scenes and anime-anchored cultural vocabulary drills
 
 ## Phase Details
@@ -257,7 +257,7 @@ Plans:
   3. User sees a global counter of unique Japanese words learned across all songs on their profile or dashboard
   4. Mastering a word in one song automatically reflects in all other songs sharing that vocabulary item — mastery is stored against the vocabulary_items UUID, not per-song
   5. Premium users can open a vocabulary dashboard listing all learned words with mastery level and source songs; the cross-song SRS review queue is premium-gated with free users seeing word counts but not the review queue
-**Plans:** 4/5 plans executed
+**Plans:** 5/5 plans complete
 Plans:
 - [x] 11-01-PLAN.md — Schema migration (review_new_today cols) + five read queries (known-count, global counter, seen-in-songs, dashboard, due-queue) + REVIEW_NEW_DAILY_CAP constant
 - [x] 11-02-PLAN.md — Song-page "You know X/Y words" pill: SSR in page.tsx, client refresh component, /api/review/known-count route
