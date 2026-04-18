@@ -39,7 +39,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [ ] **KANA-05**: Characters at 10 stars (mastered) appear at 1/5th normal frequency but still appear
 - [ ] **KANA-06**: Kana are introduced row-by-row (a-row, ka-row, etc.) — user must reach threshold on current row before next row unlocks
 - [ ] **KANA-07**: Trainer sessions are 20-question rounds with weighted random selection based on star level
-- [ ] **KANA-08**: Dakuten, handakuten, and combo kana (ya/yu/yo variants) are included as separate unlockable rows
+- [x] **KANA-08**: Dakuten, handakuten, and combo kana (ya/yu/yo variants) are included as separate unlockable rows
 
 ### Cross-Song Vocabulary
 
@@ -137,7 +137,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | KANA-05 | Phase 9 | Pending |
 | KANA-06 | Phase 9 | Pending |
 | KANA-07 | Phase 9 | Pending |
-| KANA-08 | Phase 9 | Pending |
+| KANA-08 | Phase 9 | Complete |
 | FREE-03 | Phase 9 | Pending |
 | EXER-05 | Phase 10 | Pending |
 | EXER-06 | Phase 10 | Pending |

@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 11 — Cross-Song Vocabulary (4/5 plans complete)
+**Current focus:** v2.0 Phase 09 — Kana Trainer (1/6 plans complete); Phase 11 Plan 05 (/review queue) deferred
 
 ## Current Position
 
-Phase: 11 of 11 (Cross-Song Vocabulary) — In Progress
-Plan: 4 of 5 complete; next: Phase 11 Plan 05 (/review queue)
-Status: Plans 11-02, 11-03, and 11-04 complete — KnownWordCount song-page pill, /api/review/known-count endpoint, seenInSongs in vocab-mastery API, MasteryDetailPopover "Seen in" section, GlobalLearnedCounter in root layout + profile, /vocabulary dashboard with tier-grouped list + URL-synced filters + premium preview cutoff. Commits efcac39, 12d1292, 6469e9b, 696ff1e, 98a7aec, c2c12ef.
-Last activity: 2026-04-18 — Plan 11-04 complete (Wave 3). Vocabulary dashboard at /vocabulary ships with Path B 3-bucket grouping, FilterControls, SeenInExpander.
+Phase: 09 of 11 (Kana Trainer) — In Progress
+Plan: 1 of 6 complete; next: Phase 09 Plan 02
+Status: Plan 09-01 complete — kana reference data module shipped: src/lib/kana/types.ts (KanaChar/KanaRow/Script/RowKind/KanaMode/MasteryMap), src/lib/kana/chart.ts (KANA_CHART with 104 entries — 46 base + 20 dakuten + 5 handakuten + 33 yoon — plus HIRAGANA_ROWS/KATAKANA_ROWS and ROW_UNLOCK tuning constants), src/lib/kana/__tests__/chart.test.ts (12 invariant tests passing). Commits de8d2f6, 018899e, c63d88c.
+Last activity: 2026-04-18 — Plan 09-01 complete (Wave 1). Authoritative kana data + types + invariant suite ready for downstream plans 09-02..09-06.
 
 Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 12
+- Total plans completed: 13
 - Average duration: 8 min
-- Total execution time: 1.61 hours
+- Total execution time: 1.66 hours
 
 **By Phase:**
 
@@ -32,8 +32,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 08.1-03 (4 min), 08.1-04 (9 min), 08.1-05 (11 min), 08.1-06 (14.5 min), 08.2-03 (8 min), 08.1-07 (7 min), 08.1-08 (9 min)
-- Trend: stable (08.1-08 — hardening plan landed in 9 min by reusing existing tsx/script + npm-script + Playwright config conventions; deviation 1 — quarantine env-sentinel — was the only architectural detour)
+- Last 7 plans: 08.1-05 (11 min), 08.1-06 (14.5 min), 08.2-03 (8 min), 08.1-07 (7 min), 08.1-08 (9 min), 11-04 (4 min), 09-01 (3 min)
+- Trend: improving (09-01 landed in 3 min — pure data + types + tests, no DB or runtime concerns; deviation 1 caught a plan-level off-by-one before it shipped)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -63,6 +63,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.4 P04 | 3 | 2 tasks | 2 files |
 | Phase 11-cross-song-vocabulary P01 | 20 | 2 tasks | 4 files |
 | Phase 11-cross-song-vocabulary P04 | 4 | 2 tasks | 4 files |
+| Phase 09-kana-trainer P01 | 3 | 3 tasks | 3 files |
+| Phase 09-kana-trainer P01 | 3 | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -178,6 +180,10 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 11-04]: In-memory FREE_PREVIEW_LIMIT=20 slice vs SQL LIMIT — single query, accurate total for CTA; revisit if scale degrades
 - [Phase 11-04]: getVocabularySources private to page.tsx — page-local only, not exported from queries.ts
 - [Phase 11-04]: SeenInExpander lazy fetch + useState cache — one API hit per word per session, no O(N) page-load storms
+- [Phase 09-kana-trainer]: Plan 09-01: KanaMode lives in src/lib/kana/types.ts (not in any UI component) so wave-3 plans 09-04 / 09-05 stay parallel-safe
+- [Phase 09-kana-trainer]: Plan 09-01: KANA_CHART hardcoded with Modified Hepburn (no wanakana dep) — single source of truth for hiragana/katakana/romaji
+- [Phase 09-kana-trainer]: Plan 09-01: char count locked at 104 (plan stated 105 but row breakdown sums to 104 — n-row was double-counted in the plan)
+- [Phase 09-kana-trainer]: Plan 09-01: ROW_UNLOCK_MASTERY_PCT (0.8) and ROW_UNLOCK_MIN_STARS (5) tuning constants exported from chart.ts — re-tuning is a 2-line edit
 
 ### Pending Todos
 
@@ -204,5 +210,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 11 Plan 04. /vocabulary dashboard with tier-grouped list, URL-synced filters, SeenInExpander, premium preview cutoff. Plan 05 (/review queue) remains.
-Resume file: .planning/phases/11-cross-song-vocabulary/11-05-PLAN.md
+Stopped at: Completed Phase 09 Plan 01 — kana reference data module (types.ts, chart.ts, chart.test.ts). KANA_CHART has 104 entries (46 base + 20 dakuten + 5 handakuten + 33 yoon); 12 invariant tests passing. Plan 11 Plan 05 (/review queue) remains deferred.
+Resume file: .planning/phases/09-kana-trainer/09-02-PLAN.md
