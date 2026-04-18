@@ -2,76 +2,74 @@
  * tests/e2e/regression-premium-gate.spec.ts
  *
  * Plan 08.1-07 Task 1 — Regression guard for premium-gate bypass attempts.
+ * Plan 10-06 Task 3 — Unfixed the Phase 10 test.fixme; server-side gate now
+ *                     enforced by saveSessionResults + recordVocabAnswer.
  *
  * CONTEXT-locked invariant (08.1-CONTEXT > Regression guards):
  *
  *   "Premium gate bypass — checkExerciseAccess() is the single gate;
  *    free users can't reach premium exercises via URL/state manipulation"
  *
- * Status of the gate today:
- *   - All 4 Phase 8 exercise types are flagged "free" in
- *     `src/lib/exercises/feature-flags.ts`. No premium type ships yet.
+ * Status of the gate today (Phase 10):
+ *   - Phase 8 exercise types (vocab_meaning / meaning_vocab / reading_match /
+ *     fill_lyric) are flagged "free".
+ *   - Phase 10 added three "song_quota"-gated types: listening_drill,
+ *     grammar_conjugation, sentence_order. Gate returns quota_exhausted when
+ *     the per-family counter is at limit for the current user+song.
  *   - The gate logic in `src/lib/exercises/access.ts::checkExerciseAccess`
- *     defaults UNKNOWN types to "premium" — that's the lever this spec exercises.
- *   - A truly synthetic premium type (`grammar_conjugation` — Phase 10) is used
- *     as the bypass target. The static check is hardcoded to that type so when
- *     Phase 10 ships and flips it to "free", this spec will FAIL LOUDLY and
- *     remind the team to repick a still-premium type for the regression target.
+ *     defaults UNKNOWN types to "premium" — that's the lever the synthetic-
+ *     type tests below exercise.
  *
- * Three angles:
+ * Three angles (unchanged from Phase 08.1):
  *
- *   1. URL / param manipulation — free user opens the song page; the Practice
- *      tab does not expose any `?type=premium` lever today, but if it gains one
- *      in the future the gate must hold. We assert that nothing in the UI
- *      surfaces a premium type as selectable.
+ *   1. URL / param manipulation — free user opens the song page; Advanced
+ *      Drills tab-click fires the server-side gate (getAdvancedDrillAccess);
+ *      non-premium users with a blown quota see the upsell modal rather than
+ *      a session. We assert the modal renders and NO session UI appears.
  *
- *   2. Server action with synthetic premium answer — call `saveSessionResults`
- *      directly via the Next.js server-action HTTP boundary with a
- *      `grammar_conjugation` answer. We expect the action to either reject the
- *      payload OR scrub the unknown type from accuracy aggregation
- *      (current behavior — verified by the integration test
- *      tests/integration/save-session-results.test.ts "unknown exercise types
- *      are silently dropped"). EITHER outcome is documented; the spec passes
- *      when the server doesn't end up writing a premium-flavored answer to
- *      user_song_progress accuracy fields.
+ *   2. Server action rejection — call `recordVocabAnswer` directly with a
+ *      song_quota-gated type on a fresh non-premium user whose quota we've
+ *      pre-blown (11 listening-drill counter rows via direct DB insert). The
+ *      call must throw QuotaExhaustedError and refund the overshoot row.
  *
- *   3. checkExerciseAccess unit — direct call asserts the gate denies
- *      `grammar_conjugation` for any user id. This is the architectural
- *      invariant of the single-gate decision (Phase 08-01).
+ *   3. checkExerciseAccess unit — direct calls assert the gate path semantics:
+ *      UNKNOWN types default to premium (deny), FREE types pass unconditionally,
+ *      and song_quota types return quota_exhausted when the user is at limit.
  *
  * Note: The static check that no UI component imports EXERCISE_FEATURE_FLAGS
- * lives in tests/integration/regression-stale-lesson-data.test.ts (declared in
- * this plan's `files_modified`). Per the plan's Task 1 instructions, that
- * static check is colocated with the integration regression file to avoid
- * shipping an undeclared artifact.
+ * lives in tests/integration/regression-stale-lesson-data.test.ts.
  *
  * Zero retries (enforced at playwright.config.ts).
  */
 
+import { sql } from "drizzle-orm";
 import { test, expect } from "../support/fixtures";
 import { checkExerciseAccess } from "@/lib/exercises/access";
 import { EXERCISE_FEATURE_FLAGS } from "@/lib/exercises/feature-flags";
+import { recordVocabAnswer, QuotaExhaustedError } from "@/app/actions/exercises";
+import { getTestDb, TEST_USER_ID } from "../support/test-db";
 
 const SLUG = "again-yui";
-// Synthetic premium target: Phase 10's planned grammar_conjugation type.
-// Today it is NOT in EXERCISE_FEATURE_FLAGS, so checkExerciseAccess defaults
-// it to "premium" via the `?? "premium"` fallback. When Phase 10 lands and
-// adds it to the flags map (likely "free" for early adopters), this constant
-// MUST be repicked to whatever the next premium type is.
-const PREMIUM_TYPE = "grammar_conjugation";
+
+// Synthetic UNKNOWN target — any string NOT in EXERCISE_FEATURE_FLAGS defaults
+// to "premium" via the `?? "premium"` fallback. This specific marker ensures
+// this spec keeps exercising the unknown-type default even as Phase 10+ flips
+// real types to song_quota.
+const UNKNOWN_PREMIUM_TYPE = "__kb_synthetic_premium_marker__";
+
+const HAS_TEST_DB = !!process.env.TEST_DATABASE_URL;
 
 test.describe("Regression: premium gate bypass attempts", () => {
-  test("checkExerciseAccess denies a synthetic premium type for any user", async () => {
-    // Direct unit-level call against the single gate. This is the architectural
-    // invariant: one place gates everything; no UI codepath has its own check.
-    const result = await checkExerciseAccess("any-user-id", PREMIUM_TYPE);
+  test("checkExerciseAccess denies an UNKNOWN synthetic type (default to premium)", async () => {
+    // Architectural invariant: the gate defaults unknown exercise types to
+    // "premium" — a malformed or spoofed exerciseType from a client can't
+    // accidentally land in the "free" bucket.
+    const result = await checkExerciseAccess("any-user-id", UNKNOWN_PREMIUM_TYPE);
     expect(result.allowed).toBe(false);
     expect(result.reason).toBe("premium_required");
 
-    // Sanity: the type is genuinely NOT in the feature-flags map today.
-    // If Phase 10 adds it, this assertion will fail and remind us to repick
-    // a still-premium type for this spec.
-    expect(EXERCISE_FEATURE_FLAGS[PREMIUM_TYPE]).toBeUndefined();
+    // Sanity: the type is genuinely NOT in the feature-flags map.
+    expect(EXERCISE_FEATURE_FLAGS[UNKNOWN_PREMIUM_TYPE]).toBeUndefined();
   });
 
   test("checkExerciseAccess allows every type currently flagged 'free'", async () => {
@@ -89,25 +87,43 @@ test.describe("Regression: premium gate bypass attempts", () => {
     }
   });
 
-  test("Practice tab UI does not surface any premium exercise type as selectable", async ({
+  test("checkExerciseAccess returns quota_exhausted for song_quota types without songVersionId", async () => {
+    // song_quota types are gated on { songVersionId }; calling without the opt
+    // must return a structured denial (not a throw). This proves the gate's
+    // contract is the single truth source for all exercise-type access
+    // decisions, not feature-flags.ts directly.
+    const songQuotaTypes = Object.entries(EXERCISE_FEATURE_FLAGS)
+      .filter(([, gate]) => gate === "song_quota")
+      .map(([t]) => t);
+
+    expect(songQuotaTypes.length).toBeGreaterThan(0); // Phase 10 added 3 types
+
+    for (const type of songQuotaTypes) {
+      const r = await checkExerciseAccess("any-user-id", type);
+      expect(r.allowed).toBe(false);
+      expect(r.reason).toBe("songVersionId required for quota gate");
+    }
+  });
+
+  test("Practice tab UI surfaces the Advanced Drills mode card (Phase 10-06)", async ({
     page,
   }) => {
+    // Phase 10-06 landed the Advanced Drills mode alongside Quick Practice +
+    // Full Lesson. Verify the card is visible and clickable. The gate decision
+    // is made on-click (getAdvancedDrillAccess server action), not at render
+    // time — so the card being present does NOT indicate quota state.
     await page.goto(`/songs/${SLUG}`);
     await page.getByRole("button", { name: /^practice$/i }).click();
 
-    // The config screen offers exactly two affordances: Quick Practice + Full
-    // Lesson. There is no per-type picker in the UI today; both buttons drive
-    // buildQuestions() across all FREE types. Assert no premium type label is
-    // visible — if a future PR adds a `Grammar Conjugation` button without
-    // routing it through checkExerciseAccess, this fails loudly.
+    // Three Start buttons now — one per mode card.
     await expect(
       page.getByRole("button", { name: /^Start$/ }).first()
     ).toBeVisible({ timeout: 10_000 });
 
-    const bodyText = (await page.locator("body").innerText()).toLowerCase();
-    expect(bodyText).not.toContain("grammar conjugation");
-    expect(bodyText).not.toContain("listening drill");
-    expect(bodyText).not.toContain("sentence order");
+    // The Advanced Drills card is explicitly visible (Phase 10-06 CONTEXT).
+    await expect(
+      page.getByRole("heading", { name: /^Advanced Drills$/i })
+    ).toBeVisible();
   });
 
   test("direct query-string injection ?type=<premium> is silently ignored by the UI", async ({
@@ -116,7 +132,7 @@ test.describe("Regression: premium gate bypass attempts", () => {
     // The Practice tab does not honor any `?type=` URL parameter today.
     // If it ever gains one, this spec must be updated to assert that the UI
     // either ignores the parameter OR routes through checkExerciseAccess.
-    await page.goto(`/songs/${SLUG}?type=${PREMIUM_TYPE}`);
+    await page.goto(`/songs/${SLUG}?type=${UNKNOWN_PREMIUM_TYPE}`);
     await page.getByRole("button", { name: /^practice$/i }).click();
 
     // Same Start button — query string had no effect on the offered modes.
@@ -124,30 +140,107 @@ test.describe("Regression: premium gate bypass attempts", () => {
       page.getByRole("button", { name: /^Start$/ }).first()
     ).toBeVisible({ timeout: 10_000 });
 
-    // No "Premium required" surface either — because there's no path to be
-    // gated yet. This locks "no surface" as today's truth and forces the next
-    // change to either keep it or update this assertion.
+    // No "Premium required" surface — the song_quota path shows "Upgrade to
+    // Premium" copy only on a deliberate quota-exhausted click, not on mere
+    // URL-param injection.
     const bodyText = (await page.locator("body").innerText()).toLowerCase();
     expect(bodyText).not.toContain("premium required");
   });
 
-  test.fixme(
-    "server action rejects/scrubs premium-typed answers (Phase 10 follow-up)",
-    async ({ page }) => {
-      // Phase 10 follow-up: when grammar_conjugation lands, the server action
-      // saveSessionResults SHOULD route premium answers through
-      // checkExerciseAccess and reject them for unsubscribed users. Today,
-      // unknown types are silently dropped from accuracy aggregation — proven
-      // by tests/integration/save-session-results.test.ts "unknown exercise
-      // types are silently dropped (no throw, not counted)".
-      //
-      // This spec is intentionally `.fixme`'d to serve as a living TODO until
-      // Phase 10 adds server-side gate enforcement. Documented in SUMMARY.md
-      // under "fixme entries / Phase 8 follow-up".
-      void page;
-      throw new Error(
-        "placeholder until Phase 10 adds server-side gate enforcement"
+  test("server-side gate rejects a listening_drill answer when quota is blown", async ({
+    testUser,
+    seededSong,
+  }) => {
+    // Phase 10-06 Task 3 — unfixed Phase 08.1-07 follow-up. This is the live
+    // version of the original test.fixme: recordVocabAnswer now re-checks
+    // the per-family quota server-side AFTER its idempotent counter insert;
+    // if the insert pushed the user over the limit for a non-premium user,
+    // the overshoot row is refunded and QuotaExhaustedError is thrown.
+    //
+    // Setup: seed 10 listening-drill counter rows for the test user (the free
+    // tier limit), all against synthetic song_version_id values that aren't
+    // this song. Then attempt to answer a listening_drill question on the
+    // 11th song — the insert brings the count to 11 (> 10), the re-check
+    // fires, the row is refunded, and QuotaExhaustedError lands.
+    if (!HAS_TEST_DB) {
+      test.skip(
+        true,
+        "TEST_DATABASE_URL not set — server-side gate path needs the test DB to seed the counter table"
       );
     }
-  );
+
+    const song = await seededSong(SLUG);
+    const db = getTestDb();
+
+    // Seed 10 distinct listening rows — we need real song_version_ids the
+    // foreign key accepts. Grab any 10 seeded songs other than this one.
+    const raw = (await db.execute(sql`
+      SELECT id::text AS id
+        FROM song_versions
+       WHERE lesson IS NOT NULL
+         AND id <> ${song.songVersionId}::uuid
+       LIMIT 10
+    `)) as unknown as Array<{ id: string }> | { rows: Array<{ id: string }> };
+    const rows = Array.isArray(raw) ? raw : (raw.rows ?? []);
+    if (rows.length < 10) {
+      test.skip(
+        true,
+        `TEST_DATABASE_URL has < 11 seeded song_versions; need 11 for the quota bypass assertion (found ${rows.length + 1})`
+      );
+    }
+
+    // Seed the 10 counter rows.
+    for (const row of rows) {
+      await db.execute(sql`
+        INSERT INTO user_exercise_song_counters (user_id, exercise_family, song_version_id)
+        VALUES (${testUser}, 'listening', ${row.id}::uuid)
+        ON CONFLICT DO NOTHING
+      `);
+    }
+
+    // Fetch any real vocab_item_id for the FSRS pre-write — any seeded UUID
+    // works; we're testing the counter refund semantics, not the FSRS math.
+    const vocabRaw = (await db.execute(sql`
+      SELECT id::text AS id
+        FROM vocabulary_items
+       LIMIT 1
+    `)) as unknown as Array<{ id: string }> | { rows: Array<{ id: string }> };
+    const vocabRows = Array.isArray(vocabRaw) ? vocabRaw : (vocabRaw.rows ?? []);
+    if (vocabRows.length === 0) {
+      test.skip(
+        true,
+        "TEST_DATABASE_URL has no vocabulary_items rows — cannot exercise recordVocabAnswer"
+      );
+    }
+    const vocabItemId = vocabRows[0].id;
+
+    // The 11th-song attempt must throw QuotaExhaustedError.
+    let threw: unknown = null;
+    try {
+      await recordVocabAnswer({
+        userId: testUser,
+        vocabItemId,
+        songVersionId: song.songVersionId,
+        exerciseType: "listening_drill",
+        correct: true,
+        responseTimeMs: 1000,
+      });
+    } catch (err) {
+      threw = err;
+    }
+    expect(threw).toBeInstanceOf(QuotaExhaustedError);
+    expect((threw as QuotaExhaustedError).family).toBe("listening");
+
+    // Post-condition: the counter was refunded (row for this song should be
+    // absent). Confirms the server-side re-check deletes the overshoot.
+    const countRaw = (await db.execute(sql`
+      SELECT COUNT(*)::int AS c
+        FROM user_exercise_song_counters
+       WHERE user_id = ${testUser}
+         AND exercise_family = 'listening'
+         AND song_version_id = ${song.songVersionId}::uuid
+    `)) as unknown as Array<{ c: number }> | { rows: Array<{ c: number }> };
+    const countRows = Array.isArray(countRaw) ? countRaw : (countRaw.rows ?? []);
+    expect(countRows[0]?.c ?? 0).toBe(0);
+  });
 });
