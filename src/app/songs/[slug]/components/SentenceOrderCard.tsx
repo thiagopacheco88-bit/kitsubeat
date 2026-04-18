@@ -17,9 +17,8 @@ import { useExerciseSession } from "@/stores/exerciseSession";
  *   3. User taps answer-row tokens → returned to the pool (last position).
  *   4. "Show hint" reveals question.translation below the answer row.
  *      One-way: once shown, UI does not hide it back. showHint() sets
- *      sentenceOrderHintShown[question.id]=true which maps to
- *      revealedReading=true via the onAnswer meta → FSRS rating=1
- *      (Phase 08.2-01 reveal-hatch).
+ *      sentenceOrderHintShown[question.id]=true for UI state only —
+ *      revealing the hint carries no scoring penalty.
  *   5. Submit is enabled only when the pool is empty (all tokens placed).
  *      answerStr = answer.map(t => t.surface).join(""); scoring is
  *      all-or-nothing (strict string equality with question.correctAnswer).
@@ -33,21 +32,19 @@ import { useExerciseSession } from "@/stores/exerciseSession";
 
 interface SentenceOrderCardProps {
   question: Question;
-  /**
-   * Called when user clicks Submit. `meta.revealedReading` propagates up to
-   * ExerciseSession → recordVocabAnswer → ratingFor (FSRS rating=1 if true).
-   */
+  /** Called when user clicks Submit. Hint reveal carries no scoring penalty. */
   onAnswer: (
     answer: string,
     correct: boolean,
-    timeMs: number,
-    meta?: { revealedReading?: boolean }
+    timeMs: number
   ) => void;
   /** Called after feedback, when user clicks Continue. */
   onContinue: () => void;
   /** External disable (e.g., during submit network in-flight). */
   disabled?: boolean;
 }
+
+type TokenDisplay = "surface" | "reading" | "romaji";
 
 export default function SentenceOrderCard({
   question,
@@ -57,8 +54,32 @@ export default function SentenceOrderCard({
 }: SentenceOrderCardProps) {
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [tokenDisplay, setTokenDisplay] = useState<TokenDisplay>("surface");
   const startTimeRef = useRef<number>(Date.now());
   const feedbackRef = useRef<HTMLDivElement>(null);
+
+  // Surface → {reading, romaji} lookup used by the Kanji/Kana/Romaji toggle.
+  // The shuffled pool tokens only carry surface (see SentenceOrderToken in the
+  // store), so we resolve reading/romaji from the question's verseTokens here.
+  // Duplicate surfaces in a verse (e.g., particle の appearing twice) map to
+  // the same reading/romaji, so first-match is correct.
+  const tokenLookup = useMemo(() => {
+    const map: Record<string, { reading: string; romaji: string }> = {};
+    for (const t of question.verseTokens ?? []) {
+      if (!map[t.surface]) {
+        map[t.surface] = { reading: t.reading, romaji: t.romaji };
+      }
+    }
+    return map;
+  }, [question.verseTokens]);
+
+  const renderTokenLabel = (surface: string): string => {
+    if (tokenDisplay === "surface") return surface;
+    const entry = tokenLookup[surface];
+    if (!entry) return surface;
+    const field = tokenDisplay === "reading" ? entry.reading : entry.romaji;
+    return field || surface;
+  };
 
   // Select the raw Record<string, Token[]> then derive by id — returning
   // `s.sentenceOrderPool[question.id] ?? []` inline would allocate a new []
@@ -123,7 +144,7 @@ export default function SentenceOrderCard({
     const timeMs = Date.now() - startTimeRef.current;
     setIsCorrect(correct);
     setSubmitted(true);
-    onAnswer(answerStr, correct, timeMs, { revealedReading: hintShown });
+    onAnswer(answerStr, correct, timeMs);
   };
 
   // ---------------------------------------------------------------------------
@@ -156,6 +177,38 @@ export default function SentenceOrderCard({
         {question.prompt}
       </div>
 
+      {/* Display toggle — Kanji / Kana / Romaji.
+          Switches the text shown on every token button without touching the
+          stored surface (scoring is always all-or-nothing on surface order). */}
+      <div
+        role="group"
+        aria-label="Token display"
+        className="flex items-center gap-1 self-start rounded-md border border-gray-800 bg-gray-900/60 p-1 text-xs"
+      >
+        {(
+          [
+            { value: "surface", label: "漢字" },
+            { value: "reading", label: "かな" },
+            { value: "romaji", label: "Romaji" },
+          ] as const
+        ).map((opt) => (
+          <button
+            key={opt.value}
+            type="button"
+            onClick={() => setTokenDisplay(opt.value)}
+            aria-pressed={tokenDisplay === opt.value}
+            disabled={disabled}
+            className={`rounded px-2 py-1 transition-colors ${
+              tokenDisplay === opt.value
+                ? "bg-gray-700 text-white"
+                : "text-gray-400 hover:text-gray-200"
+            }`}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+
       {/* Answer row — the tokens the user has tapped, in order */}
       <div
         aria-label="Your answer"
@@ -178,7 +231,7 @@ export default function SentenceOrderCard({
               wrongPositions.has(i)
             )}`}
           >
-            {token.surface}
+            {renderTokenLabel(token.surface)}
           </button>
         ))}
       </div>
@@ -197,7 +250,7 @@ export default function SentenceOrderCard({
             onClick={() => moveToAnswer(question.id, token.uuid)}
             className={`rounded-md border px-3 py-2 text-sm font-medium transition-colors disabled:opacity-60 ${tokenClassName("pool")}`}
           >
-            {token.surface}
+            {renderTokenLabel(token.surface)}
           </button>
         ))}
         {poolView.length === 0 && answerView.length > 0 && !submitted && (
@@ -217,7 +270,7 @@ export default function SentenceOrderCard({
               disabled={disabled}
               className="self-start text-xs underline text-gray-400 hover:text-gray-200"
             >
-              Show hint (penalty: FSRS rating drops to 1)
+              Show hint
             </button>
           ) : (
             <p className="self-start rounded-md border border-yellow-800/50 bg-yellow-900/20 px-3 py-2 text-xs text-yellow-200">

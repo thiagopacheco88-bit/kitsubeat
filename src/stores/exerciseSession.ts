@@ -82,10 +82,10 @@ interface ExerciseSessionState {
    */
   sentenceOrderAnswer: Record<string, SentenceOrderToken[]>;
   /**
-   * Phase 10 Plan 05: "Show hint" reveal-hatch flag per question.id.
-   * Presence = shown. Maps to revealedReading=true for FSRS (rating=1) per
-   * the Phase 08.2-01 reveal-hatch pattern. One-way — once shown, does not
-   * hide again within the session.
+   * Phase 10 Plan 05: "Show hint" flag per question.id. Presence = shown.
+   * UI-only — once shown, does not hide again within the session. Carries
+   * no scoring penalty (the previous reveal-hatch → FSRS rating=1 path was
+   * removed; hints on sentence_order are free).
    */
   sentenceOrderHintShown: Record<string, true>;
 }

@@ -148,7 +148,7 @@ describe("SentenceOrderCard", () => {
     expect(screen.getByText(/Translation text here/)).toBeInTheDocument();
   });
 
-  it("submitting with pool empty + correct order calls onAnswer with correct=true + revealedReading=false when hint not shown", () => {
+  it("submitting with pool empty + correct order calls onAnswer with correct=true", () => {
     const q = makeSentenceOrderQuestion(["a", "b", "c"]);
     const onAnswer = vi.fn();
     render(
@@ -176,13 +176,12 @@ describe("SentenceOrderCard", () => {
     });
 
     expect(onAnswer).toHaveBeenCalledTimes(1);
-    const [answerStr, correct, , meta] = onAnswer.mock.calls[0];
+    const [answerStr, correct] = onAnswer.mock.calls[0];
     expect(answerStr).toBe(q.correctAnswer);
     expect(correct).toBe(true);
-    expect(meta).toEqual({ revealedReading: false });
   });
 
-  it("submitting with hint shown propagates revealedReading=true", () => {
+  it("hint reveal does not forward a revealedReading flag (no scoring penalty)", () => {
     const q = makeSentenceOrderQuestion(["x", "y"], "hint text");
     const onAnswer = vi.fn();
     render(
@@ -208,8 +207,8 @@ describe("SentenceOrderCard", () => {
       screen.getByRole("button", { name: /submit/i }).click();
     });
 
-    const [, , , meta] = onAnswer.mock.calls[0];
-    expect(meta).toEqual({ revealedReading: true });
+    // onAnswer receives (answerStr, correct, timeMs) — no 4th arg.
+    expect(onAnswer.mock.calls[0]).toHaveLength(3);
   });
 });
 

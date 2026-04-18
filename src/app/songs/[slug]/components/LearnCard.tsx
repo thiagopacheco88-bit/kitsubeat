@@ -78,14 +78,22 @@ export default function LearnCard({
         )}
       </div>
 
-      {/* Surface (kanji) + furigana (reading) — Tier 1 style: kanji big, reading small above */}
+      {/* Surface (kanji) + furigana (reading) — Tier 1 style: kanji big, reading small above.
+          Omit the <rt> when surface === reading (pure-kana words like すごい) — matches
+          TierText's isPureKana handling and prevents the word from visually stacking on itself. */}
       <div className="mb-2">
-        <ruby className="text-3xl font-semibold text-white">
-          {question.vocabInfo.surface}
-          <rt className="text-sm font-normal text-gray-400">
-            {question.vocabInfo.reading}
-          </rt>
-        </ruby>
+        {question.vocabInfo.surface === question.vocabInfo.reading ? (
+          <span className="text-3xl font-semibold text-white">
+            {question.vocabInfo.surface}
+          </span>
+        ) : (
+          <ruby className="text-3xl font-semibold text-white">
+            {question.vocabInfo.surface}
+            <rt className="text-sm font-normal text-gray-400">
+              {question.vocabInfo.reading}
+            </rt>
+          </ruby>
+        )}
       </div>
 
       {/* Romaji + POS + optional JLPT */}

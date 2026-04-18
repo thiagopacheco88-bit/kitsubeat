@@ -99,7 +99,15 @@ export default function ExerciseSession({
   const currentState = vocabStates[vocabItemId] ?? 0;
   const isNewOrRelearning = currentState === 0 || currentState === 3;
   const alreadyLearned = !!learnedVocabIds[vocabItemId];
-  const shouldShowLearnCard = !skipLearning && isNewOrRelearning && !alreadyLearned;
+  // Empty-string vocabItemId is the verse-centric sentinel (sentence_order
+  // and grammar_conjugation without a mapped vocab — generator.ts:692,565).
+  // Those questions carry a synthetic vocabInfo whose surface === reading
+  // (the full verse text), which would render a nonsense LearnCard with the
+  // verse shown as its own furigana. They also aren't vocab introductions,
+  // so no learn step is warranted.
+  const hasVocabAnchor = vocabItemId !== "";
+  const shouldShowLearnCard =
+    !skipLearning && hasVocabAnchor && isNewOrRelearning && !alreadyLearned;
 
   if (shouldShowLearnCard) {
     // Look up the matching VocabEntry for display-only fields the Question doesn't carry.
@@ -238,19 +246,14 @@ export default function ExerciseSession({
           if (current.type === "sentence_order") {
             // Plan 10-05 — Sentence Order tap-to-build. SentenceOrderCard owns
             // its own FeedbackPanel-equivalent strip (all-or-nothing + wrong-
-            // position highlights). We thread onAnswered so session-store
-            // answer records stay consistent; meta.revealedReading propagates
-            // via handleAnswered → Plan 10-06 saveSessionResults which maps
-            // it to FSRS rating=1. No direct recordVocabAnswer here —
-            // sentence_order has an empty vocabItemId (verse-centric).
+            // position highlights). No direct recordVocabAnswer — sentence_order
+            // has an empty vocabItemId (verse-centric). Hint reveal carries no
+            // scoring penalty.
             return (
               <SentenceOrderCard
                 key={current.id}
                 question={current}
-                onAnswer={(chosen, correct, timeMs, _meta) => {
-                  void _meta; // Surfaced in session results via the answer record; Plan 10-06 consumes.
-                  handleAnswered(chosen, correct, timeMs);
-                }}
+                onAnswer={handleAnswered}
                 onContinue={handleContinue}
               />
             );

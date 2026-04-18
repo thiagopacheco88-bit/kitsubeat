@@ -382,7 +382,7 @@ export default function ExerciseTab({
           </div>
           <p className="text-sm text-gray-500">
             The 3-star workout — conjugation, listening, and sentence-reordering
-            questions. Free: 10 listening + 3 grammar/sentence songs.
+            questions.
           </p>
           <button
             onClick={() => handleStart("advanced_drills")}
@@ -457,7 +457,7 @@ export default function ExerciseTab({
             </svg>
             <span>
               <span className="text-white font-medium">Star 3:</span> Score 80%+
-              on Listening Drill (Advanced Drills mode)
+              on Listening Drill exercises
             </span>
           </li>
         </ul>
