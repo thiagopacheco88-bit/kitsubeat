@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev --port 7000",
     "build": "next build",
+    "vercel-build": "tsx --tsconfig tsconfig.scripts.json scripts/apply-migrations.ts && next build",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "drizzle-kit generate",
