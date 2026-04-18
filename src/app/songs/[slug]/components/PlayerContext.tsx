@@ -6,7 +6,9 @@ import {
   useState,
   useCallback,
   useRef,
+  type Dispatch,
   type ReactNode,
+  type SetStateAction,
 } from "react";
 
 type TranslationLang = "en" | "pt-BR" | "es";
@@ -30,7 +32,7 @@ export type EmbedState = "loading" | "ready" | "error";
  * downstream. Phase 10 Plan 04's ListeningDrillCard calls `seekTo`/`play`
  * through the stable wrappers exposed on the context value.
  *
- * The raw `YT.Player` reference intentionally never appears in this bundle:
+ * The raw YouTube player reference intentionally never appears in this bundle:
  *   - Production bundles must not leak the test-only `window.__kbPlayer` hook.
  *   - Plan 08.1-05 gates `__kbPlayer` on NEXT_PUBLIC_APP_ENV === 'test'; this
  *     context surface is the production-grade alternative.
@@ -51,9 +53,11 @@ interface PlayerState {
   currentTimeMs: number;
   setCurrentTimeMs: (v: number) => void;
 
-  // Phase 10 Plan 02: promoted from YouTubeEmbed-local state.
+  // Phase 10 Plan 02: promoted from YouTubeEmbed-local state. Accepts either a
+  // direct value OR a functional updater so YouTubeEmbed's watchdog can
+  // race-safely avoid clobbering a "ready" state that landed in the same tick.
   embedState: EmbedState;
-  setEmbedState: (v: EmbedState) => void;
+  setEmbedState: Dispatch<SetStateAction<EmbedState>>;
 
   // Phase 10 Plan 02: imperative API surface.
   // Consumers (ListeningDrillCard, etc.) call these verbs directly. Before the
