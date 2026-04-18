@@ -12,6 +12,7 @@
  */
 
 import { useState, useEffect, useRef, type ReactNode } from "react";
+import Link from "next/link";
 
 interface MasteryDetail {
   vocabItemId: string;
@@ -23,6 +24,7 @@ interface MasteryDetail {
   due: string | null;
   lastReview: string | null;
   totalAttempts: number;
+  seenInSongs: Array<{ slug: string; title: string; anime: string }>;
 }
 
 const STATE_LABELS: Record<0 | 1 | 2 | 3, string> = {
@@ -62,6 +64,7 @@ export default function MasteryDetailPopover({
   const [detail, setDetail] = useState<MasteryDetail | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [showMoreSongs, setShowMoreSongs] = useState(false);
   const containerRef = useRef<HTMLSpanElement>(null);
 
   // Fetch mastery detail when popover opens
@@ -163,6 +166,43 @@ export default function MasteryDetailPopover({
                   {formatDue(detail.due)}
                 </span>
               </span>
+
+              {/* "Seen in" section — only rendered when word appears in 2+ songs.
+                  Decision: current song is included but sorted last (title ASC from API)
+                  so users see "other" songs first. This is intentional: proves cross-song
+                  identity rather than hiding the current context. */}
+              {detail.seenInSongs.length >= 2 && (
+                <span className="flex flex-col gap-1 border-t border-gray-700 pt-1.5 mt-0.5">
+                  <h4 className="text-gray-400 font-medium">Seen in</h4>
+                  <ul className="flex flex-col gap-0.5">
+                    {(showMoreSongs
+                      ? detail.seenInSongs
+                      : detail.seenInSongs.slice(0, 3)
+                    ).map((song) => (
+                      <li key={song.slug}>
+                        <Link
+                          href={`/songs/${song.slug}`}
+                          className="text-red-400 hover:text-red-300 underline decoration-dotted"
+                          onClick={() => setOpen(false)}
+                        >
+                          {song.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                  {detail.seenInSongs.length > 3 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowMoreSongs((v) => !v)}
+                      className="mt-0.5 text-left text-gray-500 hover:text-gray-300"
+                    >
+                      {showMoreSongs
+                        ? "Show less"
+                        : `Show ${detail.seenInSongs.length - 3} more`}
+                    </button>
+                  )}
+                </span>
+              )}
             </span>
           )}
         </span>

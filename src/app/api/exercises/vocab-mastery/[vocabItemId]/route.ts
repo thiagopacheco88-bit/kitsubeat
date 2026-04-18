@@ -16,12 +16,13 @@ import { and, eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { userVocabMastery, userExerciseLog } from "@/lib/db/schema";
 import { tierFor } from "@/lib/fsrs/tier";
+import { getSeenInSongsForVocab } from "@/lib/db/queries";
 
 /** UUID v4 regex — used to guard against malformed route params */
 const UUID_REGEX =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-interface MasteryDetail {
+export interface MasteryDetail {
   vocabItemId: string;
   state: 0 | 1 | 2 | 3;
   tier: 1 | 2 | 3;
@@ -33,6 +34,8 @@ interface MasteryDetail {
   due: string | null;      // ISO or null for new word
   lastReview: string | null;
   totalAttempts: number;
+  /** Songs where this vocabulary item appears. Empty for items not yet in vocab_global. */
+  seenInSongs: Array<{ slug: string; title: string; anime: string }>;
 }
 
 export async function GET(
@@ -63,35 +66,35 @@ export async function GET(
     );
   }
 
-  // Fetch mastery row (may be null for new words)
-  const masteryRows = await db
-    .select()
-    .from(userVocabMastery)
-    .where(
-      and(
-        eq(userVocabMastery.user_id, userId),
-        eq(userVocabMastery.vocab_item_id, vocabItemId)
+  // Fetch mastery row, exercise log stats, and seen-in-songs in parallel
+  const [masteryRows, logStats, seenInSongs] = await Promise.all([
+    db
+      .select()
+      .from(userVocabMastery)
+      .where(
+        and(
+          eq(userVocabMastery.user_id, userId),
+          eq(userVocabMastery.vocab_item_id, vocabItemId)
+        )
       )
-    )
-    .limit(1);
+      .limit(1),
+    // rating > 1 means Hard/Good/Easy (i.e. not Again = wrong answer)
+    db
+      .select({
+        total: sql<number>`count(*)::int`,
+        correct: sql<number>`count(*) filter (where rating > 1)::int`,
+      })
+      .from(userExerciseLog)
+      .where(
+        and(
+          eq(userExerciseLog.user_id, userId),
+          eq(userExerciseLog.vocab_item_id, vocabItemId)
+        )
+      ),
+    getSeenInSongsForVocab(vocabItemId),
+  ]);
 
   const mastery = masteryRows[0] ?? null;
-
-  // Compute correctPct from user_exercise_log
-  // rating > 1 means Hard/Good/Easy (i.e. not Again = wrong answer)
-  const logStats = await db
-    .select({
-      total: sql<number>`count(*)::int`,
-      correct: sql<number>`count(*) filter (where rating > 1)::int`,
-    })
-    .from(userExerciseLog)
-    .where(
-      and(
-        eq(userExerciseLog.user_id, userId),
-        eq(userExerciseLog.vocab_item_id, vocabItemId)
-      )
-    );
-
   const stats = logStats[0] ?? { total: 0, correct: 0 };
   const totalAttempts = stats.total ?? 0;
   const correctCount = stats.correct ?? 0;
@@ -111,6 +114,7 @@ export async function GET(
     due: mastery?.due ? mastery.due.toISOString() : null,
     lastReview: mastery?.last_review ? mastery.last_review.toISOString() : null,
     totalAttempts,
+    seenInSongs,
   };
 
   return NextResponse.json(detail, {
