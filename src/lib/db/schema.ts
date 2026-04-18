@@ -298,6 +298,11 @@ export type NewUser = typeof users.$inferInsert;
  * - completion_pct: 0.0–1.0 fraction of exercises completed for the song
  * - ex1_2_3_best_accuracy: best accuracy across vocab_meaning, meaning_vocab, reading_match
  * - ex4_best_accuracy: best accuracy for fill_lyric (separate — different difficulty profile)
+ *
+ * Phase 10 additions (nullable, populated on first Ex5/6/7 attempt):
+ * - ex5_best_accuracy: best accuracy for grammar_conjugation (bonus badge)
+ * - ex6_best_accuracy: best accuracy for listening_drill (drives Star 3)
+ * - ex7_best_accuracy: best accuracy for sentence_order (bonus badge)
  */
 export const userSongProgress = pgTable("user_song_progress", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -310,6 +315,10 @@ export const userSongProgress = pgTable("user_song_progress", {
   // Best accuracy per exercise group (null until attempted)
   ex1_2_3_best_accuracy: real("ex1_2_3_best_accuracy"),
   ex4_best_accuracy: real("ex4_best_accuracy"),
+  // Phase 10: advanced exercise accuracy columns
+  ex5_best_accuracy: real("ex5_best_accuracy"),  // grammar_conjugation (bonus badge)
+  ex6_best_accuracy: real("ex6_best_accuracy"),  // listening_drill — drives Star 3
+  ex7_best_accuracy: real("ex7_best_accuracy"),  // sentence_order (bonus badge)
 
   // Session counter
   sessions_completed: integer("sessions_completed").default(0).notNull(),
@@ -326,19 +335,89 @@ export type UserSongProgress = typeof userSongProgress.$inferSelect;
 export type NewUserSongProgress = typeof userSongProgress.$inferInsert;
 
 /**
+ * user_exercise_song_counters table — Phase 10 premium quota gate.
+ *
+ * Tracks the set of distinct song_version_id values a user has attempted per
+ * exercise_family ("listening" or "advanced_drill"). COUNT(*) WHERE
+ * (user_id, exercise_family) gives "songs used" for the FREE-05 quota check.
+ *
+ * A row is inserted on the user's FIRST answer in an Ex5/6/7 session for a song
+ * (via INSERT ... ON CONFLICT DO NOTHING — idempotent). The gate
+ * `checkExerciseAccess` consults this count via `getSongCountForFamily` and
+ * `userHasTouchedSong` in src/lib/exercises/counters.ts.
+ *
+ * QUOTA_LIMITS (src/lib/exercises/feature-flags.ts):
+ *   listening       → 10 songs free
+ *   advanced_drill  →  3 songs free (shared across grammar_conjugation + sentence_order)
+ */
+export const userExerciseSongCounters = pgTable("user_exercise_song_counters", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  user_id: text("user_id").notNull(),
+  exercise_family: text("exercise_family").notNull(), // "listening" | "advanced_drill"
+  song_version_id: uuid("song_version_id").notNull().references(() => songVersions.id),
+  first_attempt_at: timestamp("first_attempt_at", { withTimezone: true }).defaultNow().notNull(),
+}, (table) => [
+  unique("user_exercise_song_counters_user_family_version_unique").on(
+    table.user_id,
+    table.exercise_family,
+    table.song_version_id
+  ),
+  index("user_exercise_song_counters_user_family_idx").on(table.user_id, table.exercise_family),
+]);
+
+export type UserExerciseSongCounter = typeof userExerciseSongCounters.$inferSelect;
+export type NewUserExerciseSongCounter = typeof userExerciseSongCounters.$inferInsert;
+
+/**
  * deriveStars — compute star rating from progress at read time.
  *
  * Stars are NEVER stored as a column — they are always derived from accuracy values.
+ * Phase 10 extends 0|1|2 → 0|1|2|3; the 3rd star is gated on Ex 6 (Listening Drill).
+ *
+ * Ordering invariant (STAR-02 → STAR-03 → STAR-04): higher stars require lower
+ * stars. A user cannot skip to Star 3 by only passing Ex 6 — they must also
+ * have Ex 1-3 AND Ex 4 at ≥80%.
+ *
+ * - 3 stars: all of ex1_2_3, ex4, ex6 accuracy >= 80%
  * - 2 stars: both ex1_2_3 and ex4 accuracy >= 80%
- * - 1 star: ex1_2_3 accuracy >= 80% (ex4 not yet attempted or below threshold)
+ * - 1 star:  ex1_2_3 accuracy >= 80% (ex4 not yet attempted or below threshold)
  * - 0 stars: below threshold or no attempts yet
  */
 export function deriveStars(
-  progress: { ex1_2_3_best_accuracy: number | null; ex4_best_accuracy: number | null }
-): 0 | 1 | 2 {
-  if ((progress.ex1_2_3_best_accuracy ?? 0) >= 0.80 && (progress.ex4_best_accuracy ?? 0) >= 0.80) return 2;
-  if ((progress.ex1_2_3_best_accuracy ?? 0) >= 0.80) return 1;
+  progress: {
+    ex1_2_3_best_accuracy: number | null;
+    ex4_best_accuracy: number | null;
+    /** Phase 10: listening_drill accuracy — null in legacy callers, treated as 0. */
+    ex6_best_accuracy?: number | null;
+  }
+): 0 | 1 | 2 | 3 {
+  const e123 = progress.ex1_2_3_best_accuracy ?? 0;
+  const e4 = progress.ex4_best_accuracy ?? 0;
+  const e6 = progress.ex6_best_accuracy ?? 0;
+  if (e123 >= 0.80 && e4 >= 0.80 && e6 >= 0.80) return 3;
+  if (e123 >= 0.80 && e4 >= 0.80) return 2;
+  if (e123 >= 0.80) return 1;
   return 0;
+}
+
+/**
+ * deriveBonusBadge — Phase 10 bonus mastery badge predicate.
+ *
+ * Returns true when BOTH Grammar Conjugation (Ex 5) and Sentence Order (Ex 7)
+ * best accuracy are at >= 80%. Bonus badge is NOT gated on stars per STAR-06 —
+ * it is an independent signal shown alongside stars on the song catalog card.
+ *
+ * Null accuracy (never attempted) counts as 0 — cannot earn the badge without
+ * a qualifying pass on each exercise.
+ */
+export function deriveBonusBadge(
+  progress: {
+    ex5_best_accuracy: number | null;
+    ex7_best_accuracy: number | null;
+  }
+): boolean {
+  return (progress.ex5_best_accuracy ?? 0) >= 0.80
+      && (progress.ex7_best_accuracy ?? 0) >= 0.80;
 }
 
 /**

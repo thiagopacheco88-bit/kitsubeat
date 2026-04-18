@@ -178,14 +178,38 @@ export default function ExerciseSession({
       <div
         className={`transition-opacity duration-300 ${visible ? "opacity-100" : "opacity-0"}`}
       >
-        <QuestionCard
-          key={current.id}
-          question={current}
-          onAnswered={handleAnswered}
-          onContinue={handleContinue}
-          userId={userId}
-          songVersionId={songVersionId}
-        />
+        {/*
+         * Phase 10 dispatch scaffold — pre-stubbed branches for Ex 5/6/7.
+         *
+         * Plans 10-03 / 10-04 / 10-05 REPLACE each stub's body with the
+         * specific card render (ConjugationCard / ListeningDrillCard /
+         * SentenceOrderCard). No new branches added under parallel execution.
+         * Throws are unreachable today because buildQuestions does not emit
+         * Phase 10 types (the generator stubs also throw) — the scaffolding
+         * carves out the replacement slots now so wave-2 plans only overwrite
+         * stub bodies (predictable conflict-free diff).
+         */}
+        {(() => {
+          if (current.type === "grammar_conjugation") {
+            throw new Error("ConjugationCard dispatch not implemented (Plan 10-03)");
+          }
+          if (current.type === "listening_drill") {
+            throw new Error("ListeningDrillCard dispatch not implemented (Plan 10-04)");
+          }
+          if (current.type === "sentence_order") {
+            throw new Error("SentenceOrderCard dispatch not implemented (Plan 10-05)");
+          }
+          return (
+            <QuestionCard
+              key={current.id}
+              question={current}
+              onAnswered={handleAnswered}
+              onContinue={handleContinue}
+              userId={userId}
+              songVersionId={songVersionId}
+            />
+          );
+        })()}
       </div>
     </div>
   );

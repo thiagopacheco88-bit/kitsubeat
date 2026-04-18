@@ -26,20 +26,29 @@ export { Rating };
 /**
  * RATING_WEIGHTS — correct-answer rating awarded per exercise type.
  *
- * Tunable defaults, LOCKED in 08.2-CONTEXT.md:
- * - meaning_vocab (4 = Easy):    Production-flavored — hardest direction, highest reward
- * - vocab_meaning (3 = Good):    Recognition — standard reward
- * - fill_lyric    (3 = Good):    Recognition + context — standard reward
- * - reading_match (2 = Hard):    Pure surface — lowest reward
+ * Tunable defaults, LOCKED in 08.2-CONTEXT.md + extended in Phase 10-01:
+ * - meaning_vocab       (4 = Easy):    Production-flavored — hardest direction, highest reward
+ * - vocab_meaning       (3 = Good):    Recognition — standard reward
+ * - fill_lyric          (3 = Good):    Recognition + context — standard reward
+ * - reading_match       (2 = Hard):    Pure surface — lowest reward
+ * - grammar_conjugation (4 = Easy):    Production-flavored — user produces a form, not recognizes
+ * - listening_drill     (3 = Good):    Recognition + ear — parallels vocab_meaning difficulty
+ * - sentence_order      (4 = Easy):    Production-flavored — user assembles structure
+ *
+ * Weight ordering invariant (preserved): production > recognition > surface.
  *
  * Change values here to re-tune the whole system. Do NOT add per-question
  * overrides elsewhere — one source of truth for the policy.
  */
 export const RATING_WEIGHTS: Record<ExerciseType, FSRSRating> = {
-  meaning_vocab: 4,  // Production-flavored, hardest direction
-  vocab_meaning: 3,  // Recognition
-  fill_lyric: 3,     // Recognition + context
-  reading_match: 2,  // Pure surface, easiest
+  meaning_vocab: 4,        // Production-flavored, hardest direction
+  vocab_meaning: 3,        // Recognition
+  fill_lyric: 3,           // Recognition + context
+  reading_match: 2,        // Pure surface, easiest
+  // Phase 10 additions
+  grammar_conjugation: 4,  // Production-flavored — user produces the form
+  listening_drill: 3,      // Recognition + ear
+  sentence_order: 4,       // Production-flavored — user assembles structure
 };
 
 /**

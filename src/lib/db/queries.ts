@@ -326,6 +326,8 @@ export async function getUserSongProgress(
     stars: deriveStars({
       ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
       ex4_best_accuracy: row.ex4_best_accuracy,
+      // Phase 10: Star 3 requires Ex 6 (Listening Drill) at ≥80%.
+      ex6_best_accuracy: row.ex6_best_accuracy,
     }),
   };
 }
@@ -361,6 +363,8 @@ export async function getUserSongProgressBatch(
       stars: deriveStars({
         ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
         ex4_best_accuracy: row.ex4_best_accuracy,
+        // Phase 10: Star 3 requires Ex 6 (Listening Drill) at ≥80%.
+        ex6_best_accuracy: row.ex6_best_accuracy,
       }),
     });
   }

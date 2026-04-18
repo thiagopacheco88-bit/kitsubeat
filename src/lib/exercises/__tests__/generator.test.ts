@@ -331,11 +331,17 @@ describe("buildQuestions", () => {
     expect(lengths[0]).toBe(10);
 
     const typeMixes = runs.map((r) => {
+      // Phase 10 widened ExerciseType — buildQuestions still only emits the
+      // original 4 Phase 8 types today, but Record<ExerciseType, number>
+      // requires initializing all keys including the new advanced types.
       const counts: Record<ExerciseType, number> = {
         vocab_meaning: 0,
         meaning_vocab: 0,
         reading_match: 0,
         fill_lyric: 0,
+        grammar_conjugation: 0,
+        listening_drill: 0,
+        sentence_order: 0,
       };
       for (const q of r) counts[q.type]++;
       return counts;
@@ -364,11 +370,15 @@ describe("buildQuestions", () => {
     const lesson = makeLesson(FIVE_VOCAB);
     const questions = buildQuestions(lesson, "full", JLPT_POOL);
 
+    // Phase 10 widened ExerciseType — same initialization of new type keys.
     const counts: Record<ExerciseType, number> = {
       vocab_meaning: 0,
       meaning_vocab: 0,
       reading_match: 0,
       fill_lyric: 0,
+      grammar_conjugation: 0,
+      listening_drill: 0,
+      sentence_order: 0,
     };
     for (const q of questions) counts[q.type]++;
 

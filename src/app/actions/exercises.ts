@@ -38,10 +38,18 @@ interface SaveSessionInput {
   durationMs: number;
 }
 
+interface SongMasteryCounts {
+  total: number;
+  mastered: number;
+  learning: number;
+  new: number;
+}
+
 interface SaveSessionResult {
   completionPct: number;
-  stars: 0 | 1 | 2;
-  previousStars: 0 | 1 | 2;
+  stars: 0 | 1 | 2 | 3;
+  previousStars: 0 | 1 | 2 | 3;
+  songMastery: SongMasteryCounts;
 }
 
 // ---------------------------------------------------------------------------
@@ -100,6 +108,10 @@ export async function saveSessionResults(
     ? deriveStars({
         ex1_2_3_best_accuracy: previousRow.ex1_2_3_best_accuracy,
         ex4_best_accuracy: previousRow.ex4_best_accuracy,
+        // Phase 10: previous-stars snapshot must include Ex 6 so a user who
+        // already had Star 3 before this session sees previousStars=3 (no
+        // false confetti on a downgrade round — see Pitfall 7 in 10-RESEARCH).
+        ex6_best_accuracy: previousRow.ex6_best_accuracy,
       })
     : 0;
 
@@ -143,12 +155,19 @@ export async function saveSessionResults(
   const updated = updatedRows[0];
   if (!updated) {
     // Fallback (should never happen after upsert)
-    return { completionPct: completionIncrement, stars: 0, previousStars: 0 };
+    return {
+      completionPct: completionIncrement,
+      stars: 0,
+      previousStars: 0,
+      songMastery: { total: 0, mastered: 0, learning: 0, new: 0 },
+    };
   }
 
   const stars = deriveStars({
     ex1_2_3_best_accuracy: updated.ex1_2_3_best_accuracy,
     ex4_best_accuracy: updated.ex4_best_accuracy,
+    // Phase 10: Star 3 requires Ex 6 (Listening Drill) at ≥80%.
+    ex6_best_accuracy: updated.ex6_best_accuracy,
   });
 
   // --- Step 7: FSRS per-vocab upsert (one row per unique vocab_item_id) ---
@@ -253,10 +272,57 @@ export async function saveSessionResults(
     }
   }
 
+  // --- Step 8: Song mastery tier breakdown ---
+  //
+  // Aggregates the song's vocabulary by FSRS state for this user so the
+  // SessionSummary can show real coverage (new / learning / mastered of total)
+  // instead of the session-credit completion_pct. LEFT JOIN maps missing
+  // user_vocab_mastery rows to "new" per the 08.2 cold-start rule. State 2 is
+  // Review (mastered, tier 3); states 1 and 3 collapse to Learning per
+  // src/lib/fsrs/tier.ts.
+  const masteryRows = await db.execute<{
+    total: number;
+    mastered: number;
+    learning: number;
+    new_count: number;
+  }>(sql`
+    WITH song_vocab AS (
+      SELECT DISTINCT (elem->>'vocab_item_id')::uuid AS vocab_item_id
+      FROM song_versions sv
+      CROSS JOIN LATERAL jsonb_array_elements(sv.lesson->'vocabulary') AS elem
+      WHERE sv.id = ${songVersionId}::uuid
+        AND sv.lesson IS NOT NULL
+        AND elem->>'vocab_item_id' IS NOT NULL
+    )
+    SELECT
+      COUNT(*)::int AS total,
+      COUNT(*) FILTER (WHERE m.state = 2)::int AS mastered,
+      COUNT(*) FILTER (WHERE m.state IN (1, 3))::int AS learning,
+      COUNT(*) FILTER (WHERE m.state IS NULL OR m.state = 0)::int AS new_count
+    FROM song_vocab s
+    LEFT JOIN user_vocab_mastery m
+      ON m.vocab_item_id = s.vocab_item_id
+      AND m.user_id = ${userId}
+  `);
+
+  const rawMastery = Array.isArray(masteryRows)
+    ? masteryRows
+    : (masteryRows.rows ?? []);
+  const first = rawMastery[0] as
+    | { total: number; mastered: number; learning: number; new_count: number }
+    | undefined;
+  const songMastery: SongMasteryCounts = {
+    total: Number(first?.total ?? 0),
+    mastered: Number(first?.mastered ?? 0),
+    learning: Number(first?.learning ?? 0),
+    new: Number(first?.new_count ?? 0),
+  };
+
   return {
     completionPct: updated.completion_pct,
     stars,
     previousStars,
+    songMastery,
   };
 }
 

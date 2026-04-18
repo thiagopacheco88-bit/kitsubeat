@@ -7,7 +7,7 @@
  */
 
 import { localize } from "@/lib/types/lesson";
-import type { KanjiBreakdown, Lesson, Localizable, VocabEntry, Verse } from "@/lib/types/lesson";
+import type { KanjiBreakdown, Lesson, Localizable, VocabEntry, Verse, Token } from "@/lib/types/lesson";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -17,7 +17,13 @@ export type ExerciseType =
   | "vocab_meaning"
   | "meaning_vocab"
   | "reading_match"
-  | "fill_lyric";
+  | "fill_lyric"
+  // Phase 10 — advanced exercises. Switch bodies are throw-stubs here; Plans
+  // 10-03 / 10-04 / 10-05 replace the stub bodies in makeQuestion below
+  // (no new cases added under parallel execution).
+  | "grammar_conjugation"  // Ex 5 — Grammar Conjugation
+  | "listening_drill"      // Ex 6 — Listening Drill (drives Star 3)
+  | "sentence_order";      // Ex 7 — Sentence Order
 
 /**
  * Minimal vocab representation for tier-aware rendering in exercise UI.
@@ -69,6 +75,24 @@ export interface Question {
    * and by FeedbackPanel to show the mastery popover for wrong-pick distractors.
    */
   distractorVocab?: Record<string, VocabInfo>;
+
+  // ---------------------------------------------------------------------------
+  // Phase 10 — advanced exercise fields.
+  //
+  // Pre-declared as optional so wave-2 plans (10-03 / 10-04 / 10-05) can populate
+  // them by REPLACING the throw-stub body in makeQuestion below — no new cases
+  // added, no type-union widening needed downstream. Widened in one pass here so
+  // the wave stays parallel-safe.
+  // ---------------------------------------------------------------------------
+
+  /** Plan 10-03 — Grammar Conjugation: base (dictionary) form shown as scaffold above the blanked verse. */
+  conjugationBase?: string;
+  /** Plan 10-04 — Listening Drill: verse start time for PlayerContext.seekTo() + playVideo(). */
+  verseStartMs?: number;
+  /** Plans 10-04 + 10-05 — Listening Drill blanked rendering + Sentence Order pool of tokens. */
+  verseTokens?: Token[];
+  /** Plan 10-05 — Sentence Order: "Show hint" reveal target (English translation of the verse). */
+  translation?: string;
 }
 
 export interface SessionConfig {
@@ -104,6 +128,15 @@ function extractField(vocab: VocabEntry, type: ExerciseType): string {
       return vocab.romaji;
     case "fill_lyric":
       return vocab.surface;
+    // Phase 10 — stub branches (Plans 10-03/04/05 replace the body).
+    // Kept as throws so any legacy caller that somehow passes a Phase 10 type
+    // into extractField fails loudly rather than silently falling back.
+    case "grammar_conjugation":
+      throw new Error("grammar_conjugation extractField not implemented (Plan 10-03)");
+    case "listening_drill":
+      throw new Error("listening_drill extractField not implemented (Plan 10-04)");
+    case "sentence_order":
+      throw new Error("sentence_order extractField not implemented (Plan 10-05)");
   }
 }
 
@@ -254,6 +287,13 @@ function makeExplanation(vocab: VocabEntry, type: ExerciseType): string {
       return `「${surface}」is read as "${romaji}".`;
     case "fill_lyric":
       return `The missing word is 「${surface}」, meaning "${meaning}" (${romaji}).`;
+    // Phase 10 — stub branches (Plans 10-03/04/05 replace the body).
+    case "grammar_conjugation":
+      throw new Error("grammar_conjugation makeExplanation not implemented (Plan 10-03)");
+    case "listening_drill":
+      throw new Error("listening_drill makeExplanation not implemented (Plan 10-04)");
+    case "sentence_order":
+      throw new Error("sentence_order makeExplanation not implemented (Plan 10-05)");
   }
 }
 
@@ -313,6 +353,17 @@ function makeQuestion(
       correctAnswer = surface;
       break;
     }
+    // Phase 10 — pre-stubbed switch branches for the 3 new advanced exercise
+    // types. Plans 10-03 / 10-04 / 10-05 run in parallel (wave 2) and MUST
+    // replace the stub body only — they never add new cases. The throws are
+    // unreachable in practice because buildQuestions does not emit Phase 10
+    // types yet (types are gated to Phase 8 in the `types` array below).
+    case "grammar_conjugation":
+      throw new Error("grammar_conjugation not implemented (Plan 10-03)");
+    case "listening_drill":
+      throw new Error("listening_drill not implemented (Plan 10-04)");
+    case "sentence_order":
+      throw new Error("sentence_order not implemented (Plan 10-05)");
   }
 
   // Build distractorVocab map (field → VocabInfo) for TierText rendering
