@@ -20,8 +20,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import UpsellModal from "./UpsellModal";
-import type { VocabRow } from "@/app/api/review/queue/route";
-import type { ReviewQueueItem } from "@/lib/review/queue-builder";
+import type { VocabRow, QueueResponse } from "@/app/api/review/queue/route";
 import { useReviewSession } from "@/stores/reviewSession";
 import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
@@ -33,15 +32,6 @@ interface ReviewLandingProps {
   dueCount: number;
   newBudgetRemaining: number;
   dailyCap: number;
-}
-
-interface QueueResponse {
-  items: ReviewQueueItem[];
-  vocabData: Record<string, VocabRow>;
-  jlptPools: Record<string, VocabRow[]>;
-  due_count: number;
-  new_count: number;
-  budget_remaining: number;
 }
 
 

@@ -13,19 +13,7 @@
 
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import Link from "next/link";
-
-interface MasteryDetail {
-  vocabItemId: string;
-  state: 0 | 1 | 2 | 3;
-  tier: 1 | 2 | 3;
-  reps: number;
-  lapses: number;
-  correctPct: number;
-  due: string | null;
-  lastReview: string | null;
-  totalAttempts: number;
-  seenInSongs: Array<{ slug: string; title: string; anime: string }>;
-}
+import type { MasteryDetail } from "@/app/api/exercises/vocab-mastery/[vocabItemId]/route";
 
 const STATE_LABELS: Record<0 | 1 | 2 | 3, string> = {
   0: "New",

@@ -18,7 +18,7 @@ import type { Tier } from "@/lib/fsrs/tier";
 // Types
 // ---------------------------------------------------------------------------
 
-interface AnswerRecord {
+export interface AnswerRecord {
   chosen: string;
   correct: boolean;
   timeMs: number;

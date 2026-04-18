@@ -43,7 +43,7 @@ import { vocabularyItems } from "@/lib/db/schema";
 import { isPremium } from "@/app/actions/userPrefs";
 import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 import { getDueReviewQueue, getNewCardBudget } from "@/lib/db/queries";
-import { buildReviewQueue } from "@/lib/review/queue-builder";
+import { buildReviewQueue, type ReviewQueueItem } from "@/lib/review/queue-builder";
 
 /** Minimal vocab data needed to render questions in ReviewSession */
 export interface VocabRow {
@@ -56,6 +56,16 @@ export interface VocabRow {
   meaning: unknown; // Localizable JSON
   mnemonic: unknown | null;
   kanji_breakdown: unknown | null;
+}
+
+/** Shape returned by GET /api/review/queue. */
+export interface QueueResponse {
+  items: ReviewQueueItem[];
+  vocabData: Record<string, VocabRow>;
+  jlptPools: Record<string, VocabRow[]>;
+  due_count: number;
+  new_count: number;
+  budget_remaining: number;
 }
 
 export async function GET() {

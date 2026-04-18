@@ -6,12 +6,7 @@ import { saveSessionResults } from "@/app/actions/exercises";
 import StarDisplay from "./StarDisplay";
 import MasteryDetailPopover from "./MasteryDetailPopover";
 import type { Question } from "@/lib/exercises/generator";
-
-interface AnswerRecord {
-  chosen: string;
-  correct: boolean;
-  timeMs: number;
-}
+import type { AnswerRecord } from "@/stores/exerciseSession";
 
 interface SessionSummaryProps {
   questions: Question[];

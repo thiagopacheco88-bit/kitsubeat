@@ -8,21 +8,8 @@
  */
 
 import { describe, it, expect } from "vitest";
-import type { VocabRow } from "../route";
+import type { VocabRow, QueueResponse } from "../route";
 import type { ReviewQueueItem } from "@/lib/review/queue-builder";
-
-// ---------------------------------------------------------------------------
-// Response shape types (mirrors what GET() returns)
-// ---------------------------------------------------------------------------
-
-interface QueueResponse {
-  items: ReviewQueueItem[];
-  vocabData: Record<string, VocabRow>;
-  jlptPools: Record<string, VocabRow[]>;
-  due_count: number;
-  new_count: number;
-  budget_remaining: number;
-}
 
 // ---------------------------------------------------------------------------
 // Type-only compile check — ensures the shape contract is locked
