@@ -92,7 +92,7 @@ Each task was committed atomically:
 2. **Task 2: Build the KANA_CHART data with row groupings** — `018899e` (feat)
 3. **Task 3: Lock structural invariants with vitest** — `c63d88c` (test)
 
-**Plan metadata:** _to be added after final commit_
+**Plan metadata:** `53c31fc` (docs: complete plan)
 
 ## Files Created/Modified
 
