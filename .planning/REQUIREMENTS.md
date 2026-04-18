@@ -43,9 +43,9 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 ### Cross-Song Vocabulary
 
-- [ ] **CROSS-01**: User sees how many vocabulary words they already know from other songs when viewing a song page ("You know 8/12 words")
-- [ ] **CROSS-02**: User sees which songs share a vocabulary word ("Seen in: Attack on Titan OP, Demon Slayer OP")
-- [ ] **CROSS-03**: User sees a global counter of unique Japanese words learned across all songs
+- [x] **CROSS-01**: User sees how many vocabulary words they already know from other songs when viewing a song page ("You know 8/12 words")
+- [x] **CROSS-02**: User sees which songs share a vocabulary word ("Seen in: Attack on Titan OP, Demon Slayer OP")
+- [x] **CROSS-03**: User sees a global counter of unique Japanese words learned across all songs
 - [x] **CROSS-04**: Mastering a word in one song automatically reflects in all other songs containing that word
 - [x] **CROSS-05**: User can view a vocabulary dashboard showing all learned words, their mastery level, and source songs
 
@@ -145,9 +145,9 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | STAR-04 | Phase 10 | Complete |
 | STAR-06 | Phase 10 | Complete |
 | FREE-05 | Phase 10 | Complete |
-| CROSS-01 | Phase 11 | Pending |
-| CROSS-02 | Phase 11 | Pending |
-| CROSS-03 | Phase 11 | Pending |
+| CROSS-01 | Phase 11 | Complete |
+| CROSS-02 | Phase 11 | Complete |
+| CROSS-03 | Phase 11 | Complete |
 | CROSS-04 | Phase 11 | Complete |
 | CROSS-05 | Phase 11 | Complete |
 | FREE-04 | Phase 11 | Complete |
