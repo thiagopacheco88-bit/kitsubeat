@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 11 — Cross-Song Vocabulary (1/5 plans complete)
+**Current focus:** v2.0 Phase 11 — Cross-Song Vocabulary (3/5 plans complete)
 
 ## Current Position
 
 Phase: 11 of 11 (Cross-Song Vocabulary) — In Progress
-Plan: 1 of 5 complete; next: Phase 11 Plan 02 (song-page vocabulary pill)
-Status: Plan 11-01 complete — migration + schema + REVIEW_NEW_DAILY_CAP + five read queries (getKnownWordCountForSong, getGlobalLearnedCount, getSeenInSongsForVocab, getVocabularyDashboard, getDueReviewQueue). Commits 73ab97e, 68ca68f.
-Last activity: 2026-04-18 — Plan 11-01 complete (commits 73ab97e, 68ca68f). Data layer foundation delivered.
+Plan: 3 of 5 complete; next: Phase 11 Plan 04 (vocabulary dashboard)
+Status: Plans 11-02 and 11-03 complete — KnownWordCount song-page pill, /api/review/known-count endpoint, seenInSongs in vocab-mastery API, MasteryDetailPopover "Seen in" section, GlobalLearnedCounter in root layout + profile. Commits efcac39, 12d1292, 6469e9b, 696ff1e.
+Last activity: 2026-04-18 — Plans 11-02 and 11-03 complete (Wave 2). Song-page vocab pill + global learned counter + cross-song provenance surfaced.
 
 Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
 
@@ -165,6 +165,14 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 11-cross-song-vocabulary]: state IN (1,2,3) for known check everywhere — NOT state >= 2 (Pitfall 1)
 - [Phase 11-cross-song-vocabulary]: REVIEW_NEW_DAILY_CAP=20: researcher recommendation, matches Phase 08.4 premium ceiling / 1.5
 - [Phase 11-cross-song-vocabulary]: Phase-local 3-bucket tier→state mapping in getVocabularyDashboard diverges from tier.ts (deliberate, dashboard-local only)
+- [Phase 11-02]: No router.refresh() for KnownWordCount — client refetches narrow GET endpoint; justFinished predicate on Zustand questions+currentIndex detects session end
+- [Phase 11-02]: Zero-state pill renders "New to you" (not "0/12") — less discouraging per CONTEXT
+- [Phase 11-02]: songId threaded as explicit prop on SongContent — SongMeta has no id field; VersionData.id is song-version UUID not song UUID
+- [Phase 11-03]: GlobalLearnedCounter visible to ALL users (free + premium) — hiding from free users reduces conversions per CROSS-03 CONTEXT
+- [Phase 11-03]: No emoji in GlobalLearnedCounter — project CLAUDE.md convention; documented inline
+- [Phase 11-03]: Async RootLayout in layout.tsx — GlobalLearnedCounter DB read makes all routes dynamic; acceptable per-request is the feature
+- [Phase 11-03]: seenInSongs hidden for single-song words; current song included in multi-song list sorted title ASC
+- [Phase 11-03]: MasteryDetail type defined and exported directly from vocab-mastery API route file
 
 ### Pending Todos
 
@@ -191,5 +199,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed 11-01-PLAN.md (commits 73ab97e, 68ca68f). Migration + schema + REVIEW_NEW_DAILY_CAP + five Phase 11 data layer queries delivered. Plans 02-05 can now run in parallel.
-Resume file: .planning/phases/10-advanced-exercises-full-mastery/10-CONTEXT.md
+Stopped at: Completed Phase 11 Plans 02 and 03. Song-page KnownWordCount pill, /api/review/known-count, seenInSongs in vocab-mastery API, MasteryDetailPopover "Seen in" section, GlobalLearnedCounter in root layout and profile. Plans 04 (vocabulary dashboard) and 05 (/review queue) remain.
+Resume file: .planning/phases/11-cross-song-vocabulary/11-04-PLAN.md
