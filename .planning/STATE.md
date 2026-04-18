@@ -84,6 +84,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 10-advanced-exercises-full-mastery P04 | 14 | 2 tasks | 7 files |
 | Phase 10-advanced-exercises-full-mastery P03 | 15 | 2 tasks | 9 files |
 | Phase 10-advanced-exercises-full-mastery P05 | 15 | 2 tasks | 9 files |
+| Phase 11-cross-song-vocabulary P06 | 7 | 3 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -267,6 +268,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-03: classifyConjugationForm required because parseConjugationPath returns raw per-song annotations (601 distinct 'families' from 607 exemplars). Canonical 23-family classifier keyed off conjugated-suffix regex + label heuristics; 'other'/'stem'/'clause_marker' excluded from V1 selection as catch-all buckets (286+44+6 = 336/607 absorbed).
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-03: Grammar Conjugation driven off lesson.grammar_points[] (not vocabulary[]). VocabEntry has no grammar_point back-ref; buildQuestions gains a third concentric loop (per-grammar-point). Synthetic VocabEntry with empty-string vocabItemId sentinel when grammar point's base doesn't match a vocab entry — same sentinel as Plan 10-05 sentence_order.
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-03: Same-verb wrong distractor = adjacent-form flip via ADJACENT_FORM map (past_affirmative↔past_negative polarity-flip; te_form↔negative / tai_form↔te_form category-flip). Beginners fumble negation before form category, so polarity-first is the higher-signal error. 2 alternate-verb distractors from sameJlptPool filtered to part_of_speech === 'verb'.
+- [Phase Phase 11]: jlptPools built in one combined SQL query excluding queued IDs to prevent self-distractor cross-contamination
 
 ### Pending Todos
 
