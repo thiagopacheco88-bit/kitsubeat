@@ -5,25 +5,30 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 10 — Advanced Exercises & Full Mastery (Plans 10-01 + 10-02 complete). Wave-2 plans 10-03/04/05 unblocked with data-layer foundation + PlayerContext imperative API in place.
+**Current focus:** v2.0 Phase 10 — Advanced Exercises & Full Mastery (Plans 10-01 + 10-02 + 10-03 + 10-04 + 10-05 complete). Wave-2 is done end-to-end: Grammar Conjugation, Listening Drill, and Sentence Order all shipped. Next: wave-3 plans 10-06 (saveSessionResults ex5/6/7 + counter-increment) + 10-07 (premium-gate UI).
 
 ## Current Position
 
 Phase: 10 of 11 (Advanced Exercises & Full Mastery) — In Progress
-Plan: 2 of 7 complete (10-01 ✓, 10-02 ✓); next: wave-2 plans 10-03 (Grammar Conjugation) / 10-04 (Listening Drill) / 10-05 (Sentence Order) runnable in parallel
+Plan: 5 of 7 complete (10-01 ✓, 10-02 ✓, 10-03 ✓, 10-04 ✓, 10-05 ✓). Wave-2 complete. Next: 10-06 (saveSessionResults ex5/6/7 accuracy + counter-increment) + 10-07 (premium-gate UI).
 Status: Plan 10-01 complete — data-layer foundation shipped: drizzle/0007_advanced_exercises.sql (ex5/ex6/ex7_best_accuracy cols on user_song_progress + user_exercise_song_counters table with UNIQUE(user_id, exercise_family, song_version_id)); ExerciseType union widened 4→7 (grammar_conjugation + listening_drill + sentence_order); Question interface widened one-shot with 4 optional wave-2 fields (conjugationBase/verseStartMs/verseTokens/translation); deriveStars widened 0|1|2→0|1|2|3 (Star 3 gated on Ex 6 ≥80%); deriveBonusBadge added (Ex 5 + Ex 7 both ≥80%); song_quota gate path in checkExerciseAccess(userId, type, {songVersionId}) with premium bypass + already-touched re-entry + quota_exhausted response; counters.ts thin drizzle wrapper (getSongCountForFamily + userHasTouchedSong + recordSongAttempt idempotent via ON CONFLICT DO NOTHING); RATING_WEIGHTS 4→7 entries (grammar_conjugation=4, listening_drill=3, sentence_order=4); 9 generator + 3 ExerciseSession throw-stub branches so wave-2 plans 10-03/04/05 REPLACE stub bodies only (parallel-safe). 34 new unit tests green (13 access mocked + 21 derive-stars+deriveBonusBadge); 6 counters integration tests behind describe.skip pending TEST_DATABASE_URL. Four Rule-3 deviations (migration collision 0006→0007, deriveStars signature threading through 4 call sites, Record<ExerciseType,number> exhaustiveness, resetTestProgress clears counter table). Commits 8a4a6f4 (schema+stubs), dd82cbb (counters+gate+tests).
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
-Last activity: 2026-04-18 — Plans 10-01 + 10-02 SUMMARYs complete. Wave-2 plans 10-03/04/05 runnable in parallel (union + Question fields + stubs already in place; PlayerContext.seekAndPlay ready for Listening Drill replay UX).
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 COMPLETE (6/6 plans); v2.0 Phase 10 in progress (2/7 plans)
+Plan 10-04 complete — Listening Drill exercise end-to-end. Generator: listening_drill branch mirrors fill_lyric verse-blank (findVerseForVocab + pickDistractorsWithVocab); requires start_time_ms > 0; Question.verseStartMs + Question.verseTokens populated; buildQuestions.types extended with hasTimedVerses gate (zero-emission clean skip on untimed songs). Session store: listeningReplays: Record<string, number> slice + incrementListeningReplay action (telemetry only; NOT fed to FSRS; reset on startSession). ListeningDrillCard (280 lines) consumes usePlayer().seekTo/play/isReady/embedState — auto-seek+play on mount and on question.id change; Replay uses discrete seekTo()+play() (not debounced seekAndPlay) for human-tap responsiveness. Blanked-verse rendering replaces target surface with _____; no romaji rendered in-card (Pitfall 8). embedState === 'error' fallback renders the CONTEXT-locked string ONLY ("Listening Drill unavailable for this song (video not playable). Star 3 is unreachable until the video works.") — no Skip/Next/onSkip/onAnswer, no silent fill_lyric substitution. ExerciseSession dispatch replaces stub; verseTokens resolved from lesson.verses via q.verseRef.verseNumber with Question.verseTokens as fallback. 7 unit tests in listening-drill.test.ts + widened count assertions in generator.test.ts / distractor-picker.test.ts (covers 5-type emission + Plan 10-05 sentence_order sibling). One Rule-3 auto-fix (test-count assertions). Commits f5a053d (Task 1, bundled with Plan 10-05 sentence_order Task 1 under the sibling's label), c8a653d (Task 2, bundled with in-progress kana UI under a misleading label — CODE verified in HEAD).
+
+Plan 10-05 complete — Sentence Order (EXER-07) end-to-end. Audit script `scripts/audit/verse-token-distribution.ts` + `npm run audit:verse-tokens` verifies the 12-token CONTEXT-locked cap against live catalog: 130 songs, 109 (83.8%) have ≥3 eligible verses — above the 80% threshold, no clause-boundary follow-up needed. `SENTENCE_ORDER_TOKEN_CAP=12` exported from generator.ts. buildQuestions gains a dedicated per-verse loop (sentence_order is verse-centric, not vocab-centric): one question per eligible verse, correctAnswer = joined token surfaces, translation from `verse.translations.en`, `distractors=[]`, empty-string `vocabItemId` sentinel (Plan 10-06 must skip per-vocab mastery writes). Session store gains `sentenceOrderPool / sentenceOrderAnswer / sentenceOrderHintShown` slices keyed by question.id + 4 actions (init, moveToAnswer, moveToPool, showHint). `initSentenceOrder` stamps each token with `crypto.randomUUID()` + Fisher-Yates (no DOM index leak); no-op on existing pool (reload-safe). SentenceOrderCard (~240 lines) renders dashed answer row + pool row (flex-wrap), Submit disabled until pool empty, Show hint one-way reveal-hatch (propagates `revealedReading=true` → FSRS rating=1 via existing generic `ratingFor`). All-or-nothing scoring + wrong-position highlight in-row after submit; no data-position/data-correct-index/data-correct attrs (Pitfall 1 immune by construction). ExerciseSession dispatch replaces sentence_order throw-stub with <SentenceOrderCard/>. 21 unit tests added (16 generator/store + 5 rendering); full suite 256 pass / 9 skipped. Three Rule-3 auto-fixes (React 19 getSnapshot-cache warning on inline `?? []` selector → slice Record then index by id; JSDOM missing scrollIntoView guard; afterEach import). Commits f5a053d (Task 1 main — bundled with concurrent Plan 10-04 edits on shared generator.ts + exerciseSession.ts), 2286df8 (Task 1 supplementary — audit script + markdown + unit tests), 40272e2 (Task 2 — card + dispatch + rendering tests).
+
+Last activity: 2026-04-18 — Plans 10-03 + 10-04 + 10-05 complete end-to-end. Wave-2 is done. All 7 exercise types now emit from buildQuestions and have dispatched cards. Next: wave-3 plans 10-06 (saveSessionResults ex5/6/7 accuracy + counter-increment — consumes `recordSongAttempt` on first answer per session) + 10-07 (premium-gate UI — consumes `checkExerciseAccess(..., { songVersionId })` + `quotaRemaining` for upsell copy).
+
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 COMPLETE (6/6 plans); v2.0 Phase 10 in progress (5/7 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 17
-- Average duration: 9.0 min
-- Total execution time: 2.50 hours
+- Total plans completed: 18
+- Average duration: 9.3 min
+- Total execution time: 2.73 hours
 
 **By Phase:**
 
@@ -34,8 +39,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min), 09-05 (3 min), 10-02 (9 min), 10-01 (35 min)
-- Trend: 10-01 at 35 min — largest plan in phase (7 files created/modified + migration + 4-call-site deriveStars threading + 4 Rule-3 deviations); heavy data-layer work with schema migration + ExerciseType union widening + 9 generator stubs + 3 ExerciseSession stubs + gate extension + 3 test files touched. Wave-2 plans 10-03/04/05 should run faster since types + stubs are already pre-placed.
+- Last 7 plans: 09-03 (3 min), 09-04 (3 min), 09-05 (3 min), 10-02 (9 min), 10-01 (35 min), 10-04 (14 min)
+- Trend: 10-04 at 14 min — Listening Drill integration on top of Plan 10-02 PlayerContext API + Plan 10-01 stubs. One Rule-3 deviation (widening generator.test.ts count assertions for the 5-type emission + Plan 10-05 sentence_order sibling). Commit hygiene messy (Tasks 1+2 bundled with sibling wave-2 commits under their labels) but CODE is verifiably in HEAD. Wave-2 parallel-safety contract from Plan 10-01 held: stubs replaced cleanly, no type conflicts.
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -74,6 +79,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 09 P05 | 3 | 2 tasks | 5 files |
 | Phase 10-advanced-exercises-full-mastery P02 | 9 | 2 tasks | 5 files |
 | Phase 10-advanced-exercises-full-mastery P01 | 35 | 2 tasks | 17 files |
+| Phase 10-advanced-exercises-full-mastery P04 | 14 | 2 tasks | 7 files |
+| Phase 10-advanced-exercises-full-mastery P03 | 15 | 2 tasks | 9 files |
+| Phase 10-advanced-exercises-full-mastery P05 | 15 | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -244,6 +252,15 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: resetTestProgress in tests/support/test-db.ts extended to clear user_exercise_song_counters so Phase 10 integration tests stay hermetic.
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: RATING_WEIGHTS extended to 7 entries — grammar_conjugation=4, listening_drill=3, sentence_order=4. Production > recognition > surface invariant preserved.
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: Wave-1 type widening pattern — union + Question interface + stubs all in ONE plan so wave-2 plans 10-03/04/05 only REPLACE stub bodies (no type churn, no merge conflicts under parallel execution).
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-04: ListeningDrillCard consumes usePlayer() imperative API (seekTo/play/isReady/embedState) — NO raw YT ref, NO window.__kbPlayer in production bundle
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-04: embedState='error' fallback is a hard dead-end — locked-copy message only, no onSkip/Skip/Next, no silent fill_lyric substitution. Star 3 unreachable on that song until iframe works (CONTEXT-locked).
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-04: Replay uses discrete seekTo()+play() (NOT seekAndPlay) — human-tap feedback responsiveness; seekAndPlay's 400ms debounce is for programmatic bursts, not UI clicks.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-04: listeningReplays session slice is telemetry-only — reset on startSession, NEVER fed to FSRS. CONTEXT-locked 'unlimited replays, no penalty'.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-04: buildQuestions emits listening_drill ONLY when >=1 verse has start_time_ms>0 (hasTimedVerses gate); makeQuestion returns null for vocab without timed verse. Zero-emission clean-skip on untimed songs.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-05: Sentence Order is verse-centric (per-verse loop in buildQuestions, not per-vocab); distractors=[]; empty-string vocabItemId sentinel for Plan 10-06 to skip per-vocab mastery writes
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-05: SENTENCE_ORDER_TOKEN_CAP=12 exported from generator.ts — per-verse filter (not per-song gate); audit script confirms 83.8% of songs have >=3 eligible verses (above 80% threshold, no follow-up)
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-05: initSentenceOrder no-ops on existing pool (reload-safe via zustand persist); UUIDs stamped at shuffle time so no data-position/data-correct-index in DOM (Pitfall 1 immune)
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-05: Stable zustand selectors — slice Record<id,T[]> then derive by id (inline  trips React 19 getSnapshot-cache warning)
 
 ### Pending Todos
 
