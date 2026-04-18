@@ -3,12 +3,20 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import { usePlayer, type EmbedState } from "./PlayerContext";
 
-// YouTube IFrame API global types
+// YouTube IFrame API global types. `YT` is a UMD global (see @types/youtube),
+// so within this module file we type `window.YT` with an inline constructor
+// signature rather than `typeof YT` — the latter would require importing the
+// UMD value, which @types/youtube does not expose via a module export.
 // eslint-disable-next-line @typescript-eslint/no-namespace
 declare global {
   interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    YT: any;
+    YT: {
+      Player: new (
+        elementId: string | HTMLElement,
+        options: YT.PlayerOptions
+      ) => YT.Player;
+    };
+    __kbPlayer?: YT.Player;
     onYouTubeIframeAPIReady: () => void;
   }
 }
@@ -114,8 +122,7 @@ export default function YouTubeEmbed({
           origin: window.location.origin,
         },
         events: {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          onReady: (event: any) => {
+          onReady: (event: YT.PlayerEvent) => {
             setEmbedState("ready");
             // Test-only instrumentation. Exposes the YT player so Playwright specs
             // can call seekTo/playVideo across the cross-origin iframe boundary.
@@ -124,8 +131,7 @@ export default function YouTubeEmbed({
             // See plan 08.1-05 Task 2 + verification: grep "NEXT_PUBLIC_APP_ENV" must
             // return only this comparison and the VerseBlock data-start-ms gate.
             if (process.env.NEXT_PUBLIC_APP_ENV === "test") {
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              (window as any).__kbPlayer = event.target;
+              window.__kbPlayer = event.target;
             }
             // Plan 10-02: production-grade imperative API registration. The raw
             // YT.Player reference stays scoped to this closure — only the three
@@ -138,17 +144,13 @@ export default function YouTubeEmbed({
             // one _registerApi call dispatches all four via a single ref).
             _registerApi({
               seekTo: (ms: number) => {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (event.target as any).seekTo(ms / 1000, true);
+                event.target.seekTo(ms / 1000, true);
               },
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              play: () => (event.target as any).playVideo(),
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              pause: () => (event.target as any).pauseVideo(),
+              play: () => event.target.playVideo(),
+              pause: () => event.target.pauseVideo(),
             });
           },
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          onStateChange: (event: any) => {
+          onStateChange: (event: YT.OnStateChangeEvent) => {
             if (event.data === 1) {
               // YT.PlayerState.PLAYING = 1
               startTracking();
