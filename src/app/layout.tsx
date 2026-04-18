@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_JP } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import "./globals.css";
+import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansJP = Noto_Sans_JP({
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -56,6 +57,7 @@ export default function RootLayout({
               >
                 Songs
               </Link>
+              <GlobalLearnedCounter />
               <Link
                 href="/profile"
                 className="text-sm text-gray-400 transition-colors hover:text-white"

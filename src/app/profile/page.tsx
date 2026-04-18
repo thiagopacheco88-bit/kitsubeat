@@ -4,6 +4,7 @@ import {
   PREMIUM_NEW_CARD_CAP_CEILING,
 } from "@/lib/user-prefs";
 import ProfileForm from "./ProfileForm";
+import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 
 // TODO(Phase 10 auth): replace with Clerk auth() and redirect unauthenticated users.
 // For now the placeholder user matches the rest of the app's auth TODO pattern.
@@ -19,6 +20,9 @@ export default async function ProfilePage() {
   return (
     <main className="mx-auto max-w-xl px-4 py-8 text-white">
       <h1 className="mb-6 text-2xl font-semibold">Profile</h1>
+      <div className="mb-6">
+        <GlobalLearnedCounter variant="profile" />
+      </div>
       <section className="rounded-xl border border-gray-700 bg-gray-900 p-6">
         <h2 className="mb-4 text-lg font-semibold">Learning preferences</h2>
         <ProfileForm
