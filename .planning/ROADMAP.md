@@ -223,8 +223,8 @@ Plans:
 - [x] 09-01-PLAN.md — Kana reference data module (chart.ts + types + invariant tests)
 - [x] 09-02-PLAN.md — Pure logic: weighted selection + mastery + row-unlock predicate (TDD)
 - [x] 09-03-PLAN.md — kanaProgress Zustand store with persist + hydration + test hook
-- [ ] 09-04-PLAN.md — /kana landing grid + mode toggle + sign-up nudge banner
-- [ ] 09-05-PLAN.md — Drill session UI: KanaSession + KanaQuestionCard + KanaLearnCard + RowUnlockModal
+- [x] 09-04-PLAN.md — /kana landing grid + mode toggle + sign-up nudge banner
+- [x] 09-05-PLAN.md — Drill session UI: KanaSession + KanaQuestionCard + KanaLearnCard + RowUnlockModal
 - [ ] 09-06-PLAN.md — Post-session summary screen + manual end-to-end checkpoint
 
 ### Phase 10: Advanced Exercises & Full Mastery

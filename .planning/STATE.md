@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 09 — Kana Trainer (4/6 plans summarized: 09-01, 09-02, 09-03, 09-04); Phase 11 COMPLETE
+**Current focus:** v2.0 Phase 09 — Kana Trainer (5/6 plans summarized: 09-01, 09-02, 09-03, 09-04, 09-05); Phase 11 COMPLETE
 
 ## Current Position
 
 Phase: 09 of 11 (Kana Trainer) — In Progress
-Plan: 4 of 6 complete (09-01 ✓, 09-02 ✓, 09-03 ✓, 09-04 ✓); next: Phase 09 Plan 05
-Status: Plan 09-04 complete — public /kana landing page shipped: src/app/kana/page.tsx + KanaTile + KanaGrid + ModeToggle + SignupNudge components. Client-rendered, hydration skeleton, locked-row dimming via computeUnlockedRows, mode toggle (hiragana | katakana | mixed), Start CTA links /kana/session?mode=... (Plan 09-05 contract). KANA_SIGNUP_NUDGE_AFTER_SESSIONS=3 banner gates on sessionsCompleted. NO checkExerciseAccess / requireAuth on the route (FREE-03 invariant). KanaMode imported (not redefined) from @/lib/kana/types — keeps Plan 09-05 parallel-safe. Commits 6e65257 (components), aec7585 (page).
-Last activity: 2026-04-18 — Plan 09-04 SUMMARY complete (Wave 3). Wave-3 sibling Plan 09-05 unblocked (consumes /kana/session?mode={mode} href contract).
+Plan: 5 of 6 complete (09-01 ✓, 09-02 ✓, 09-03 ✓, 09-04 ✓, 09-05 ✓); next: Phase 09 Plan 06
+Status: Plan 09-05 complete — drill loop shipped: /kana/session?mode=... (page.tsx + KanaSession orchestrator + KanaQuestionCard + KanaLearnCard + RowUnlockModal). 20-question loop with weighted-random selection (buildKanaSession), 4-option tap card with 1/2/3/4 + Space/Enter shortcuts, 0-star pre-reveal LearnCard variant (KANA-04 awards exactly 1 star via setStars), queueMicrotask-gated unlock-detection diff against startSnapshot ref so mid-session unlocks fire RowUnlockModal once but DON'T expand the current pool. KanaMode imported from @/lib/kana/types in BOTH page.tsx and KanaSession.tsx — wave-3 plans 09-04/09-05 stay parallel-safe. sessionStorage handoff key kitsubeat-kana-last-session ({mode, log: AnswerLog[], unlocked}) ready for Plan 09-06. One Rule-1 deviation: sessionStorage.setItem moved into useEffect (not inline-during-render). Commits 41ca008 (presentational components), 964715c (orchestrator + route).
+Last activity: 2026-04-18 — Plan 09-05 SUMMARY complete (Wave 3). Plan 09-06 (session summary) unblocked — reads kitsubeat-kana-last-session sessionStorage payload.
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 in progress (4/6 plans)
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 in progress (5/6 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 7.6 min
-- Total execution time: 1.71 hours
+- Total plans completed: 15
+- Average duration: 7.3 min
+- Total execution time: 1.76 hours
 
 **By Phase:**
 
@@ -32,8 +32,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 08.1-08 (9 min), 11-04 (4 min), 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min)
-- Trend: stable-fast (09-04 landed in 3 min — five small client components + landing page; only deviation was a one-line JSDoc reword to satisfy a literal-text grep audit)
+- Last 7 plans: 11-04 (4 min), 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min), 09-05 (3 min)
+- Trend: stable-fast (09-05 landed in 3 min — three presentational components + KanaSession orchestrator + route; one Rule-1 deviation moved sessionStorage write from inline-during-render into useEffect to avoid React StrictMode double-write)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -210,6 +210,14 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 09-kana-trainer]: Plan 09-04: KANA_SIGNUP_NUDGE_AFTER_SESSIONS=3 (locked from RESEARCH Open Question 4); banner has no /signup CTA wired — Phase 3 auth lands the destination, banner alone is the nudge
 - [Phase 09-kana-trainer]: Plan 09-04: Mode state is component-local (NOT persisted) — resets on reload by design; mode persistence out of scope for v1
 - [Phase 09-kana-trainer]: Plan 09-04: KanaTile + ModeToggle are pure props-driven (no store import); only KanaGrid + SignupNudge subscribe to useKanaProgress — keeps tile/toggle reusable in any future surface (e.g. session UI, summary screen)
+- [Phase 09-kana-trainer]: Plan 09-05: SESSION_LENGTH=20 questions per drill (locked module-level const)
+- [Phase 09-kana-trainer]: Plan 09-05: startSnapshot ref captured on first hydrated render — mid-session unlocks fire RowUnlockModal but DON'T expand the current pool (next session puts the new row into rotation)
+- [Phase 09-kana-trainer]: Plan 09-05: sessionStorage handoff key kitsubeat-kana-last-session shape={mode:KanaMode, log:AnswerLog[], unlocked:string[]} — single-use ephemeral, NOT localStorage
+- [Phase 09-kana-trainer]: Plan 09-05: KanaMode imported from @/lib/kana/types in BOTH session/page.tsx and KanaSession.tsx — no sibling-plan UI import; preserves wave-3 plans 09-04/09-05 parallelism
+- [Phase 09-kana-trainer]: Plan 09-05: 0-star path uses setStars(script,glyph,1) NOT applyAnswer — KANA-04 is "exactly 1 star" not "+1 from current"
+- [Phase 09-kana-trainer]: Plan 09-05: queueMicrotask wraps unlock-detection diff so useKanaProgress.getState() reads the post-applyAnswer store
+- [Phase 09-kana-trainer]: Plan 09-05: One RowUnlockModal per question (loop break) — multi-row simultaneous unlock collapses to first
+- [Phase 09-kana-trainer]: Plan 09-05: sessionStorage.setItem moved into useEffect (not inline-during-render, deviation from plan text) — avoids React StrictMode double-write; same key/shape preserved
 
 ### Pending Todos
 
@@ -236,5 +244,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 09 Plan 04 (public /kana landing page — page.tsx + KanaTile + KanaGrid + ModeToggle + SignupNudge; FREE-03 invariant honored; KanaMode imported from @/lib/kana/types; KANA_SIGNUP_NUDGE_AFTER_SESSIONS=3). Plans 09-01..09-04 complete with SUMMARYs on disk. Phase 09 at 4/6.
-Resume file: .planning/phases/09-kana-trainer/09-05-PLAN.md
+Stopped at: Completed Phase 09 Plan 05 (drill loop — /kana/session?mode=... + KanaSession orchestrator + KanaQuestionCard + KanaLearnCard + RowUnlockModal). 20-question loop with weighted-random selection, 4-option tap card, 0-star pre-reveal LearnCard, mid-session unlock confetti modal, sessionStorage handoff to Plan 09-06. KanaMode imported from @/lib/kana/types in both files (wave-3 parallelism preserved). One Rule-1 deviation: sessionStorage.setItem moved into useEffect. Plans 09-01..09-05 complete with SUMMARYs on disk. Phase 09 at 5/6.
+Resume file: .planning/phases/09-kana-trainer/09-06-PLAN.md
