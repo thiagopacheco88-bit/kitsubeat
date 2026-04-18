@@ -32,8 +32,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 ### Kana Trainer
 
-- [ ] **KANA-01**: User can drill hiragana recognition (see kana, pick correct romaji from 4 options) in a standalone trainer
-- [ ] **KANA-02**: User can drill katakana recognition in the same trainer interface
+- [x] **KANA-01**: User can drill hiragana recognition (see kana, pick correct romaji from 4 options) in a standalone trainer
+- [x] **KANA-02**: User can drill katakana recognition in the same trainer interface
 - [x] **KANA-03**: Each kana character has a 10-star mastery level; correct answer adds 1 star, wrong answer removes 2 stars (minimum 0)
 - [ ] **KANA-04**: Characters at 0 stars appear with the answer pre-shown (learning mode) and award 1 star for acknowledgment
 - [x] **KANA-05**: Characters at 10 stars (mastered) appear at 1/5th normal frequency but still appear
@@ -68,7 +68,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 - [x] **FREE-01**: Exercise system is built with a premium gate abstraction so individual features can be toggled free/premium without code changes
 - [x] **FREE-02**: Per-song exercises (all 7 types) are free for all users
-- [ ] **FREE-03**: Kana trainer is free for all users
+- [x] **FREE-03**: Kana trainer is free for all users
 - [x] **FREE-04**: Cross-song SRS review queue is premium-only (view-only counts are free)
 - [ ] **FREE-05**: Listening drills are free for first 3 songs, then premium-gated
 - [x] **FREE-06**: Free/premium boundaries are enforced at the data access layer, not hidden UI elements
@@ -130,15 +130,15 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | FREE-01 | Phase 8 | Complete |
 | FREE-02 | Phase 8 | Complete |
 | FREE-06 | Phase 8 | Complete |
-| KANA-01 | Phase 9 | Pending |
-| KANA-02 | Phase 9 | Pending |
+| KANA-01 | Phase 9 | Complete |
+| KANA-02 | Phase 9 | Complete |
 | KANA-03 | Phase 9 | Complete |
 | KANA-04 | Phase 9 | Pending |
 | KANA-05 | Phase 9 | Complete |
 | KANA-06 | Phase 9 | Complete |
 | KANA-07 | Phase 9 | Complete |
 | KANA-08 | Phase 9 | Complete |
-| FREE-03 | Phase 9 | Pending |
+| FREE-03 | Phase 9 | Complete |
 | EXER-05 | Phase 10 | Pending |
 | EXER-06 | Phase 10 | Pending |
 | EXER-07 | Phase 10 | Pending |

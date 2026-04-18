@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 09 — Kana Trainer (3/6 plans summarized: 09-01, 09-02, 09-03); Phase 11 COMPLETE
+**Current focus:** v2.0 Phase 09 — Kana Trainer (4/6 plans summarized: 09-01, 09-02, 09-03, 09-04); Phase 11 COMPLETE
 
 ## Current Position
 
 Phase: 09 of 11 (Kana Trainer) — In Progress
-Plan: 3 of 6 complete (09-01 ✓, 09-02 ✓, 09-03 ✓); next: Phase 09 Plan 04
-Status: Plan 09-02 complete — pure-function gameplay engine shipped: src/lib/kana/mastery.ts (applyStarDelta + isRowMastered + computeUnlockedRows — KANA-03 + KANA-06) and src/lib/kana/selection.ts (weightFor + pickWeighted + buildKanaSession + buildDistractors + EligibleChar — KANA-05 + KANA-07), with 49 new unit tests (24 mastery + 25 selection) bringing the kana suite to 61 green. TDD discipline followed (RED + GREEN per module). Commits 79d54a7 (test mastery), d2d21eb (feat mastery), fa5587f (test selection), 985537f (feat selection). Plan 09-03 (kanaProgress Zustand store) also landed in parallel: 0570044 + 31446fc.
-Last activity: 2026-04-18 — Plan 09-02 SUMMARY complete (Wave 2). Pure rules + persisted store both ready for plans 09-04 (landing page), 09-05 (drill session), 09-06 (session summary).
+Plan: 4 of 6 complete (09-01 ✓, 09-02 ✓, 09-03 ✓, 09-04 ✓); next: Phase 09 Plan 05
+Status: Plan 09-04 complete — public /kana landing page shipped: src/app/kana/page.tsx + KanaTile + KanaGrid + ModeToggle + SignupNudge components. Client-rendered, hydration skeleton, locked-row dimming via computeUnlockedRows, mode toggle (hiragana | katakana | mixed), Start CTA links /kana/session?mode=... (Plan 09-05 contract). KANA_SIGNUP_NUDGE_AFTER_SESSIONS=3 banner gates on sessionsCompleted. NO checkExerciseAccess / requireAuth on the route (FREE-03 invariant). KanaMode imported (not redefined) from @/lib/kana/types — keeps Plan 09-05 parallel-safe. Commits 6e65257 (components), aec7585 (page).
+Last activity: 2026-04-18 — Plan 09-04 SUMMARY complete (Wave 3). Wave-3 sibling Plan 09-05 unblocked (consumes /kana/session?mode={mode} href contract).
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 in progress (3/6 plans)
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 in progress (4/6 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13
-- Average duration: 8 min
-- Total execution time: 1.66 hours
+- Total plans completed: 14
+- Average duration: 7.6 min
+- Total execution time: 1.71 hours
 
 **By Phase:**
 
@@ -32,8 +32,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 08.1-07 (7 min), 08.1-08 (9 min), 11-04 (4 min), 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min)
-- Trend: stable-fast (09-03 landed in 3 min — store + persist + 14 unit tests; Plan 02 GREEN had pre-landed so the store import resolved with zero deviation)
+- Last 7 plans: 08.1-08 (9 min), 11-04 (4 min), 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min)
+- Trend: stable-fast (09-04 landed in 3 min — five small client components + landing page; only deviation was a one-line JSDoc reword to satisfy a literal-text grep audit)
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -68,6 +68,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 09-kana-trainer P01 | 3 | 3 tasks | 3 files |
 | Phase 09 P03 | 3 | 2 tasks | 2 files |
 | Phase 09-kana-trainer P02 | 4 | 2 tasks | 4 files |
+| Phase 09 P04 | 3 | 2 tasks | 5 files |
+| Phase 09 P05 | 3 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -203,6 +205,11 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 09-kana-trainer]: [Plan 09-02]: weightFor anchor 0->10, 5->5, 10->1 with 5:1 ratio between mid and ceiling locked by test (KANA-05)
 - [Phase 09-kana-trainer]: [Plan 09-02]: buildKanaSession returns [] on empty pool (no throw); duplicates allowed by design (with-replacement weighted draw)
 - [Phase 09-kana-trainer]: [Plan 09-02]: buildDistractors keeps 'script' param on signature (currently unused) — reserved for future cross-script confusable variants
+- [Phase 09-kana-trainer]: Plan 09-04: /kana page is a Client Component with hydration-skeleton (animate-pulse) — pattern lifted from src/app/songs/[slug]/components/ExerciseTab.tsx; SSR with persisted localStorage would mismatch (RESEARCH Pitfall 1)
+- [Phase 09-kana-trainer]: Plan 09-04: NO checkExerciseAccess / requireAuth on /kana — FREE-03 invariant, verified by grep audit; page-level JSDoc reworded so the literal-text audit returns 0 matches
+- [Phase 09-kana-trainer]: Plan 09-04: KANA_SIGNUP_NUDGE_AFTER_SESSIONS=3 (locked from RESEARCH Open Question 4); banner has no /signup CTA wired — Phase 3 auth lands the destination, banner alone is the nudge
+- [Phase 09-kana-trainer]: Plan 09-04: Mode state is component-local (NOT persisted) — resets on reload by design; mode persistence out of scope for v1
+- [Phase 09-kana-trainer]: Plan 09-04: KanaTile + ModeToggle are pure props-driven (no store import); only KanaGrid + SignupNudge subscribe to useKanaProgress — keeps tile/toggle reusable in any future surface (e.g. session UI, summary screen)
 
 ### Pending Todos
 
@@ -229,5 +236,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 09 Plan 02 (mastery + selection rules — 49 unit tests, TDD RED+GREEN per module). Plans 09-01, 09-02, 09-03 all complete with SUMMARYs on disk. Phase 09 at 3/6.
-Resume file: .planning/phases/09-kana-trainer/09-04-PLAN.md
+Stopped at: Completed Phase 09 Plan 04 (public /kana landing page — page.tsx + KanaTile + KanaGrid + ModeToggle + SignupNudge; FREE-03 invariant honored; KanaMode imported from @/lib/kana/types; KANA_SIGNUP_NUDGE_AFTER_SESSIONS=3). Plans 09-01..09-04 complete with SUMMARYs on disk. Phase 09 at 4/6.
+Resume file: .planning/phases/09-kana-trainer/09-05-PLAN.md
