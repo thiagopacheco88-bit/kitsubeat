@@ -7,6 +7,7 @@ import {
   integer,
   jsonb,
   timestamp,
+  date,
   unique,
   boolean,
   real,
@@ -273,6 +274,10 @@ export const users = pgTable("users", {
   id: text("id").primaryKey(),
   skip_learning: boolean("skip_learning").default(false).notNull(),
   new_card_cap: integer("new_card_cap").default(10).notNull(),
+  // Phase 11: Cross-Song Vocabulary — daily new-card introduction counter.
+  // Distinct namespace from new_card_cap (per-session cap). Reset daily by upsert logic in Plan 05.
+  review_new_today: integer("review_new_today").notNull().default(0),
+  review_new_today_date: date("review_new_today_date"),
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
