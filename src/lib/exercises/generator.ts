@@ -583,16 +583,34 @@ export function makeGrammarConjugationQuestion(
  * @param lesson     - The lesson data (vocabulary + verses)
  * @param mode       - "short" (10 questions) or "full" (all*4 capped at 40)
  * @param jlptPool   - Same-JLPT-level vocabulary from vocabGlobal for distractor fallback
+ * @param typeFilter - Phase 10 Plan 06: optional allowlist of ExerciseTypes to emit.
+ *                     When provided, the per-vocab loop and the per-verse /
+ *                     per-grammar-point loops each consult this set and skip
+ *                     types that aren't in the allowlist. Used by the Practice
+ *                     tab's "Advanced Drills" mode to emit ONLY Ex 5/6/7 —
+ *                     passing ["grammar_conjugation", "listening_drill",
+ *                     "sentence_order"] produces a session whose questions are
+ *                     drawn exclusively from Plans 10-03/04/05. Omitted (or
+ *                     undefined) preserves the pre-Plan-06 behavior: Ex 1-4 +
+ *                     Ex 5-7 all emit where eligible.
  */
 export function buildQuestions(
   lesson: Lesson,
   mode: SessionConfig["mode"],
-  jlptPool: VocabEntry[]
+  jlptPool: VocabEntry[],
+  typeFilter?: ExerciseType[]
 ): Question[] {
   // Only include vocab entries with a UUID identity
   const base = lesson.vocabulary.filter((v) => v.vocab_item_id);
 
-  const types: ExerciseType[] = [
+  // Phase 10 Plan 06 — when a typeFilter is provided, the allowlist is the sole
+  // authority for which types get emitted. Using a Set keeps the per-iteration
+  // cost O(1) regardless of typeFilter length.
+  const typeAllowlist = typeFilter ? new Set<ExerciseType>(typeFilter) : null;
+  const typeAllowed = (t: ExerciseType): boolean =>
+    typeAllowlist === null || typeAllowlist.has(t);
+
+  const ALL_VOCAB_LOOP_TYPES: ExerciseType[] = [
     "vocab_meaning",
     "meaning_vocab",
     "reading_match",
@@ -602,6 +620,7 @@ export function buildQuestions(
     // doesn't appear in a timed verse, matching fill_lyric's skip semantics).
     "listening_drill",
   ];
+  const types: ExerciseType[] = ALL_VOCAB_LOOP_TYPES.filter(typeAllowed);
 
   // Plan 10-04: clean-skip heuristic for songs with no timing data at all —
   // avoids looping through the generator when every listening_drill attempt
@@ -642,7 +661,13 @@ export function buildQuestions(
   //
   // If a song has zero eligible verses, buildQuestions emits zero
   // sentence_order questions (skip cleanly, no throw).
+  //
+  // Phase 10 Plan 06: honor the typeFilter — skip the entire loop when
+  // sentence_order isn't in the allowlist. Prevents Practice-tab "Short / Full"
+  // modes from accidentally getting Sentence Order questions once the
+  // Advanced Drills mode wires a filter.
   // -------------------------------------------------------------------------
+  if (typeAllowed("sentence_order")) {
   for (const verse of lesson.verses) {
     if (!Array.isArray(verse.tokens) || verse.tokens.length === 0) continue;
     if (verse.tokens.length > SENTENCE_ORDER_TOKEN_CAP) continue;
@@ -685,6 +710,7 @@ export function buildQuestions(
           : undefined,
     });
   }
+  } // end sentence_order type-allowed guard
 
   // -------------------------------------------------------------------------
   // Phase 10-03 — Grammar Conjugation questions (per grammar point).
@@ -693,10 +719,15 @@ export function buildQuestions(
   // point with a timed verse hit produces one question. Unstructured grammar
   // points are skipped cleanly (CONTEXT-locked — 9% of catalog has
   // pattern-label paths; they do not emit Grammar Conjugation questions).
+  //
+  // Phase 10 Plan 06: honor the typeFilter — skip the entire grammar-points
+  // loop when grammar_conjugation isn't in the allowlist.
   // -------------------------------------------------------------------------
-  for (const gp of lesson.grammar_points ?? []) {
-    const q = makeGrammarConjugationQuestion(gp, base, lesson.verses, jlptPool);
-    if (q) questions.push(q);
+  if (typeAllowed("grammar_conjugation")) {
+    for (const gp of lesson.grammar_points ?? []) {
+      const q = makeGrammarConjugationQuestion(gp, base, lesson.verses, jlptPool);
+      if (q) questions.push(q);
+    }
   }
 
   const shuffled = shuffle(questions);

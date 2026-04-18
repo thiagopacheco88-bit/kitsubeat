@@ -8,6 +8,107 @@ import { ratingFor } from "@/lib/fsrs/rating";
 import { scheduleReview } from "@/lib/fsrs/scheduler";
 import type { MasteryRow } from "@/lib/fsrs/scheduler";
 import { tierFor } from "@/lib/fsrs/tier";
+import { checkExerciseAccess } from "@/lib/exercises/access";
+import {
+  QUOTA_FAMILY,
+  QUOTA_LIMITS,
+  type QuotaFamily,
+} from "@/lib/exercises/feature-flags";
+import { recordSongAttempt, getSongCountForFamily } from "@/lib/exercises/counters";
+import { isPremium } from "@/app/actions/userPrefs";
+import { userExerciseSongCounters } from "@/lib/db/schema";
+import { and } from "drizzle-orm";
+
+// ---------------------------------------------------------------------------
+// Phase 10 Plan 06 — Advanced Drills access summary (server action).
+//
+// Consumed by src/app/songs/[slug]/components/ExerciseTab.tsx at "Advanced
+// Drills" mode-card click. ExerciseTab MUST NOT import EXERCISE_FEATURE_FLAGS
+// or checkExerciseAccess directly (violates the Phase 08.1-07 single-gate
+// regression contract); this action is the thin server-action wrapper.
+//
+// Returns one summary covering BOTH quota families so the UI decides which
+// upsell modal to show (listening @ 10-song cap vs advanced_drill @ 3-song
+// cap, shared between grammar_conjugation + sentence_order).
+//
+// Both gate calls run in parallel via Promise.all — each is already a ~2ms
+// SELECT against the composite-indexed counter table, so the latency budget
+// for the mode-card click is well under the 16ms frame budget.
+// ---------------------------------------------------------------------------
+
+export interface AdvancedDrillAccess {
+  listeningAllowed: boolean;
+  advancedAllowed: boolean;
+  listeningQuotaRemaining: number;
+  advancedQuotaRemaining: number;
+  listeningQuotaLimit: number;
+  advancedQuotaLimit: number;
+  /** True when the user has an active premium subscription — UI may hide "upgrade" affordances. */
+  isPremium: boolean;
+}
+
+export async function getAdvancedDrillAccess(
+  userId: string,
+  songVersionId: string
+): Promise<AdvancedDrillAccess> {
+  if (!userId || !songVersionId) {
+    return {
+      listeningAllowed: false,
+      advancedAllowed: false,
+      listeningQuotaRemaining: 0,
+      advancedQuotaRemaining: 0,
+      listeningQuotaLimit: QUOTA_LIMITS.listening,
+      advancedQuotaLimit: QUOTA_LIMITS.advanced_drill,
+      isPremium: false,
+    };
+  }
+
+  // grammar_conjugation and sentence_order share the advanced_drill family,
+  // so one call covers both (same QUOTA_FAMILY value → same counter). A
+  // two-call parallel probe is the fastest path to two structured results.
+  const [listeningResult, advancedResult, premium] = await Promise.all([
+    checkExerciseAccess(userId, "listening_drill", { songVersionId }),
+    checkExerciseAccess(userId, "grammar_conjugation", { songVersionId }),
+    isPremium(userId),
+  ]);
+
+  return {
+    listeningAllowed: listeningResult.allowed,
+    advancedAllowed: advancedResult.allowed,
+    // checkExerciseAccess returns quotaRemaining only on quota-related outcomes.
+    // Defaulting to the family limit gives the UI a safe number when the user
+    // is premium (unbounded) or the gate returned a different shape.
+    listeningQuotaRemaining:
+      listeningResult.quotaRemaining ?? QUOTA_LIMITS.listening,
+    advancedQuotaRemaining:
+      advancedResult.quotaRemaining ?? QUOTA_LIMITS.advanced_drill,
+    listeningQuotaLimit: QUOTA_LIMITS.listening,
+    advancedQuotaLimit: QUOTA_LIMITS.advanced_drill,
+    isPremium: premium,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Phase 10 Plan 06 — Quota-exhausted error signal (thrown from recordVocabAnswer
+// after the counter insert + re-count uncovers a race-condition overshoot).
+//
+// The caller (ExerciseSession / ConjugationCard / ListeningDrillCard /
+// SentenceOrderCard) can catch this and show the post-answer upsell modal.
+// RESEARCH Pitfall 6 trade-off: one answer of slippage is possible under
+// cross-device race — documented in the upsell copy ("You just used your
+// last free song").
+// ---------------------------------------------------------------------------
+
+export class QuotaExhaustedError extends Error {
+  readonly family: QuotaFamily;
+  readonly quotaLimit: number;
+  constructor(family: QuotaFamily) {
+    super(`Quota exhausted for family ${family}`);
+    this.name = "QuotaExhaustedError";
+    this.family = family;
+    this.quotaLimit = QUOTA_LIMITS[family];
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Types

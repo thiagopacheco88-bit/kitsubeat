@@ -2,13 +2,16 @@
 
 import { useEffect, useState } from "react";
 import type { Lesson, VocabEntry } from "@/lib/types/lesson";
+import type { ExerciseType } from "@/lib/exercises/generator";
 import { buildQuestions } from "@/lib/exercises/generator";
 import {
   useExerciseSession,
   isSessionForSong,
 } from "@/stores/exerciseSession";
 import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
+import { getAdvancedDrillAccess } from "@/app/actions/exercises";
 import ExerciseSession from "./ExerciseSession";
+import AdvancedDrillsUpsellModal from "./AdvancedDrillsUpsellModal";
 
 interface ExerciseTabProps {
   lesson: Lesson;
@@ -19,6 +22,18 @@ interface ExerciseTabProps {
 }
 
 type TabState = "config" | "session";
+type Mode = "short" | "full" | "advanced_drills";
+
+/**
+ * Advanced Drills mode emits ONLY the Phase 10 quota-gated exercise types.
+ * Passed as a typeFilter to buildQuestions — the generator's per-vocab and
+ * per-verse / per-grammar-point loops honor the allowlist.
+ */
+const ADVANCED_DRILL_TYPES: ExerciseType[] = [
+  "grammar_conjugation",
+  "listening_drill",
+  "sentence_order",
+];
 
 export default function ExerciseTab({
   lesson,
@@ -33,6 +48,16 @@ export default function ExerciseTab({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [skipLearning, setSkipLearning] = useState(false);
+
+  // Phase 10 Plan 06 — tab-open upsell state. Holds the family whose quota was
+  // exhausted at Advanced Drills click time; null = no modal. The gate check
+  // runs as part of handleStart("advanced_drills") and never throws — it
+  // either allows through or sets this state.
+  const [upsell, setUpsell] = useState<{
+    family: "listening" | "advanced_drill";
+    quotaUsed: number;
+    quotaLimit: number;
+  } | null>(null);
 
   // --- Resume path: re-fetch prefs so skipLearning is accurate for the remaining questions.
   // Do NOT re-fetch the effective cap — the filtering decision was already baked
@@ -103,11 +128,49 @@ export default function ExerciseTab({
   const shortCount = Math.min(10, vocabCount * 4);
   const fullCount = Math.min(40, vocabCount * 4);
 
-  const handleStart = async (mode: "short" | "full") => {
+  const handleStart = async (mode: Mode) => {
     setLoading(true);
     setError(null);
+    setUpsell(null);
 
     try {
+      // Phase 10 Plan 06 — Advanced Drills mode requires the tab-open gate check
+      // BEFORE any question generation. If either quota family is exhausted the
+      // corresponding upsell modal renders and we bail without starting the
+      // session.
+      //
+      // UI invariant: ExerciseTab NEVER imports EXERCISE_FEATURE_FLAGS or
+      // checkExerciseAccess directly. All gate decisions flow through the
+      // getAdvancedDrillAccess server action (thin wrapper in
+      // src/app/actions/exercises.ts) — preserves the Phase 08.1-07 single-gate
+      // regression contract.
+      if (mode === "advanced_drills") {
+        const access = await getAdvancedDrillAccess(userId, songVersionId);
+        // Listening Drill is non-negotiable for Star 3 — if its family is
+        // exhausted, show that upsell first (10-song cap is the more generous
+        // of the two, so hitting it is the rarer event).
+        if (!access.listeningAllowed) {
+          setUpsell({
+            family: "listening",
+            quotaUsed: access.listeningQuotaLimit,
+            quotaLimit: access.listeningQuotaLimit,
+          });
+          setLoading(false);
+          return;
+        }
+        if (!access.advancedAllowed) {
+          setUpsell({
+            family: "advanced_drill",
+            quotaUsed: access.advancedQuotaLimit,
+            quotaLimit: access.advancedQuotaLimit,
+          });
+          setLoading(false);
+          return;
+        }
+        // Both gates open → fall through to buildQuestions with Advanced
+        // Drills filter.
+      }
+
       // Fetch user prefs, effective cap, and JLPT distractor pool in parallel.
       // getEffectiveCap is the authoritative cap value — free users always get
       // DEFAULT_NEW_CARD_CAP regardless of what's stored on users.new_card_cap.
@@ -210,15 +273,27 @@ export default function ExerciseTab({
       });
 
       // Build questions from the capped vocab.
+      //
+      // Phase 10 Plan 06: Advanced Drills mode passes a type allowlist so the
+      // generator's per-vocab loop and the per-verse / per-grammar-point loops
+      // emit ONLY Ex 5/6/7. Short / Full modes omit the filter (preserves
+      // pre-Plan-06 behavior — Ex 1-4 + eligible Ex 5-7 all emit).
+      const typeFilter =
+        mode === "advanced_drills" ? ADVANCED_DRILL_TYPES : undefined;
+      const engineMode: "short" | "full" =
+        mode === "advanced_drills" ? "full" : mode;
       const questions = buildQuestions(
         { ...lesson, vocabulary: filteredVocab },
-        mode,
-        jlptPool
+        engineMode,
+        jlptPool,
+        typeFilter
       );
 
       if (questions.length === 0) {
         setError(
-          "Not enough vocabulary in this song to build questions yet. Try skipping the new-word cap from your profile."
+          mode === "advanced_drills"
+            ? "No Advanced Drill questions can be generated for this song yet (needs timed verses and structured grammar points)."
+            : "Not enough vocabulary in this song to build questions yet. Try skipping the new-word cap from your profile."
         );
         setLoading(false);
         return;
@@ -227,7 +302,7 @@ export default function ExerciseTab({
       // Start session, then populate tiers + states.
       // startSession FIRST (resets tiers/states slices), then setTiers/setVocabStates
       // so the freshly-fetched data survives the reset.
-      startSession(songVersionId, questions, mode);
+      startSession(songVersionId, questions, engineMode);
       store.setTiers(tierMap);
       store.setVocabStates(stateMap);
 
@@ -250,7 +325,7 @@ export default function ExerciseTab({
         </p>
       )}
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {/* Quick Practice mode */}
         <div className="flex flex-col gap-3 rounded-xl border border-gray-700 bg-gray-900 p-5">
           <div>
@@ -286,6 +361,34 @@ export default function ExerciseTab({
             onClick={() => handleStart("full")}
             disabled={loading}
             className="mt-auto rounded-lg border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-50"
+          >
+            {loading ? "Loading..." : "Start"}
+          </button>
+        </div>
+
+        {/*
+         * Phase 10 Plan 06 — Advanced Drills mode card.
+         *
+         * Always rendered (CONTEXT-locked). The gate decides whether the session
+         * starts: click → getAdvancedDrillAccess server action → upsell modal
+         * on quota exhaustion OR full session otherwise.
+         */}
+        <div className="flex flex-col gap-3 rounded-xl border border-purple-700/50 bg-gray-900 p-5">
+          <div>
+            <h3 className="font-semibold text-white">Advanced Drills</h3>
+            <p className="mt-1 text-sm text-gray-400">
+              Grammar · Listening · Sentence Order
+            </p>
+          </div>
+          <p className="text-sm text-gray-500">
+            The 3-star workout — conjugation, listening, and sentence-reordering
+            questions. Free: 10 listening + 3 grammar/sentence songs.
+          </p>
+          <button
+            onClick={() => handleStart("advanced_drills")}
+            disabled={loading}
+            data-testid="advanced-drills-start"
+            className="mt-auto rounded-lg border border-purple-500/50 bg-purple-900/40 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-800/50 disabled:opacity-50"
           >
             {loading ? "Loading..." : "Start"}
           </button>
@@ -342,25 +445,37 @@ export default function ExerciseTab({
           <li className="flex items-start gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="mt-0.5 h-4 w-4 shrink-0 text-gray-600"
+              fill="currentColor"
+              className="mt-0.5 h-4 w-4 shrink-0 text-yellow-400"
             >
               <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"
+                fillRule="evenodd"
+                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                clipRule="evenodd"
               />
             </svg>
-            <span className="text-gray-600">
-              <span className="font-medium">Star 3:</span> Coming in a future
-              update
+            <span>
+              <span className="text-white font-medium">Star 3:</span> Score 80%+
+              on Listening Drill (Advanced Drills mode)
             </span>
           </li>
         </ul>
       </div>
+
+      {upsell && (
+        <AdvancedDrillsUpsellModal
+          family={upsell.family}
+          quotaUsed={upsell.quotaUsed}
+          quotaLimit={upsell.quotaLimit}
+          onClose={() => setUpsell(null)}
+          onUpgrade={() => {
+            // Upgrade link routes to /profile via Next/Link — nothing else to
+            // do here; the modal dismisses itself as the page navigates.
+            setUpsell(null);
+          }}
+        />
+      )}
     </div>
   );
 }
