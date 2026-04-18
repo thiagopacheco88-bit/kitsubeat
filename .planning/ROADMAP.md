@@ -236,8 +236,16 @@ Plans:
   2. User can complete Fill-the-Lyric Listening Drill exercises where the verse audio plays without lyrics shown and the user identifies the target word by ear
   3. User can complete Sentence Order exercises by tapping scrambled verse tokens into the correct sequence
   4. User earns Star 3 when Listening Drill (Ex 6) passes at >=80%; Sentence Order and Grammar Conjugation contribute to a bonus mastery badge visible on the song page but do not gate stars
-  5. Listening drills are free for a user's first 3 songs; subsequent listening drill access is premium-gated and enforced at the data access layer
-**Plans**: TBD
+  5. Listening drills are free for a user's first 10 songs; Grammar Conjugation + Sentence Order share a 3-song free quota (reshapes FREE-05); subsequent access is premium-gated and enforced at the data access layer
+**Plans:** 7 plans
+Plans:
+- [ ] 10-01-PLAN.md — Data layer foundation: migration (ex5/6/7 accuracy cols + user_exercise_song_counters table), ExerciseType union, deriveStars 0-3, deriveBonusBadge, song_quota gate in feature-flags, checkExerciseAccess(songVersionId), counters module
+- [ ] 10-02-PLAN.md — PlayerContext imperative API (seekTo/play/pause/isReady) wired from YouTubeEmbed; test-only __kbPlayer hook preserved
+- [ ] 10-03-PLAN.md — Grammar Conjugation exercise: conjugation audit + pickConjugationOptions + makeQuestion branch + ConjugationCard + ExerciseSession dispatch
+- [ ] 10-04-PLAN.md — Listening Drill exercise: makeQuestion branch + ListeningDrillCard wired to PlayerContext + YT watchdog fallback + session replay counter
+- [ ] 10-05-PLAN.md — Sentence Order exercise: verse-token audit + makeQuestion branch + SentenceOrderCard tap-to-build + reveal-hatch hint + session store slices
+- [ ] 10-06-PLAN.md — Premium gate wiring: ExerciseTab Advanced Drills mode + upsell modal + saveSessionResults ex5/6/7 persistence + counter increment on first answer + unfix Phase 08.1-07 test.fixme
+- [ ] 10-07-PLAN.md — Mastery surface: StarDisplay 0-3 + Star 3 confetti reuse + SongMasteredBanner on SongCard + BonusBadgeIcon on SongCard + catalog query extension
 
 ### Phase 11: Cross-Song Vocabulary
 **Goal**: Users can see how vocabulary they have mastered in one song carries across other songs, track their total unique Japanese words learned, and access a full vocabulary dashboard — with the cross-song SRS review queue as a premium differentiator
