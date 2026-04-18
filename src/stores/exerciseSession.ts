@@ -11,6 +11,7 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import type { Question } from "@/lib/exercises/generator";
+import type { Token } from "@/lib/types/lesson";
 import type { Tier } from "@/lib/fsrs/tier";
 
 // ---------------------------------------------------------------------------
@@ -21,6 +22,19 @@ interface AnswerRecord {
   chosen: string;
   correct: boolean;
   timeMs: number;
+}
+
+/**
+ * Phase 10 Plan 05 — Sentence Order per-token shape.
+ *
+ * Each token is stamped with a UUID at shuffle time so the DOM never leaks a
+ * correct-position index (Pitfall 1 — no data-position / data-correct-index
+ * attributes). UUIDs are generated inside initSentenceOrder via
+ * crypto.randomUUID().
+ */
+export interface SentenceOrderToken {
+  uuid: string;
+  surface: string;
 }
 
 interface ExerciseSessionState {
@@ -48,6 +62,32 @@ interface ExerciseSessionState {
   /** Phase 08.4: raw FSRS state per vocab (0|1|2|3), from the extended /api/exercises/vocab-tiers response.
    *  Needed to distinguish New (0) from Relearning (3) for learn-card trigger (Plan 04). */
   vocabStates: Record<string, 0 | 1 | 2 | 3>;
+  /**
+   * Phase 10 Plan 04: Listening Drill replay count per question (keyed by
+   * question.id). Telemetry only — NOT fed to FSRS (CONTEXT-locked: replays
+   * are unlimited and carry no penalty). Reset per session.
+   */
+  listeningReplays: Record<string, number>;
+  /**
+   * Phase 10 Plan 05: Sentence Order shuffled pool keyed by question.id.
+   * Tokens stamped with UUIDs at shuffle time (no correct-position leak in
+   * DOM). Survives question navigation within a session; reset on
+   * startSession.
+   */
+  sentenceOrderPool: Record<string, SentenceOrderToken[]>;
+  /**
+   * Phase 10 Plan 05: Sentence Order answer row keyed by question.id.
+   * Grows as the user taps pool tokens; shrinks as they tap an answer token
+   * back to the pool. Submit button enabled only when the pool is empty.
+   */
+  sentenceOrderAnswer: Record<string, SentenceOrderToken[]>;
+  /**
+   * Phase 10 Plan 05: "Show hint" reveal-hatch flag per question.id.
+   * Presence = shown. Maps to revealedReading=true for FSRS (rating=1) per
+   * the Phase 08.2-01 reveal-hatch pattern. One-way — once shown, does not
+   * hide again within the session.
+   */
+  sentenceOrderHintShown: Record<string, true>;
 }
 
 interface ExerciseSessionActions {
@@ -78,6 +118,34 @@ interface ExerciseSessionActions {
   markVocabIntroduced: (vocabItemId: string) => void;
   /** Phase 08.4: bulk-set raw FSRS states after the vocab-tiers batch fetch. */
   setVocabStates: (states: Record<string, 0 | 1 | 2 | 3>) => void;
+  /**
+   * Phase 10 Plan 04: increment the replay count for a listening_drill
+   * question. No FSRS impact — telemetry only (CONTEXT: unlimited replays).
+   */
+  incrementListeningReplay: (questionId: string) => void;
+  /**
+   * Phase 10 Plan 05: initialize the shuffled pool for a sentence_order
+   * question. Applies Fisher-Yates shuffle to the verse tokens and stamps
+   * each with a UUID via crypto.randomUUID(). No-op if the pool already has
+   * an entry for this questionId (reload-safe via zustand persist — the
+   * shuffled order survives a mid-question refresh).
+   */
+  initSentenceOrder: (questionId: string, verseTokens: Token[]) => void;
+  /**
+   * Phase 10 Plan 05: move a pool token to the end of the answer row by UUID.
+   * Preserves UUID identity. No-op if the token isn't in the pool.
+   */
+  moveToAnswer: (questionId: string, uuid: string) => void;
+  /**
+   * Phase 10 Plan 05: return an answer-row token to the end of the pool by
+   * UUID. No-op if the token isn't in the answer row.
+   */
+  moveToPool: (questionId: string, uuid: string) => void;
+  /**
+   * Phase 10 Plan 05: mark the hint as shown for a sentence_order question.
+   * One-way — the revealedReading=true flag propagates via onAnswer meta.
+   */
+  showHint: (questionId: string) => void;
 }
 
 type ExerciseSessionStore = ExerciseSessionState & ExerciseSessionActions;
@@ -100,6 +168,11 @@ const initialState: ExerciseSessionState = {
   learnedVocabIds: {},
   introducedNewVocabIds: {},
   vocabStates: {},
+  listeningReplays: {},
+  // Phase 10 Plan 05 — Sentence Order session slices.
+  sentenceOrderPool: {},
+  sentenceOrderAnswer: {},
+  sentenceOrderHintShown: {},
 };
 
 // ---------------------------------------------------------------------------
@@ -129,6 +202,15 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
           learnedVocabIds: {},
           introducedNewVocabIds: {},
           vocabStates: {},
+          // Phase 10 Plan 04: reset listening-drill replay counters on each
+          // new session (same lifecycle as moreAccordionOpen — no cross-session
+          // bleed; telemetry is session-scoped).
+          listeningReplays: {},
+          // Phase 10 Plan 05: reset sentence_order pool / answer / hint state
+          // so a new session never inherits a previous session's shuffle.
+          sentenceOrderPool: {},
+          sentenceOrderAnswer: {},
+          sentenceOrderHintShown: {},
         }),
 
       recordAnswer: (questionId, chosen, correct, timeMs) =>
@@ -177,6 +259,95 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
         })),
 
       setVocabStates: (states) => set({ vocabStates: states }),
+
+      incrementListeningReplay: (questionId) =>
+        set((state) => ({
+          listeningReplays: {
+            ...state.listeningReplays,
+            [questionId]: (state.listeningReplays[questionId] ?? 0) + 1,
+          },
+        })),
+
+      // ------------------------------------------------------------------
+      // Phase 10 Plan 05 — Sentence Order actions.
+      // Pool/answer slices are keyed by question.id; the UUIDs stamped here
+      // are the ONLY way tokens are addressed in the UI — no positional
+      // index is ever exposed via DOM attrs.
+      // ------------------------------------------------------------------
+
+      initSentenceOrder: (questionId, verseTokens) =>
+        set((state) => {
+          // Reload-safe: if the pool already exists (e.g., user refreshed
+          // mid-question), don't re-shuffle — preserve the user's work.
+          if (state.sentenceOrderPool[questionId]) return state;
+
+          // Stamp each token with a fresh UUID, then apply Fisher-Yates so the
+          // DOM never reveals the source verse order. (We use a local copy of
+          // the shuffle algorithm because the generator module's shuffle is
+          // not exported.)
+          const stamped: SentenceOrderToken[] = verseTokens.map((t) => ({
+            uuid: crypto.randomUUID(),
+            surface: t.surface,
+          }));
+          for (let i = stamped.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [stamped[i], stamped[j]] = [stamped[j], stamped[i]];
+          }
+          return {
+            sentenceOrderPool: {
+              ...state.sentenceOrderPool,
+              [questionId]: stamped,
+            },
+            sentenceOrderAnswer: {
+              ...state.sentenceOrderAnswer,
+              [questionId]: [],
+            },
+          };
+        }),
+
+      moveToAnswer: (questionId, uuid) =>
+        set((state) => {
+          const pool = state.sentenceOrderPool[questionId] ?? [];
+          const answer = state.sentenceOrderAnswer[questionId] ?? [];
+          const token = pool.find((t) => t.uuid === uuid);
+          if (!token) return state;
+          return {
+            sentenceOrderPool: {
+              ...state.sentenceOrderPool,
+              [questionId]: pool.filter((t) => t.uuid !== uuid),
+            },
+            sentenceOrderAnswer: {
+              ...state.sentenceOrderAnswer,
+              [questionId]: [...answer, token],
+            },
+          };
+        }),
+
+      moveToPool: (questionId, uuid) =>
+        set((state) => {
+          const pool = state.sentenceOrderPool[questionId] ?? [];
+          const answer = state.sentenceOrderAnswer[questionId] ?? [];
+          const token = answer.find((t) => t.uuid === uuid);
+          if (!token) return state;
+          return {
+            sentenceOrderAnswer: {
+              ...state.sentenceOrderAnswer,
+              [questionId]: answer.filter((t) => t.uuid !== uuid),
+            },
+            sentenceOrderPool: {
+              ...state.sentenceOrderPool,
+              [questionId]: [...pool, token],
+            },
+          };
+        }),
+
+      showHint: (questionId) =>
+        set((state) => ({
+          sentenceOrderHintShown: {
+            ...state.sentenceOrderHintShown,
+            [questionId]: true,
+          },
+        })),
     }),
     {
       name: "kitsubeat-exercise-session",

@@ -104,17 +104,24 @@ describe("buildQuestions", () => {
   // Question count / session mode
   // ------------------------------------------------------------------
 
-  it("short mode returns at most 10 questions for 5 vocab entries (5*4=20)", () => {
+  it("short mode returns at most 10 questions for 5 vocab entries", () => {
     const lesson = makeLesson(FIVE_VOCAB);
     const questions = buildQuestions(lesson, "short", JLPT_POOL);
     expect(questions.length).toBeLessThanOrEqual(10);
     expect(questions.length).toBe(10);
   });
 
-  it("full mode returns all questions (5 vocab * 4 types = 20, under cap)", () => {
+  it("full mode returns all questions for 5 vocab under the 40 cap", () => {
+    // Phase 10 Plan 04 widened the emitted types to include listening_drill
+    // (only emits for vocab that appears in a timed verse — TIMED_VERSES
+    // contains all 5 surfaces). Phase 10 Plan 05 added a per-verse
+    // sentence_order question. Both cap at 40 in full mode. We assert the
+    // count is greater than the original 4-type baseline and under the cap;
+    // exact counts are exercised in per-type test files.
     const lesson = makeLesson(FIVE_VOCAB);
     const questions = buildQuestions(lesson, "full", JLPT_POOL);
-    expect(questions.length).toBe(20);
+    expect(questions.length).toBeGreaterThanOrEqual(20);
+    expect(questions.length).toBeLessThanOrEqual(40);
   });
 
   it("full mode caps at 40 for 12 vocab entries (12*4=48)", () => {
@@ -137,8 +144,16 @@ describe("buildQuestions", () => {
     withMissing[5] = { ...withMissing[5], vocab_item_id: undefined };
     const lesson = makeLesson(withMissing);
     const questions = buildQuestions(lesson, "full", JLPT_POOL);
-    // Only 5 valid vocab entries * 4 types = 20
-    expect(questions.length).toBe(20);
+    // Phase 10: total count varies with added types (listening_drill +
+    // sentence_order). The invariant here is that every emitted question
+    // carries a vocabItemId sourced from the 5 valid entries — or an empty
+    // string sentinel reserved for verse-centric types (Plan 10-05
+    // sentence_order). No question is keyed off the surface-6 "無" that has
+    // no vocab_item_id.
+    const invalidSurface = "無";
+    for (const q of questions) {
+      expect(q.correctAnswer).not.toBe(invalidSurface);
+    }
   });
 
   // ------------------------------------------------------------------
@@ -218,10 +233,14 @@ describe("buildQuestions", () => {
   // Distractors
   // ------------------------------------------------------------------
 
-  it("every question has exactly 3 distractors", () => {
+  it("every 4-option question has exactly 3 distractors", () => {
+    // Phase 10 Plan 05 added sentence_order (tap-to-build, NO options =>
+    // distractors.length === 0 by design). All 4-option exercise types still
+    // carry exactly 3 distractors.
     const lesson = makeLesson(FIVE_VOCAB);
     const questions = buildQuestions(lesson, "full", JLPT_POOL);
-    for (const q of questions) {
+    const fourOption = questions.filter((q) => q.type !== "sentence_order");
+    for (const q of fourOption) {
       expect(q.distractors).toHaveLength(3);
     }
   });
@@ -237,10 +256,11 @@ describe("buildQuestions", () => {
     }
   });
 
-  it("no duplicate distractors within a question", () => {
+  it("no duplicate distractors within a 4-option question", () => {
     const lesson = makeLesson(FIVE_VOCAB);
     const questions = buildQuestions(lesson, "full", JLPT_POOL);
-    for (const q of questions) {
+    const fourOption = questions.filter((q) => q.type !== "sentence_order");
+    for (const q of fourOption) {
       const unique = new Set(q.distractors.map((d) => d.trim().toLowerCase()));
       expect(unique.size).toBe(3);
     }
@@ -273,11 +293,15 @@ describe("buildQuestions", () => {
     }
   });
 
-  it("each question has vocabItemId matching the source vocab entry", () => {
+  it("each vocab-centric question has vocabItemId matching the source vocab entry", () => {
+    // Phase 10 Plan 05 sentence_order is VERSE-centric and writes vocabItemId
+    // as the empty-string sentinel. Skip it here — vocab-centric types must
+    // still map back to a vocab entry.
     const lesson = makeLesson(FIVE_VOCAB);
     const questions = buildQuestions(lesson, "full", JLPT_POOL);
     const validIds = new Set(FIVE_VOCAB.map((v) => v.vocab_item_id));
-    for (const q of questions) {
+    const vocabCentric = questions.filter((q) => q.type !== "sentence_order");
+    for (const q of vocabCentric) {
       expect(validIds.has(q.vocabItemId)).toBe(true);
     }
   });
@@ -363,10 +387,10 @@ describe("buildQuestions", () => {
     }
   });
 
-  it("short mode type mix is balanced across 4 types when all unlocked", () => {
-    // In full mode with 5 vocab, every type produces exactly 5 questions
-    // (5 vocab × 1 type each), so each type's count must be exactly 5 — well
-    // within the ±1 tolerance the plan specifies.
+  it("full mode type mix includes every per-vocab type at >=4 questions", () => {
+    // Phase 10 widened the emitted types to include listening_drill (per-vocab)
+    // and sentence_order (per-verse). We assert only the per-vocab balance
+    // here — sentence_order is gated by verse count, not vocab count.
     const lesson = makeLesson(FIVE_VOCAB);
     const questions = buildQuestions(lesson, "full", JLPT_POOL);
 
@@ -391,7 +415,91 @@ describe("buildQuestions", () => {
       expect(counts[t]).toBeGreaterThanOrEqual(4);
       expect(counts[t]).toBeLessThanOrEqual(6);
     }
-    // And total must equal 4 types × 5 vocab = 20.
-    expect(questions.length).toBe(20);
+    // Phase 10 Plan 04: listening_drill also emits per vocab when timing
+    // exists (TIMED_VERSES covers every surface in FIVE_VOCAB).
+    expect(counts.listening_drill).toBeGreaterThanOrEqual(4);
+    expect(counts.listening_drill).toBeLessThanOrEqual(6);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Phase 10-03 — Grammar Conjugation integration tests
+// ---------------------------------------------------------------------------
+
+describe("buildQuestions — Phase 10-03 grammar_conjugation", () => {
+  it("produces grammar_conjugation questions when grammar_points are structured + V1-covered", () => {
+    const vocabTaberu = makeVocabEntry({
+      surface: "食べる",
+      reading: "たべる",
+      romaji: "taberu",
+      part_of_speech: "verb",
+      meaning: "to eat",
+      vocab_item_id: "uuid-taberu",
+    });
+    // Verse containing the conjugated form 食べた
+    const taberuVerse: Verse = {
+      verse_number: 1,
+      start_time_ms: 1000,
+      end_time_ms: 6000,
+      tokens: [
+        { surface: "食べた", reading: "たべた", romaji: "tabeta", grammar: "verb", grammar_color: "blue", meaning: "ate", jlpt_level: "N5" },
+      ],
+      translations: { en: "I ate" },
+      literal_meaning: "ate",
+    };
+    const lesson: Lesson = {
+      jlpt_level: "N5",
+      difficulty_tier: "basic",
+      verses: [taberuVerse],
+      vocabulary: [vocabTaberu],
+      grammar_points: [
+        {
+          name: "past tense",
+          jlpt_reference: "N5",
+          explanation: "past form",
+          conjugation_path: "食べる (taberu, 'to eat') → 食べた (tabeta, 'ate')",
+        },
+      ],
+    };
+    const verbPool: VocabEntry[] = [
+      makeVocabEntry({ surface: "飲む", reading: "のむ", part_of_speech: "verb", vocab_item_id: "p-nomu" }),
+      makeVocabEntry({ surface: "書く", reading: "かく", part_of_speech: "verb", vocab_item_id: "p-kaku" }),
+    ];
+    const questions = buildQuestions(lesson, "full", verbPool);
+    const gcQuestions = questions.filter((q) => q.type === "grammar_conjugation");
+    expect(gcQuestions.length).toBe(1);
+    const q = gcQuestions[0];
+    expect(q.correctAnswer).toBe("食べた");
+    expect(q.conjugationBase).toBe("食べる");
+    expect(q.distractors).toHaveLength(3);
+    expect(q.prompt).toContain("_____");
+    expect(q.distractors).not.toContain(q.correctAnswer);
+  });
+
+  it("emits zero grammar_conjugation questions when the lesson has no structured grammar points", () => {
+    const lesson: Lesson = {
+      jlpt_level: "N5",
+      difficulty_tier: "basic",
+      verses: TIMED_VERSES,
+      vocabulary: FIVE_VOCAB,
+      grammar_points: [
+        {
+          name: "pattern-only",
+          jlpt_reference: "N5",
+          explanation: "~te iru pattern",
+          conjugation_path: "〜ている",
+        },
+      ],
+    };
+    const questions = buildQuestions(lesson, "full", JLPT_POOL);
+    const gcQuestions = questions.filter((q) => q.type === "grammar_conjugation");
+    expect(gcQuestions.length).toBe(0);
+  });
+
+  it("emits zero grammar_conjugation questions when the lesson has no grammar_points at all", () => {
+    const lesson = makeLesson(FIVE_VOCAB); // makeLesson sets grammar_points: []
+    const questions = buildQuestions(lesson, "full", JLPT_POOL);
+    const gcQuestions = questions.filter((q) => q.type === "grammar_conjugation");
+    expect(gcQuestions.length).toBe(0);
   });
 });

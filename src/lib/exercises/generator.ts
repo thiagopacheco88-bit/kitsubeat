@@ -7,7 +7,22 @@
  */
 
 import { localize } from "@/lib/types/lesson";
-import type { KanjiBreakdown, Lesson, Localizable, VocabEntry, Verse, Token } from "@/lib/types/lesson";
+import type {
+  GrammarPoint,
+  KanjiBreakdown,
+  Lesson,
+  Localizable,
+  VocabEntry,
+  Verse,
+  Token,
+} from "@/lib/types/lesson";
+import {
+  pickConjugationOptions,
+  stripGloss,
+  V1_CONJUGATION_FORMS,
+  classifyConjugationForm,
+} from "./conjugation";
+import { parseConjugationPath } from "../../../scripts/lib/conjugation-audit";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -101,6 +116,16 @@ export interface SessionConfig {
   targetCount: number;
 }
 
+/**
+ * Sentence Order per-verse token cap (Phase 10 Plan 05, CONTEXT-locked for v1).
+ *
+ * Verses with more than this many tokens are excluded from Sentence Order for
+ * that song (per-verse filter, not per-song gate). The `audit:verse-tokens`
+ * script reports per-song eligibility against this cap. Re-tuning is a
+ * one-line edit here.
+ */
+export const SENTENCE_ORDER_TOKEN_CAP = 12;
+
 // ---------------------------------------------------------------------------
 // Fisher-Yates shuffle (unbiased — NOT arr.sort(() => Math.random() - 0.5))
 // ---------------------------------------------------------------------------
@@ -128,15 +153,25 @@ function extractField(vocab: VocabEntry, type: ExerciseType): string {
       return vocab.romaji;
     case "fill_lyric":
       return vocab.surface;
-    // Phase 10 — stub branches (Plans 10-03/04/05 replace the body).
+    // Phase 10 — stub branches (Plans 10-03/05 replace the body).
     // Kept as throws so any legacy caller that somehow passes a Phase 10 type
     // into extractField fails loudly rather than silently falling back.
     case "grammar_conjugation":
-      throw new Error("grammar_conjugation extractField not implemented (Plan 10-03)");
+      // Grammar Conjugation questions are not produced by the per-vocab loop
+      // in buildQuestions (they come from grammar_points), so this extractor
+      // is only a fallback for defensive callers.
+      return vocab.surface;
     case "listening_drill":
-      throw new Error("listening_drill extractField not implemented (Plan 10-04)");
+      // Plan 10-04: options are the same 4 vocab surfaces as fill_lyric
+      // (correct + 3 distractors). Mirrors fill_lyric's field extraction.
+      return vocab.surface;
     case "sentence_order":
-      throw new Error("sentence_order extractField not implemented (Plan 10-05)");
+      // Plan 10-05: Sentence Order is VERSE-centric, not vocab-centric — it
+      // never calls extractField in practice. The dedicated sentence-order
+      // loop inside buildQuestions fabricates questions directly from verses,
+      // bypassing pickDistractors (tap-to-build has no 4-option structure).
+      // Kept as a throw so a misuse from a new caller fails loudly.
+      throw new Error("sentence_order extractField unused — see buildQuestions sentence-order loop (Plan 10-05)");
   }
 }
 
@@ -287,13 +322,21 @@ function makeExplanation(vocab: VocabEntry, type: ExerciseType): string {
       return `「${surface}」is read as "${romaji}".`;
     case "fill_lyric":
       return `The missing word is 「${surface}」, meaning "${meaning}" (${romaji}).`;
-    // Phase 10 — stub branches (Plans 10-03/04/05 replace the body).
+    // Phase 10 — stub branches (Plans 10-03/05 replace the body).
     case "grammar_conjugation":
-      throw new Error("grammar_conjugation makeExplanation not implemented (Plan 10-03)");
+      // Explanation is generated alongside the question in the grammar-points
+      // loop inside buildQuestions; this branch is the fallback when a caller
+      // asks for a generic explanation from just the target vocab.
+      return `「${surface}」 is the base form; select the correct conjugation for this verse.`;
     case "listening_drill":
-      throw new Error("listening_drill makeExplanation not implemented (Plan 10-04)");
+      // Plan 10-04: mirrors fill_lyric — user heard the verse and needs to
+      // identify the blanked surface. The explanation surfaces the answer
+      // plus its meaning and reading (same framing as fill_lyric).
+      return `The missing word is 「${surface}」, meaning "${meaning}" (${romaji}).`;
     case "sentence_order":
-      throw new Error("sentence_order makeExplanation not implemented (Plan 10-05)");
+      // Plan 10-05: unused — the sentence-order loop in buildQuestions
+      // generates the explanation inline (no vocab-centric framing).
+      throw new Error("sentence_order makeExplanation unused — inline in buildQuestions sentence-order loop (Plan 10-05)");
   }
 }
 
@@ -325,6 +368,10 @@ function makeQuestion(
   let prompt: string;
   let correctAnswer: string;
   let verseRef: Question["verseRef"] | undefined;
+  // Phase 10 Plan 04 — Listening Drill carries the verse start time and token
+  // list so ListeningDrillCard can blank the target surface + romaji.
+  let verseStartMs: number | undefined;
+  let verseTokens: Token[] | undefined;
 
   switch (type) {
     case "vocab_meaning":
@@ -354,16 +401,47 @@ function makeQuestion(
       break;
     }
     // Phase 10 — pre-stubbed switch branches for the 3 new advanced exercise
-    // types. Plans 10-03 / 10-04 / 10-05 run in parallel (wave 2) and MUST
-    // replace the stub body only — they never add new cases. The throws are
-    // unreachable in practice because buildQuestions does not emit Phase 10
-    // types yet (types are gated to Phase 8 in the `types` array below).
-    case "grammar_conjugation":
-      throw new Error("grammar_conjugation not implemented (Plan 10-03)");
-    case "listening_drill":
-      throw new Error("listening_drill not implemented (Plan 10-04)");
+    // types. Plans 10-03 / 10-05 remain throw-stubs here until their plans land.
+    case "grammar_conjugation": {
+      // Grammar Conjugation questions are built by a dedicated helper
+      // (makeGrammarConjugationQuestion) called from buildQuestions with
+      // (vocab, grammarPoint, jlptPool) context. This switch arm exists only
+      // so TypeScript exhaustiveness holds when makeQuestion is invoked with a
+      // grammar_conjugation type from a unit test or future ad-hoc caller.
+      // It builds a degraded question with no distractor set (caller must
+      // prefer makeGrammarConjugationQuestion for real data).
+      prompt = surface;
+      correctAnswer = surface;
+      break;
+    }
+    case "listening_drill": {
+      // Plan 10-04 — Listening Drill.
+      //
+      // Mirrors fill_lyric's verse-blank selection (findVerseForVocab requires
+      // start_time_ms > 0). The card plays the verse audio via the
+      // PlayerContext imperative API (Plan 10-02) and shows the verse text
+      // with the target surface AND its romaji blanked.
+      //
+      // Returns null when the vocab has no timed verse (same semantics as
+      // fill_lyric) so buildQuestions skips cleanly.
+      const ref = findVerseForVocab(surface, verses);
+      if (!ref) return null;
+      verseRef = ref;
+      const verse = verses.find((v) => v.verse_number === ref.verseNumber)!;
+      verseStartMs = ref.startMs;
+      verseTokens = verse.tokens;
+      // Prompt is a visual cue for the card header (the card itself renders
+      // the blanked verse inline via verseTokens + correctAnswer).
+      prompt = "Listen to the verse — what's the missing word?";
+      correctAnswer = surface;
+      break;
+    }
     case "sentence_order":
-      throw new Error("sentence_order not implemented (Plan 10-05)");
+      // Plan 10-05: unused — the sentence-order loop in buildQuestions
+      // fabricates verse-centric questions directly. makeQuestion is keyed
+      // off a VocabEntry + type, which doesn't fit Sentence Order's
+      // per-verse model. Kept as a defensive throw.
+      throw new Error("sentence_order makeQuestion unused — see sentence-order loop in buildQuestions (Plan 10-05)");
   }
 
   // Build distractorVocab map (field → VocabInfo) for TierText rendering
@@ -397,6 +475,101 @@ function makeQuestion(
     verseRef,
     vocabInfo,
     distractorVocab,
+    // Phase 10 Plan 04 — undefined for all non-listening_drill types (the
+    // fields are optional on Question).
+    verseStartMs,
+    verseTokens,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Phase 10-03 — Grammar Conjugation question factory (per grammar point)
+// ---------------------------------------------------------------------------
+//
+// Grammar Conjugation questions are driven by lesson.grammar_points (one
+// question per structured grammar point whose form is in V1), NOT by the
+// per-vocab loop. The factory here returns null for:
+//   - Unstructured grammar points (9% — skipped cleanly per CONTEXT).
+//   - Grammar points whose classified form isn't in V1_CONJUGATION_FORMS.
+//   - Grammar points whose target-verse-surface isn't in a timed verse
+//     (reuses fill_lyric verse-blank pattern; no timed verse = no verse prompt).
+//   - Cases where pickConjugationOptions can't assemble 3 distractors.
+//
+// Caller (buildQuestions) iterates all grammar points and pushes non-null
+// questions. Songs whose grammar points yield zero structured conjugations
+// simply contribute zero grammar_conjugation questions — no throw.
+
+export function makeGrammarConjugationQuestion(
+  grammarPoint: GrammarPoint,
+  vocabulary: VocabEntry[],
+  verses: Verse[],
+  jlptPool: VocabEntry[],
+): Question | null {
+  const parsed = parseConjugationPath(grammarPoint.conjugation_path);
+  if (!parsed || !parsed.is_structured) return null;
+
+  const form = classifyConjugationForm(parsed);
+  if (!V1_CONJUGATION_FORMS.includes(form)) return null;
+
+  const base = stripGloss(parsed.base);
+  const conjugatedSurface = stripGloss(parsed.conjugated);
+  if (!base || !conjugatedSurface) return null;
+
+  // Find the verse containing the conjugated surface so we can render a
+  // verse-blank prompt (fill_lyric pattern). Skip if none is timed.
+  const ref = findVerseForVocab(conjugatedSurface, verses);
+  if (!ref) return null;
+  const verse = verses.find((v) => v.verse_number === ref.verseNumber)!;
+  const verseText = verse.tokens.map((t) => t.surface).join("");
+
+  // Match the target vocab entry by base surface. The vocab may not be
+  // present (grammar points can reference verbs that weren't added to the
+  // vocab list); in that case fall back to a synthetic VocabEntry so
+  // pickConjugationOptions has a valid target to diff against.
+  const targetVocab: VocabEntry = vocabulary.find(
+    (v) => stripGloss(v.surface) === base || v.surface === base,
+  ) ?? {
+    surface: base,
+    reading: base,
+    romaji: "",
+    part_of_speech: "verb",
+    jlpt_level: "unknown",
+    meaning: { en: base },
+    example_from_song: "",
+    additional_examples: [],
+  };
+
+  const opts = pickConjugationOptions({
+    targetVocab,
+    grammarPoint,
+    sameJlptPool: jlptPool,
+  });
+  if (!opts) return null;
+
+  const prompt = verseText.replace(conjugatedSurface, "_____");
+
+  const vocabInfo: VocabInfo = {
+    surface: targetVocab.surface,
+    reading: targetVocab.reading,
+    romaji: targetVocab.romaji,
+    vocab_item_id: targetVocab.vocab_item_id,
+  };
+
+  return {
+    id: crypto.randomUUID(),
+    type: "grammar_conjugation",
+    // vocab_item_id is the per-vocab mastery anchor. Use the matched vocab's
+    // UUID when available; otherwise emit empty-string (Plan 10-06
+    // saveSessionResults must skip mastery writes when vocabItemId === "",
+    // same sentinel used for sentence_order).
+    vocabItemId: targetVocab.vocab_item_id ?? "",
+    prompt,
+    correctAnswer: opts.correct,
+    distractors: opts.distractors,
+    explanation: `「${opts.base}」 conjugates to 「${opts.correct}」 (${opts.form.replace(/_/g, " ")}) in this verse.`,
+    conjugationBase: opts.base,
+    verseRef: ref,
+    vocabInfo,
   };
 }
 
@@ -424,14 +597,27 @@ export function buildQuestions(
     "meaning_vocab",
     "reading_match",
     "fill_lyric",
+    // Phase 10 Plan 04 — Listening Drill. Only emitted when at least one verse
+    // has start_time_ms > 0 (makeQuestion returns null for vocab whose surface
+    // doesn't appear in a timed verse, matching fill_lyric's skip semantics).
+    "listening_drill",
   ];
+
+  // Plan 10-04: clean-skip heuristic for songs with no timing data at all —
+  // avoids looping through the generator when every listening_drill attempt
+  // would return null anyway. Same guard shape as fill_lyric's length check.
+  const hasTimedVerses = lesson.verses.some((v) => v.start_time_ms > 0);
 
   const questions: Question[] = [];
 
   for (const vocab of base) {
     for (const type of types) {
-      // fill_lyric requires at least 3 vocab entries (to form 4 distinct options)
-      if (type === "fill_lyric" && base.length < 3) continue;
+      // fill_lyric + listening_drill require at least 3 vocab entries (to form
+      // 4 distinct options).
+      if ((type === "fill_lyric" || type === "listening_drill") && base.length < 3) continue;
+      // Listening Drill also requires at least one timed verse — otherwise the
+      // card cannot seek/play and the drill is unwinnable.
+      if (type === "listening_drill" && !hasTimedVerses) continue;
 
       const distractorEntries = pickDistractorsWithVocab(vocab, type, base, jlptPool);
       const distractors = distractorEntries.map((d) => d.field);
@@ -440,6 +626,77 @@ export function buildQuestions(
         questions.push(question);
       }
     }
+  }
+
+  // -------------------------------------------------------------------------
+  // Phase 10 Plan 05 — Sentence Order questions (verse-centric, per-verse).
+  //
+  // One question per verse whose tokens.length <= SENTENCE_ORDER_TOKEN_CAP
+  // (12, CONTEXT-locked). Over-cap verses are skipped cleanly (per-verse
+  // filter, not per-song gate — a song with some short + some long verses
+  // still produces sentence_order questions for the short ones).
+  //
+  // Options/distractors don't apply (tap-to-build has no 4-option structure).
+  // The pool IS the verse's shuffled tokens, generated at render time by
+  // SentenceOrderCard + the session store's initSentenceOrder action.
+  //
+  // If a song has zero eligible verses, buildQuestions emits zero
+  // sentence_order questions (skip cleanly, no throw).
+  // -------------------------------------------------------------------------
+  for (const verse of lesson.verses) {
+    if (!Array.isArray(verse.tokens) || verse.tokens.length === 0) continue;
+    if (verse.tokens.length > SENTENCE_ORDER_TOKEN_CAP) continue;
+
+    const correctAnswer = verse.tokens.map((t) => t.surface).join("");
+    // Translation hint target. The UI hides it by default and reveals on
+    // "Show hint"; the reveal-hatch sets revealedReading=true -> FSRS rating=1
+    // per the Phase 08.2-01 reveal-hatch pattern.
+    const translation =
+      verse.translations &&
+      typeof verse.translations === "object" &&
+      typeof verse.translations.en === "string"
+        ? verse.translations.en
+        : undefined;
+
+    questions.push({
+      id: crypto.randomUUID(),
+      type: "sentence_order",
+      // Sentence Order is verse-centric; there is no target vocab. Empty
+      // string is a sentinel — Plan 10-06 saveSessionResults must skip
+      // per-vocab mastery writes for this type.
+      vocabItemId: "",
+      prompt: "Tap the words in order to reconstruct the verse.",
+      correctAnswer,
+      distractors: [],
+      explanation: `The verse reads: 「${correctAnswer}」.`,
+      // vocabInfo is required on Question. Provide a minimal shape — the
+      // SentenceOrderCard does NOT call TierText on a per-vocab target
+      // (pool tokens render as plain surfaces).
+      vocabInfo: {
+        surface: correctAnswer,
+        reading: correctAnswer,
+        romaji: "",
+      },
+      verseTokens: verse.tokens,
+      translation,
+      verseRef:
+        verse.start_time_ms > 0
+          ? { verseNumber: verse.verse_number, startMs: verse.start_time_ms }
+          : undefined,
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // Phase 10-03 — Grammar Conjugation questions (per grammar point).
+  //
+  // Iterates lesson.grammar_points; each structured, V1-form-covered grammar
+  // point with a timed verse hit produces one question. Unstructured grammar
+  // points are skipped cleanly (CONTEXT-locked — 9% of catalog has
+  // pattern-label paths; they do not emit Grammar Conjugation questions).
+  // -------------------------------------------------------------------------
+  for (const gp of lesson.grammar_points ?? []) {
+    const q = makeGrammarConjugationQuestion(gp, base, lesson.verses, jlptPool);
+    if (q) questions.push(q);
   }
 
   const shuffled = shuffle(questions);

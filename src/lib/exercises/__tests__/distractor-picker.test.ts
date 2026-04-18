@@ -100,8 +100,15 @@ describe("distractor picker (via buildQuestions)", () => {
 
     expect(questions.length).toBeGreaterThan(0);
 
-    for (const q of questions) {
-      // Every question must hit the 3-distractor invariant.
+    // Phase 10 Plan 05: sentence_order is tap-to-build (no distractors by
+    // design — distractors.length === 0). Filter it out; the 3-distractor
+    // invariant applies to the 4-option exercise types only.
+    const fourOptionQuestions = questions.filter(
+      (q) => q.type !== "sentence_order"
+    );
+
+    for (const q of fourOptionQuestions) {
+      // Every 4-option question must hit the 3-distractor invariant.
       expect(q.distractors).toHaveLength(3);
 
       // No distractor may equal the correct answer (case-insensitive trimmed).
@@ -127,6 +134,16 @@ describe("distractor picker (via buildQuestions)", () => {
               break;
             case "fill_lyric":
               legalSet.add(v.surface);
+              break;
+            // Phase 10 Plan 04: listening_drill uses the same surface-option
+            // pool as fill_lyric (4 vocab surfaces — correct + 3 distractors).
+            case "listening_drill":
+              legalSet.add(v.surface);
+              break;
+            // Phase 10 Plan 05: sentence_order has no distractors (tap-to-build
+            // reorders verse tokens); no legal-set contribution.
+            case "grammar_conjugation":
+            case "sentence_order":
               break;
           }
         }
