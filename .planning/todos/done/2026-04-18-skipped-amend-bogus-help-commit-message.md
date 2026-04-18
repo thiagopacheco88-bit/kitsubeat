@@ -1,5 +1,8 @@
 ---
 created: 2026-04-16T21:10:00.000Z
+resolved: 2026-04-18T19:30:00.000Z
+resolution: skipped
+resolution_note: "3109fcf is 192 commits deep as of 2026-04-18. Interactive rebase + force-push risk outweighs the cosmetic fix. Commit content is correct; leaving the ugly message in history."
 title: Amend bogus "--help" commit message on 3109fcf
 area: tooling
 files:

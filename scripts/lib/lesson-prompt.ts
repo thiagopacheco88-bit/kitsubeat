@@ -105,6 +105,7 @@ Generate a complete lesson JSON object for this anime song following these rules
 
 ### 1. Verse Segmentation
 - Split the lyrics into logical verses. Each chorus counts as one verse even if it repeats.
+- **Coverage requirement:** every Japanese lyric line in the Raw Lyrics block above must appear in the tokens of at least one verse. Only English-only lines (e.g. "Oh oh oh") and pure instrumental markers (e.g. "[Guitar solo]") may be omitted. Do not silently drop Japanese filler or low-content lines — the LyricsPanel highlights every line in real time, and unmapped lines cause stale highlights during playback.
 - Number verses starting at 1 (verse_number field).
 - Set start_time_ms and end_time_ms to 0 for now — these will be populated by the WhisperX timing pipeline in a separate step.
 

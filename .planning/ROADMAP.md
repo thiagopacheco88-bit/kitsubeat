@@ -182,11 +182,11 @@ Plans:
 **Plans:** 5/5 plans complete
 
 Plans:
-- [ ] 08.4-01-PLAN.md -- Users table migration (0005_user_prefs.sql) + vocab-tiers API states extension + Web Speech TTS helper
-- [ ] 08.4-02-PLAN.md -- LearnCard component (tap-to-dismiss + "Show more" reveal + speaker icon; no Zustand coupling)
-- [ ] 08.4-03-PLAN.md -- userPrefs server actions (getUserPrefs + updateUserPrefs + getEffectiveCap premium gate) + session store extensions (learnedVocabIds, introducedNewVocabIds, vocabStates)
-- [ ] 08.4-04-PLAN.md -- Wiring: ExerciseTab cap filter (parallel prefs+cap+JLPT fetch; filter new/relearning beyond cap pre-buildQuestions) + ExerciseSession JIT LearnCard insertion (skip_learning bypass; currentIndex never advances)
-- [ ] 08.4-05-PLAN.md -- /profile page (server component) + ProfileForm client component (skip_learning toggle + new_card_cap input; cap disabled for free users)
+- [x] 08.4-01-PLAN.md -- Users table migration (0005_user_prefs.sql) + vocab-tiers API states extension + Web Speech TTS helper
+- [x] 08.4-02-PLAN.md -- LearnCard component (tap-to-dismiss + "Show more" reveal + speaker icon; no Zustand coupling)
+- [x] 08.4-03-PLAN.md -- userPrefs server actions (getUserPrefs + updateUserPrefs + getEffectiveCap premium gate) + session store extensions (learnedVocabIds, introducedNewVocabIds, vocabStates)
+- [x] 08.4-04-PLAN.md -- Wiring: ExerciseTab cap filter (parallel prefs+cap+JLPT fetch; filter new/relearning beyond cap pre-buildQuestions) + ExerciseSession JIT LearnCard insertion (skip_learning bypass; currentIndex never advances)
+- [x] 08.4-05-PLAN.md -- /profile page (server component) + ProfileForm client component (skip_learning toggle + new_card_cap input; cap disabled for free users)
 
 ### Phase 08.3: Mnemonic and kanji breakdown for vocabulary feedback (INSERTED)
 

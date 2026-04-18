@@ -128,6 +128,14 @@ export default function SongContent({
           <PlayerControls />
         </div>
 
+        {/* Lesson heading — tells first-time users the page itself is the lesson */}
+        <div className="mb-3">
+          <h2 className="text-lg font-semibold text-white">Lesson</h2>
+          <p className="mt-0.5 text-xs text-gray-500">
+            Tap any word in the lyrics for meaning. Explore Vocabulary, Grammar, and Practice below.
+          </p>
+        </div>
+
         {/* Main content: video + lyrics */}
         <SongLayout
           video={
