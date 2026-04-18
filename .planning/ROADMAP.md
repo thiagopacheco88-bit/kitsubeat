@@ -4,12 +4,16 @@
 
 KitsuBeat is built in six phases that follow strict dependency order: content must exist before the player can render it, the player must prove its learning value before auth adds friction, auth must gate access before payments can charge for it, and exercises layer on top of a proven player. The pipeline is: pre-generate all 200 lessons offline → build the synced player → add accounts and catalog → add AI search and billing → add exercises and gamification → add Anki export. Every phase delivers a complete, independently verifiable capability before the next begins.
 
-v2.0 adds 6 additional phases (7-12) that transform KitsuBeat from a passive listening tool into an active learning platform: a normalized vocabulary identity layer enables all progress tracking; the exercise engine delivers the core learning loop; a standalone kana trainer runs in parallel; advanced exercises unlock the full 3-star mastery system; cross-song vocabulary tracking becomes the platform differentiator; and anime scenes plus cultural vocabulary expand the content universe.
+v2.0 adds 5 phases (7-11) that transform KitsuBeat from a passive listening tool into an active learning platform: a normalized vocabulary identity layer enables all progress tracking; the exercise engine delivers the core learning loop; a standalone kana trainer runs in parallel; advanced exercises unlock the full 3-star mastery system; cross-song vocabulary tracking becomes the platform differentiator.
+
+v3.0 takes the feature-complete product to launch: a curated beginner→advanced learning path with XP/streaks/levels (gamification replaces the old Phase 12 anime-scene slot); performance, UX polish, analytics/Sentry, security review, and a DIY legal deep-dive (no lawyer for v1); then free beta under a UK sole-trader with tracked GTM channels. v4.0 restores anime scenes as unlock rewards and expands content/community once the product has validated.
 
 ## Milestones
 
 - 🚧 **v1.0 Core Learning Experience** - Phases 1-6 (in progress)
-- 📋 **v2.0 Exercise & Learning System** - Phases 7-12 (planned)
+- 🚧 **v2.0 Exercise & Learning System** - Phases 7-11 (Phase 12 moved to v4.0)
+- 📋 **v3.0 Launch Readiness** - Phases 12-20 (planned — gamified learning path, legal/security hardening, free beta launch under UK sole trader)
+- 📋 **v4.0 Content Expansion** - Phase 21+ (post-launch — anime scenes, cultural vocabulary, community, monetization if not already live)
 
 ## Phases
 
@@ -35,7 +39,23 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 9: Kana Trainer** - Deliver a standalone hiragana/katakana trainer with row-by-row unlock and SRS-lite 10-star mastery
 - [x] **Phase 10: Advanced Exercises & Full Mastery** - Add grammar conjugation, listening drill, and sentence order exercises to complete the 3-star system (completed 2026-04-18)
 - [x] **Phase 11: Cross-Song Vocabulary** - Surface vocabulary mastery across all songs and deliver the premium cross-song review dashboard (completed 2026-04-18)
-- [ ] **Phase 12: Anime Scenes & Cultural Vocabulary** - Extend the content universe with iconic anime scenes and anime-anchored cultural vocabulary drills
+- ➡️ **Phase 12: Anime Scenes & Cultural Vocabulary** - **MOVED** to v4.0 as Phase 21 (deferred until after v3.0 launch)
+
+### v3.0 Launch Readiness
+
+- [ ] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginner→advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0
+- [ ] **Phase 13: Performance & Caching** - FMP <2s mobile 4G; bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe
+- [ ] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface
+- [ ] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated
+- [ ] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook
+- [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA — produces requirements checklist
+- [ ] **Phase 18: Legal & Compliance Implementation** - T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, WCAG 2.1 AA baseline, age gating, support channel
+- [ ] **Phase 19: Free Beta Launch & GTM** - Landing page, 3 acquisition channels with UTMs, 50+ signups / 20+ complete-session / 20%+ day-7 return; entity-formation decision point
+- [ ] **Phase 20: Code Quality & Test Coverage Pass** - Integration tests on critical paths, strict types across shared modules, ADRs, resolve deferred-items backlog
+
+### v4.0 Content Expansion
+
+- [ ] **Phase 21: Anime Scenes & Cultural Vocabulary** - Extend the content universe with iconic anime scenes and anime-anchored cultural vocabulary drills, distributed as Phase 12 unlock rewards (was v2.0 Phase 12)
 
 ## Phase Details
 
@@ -265,15 +285,149 @@ Plans:
 - [x] 11-04-PLAN.md — /vocabulary dashboard: tier-grouped list, searchParams filters, SeenInExpander, free-tier 20-row preview
 - [x] 11-05-PLAN.md — /review route: queue builder (TDD), server actions (startReviewSession/recordReviewAnswer/consumeNewCardBudget), review Zustand store, ReviewLanding + ReviewSession + UpsellModal
 
-### Phase 12: Anime Scenes & Cultural Vocabulary
-**Goal**: Users can study iconic anime scenes with the same exercise and vocabulary mechanics as songs, and access standalone anime cultural vocabulary drills where anime references anchor Japanese word learning — with scene vocabulary contributing to cross-song tracking
+---
+
+## v3.0 Launch Readiness
+
+**Milestone Goal:** Take the working product from "feature complete" to "launch ready" — harden security, add gamification that makes the learning loop sticky, polish UX to match the product's depth, instrument observability, clear legal/copyright/compliance blockers from the UK (sole-trader), and run a free beta that produces real validation signal before any monetization work. Target exit: free beta live under UK Sole Trader; entity upgrade (UK Ltd) and payments deferred until validation signal justifies them.
+
+**Depends on:** v2.0 Phases 7-11 complete.
+
+**Founder context (drives several phase choices):**
+- Founder lives in London — UK tax resident, so entity lives in UK regardless of target market
+- UK Sole Trader for free beta (£0, HMRC self-assessment); migrate to UK Ltd when revenue approaches ~£30-50k/yr
+- Not hiring a lawyer for v1 — Phase 17 does DIY analysis with explicit "requires lawyer later" flags
+- LGPD still in scope (Brazilian audience via creator background and Portuguese translation support)
+
+### Phase 12: Learning Path & Gamification
+**Goal**: Replace "any song, any time" with a curated beginner→advanced path; users see XP, streaks, levels, and diegetic unlock gates that make every session feel like measurable forward motion. Scaffolds reward slots that v4.0 Phase 21 fills with anime scenes.
 **Depends on**: Phase 11
+**Requirements**: TBD
+**Success Criteria** (what must be TRUE):
+  1. A new learner lands on a single "start here" path with JLPT-aligned milestones; advanced songs stay locked until prerequisites clear
+  2. Every session ends with XP gained, current streak, level progress, and a preview of the next unlock
+  3. Streak tracking persists with timezone-aware day rollovers and one grace day per week
+  4. Level-ups trigger a celebratory moment and a diegetic unlock (new song, new drill mode) — not just a silent number change
+  5. Reward-slot scaffolding exists at each tier — v4.0 Phase 21 will populate these with anime scenes
+**Plans**: TBD
+
+### Phase 13: Performance & Caching
+**Goal**: First meaningful paint under 2s on mid-range mobile over 4G; subsequent song loads feel instant; no perceptible lag during exercise interactions.
+**Depends on**: Phase 12
+**Requirements**: TBD
+**Success Criteria**:
+  1. Lighthouse mobile performance >=85 on home, catalog, and song pages
+  2. Song page LCP <2.5s, TTI <3.5s on throttled 4G / Moto G4 profile
+  3. Already-visited song lessons serve from cache on repeat visit (no cold DB hit)
+  4. YouTube iframe deferred until in view; lesson panel renders independently of video load
+  5. Bundle size budget enforced in CI (song page JS <=200KB gzipped)
+**Plans**: TBD
+
+### Phase 14: UX Polish
+**Goal**: Visual identity is distinctive and consistent; mobile experience is first-class; microinteractions make the product feel crafted.
+**Depends on**: Phase 12
+**Requirements**: TBD
+**Success Criteria**:
+  1. Design system documented and tokenized: colors, type, spacing, radii, shadows, motion — applied consistently
+  2. Mobile layout reviewed end-to-end (home, catalog, song, exercise, kana, vocabulary, review, profile) — no horizontal scroll, tap targets >=44px
+  3. Key transitions have purposeful motion (verse highlighting, star unlocks, correct/incorrect feedback) with prefers-reduced-motion honored
+  4. Empty, loading, and error states designed for every major surface
+  5. Dark mode coherent across all custom components (not just CSS var flipping)
+**Plans**: TBD
+
+### Phase 15: Analytics & Error Tracking
+**Goal**: Every meaningful user event captured in product analytics; every exception surfaces in Sentry with debugging context; funnel metrics are queryable before beta opens.
+**Depends on**: Phase 14
+**Requirements**: TBD
+**Success Criteria**:
+  1. PostHog or Plausible tracks: signup, first song opened, first exercise completed, first star, streak start/break, session duration
+  2. Sentry captures client + server exceptions with source maps; release tagging wired via CI
+  3. Core funnel dashboard exists: signup → first session → first star → day-7 return; queryable by cohort
+  4. All tracking respects Phase 18 cookie consent (no events fire before consent on first visit)
+  5. Data minimization: no PII in event payloads beyond user ID; IPs truncated at ingest
+**Plans**: TBD
+
+### Phase 16: Security Review & Incident Response
+**Goal**: Every authenticated endpoint is correctly authorized at the data layer; secrets are audited; rate limits exist on writes; a written incident response plan exists before user data arrives.
+**Depends on**: Phase 15
+**Requirements**: TBD
+**Success Criteria**:
+  1. Supabase RLS policies reviewed for every table — deny-by-default; policies match each access pattern
+  2. Server action / API surface audited: every route confirms authenticated user matches target user_id before read/write
+  3. Secrets scan passes; no secrets in client bundle or git history; .env conventions documented
+  4. Rate limits on signup, login, exercise answer submission, and any LLM-proxy endpoint
+  5. IR runbook checked in: on-call (you), severity taxonomy, 72h UK-GDPR breach notification timeline, first-response checklist
+**Plans**: TBD
+
+### Phase 17: Legal & Copyright Deep-Dive (Research)
+**Goal**: Produce a standalone analysis covering copyright, UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, and EAA as they apply to kitsubeat — enough to implement Phase 18 without a lawyer for v1, with explicit flags on items needing legal consultation later.
+**Depends on**: Phase 16
+**Requirements**: TBD
+**Success Criteria**:
+  1. Copyright analysis covers: YouTube embed terms, lyrics licensing (LRCLIB history, WhisperX derivative status), synced-lyrics/karaoke precedent (Musixmatch/Genius), anime-clip liability for v4.0 scope
+  2. Jurisdiction map: UK-GDPR, GDPR, LGPD, CCPA — lawful basis per data field, data subject rights, SAR handling process
+  3. Consumer law: UK Consumer Contracts Regs (14-day cancel + digital-content waiver), EU equivalents, refund policy template
+  4. Tax: VAT MOSS rules, place-of-supply for digital services, Stripe Tax configuration plan
+  5. Emerging regulation: EU AI Act disclosure for WhisperX content; EAA / WCAG 2.1 AA accessibility baseline
+  6. Output: requirements checklist Phase 18 implements against, with explicit "requires lawyer" flags on out-of-scope items
+**Plans**: TBD — will be refined when Phase 17 is reached
+
+### Phase 18: Legal & Compliance Implementation
+**Goal**: Every item identified in Phase 17 is implemented — T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, accessibility baseline, age gating, support channel all live.
+**Depends on**: Phase 17
+**Requirements**: TBD
+**Success Criteria**:
+  1. T&Cs and Privacy Policy published, versioned, and accepted at signup; changes require re-acceptance
+  2. PECR-compliant cookie consent banner blocks non-essential scripts until user decides; revocable
+  3. LGPD/UK-GDPR data export endpoint: authenticated user can request a JSON/CSV dump of their data within regulated windows
+  4. DMCA/takedown email published; intake process documented; content-removal workflow exists
+  5. Refund policy explicit on checkout; UK 14-day cancel wording present for UK/EU buyers
+  6. WCAG 2.1 AA audit passes for catalog, song, exercise, kana, review surfaces; full keyboard nav; ARIA on custom components
+  7. Age gating at signup aligned with UK ICO Age Appropriate Design Code — under-18s blocked or restricted
+  8. Support channel: support@ email published with documented response-time commitment (e.g., 48h business days)
+**Plans**: TBD
+
+### Phase 19: Free Beta Launch & GTM
+**Goal**: Product opens to a limited external audience under the UK sole-trader name; three acquisition channels tested with tracked UTMs; validation signal from behavior, not self-report.
+**Depends on**: Phase 18
+**Requirements**: TBD
+**Success Criteria**:
+  1. Marketing landing page describes the product in one sentence, shows a 30-second demo, has a single CTA (join beta)
+  2. Three acquisition channels with trackable UTMs — e.g., r/LearnJapanese, a Japanese-learning Discord/forum, personal social; each channel's signup→first-session rate is measurable
+  3. 50+ signups within first 4 weeks; 20+ complete at least one full exercise session; day-7 return >20%
+  4. Every beta user has an in-product feedback channel plus email; feedback is centralized
+  5. Entity-formation decision point: if MRR projection crosses the UK Ltd threshold by week 4, v4.0 Phase 22 (Monetization) unlocks; otherwise continue free beta
+**Plans**: TBD
+
+### Phase 20: Code Quality & Test Coverage Pass
+**Goal**: Now that the product shape has stabilized under real usage, pay down tech debt — consolidate duplicate patterns, tighten types, improve critical-path test coverage, document architectural decisions.
+**Depends on**: Phase 19 (real-usage patterns must be visible before hardening tests)
+**Requirements**: TBD
+**Success Criteria**:
+  1. Critical paths (signup, exercise session save, star derivation, FSRS update, payment webhook if live) have integration tests in CI
+  2. Type-check is strict across shared modules — no `any`, explicit return types on exported functions
+  3. ADR (Architecture Decision Record) set checked in: why Supabase, FSRS, App Router, Drizzle, UK sole-trader, no-lawyer-for-v1
+  4. Deferred-items backlog (08.1 deferred-items.md etc.) resolved or explicitly closed with rationale
+**Plans**: TBD
+
+---
+
+## v4.0 Content Expansion
+
+**Milestone Goal:** With an active user base, expand the content universe — anime scenes become real rewards for Phase 12's unlock slots, cultural vocabulary ships, community features surface user progress. Monetization (Stripe + UK Ltd) lands here if it wasn't triggered at Phase 19.
+
+**Depends on:** v3.0 complete with validated product-market signal.
+
+### Phase 21: Anime Scenes & Cultural Vocabulary
+**Goal**: Users can study iconic anime scenes with the same exercise and vocabulary mechanics as songs, and access standalone anime cultural vocabulary drills where anime references anchor Japanese word learning — with scene vocabulary contributing to cross-song tracking and scenes distributed as Phase 12 unlock rewards.
+**Depends on**: Phase 20, Phase 12 (reward-slot scaffolding)
 **Requirements**: SCENE-01, SCENE-02, SCENE-03, SCENE-04, SCENE-05, CULT-01, CULT-02, CULT-03, CULT-04, DATA-03
 **Success Criteria** (what must be TRUE):
   1. User can browse anime scenes (Pain's speech, AoT pre-battle, One Piece narrator intros, etc.) alongside songs in the catalog, identified by a "Scene" content type tag
   2. A scene page shows an embedded YouTube clip with synced text display, tokenized vocabulary, grammar breakdown, and translations — identical structure to a song lesson
   3. All 7 exercise types work on scene content: user can earn stars from a scene the same way they earn them from a song
   4. Vocabulary mastered in anime scenes appears in the cross-song vocabulary dashboard and contributes to the global unique-words counter
-  5. User can open a standalone "Anime Vocabulary" drill mode organized by anime series/theme (Naruto elements, Pokemon creatures, Dragon Ball references) and drill cultural vocabulary using the same multiple-choice + star mastery mechanics
-  6. When a vocabulary word in any song or scene exercise has a known anime cultural reference, a contextual hint is shown inline (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
-**Plans**: TBD
+  5. User can open a standalone "Anime Vocabulary" drill mode organized by anime series/theme and drill cultural vocabulary using the same multiple-choice + star mastery mechanics
+  6. When a vocabulary word has a known anime cultural reference, a contextual hint shows inline (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
+  7. Scenes are distributed as Phase 12 unlock rewards rather than dumped into the catalog wholesale
+**Plans**: TBD (was v2.0 Phase 12)
