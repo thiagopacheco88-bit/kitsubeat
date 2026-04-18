@@ -76,7 +76,6 @@ export function scheduleReview(
   intensity: IntensityPreset = "normal",
   now: Date = new Date()
 ): ScheduledUpdate {
-  // Build a ts-fsrs Card from the previous mastery row (or create empty for new card)
   let card: Card;
   if (prev === null) {
     card = createEmptyCard(now);
@@ -101,7 +100,6 @@ export function scheduleReview(
   // Compute the next card state. FSRSRating excludes Manual (0), matching Grade.
   const nextCard = f.next(card, now, rating as Grade).card;
 
-  // Map back to scalar ScheduledUpdate columns
   return {
     stability: nextCard.stability,
     difficulty: nextCard.difficulty,

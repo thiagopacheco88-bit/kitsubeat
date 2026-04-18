@@ -384,9 +384,9 @@ export type UserSongProgressWithStars = NonNullable<
 /**
  * Get a user's progress for a batch of song versions.
  * Returns a Map<songVersionId, progress> using a single IN query.
- * Prevents N+1 queries on the browse page (Phase 8 Research Pitfall 6).
+ * Prevents N+1 queries on the browse page.
  *
- * TODO: call this when Clerk auth is integrated — fetch user progress batch when Clerk auth is integrated
+ * TODO: wire into the browse page once Clerk auth lands — currently unused.
  */
 export async function getUserSongProgressBatch(
   userId: string,

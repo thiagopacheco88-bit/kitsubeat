@@ -19,8 +19,7 @@ import { getKnownWordCountForSong } from "@/lib/db/queries";
 const UUID_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-// Mirrors the placeholder pattern used across the codebase pre-Clerk auth.
-// Phase 10 will swap this for `const { userId } = await auth()`.
+// Replace with Clerk auth() when auth lands.
 const PLACEHOLDER_USER_ID = "test-user-e2e";
 
 export const dynamic = "force-dynamic";

@@ -105,7 +105,6 @@ export default function TimingEditor({
     ws.on("pause", () => setIsPlaying(false));
     ws.on("finish", () => setIsPlaying(false));
 
-    // Update word timestamps after drag or resize
     regions.on("region-updated", (region) => {
       setTimings((prev) =>
         prev.map((w, i) =>
@@ -193,10 +192,6 @@ export default function TimingEditor({
   }
 
   const lowConfidenceCount = timings.filter((w) => w.low_confidence).length;
-
-  // ─────────────────────────────────────────────────────────────────────────
-  // Render
-  // ─────────────────────────────────────────────────────────────────────────
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif" }}>

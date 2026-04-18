@@ -197,16 +197,14 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
           // freshly-fetched tiers, so this reset is safe.
           tiers: {},
           revealedQuestionIds: {},
-          moreAccordionOpen: false, // Phase 08.3: reset across sessions
-          // Phase 08.4: reset learn-card + cap-accounting + raw states on each new session
+          moreAccordionOpen: false, // reset across sessions
+          // reset learn-card + cap-accounting + raw states on each new session
           learnedVocabIds: {},
           introducedNewVocabIds: {},
           vocabStates: {},
-          // Phase 10 Plan 04: reset listening-drill replay counters on each
-          // new session (same lifecycle as moreAccordionOpen — no cross-session
-          // bleed; telemetry is session-scoped).
+          // reset listening-drill replay counters each session — same lifecycle as moreAccordionOpen, no cross-session bleed; telemetry is session-scoped.
           listeningReplays: {},
-          // Phase 10 Plan 05: reset sentence_order pool / answer / hint state
+          // reset sentence_order pool / answer / hint state
           // so a new session never inherits a previous session's shuffle.
           sentenceOrderPool: {},
           sentenceOrderAnswer: {},

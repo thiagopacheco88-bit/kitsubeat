@@ -33,9 +33,6 @@ export type ExerciseType =
   | "meaning_vocab"
   | "reading_match"
   | "fill_lyric"
-  // Phase 10 — advanced exercises. Switch bodies are throw-stubs here; Plans
-  // 10-03 / 10-04 / 10-05 replace the stub bodies in makeQuestion below
-  // (no new cases added under parallel execution).
   | "grammar_conjugation"  // Ex 5 — Grammar Conjugation
   | "listening_drill"      // Ex 6 — Listening Drill (drives Star 3)
   | "sentence_order";      // Ex 7 — Sentence Order
@@ -91,22 +88,13 @@ export interface Question {
    */
   distractorVocab?: Record<string, VocabInfo>;
 
-  // ---------------------------------------------------------------------------
-  // Phase 10 — advanced exercise fields.
-  //
-  // Pre-declared as optional so wave-2 plans (10-03 / 10-04 / 10-05) can populate
-  // them by REPLACING the throw-stub body in makeQuestion below — no new cases
-  // added, no type-union widening needed downstream. Widened in one pass here so
-  // the wave stays parallel-safe.
-  // ---------------------------------------------------------------------------
-
-  /** Plan 10-03 — Grammar Conjugation: base (dictionary) form shown as scaffold above the blanked verse. */
+  /** Grammar Conjugation: base (dictionary) form shown as scaffold above the blanked verse. */
   conjugationBase?: string;
-  /** Plan 10-04 — Listening Drill: verse start time for PlayerContext.seekTo() + playVideo(). */
+  /** Listening Drill: verse start time for PlayerContext.seekTo() + playVideo(). */
   verseStartMs?: number;
-  /** Plans 10-04 + 10-05 — Listening Drill blanked rendering + Sentence Order pool of tokens. */
+  /** Listening Drill blanked rendering + Sentence Order pool of tokens. */
   verseTokens?: Token[];
-  /** Plan 10-05 — Sentence Order: "Show hint" reveal target (English translation of the verse). */
+  /** Sentence Order: "Show hint" reveal target (English translation of the verse). */
   translation?: string;
 }
 
@@ -153,9 +141,6 @@ function extractField(vocab: VocabEntry, type: ExerciseType): string {
       return vocab.romaji;
     case "fill_lyric":
       return vocab.surface;
-    // Phase 10 — stub branches (Plans 10-03/05 replace the body).
-    // Kept as throws so any legacy caller that somehow passes a Phase 10 type
-    // into extractField fails loudly rather than silently falling back.
     case "grammar_conjugation":
       // Grammar Conjugation questions are not produced by the per-vocab loop
       // in buildQuestions (they come from grammar_points), so this extractor
@@ -171,7 +156,7 @@ function extractField(vocab: VocabEntry, type: ExerciseType): string {
       // loop inside buildQuestions fabricates questions directly from verses,
       // bypassing pickDistractors (tap-to-build has no 4-option structure).
       // Kept as a throw so a misuse from a new caller fails loudly.
-      throw new Error("sentence_order extractField unused — see buildQuestions sentence-order loop (Plan 10-05)");
+      throw new Error("sentence_order extractField unused — buildQuestions handles sentence-order directly");
   }
 }
 
@@ -322,7 +307,6 @@ function makeExplanation(vocab: VocabEntry, type: ExerciseType): string {
       return `「${surface}」is read as "${romaji}".`;
     case "fill_lyric":
       return `The missing word is 「${surface}」, meaning "${meaning}" (${romaji}).`;
-    // Phase 10 — stub branches (Plans 10-03/05 replace the body).
     case "grammar_conjugation":
       // Explanation is generated alongside the question in the grammar-points
       // loop inside buildQuestions; this branch is the fallback when a caller
@@ -336,7 +320,7 @@ function makeExplanation(vocab: VocabEntry, type: ExerciseType): string {
     case "sentence_order":
       // Plan 10-05: unused — the sentence-order loop in buildQuestions
       // generates the explanation inline (no vocab-centric framing).
-      throw new Error("sentence_order makeExplanation unused — inline in buildQuestions sentence-order loop (Plan 10-05)");
+      throw new Error("sentence_order makeExplanation unused — explanation is generated inline in buildQuestions");
   }
 }
 
@@ -400,8 +384,6 @@ function makeQuestion(
       correctAnswer = surface;
       break;
     }
-    // Phase 10 — pre-stubbed switch branches for the 3 new advanced exercise
-    // types. Plans 10-03 / 10-05 remain throw-stubs here until their plans land.
     case "grammar_conjugation": {
       // Grammar Conjugation questions are built by a dedicated helper
       // (makeGrammarConjugationQuestion) called from buildQuestions with
@@ -441,7 +423,7 @@ function makeQuestion(
       // fabricates verse-centric questions directly. makeQuestion is keyed
       // off a VocabEntry + type, which doesn't fit Sentence Order's
       // per-verse model. Kept as a defensive throw.
-      throw new Error("sentence_order makeQuestion unused — see sentence-order loop in buildQuestions (Plan 10-05)");
+      throw new Error("sentence_order makeQuestion unused — buildQuestions runs its own sentence-order loop");
   }
 
   // Build distractorVocab map (field → VocabInfo) for TierText rendering
