@@ -63,3 +63,36 @@ a `0 | 1 | 2 | 3` source yet — the prop defaults to `null`), but Plan 10-02
 will tighten this when the catalog surfaces Star 3 + bonus badge.
 
 **Do NOT fix in Plan 10-01** — Plan 10-02's planner scope.
+
+---
+
+## Plan 10-07 discoveries
+
+### src/app/actions/exercises.ts — QuotaExhaustedError `class` exported from "use server" file
+
+Introduced by Plan 10-06 commit `4af194a`. Next.js 15 refuses `class`
+exports from `"use server"` modules — only async functions are allowed.
+`npm run build` fails at webpack parse step on this line:
+
+```
+Error: Only async functions are allowed to be exported in a "use server" file.
+  102 | export class QuotaExhaustedError extends Error {
+```
+
+**Workaround:** move `QuotaExhaustedError` into a sibling non-server module
+(e.g., `src/lib/exercises/errors.ts`) and re-import. Consumers (tests,
+possible UI catch paths) switch to the new import path. Server action then
+re-exports nothing — only the class's `.name === "QuotaExhaustedError"`
+contract stays intact across the RSC boundary.
+
+**Verification command after fix:** `npm run build` (currently fails before
+Plan 10-07 verification). Unit test suite (`npm run test:unit`) is
+unaffected — test imports go straight to the TS source, not through
+`"use server"` bundling.
+
+**Do NOT fix in Plan 10-07** — Plan 10-07 surfaces existing mastery data;
+`QuotaExhaustedError` relocation is an unrelated Plan 10-06 follow-up.
+Tracked here so a future plan (or a standalone fix commit) can pick it up.
+All Plan 10-07 verification happens via `npx tsc --noEmit` (targeted) +
+`npm run test:unit` (263 tests passing).
+

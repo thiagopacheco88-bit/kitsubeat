@@ -7,12 +7,21 @@ export const metadata = {
   title: "Songs | KitsuBeat",
 };
 
+// TODO(Phase 10 auth): replace with Clerk auth() — matches the existing
+// placeholder pattern in src/app/songs/[slug]/page.tsx so dev/test users see
+// their mastery decorations (stars + ribbon + bonus badge) on the catalog.
+const PLACEHOLDER_USER_ID = "test-user-e2e";
+
 export default async function SongsPage({
   searchParams,
 }: {
   searchParams: Promise<{ view?: string; search?: string }>;
 }) {
-  const songs = await getAllSongs();
+  // Phase 10 Plan 07 — thread userId so getAllSongs joins user_song_progress
+  // and returns ex1_2_3 / ex4 / ex5 / ex6 / ex7 best_accuracy fields.
+  // Unauthenticated callers (userId omitted / null) get null accuracy fields
+  // → SongCard renders with no ribbon, no badge, no stars.
+  const songs = await getAllSongs(PLACEHOLDER_USER_ID);
   const params = await searchParams;
 
   return (

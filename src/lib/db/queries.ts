@@ -43,8 +43,25 @@ export type SongWithVersions = NonNullable<Awaited<ReturnType<typeof getSongBySl
 /**
  * Get all songs with metadata for the browse page.
  * Includes the preferred youtube_id (tv > full) for thumbnails.
+ *
+ * Phase 10 Plan 07 — when `userId` is supplied, five per-user progress fields
+ * are joined in via a single correlated SELECT against `user_song_progress`:
+ * ex1_2_3 / ex4 / ex5 / ex6 / ex7 best_accuracy (all nullable). SongCard then
+ * computes stars (via deriveStars, consuming ex6) and bonus badge (via
+ * deriveBonusBadge, consuming ex5 + ex7) at render time.
+ *
+ * The subquery uses `LIMIT 1 ORDER BY tv first` on `user_song_progress` joined
+ * by `song_version_id → song_versions.id` WHERE `song_id = songs.id`. That
+ * matches the same version the thumbnail is sourced from, so stars surfaced on
+ * the catalog card correspond to the version the user plays when they click
+ * in. No N+1: a single catalog query still returns the 200 rows.
+ *
+ * Unauthenticated callers pass no userId — the accuracy fields return null and
+ * SongCard short-circuits to the zero-star / no-bonus branch (no ribbon, no
+ * badge).
  */
-export async function getAllSongs() {
+export async function getAllSongs(userId?: string | null) {
+  const userIdParam = userId ?? null;
   return db
     .select({
       id: songs.id,
@@ -64,6 +81,53 @@ export async function getAllSongs() {
       difficulty_tier: songs.difficulty_tier,
       genre_tags: songs.genre_tags,
       mood_tags: songs.mood_tags,
+      // Phase 10 Plan 07 — per-user accuracy fields for the SongCard stars +
+      // bonus-badge derivation. NULL for unauthenticated callers AND for
+      // rows where the user has never attempted the respective exercise.
+      // Scoped to the tv-preferred song_version so the stars match the
+      // version the user plays when they click into the card.
+      ex1_2_3_best_accuracy: sql<number | null>`(
+        SELECT p.ex1_2_3_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      ex4_best_accuracy: sql<number | null>`(
+        SELECT p.ex4_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      ex5_best_accuracy: sql<number | null>`(
+        SELECT p.ex5_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      ex6_best_accuracy: sql<number | null>`(
+        SELECT p.ex6_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      ex7_best_accuracy: sql<number | null>`(
+        SELECT p.ex7_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      completion_pct: sql<number | null>`(
+        SELECT p.completion_pct FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
     })
     .from(songs)
     .where(sql`EXISTS (
