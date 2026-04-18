@@ -57,6 +57,12 @@ export default async function RootLayout({
               >
                 Songs
               </Link>
+              <Link
+                href="/kana"
+                className="text-sm text-gray-400 transition-colors hover:text-white"
+              >
+                Kana
+              </Link>
               <GlobalLearnedCounter />
               <Link
                 href="/profile"
