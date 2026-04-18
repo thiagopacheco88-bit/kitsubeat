@@ -9,6 +9,12 @@ import { useEffect, useRef } from "react";
  * - When animate=true (new star earned): applies star-shine CSS animation
  *   to the newly earned star and fires a confetti burst via canvas-confetti.
  * - disableForReducedMotion respects prefers-reduced-motion.
+ *
+ * Phase 10 Plan 07: widened from 0|1|2 to 0|1|2|3 (third star gated on
+ * Listening Drill ≥ 80% — `ex6_best_accuracy`). The Star 3 celebration REUSES
+ * the existing Stars 1/2 confetti + star-shine code path — no new animation,
+ * no new CSS, no new SVG. All three stars share the same `text-yellow-400`
+ * fill + animate prop wiring (CONTEXT-locked).
  */
 export default function StarDisplay({
   stars,

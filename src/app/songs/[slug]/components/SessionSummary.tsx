@@ -53,6 +53,10 @@ export default function SessionSummary({
   const [saving, setSaving] = useState(true);
   const [stars, setStars] = useState<0 | 1 | 2 | 3>(0);
   const [previousStars, setPreviousStars] = useState<0 | 1 | 2 | 3>(0);
+  // Phase 10 Plan 07 — bonus badge state pair so the summary can surface the
+  // subtle "Bonus mastery unlocked!" callout on false → true transition.
+  const [bonusBadge, setBonusBadge] = useState(false);
+  const [previousBonusBadge, setPreviousBonusBadge] = useState(false);
   const [songMastery, setSongMastery] = useState<{
     total: number;
     mastered: number;
@@ -100,6 +104,8 @@ export default function SessionSummary({
 
         setStars(result.stars as 0 | 1 | 2 | 3);
         setPreviousStars(result.previousStars as 0 | 1 | 2 | 3);
+        setBonusBadge(result.bonusBadge);
+        setPreviousBonusBadge(result.previousBonusBadge);
         setSongMastery(result.songMastery);
       } catch (err) {
         console.error("Failed to save session results:", err);
@@ -122,6 +128,15 @@ export default function SessionSummary({
         : "text-red-400";
 
   const newStarEarned = !saving && stars > previousStars;
+  // Phase 10 Plan 07 — bonus badge transition: false → true unlock. Subtle
+  // one-line callout (NO confetti) per CONTEXT — stars remain the primary
+  // signal; bonus badge is secondary.
+  const bonusUnlocked = !saving && bonusBadge && !previousBonusBadge;
+  // Star 3 earns the "song mastered!" wording; Stars 1/2 keep the original
+  // "You earned Star N!" wording. Also covers the edge case where a user
+  // skipped from Star 1 directly to Star 3 in a single session (same
+  // condition — stars > previousStars, not stars - previousStars === 1).
+  const masteredThisSession = newStarEarned && stars === 3;
 
   return (
     <div className="flex flex-col items-center gap-6 py-8 text-center">
@@ -250,7 +265,17 @@ export default function SessionSummary({
           <StarDisplay stars={stars} animate={newStarEarned} />
           {newStarEarned && (
             <p className="text-sm font-semibold text-yellow-400 animate-pulse">
-              You earned Star {stars}!
+              {masteredThisSession
+                ? "You earned 3 stars — song mastered!"
+                : `You earned Star ${stars}!`}
+            </p>
+          )}
+          {/* Phase 10 Plan 07 — subtle bonus mastery unlock callout.
+              Deliberately plain text (no animation, no confetti) so the
+              stars remain the primary signal. CONTEXT-locked. */}
+          {bonusUnlocked && (
+            <p className="text-xs font-medium text-amber-300">
+              Bonus mastery unlocked!
             </p>
           )}
         </div>

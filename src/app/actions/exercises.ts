@@ -2,7 +2,7 @@
 
 import { eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db/index";
-import { userSongProgress, deriveStars, userVocabMastery, userExerciseLog } from "@/lib/db/schema";
+import { userSongProgress, deriveStars, deriveBonusBadge, userVocabMastery, userExerciseLog } from "@/lib/db/schema";
 import type { ExerciseType } from "@/lib/exercises/generator";
 import { ratingFor } from "@/lib/fsrs/rating";
 import { scheduleReview } from "@/lib/fsrs/scheduler";
@@ -150,6 +150,19 @@ interface SaveSessionResult {
   completionPct: number;
   stars: 0 | 1 | 2 | 3;
   previousStars: 0 | 1 | 2 | 3;
+  /**
+   * Phase 10 Plan 07 — bonus mastery badge predicate after this session's upsert.
+   * True when BOTH grammar_conjugation (ex5) AND sentence_order (ex7) best_accuracy >= 80%.
+   * Surfaced on SessionSummary when the value flips false → true during this session.
+   */
+  bonusBadge: boolean;
+  /**
+   * Snapshot of bonusBadge BEFORE this session's upsert — used by SessionSummary
+   * to detect the false → true transition and surface a one-line "Bonus mastery
+   * unlocked!" callout. No confetti (CONTEXT: bonus badge is subtle, secondary
+   * to stars).
+   */
+  previousBonusBadge: boolean;
   songMastery: SongMasteryCounts;
 }
 
@@ -231,6 +244,18 @@ export async function saveSessionResults(
       })
     : 0;
 
+  // Phase 10 Plan 07 — bonus badge BEFORE snapshot, so SessionSummary can
+  // detect a false → true transition and surface the "Bonus mastery unlocked!"
+  // callout. Derived from the pre-upsert row for the same reason as
+  // previousStars (Pitfall 7 — snapshot must be taken before GREATEST merges
+  // the new session's accuracy into the row).
+  const previousBonusBadge = previousRow
+    ? deriveBonusBadge({
+        ex5_best_accuracy: previousRow.ex5_best_accuracy,
+        ex7_best_accuracy: previousRow.ex7_best_accuracy,
+      })
+    : false;
+
   // --- Step 5: Upsert with GREATEST/LEAST patterns ---
   //
   // Phase 10 Plan 06: ex5 / ex6 / ex7 accuracy columns join the same upsert.
@@ -295,6 +320,8 @@ export async function saveSessionResults(
       completionPct: completionIncrement,
       stars: 0,
       previousStars: 0,
+      bonusBadge: false,
+      previousBonusBadge: false,
       songMastery: { total: 0, mastered: 0, learning: 0, new: 0 },
     };
   }
@@ -304,6 +331,13 @@ export async function saveSessionResults(
     ex4_best_accuracy: updated.ex4_best_accuracy,
     // Phase 10: Star 3 requires Ex 6 (Listening Drill) at ≥80%.
     ex6_best_accuracy: updated.ex6_best_accuracy,
+  });
+
+  // Phase 10 Plan 07 — bonus badge AFTER snapshot. Combined with previousBonusBadge
+  // above, the UI detects false → true transition for the subtle unlock callout.
+  const bonusBadge = deriveBonusBadge({
+    ex5_best_accuracy: updated.ex5_best_accuracy,
+    ex7_best_accuracy: updated.ex7_best_accuracy,
   });
 
   // --- Step 7: FSRS per-vocab upsert (one row per unique vocab_item_id) ---
@@ -493,6 +527,8 @@ export async function saveSessionResults(
     completionPct: updated.completion_pct,
     stars,
     previousStars,
+    bonusBadge,
+    previousBonusBadge,
     songMastery,
   };
 }
