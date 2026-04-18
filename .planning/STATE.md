@@ -5,23 +5,25 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 10 — Advanced Exercises & Full Mastery (Plan 10-02 complete; PlayerContext imperative API ready for Plan 10-04 Listening Drill)
+**Current focus:** v2.0 Phase 10 — Advanced Exercises & Full Mastery (Plans 10-01 + 10-02 complete). Wave-2 plans 10-03/04/05 unblocked with data-layer foundation + PlayerContext imperative API in place.
 
 ## Current Position
 
 Phase: 10 of 11 (Advanced Exercises & Full Mastery) — In Progress
-Plan: 1 of 7 complete (10-02 ✓); next: Plan 10-01 or 10-03 (wave-independent — 10-02 is Wave 1, no depends_on)
-Status: Plan 10-02 complete — PlayerContext extended with production-grade imperative API (seekTo(ms), play(), pause(), seekAndPlay(ms) with 400ms debounce + 50ms seek->play delay, isReady, embedState promoted from YouTubeEmbed-local). YouTubeEmbed.onReady registers the api bundle via _registerApi; cleanup clears it. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (Phase 08.1-05 test gate intact: single-condition NEXT_PUBLIC_APP_ENV === 'test'). New 10-test jsdom suite (PlayerContext.test.tsx) covers registration, dispatch, isReady derivation, debounce coalescing of 10 rapid calls, trailing-edge pause->seek->50ms->play sequencing, and pre/post-registration no-ops. Test infra added: @vitejs/plugin-react + jsdom + @testing-library/react + @testing-library/jest-dom (devDeps); vitest.config.ts includes *.test.tsx with per-file `// @vitest-environment jsdom` directive (vitest v4 dropped environmentMatchGlobs). Four auto-fix deviations logged (all Rule-3 blocking: RTL/jsdom install, environmentMatchGlobs removal, setEmbedState widening to Dispatch<SetStateAction>, doc-comment rewording for grep audit). Commits 1ae57fc (Task 1 context), 65c4fad (Task 2 YouTubeEmbed + tests), cdacd21 (verify doc tweak). Plan 10-04 Listening Drill unblocked — usePlayer().seekAndPlay(verseStartMs) handles replay UX end-to-end.
-Last activity: 2026-04-18 — Plan 10-02 SUMMARY complete. Plan 10-04 unblocked for its Listening Drill card integration.
+Plan: 2 of 7 complete (10-01 ✓, 10-02 ✓); next: wave-2 plans 10-03 (Grammar Conjugation) / 10-04 (Listening Drill) / 10-05 (Sentence Order) runnable in parallel
+Status: Plan 10-01 complete — data-layer foundation shipped: drizzle/0007_advanced_exercises.sql (ex5/ex6/ex7_best_accuracy cols on user_song_progress + user_exercise_song_counters table with UNIQUE(user_id, exercise_family, song_version_id)); ExerciseType union widened 4→7 (grammar_conjugation + listening_drill + sentence_order); Question interface widened one-shot with 4 optional wave-2 fields (conjugationBase/verseStartMs/verseTokens/translation); deriveStars widened 0|1|2→0|1|2|3 (Star 3 gated on Ex 6 ≥80%); deriveBonusBadge added (Ex 5 + Ex 7 both ≥80%); song_quota gate path in checkExerciseAccess(userId, type, {songVersionId}) with premium bypass + already-touched re-entry + quota_exhausted response; counters.ts thin drizzle wrapper (getSongCountForFamily + userHasTouchedSong + recordSongAttempt idempotent via ON CONFLICT DO NOTHING); RATING_WEIGHTS 4→7 entries (grammar_conjugation=4, listening_drill=3, sentence_order=4); 9 generator + 3 ExerciseSession throw-stub branches so wave-2 plans 10-03/04/05 REPLACE stub bodies only (parallel-safe). 34 new unit tests green (13 access mocked + 21 derive-stars+deriveBonusBadge); 6 counters integration tests behind describe.skip pending TEST_DATABASE_URL. Four Rule-3 deviations (migration collision 0006→0007, deriveStars signature threading through 4 call sites, Record<ExerciseType,number> exhaustiveness, resetTestProgress clears counter table). Commits 8a4a6f4 (schema+stubs), dd82cbb (counters+gate+tests).
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 COMPLETE (6/6 plans); v2.0 Phase 10 in progress (1/7 plans)
+Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
+Last activity: 2026-04-18 — Plans 10-01 + 10-02 SUMMARYs complete. Wave-2 plans 10-03/04/05 runnable in parallel (union + Question fields + stubs already in place; PlayerContext.seekAndPlay ready for Listening Drill replay UX).
+
+Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 COMPLETE (6/6 plans); v2.0 Phase 10 in progress (2/7 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 16
-- Average duration: 7.4 min
-- Total execution time: 1.91 hours
+- Total plans completed: 17
+- Average duration: 9.0 min
+- Total execution time: 2.50 hours
 
 **By Phase:**
 
@@ -32,8 +34,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
-- Last 7 plans: 09-01 (3 min), 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min), 09-05 (3 min), 10-02 (9 min)
-- Trend: 10-02 at 9 min is the phase's first plan with React-testing infra bootstrap (added @vitejs/plugin-react + jsdom + RTL + jest-dom as devDeps to land the .tsx context test — Rule-3 blocking); subsequent .tsx component tests across Plan 10-04/07 will be sub-5-min since the infra is now inert-on-disk
+- Last 7 plans: 11-05 (8 min), 09-02 (4 min), 09-03 (3 min), 09-04 (3 min), 09-05 (3 min), 10-02 (9 min), 10-01 (35 min)
+- Trend: 10-01 at 35 min — largest plan in phase (7 files created/modified + migration + 4-call-site deriveStars threading + 4 Rule-3 deviations); heavy data-layer work with schema migration + ExerciseType union widening + 9 generator stubs + 3 ExerciseSession stubs + gate extension + 3 test files touched. Wave-2 plans 10-03/04/05 should run faster since types + stubs are already pre-placed.
 
 *Updated after each plan completion*
 | Phase 07-data-foundation P02 | 211 | 2 tasks | 3 files |
@@ -71,6 +73,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 09 P04 | 3 | 2 tasks | 5 files |
 | Phase 09 P05 | 3 | 2 tasks | 5 files |
 | Phase 10-advanced-exercises-full-mastery P02 | 9 | 2 tasks | 5 files |
+| Phase 10-advanced-exercises-full-mastery P01 | 35 | 2 tasks | 17 files |
 
 ## Accumulated Context
 
@@ -230,6 +233,17 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: IS_REACT_ACT_ENVIRONMENT=true at top of .tsx test files — silences React 19 act() stderr spam without pulling in RTL's act wrapper.
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: __kbPlayer test gate (Plan 08.1-05 single-condition NEXT_PUBLIC_APP_ENV === 'test') preserved verbatim — PlayerContext imperative API sits ALONGSIDE, not in place of, the e2e instrumentation.
 - [Phase 10-advanced-exercises-full-mastery]: Plan 10-02: Probe consumer pattern for context tests — tiny `<Probe>` component captures ctx into a module-level ref on each render; tests invoke `getCtx().seekTo(...)` between act() blocks.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: Migration numbered 0007 (not 0006) — 0006_review_daily_counter.sql already existed from Phase 11-05. Inline comment in the migration documents the rename.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: deriveStars signature: ex6_best_accuracy OPTIONAL (nullable) — preserves backward compat for legacy callers; missing treated as 0 (Star 3 unreachable without Ex 6 data).
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: Counter-increment lives in Plan 06 saveSessionResults/recordVocabAnswer, NEVER in checkExerciseAccess — prevents Pitfall 5 double-increment on session resume.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: Already-touched song always passes the song_quota gate (re-entry = not 11th distinct touch) — userHasTouchedSong consulted before count check.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: Premium bypass is a short-circuit — counter reads skipped entirely for premium users. Simplicity + perf.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: QUOTA_LIMITS lives in feature-flags.ts (not access.ts) — tests import and assert the exact 10/3 values without reaching into the gate fn.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: stars.test.ts from plan text merged into existing derive-stars.test.ts (from Phase 08.1-02) — avoids two suites owning deriveStars. All plan requirements landed (21 cases incl. Star 3 + ordering + deriveBonusBadge).
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: 12 generator stub markers (3×makeQuestion + 3×extractField + 3×makeExplanation) + 3 ExerciseSession = 15 total (plan stated 6 minimum; TypeScript exhaustiveness required the extractField + makeExplanation stubs).
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: resetTestProgress in tests/support/test-db.ts extended to clear user_exercise_song_counters so Phase 10 integration tests stay hermetic.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: RATING_WEIGHTS extended to 7 entries — grammar_conjugation=4, listening_drill=3, sentence_order=4. Production > recognition > surface invariant preserved.
+- [Phase 10-advanced-exercises-full-mastery]: Plan 10-01: Wave-1 type widening pattern — union + Question interface + stubs all in ONE plan so wave-2 plans 10-03/04/05 only REPLACE stub bodies (no type churn, no merge conflicts under parallel execution).
 
 ### Pending Todos
 
@@ -256,5 +270,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 10 Plan 02 (PlayerContext imperative API). PlayerContext exposes seekTo(ms)/play()/pause()/seekAndPlay(ms) via ref dispatch (no re-renders on registration); 400ms debounce + 50ms seek->play delay for replay-safe UX; embedState promoted from YouTubeEmbed-local so Listening Drill can read 'error' fallback directly. YouTubeEmbed.onReady registers bundle via _registerApi, cleanup clears it, raw YT player reference stays scoped to embed. Phase 08.1-05 __kbPlayer test gate intact (NEXT_PUBLIC_APP_ENV === 'test' single-condition). New 10-test jsdom suite: PlayerContext.test.tsx (first .tsx test in repo). Test infra added: @vitejs/plugin-react + jsdom + @testing-library/react + @testing-library/jest-dom; vitest.config.ts includes *.test.tsx + per-file directive pattern. Four auto-fix deviations (all Rule-3 blocking). Commits 1ae57fc, 65c4fad, cdacd21. Plan 10-04 Listening Drill unblocked.
-Resume file: .planning/phases/10-advanced-exercises-full-mastery/10-01-PLAN.md (Wave 1 parallel peer — was already in uncommitted working state; needs its own execution) or 10-03-PLAN.md (Wave 2 depends on 10-01/10-02).
+Stopped at: Completed Phase 10 Plan 01 (data-layer foundation). drizzle/0007_advanced_exercises.sql (3 accuracy cols + counter table); ExerciseType union 4→7; Question interface widened one-shot (conjugationBase/verseStartMs/verseTokens/translation optional); deriveStars 0|1|2→0|1|2|3 (Star 3 on Ex 6 ≥80%); deriveBonusBadge added; song_quota gate path with premium bypass + already-touched re-entry + quota_exhausted; counters.ts (getSongCountForFamily + userHasTouchedSong + recordSongAttempt idempotent); RATING_WEIGHTS 4→7 entries; 12 generator + 3 ExerciseSession throw-stubs. 34 new unit tests green (13 access mocked + 21 derive-stars + deriveBonusBadge); 6 counters integration skipped pending TEST_DATABASE_URL. 4 Rule-3 deviations (migration collision 0006→0007, deriveStars threading through 4 call sites, generator.test.ts Record exhaustiveness, resetTestProgress counters clear). Commits 8a4a6f4, dd82cbb. Phase 10 at 2/7 (10-01 + 10-02 complete).
+Resume file: .planning/phases/10-advanced-exercises-full-mastery/10-03-PLAN.md (Wave 2 Grammar Conjugation — replaces stub bodies only; can run in parallel with 10-04 and 10-05).
