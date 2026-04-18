@@ -4,12 +4,10 @@ import { getSongBySlug, getKnownWordCountForSong } from "@/lib/db/queries";
 import { db } from "@/lib/db";
 import { vocabularyItems } from "@/lib/db/schema";
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 import SongContent from "./components/SongContent";
 
 export const dynamic = "force-dynamic";
-
-// TODO(Phase 10 auth): replace with Clerk auth()
-const PLACEHOLDER_USER_ID = "test-user-e2e";
 
 export async function generateMetadata({
   params,

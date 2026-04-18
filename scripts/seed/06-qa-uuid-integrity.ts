@@ -31,6 +31,7 @@ import { getDb } from "../../src/lib/db/index.js";
 import { songs, songVersions, vocabularyItems } from "../../src/lib/db/schema.js";
 import { inArray } from "drizzle-orm";
 import type { Lesson } from "../types/lesson.js";
+import { UUID_RE } from "../../src/lib/uuid.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -50,12 +51,6 @@ export interface UuidGap {
 // Helpers
 // ---------------------------------------------------------------------------
 
-/**
- * RFC 4122 UUID regex. Matches v1–v5 (we generate v4 in defaultRandom but the
- * regex is permissive on version digit so manual rows aren't rejected).
- */
-const UUID_RE =
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function isValidUuid(value: unknown): value is string {
   return typeof value === "string" && UUID_RE.test(value);

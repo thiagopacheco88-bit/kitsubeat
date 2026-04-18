@@ -1,14 +1,11 @@
 import { getUserPrefs, isPremium } from "@/app/actions/userPrefs";
 import {
   DEFAULT_NEW_CARD_CAP,
+  PLACEHOLDER_USER_ID,
   PREMIUM_NEW_CARD_CAP_CEILING,
 } from "@/lib/user-prefs";
 import ProfileForm from "./ProfileForm";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
-
-// TODO(Phase 10 auth): replace with Clerk auth() and redirect unauthenticated users.
-// For now the placeholder user matches the rest of the app's auth TODO pattern.
-const PLACEHOLDER_USER_ID = "test-user-e2e";
 
 export default async function ProfilePage() {
   const userId = PLACEHOLDER_USER_ID;

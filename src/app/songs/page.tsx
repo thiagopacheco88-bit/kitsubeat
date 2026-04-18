@@ -1,4 +1,5 @@
 import { getAllSongs } from "@/lib/db/queries";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 import SongGrid from "./components/SongGrid";
 
 export const dynamic = "force-dynamic";
@@ -6,11 +7,6 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Songs | KitsuBeat",
 };
-
-// TODO(Phase 10 auth): replace with Clerk auth() — matches the existing
-// placeholder pattern in src/app/songs/[slug]/page.tsx so dev/test users see
-// their mastery decorations (stars + ribbon + bonus badge) on the catalog.
-const PLACEHOLDER_USER_ID = "test-user-e2e";
 
 export default async function SongsPage({
   searchParams,

@@ -1,3 +1,6 @@
+/** Placeholder user ID — replace with Clerk auth() when Phase 10 ships. */
+export const PLACEHOLDER_USER_ID = "test-user-e2e";
+
 export const DEFAULT_NEW_CARD_CAP = 10;
 
 export const PREMIUM_NEW_CARD_CAP_CEILING = 30;

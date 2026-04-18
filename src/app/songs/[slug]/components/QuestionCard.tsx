@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useRef } from "react";
-import type { Question, VocabInfo } from "@/lib/exercises/generator";
+import { shuffle, type Question, type VocabInfo } from "@/lib/exercises/generator";
 import { useExerciseSession } from "@/stores/exerciseSession";
 import { recordVocabAnswer } from "@/app/actions/exercises";
 import TierText from "./TierText";
@@ -20,15 +20,6 @@ interface QuestionCardProps {
   songVersionId: string;
 }
 
-/** Fisher-Yates shuffle (unbiased) */
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 
 export default function QuestionCard({
   question,

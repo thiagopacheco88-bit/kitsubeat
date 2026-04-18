@@ -18,9 +18,7 @@
 
 import Link from "next/link";
 import { getGlobalLearnedCount } from "@/lib/db/queries";
-
-// TODO(Phase 10 auth): replace with Clerk auth().
-const PLACEHOLDER_USER_ID = "test-user-e2e";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
 interface Props {
   variant?: "nav" | "profile";

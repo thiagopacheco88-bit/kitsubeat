@@ -15,35 +15,12 @@
 export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
-import { sql } from "drizzle-orm";
-import { db } from "@/lib/db";
-import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
-
-// Placeholder — replace with Clerk auth when Phase 10 ships.
-const PLACEHOLDER_USER_ID = "test-user-e2e";
+import { getNewCardBudget } from "@/lib/db/queries";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
 export async function GET() {
   const userId = PLACEHOLDER_USER_ID;
-  const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
-
-  const rows = await db.execute<{
-    review_new_today: number;
-    review_new_today_date: string | null;
-  }>(sql`
-    SELECT review_new_today, review_new_today_date::text AS review_new_today_date
-    FROM users WHERE id = ${userId}
-  `);
-
-  const raw = Array.isArray(rows) ? rows : (rows.rows ?? []);
-  const row = raw[0];
-
-  let budgetRemaining: number;
-  if (!row || row.review_new_today_date !== today) {
-    // No row or stale date → full cap available (UTC midnight rollover).
-    budgetRemaining = REVIEW_NEW_DAILY_CAP;
-  } else {
-    budgetRemaining = Math.max(0, REVIEW_NEW_DAILY_CAP - Number(row.review_new_today));
-  }
+  const budgetRemaining = await getNewCardBudget(userId);
 
   return NextResponse.json(
     { budget_remaining: budgetRemaining },

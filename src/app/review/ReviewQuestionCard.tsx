@@ -26,6 +26,7 @@ import TierText from "@/app/songs/[slug]/components/TierText";
 import ReviewFeedbackPanel from "./ReviewFeedbackPanel";
 import type { Tier } from "@/lib/fsrs/tier";
 import type { ReviewQuestionType } from "@/lib/review/queue-builder";
+import { shuffle } from "@/lib/exercises/generator";
 
 interface ReviewQuestionCardProps {
   question: Question;
@@ -43,15 +44,6 @@ interface ReviewQuestionCardProps {
   onCapReached?: () => void;
 }
 
-/** Fisher-Yates shuffle (unbiased) */
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 
 export default function ReviewQuestionCard({
   question,

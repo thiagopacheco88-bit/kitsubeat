@@ -8,7 +8,7 @@ import { isPremium } from "@/app/actions/userPrefs";
 import VocabularyList from "./VocabularyList";
 import FilterControls from "./FilterControls";
 
-const PLACEHOLDER_USER_ID = "test-user-e2e"; // TODO(Phase 10 auth)
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
 // Free users get the top 20 rows ordered by state DESC, last_review DESC NULLS LAST
 // (Plan 01 default order). Preview cutoff is applied in-memory so we can show the

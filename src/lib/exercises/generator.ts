@@ -118,7 +118,7 @@ export const SENTENCE_ORDER_TOKEN_CAP = 12;
 // Fisher-Yates shuffle (unbiased — NOT arr.sort(() => Math.random() - 0.5))
 // ---------------------------------------------------------------------------
 
-function shuffle<T>(arr: T[]): T[] {
+export function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

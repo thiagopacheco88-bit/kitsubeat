@@ -8,6 +8,7 @@ import {
   deriveStars,
   type SongVersion,
 } from "./schema";
+import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
 
 // ---------------------------------------------------------------------------
 // Song detail page
@@ -734,4 +735,29 @@ export async function getDueReviewQueue(
     })),
     new: newRows.map((row) => ({ vocab_item_id: row.vocab_item_id })),
   };
+}
+
+// ---------------------------------------------------------------------------
+// Daily new-card budget
+// ---------------------------------------------------------------------------
+
+/**
+ * Read the user's remaining daily new-card budget without modifying it.
+ *
+ * If the stored date is not today (UTC), the counter has rolled over and the
+ * full REVIEW_NEW_DAILY_CAP is available.
+ */
+export async function getNewCardBudget(userId: string): Promise<number> {
+  const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
+  const rows = await db.execute<{
+    review_new_today: number;
+    review_new_today_date: string | null;
+  }>(sql`
+    SELECT review_new_today, review_new_today_date::text AS review_new_today_date
+    FROM users WHERE id = ${userId}
+  `);
+  const raw = Array.isArray(rows) ? rows : (rows.rows ?? []);
+  const row = raw[0];
+  if (!row || row.review_new_today_date !== today) return REVIEW_NEW_DAILY_CAP;
+  return Math.max(0, REVIEW_NEW_DAILY_CAP - Number(row.review_new_today));
 }

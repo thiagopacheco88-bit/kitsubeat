@@ -23,6 +23,7 @@ import UpsellModal from "./UpsellModal";
 import type { VocabRow } from "@/app/api/review/queue/route";
 import type { ReviewQueueItem } from "@/lib/review/queue-builder";
 import { useReviewSession } from "@/stores/reviewSession";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
 // Lazy-load ReviewSession so it doesn't inflate the landing bundle
 const ReviewSession = dynamic(() => import("./ReviewSession"), { ssr: false });
@@ -43,8 +44,6 @@ interface QueueResponse {
   budget_remaining: number;
 }
 
-// Placeholder — replace with Clerk auth when Phase 10 ships.
-const PLACEHOLDER_USER_ID = "test-user-e2e";
 
 export default function ReviewLanding({
   isPremium,

@@ -17,10 +17,7 @@ import { db } from "@/lib/db";
 import { userVocabMastery, userExerciseLog } from "@/lib/db/schema";
 import { tierFor } from "@/lib/fsrs/tier";
 import { getSeenInSongsForVocab } from "@/lib/db/queries";
-
-/** UUID v4 regex — used to guard against malformed route params */
-const UUID_REGEX =
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+import { UUID_RE } from "@/lib/uuid";
 
 export interface MasteryDetail {
   vocabItemId: string;
@@ -47,7 +44,7 @@ export async function GET(
   const userId = searchParams.get("userId");
 
   // Validate UUID format
-  if (!vocabItemId || !UUID_REGEX.test(vocabItemId)) {
+  if (!vocabItemId || !UUID_RE.test(vocabItemId)) {
     return NextResponse.json(
       { error: "Invalid or missing vocabItemId — must be a valid UUID" },
       { status: 404 }

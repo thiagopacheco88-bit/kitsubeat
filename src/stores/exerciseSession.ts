@@ -10,7 +10,7 @@
 
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import type { Question } from "@/lib/exercises/generator";
+import { shuffle, type Question } from "@/lib/exercises/generator";
 import type { Token } from "@/lib/types/lesson";
 import type { Tier } from "@/lib/fsrs/tier";
 
@@ -279,18 +279,12 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
           // mid-question), don't re-shuffle — preserve the user's work.
           if (state.sentenceOrderPool[questionId]) return state;
 
-          // Stamp each token with a fresh UUID, then apply Fisher-Yates so the
-          // DOM never reveals the source verse order. (We use a local copy of
-          // the shuffle algorithm because the generator module's shuffle is
-          // not exported.)
-          const stamped: SentenceOrderToken[] = verseTokens.map((t) => ({
+          // Stamp each token with a fresh UUID, then shuffle so the DOM
+          // never reveals the source verse order.
+          const stamped = shuffle(verseTokens.map((t): SentenceOrderToken => ({
             uuid: crypto.randomUUID(),
             surface: t.surface,
-          }));
-          for (let i = stamped.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [stamped[i], stamped[j]] = [stamped[j], stamped[i]];
-          }
+          })));
           return {
             sentenceOrderPool: {
               ...state.sentenceOrderPool,

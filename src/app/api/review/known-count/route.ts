@@ -14,13 +14,8 @@
  */
 
 import { getKnownWordCountForSong } from "@/lib/db/queries";
-
-// UUID v4 pattern — basic shape validation, not a full RFC check.
-const UUID_RE =
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
-// Replace with Clerk auth() when auth lands.
-const PLACEHOLDER_USER_ID = "test-user-e2e";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { UUID_RE } from "@/lib/uuid";
 
 export const dynamic = "force-dynamic";
 

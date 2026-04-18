@@ -41,8 +41,8 @@ type DbJlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
 import { db } from "@/lib/db";
 import { vocabularyItems } from "@/lib/db/schema";
 import { isPremium } from "@/app/actions/userPrefs";
-import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
-import { getDueReviewQueue } from "@/lib/db/queries";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getDueReviewQueue, getNewCardBudget } from "@/lib/db/queries";
 import { buildReviewQueue } from "@/lib/review/queue-builder";
 
 /** Minimal vocab data needed to render questions in ReviewSession */
@@ -56,30 +56,6 @@ export interface VocabRow {
   meaning: unknown; // Localizable JSON
   mnemonic: unknown | null;
   kanji_breakdown: unknown | null;
-}
-
-// Placeholder — replace with Clerk auth when Phase 10 ships.
-const PLACEHOLDER_USER_ID = "test-user-e2e";
-
-/**
- * Reads the user's current daily new-card counter without modifying it.
- * If the stored date is not today (UTC), the counter has rolled over and the
- * full cap is available.
- */
-async function readRemainingBudget(userId: string): Promise<number> {
-  const today = new Date().toISOString().slice(0, 10); // "YYYY-MM-DD"
-  const rows = await db.execute<{
-    review_new_today: number;
-    review_new_today_date: string | null;
-  }>(sql`
-    SELECT review_new_today, review_new_today_date::text AS review_new_today_date
-    FROM users WHERE id = ${userId}
-  `);
-  const raw = Array.isArray(rows) ? rows : (rows.rows ?? []);
-  const row = raw[0];
-  if (!row) return REVIEW_NEW_DAILY_CAP;
-  if (row.review_new_today_date !== today) return REVIEW_NEW_DAILY_CAP;
-  return Math.max(0, REVIEW_NEW_DAILY_CAP - Number(row.review_new_today));
 }
 
 export async function GET() {
@@ -98,7 +74,7 @@ export async function GET() {
   }
 
   // Read-only budget check — does not consume the budget.
-  const budgetRemaining = await readRemainingBudget(userId);
+  const budgetRemaining = await getNewCardBudget(userId);
 
   // Fetch due + new card pools from DB.
   const { due, new: newCards } = await getDueReviewQueue(
