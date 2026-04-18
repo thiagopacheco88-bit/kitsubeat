@@ -25,6 +25,9 @@ export default function SeenInExpander({ vocabItemId, initialCount }: Props) {
           const data = await res.json();
           setSongs(data.seenInSongs ?? []);
         }
+      } catch (err) {
+        console.error("[SeenInExpander] fetch failed", err);
+        setSongs([]);
       } finally {
         setLoading(false);
       }

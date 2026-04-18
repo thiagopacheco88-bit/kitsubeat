@@ -26,7 +26,9 @@ export default function GlobalError({
         }),
         keepalive: true,
       });
-    } catch {}
+    } catch (err) {
+      console.error("[error-boundary] telemetry post failed", err);
+    }
   }, [error]);
 
   return (
