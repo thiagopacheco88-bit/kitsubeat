@@ -7,6 +7,7 @@ import { useExerciseSession } from "@/stores/exerciseSession";
 import QuestionCard from "./QuestionCard";
 import SessionSummary from "./SessionSummary";
 import LearnCard from "./LearnCard";
+import ConjugationCard from "./ConjugationCard";
 import ListeningDrillCard from "./ListeningDrillCard";
 import SentenceOrderCard from "./SentenceOrderCard";
 import { usePlayer } from "./PlayerContext";
@@ -193,7 +194,24 @@ export default function ExerciseSession({
          */}
         {(() => {
           if (current.type === "grammar_conjugation") {
-            throw new Error("ConjugationCard dispatch not implemented (Plan 10-03)");
+            // Plan 10-03 — Grammar Conjugation dispatch.
+            //
+            // Thread handleAnswered / handleContinue identically to
+            // QuestionCard. ConjugationCard owns its own FeedbackPanel, so
+            // session-store answer records stay consistent. The FSRS
+            // persistence call happens INSIDE ConjugationCard (mirrors
+            // QuestionCard / ListeningDrillCard); empty-string vocabItemId
+            // targets are skipped gracefully there.
+            return (
+              <ConjugationCard
+                key={current.id}
+                question={current}
+                onAnswered={handleAnswered}
+                onContinue={handleContinue}
+                userId={userId}
+                songVersionId={songVersionId}
+              />
+            );
           }
           if (current.type === "listening_drill") {
             // Plan 10-04: resolve verse tokens from the lesson via the
