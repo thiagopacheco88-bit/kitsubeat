@@ -47,7 +47,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [ ] **CROSS-02**: User sees which songs share a vocabulary word ("Seen in: Attack on Titan OP, Demon Slayer OP")
 - [ ] **CROSS-03**: User sees a global counter of unique Japanese words learned across all songs
 - [ ] **CROSS-04**: Mastering a word in one song automatically reflects in all other songs containing that word
-- [ ] **CROSS-05**: User can view a vocabulary dashboard showing all learned words, their mastery level, and source songs
+- [x] **CROSS-05**: User can view a vocabulary dashboard showing all learned words, their mastery level, and source songs
 
 ### Anime Scenes
 
@@ -149,7 +149,7 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 | CROSS-02 | Phase 11 | Pending |
 | CROSS-03 | Phase 11 | Pending |
 | CROSS-04 | Phase 11 | Pending |
-| CROSS-05 | Phase 11 | Pending |
+| CROSS-05 | Phase 11 | Complete |
 | FREE-04 | Phase 11 | Pending |
 | SCENE-01 | Phase 12 | Pending |
 | SCENE-02 | Phase 12 | Pending |
