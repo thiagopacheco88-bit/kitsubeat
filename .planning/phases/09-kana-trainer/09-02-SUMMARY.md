@@ -144,7 +144,7 @@ Same formula applies elsewhere: a-row (5 chars) needs `ceil(4) = 4` (80% exact);
 
 _No REFACTOR commits — implementations were clean from first GREEN pass and adding a no-op refactor commit would pollute history._
 
-**Plan metadata commit:** pending (final commit at end of execution)
+**Plan metadata commit:** `43728de` — docs(09-02): complete mastery + selection rules plan
 
 ## Files Created
 
