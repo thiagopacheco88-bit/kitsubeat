@@ -37,6 +37,7 @@ interface ReviewLandingProps {
 interface QueueResponse {
   items: ReviewQueueItem[];
   vocabData: Record<string, VocabRow>;
+  jlptPools: Record<string, VocabRow[]>;
   due_count: number;
   new_count: number;
   budget_remaining: number;
@@ -56,6 +57,7 @@ export default function ReviewLanding({
   const [loading, setLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [vocabData, setVocabData] = useState<Record<string, VocabRow>>({});
+  const [jlptPools, setJlptPools] = useState<Record<string, VocabRow[]>>({});
 
   const { load } = useReviewSession();
 
@@ -91,6 +93,7 @@ export default function ReviewLanding({
       // Hydrate the review store and switch to session view
       load(data.items);
       setVocabData(data.vocabData);
+      setJlptPools(data.jlptPools ?? {});
       setStarted(true);
     } catch (err) {
       console.error("Failed to load review queue:", err);
@@ -106,9 +109,11 @@ export default function ReviewLanding({
       <ReviewSession
         userId={PLACEHOLDER_USER_ID}
         vocabData={vocabData}
+        jlptPools={jlptPools}
         onBack={() => {
           setStarted(false);
           setVocabData({});
+          setJlptPools({});
         }}
       />
     );

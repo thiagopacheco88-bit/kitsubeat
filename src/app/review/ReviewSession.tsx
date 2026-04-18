@@ -18,6 +18,8 @@
 import { useState, useCallback } from "react";
 import { useReviewSession } from "@/stores/reviewSession";
 import ReviewQuestionCard from "./ReviewQuestionCard";
+import { pickDistractors } from "@/lib/exercises/generator";
+import { vocabRowToVocabEntry } from "@/lib/review/distractors";
 import type { VocabRow } from "@/app/api/review/queue/route";
 import type { Question } from "@/lib/exercises/generator";
 import type { ReviewQueueItem, ReviewQuestionType } from "@/lib/review/queue-builder";
@@ -27,16 +29,34 @@ interface ReviewSessionProps {
   userId: string;
   /** Vocab data keyed by vocab_item_id — fetched alongside the queue by /api/review/queue */
   vocabData: Record<string, VocabRow>;
+  /** JLPT distractor pools keyed by level — fetched alongside the queue by /api/review/queue */
+  jlptPools?: Record<string, VocabRow[]>;
   onBack: () => void;
 }
 
 /**
+ * Module-level flag to prevent console.warn spam when a vocab row has no
+ * jlpt_level — only warn once per page load.
+ */
+let warnedNullLevel = false;
+
+/**
  * Builds a minimal Question object from a VocabRow for use with ReviewQuestionCard.
  * Only the fields the ReviewQuestionCard JSX actually reads are populated.
- * Distractors: simplified — uses empty array placeholder (full distractor fetch
- * would require a separate jlpt-pool call per card; deferred to future polish).
+ *
+ * Distractors are selected via pickDistractors using the jlptPools entry matching
+ * the vocab's jlpt_level. sameSongPool is [] by design — cross-song review has no
+ * "same song" context; the jlpt-level pool provides sufficient distractor candidates.
+ *
+ * If vocab.jlpt_level is null or the pool returns < 3 distractors, a single
+ * console.warn fires (once per session) and the card renders with fewer options —
+ * an acceptable edge case per 11-VERIFICATION.md.
  */
-function buildQuestion(item: ReviewQueueItem, vocab: VocabRow): Question {
+function buildQuestion(
+  item: ReviewQueueItem,
+  vocab: VocabRow,
+  jlptPools: Record<string, VocabRow[]>
+): Question {
   const vocabInfo = {
     surface: vocab.dictionary_form,
     reading: vocab.reading,
@@ -44,9 +64,9 @@ function buildQuestion(item: ReviewQueueItem, vocab: VocabRow): Question {
     vocab_item_id: vocab.id,
   };
 
-  // Build prompt based on exercise type
-  let prompt: string;
-  let correctAnswer: string;
+  // Build prompt and correctAnswer based on exercise type.
+  let prompt = "";
+  let correctAnswer = "";
   switch (item.exerciseType as ReviewQuestionType) {
     case "vocab_meaning":
       prompt = vocab.dictionary_form;
@@ -62,13 +82,47 @@ function buildQuestion(item: ReviewQueueItem, vocab: VocabRow): Question {
       break;
   }
 
+  // Resolve distractor pool for this card's JLPT level.
+  const poolRows = vocab.jlpt_level ? (jlptPools[vocab.jlpt_level] ?? []) : [];
+  if (!vocab.jlpt_level && !warnedNullLevel) {
+    warnedNullLevel = true;
+    console.warn(
+      "[ReviewSession] vocab with no jlpt_level; distractors will be empty:",
+      vocab.id
+    );
+  }
+
+  // Convert VocabRow entries to VocabEntry for pickDistractors.
+  const correctEntry = vocabRowToVocabEntry(vocab);
+  const poolEntries = poolRows.map(vocabRowToVocabEntry);
+
+  // sameSongPool is [] — cross-song review has no "same song" context.
+  const distractors = pickDistractors(
+    correctEntry,
+    item.exerciseType as Question["type"],
+    [],
+    poolEntries
+  );
+
+  if (distractors.length < 3 && !warnedNullLevel) {
+    warnedNullLevel = true;
+    console.warn(
+      "[ReviewSession] pickDistractors returned fewer than 3 distractors for vocab:",
+      vocab.id,
+      "jlpt_level:",
+      vocab.jlpt_level,
+      "pool size:",
+      poolRows.length
+    );
+  }
+
   return {
     id: `review-${item.vocab_item_id}-${item.exerciseType}`,
     type: item.exerciseType as Question["type"],
     vocabItemId: item.vocab_item_id,
     prompt,
     correctAnswer,
-    distractors: [], // Simplified: no distractors in review mode for now
+    distractors,
     explanation: `${vocab.dictionary_form} (${vocab.reading}) — ${extractMeaning(vocab.meaning)}`,
     vocabInfo,
     mnemonic: vocab.mnemonic ? (vocab.mnemonic as Localizable) : undefined,
@@ -83,7 +137,7 @@ function extractMeaning(meaning: unknown): string {
   return m["en"] ?? m[Object.keys(m)[0]] ?? "";
 }
 
-export default function ReviewSession({ userId, vocabData, onBack }: ReviewSessionProps) {
+export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBack }: ReviewSessionProps) {
   const { items, currentIndex, answers, advance, removeNewCards, load } = useReviewSession();
   const [capReachedToast, setCapReachedToast] = useState(false);
   const [answered, setAnswered] = useState<{ chosen: string; correct: boolean; timeMs: number } | null>(null);
@@ -169,7 +223,7 @@ export default function ReviewSession({ userId, vocabData, onBack }: ReviewSessi
     return null;
   }
 
-  const question = buildQuestion(currentItem, vocab);
+  const question = buildQuestion(currentItem, vocab, jlptPools);
 
   return (
     <div className="mx-auto max-w-lg px-4 py-8">
