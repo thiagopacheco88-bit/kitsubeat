@@ -10,6 +10,7 @@ import LyricsPanel from "./LyricsPanel";
 import VocabularySection from "./VocabularySection";
 import GrammarSection from "./GrammarSection";
 import SongLayout from "./SongLayout";
+import KnownWordCount from "./KnownWordCount";
 
 // Lazy-load exercise tab — avoids bundling exercise code until Practice is clicked
 const ExerciseTab = lazy(() => import("./ExerciseTab"));
@@ -37,9 +38,13 @@ type ContentTab = "vocabulary" | "grammar" | "practice";
 export default function SongContent({
   song,
   versions,
+  songId,
+  initialKnown,
 }: {
   song: SongMeta;
   versions: VersionData[];
+  songId: string;
+  initialKnown: { total: number; known: number; mastered: number; learning: number };
 }) {
   // Default to TV version if available, otherwise full
   const tvVersion = versions.find((v) => v.type === "tv");
@@ -90,6 +95,7 @@ export default function SongContent({
                 {song.difficulty_tier}
               </span>
             )}
+            <KnownWordCount songId={songId} initial={initialKnown} />
           </div>
         </div>
 

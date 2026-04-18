@@ -1,12 +1,15 @@
 import { notFound } from "next/navigation";
 import { inArray } from "drizzle-orm";
-import { getSongBySlug } from "@/lib/db/queries";
+import { getSongBySlug, getKnownWordCountForSong } from "@/lib/db/queries";
 import { db } from "@/lib/db";
 import { vocabularyItems } from "@/lib/db/schema";
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
 import SongContent from "./components/SongContent";
 
 export const dynamic = "force-dynamic";
+
+// TODO(Phase 10 auth): replace with Clerk auth()
+const PLACEHOLDER_USER_ID = "test-user-e2e";
 
 export async function generateMetadata({
   params,
@@ -38,28 +41,35 @@ export default async function SongPlayerPage({
     }
   }
 
-  // Single batch SELECT for enrichment fields — one extra DB round trip per page load
-  let enrichMap = new Map<string, { mnemonic?: Localizable; kanji_breakdown?: KanjiBreakdown | null }>();
-  if (vocabIds.size > 0) {
-    const rows = await db
-      .select({
-        id: vocabularyItems.id,
-        mnemonic: vocabularyItems.mnemonic,
-        kanji_breakdown: vocabularyItems.kanji_breakdown,
-      })
-      .from(vocabularyItems)
-      .where(inArray(vocabularyItems.id, Array.from(vocabIds)));
+  // Parallelize: enrichment batch SELECT + known-word count for the song.
+  // Known-count uses a placeholder userId until Phase 10 wires Clerk auth.
+  const enrichQuery =
+    vocabIds.size > 0
+      ? db
+          .select({
+            id: vocabularyItems.id,
+            mnemonic: vocabularyItems.mnemonic,
+            kanji_breakdown: vocabularyItems.kanji_breakdown,
+          })
+          .from(vocabularyItems)
+          .where(inArray(vocabularyItems.id, Array.from(vocabIds)))
+      : Promise.resolve([] as { id: string; mnemonic: unknown; kanji_breakdown: unknown }[]);
 
-    enrichMap = new Map(
-      rows.map((r) => [
-        r.id,
-        {
-          mnemonic: (r.mnemonic ?? undefined) as Localizable | undefined,
-          kanji_breakdown: (r.kanji_breakdown ?? null) as KanjiBreakdown | null,
-        },
-      ])
-    );
-  }
+  const [enrichRows, initialKnown] = await Promise.all([
+    enrichQuery,
+    getKnownWordCountForSong(PLACEHOLDER_USER_ID, song.id),
+  ]);
+
+  // Single batch SELECT for enrichment fields — one extra DB round trip per page load
+  const enrichMap = new Map<string, { mnemonic?: Localizable; kanji_breakdown?: KanjiBreakdown | null }>(
+    enrichRows.map((r) => [
+      r.id,
+      {
+        mnemonic: (r.mnemonic ?? undefined) as Localizable | undefined,
+        kanji_breakdown: (r.kanji_breakdown ?? null) as KanjiBreakdown | null,
+      },
+    ])
+  );
 
   // Build version data — only include versions that have a lesson, with enrichment merged
   const versions = song.versions
@@ -102,6 +112,8 @@ export default async function SongPlayerPage({
         difficulty_tier: song.difficulty_tier,
       }}
       versions={versions}
+      songId={song.id}
+      initialKnown={initialKnown}
     />
   );
 }
