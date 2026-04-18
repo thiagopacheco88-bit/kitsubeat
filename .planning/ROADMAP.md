@@ -237,7 +237,7 @@ Plans:
   3. User can complete Sentence Order exercises by tapping scrambled verse tokens into the correct sequence
   4. User earns Star 3 when Listening Drill (Ex 6) passes at >=80%; Sentence Order and Grammar Conjugation contribute to a bonus mastery badge visible on the song page but do not gate stars
   5. Listening drills are free for a user's first 10 songs; Grammar Conjugation + Sentence Order share a 3-song free quota (reshapes FREE-05); subsequent access is premium-gated and enforced at the data access layer
-**Plans:** 5/7 plans executed
+**Plans:** 6/7 plans executed
 Plans:
 - [x] 10-01-PLAN.md — Data layer foundation: migration (ex5/6/7 accuracy cols + user_exercise_song_counters table), ExerciseType union, deriveStars 0-3, deriveBonusBadge, song_quota gate in feature-flags, checkExerciseAccess(songVersionId), counters module
 - [x] 10-02-PLAN.md — PlayerContext imperative API (seekTo/play/pause/isReady) wired from YouTubeEmbed; test-only __kbPlayer hook preserved
