@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 11 — Cross-Song Vocabulary (3/5 plans complete)
+**Current focus:** v2.0 Phase 11 — Cross-Song Vocabulary (4/5 plans complete)
 
 ## Current Position
 
 Phase: 11 of 11 (Cross-Song Vocabulary) — In Progress
-Plan: 3 of 5 complete; next: Phase 11 Plan 04 (vocabulary dashboard)
-Status: Plans 11-02 and 11-03 complete — KnownWordCount song-page pill, /api/review/known-count endpoint, seenInSongs in vocab-mastery API, MasteryDetailPopover "Seen in" section, GlobalLearnedCounter in root layout + profile. Commits efcac39, 12d1292, 6469e9b, 696ff1e.
-Last activity: 2026-04-18 — Plans 11-02 and 11-03 complete (Wave 2). Song-page vocab pill + global learned counter + cross-song provenance surfaced.
+Plan: 4 of 5 complete; next: Phase 11 Plan 05 (/review queue)
+Status: Plans 11-02, 11-03, and 11-04 complete — KnownWordCount song-page pill, /api/review/known-count endpoint, seenInSongs in vocab-mastery API, MasteryDetailPopover "Seen in" section, GlobalLearnedCounter in root layout + profile, /vocabulary dashboard with tier-grouped list + URL-synced filters + premium preview cutoff. Commits efcac39, 12d1292, 6469e9b, 696ff1e, 98a7aec, c2c12ef.
+Last activity: 2026-04-18 — Plan 11-04 complete (Wave 3). Vocabulary dashboard at /vocabulary ships with Path B 3-bucket grouping, FilterControls, SeenInExpander.
 
 Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans)
 
@@ -62,6 +62,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 08.4 P05 | 2 | 2 tasks | 2 files |
 | Phase 08.4 P04 | 3 | 2 tasks | 2 files |
 | Phase 11-cross-song-vocabulary P01 | 20 | 2 tasks | 4 files |
+| Phase 11-cross-song-vocabulary P04 | 4 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -173,6 +174,10 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 11-03]: Async RootLayout in layout.tsx — GlobalLearnedCounter DB read makes all routes dynamic; acceptable per-request is the feature
 - [Phase 11-03]: seenInSongs hidden for single-song words; current song included in multi-song list sorted title ASC
 - [Phase 11-03]: MasteryDetail type defined and exported directly from vocab-mastery API route file
+- [Phase 11-04]: Path B 3-bucket split (state 2=Mastered, 3=Known, 1=Learning) in VocabularyList — NOT tierFor() — divergence documented in paragraph-length JSDoc
+- [Phase 11-04]: In-memory FREE_PREVIEW_LIMIT=20 slice vs SQL LIMIT — single query, accurate total for CTA; revisit if scale degrades
+- [Phase 11-04]: getVocabularySources private to page.tsx — page-local only, not exported from queries.ts
+- [Phase 11-04]: SeenInExpander lazy fetch + useState cache — one API hit per word per session, no O(N) page-load storms
 
 ### Pending Todos
 
@@ -199,5 +204,5 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 ## Session Continuity
 
 Last session: 2026-04-18
-Stopped at: Completed Phase 11 Plans 02 and 03. Song-page KnownWordCount pill, /api/review/known-count, seenInSongs in vocab-mastery API, MasteryDetailPopover "Seen in" section, GlobalLearnedCounter in root layout and profile. Plans 04 (vocabulary dashboard) and 05 (/review queue) remain.
-Resume file: .planning/phases/11-cross-song-vocabulary/11-04-PLAN.md
+Stopped at: Completed Phase 11 Plan 04. /vocabulary dashboard with tier-grouped list, URL-synced filters, SeenInExpander, premium preview cutoff. Plan 05 (/review queue) remains.
+Resume file: .planning/phases/11-cross-song-vocabulary/11-05-PLAN.md
