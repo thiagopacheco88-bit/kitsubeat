@@ -54,3 +54,5 @@ public/audio/
 test-results/
 
 .vercel
+playwright-report/
+.claude/scheduled_tasks.lock

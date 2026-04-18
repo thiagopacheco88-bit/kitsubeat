@@ -1,0 +1,117 @@
+# Phase 12: Add-Song Pipeline — Context
+
+**Drafted:** 2026-04-18
+**Status:** Draft (pending `/gsd:plan-phase` refinement)
+
+<domain>
+## Phase Boundary
+
+Deliver a durable, validated process for adding new songs (title + artist + anime) to Kitsubeat such that the full pipeline — YouTube discovery, lyrics/timing extraction, lesson generation, DB upsert — runs with explicit validation gates at every step.
+
+**What this phase is:** an operational tool. It composes existing seed scripts and adds the validations we discovered were missing during the TV-cut backfill work (see "Pain points we are fixing" below).
+
+**What this phase is NOT:**
+- A rewrite of the seed scripts. They are re-composed, not replaced.
+- A web admin UI. CLI-only for v1. A UI can come later.
+- A content-generation revolution. Lessons are generated inline per session (see `feedback_inline_llm_generation` memory).
+</domain>
+
+<motivation>
+## Pain points we are fixing
+
+During the TV-cut backfill (60 songs), we uncovered silent data-quality failures that shipped to the DB and had to be cleaned up ad-hoc:
+
+1. **Shared `youtube_id`.** Step-09 populated 5 song_versions rows with the same `gX9WX_NP5Ug` — one YouTube video claiming to be 5 different songs. Nothing validated uniqueness.
+2. **Geo-blocked videos.** 1/60 TV cuts pointed to a Japan-only upload. yt-dlp failed silently in batch; WhisperX never ran; the row stayed `lesson=NULL` with no alert.
+3. **Wrong-video / cover / live-performance.** 7/60 TV youtube_ids pointed to audio that didn't match the song at all (0% char alignment). Looked fine in the DB — only discovered after running WhisperX and attempting lesson derivation.
+4. **Full-length uploads masquerading as TV cuts.** Some "TV" rows pointed to 4+ minute uploads. Viewer sees a long video when they click the "Anime Version" toggle.
+5. **Seed-script flag drift.** Stored project memory claimed scripts 02/03/04b/05 accept `--version=tv|full`. In reality none of them did. Scripts silently ignored the flag and wrote to full-version paths.
+6. **No pre-flight verification.** Every failure above was caught late — after WhisperX ran (~2-3 min/song), or after DB write, or during UI smoke testing. No early "stop the line" check.
+
+The TV backfill recovered 56/60 songs only because we ran each validation manually, script by script, with live terminal feedback. That doesn't scale to adding a song a week.
+</motivation>
+
+<validations>
+## Validations the pipeline must enforce
+
+Surfaced during the backfill work. Each is a concrete gate that existing scripts do NOT enforce today.
+
+### Pre-flight (before touching audio/LLMs)
+1. **Metadata schema** — `SongManifestSchema` parse of input JSON (title, artist, anime, optional season_info, optional youtube_id per version_type).
+2. **YouTube ID sanity** (when provided by caller):
+   - `yt-dlp --simulate` succeeds (catches geo-block, private, deleted).
+   - Duration in range for version_type: `tv` = 75-120s; `full` = 150-360s.
+   - Reject if `youtube_id` is already used by a DIFFERENT song (cross-song uniqueness check against `song_versions`).
+3. **Auto-discovery** (when `youtube_id` not provided): yt-dlp search by `${title} ${artist} ${anime}`, score candidates (see `tmp-search-tv-alternatives.ts` scoring heuristic — Crunchyroll/-Topic/artist-channel/duration), propose top pick for operator confirmation OR commit in `--auto` mode.
+
+### Content extraction
+4. **Lyrics source** — try LRCLIB (`--version=full` only — TV cuts absent upstream), then Genius, then mark `pending_whisper` so WhisperX transcription backfills both raw lyrics and tokens.
+5. **Lyrics quality floor** — post-tokenize, reject if `raw_lyrics.length < 50` or `tokens.length < 20` (catches instrumental-only cuts misidentified as vocal tracks).
+
+### Lesson construction
+6. **TV derivation from full** — when adding a TV version, require full version to already exist with a populated `lesson`. Run `10b-derive-tv-lessons.ts` style LCS alignment. Enforce ≥40% verse-presence threshold. If <40% verses detected, reject (prompts operator to check the TV YouTube ID).
+7. **Schema validation** — `LessonSchema.safeParse` before DB write. No "invalid" files committed.
+
+### DB write
+8. **FK coherence** — `songs` row exists (or inserted) before `song_versions` upsert.
+9. **Transactional write** — songs + song_versions + vocabulary_items + mastery backfill in a single transaction per song. Partial writes from crashes are a recovery headache.
+10. **Post-write audit** — run `audit-yt-ids.ts` (new) to detect any newly-introduced duplicate `youtube_id` across versions.
+
+### Verification (optional, `--verify` flag)
+11. **Playwright smoke** — visit `/songs/<slug>`, assert toggle renders and Anime Version switches correctly. Reuse the pattern from `scripts/tmp-verify-tv-toggle.ts`.
+</validations>
+
+<shape>
+## Proposed shape
+
+**Entry point:** `npm run add-songs -- --input songs-to-add.json [--auto] [--verify]`
+
+**Input JSON format:**
+```json
+[
+  {
+    "title": "Guren",
+    "artist": "DOES",
+    "anime": "Naruto Shippuden",
+    "season_info": "Naruto Shippuden OP 15",
+    "year_launched": 2015,
+    "genre_tags": ["rock", "jrock"],
+    "mood_tags": ["energetic"],
+    "tv": { "youtube_id": "a5l2OF1byrE" },
+    "full": { "youtube_id": "T5vVKFfrgkk" }
+  }
+]
+```
+
+- `tv` / `full` keys optional. If omitted, pipeline auto-discovers via yt-dlp search.
+- `--auto` commits the top-scored candidate without operator confirmation.
+- `--verify` runs the Playwright smoke at the end.
+
+**Phases within the phase (suggested `/gsd:plan-phase` breakdown):**
+- **12-01** — `add-songs.ts` orchestrator + `SongInputSchema` + input validation
+- **12-02** — YouTube discovery + scoring module (`scripts/lib/yt-discover.ts`)
+- **12-03** — Pre-flight validator (`scripts/lib/validate-song-input.ts`) covering geo, duration, uniqueness
+- **12-04** — Pipeline composition (call 02 → 04 → inline-lesson → 10b when tv → sync) with per-step stop-on-fail
+- **12-05** — `audit-yt-ids.ts` standalone script + DB integrity report
+- **12-06** — Playwright smoke harness (converted from `tmp-verify-tv-toggle.ts`)
+- **12-07** — Docs + rollout (README-adding-songs.md; retire the `tmp-*` swap scripts from TV backfill work)
+</shape>
+
+<out_of_scope>
+## Out of scope
+
+- **Admin web UI.** CLI only for v1.
+- **Adding 100+ songs at once.** Pipeline is per-song transactional; batching beyond ~10 at a time is an operator choice.
+- **Non-LRCLIB lyrics providers beyond Genius.** Current two-source chain stays.
+- **Cover/remix detection.** If LCS alignment fails (<40%), we reject with an error. We don't try to identify why.
+- **Replacing `10-prepare-tv.ts` / `sync-lessons-to-song-versions.ts`.** These are still correct; we compose them.
+</out_of_scope>
+
+<open_questions>
+## Open questions for plan-phase refinement
+
+- **Interactive vs pure-CLI.** Should `--auto` default to on or off when `youtube_id` is missing? Interactive prompt is safer; `--auto` is ops-friendly. Lean ops-friendly.
+- **Retry policy for WhisperX.** Some songs need a second swap because the first candidate was also bad. Should the pipeline auto-try candidates[1], candidates[2] on alignment failure? Risk of runaway WhisperX compute.
+- **LLM call for full-version lessons.** Per `feedback_inline_llm_generation`, these are generated inline in a Claude Code conversation, not via Batch API. How does this integrate into a CLI pipeline? Candidate: write a stub `<slug>.pending-lesson.md` with prompts + raw tokens, operator pastes into conversation, script picks up the generated JSON and continues. Needs design.
+- **Rollback on failure.** If sync partially writes, do we auto-rollback or leave the half-state for inspection? Transactional DB operation is the cleanest answer.
+</open_questions>

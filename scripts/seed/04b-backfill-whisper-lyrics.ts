@@ -21,25 +21,45 @@
  *
  * Usage:
  *   npx tsx scripts/seed/04b-backfill-whisper-lyrics.ts
+ *   npx tsx scripts/seed/04b-backfill-whisper-lyrics.ts --version tv
  */
 
 import { config } from "dotenv";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
-import { SongManifestSchema } from "../types/manifest.ts";
+import { z } from "zod";
 import { initKuroshiro, tokenizeLyrics, type LyricsToken } from "../lib/kuroshiro-tokenizer.ts";
+
+// Only `slug` is used in this script; tv and full manifests both include it.
+const ManifestSlugsSchema = z.array(z.object({ slug: z.string() }).passthrough());
 import type { TimingResult, WordTiming } from "../lib/run-whisperx.ts";
 
 // Load environment variables from .env.local
 config({ path: ".env.local" });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Arg parsing — --version tv|full (default: full)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const versionArg = (() => {
+  const flagIdx = process.argv.indexOf("--version");
+  const raw = flagIdx !== -1 ? process.argv[flagIdx + 1] : null;
+  if (raw === "tv" || raw === "full") return raw;
+  if (raw !== null) {
+    console.error(`[error] --version must be 'tv' or 'full', got: ${raw}`);
+    process.exit(1);
+  }
+  return "full" as const;
+})();
+const suffix = versionArg === "tv" ? "-tv" : "";
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────
 
-const MANIFEST_PATH = "data/songs-manifest.json";
-const LYRICS_CACHE_DIR = "data/lyrics-cache";
-const TIMING_CACHE_DIR = "data/timing-cache";
+const MANIFEST_PATH = `data/songs-manifest${suffix}.json`;
+const LYRICS_CACHE_DIR = `data/lyrics-cache${suffix}`;
+const TIMING_CACHE_DIR = `data/timing-cache${suffix}`;
 
 /** Silence gap (in seconds) that triggers a newline between segments */
 const NEWLINE_SILENCE_THRESHOLD_MS = 0.5; // 500ms
@@ -138,7 +158,10 @@ function writeLyricsCache(slug: string, entry: LyricsCacheEntry): void {
 
 async function backfillWhisperLyrics(): Promise<void> {
   console.log("=".repeat(60));
-  console.log("Kitsubeat — WhisperX Lyrics Backfill");
+  console.log(`Kitsubeat — WhisperX Lyrics Backfill (version=${versionArg})`);
+  console.log(`  manifest:      ${MANIFEST_PATH}`);
+  console.log(`  lyrics-cache:  ${LYRICS_CACHE_DIR}`);
+  console.log(`  timing-cache:  ${TIMING_CACHE_DIR}`);
   console.log("=".repeat(60));
 
   // Load manifest
@@ -149,7 +172,7 @@ async function backfillWhisperLyrics(): Promise<void> {
   }
 
   const rawManifest = JSON.parse(readFileSync(MANIFEST_PATH, "utf-8"));
-  const parseResult = SongManifestSchema.safeParse(rawManifest);
+  const parseResult = ManifestSlugsSchema.safeParse(rawManifest);
   if (!parseResult.success) {
     console.error("[error] Manifest failed schema validation:", parseResult.error.message);
     process.exit(1);
