@@ -92,6 +92,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 10-advanced-exercises-full-mastery P06 | 12 | 3 tasks | 4 files |
 | Phase 10-advanced-exercises-full-mastery P07 | 7 | 2 tasks | 9 files |
 | Phase 10 P07 | 15 | 2 tasks | 9 files |
+| Phase 12-learning-path-and-gamification P02 | 8 | 4 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -287,6 +288,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 10-07]: Star 3 reuses Plan 08-04 confetti primitive verbatim; no new animation library or CSS keyframes per CONTEXT lock
 - [Phase 10-07]: QuotaExhaustedError moved to lib/exercises/errors.ts — 'use server' files cannot export non-async values (Next.js 15 constraint)
 - [Phase 10-07]: getAllSongs uses correlated subqueries (not LEFT JOIN) for per-user accuracy; matches existing tv-preferred youtube_id selector pattern
+- [Phase 12-learning-path-and-gamification]: Milestone fires only on streak advance not same-day repeat
+- [Phase 12-learning-path-and-gamification]: applyDailyCap exported for Plan 04 direct use
 
 ### Pending Todos
 
