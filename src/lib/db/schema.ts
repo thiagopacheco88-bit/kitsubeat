@@ -272,11 +272,80 @@ export const users = pgTable("users", {
   // Distinct namespace from new_card_cap (per-session cap). Reset daily by upsert logic in Plan 05.
   review_new_today: integer("review_new_today").notNull().default(0),
   review_new_today_date: date("review_new_today_date"),
+  // Phase 12: Gamification — XP and level
+  xpTotal: integer("xp_total").notNull().default(0),
+  level: integer("level").notNull().default(1),
+  // Phase 12: Gamification — daily XP soft-cap tracking
+  xpToday: integer("xp_today").notNull().default(0),
+  xpTodayDate: date("xp_today_date"),
+  // Phase 12: Gamification — streak tracking
+  streakCurrent: integer("streak_current").notNull().default(0),
+  streakBest: integer("streak_best").notNull().default(0),
+  lastStreakDate: date("last_streak_date"),
+  streakTz: text("streak_tz"),
+  graceUsedThisWeek: boolean("grace_used_this_week").notNull().default(false),
+  streakWeekStart: date("streak_week_start"),
+  // Phase 12: Learning Path — current node position
+  currentPathNodeSlug: text("current_path_node_slug"),
+  // Phase 12: Audio + haptics preferences (default ON per CONTEXT)
+  soundEnabled: boolean("sound_enabled").notNull().default(true),
+  hapticsEnabled: boolean("haptics_enabled").notNull().default(true),
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
 export type User = typeof users.$inferSelect;
+
+// =============================================================================
+// Phase 12: Learning Path & Gamification — cosmetic system
+// =============================================================================
+
+/**
+ * user_cosmetics table — tracks unlocked + equipped cosmetic items per user.
+ *
+ * Each row represents a cosmetic slot (avatar_border, color_theme, badge) that the
+ * user has unlocked via leveling up. equipped=true means this is the active item
+ * for the slot_type. At most one equipped per (user_id, slot_type) — enforced by
+ * application logic in Plan 06.
+ *
+ * slot_id references reward_slot_definitions.id.
+ */
+export const userCosmetics = pgTable("user_cosmetics", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  user_id: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  slot_id: text("slot_id").notNull(),
+  unlocked_at: timestamp("unlocked_at", { withTimezone: true }).defaultNow(),
+  equipped: boolean("equipped").default(false),
+}, (table) => [
+  unique("user_cosmetics_user_slot_unique").on(table.user_id, table.slot_id),
+  index("user_cosmetics_user_id_idx").on(table.user_id),
+]);
+
+export type UserCosmetic = typeof userCosmetics.$inferSelect;
+
+/**
+ * reward_slot_definitions table — v3.0 cosmetic catalog + v4.0 Phase 21 cultural content slots.
+ *
+ * Data-driven: v4.0 Phase 21 inserts new rows (anime scenes, cultural vocabulary content)
+ * without code changes. Each slot is keyed by a unique text id (e.g. "avatar_border_kitsune_fire").
+ *
+ * slot_type: "avatar_border" | "color_theme" | "badge" | (future: "anime_scene" | "cultural_vocab")
+ * level_threshold: minimum user level required to unlock this slot
+ * content: typed JSONB — shape varies by slot_type (see Plan 03 for the TypeScript interface)
+ * active: false = slot is disabled / retired without data loss
+ *
+ * Note: content is typed as plain jsonb for now — Plan 03 narrows it to RewardSlotContent.
+ */
+export const rewardSlotDefinitions = pgTable("reward_slot_definitions", {
+  id: text("id").primaryKey(),
+  slot_type: text("slot_type").notNull(),
+  level_threshold: integer("level_threshold").notNull(),
+  content: jsonb("content").notNull(),
+  active: boolean("active").default(true),
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
+});
+
+export type RewardSlotDefinition = typeof rewardSlotDefinitions.$inferSelect;
 
 // =============================================================================
 // Phase 8: Exercise Engine — song-level progress tracking
