@@ -100,6 +100,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 17 P04 | 5 | 2 tasks | 1 files |
 | Phase 17-legal-copyright-deep-dive-research P03 | 5 | 2 tasks | 1 files |
 | Phase 17 P02 | 6 | 2 tasks | 1 files |
+| Phase 12 P05 | 391 | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -316,6 +317,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 17]: EU Art. 27 representative is a pre-launch hard gate: FSRS continuous tracking disqualifies the Art. 27(2) exemption
 - [Phase 17]: LGPD 15-day DSAR window is strictest deadline — all SARs should target 15-day response
 - [Phase 17]: Single unified 72-hour breach notification workflow covers UK-GDPR, EU-GDPR, LGPD simultaneously
+- [Phase 12]: JlptGapSummary always-on from day 1 (not level-gated, not reward-slot locked)
+- [Phase 12]: getUserGamificationState uses single LEFT JOIN + JS partition for cosmetics
+- [Phase 12]: iOS haptic caveat shown as visible helper text per RESEARCH F1 (not hidden)
 
 ### Pending Todos
 

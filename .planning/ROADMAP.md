@@ -314,7 +314,7 @@ Plans:
   6. Song tier (`difficulty_tier`) and vocabulary tier (JLPT `N5–N1`) remain parallel taxonomies — no re-tagging of either; songs use B/I/A on the path, vocab uses JLPT in the gap dashboard
 **Decisions captured**: [.planning/phases/12-learning-path-and-gamification/12-CONTEXT.md](phases/12-learning-path-and-gamification/12-CONTEXT.md)
 **Research captured**: [.planning/phases/12-learning-path-and-gamification/12-RESEARCH.md](phases/12-learning-path-and-gamification/12-RESEARCH.md)
-**Plans:** 3/6 plans executed
+**Plans:** 4/6 plans executed
 Plans:
 - [ ] 12-01-PLAN.md — Schema + migration (0008_gamification.sql) + reward-slot seed + starter-pick verification script
 - [ ] 12-02-PLAN.md — TDD: XP calculator + level curve + streak state machine + reward-slot filter + analytics stub (pure functions)
