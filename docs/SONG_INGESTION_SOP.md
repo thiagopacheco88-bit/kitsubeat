@@ -87,6 +87,8 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 - `--model large-v3` (smaller models miss particles).
 - `--align_model` Japanese-specific.
 
+**Memory requirements (CPU mode):** WhisperX large-v3 + pyannote VAD needs **≥ 6 GB free RAM**. On the dev machine (16 GB total) this means closing Claude Code, browser, and IDE before kicking off the batch. Use `--model medium` (CLI flag on `04-extract-timing.py`) if RAM is tight; accept slightly higher low-confidence rate. Verify free RAM with `Get-CimInstance Win32_OperatingSystem` (Windows) before starting an overnight run. With < 4 GB free, even `medium` OOMs at the pyannote VAD step.
+
 **Per-song checks after extraction:**
 - Output JSON not empty.
 - ≥ 80% of detected words have non-zero duration.

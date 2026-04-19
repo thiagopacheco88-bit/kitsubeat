@@ -54,7 +54,7 @@ export default async function RootLayout({
             </Link>
             <div className="flex items-center gap-4 sm:gap-6">
               <Link
-                href="/songs"
+                href="/anime-list"
                 className="whitespace-nowrap text-sm text-gray-400 transition-colors hover:text-white"
               >
                 Songs
@@ -64,6 +64,12 @@ export default async function RootLayout({
                 className="whitespace-nowrap text-sm text-gray-400 transition-colors hover:text-white"
               >
                 Kana
+              </Link>
+              <Link
+                href="/vocabulary"
+                className="whitespace-nowrap text-sm text-gray-400 transition-colors hover:text-white"
+              >
+                Progress
               </Link>
               <GlobalLearnedCounter />
               <Link

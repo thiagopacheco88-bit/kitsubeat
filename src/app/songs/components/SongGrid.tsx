@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import type { SongListItem } from "@/lib/db/queries";
 import SongCard from "./SongCard";
 
@@ -11,14 +12,13 @@ type ViewMode = "by-anime" | "all";
 
 export default function SongGrid({
   songs,
-  initialView = "by-anime",
+  view,
   initialSearch = "",
 }: {
   songs: SongListItem[];
-  initialView?: ViewMode;
+  view: ViewMode;
   initialSearch?: string;
 }) {
-  const [viewMode, setViewMode] = useState<ViewMode>(initialView);
   const [search, setSearch] = useState(initialSearch);
   const [jlptFilter, setJlptFilter] = useState<string | null>(null);
   const [difficultyFilter, setDifficultyFilter] = useState<string | null>(null);
@@ -57,39 +57,44 @@ export default function SongGrid({
 
   return (
     <div>
-      {/* View mode tabs */}
-      <div className="mb-4 flex gap-1">
-        <button
-          onClick={() => setViewMode("by-anime")}
-          className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${
-            viewMode === "by-anime"
-              ? "bg-red-600 text-white"
-              : "bg-gray-800 text-gray-400 hover:bg-gray-700"
-          }`}
-        >
-          By Anime
-        </button>
-        <button
-          onClick={() => setViewMode("all")}
-          className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${
-            viewMode === "all"
-              ? "bg-red-600 text-white"
-              : "bg-gray-800 text-gray-400 hover:bg-gray-700"
-          }`}
-        >
-          All Songs
-        </button>
-      </div>
+      {/*
+        Control row.
+        Mobile: toggle on its own row at top (order-first + w-full forces wrap),
+        then search + filters below.
+        Desktop: single row — search + filters left, toggle pushed right (order-last + ml-auto).
+      */}
+      <div className="mb-6 flex flex-wrap items-center gap-2">
+        <div className="order-first flex w-full overflow-hidden rounded border border-gray-700 sm:order-last sm:ml-auto sm:w-auto">
+          <Link
+            href="/anime-list"
+            className={`flex-1 px-3 py-1.5 text-center text-xs font-medium transition-colors sm:flex-none ${
+              view === "by-anime"
+                ? "bg-red-600 text-white"
+                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+            }`}
+          >
+            Anime
+          </Link>
+          <Link
+            href="/songs"
+            className={`flex-1 px-3 py-1.5 text-center text-xs font-medium transition-colors sm:flex-none ${
+              view === "all"
+                ? "bg-red-600 text-white"
+                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+            }`}
+          >
+            Songs
+          </Link>
+        </div>
 
-      {/* Filters */}
-      <div className="mb-6 flex flex-wrap items-center gap-3">
         <input
           type="text"
-          placeholder="Search songs, artists, anime..."
+          placeholder="Search songs, artists, anime…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white placeholder-gray-500 outline-none focus:border-gray-500"
+          className="min-w-0 flex-1 rounded border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-white placeholder-gray-500 outline-none focus:border-gray-500 sm:max-w-xs"
         />
+
         <div className="flex gap-1">
           {JLPT_LEVELS.map((level) => (
             <button
@@ -107,6 +112,7 @@ export default function SongGrid({
             </button>
           ))}
         </div>
+
         <div className="flex gap-1">
           {DIFFICULTY_TIERS.map((tier) => (
             <button
@@ -128,12 +134,11 @@ export default function SongGrid({
 
       <p className="mb-4 text-sm text-gray-500">
         {filtered.length} song{filtered.length !== 1 ? "s" : ""}
-        {viewMode === "by-anime" &&
-          ` across ${groupedByAnime.length} anime`}
+        {view === "by-anime" && ` across ${groupedByAnime.length} anime`}
       </p>
 
       {/* By anime — horizontal carousels */}
-      {viewMode === "by-anime" && (
+      {view === "by-anime" && (
         <div className="flex flex-col gap-8">
           {groupedByAnime.map(([anime, animeSongs]) => (
             <div key={anime}>
@@ -156,7 +161,7 @@ export default function SongGrid({
       )}
 
       {/* All songs flat grid */}
-      {viewMode === "all" && (
+      {view === "all" && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((song) => (
             <SongCard key={song.id} song={song} />

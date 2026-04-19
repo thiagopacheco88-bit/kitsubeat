@@ -37,10 +37,14 @@ from pathlib import Path
 DEFAULT_OUTPUT_DIR = "data/timing-cache"
 PUBLIC_AUDIO_DIR = "public/audio"
 TMP_DIR = "tmp"
-WHISPER_MODEL = "large-v3"
+DEFAULT_WHISPER_MODEL = "large-v3"  # may be overridden via --model (use "medium" for low-RAM CPUs)
 WHISPER_LANGUAGE = "ja"
-BATCH_SIZE = 16
+DEFAULT_BATCH_SIZE = 16  # may be overridden via --batch-size (use 1-4 for low-RAM CPUs)
 LOW_CONFIDENCE_THRESHOLD = 0.6
+
+# Module-level state set from CLI flags before run_whisperx is called
+WHISPER_MODEL = DEFAULT_WHISPER_MODEL
+BATCH_SIZE = DEFAULT_BATCH_SIZE
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -397,6 +401,17 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Re-process even if timing cache already exists",
     )
+    parser.add_argument(
+        "--model",
+        default=DEFAULT_WHISPER_MODEL,
+        help=f"Whisper model size (default: {DEFAULT_WHISPER_MODEL}; use 'medium' or 'small' for low-RAM CPUs)",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=DEFAULT_BATCH_SIZE,
+        help=f"Batch size for transcription (default: {DEFAULT_BATCH_SIZE}; lower to 1-4 for low-RAM CPUs)",
+    )
 
     return parser
 
@@ -404,6 +419,12 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
+
+    # Apply model/batch-size overrides to module-level state
+    global WHISPER_MODEL, BATCH_SIZE
+    WHISPER_MODEL = args.model
+    BATCH_SIZE = args.batch_size
+    print(f"[config] model={WHISPER_MODEL} batch_size={BATCH_SIZE} language={WHISPER_LANGUAGE}")
 
     if args.batch:
         # Batch mode: process all songs from manifest

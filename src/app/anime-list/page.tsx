@@ -1,14 +1,14 @@
 import { getAllSongs } from "@/lib/db/queries";
 import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
-import SongGrid from "./components/SongGrid";
+import SongGrid from "../songs/components/SongGrid";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Songs | KitsuBeat",
+  title: "Anime List | KitsuBeat",
 };
 
-export default async function SongsPage({
+export default async function AnimeListPage({
   searchParams,
 }: {
   searchParams: Promise<{ search?: string }>;
@@ -18,8 +18,12 @@ export default async function SongsPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
-      <h1 className="mb-6 text-2xl font-bold text-white">Songs</h1>
-      <SongGrid songs={songs} view="all" initialSearch={params.search ?? ""} />
+      <h1 className="mb-6 text-2xl font-bold text-white">Anime List</h1>
+      <SongGrid
+        songs={songs}
+        view="by-anime"
+        initialSearch={params.search ?? ""}
+      />
     </div>
   );
 }

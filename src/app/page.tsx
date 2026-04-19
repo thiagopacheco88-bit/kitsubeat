@@ -36,13 +36,13 @@ export default async function HomePage() {
           </p>
           <div className="mt-8 flex items-center justify-center gap-3">
             <Link
-              href="/songs"
+              href="/anime-list"
               className="inline-block rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               Browse by Anime
             </Link>
             <Link
-              href="/songs?view=all"
+              href="/songs"
               className="inline-block rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               All Songs
@@ -74,7 +74,7 @@ export default async function HomePage() {
       </div>
 
       {topFranchises.length > 0 && (
-        <Carousel title="Browse by Anime" viewAllHref="/songs">
+        <Carousel title="Browse by Anime" viewAllHref="/anime-list">
           {topFranchises.map((anime) => (
             <MediaCard
               key={anime.anime}
@@ -89,7 +89,7 @@ export default async function HomePage() {
       )}
 
       {featured.length > 0 && (
-        <Carousel title="Featured Songs" viewAllHref="/songs?view=all">
+        <Carousel title="Featured Songs" viewAllHref="/songs">
           {featured.map((song) => (
             <MediaCard
               key={song.id}
@@ -105,7 +105,7 @@ export default async function HomePage() {
       {beginner.length > 0 && (
         <Carousel
           title="Beginner-Friendly (N5/N4)"
-          viewAllHref="/songs?view=all&jlpt=beginner"
+          viewAllHref="/songs"
         >
           {beginner.map((song) => (
             <MediaCard
@@ -120,7 +120,7 @@ export default async function HomePage() {
       )}
 
       {recent.length > 0 && (
-        <Carousel title="Recently Added" viewAllHref="/songs?view=all">
+        <Carousel title="Recently Added" viewAllHref="/songs">
           {recent.map((song) => (
             <MediaCard
               key={song.id}
@@ -134,7 +134,7 @@ export default async function HomePage() {
       )}
 
       {topArtists.length > 0 && (
-        <Carousel title="Top Artists" viewAllHref="/songs?view=all">
+        <Carousel title="Top Artists" viewAllHref="/songs">
           {topArtists.map((a) => (
             <MediaCard
               key={a.artist}
