@@ -1,0 +1,520 @@
+{
+  "patches": [
+    {
+      "after_original": 2,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"こう","reading":"こう","romaji":"kou","grammar":"adverb","grammar_color":"orange","meaning":{"en":"like this","pt-BR":"assim","es":"así"},"jlpt_level":"N5"},
+          {"surface":"やっ","reading":"やっ","romaji":"ya","grammar":"verb","grammar_color":"red","meaning":{"en":"to do (te-form stem)","pt-BR":"fazer","es":"hacer"},"jlpt_level":"N5"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"明日","reading":"あした","romaji":"ashita","grammar":"noun","grammar_color":"blue","meaning":{"en":"tomorrow","pt-BR":"amanhã","es":"mañana"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"also","pt-BR":"também","es":"también"},"jlpt_level":"N5"},
+          {"surface":"明後日","reading":"あさって","romaji":"asatte","grammar":"noun","grammar_color":"blue","meaning":{"en":"day after tomorrow","pt-BR":"depois de amanhã","es":"pasado mañana"},"jlpt_level":"N4"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"also","pt-BR":"também","es":"también"},"jlpt_level":"N5"},
+          {"surface":"共に","reading":"ともに","romaji":"tomoni","grammar":"adverb","grammar_color":"orange","meaning":{"en":"together","pt-BR":"juntos","es":"juntos"},"jlpt_level":"N3"},
+          {"surface":"歩もう","reading":"あゆもう","romaji":"ayumou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's walk","pt-BR":"vamos caminhar","es":"caminemos"},"jlpt_level":"N3"},
+          {"surface":"光","reading":"ひかり","romaji":"hikari","grammar":"noun","grammar_color":"blue","meaning":{"en":"light","pt-BR":"luz","es":"luz"},"jlpt_level":"N4"},
+          {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"and","pt-BR":"e","es":"y"},"jlpt_level":"N5"},
+          {"surface":"影","reading":"かげ","romaji":"kage","grammar":"noun","grammar_color":"blue","meaning":{"en":"shadow","pt-BR":"sombra","es":"sombra"},"jlpt_level":"N3"}
+        ],
+        "translations":{"en":"Tomorrow and the day after, let's walk together — light and shadow.","pt-BR":"Amanhã e depois de amanhã, vamos caminhar juntos — luz e sombra.","es":"Mañana y pasado mañana, caminemos juntos — luz y sombra."},
+        "literal_meaning":{"en":"like-this + do + te + tomorrow + also + day-after + also + together + let's-walk + light + and + shadow"}
+      }
+    },
+    {
+      "after_original": 3,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"どんな","reading":"どんな","romaji":"donna","grammar":"other","grammar_color":"none","meaning":{"en":"what kind of","pt-BR":"que tipo de","es":"qué tipo de"},"jlpt_level":"N5"},
+          {"surface":"世界","reading":"せかい","romaji":"sekai","grammar":"noun","grammar_color":"blue","meaning":{"en":"world","pt-BR":"mundo","es":"mundo"},"jlpt_level":"N5"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in; at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+          {"surface":"い","reading":"い","romaji":"i","grammar":"verb","grammar_color":"red","meaning":{"en":"to exist (stem)","pt-BR":"existir","es":"existir"},"jlpt_level":"N5"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"},
+          {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+          {"surface":"だろう","reading":"だろう","romaji":"darou","grammar":"other","grammar_color":"none","meaning":{"en":"probably; I wonder","pt-BR":"provavelmente","es":"probablemente"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"思う","reading":"おもう","romaji":"omou","grammar":"verb","grammar_color":"red","meaning":{"en":"to think","pt-BR":"pensar","es":"pensar"},"jlpt_level":"N5"},
+          {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"What kind of world was I in, I wonder now.","pt-BR":"Em que tipo de mundo eu estava, agora me pergunto.","es":"En qué mundo estaba, ahora me pregunto."},
+        "literal_meaning":{"en":"what-kind + world + in + exist + past + explanatory + probably + now + think + emphasis"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"何処","reading":"どこ","romaji":"doko","grammar":"other","grammar_color":"none","meaning":{"en":"where","pt-BR":"onde","es":"dónde"},"jlpt_level":"N5"},
+          {"surface":"まで","reading":"まで","romaji":"made","grammar":"particle","grammar_color":"grey","meaning":{"en":"until","pt-BR":"até","es":"hasta"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"},
+          {"surface":"行ける","reading":"いける","romaji":"ikeru","grammar":"verb","grammar_color":"red","meaning":{"en":"can go","pt-BR":"posso ir","es":"puedo ir"},"jlpt_level":"N4"},
+          {"surface":"キミ","reading":"キミ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+          {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+          {"surface":"なら","reading":"なら","romaji":"nara","grammar":"particle","grammar_color":"grey","meaning":{"en":"if","pt-BR":"se","es":"si"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"If it's with you, we can go anywhere.","pt-BR":"Se for com você, podemos ir a qualquer lugar.","es":"Si es contigo, podemos ir a cualquier parte."},
+        "literal_meaning":{"en":"where + until + even + can-go + you + with + if"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"一人","reading":"ひとり","romaji":"hitori","grammar":"noun","grammar_color":"blue","meaning":{"en":"alone; one person","pt-BR":"sozinho","es":"solo"},"jlpt_level":"N4"},
+          {"surface":"じゃ","reading":"じゃ","romaji":"ja","grammar":"particle","grammar_color":"grey","meaning":{"en":"= では (if)","pt-BR":"se","es":"si"},"jlpt_level":"N4"},
+          {"surface":"歩け","reading":"あるけ","romaji":"aruke","grammar":"verb","grammar_color":"red","meaning":{"en":"to walk (potential stem)","pt-BR":"caminhar (potencial)","es":"caminar (potencial)"},"jlpt_level":"N4"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"cannot","pt-BR":"não pode","es":"no poder"},"jlpt_level":"N5"},
+          {"surface":"道","reading":"みち","romaji":"michi","grammar":"noun","grammar_color":"blue","meaning":{"en":"road; path","pt-BR":"caminho","es":"camino"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"},
+          {"surface":"二人","reading":"ふたり","romaji":"futari","grammar":"noun","grammar_color":"blue","meaning":{"en":"two people","pt-BR":"duas pessoas","es":"dos personas"},"jlpt_level":"N5"},
+          {"surface":"なら","reading":"なら","romaji":"nara","grammar":"particle","grammar_color":"grey","meaning":{"en":"if","pt-BR":"se","es":"si"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"Even a road I can't walk alone, if there are two of us —","pt-BR":"Mesmo um caminho que não posso andar sozinho, se somos dois —","es":"Incluso un camino que no puedo andar solo, si somos dos —"},
+        "literal_meaning":{"en":"alone + if + walk + cannot + road + even + two-people + if"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"鼻歌","reading":"はなうた","romaji":"hanauta","grammar":"noun","grammar_color":"blue","meaning":{"en":"humming","pt-BR":"cantarolar","es":"tarareo"},"jlpt_level":"N2"},
+          {"surface":"歌い","reading":"うたい","romaji":"utai","grammar":"verb","grammar_color":"red","meaning":{"en":"to sing (stem)","pt-BR":"cantar","es":"cantar"},"jlpt_level":"N5"},
+          {"surface":"ながら","reading":"ながら","romaji":"nagara","grammar":"particle","grammar_color":"grey","meaning":{"en":"while","pt-BR":"enquanto","es":"mientras"},"jlpt_level":"N4"},
+          {"surface":"歩ける","reading":"あるける","romaji":"arukeru","grammar":"verb","grammar_color":"red","meaning":{"en":"can walk","pt-BR":"posso caminhar","es":"puedo caminar"},"jlpt_level":"N4"},
+          {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+          {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"to be (copula)","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"— we can walk while humming.","pt-BR":"— podemos caminhar cantarolando.","es":"— podemos caminar tarareando."},
+        "literal_meaning":{"en":"humming + sing + while + can-walk + explanatory + be"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"キミ","reading":"キミ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject marker","pt-BR":"marcador de sujeito","es":"marcador de sujeto"},"jlpt_level":"N5"},
+          {"surface":"いれ","reading":"いれ","romaji":"ire","grammar":"verb","grammar_color":"red","meaning":{"en":"to exist (provisional stem)","pt-BR":"existir","es":"existir"},"jlpt_level":"N5"},
+          {"surface":"ば","reading":"ば","romaji":"ba","grammar":"particle","grammar_color":"grey","meaning":{"en":"if","pt-BR":"se","es":"si"},"jlpt_level":"N4"},
+          {"surface":"幸せ","reading":"しあわせ","romaji":"shiawase","grammar":"noun","grammar_color":"blue","meaning":{"en":"happiness","pt-BR":"felicidade","es":"felicidad"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"If you're here, I'm happy.","pt-BR":"Se você está aqui, sou feliz.","es":"Si estás aquí, soy feliz."},
+        "literal_meaning":{"en":"you + subj + exist + if + happiness"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"もしも","reading":"もしも","romaji":"moshimo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"if","pt-BR":"se (hipotético)","es":"si acaso"},"jlpt_level":"N3"},
+          {"surface":"二人","reading":"ふたり","romaji":"futari","grammar":"noun","grammar_color":"blue","meaning":{"en":"two people","pt-BR":"duas pessoas","es":"dos personas"},"jlpt_level":"N5"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject marker","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+          {"surface":"出逢っ","reading":"であっ","romaji":"deat","grammar":"verb","grammar_color":"red","meaning":{"en":"to meet (te-form stem)","pt-BR":"encontrar (forma-te)","es":"encontrar (forma-te)"},"jlpt_level":"N3"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"なかっ","reading":"なかっ","romaji":"nakat","grammar":"adjective","grammar_color":"green","meaning":{"en":"not (past stem)","pt-BR":"não","es":"no"},"jlpt_level":"N5"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"},
+          {"surface":"なら","reading":"なら","romaji":"nara","grammar":"particle","grammar_color":"grey","meaning":{"en":"if","pt-BR":"se","es":"si"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"If the two of us had never met,","pt-BR":"Se nós dois nunca tivéssemos nos encontrado,","es":"Si los dos nunca nos hubiéramos encontrado,"},
+        "literal_meaning":{"en":"if + two-people + subj + meet + te + not + past + if"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"たくさん","reading":"たくさん","romaji":"takusan","grammar":"adverb","grammar_color":"orange","meaning":{"en":"many","pt-BR":"muitos","es":"muchos"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"幸せ","reading":"しあわせ","romaji":"shiawase","grammar":"noun","grammar_color":"blue","meaning":{"en":"happiness","pt-BR":"felicidade","es":"felicidad"},"jlpt_level":"N4"},
+          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+          {"surface":"見逃し","reading":"みのがし","romaji":"minogashi","grammar":"verb","grammar_color":"red","meaning":{"en":"to miss (te-form stem)","pt-BR":"perder (forma-te)","es":"perder (forma-te)"},"jlpt_level":"N2"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"— I would have missed so much happiness.","pt-BR":"— teria perdido muita felicidade.","es":"— me habría perdido mucha felicidad."},
+        "literal_meaning":{"en":"many + of + happiness + obj + miss + te + past"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"不安","reading":"ふあん","romaji":"fuan","grammar":"noun","grammar_color":"blue","meaning":{"en":"anxiety","pt-BR":"ansiedade","es":"ansiedad"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj marker","pt-BR":"marcador na","es":"marcador na"},"jlpt_level":"N5"},
+          {"surface":"とき","reading":"とき","romaji":"toki","grammar":"noun","grammar_color":"blue","meaning":{"en":"time","pt-BR":"momento","es":"momento"},"jlpt_level":"N5"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+          {"surface":"ぎゅっと","reading":"ぎゅっと","romaji":"gyutto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"tightly","pt-BR":"apertado","es":"fuerte"},"jlpt_level":"N2"},
+          {"surface":"し","reading":"し","romaji":"shi","grammar":"verb","grammar_color":"red","meaning":{"en":"to do (te-form stem)","pt-BR":"fazer","es":"hacer"},"jlpt_level":"N5"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"くれ","reading":"くれ","romaji":"kure","grammar":"verb","grammar_color":"red","meaning":{"en":"to do for me (stem)","pt-BR":"fazer por mim","es":"hacer por mí"},"jlpt_level":"N4"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"},
+          {"surface":"ね","reading":"ね","romaji":"ne","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"When I was anxious, you held me tight, didn't you.","pt-BR":"Quando eu estava ansioso, você me abraçava forte, né.","es":"Cuando estaba ansioso, tú me abrazabas fuerte, ¿verdad?"},
+        "literal_meaning":{"en":"anxiety + na + time + topic + tightly + do + te + for-me + past + emphasis"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"明日","reading":"あした","romaji":"ashita","grammar":"noun","grammar_color":"blue","meaning":{"en":"tomorrow","pt-BR":"amanhã","es":"mañana"},"jlpt_level":"N5"},
+          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+          {"surface":"見失い","reading":"みうしない","romaji":"miushinai","grammar":"verb","grammar_color":"red","meaning":{"en":"to lose sight of (stem)","pt-BR":"perder de vista","es":"perder de vista"},"jlpt_level":"N2"},
+          {"surface":"そう","reading":"そう","romaji":"sou","grammar":"other","grammar_color":"none","meaning":{"en":"looks like; seems","pt-BR":"parece","es":"parece"},"jlpt_level":"N4"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj marker","pt-BR":"marcador na","es":"marcador na"},"jlpt_level":"N5"},
+          {"surface":"人ごみ","reading":"ひとごみ","romaji":"hitogomi","grammar":"noun","grammar_color":"blue","meaning":{"en":"crowd","pt-BR":"multidão","es":"multitud"},"jlpt_level":"N2"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"中","reading":"なか","romaji":"naka","grammar":"noun","grammar_color":"blue","meaning":{"en":"inside","pt-BR":"dentro","es":"dentro"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"In a crowd where it seems I'll lose tomorrow,","pt-BR":"Numa multidão onde parece que perderei o amanhã,","es":"En una multitud donde parece que perderé el mañana,"},
+        "literal_meaning":{"en":"tomorrow + obj + lose-sight + seems + na + crowd + of + inside"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"愛","reading":"あい","romaji":"ai","grammar":"noun","grammar_color":"blue","meaning":{"en":"love","pt-BR":"amor","es":"amor"},"jlpt_level":"N4"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject marker","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+          {"surface":"苦しい","reading":"くるしい","romaji":"kurushii","grammar":"adjective","grammar_color":"green","meaning":{"en":"painful","pt-BR":"doloroso","es":"doloroso"},"jlpt_level":"N3"},
+          {"surface":"一人","reading":"ひとり","romaji":"hitori","grammar":"noun","grammar_color":"blue","meaning":{"en":"alone","pt-BR":"sozinho","es":"solo"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"時間","reading":"じかん","romaji":"jikan","grammar":"noun","grammar_color":"blue","meaning":{"en":"time","pt-BR":"tempo","es":"tiempo"},"jlpt_level":"N5"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"In this lonely time where love hurts,","pt-BR":"Neste tempo solitário em que o amor dói,","es":"En este tiempo solitario donde el amor duele,"},
+        "literal_meaning":{"en":"love + subj + painful + alone + of + time + topic"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"寂しさ","reading":"さびしさ","romaji":"sabishisa","grammar":"noun","grammar_color":"blue","meaning":{"en":"loneliness","pt-BR":"solidão","es":"soledad"},"jlpt_level":"N3"},
+          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+          {"surface":"ごまかす","reading":"ごまかす","romaji":"gomakasu","grammar":"verb","grammar_color":"red","meaning":{"en":"to deceive; gloss over","pt-BR":"enganar","es":"engañar"},"jlpt_level":"N1"},
+          {"surface":"術","reading":"すべ","romaji":"sube","grammar":"noun","grammar_color":"blue","meaning":{"en":"means; way","pt-BR":"meio","es":"medio"},"jlpt_level":"N1"},
+          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+          {"surface":"忘れ","reading":"わすれ","romaji":"wasure","grammar":"verb","grammar_color":"red","meaning":{"en":"to forget (te-form stem)","pt-BR":"esquecer","es":"olvidar"},"jlpt_level":"N5"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"I had forgotten how to gloss over the loneliness.","pt-BR":"Tinha esquecido como disfarçar a solidão.","es":"Había olvidado cómo disimular la soledad."},
+        "literal_meaning":{"en":"loneliness + obj + deceive + means + obj + forget + te + past"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"キミ","reading":"キミ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+          {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+          {"surface":"半分","reading":"はんぶん","romaji":"hanbun","grammar":"noun","grammar_color":"blue","meaning":{"en":"half","pt-BR":"metade","es":"mitad"},"jlpt_level":"N4"},
+          {"surface":"一つ","reading":"ひとつ","romaji":"hitotsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"one","pt-BR":"um","es":"uno"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"幸せ","reading":"しあわせ","romaji":"shiawase","grammar":"noun","grammar_color":"blue","meaning":{"en":"happiness","pt-BR":"felicidade","es":"felicidad"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"Half-and-one shared happiness with you.","pt-BR":"Uma metade-uma felicidade compartilhada com você.","es":"Una mitad-uno de felicidad compartida contigo."},
+        "literal_meaning":{"en":"you + with + half + one + of + happiness"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"ぶつかり","reading":"ぶつかり","romaji":"butsukari","grammar":"verb","grammar_color":"red","meaning":{"en":"to bump (stem)","pt-BR":"esbarrar","es":"chocar"},"jlpt_level":"N3"},
+          {"surface":"そう","reading":"そう","romaji":"sou","grammar":"other","grammar_color":"none","meaning":{"en":"looks like","pt-BR":"parece","es":"parece"},"jlpt_level":"N4"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj marker","pt-BR":"marcador na","es":"marcador na"},"jlpt_level":"N5"},
+          {"surface":"くらい","reading":"くらい","romaji":"kurai","grammar":"particle","grammar_color":"grey","meaning":{"en":"degree; about","pt-BR":"tanto quanto","es":"tanto como"},"jlpt_level":"N4"},
+          {"surface":"人","reading":"ひと","romaji":"hito","grammar":"noun","grammar_color":"blue","meaning":{"en":"person; people","pt-BR":"pessoa","es":"persona"},"jlpt_level":"N5"},
+          {"surface":"多い","reading":"おおい","romaji":"ooi","grammar":"adjective","grammar_color":"green","meaning":{"en":"many","pt-BR":"muitos","es":"muchos"},"jlpt_level":"N5"},
+          {"surface":"土曜日","reading":"どようび","romaji":"doyoubi","grammar":"noun","grammar_color":"blue","meaning":{"en":"Saturday","pt-BR":"sábado","es":"sábado"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"A Saturday crowded enough to bump into someone,","pt-BR":"Um sábado lotado a ponto de se esbarrar,","es":"Un sábado lleno a punto de chocarse,"},
+        "literal_meaning":{"en":"bump + seems + na + degree + person + many + Saturday"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"見失い","reading":"みうしない","romaji":"miushinai","grammar":"verb","grammar_color":"red","meaning":{"en":"to lose sight of (stem)","pt-BR":"perder de vista","es":"perder de vista"},"jlpt_level":"N2"},
+          {"surface":"たく","reading":"たく","romaji":"taku","grammar":"verb","grammar_color":"red","meaning":{"en":"want-form (neg. stem)","pt-BR":"querer","es":"querer"},"jlpt_level":"N5"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"},
+          {"surface":"キミ","reading":"キミ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"存在","reading":"そんざい","romaji":"sonzai","grammar":"noun","grammar_color":"blue","meaning":{"en":"existence","pt-BR":"existência","es":"existencia"},"jlpt_level":"N3"}
+        ],
+        "translations":{"en":"Your existence — I don't want to lose sight of it.","pt-BR":"Sua existência — não quero perder de vista.","es":"Tu existencia — no quiero perderla de vista."},
+        "literal_meaning":{"en":"lose-sight + want + not + you + of + existence"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este","es":"este"},"jlpt_level":"N5"},
+          {"surface":"時","reading":"とき","romaji":"toki","grammar":"noun","grammar_color":"blue","meaning":{"en":"moment","pt-BR":"momento","es":"momento"},"jlpt_level":"N5"},
+          {"surface":"倍","reading":"ばい","romaji":"bai","grammar":"noun","grammar_color":"blue","meaning":{"en":"times; fold","pt-BR":"vezes","es":"veces"},"jlpt_level":"N3"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to; by","pt-BR":"por","es":"por"},"jlpt_level":"N5"},
+          {"surface":"力","reading":"ちから","romaji":"chikara","grammar":"noun","grammar_color":"blue","meaning":{"en":"strength","pt-BR":"força","es":"fuerza"},"jlpt_level":"N4"},
+          {"surface":"入っ","reading":"はいっ","romaji":"hait","grammar":"verb","grammar_color":"red","meaning":{"en":"to enter (te-form stem)","pt-BR":"entrar","es":"entrar"},"jlpt_level":"N5"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"る","reading":"る","romaji":"ru","grammar":"verb","grammar_color":"red","meaning":{"en":"=ている (ongoing)","pt-BR":"=iru (contínuo)","es":"=iru (continuo)"},"jlpt_level":"N5"},
+          {"surface":"手","reading":"て","romaji":"te","grammar":"noun","grammar_color":"blue","meaning":{"en":"hand","pt-BR":"mão","es":"mano"},"jlpt_level":"N5"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in; at","pt-BR":"em","es":"en"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"This moment — twice the strength flowing into our hands.","pt-BR":"Neste momento — o dobro da força fluindo para as mãos.","es":"En este momento — el doble de fuerza entrando en las manos."},
+        "literal_meaning":{"en":"this + moment + times + in + strength + enter + te + -ing + hand + in"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"感じ","reading":"かんじ","romaji":"kanji","grammar":"verb","grammar_color":"red","meaning":{"en":"to feel (past stem)","pt-BR":"sentir","es":"sentir"},"jlpt_level":"N4"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"},
+          {"surface":"温もり","reading":"ぬくもり","romaji":"nukumori","grammar":"noun","grammar_color":"blue","meaning":{"en":"warmth","pt-BR":"calor (afeto)","es":"calidez"},"jlpt_level":"N2"},
+          {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"and","pt-BR":"e","es":"y"},"jlpt_level":"N5"},
+          {"surface":"愛","reading":"あい","romaji":"ai","grammar":"noun","grammar_color":"blue","meaning":{"en":"love","pt-BR":"amor","es":"amor"},"jlpt_level":"N4"},
+          {"surface":"no","reading":"no","romaji":"no","grammar":"other","grammar_color":"none","meaning":{"en":"no (English)","pt-BR":"no (inglês)","es":"no (inglés)"},"jlpt_level":"unknown"},
+          {"surface":"more","reading":"more","romaji":"more","grammar":"other","grammar_color":"none","meaning":{"en":"more (English)","pt-BR":"more (inglês)","es":"more (inglés)"},"jlpt_level":"unknown"},
+          {"surface":"cry","reading":"cry","romaji":"cry","grammar":"other","grammar_color":"none","meaning":{"en":"cry (English)","pt-BR":"cry (inglês)","es":"cry (inglés)"},"jlpt_level":"unknown"}
+        ],
+        "translations":{"en":"The warmth and love I felt — no more cry.","pt-BR":"O calor e o amor que senti — chega de chorar.","es":"La calidez y el amor que sentí — no más llorar."},
+        "literal_meaning":{"en":"feel + past + warmth + and + love + no + more + cry"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"褪せ","reading":"あせ","romaji":"ase","grammar":"verb","grammar_color":"red","meaning":{"en":"to fade (past stem)","pt-BR":"desbotar","es":"desteñir"},"jlpt_level":"N1"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"},
+          {"surface":"ジーンズ","reading":"ジーンズ","romaji":"jiinzu","grammar":"noun","grammar_color":"blue","meaning":{"en":"jeans","pt-BR":"jeans","es":"jeans"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"ポケット","reading":"ポケット","romaji":"poketto","grammar":"noun","grammar_color":"blue","meaning":{"en":"pocket","pt-BR":"bolso","es":"bolsillo"},"jlpt_level":"N4"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at; in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+          {"surface":"光っ","reading":"ひかっ","romaji":"hikat","grammar":"verb","grammar_color":"red","meaning":{"en":"to shine (te-form stem)","pt-BR":"brilhar","es":"brillar"},"jlpt_level":"N3"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"る","reading":"る","romaji":"ru","grammar":"verb","grammar_color":"red","meaning":{"en":"=ている (ongoing)","pt-BR":"=iru","es":"=iru"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Shining in the pocket of faded jeans,","pt-BR":"Brilhando no bolso do jeans desbotado,","es":"Brillando en el bolsillo de unos jeans desteñidos,"},
+        "literal_meaning":{"en":"fade + past + jeans + of + pocket + at + shine + te + -ing"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"キミ","reading":"キミ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"携帯","reading":"けいたい","romaji":"keitai","grammar":"noun","grammar_color":"blue","meaning":{"en":"cell phone","pt-BR":"celular","es":"móvil"},"jlpt_level":"N3"},
+          {"surface":"気付か","reading":"きづか","romaji":"kidzuka","grammar":"verb","grammar_color":"red","meaning":{"en":"to notice (causative stem)","pt-BR":"perceber","es":"darse cuenta"},"jlpt_level":"N3"},
+          {"surface":"せ","reading":"せ","romaji":"se","grammar":"verb","grammar_color":"red","meaning":{"en":"causative aux","pt-BR":"causativo","es":"causativo"},"jlpt_level":"N4"},
+          {"surface":"たく","reading":"たく","romaji":"taku","grammar":"verb","grammar_color":"red","meaning":{"en":"want (neg. stem)","pt-BR":"querer","es":"querer"},"jlpt_level":"N5"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Your phone — I don't want to make you notice.","pt-BR":"Seu celular — não quero que você perceba.","es":"Tu móvil — no quiero que lo notes."},
+        "literal_meaning":{"en":"you + of + phone + notice + causative + want + not"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"黙り込む","reading":"だまりこむ","romaji":"damarikomu","grammar":"verb","grammar_color":"red","meaning":{"en":"to fall silent","pt-BR":"emudecer","es":"enmudecer"},"jlpt_level":"N1"},
+          {"surface":"私","reading":"わたし","romaji":"watashi","grammar":"noun","grammar_color":"blue","meaning":{"en":"I","pt-BR":"eu","es":"yo"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"中","reading":"なか","romaji":"naka","grammar":"noun","grammar_color":"blue","meaning":{"en":"inside","pt-BR":"dentro","es":"dentro"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"小悪魔","reading":"こあくま","romaji":"koakuma","grammar":"noun","grammar_color":"blue","meaning":{"en":"little devil","pt-BR":"pequeno diabo","es":"diablillo"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"The little devil inside me falls silent.","pt-BR":"O pequeno diabo dentro de mim emudece.","es":"El diablillo dentro de mí enmudece."},
+        "literal_meaning":{"en":"fall-silent + I + of + inside + of + little-devil"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"ただ","reading":"ただ","romaji":"tada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"just","pt-BR":"só","es":"sólo"},"jlpt_level":"N4"},
+          {"surface":"キミ","reading":"キミ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject marker","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+          {"surface":"い","reading":"い","romaji":"i","grammar":"verb","grammar_color":"red","meaning":{"en":"to exist (neg. stem)","pt-BR":"existir","es":"existir"},"jlpt_level":"N5"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"},
+          {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"if (conditional)","pt-BR":"se","es":"si"},"jlpt_level":"N4"},
+          {"surface":"嫌","reading":"いや","romaji":"iya","grammar":"adjective","grammar_color":"green","meaning":{"en":"unpleasant; no","pt-BR":"desagradável","es":"desagradable"},"jlpt_level":"N4"},
+          {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"to be (copula)","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because","pt-BR":"porque","es":"porque"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Just because — if you're not here, I hate it.","pt-BR":"Só porque — se você não está, eu odeio.","es":"Sólo porque — si no estás, lo odio."},
+        "literal_meaning":{"en":"just + you + subj + exist + not + if + unpleasant + be + because"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"何か","reading":"なにか","romaji":"nanika","grammar":"other","grammar_color":"none","meaning":{"en":"something","pt-BR":"algo","es":"algo"},"jlpt_level":"N5"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject marker","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+          {"surface":"奪い去り","reading":"うばいさり","romaji":"ubaisari","grammar":"verb","grammar_color":"red","meaning":{"en":"to take away (stem)","pt-BR":"levar embora","es":"llevarse"},"jlpt_level":"N1"},
+          {"surface":"そう","reading":"そう","romaji":"sou","grammar":"other","grammar_color":"none","meaning":{"en":"looks like","pt-BR":"parece","es":"parece"},"jlpt_level":"N4"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conector te","es":"conector te"},"jlpt_level":"N5"},
+          {"surface":"怖い","reading":"こわい","romaji":"kowai","grammar":"adjective","grammar_color":"green","meaning":{"en":"scary","pt-BR":"assustador","es":"miedoso"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"I'm scared something will be taken from me.","pt-BR":"Tenho medo de que algo me seja tirado.","es":"Tengo miedo de que algo me sea arrebatado."},
+        "literal_meaning":{"en":"something + subj + take-away + seems + te + scary"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"大切","reading":"たいせつ","romaji":"taisetsu","grammar":"adjective","grammar_color":"green","meaning":{"en":"important","pt-BR":"importante","es":"importante"},"jlpt_level":"N4"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj marker","pt-BR":"marcador na","es":"marcador na"},"jlpt_level":"N5"},
+          {"surface":"人","reading":"ひと","romaji":"hito","grammar":"noun","grammar_color":"blue","meaning":{"en":"person","pt-BR":"pessoa","es":"persona"},"jlpt_level":"N5"},
+          {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+          {"surface":"繋がっ","reading":"つながっ","romaji":"tsunagat","grammar":"verb","grammar_color":"red","meaning":{"en":"to connect (te-form stem)","pt-BR":"conectar","es":"conectar"},"jlpt_level":"N3"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"たい","reading":"たい","romaji":"tai","grammar":"other","grammar_color":"none","meaning":{"en":"want to","pt-BR":"quero","es":"quiero"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"I want to stay connected to my \"precious person\".","pt-BR":"Quero continuar conectado à \"pessoa querida\".","es":"Quiero seguir conectado con mi \"persona importante\"."},
+        "literal_meaning":{"en":"important + na + person + with + connect + te + want"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"想い","reading":"おもい","romaji":"omoi","grammar":"noun","grammar_color":"blue","meaning":{"en":"thoughts; feelings","pt-BR":"sentimentos","es":"sentimientos"},"jlpt_level":"N3"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+          {"surface":"誰","reading":"だれ","romaji":"dare","grammar":"other","grammar_color":"none","meaning":{"en":"who","pt-BR":"quem","es":"quién"},"jlpt_level":"N5"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"a"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"},
+          {"surface":"負け","reading":"まけ","romaji":"make","grammar":"verb","grammar_color":"red","meaning":{"en":"to lose (neg. stem)","pt-BR":"perder","es":"perder"},"jlpt_level":"N4"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"My feelings won't lose to anyone.","pt-BR":"Meus sentimentos não perdem para ninguém.","es":"Mis sentimientos no pierden ante nadie."},
+        "literal_meaning":{"en":"feelings + topic + who + to + even + lose + not"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"そう","reading":"そう","romaji":"sou","grammar":"adverb","grammar_color":"orange","meaning":{"en":"so; that way","pt-BR":"assim","es":"así"},"jlpt_level":"N5"},
+          {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este","es":"este"},"jlpt_level":"N5"},
+          {"surface":"街","reading":"まち","romaji":"machi","grammar":"noun","grammar_color":"blue","meaning":{"en":"town","pt-BR":"cidade","es":"ciudad"},"jlpt_level":"N5"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"by","pt-BR":"por","es":"por"},"jlpt_level":"N5"},
+          {"surface":"嫌われる","reading":"きらわれる","romaji":"kirawareru","grammar":"verb","grammar_color":"red","meaning":{"en":"to be hated (passive)","pt-BR":"ser odiado","es":"ser odiado"},"jlpt_level":"N4"},
+          {"surface":"くらい","reading":"くらい","romaji":"kurai","grammar":"particle","grammar_color":"grey","meaning":{"en":"to the extent","pt-BR":"a ponto de","es":"a punto de"},"jlpt_level":"N4"},
+          {"surface":"手","reading":"て","romaji":"te","grammar":"noun","grammar_color":"blue","meaning":{"en":"hand","pt-BR":"mão","es":"mano"},"jlpt_level":"N5"},
+          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+          {"surface":"つなごう","reading":"つなごう","romaji":"tsunagou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's hold (volitional)","pt-BR":"vamos segurar","es":"tomemos"},"jlpt_level":"N3"}
+        ],
+        "translations":{"en":"Yes — let's hold hands enough for this town to hate us.","pt-BR":"Sim — vamos dar as mãos a ponto desta cidade nos odiar.","es":"Sí — tomémonos de la mano al punto de que esta ciudad nos odie."},
+        "literal_meaning":{"en":"so + this + town + by + be-hated + to-extent + hand + obj + let's-join"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"弱虫","reading":"よわむし","romaji":"yowamushi","grammar":"noun","grammar_color":"blue","meaning":{"en":"coward","pt-BR":"covarde","es":"cobarde"},"jlpt_level":"N2"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj marker","pt-BR":"marcador na","es":"marcador na"},"jlpt_level":"N5"},
+          {"surface":"ほど","reading":"ほど","romaji":"hodo","grammar":"particle","grammar_color":"grey","meaning":{"en":"extent","pt-BR":"tanto","es":"tanto"},"jlpt_level":"N4"},
+          {"surface":"強がっ","reading":"つよがっ","romaji":"tsuyogat","grammar":"verb","grammar_color":"red","meaning":{"en":"to act tough (te-form stem)","pt-BR":"fingir força","es":"fingir fuerza"},"jlpt_level":"N1"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"しまう","reading":"しまう","romaji":"shimau","grammar":"verb","grammar_color":"red","meaning":{"en":"to end up doing","pt-BR":"acabar fazendo","es":"acabar haciendo"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"The more cowardly, the more I end up putting on a brave face.","pt-BR":"Quanto mais covarde, mais eu acabo fingindo ser forte.","es":"Cuanto más cobarde, más termino aparentando fuerza."},
+        "literal_meaning":{"en":"coward + na + extent + act-tough + te + end-up"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"でも","reading":"でも","romaji":"demo","grammar":"other","grammar_color":"none","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N5"},
+          {"surface":"無理","reading":"むり","romaji":"muri","grammar":"noun","grammar_color":"blue","meaning":{"en":"impossible","pt-BR":"impossível","es":"imposible"},"jlpt_level":"N4"},
+          {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"to be (copula)","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+          {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"},
+          {"surface":"泣い","reading":"ない","romaji":"nai","grammar":"verb","grammar_color":"red","meaning":{"en":"to cry (te-form stem)","pt-BR":"chorar","es":"llorar"},"jlpt_level":"N5"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"},
+          {"surface":"いい","reading":"いい","romaji":"ii","grammar":"adjective","grammar_color":"green","meaning":{"en":"good; fine","pt-BR":"bom","es":"bien"},"jlpt_level":"N5"},
+          {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"question marker","pt-BR":"pergunta","es":"pregunta"},"jlpt_level":"N5"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"sentence-ender (I wonder)","pt-BR":"será que","es":"me pregunto"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"But it's impossible... is it okay if I cry?","pt-BR":"Mas é impossível... posso chorar?","es":"Pero es imposible... ¿puedo llorar?"},
+        "literal_meaning":{"en":"but + impossible + be + emphasis + cry + te + even + good + Q + I-wonder"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"秋","reading":"あき","romaji":"aki","grammar":"noun","grammar_color":"blue","meaning":{"en":"autumn","pt-BR":"outono","es":"otoño"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"風","reading":"かぜ","romaji":"kaze","grammar":"noun","grammar_color":"blue","meaning":{"en":"wind","pt-BR":"vento","es":"viento"},"jlpt_level":"N5"},
+          {"surface":"もうすぐ","reading":"もうすぐ","romaji":"mousugu","grammar":"adverb","grammar_color":"orange","meaning":{"en":"soon","pt-BR":"em breve","es":"pronto"},"jlpt_level":"N4"},
+          {"surface":"出逢っ","reading":"であっ","romaji":"deat","grammar":"verb","grammar_color":"red","meaning":{"en":"to meet (past stem)","pt-BR":"encontrar","es":"encontrar"},"jlpt_level":"N3"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"},
+          {"surface":"季節","reading":"きせつ","romaji":"kisetsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"season","pt-BR":"estação","es":"estación"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"Autumn wind — soon, the season when we met.","pt-BR":"Vento de outono — logo, a estação em que nos conhecemos.","es":"Viento de otoño — pronto, la estación en que nos conocimos."},
+        "literal_meaning":{"en":"autumn + of + wind + soon + meet + past + season"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"あの","reading":"あの","romaji":"ano","grammar":"other","grammar_color":"none","meaning":{"en":"that (distant)","pt-BR":"aquele","es":"aquel"},"jlpt_level":"N5"},
+          {"surface":"頃","reading":"ころ","romaji":"koro","grammar":"noun","grammar_color":"blue","meaning":{"en":"time; era","pt-BR":"época","es":"época"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"私","reading":"わたし","romaji":"watashi","grammar":"noun","grammar_color":"blue","meaning":{"en":"I","pt-BR":"eu","es":"yo"},"jlpt_level":"N5"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+          {"surface":"愛","reading":"あい","romaji":"ai","grammar":"noun","grammar_color":"blue","meaning":{"en":"love","pt-BR":"amor","es":"amor"},"jlpt_level":"N4"},
+          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+          {"surface":"探し","reading":"さがし","romaji":"sagashi","grammar":"verb","grammar_color":"red","meaning":{"en":"to search (te-form stem)","pt-BR":"procurar","es":"buscar"},"jlpt_level":"N4"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"forma-te","es":"forma-te"},"jlpt_level":"N5"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Back then, I was searching for love.","pt-BR":"Naquela época, eu procurava o amor.","es":"En aquel entonces, yo buscaba el amor."},
+        "literal_meaning":{"en":"that + era + of + I + topic + love + obj + search + te + past"}
+      }
+    }
+  ]
+}
