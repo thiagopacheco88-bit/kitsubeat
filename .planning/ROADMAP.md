@@ -44,7 +44,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 ### v3.0 Launch Readiness
 
-- [ ] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginner→advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0
+- [x] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginner→advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0 (completed 2026-04-19)
 - [ ] **Phase 13: Performance & Caching** - FMP <2s mobile 4G; bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe
 - [ ] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface
 - [ ] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated
@@ -314,7 +314,7 @@ Plans:
   6. Song tier (`difficulty_tier`) and vocabulary tier (JLPT `N5–N1`) remain parallel taxonomies — no re-tagging of either; songs use B/I/A on the path, vocab uses JLPT in the gap dashboard
 **Decisions captured**: [.planning/phases/12-learning-path-and-gamification/12-CONTEXT.md](phases/12-learning-path-and-gamification/12-CONTEXT.md)
 **Research captured**: [.planning/phases/12-learning-path-and-gamification/12-RESEARCH.md](phases/12-learning-path-and-gamification/12-RESEARCH.md)
-**Plans:** 5/6 plans executed
+**Plans:** 6/6 plans complete
 Plans:
 - [ ] 12-01-PLAN.md — Schema + migration (0008_gamification.sql) + reward-slot seed + starter-pick verification script
 - [ ] 12-02-PLAN.md — TDD: XP calculator + level curve + streak state machine + reward-slot filter + analytics stub (pure functions)

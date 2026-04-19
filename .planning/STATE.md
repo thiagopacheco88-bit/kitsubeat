@@ -102,6 +102,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 17 P02 | 6 | 2 tasks | 1 files |
 | Phase 12 P05 | 391 | 3 tasks | 9 files |
 | Phase 12-learning-path-and-gamification P04 | 65 | 3 tasks | 6 files |
+| Phase 12-learning-path-and-gamification P06 | 10 | 3 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -323,6 +324,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 12]: iOS haptic caveat shown as visible helper text per RESEARCH F1 (not hidden)
 - [Phase 12-04]: songSlug optional in SaveSessionInput to preserve existing test compatibility
 - [Phase 12-04]: gamification failure isolated so progress write never fails on XP error
+- [Phase 12-learning-path-and-gamification]: PathHud kept separate from ProfileHud; consolidation to GamificationHud deferred to polish plan
+- [Phase 12-learning-path-and-gamification]: level-up.mp3 is a silent placeholder; CC0 asset from freesound.org required before beta
 
 ### Pending Todos
 
