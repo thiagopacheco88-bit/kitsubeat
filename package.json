@@ -37,7 +37,9 @@
     "test:ci-pr": "npm run test:qa && npm run test:unit && npm run test:integration",
     "test:ci-nightly": "tsx scripts/qa/measure-suite-runtime.ts",
     "test:quarantine": "tsx scripts/qa/run-quarantined.ts",
-    "test:qa:enrichment": "tsx --tsconfig tsconfig.scripts.json scripts/seed/12-qa-enrichment.ts"
+    "test:qa:enrichment": "tsx --tsconfig tsconfig.scripts.json scripts/seed/12-qa-enrichment.ts",
+    "seed:reward-slots": "tsx --tsconfig tsconfig.scripts.json scripts/seed/14-seed-reward-slots.ts",
+    "audit:starter-picks": "tsx --tsconfig tsconfig.scripts.json scripts/audit/verify-starter-picks.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
