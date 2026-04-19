@@ -1,0 +1,239 @@
+{
+  "patches": [
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"賛歌","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"hymn of praise","pt-BR":"hino de louvor","es":"himno de alabanza"},"jlpt_level":"N1"},
+          {"surface":"愛","reading":"あい","romaji":"ai","grammar":"noun","grammar_color":"blue","meaning":{"en":"love","pt-BR":"amor","es":"amor"},"jlpt_level":"N4"},
+          {"surface":"逃げ","reading":"にげ","romaji":"nige","grammar":"verb","grammar_color":"red","meaning":{"en":"flee (stem)","pt-BR":"fugir","es":"huir"},"jlpt_level":"N4"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"不安","reading":"ふあん","romaji":"fuan","grammar":"noun","grammar_color":"blue","meaning":{"en":"anxiety","pt-BR":"ansiedade","es":"ansiedad"},"jlpt_level":"N3"},
+          {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"question marker","pt-BR":"marcador de pergunta","es":"marcador de pregunta"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"HEYHEY! Human praise, love-flight, are humans anxious?","pt-BR":"HEYHEY! Hino humano, fuga do amor, humanos estão ansiosos?","es":"HEYHEY! Himno humano, huida del amor, ¿humanos ansiosos?"},
+        "literal_meaning":{"en":"human + hymn + love + flee + human + anxiety + Q"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the influence/umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"不安感","reading":"ふあんかん","romaji":"fuankan","grammar":"noun","grammar_color":"blue","meaning":{"en":"feeling of anxiety","pt-BR":"sentimento de ansiedade","es":"sentimiento de ansiedad"},"jlpt_level":"N2"}
+        ],
+        "translations":{"en":"HEYHEY! Human under-umbrella, HEYHEY! Human anxiety feeling.","pt-BR":"HEYHEY! Humanos sob controle, HEYHEY! Sensação de ansiedade humana.","es":"HEYHEY! Humano bajo dominio, HEYHEY! Ansiedad humana."},
+        "literal_meaning":{"en":"human + under-umbrella + human + anxiety-feeling"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
+          {"surface":"己ら","reading":"おのれら","romaji":"onorera","grammar":"other","grammar_color":"none","meaning":{"en":"ourselves (rough)","pt-BR":"nós mesmos","es":"nosotros mismos"},"jlpt_level":"N1"},
+          {"surface":"永遠","reading":"えいえん","romaji":"eien","grammar":"noun","grammar_color":"blue","meaning":{"en":"eternity","pt-BR":"eternidade","es":"eternidad"},"jlpt_level":"N3"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"不安感","reading":"ふあんかん","romaji":"fuankan","grammar":"noun","grammar_color":"blue","meaning":{"en":"feeling of anxiety","pt-BR":"sentimento de ansiedade","es":"sentimiento de ansiedad"},"jlpt_level":"N2"}
+        ],
+        "translations":{"en":"HEYHEY! Human under-umbrella, we ourselves — eternal human anxiety.","pt-BR":"HEYHEY! Humano sob controle, nós mesmos — eterna ansiedade humana.","es":"HEYHEY! Humano bajo dominio, nosotros mismos — ansiedad humana eterna."},
+        "literal_meaning":{"en":"human + under-umbrella + ourselves + eternity + human + anxiety-feeling"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"嗚呼","reading":"ああ","romaji":"aa","grammar":"other","grammar_color":"none","meaning":{"en":"ah; alas","pt-BR":"ah; ai","es":"ah; ay"},"jlpt_level":"N2"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"Ah, humans.","pt-BR":"Ah, humanos.","es":"Ay, humanos."},
+        "literal_meaning":{"en":"ah + human"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"文明","reading":"ぶんめい","romaji":"bunmei","grammar":"noun","grammar_color":"blue","meaning":{"en":"civilization","pt-BR":"civilização","es":"civilización"},"jlpt_level":"N2"},
+          {"surface":"病ん","reading":"やん","romaji":"yan","grammar":"verb","grammar_color":"red","meaning":{"en":"to fall ill (te-form stem)","pt-BR":"adoecer","es":"enfermar"},"jlpt_level":"N2"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conector te","es":"conector te"},"jlpt_level":"N5"},
+          {"surface":"不安定","reading":"ふあんてい","romaji":"fuantei","grammar":"adjective","grammar_color":"green","meaning":{"en":"unstable","pt-BR":"instável","es":"inestable"},"jlpt_level":"N2"}
+        ],
+        "translations":{"en":"Civilization sickens, becomes unstable.","pt-BR":"A civilização adoece, fica instável.","es":"La civilización enferma y se vuelve inestable."},
+        "literal_meaning":{"en":"civilization + become-ill + te + unstable"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"未来","reading":"みらい","romaji":"mirai","grammar":"noun","grammar_color":"blue","meaning":{"en":"future","pt-BR":"futuro","es":"futuro"},"jlpt_level":"N4"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"},
+          {"surface":"救われ","reading":"すくわれ","romaji":"sukuware","grammar":"verb","grammar_color":"red","meaning":{"en":"to be saved (passive stem)","pt-BR":"ser salvo","es":"ser salvado"},"jlpt_level":"N3"},
+          {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"negative (colloquial)","pt-BR":"negativo (coloquial)","es":"negativo (coloquial)"},"jlpt_level":"N3"},
+          {"surface":"ホワイトハウス","reading":"ホワイトハウス","romaji":"howaito-hausu","grammar":"noun","grammar_color":"blue","meaning":{"en":"White House","pt-BR":"Casa Branca","es":"Casa Blanca"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"The future won't be saved by the White House.","pt-BR":"O futuro não será salvo pela Casa Branca.","es":"El futuro no será salvado por la Casa Blanca."},
+        "literal_meaning":{"en":"future + topic + be-saved + not + White-House"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"全世界","reading":"ぜんせかい","romaji":"zensekai","grammar":"noun","grammar_color":"blue","meaning":{"en":"the whole world","pt-BR":"o mundo todo","es":"el mundo entero"},"jlpt_level":"N2"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to; at","pt-BR":"para; em","es":"a; en"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"WARNING!! to the whole world.","pt-BR":"ALERTA!! ao mundo inteiro.","es":"¡¡ADVERTENCIA!! al mundo entero."},
+        "literal_meaning":{"en":"whole-world + to + WARNING"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"一切合切","reading":"いっさいがっさい","romaji":"issai-gassai","grammar":"noun","grammar_color":"blue","meaning":{"en":"each and every; the whole lot","pt-BR":"tudo sem exceção","es":"todo sin excepción"},"jlpt_level":"N1"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"a"},"jlpt_level":"N5"},
+          {"surface":"改革","reading":"かいかく","romaji":"kaikaku","grammar":"noun","grammar_color":"blue","meaning":{"en":"reform","pt-BR":"reforma","es":"reforma"},"jlpt_level":"N2"}
+        ],
+        "translations":{"en":"Reform LIFE, every single thing.","pt-BR":"Reformar a VIDA inteira, sem exceção.","es":"Reformar la VIDA entera, sin excepción."},
+        "literal_meaning":{"en":"everything + to + reform + LIFE"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
+          {"surface":"己ら","reading":"おのれら","romaji":"onorera","grammar":"other","grammar_color":"none","meaning":{"en":"ourselves (rough)","pt-BR":"nós mesmos","es":"nosotros mismos"},"jlpt_level":"N1"},
+          {"surface":"永遠","reading":"えいえん","romaji":"eien","grammar":"noun","grammar_color":"blue","meaning":{"en":"eternity","pt-BR":"eternidade","es":"eternidad"},"jlpt_level":"N3"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
+          {"surface":"喚く","reading":"わめく","romaji":"wameku","grammar":"verb","grammar_color":"red","meaning":{"en":"to shout; to yell","pt-BR":"gritar","es":"gritar"},"jlpt_level":"N1"},
+          {"surface":"性","reading":"さが","romaji":"saga","grammar":"noun","grammar_color":"blue","meaning":{"en":"nature; disposition","pt-BR":"natureza","es":"naturaleza"},"jlpt_level":"N2"}
+        ],
+        "translations":{"en":"HEYHEY! Human under-umbrella, we ourselves — eternal under-umbrella, shouting nature.","pt-BR":"HEYHEY! Humano sob controle, nós mesmos — eternamente sob controle, natureza que grita.","es":"HEYHEY! Humano bajo dominio, nosotros mismos — eternamente bajo dominio, naturaleza que grita."},
+        "literal_meaning":{"en":"human + under-umbrella + ourselves + eternity + human + under-umbrella + shout + nature"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"偏見","reading":"へんけん","romaji":"henken","grammar":"noun","grammar_color":"blue","meaning":{"en":"prejudice","pt-BR":"preconceito","es":"prejuicio"},"jlpt_level":"N2"},
+          {"surface":"陰険","reading":"いんけん","romaji":"inken","grammar":"adjective","grammar_color":"green","meaning":{"en":"malicious; cunning","pt-BR":"malicioso","es":"malicioso"},"jlpt_level":"N1"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"糞","reading":"くそ","romaji":"kuso","grammar":"noun","grammar_color":"blue","meaning":{"en":"shit; damn","pt-BR":"merda","es":"mierda"},"jlpt_level":"N2"},
+          {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"to be (copula)","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+          {"surface":"動き","reading":"うごき","romaji":"ugoki","grammar":"noun","grammar_color":"blue","meaning":{"en":"movement","pt-BR":"movimento","es":"movimiento"},"jlpt_level":"N3"},
+          {"surface":"出せ","reading":"だせ","romaji":"dase","grammar":"verb","grammar_color":"red","meaning":{"en":"to start; put out (imperative)","pt-BR":"começar (imperativo)","es":"empezar (imperativo)"},"jlpt_level":"N4"},
+          {"surface":"俺","reading":"おれ","romaji":"ore","grammar":"noun","grammar_color":"blue","meaning":{"en":"I (rough masculine)","pt-BR":"eu (informal)","es":"yo (informal)"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"Prejudiced, cunning humans are shit — get moving, me, FIGHT!","pt-BR":"Humanos preconceituosos e dissimulados são merda — mova-se, eu, LUTE!","es":"Humanos prejuiciosos y astutos son mierda — ¡muévete, yo, LUCHA!"},
+        "literal_meaning":{"en":"prejudice + malicious + human + shit + be + movement + start + I"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"的","reading":"てき","romaji":"teki","grammar":"other","grammar_color":"none","meaning":{"en":"-like (suffix)","pt-BR":"-esco","es":"-esco"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adjective marker","pt-BR":"marcador de adj. na","es":"marcador de adj. na"},"jlpt_level":"N5"},
+          {"surface":"制裁","reading":"せいさい","romaji":"seisai","grammar":"noun","grammar_color":"blue","meaning":{"en":"sanction; punishment","pt-BR":"sanção","es":"sanción"},"jlpt_level":"N1"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"牙","reading":"きば","romaji":"kiba","grammar":"noun","grammar_color":"blue","meaning":{"en":"fang","pt-BR":"presa","es":"colmillo"},"jlpt_level":"N1"},
+          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"from","pt-BR":"de","es":"desde"},"jlpt_level":"N5"},
+          {"surface":"天敵","reading":"てんてき","romaji":"tenteki","grammar":"noun","grammar_color":"blue","meaning":{"en":"natural enemy","pt-BR":"inimigo natural","es":"enemigo natural"},"jlpt_level":"N1"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"存在","reading":"そんざい","romaji":"sonzai","grammar":"noun","grammar_color":"blue","meaning":{"en":"existence","pt-BR":"existência","es":"existencia"},"jlpt_level":"N3"},
+          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"marcador de objeto","es":"marcador de objeto"},"jlpt_level":"N5"},
+          {"surface":"断つ","reading":"たつ","romaji":"tatsu","grammar":"verb","grammar_color":"red","meaning":{"en":"to cut off","pt-BR":"cortar fora","es":"cortar"},"jlpt_level":"N2"}
+        ],
+        "translations":{"en":"From S-ish fangs of sanction, sever the existence of the natural enemy.","pt-BR":"Das presas sádicas da sanção, corte a existência do inimigo natural.","es":"De los colmillos sádicos de la sanción, elimina la existencia del enemigo natural."},
+        "literal_meaning":{"en":"S-like + na + sanction + of + fang + from + natural-enemy + of + existence + obj + cut-off"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"典型的","reading":"てんけいてき","romaji":"tenkeiteki","grammar":"adjective","grammar_color":"green","meaning":{"en":"typical","pt-BR":"típico","es":"típico"},"jlpt_level":"N2"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adjective marker","pt-BR":"marcador de adj. na","es":"marcador de adj. na"},"jlpt_level":"N5"},
+          {"surface":"目先","reading":"めさき","romaji":"mesaki","grammar":"noun","grammar_color":"blue","meaning":{"en":"short-sighted; immediate","pt-BR":"imediato","es":"inmediato"},"jlpt_level":"N1"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"欲","reading":"よく","romaji":"yoku","grammar":"noun","grammar_color":"blue","meaning":{"en":"desire","pt-BR":"desejo","es":"deseo"},"jlpt_level":"N3"},
+          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"from","pt-BR":"de","es":"desde"},"jlpt_level":"N5"},
+          {"surface":"チェンジ","reading":"チェンジ","romaji":"chenji","grammar":"noun","grammar_color":"blue","meaning":{"en":"change","pt-BR":"mudança","es":"cambio"},"jlpt_level":"N3"},
+          {"surface":"でき","reading":"でき","romaji":"deki","grammar":"verb","grammar_color":"red","meaning":{"en":"to be able (stem)","pt-BR":"poder","es":"poder"},"jlpt_level":"N5"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"},
+          {"surface":"国","reading":"くに","romaji":"kuni","grammar":"noun","grammar_color":"blue","meaning":{"en":"country","pt-BR":"país","es":"país"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"A typical country that can't change from short-sighted desire.","pt-BR":"Um país típico incapaz de mudar seu desejo imediato.","es":"Un país típico que no puede cambiar desde el deseo inmediato."},
+        "literal_meaning":{"en":"typical + na + short-sighted + of + desire + from + change + can + not + country"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"マヌケ","reading":"マヌケ","romaji":"manuke","grammar":"noun","grammar_color":"blue","meaning":{"en":"fool","pt-BR":"idiota","es":"idiota"},"jlpt_level":"N1"},
+          {"surface":"ボケ","reading":"ボケ","romaji":"boke","grammar":"noun","grammar_color":"blue","meaning":{"en":"dazed fool","pt-BR":"tolo","es":"tonto"},"jlpt_level":"N2"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"戦争論","reading":"せんそうろん","romaji":"sensouron","grammar":"noun","grammar_color":"blue","meaning":{"en":"war theory","pt-BR":"teoria da guerra","es":"teoría de la guerra"},"jlpt_level":"N1"},
+          {"surface":"誹謗","reading":"ひぼう","romaji":"hibou","grammar":"noun","grammar_color":"blue","meaning":{"en":"slander","pt-BR":"calúnia","es":"calumnia"},"jlpt_level":"N1"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"a"},"jlpt_level":"N5"},
+          {"surface":"けなそう","reading":"けなそう","romaji":"kenasou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's disparage","pt-BR":"vamos desdenhar","es":"menospreciemos"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"Let's slander the fools' idiotic war theory.","pt-BR":"Vamos desdenhar a teoria de guerra idiota dos tolos.","es":"Menospreciemos la teoría de guerra idiota de los tontos."},
+        "literal_meaning":{"en":"fool + dazed-fool + of + war-theory + slander + to + disparage"}
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"嗚呼","reading":"ああ","romaji":"aa","grammar":"other","grammar_color":"none","meaning":{"en":"ah; alas","pt-BR":"ah; ai","es":"ah; ay"},"jlpt_level":"N2"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
+          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"HEYHEY! Human SUCKER! Ah, human... human FUCKER!","pt-BR":"HEYHEY! Humano OTÁRIO! Ah, humano... humano IDIOTA!","es":"HEYHEY! ¡Humano PERDEDOR! Ah, humano... ¡humano IDIOTA!"},
+        "literal_meaning":{"en":"human + ah + human + human"}
+      }
+    }
+  ]
+}
