@@ -33,9 +33,9 @@ describe("xpForLevel", () => {
     expect(xpForLevel(5)).toBe(207);
   });
 
-  it("level 10 → 516", () => {
-    // floor(100 * 1.2^9) ≈ floor(516.09...) = 516
-    expect(xpForLevel(10)).toBe(516);
+  it("level 10 → 515", () => {
+    // floor(100 * 1.2^9) = floor(515.978...) = 515 (JS float precision)
+    expect(xpForLevel(10)).toBe(515);
   });
 });
 
