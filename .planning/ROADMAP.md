@@ -56,6 +56,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 ### v4.0 Content Expansion
 
 - [ ] **Phase 21: Anime Scenes & Cultural Vocabulary** - Extend the content universe with iconic anime scenes and anime-anchored cultural vocabulary drills, distributed as Phase 12 unlock rewards (was v2.0 Phase 12)
+- [ ] **Phase 23: Native App Decision Point** - Retention-gated go/no-go on a native app (iOS/Android via React Native or PWA-first); decision only, not build. (Phase 22 reserved for Monetization per Phase 19 exit criteria.)
 
 ## Phase Details
 
@@ -431,3 +432,18 @@ Plans:
   6. When a vocabulary word has a known anime cultural reference, a contextual hint shows inline (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
   7. Scenes are distributed as Phase 12 unlock rewards rather than dumped into the catalog wholesale
 **Plans**: TBD (was v2.0 Phase 12)
+
+### Phase 23: Native App Decision Point
+**Goal**: Make an evidence-based decision on whether to ship a native iOS/Android app, stay PWA-only, or defer indefinitely. This phase produces a decision doc, not an app — actual build work, if approved, would be a separate future milestone.
+**Depends on**: Phase 19 (needs real beta retention data) + at least 3 months of post-launch usage
+**Requirements**: TBD
+**Gate criteria (proceed to native only if ALL true)**:
+  1. ≥500 monthly active users with ≥20% day-30 return (proves the web product has retention worth porting)
+  2. Quantified user demand: ≥10% of active users request a native app unprompted in feedback, OR measurable drop-off attributable to web-only friction (push notifications, offline study, App Store discoverability)
+  3. PWA install + web-push have been shipped and measured first — native is only considered if PWA demonstrably under-delivers
+  4. Runway / capacity exists for 2-3 months of focused app work plus ongoing dual-platform maintenance (or a clear plan to fund it)
+**Success Criteria** (what must be TRUE to close this phase):
+  1. A decision document checked in under `.planning/decisions/native-app.md` with one of: GO (scope + tech choice: React Native vs Expo vs native), NO-GO (stay PWA), or DEFER (revisit at next milestone with specific trigger)
+  2. If GO: target platforms, MVP scope (read-only vs full parity), store-fee impact on monetization model (15-30% Apple/Google cut), and review-process risk are all documented
+  3. If NO-GO or DEFER: the specific retention/demand signals that would flip the decision are written down so this isn't re-litigated on vibes
+**Plans**: TBD (placeholder — only planned if gate criteria above are met)
