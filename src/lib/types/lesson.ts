@@ -69,6 +69,13 @@ export interface Verse {
   translations: Record<string, string>;
   literal_meaning: Localizable;
   cultural_context?: Localizable;
+  /**
+   * Synthetic placeholder verse from scripts/seed/restore-verse-order.ts --fill-gaps.
+   * Covers a synced_lrc line that had no matching verse in the lesson pool so the
+   * lyrics panel has something to highlight at that timestamp. Has no translation,
+   * vocab, or grammar enrichment — UI renders it muted.
+   */
+  filler?: boolean;
 }
 
 export interface VocabEntry {

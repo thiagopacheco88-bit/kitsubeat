@@ -26,19 +26,29 @@ export default function VerseBlock({
       ? { "data-start-ms": String(verse.start_time_ms ?? "") }
       : {};
 
+  const isFiller = verse.filler === true;
+
   return (
     <div
       data-verse-number={verse.verse_number}
       data-active={isActive ? "true" : "false"}
+      data-filler={isFiller ? "true" : undefined}
       {...testDataAttr}
       className={`rounded-lg border p-4 transition-all duration-300 ${
         isActive
           ? "border-red-500/50 bg-red-950/20 shadow-lg shadow-red-500/5"
-          : "border-gray-800 bg-gray-900/50 hover:border-gray-700"
+          : isFiller
+            ? "border-gray-900 bg-gray-950/40 opacity-70 hover:border-gray-800"
+            : "border-gray-800 bg-gray-900/50 hover:border-gray-700"
       }`}
     >
-      <div className="mb-2 text-[10px] font-medium uppercase tracking-wider text-gray-600">
-        Verse {verse.verse_number}
+      <div className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-wider text-gray-600">
+        <span>Verse {verse.verse_number}</span>
+        {isFiller && (
+          <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[9px] text-gray-500">
+            placeholder
+          </span>
+        )}
       </div>
 
       {/* Japanese tokens with furigana */}
@@ -48,19 +58,22 @@ export default function VerseBlock({
         ))}
       </div>
 
-      {/* Romaji */}
-      {showRomaji && (
+      {/* Romaji (suppress for filler — surface already renders as romaji text) */}
+      {showRomaji && !isFiller && (
         <p className="mb-2 text-xs leading-relaxed text-gray-500">
           {verse.tokens.map((t) => t.romaji).join(" ")}
         </p>
       )}
 
-      {/* Translation */}
-      <p className="mb-1.5 text-sm leading-relaxed text-gray-300">
-        {translation}
-      </p>
+      {/* Translation — filler verses skip the placeholder gloss */}
+      {!isFiller && (
+        <p className="mb-1.5 text-sm leading-relaxed text-gray-300">
+          {translation}
+        </p>
+      )}
 
-      {/* Collapsible word-by-word breakdown */}
+      {/* Collapsible word-by-word breakdown — skipped for filler verses */}
+      {!isFiller && (
       <details className="group">
         <summary className="cursor-pointer text-xs text-gray-600 hover:text-gray-400">
           Word-by-word breakdown
@@ -96,6 +109,7 @@ export default function VerseBlock({
           </p>
         )}
       </details>
+      )}
     </div>
   );
 }

@@ -46,12 +46,24 @@ const LYRICS_DIR = join(ROOT, "data/lyrics-cache");
 const MAX_LINES_PER_VERSE = 10;
 const MAX_SKIPS_PER_VERSE = 2;
 
-type Token = { surface: string; romaji?: string };
+type Token = {
+  surface: string;
+  romaji?: string;
+  reading?: string;
+  grammar?: string;
+  grammar_color?: string;
+  meaning?: Record<string, string>;
+  jlpt_level?: string;
+  filler?: boolean;
+};
 type Verse = {
   verse_number: number;
   start_time_ms?: number;
   end_time_ms?: number;
   tokens: Token[];
+  translations?: Record<string, string>;
+  literal_meaning?: Record<string, string>;
+  filler?: boolean;
   [k: string]: unknown;
 };
 type SyncedLine = { startMs: number; text: string };
@@ -109,6 +121,14 @@ function tryMatch(
       }
 
       const trial = acc + chunk;
+      // Two acceptance paths:
+      //  1. target.startsWith(trial): target is still longer than what we've
+      //     accumulated; keep consuming lines.
+      //  2. trial.startsWith(target): this line has pushed us PAST the end of
+      //     the verse — match is complete on this line, even though the synced
+      //     line has trailing adlib like "(Come on!)" that's not in the verse
+      //     tokens. Without this, verses whose synced counterpart includes
+      //     shouts or ad-lib get orphaned (start_time_ms=0).
       if (target.startsWith(trial)) {
         if (startMs < 0) startMs = line.startMs;
         acc = trial;
@@ -120,6 +140,14 @@ function tryMatch(
               : synced[syncedStart + consumed - 1].startMs + 5000;
           return { consumed, startMs, endMs };
         }
+      } else if (trial.startsWith(target) && acc !== "") {
+        if (startMs < 0) startMs = line.startMs;
+        consumed = n + 1;
+        const endMs =
+          syncedStart + consumed < synced.length
+            ? synced[syncedStart + consumed].startMs
+            : synced[syncedStart + consumed - 1].startMs + 5000;
+        return { consumed, startMs, endMs };
       } else {
         // This line doesn't extend the prefix.
         if (acc === "") {
@@ -144,13 +172,14 @@ interface RestoreResult {
   syncedLines: number;
   matched: number;
   skippedLines: number;
+  filledLines: number;
   poolSize: number;
   unusedVerses: number;
   safeToApply: boolean;
   _rebuiltVerses: Verse[];
 }
 
-function restoreOne(slug: string): RestoreResult | null {
+function restoreOne(slug: string, fillGaps: boolean): RestoreResult | null {
   const lessonPath = join(LESSONS_DIR, `${slug}.json`);
   const lyricsPath = join(LYRICS_DIR, `${slug}.json`);
   if (!existsSync(lessonPath) || !existsSync(lyricsPath)) return null;
@@ -178,6 +207,7 @@ function restoreOne(slug: string): RestoreResult | null {
   const usedIdx = new Set<number>();
   let i = 0;
   let skipped = 0;
+  let filled = 0;
 
   while (i < synced.length) {
     let best: MatchAttempt | null = null;
@@ -198,6 +228,46 @@ function restoreOne(slug: string): RestoreResult | null {
       output.push(cloned);
       usedIdx.add(best.verseIdx);
       i += best.consumed;
+    } else if (fillGaps) {
+      // --fill-gaps: when an audible synced line doesn't match any verse in
+      // the lesson pool (typical for romaji-source songs where kuroshiro
+      // dropped lines at generation time), synthesize a minimal filler verse
+      // using the raw synced text as a single "other"-grammar token. This
+      // gives the lyrics panel *something* to highlight at that timestamp
+      // instead of a 5–15s gap where the previous verse stays stuck. The
+      // filler has no translation or vocab — the user still needs to re-run
+      // lesson generation to get proper enrichment, but sync is preserved.
+      const line = synced[i];
+      const text = line.text.trim();
+      if (text) {
+        const endMs =
+          i + 1 < synced.length ? synced[i + 1].startMs : line.startMs + 4000;
+        const filler: Verse = {
+          verse_number: output.length + 1,
+          start_time_ms: line.startMs,
+          end_time_ms: endMs,
+          tokens: [
+            {
+              surface: text,
+              reading: text,
+              romaji: text,
+              grammar: "other",
+              grammar_color: "grey",
+              meaning: { en: "(untranslated lyric line)" },
+              jlpt_level: "unknown",
+              filler: true,
+            } as Token,
+          ],
+          translations: { en: "(untranslated)", "pt-BR": "(não traduzido)", es: "(no traducido)" },
+          literal_meaning: { en: "(placeholder — re-generate lesson for full tokens/translation)" },
+          filler: true,
+        };
+        output.push(filler);
+        filled++;
+      } else {
+        skipped++;
+      }
+      i++;
     } else {
       skipped++;
       i++;
@@ -231,8 +301,9 @@ function restoreOne(slug: string): RestoreResult | null {
     original: pool.length,
     rebuilt: finalVerses.length,
     syncedLines: synced.length,
-    matched: synced.length - skipped,
+    matched: synced.length - skipped - filled,
     skippedLines: skipped,
+    filledLines: filled,
     poolSize: uniq.length,
     unusedVerses,
     safeToApply,
@@ -244,6 +315,7 @@ function restoreOne(slug: string): RestoreResult | null {
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
+const fillGaps = args.includes("--fill-gaps");
 const slugArg = args.find((a) => a.startsWith("--slug="))?.split("=")[1];
 
 const slugs = slugArg
@@ -263,7 +335,7 @@ let skippedNoSynced = 0;
 const unsafeList: string[] = [];
 
 for (const slug of slugs) {
-  const r = restoreOne(slug);
+  const r = restoreOne(slug, fillGaps);
   if (!r) {
     skippedNoSynced++;
     continue;
@@ -272,13 +344,14 @@ for (const slug of slugs) {
   const pct = r.syncedLines ? ((r.matched / r.syncedLines) * 100).toFixed(0) : "0";
   const delta = r.rebuilt - r.original;
   const deltaStr = delta > 0 ? `+${delta}` : String(delta);
+  const fillTag = r.filledLines > 0 ? `  filled=${r.filledLines}` : "";
   console.log(
-    `  [${tag}] ${slug.padEnd(45)} pool=${String(r.poolSize).padStart(2)} → rebuilt=${String(r.rebuilt).padStart(2)} (${deltaStr})  synced ${r.matched}/${r.syncedLines} (${pct}%)  unused=${r.unusedVerses}`
+    `  [${tag}] ${slug.padEnd(45)} pool=${String(r.poolSize).padStart(2)} → rebuilt=${String(r.rebuilt).padStart(2)} (${deltaStr})  synced ${r.matched}/${r.syncedLines} (${pct}%)  unused=${r.unusedVerses}${fillTag}`
   );
 
   if (r.safeToApply) {
     appliedCount++;
-    if (!dryRun && delta !== 0) {
+    if (!dryRun && (delta !== 0 || r.filledLines > 0)) {
       const lessonPath = join(LESSONS_DIR, `${slug}.json`);
       const bakPath = `${lessonPath}.bak`;
       if (!existsSync(bakPath)) {
