@@ -309,6 +309,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 17-legal-copyright-deep-dive-research]: AADC 'design for 13+' posture adopted — no age-band differentiation needed since kitsubeat has no age-inappropriate content
 - [Phase 17-legal-copyright-deep-dive-research]: Parental consent NOT required for UK 13–17 signups under DPA 2018 s.9; parental-awareness nudge is optional UX only
 - [Phase 17-legal-copyright-deep-dive-research]: DPIA is a Phase 18 launch gate per AADC Standard 2 / DPA 2018 s.57; Art. 36 ICO consultation trigger requires lawyer review
+- [Phase 17-legal-copyright-deep-dive-research]: MOSS terminology corrected to OSS/IOSS; Stripe Tax config specced as 14-item Phase 19 checklist
+- [Phase 17-legal-copyright-deep-dive-research]: UK CCR Reg. 37 digital-content waiver identified as most critical consumer-law obligation at monetization
+- [Phase 17-legal-copyright-deep-dive-research]: Brazil CDC Art. 49 waiver scope lawyer-flagged; refund template activate-at-monetization parked
 
 ### Pending Todos
 
