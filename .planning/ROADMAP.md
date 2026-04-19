@@ -383,7 +383,7 @@ Plans:
   5. Emerging regulation: EU AI Act disclosure for WhisperX content; EAA / WCAG 2.1 AA accessibility baseline
   6. Output: requirements checklist Phase 18 implements against, with explicit "requires lawyer" flags on out-of-scope items
 **Context captured**: [.planning/phases/17-legal-copyright-deep-dive-research/17-CONTEXT.md](phases/17-legal-copyright-deep-dive-research/17-CONTEXT.md)
-**Plans:** 3/6 plans executed
+**Plans:** 4/6 plans executed
 Plans:
 - [ ] 17-01-PLAN.md — Copyright section: YouTube ToS clause-by-clause, LRCLIB/Musixmatch v. Genius deep-dive, WhisperX derivative analysis, anime-clip v4.0 lawyer-gate
 - [ ] 17-02-PLAN.md — Privacy & data protection: four-jurisdiction parallel treatment (UK-GDPR, EU-GDPR, LGPD, CCPA), data-field inventory, DSAR/breach/cookies
