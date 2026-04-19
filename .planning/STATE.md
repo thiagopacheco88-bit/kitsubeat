@@ -95,6 +95,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 12-learning-path-and-gamification P02 | 8 | 4 tasks | 9 files |
 | Phase 12 P01 | 9 | 2 tasks | 4 files |
 | Phase 12-learning-path-and-gamification P03 | 35 | 3 tasks | 4 files |
+| Phase 17 P01 | 4 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -297,6 +298,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 12]: Migration applied via tsx neon script; drizzle-kit push has interactive prompt blocking automation
 - [Phase 12-learning-path-and-gamification]: Starter songs: under-the-tree-sim/misa-no-uta-aya-hirano/yume-wo-kanaete-doraemon-mao (user option-b)
 - [Phase 12-learning-path-and-gamification]: AnimeSceneContent.media_url typed string|null — Phase 21 INSERTs without code change
+- [Phase 17-01]: WhisperX forced-alignment transcripts rated 🔴 under US §101 and UK CDPA s.9(3) — lawyer required before v3.0 launch
+- [Phase 17-01]: YouTube embed monetisation boundary ({#lawyer-yt-01}) deferred to pre-Phase 19 — 🟡 safe for free beta
+- [Phase 17-01]: Anime clips Phase 21 planning hard-blocked by {#lawyer-anime-01} — JASRAC + CODA enforcement cannot be self-navigated
 
 ### Pending Todos
 
