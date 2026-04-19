@@ -66,6 +66,10 @@ export default function YouTubeEmbed({
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const watchdogRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // First-play scroll lands the SongLayout root at viewport top on mobile so
+  // the lyrics panel below the video is immediately visible. Only fires once
+  // per mount — the user can scroll freely after that without us fighting them.
+  const hasScrolledOnFirstPlayRef = useRef(false);
 
   // Plan 10-02: embedState is owned by PlayerContext (promoted from local
   // state). YouTubeEmbed drives it via `setEmbedState` so downstream consumers
@@ -154,6 +158,16 @@ export default function YouTubeEmbed({
             if (event.data === 1) {
               // YT.PlayerState.PLAYING = 1
               startTracking();
+              if (
+                !hasScrolledOnFirstPlayRef.current &&
+                typeof window !== "undefined" &&
+                window.matchMedia("(max-width: 1023px)").matches
+              ) {
+                hasScrolledOnFirstPlayRef.current = true;
+                containerRef.current
+                  ?.closest<HTMLElement>("[data-song-layout]")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
             } else {
               stopTracking();
             }

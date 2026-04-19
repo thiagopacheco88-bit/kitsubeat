@@ -17,7 +17,10 @@ export default function SongLayout({
   lyrics: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-4 max-lg:h-[calc(100dvh-12rem)] lg:flex-row">
+    <div
+      data-song-layout
+      className="flex flex-col gap-4 scroll-mt-2 max-lg:h-[calc(100dvh-12rem)] lg:flex-row"
+    >
       <div className="max-lg:shrink-0 lg:w-[55%] lg:shrink-0">{video}</div>
 
       <div className="max-lg:min-h-0 max-lg:flex-1 max-lg:overflow-y-auto lg:w-[45%] lg:max-h-[calc(100vh-10rem)] lg:overflow-y-auto lg:pr-2">
