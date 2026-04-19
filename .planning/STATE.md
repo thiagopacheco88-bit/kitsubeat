@@ -93,6 +93,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 10-advanced-exercises-full-mastery P07 | 7 | 2 tasks | 9 files |
 | Phase 10 P07 | 15 | 2 tasks | 9 files |
 | Phase 12-learning-path-and-gamification P02 | 8 | 4 tasks | 9 files |
+| Phase 12 P01 | 9 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -290,6 +291,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 10-07]: getAllSongs uses correlated subqueries (not LEFT JOIN) for per-user accuracy; matches existing tv-preferred youtube_id selector pattern
 - [Phase 12-learning-path-and-gamification]: Milestone fires only on streak advance not same-day repeat
 - [Phase 12-learning-path-and-gamification]: applyDailyCap exported for Plan 04 direct use
+- [Phase 12]: content jsonb typed as plain jsonb in schema.ts; Plan 03 narrows to RewardSlotContent union
+- [Phase 12]: Researcher starter picks all fail basic-tier check; SUBSTITUTION NEEDED flagged for Plan 03
+- [Phase 12]: Migration applied via tsx neon script; drizzle-kit push has interactive prompt blocking automation
 
 ### Pending Todos
 
