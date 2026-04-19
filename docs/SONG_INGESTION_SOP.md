@@ -54,6 +54,7 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 - Title contains anime name OR `OP`/`ED`/`opening`/`ending` keyword.
 - Channel is on `PREFERRED_CHANNELS` list OR title contains `creditless`/`ncop`/`nced`/`tv size`/`official`.
 - **Prefer Crunchyroll Collection uploads when available** — they have the cleanest studio audio (no YouTube compression artefacts from re-uploads) and canonical creditless visuals. Add `Crunchyroll Collection` to `PREFERRED_CHANNELS` top-tier. Known risk: some Crunchyroll videos are geo-blocked outside their licensed regions — QA in Gate 8 must oEmbed-check the ID *and* confirm `embeddable` via `06-qa-geo-check.ts` (tier ≠ `restricted`). If restricted, keep the fallback source.
+- **For existing geo-restricted songs**, run `scripts/seed/find-youtube-replacements.ts` to discover Crunchyroll / artist-official alternatives. Output goes to `data/crunchyroll-replacements.csv`. **Replacement is not a free swap**: any approved swap invalidates `synced_lrc` (audio changes → timing changes), so it requires re-running Gate 5 (WhisperX) and Gate 7b (restore-verse-order) for that slug before the lesson renders correctly again.
 - **Reject if title contains:** `live`, `cover`, `remix`, `nightcore`, `karaoke`, `instrumental`, `8d`, `slowed`, `reverb`, `acoustic` (unless studio acoustic confirmed).
 
 **Output:** `youtube_id` (full) and `youtube_id_short` (TV) on `songs` row. Run `10-prepare-tv.ts` to materialize TV stub.
