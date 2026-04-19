@@ -377,8 +377,6 @@ Once VAT-registered, HMRC requires:
 
 **`REQ-TAX-UK-07`** — At VAT registration, implement MTD-compatible accounting software. FreeAgent or Xero with a Making Tax Digital connector are Phase 19 implementation options.
 
-[^vat-threshold-2024]: HMRC VAT Notice 700/1 "Should I be registered for VAT?" — https://www.gov.uk/guidance/vat-registration-thresholds. Spring Budget 2024 confirmed £90,000 threshold. The threshold was raised from £85,000 to £90,000 effective 1 April 2024.
-
 ---
 
 ## 3.4 Tax — EU VAT OSS / IOSS
@@ -421,8 +419,6 @@ This means 27 different VAT rates may apply depending on the subscriber's locati
 The non-Union OSS quarterly return reports sales broken down by member state; kitsubeat pays each state's rate through the single OSS filing.
 
 **`REQ-TAX-EU-02`** — Stripe Tax must be configured to detect EU consumer location and apply the correct member-state VAT rate. The Stripe Tax product tax code for digital services handles this automatically when registrations are added (see §3.6).
-
-[^eu-vat-rates]: European Commission VAT Rates database — https://taxation-customs.ec.europa.eu/taxation/vat/eu-vat-rates_en. Rates updated January 2024.
 
 ### §3.4.3 Registration Process for Non-Union OSS
 

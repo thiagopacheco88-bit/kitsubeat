@@ -70,13 +70,13 @@ The following table enumerates every field in `src/lib/db/schema.ts` that consti
 
 ### §2.2 UK-GDPR
 
-**Applicable legislation:** UK General Data Protection Regulation (the retained EU Regulation 2016/679 as it has effect in UK law by virtue of the European Union (Withdrawal) Act 2018, as amended by the Data Protection, Privacy and Electronic Communications (Amendments etc) (EU Exit) Regulations 2019) + Data Protection Act 2018 (DPA 2018). Supervisory authority: Information Commissioner's Office (ICO), Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF. ICO registration number required once kitsubeat processes personal data — registration fee applies for sole traders (£40/year for tier 1).[^1]
+**Applicable legislation:** UK General Data Protection Regulation (the retained EU Regulation 2016/679 as it has effect in UK law by virtue of the European Union (Withdrawal) Act 2018, as amended by the Data Protection, Privacy and Electronic Communications (Amendments etc) (EU Exit) Regulations 2019) + Data Protection Act 2018 (DPA 2018). Supervisory authority: Information Commissioner's Office (ICO), Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF. ICO registration number required once kitsubeat processes personal data — registration fee applies for sole traders (£40/year for tier 1).[^2-1]
 
 #### 1. Applicability to kitsubeat
 
 UK-GDPR applies because kitsubeat is a UK-established controller (sole trader, UK tax resident). UK-GDPR Art. 3(1) — the regulation applies to processing of personal data in the context of the activities of an establishment of a controller in the UK, regardless of where processing takes place. All UK users and all processing performed by kitsubeat's UK-based infrastructure trigger UK-GDPR regardless of the data subject's location. Additionally, UK-GDPR Art. 3(2) applies to non-UK data subjects where kitsubeat offers services to them (free beta = offering services globally). **In practice: UK-GDPR governs all kitsubeat processing from day one.**
 
-**ICO registration:** Controllers who are not exempt must register with the ICO and pay the data protection fee. Sole traders processing personal data are not automatically exempt; exemptions apply only to processing carried out for purely personal/household purposes, some not-for-profit activities, and others listed in Sch. 1 of The Data Protection (Charges and Information) Regulations 2018. kitsubeat must register before launching. Fee tier 1 applies (turnover ≤ £632k AND ≤ 10 employees) = £40/year.[^2] 🚩 LAWYER-REQUIRED {#lawyer-priv-03} — confirm exemption status and register before Phase 18 launch.
+**ICO registration:** Controllers who are not exempt must register with the ICO and pay the data protection fee. Sole traders processing personal data are not automatically exempt; exemptions apply only to processing carried out for purely personal/household purposes, some not-for-profit activities, and others listed in Sch. 1 of The Data Protection (Charges and Information) Regulations 2018. kitsubeat must register before launching. Fee tier 1 applies (turnover ≤ £632k AND ≤ 10 employees) = £40/year.[^2-2] 🚩 LAWYER-REQUIRED {#lawyer-priv-03} — confirm exemption status and register before Phase 18 launch.
 
 #### 2. Lawful Basis per Data Field (UK-GDPR)
 
@@ -107,7 +107,7 @@ UK-GDPR Art. 6 lawful bases. All processing must have one:
 | `sentry_user_context` | Legitimate interests | Art. 6(1)(f) | Pseudonymous error tracking for service reliability; user_id only, no PII in error payload |
 | `posthog_person_props` | Consent (if non-essential analytics cookies used) or Legitimate interests (if server-side only, no cookies) | Art. 6(1)(a) or (f) | Depends on Phase 15 implementation choice 🚩 LAWYER-REQUIRED {#lawyer-priv-04} — confirm analytics approach before Phase 18 wires consent |
 
-**No special-category processing (Art. 9) is present** in the current schema. If age-range data is collected for AADC compliance (under-13 gate), seek legal advice on whether this constitutes data concerning a child that requires additional safeguards.[^3]
+**No special-category processing (Art. 9) is present** in the current schema. If age-range data is collected for AADC compliance (under-13 gate), seek legal advice on whether this constitutes data concerning a child that requires additional safeguards.[^2-3]
 
 #### 3. Data Subject Rights (UK-GDPR)
 
@@ -125,7 +125,7 @@ UK-GDPR Art. 6 lawful bases. All processing must have one:
 
 - **Intake channel:** REQ-PRIV-UK-DSAR-01 — Phase 18 must provide a dedicated email address (e.g. privacy@kitsubeat.com) for Data Subject Access Requests, linked from the Privacy Policy and footer.
 - **Identity verification:** REQ-PRIV-UK-DSAR-02 — Verify identity before releasing data; for registered users, Clerk/Supabase authenticated session is sufficient. For unauthenticated requests, require confirmation of email address on file.
-- **Response window:** REQ-PRIV-UK-DSAR-03 — Respond within **1 calendar month** of receipt (UK-GDPR Art. 12(3)). If complex or numerous requests, can extend by further 2 months — must notify the data subject of extension within first month with reasons.[^4]
+- **Response window:** REQ-PRIV-UK-DSAR-03 — Respond within **1 calendar month** of receipt (UK-GDPR Art. 12(3)). If complex or numerous requests, can extend by further 2 months — must notify the data subject of extension within first month with reasons.[^2-4]
 - **Format:** REQ-PRIV-UK-DSAR-04 — Provide data electronically where the request was made electronically (ICO guidance). Suggested format: JSON export covering all tables in §2.1 keyed to the user_id.
 - **Fee:** REQ-PRIV-UK-DSAR-05 — No fee for standard requests (Art. 12(5)). Charge reasonable fee or refuse manifestly unfounded/excessive requests only.
 - **Refusal grounds:** Art. 12(5) — manifestly unfounded or excessive; Art. 15(4) — third-party rights. If refusing, must inform data subject of right to complain to ICO and seek judicial remedy.
@@ -135,7 +135,7 @@ UK-GDPR Art. 6 lawful bases. All processing must have one:
 
 - **Trigger event:** A personal data breach is any breach of security leading to accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to personal data (UK-GDPR Art. 4(12)).
 - **Supervisory authority:** ICO — report at https://ico.org.uk/for-organisations/report-a-breach/
-- **Deadline to authority:** REQ-PRIV-UK-BREACH-01 — **72 hours** after becoming aware of the breach (UK-GDPR Art. 33(1)). If not possible within 72 hours, report as soon as possible with reasons for delay.[^5]
+- **Deadline to authority:** REQ-PRIV-UK-BREACH-01 — **72 hours** after becoming aware of the breach (UK-GDPR Art. 33(1)). If not possible within 72 hours, report as soon as possible with reasons for delay.[^2-5]
 - **Deadline to data subjects:** REQ-PRIV-UK-BREACH-02 — Without undue delay if breach is likely to result in high risk to the rights and freedoms of natural persons (Art. 34). No specific hour/day limit — "without undue delay" interpreted as as soon as reasonably possible.
 - **Content of notification (to ICO):** Nature of breach; categories and approximate number of data subjects; categories and approximate number of records; name and contact details of DPO or other contact; likely consequences of breach; measures taken or proposed.
 - **Content to data subjects:** Clear plain-language description of nature of breach; contact details; likely consequences; measures taken. Do NOT include information that would disclose security measures.
@@ -145,12 +145,12 @@ UK-GDPR Art. 6 lawful bases. All processing must have one:
 #### 6. Cross-Border Transfer Mechanisms (UK-GDPR)
 
 kitsubeat's infrastructure uses:
-- **Supabase** — database + auth. Default US region (aws-east-1) unless configured otherwise. UK → US transfer. Supabase has signed the UK International Data Transfer Agreement (UK IDTA) with its customers as the transfer mechanism.[^6] REQ-PRIV-UK-XFER-01 — Confirm Supabase region selection before Phase 18; if US region, verify UK IDTA is in place (check Supabase DPA).
-- **Vercel** — edge network. Multi-region including US. UK → US transfer. Vercel provides a UK IDTA addendum.[^7] REQ-PRIV-UK-XFER-02 — Verify Vercel DPA covers UK → US transfer via UK IDTA or adequacy decision.
+- **Supabase** — database + auth. Default US region (aws-east-1) unless configured otherwise. UK → US transfer. Supabase has signed the UK International Data Transfer Agreement (UK IDTA) with its customers as the transfer mechanism.[^2-6] REQ-PRIV-UK-XFER-01 — Confirm Supabase region selection before Phase 18; if US region, verify UK IDTA is in place (check Supabase DPA).
+- **Vercel** — edge network. Multi-region including US. UK → US transfer. Vercel provides a UK IDTA addendum.[^2-7] REQ-PRIV-UK-XFER-02 — Verify Vercel DPA covers UK → US transfer via UK IDTA or adequacy decision.
 - **Clerk** — auth provider (US-based). UK → US transfer. Verify Clerk DPA for UK IDTA. REQ-PRIV-UK-XFER-03 — Confirm Clerk UK IDTA before Phase 18 launch.
 - **Stripe** (future) — US-based. UK adequacy decision does not cover US; UK IDTA required. REQ-PRIV-UK-XFER-04 — Verify Stripe UK IDTA (Stripe publishes a DPA with IDTA addendum).
 
-**Note on UK adequacy decisions:** The UK has granted adequacy for EU/EEA, Switzerland, and a limited list of other countries. The US does not have a UK adequacy decision. The UK extension/recognition of the EU-US Data Privacy Framework is under review as of 2025; verify status at Phase 18 launch.[^8]
+**Note on UK adequacy decisions:** The UK has granted adequacy for EU/EEA, Switzerland, and a limited list of other countries. The US does not have a UK adequacy decision. The UK extension/recognition of the EU-US Data Privacy Framework is under review as of 2025; verify status at Phase 18 launch.[^2-8]
 
 #### 7. Phase 18 Obligations (UK-GDPR)
 
@@ -175,15 +175,15 @@ kitsubeat's infrastructure uses:
 
 ### §2.3 EU-GDPR
 
-**Applicable legislation:** Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR). Note: after Brexit, UK-GDPR and EU-GDPR are distinct instruments; kitsubeat must comply with both in parallel. EU supervisory authorities: lead authority is determined by kitsubeat's main establishment — as a UK controller with no EU establishment, there is no "lead supervisory authority" under the one-stop-shop mechanism; any EU member state DPA can be the competent authority for complaints by data subjects in that state.[^9]
+**Applicable legislation:** Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR). Note: after Brexit, UK-GDPR and EU-GDPR are distinct instruments; kitsubeat must comply with both in parallel. EU supervisory authorities: lead authority is determined by kitsubeat's main establishment — as a UK controller with no EU establishment, there is no "lead supervisory authority" under the one-stop-shop mechanism; any EU member state DPA can be the competent authority for complaints by data subjects in that state.[^2-9]
 
 #### 1. Applicability to kitsubeat
 
 EU-GDPR Art. 3(2) applies to processing by a non-EU controller where processing activities relate to: (a) the offering of goods or services to data subjects in the EU (even free services — "offering" is demonstrated by accepting EU signups, supporting EU languages, or targeting EU users); or (b) monitoring behaviour of data subjects in the EU (FSRS tracks user behaviour — this limb is also triggered). **In practice: EU-GDPR applies to kitsubeat from the first EU-resident signup.** No threshold. No revenue gate.
 
-**EU Art. 27 Representative:** A non-EU controller subject to Art. 3(2) must, in writing, designate a representative in the EU (Art. 27(1)). The representative acts as a contact point for EU supervisory authorities and data subjects.[^10] **Exemption under Art. 27(2):** The requirement does not apply to processing that is occasional, does not include, on a large scale, processing of special categories of data or data relating to criminal convictions and offences, and is unlikely to result in a risk to the rights and freedoms of natural persons, taking into account the nature, context, scope and purposes of the processing. **Analysis for kitsubeat:** Processing is not "occasional" — it is continuous and systematic (FSRS tracking on every user session). kitsubeat therefore likely does NOT qualify for the Art. 27(2) exemption. 🚩 LAWYER-REQUIRED {#lawyer-priv-05} — kitsubeat must designate an EU Art. 27 representative before EU data subjects use the platform. The representative can be an individual or a company in any EU member state (service providers include Lionheart Squared, DP-Dock, Bird & Bird). Typical cost: £500–2,000/year. This is a pre-launch legal requirement for the free beta if any EU resident signs up.
+**EU Art. 27 Representative:** A non-EU controller subject to Art. 3(2) must, in writing, designate a representative in the EU (Art. 27(1)). The representative acts as a contact point for EU supervisory authorities and data subjects.[^2-10] **Exemption under Art. 27(2):** The requirement does not apply to processing that is occasional, does not include, on a large scale, processing of special categories of data or data relating to criminal convictions and offences, and is unlikely to result in a risk to the rights and freedoms of natural persons, taking into account the nature, context, scope and purposes of the processing. **Analysis for kitsubeat:** Processing is not "occasional" — it is continuous and systematic (FSRS tracking on every user session). kitsubeat therefore likely does NOT qualify for the Art. 27(2) exemption. 🚩 LAWYER-REQUIRED {#lawyer-priv-05} — kitsubeat must designate an EU Art. 27 representative before EU data subjects use the platform. The representative can be an individual or a company in any EU member state (service providers include Lionheart Squared, DP-Dock, Bird & Bird). Typical cost: £500–2,000/year. This is a pre-launch legal requirement for the free beta if any EU resident signs up.
 
-**EDPB guidance:** See EDPB Guidelines 3/2018 on the territorial scope of the GDPR.[^11]
+**EDPB guidance:** See EDPB Guidelines 3/2018 on the territorial scope of the GDPR.[^2-11]
 
 #### 2. Lawful Basis per Data Field (EU-GDPR)
 
@@ -234,14 +234,14 @@ EU-GDPR Art. 6 lawful bases. Structure mirrors §2.2; differences noted:
 
 - **Trigger event:** Same definition as UK-GDPR (Art. 4(12)).
 - **Supervisory authority:** Competent national DPA of the EU member state where the affected data subjects reside. In practice, notify the DPA most directly relevant to the breach.
-- REQ-PRIV-EU-BREACH-01: **72 hours** from becoming aware (Art. 33(1)). Same deadline as UK-GDPR.[^12]
+- REQ-PRIV-EU-BREACH-01: **72 hours** from becoming aware (Art. 33(1)). Same deadline as UK-GDPR.[^2-12]
 - REQ-PRIV-EU-BREACH-02: Data subjects notified without undue delay if high risk (Art. 34) — same threshold.
 - REQ-PRIV-EU-BREACH-03: Document all breaches including unreported ones (Art. 33(5)).
 - **Practical note:** If a breach affects both UK and EU data subjects, notify both ICO and the competent EU DPA simultaneously within 72 hours.
 
 #### 6. Cross-Border Transfer Mechanisms (EU-GDPR)
 
-- **Supabase (US region):** EU → US transfer. Following the EU-US Data Privacy Framework (DPF, Commission Implementing Decision (EU) 2023/1795), transfers to DPF-certified US companies are permissible under an adequacy decision. Supabase is DPF-certified.[^13] Verify DPF certification status at Phase 18 launch (DPF certifications are annual; must remain current). If DPF certification lapses, fallback to Standard Contractual Clauses (SCCs — Commission Implementing Decision (EU) 2021/914).
+- **Supabase (US region):** EU → US transfer. Following the EU-US Data Privacy Framework (DPF, Commission Implementing Decision (EU) 2023/1795), transfers to DPF-certified US companies are permissible under an adequacy decision. Supabase is DPF-certified.[^2-13] Verify DPF certification status at Phase 18 launch (DPF certifications are annual; must remain current). If DPF certification lapses, fallback to Standard Contractual Clauses (SCCs — Commission Implementing Decision (EU) 2021/914).
 - REQ-PRIV-EU-XFER-01: Verify Supabase DPF certification before Phase 18; document the transfer mechanism in the Privacy Policy.
 - REQ-PRIV-EU-XFER-02: Verify Vercel DPF certification or SCC availability for EU → US transfer.
 - REQ-PRIV-EU-XFER-03: Verify Clerk DPF certification or SCCs.
@@ -267,11 +267,11 @@ EU-GDPR Art. 6 lawful bases. Structure mirrors §2.2; differences noted:
 
 ### §2.4 LGPD
 
-**Applicable legislation:** Lei Geral de Proteção de Dados Pessoais, Lei nº 13.709/2018 (LGPD), as amended by Lei nº 13.853/2019. Supervisory authority: Autoridade Nacional de Proteção de Dados (ANPD), Esplanada dos Ministérios, Bloco C, Brasília/DF, 70046-900, Brazil. ANPD became operational in 2021; enforcement posture is developing but increasing.[^14]
+**Applicable legislation:** Lei Geral de Proteção de Dados Pessoais, Lei nº 13.709/2018 (LGPD), as amended by Lei nº 13.853/2019. Supervisory authority: Autoridade Nacional de Proteção de Dados (ANPD), Esplanada dos Ministérios, Bloco C, Brasília/DF, 70046-900, Brazil. ANPD became operational in 2021; enforcement posture is developing but increasing.[^2-14]
 
 #### 1. Applicability to kitsubeat
 
-LGPD Art. 3 — the law applies to any processing operation performed by natural or legal persons of public or private law, regardless of the medium, the country of origin of the data or the country where the data is located, provided that: (I) the processing operation is carried out in the national territory of Brazil; (II) the processing activity has the purpose of offering or providing services to individuals located in the Brazilian territory; or (III) the personal data being processed was collected in the Brazilian territory. **Analysis for kitsubeat:** The CONTEXT explicitly identifies a Brazilian audience as material (founder background, Portuguese translation support). Brazilian users signing up triggers limb (II) — offering services to individuals in Brazil. LGPD applies from the first Brazilian signup.[^15]
+LGPD Art. 3 — the law applies to any processing operation performed by natural or legal persons of public or private law, regardless of the medium, the country of origin of the data or the country where the data is located, provided that: (I) the processing operation is carried out in the national territory of Brazil; (II) the processing activity has the purpose of offering or providing services to individuals located in the Brazilian territory; or (III) the personal data being processed was collected in the Brazilian territory. **Analysis for kitsubeat:** The CONTEXT explicitly identifies a Brazilian audience as material (founder background, Portuguese translation support). Brazilian users signing up triggers limb (II) — offering services to individuals in Brazil. LGPD applies from the first Brazilian signup.[^2-15]
 
 **Sole trader note:** LGPD applies to natural persons and legal entities alike; a UK sole trader with Brazilian data subjects is a "controller" (controlador) under LGPD Art. 5(VI) — the natural or legal person responsible for decisions regarding the processing of personal data.
 
@@ -324,7 +324,7 @@ LGPD Art. 18 grants holders (titulares) the following rights:
 #### 4. DSAR Handling Process (LGPD)
 
 - REQ-PRIV-BR-DSAR-01: Same privacy@ email channel handles LGPD requests.
-- REQ-PRIV-BR-DSAR-02: **Response window: 15 days** from request receipt (LGPD Art. 19(I)). **This is stricter than GDPR's 1 month.** REQ-PRIV-BR-DSAR-03 — Phase 18 workflow must be calibrated to the 15-day LGPD deadline when the requester is a Brazilian data subject.[^16]
+- REQ-PRIV-BR-DSAR-02: **Response window: 15 days** from request receipt (LGPD Art. 19(I)). **This is stricter than GDPR's 1 month.** REQ-PRIV-BR-DSAR-03 — Phase 18 workflow must be calibrated to the 15-day LGPD deadline when the requester is a Brazilian data subject.[^2-16]
 - REQ-PRIV-BR-DSAR-04: No fee for standard requests.
 - REQ-PRIV-BR-DSAR-05: If request is denied, provide reasons in simplified language; data subject may file complaint with ANPD.
 - REQ-PRIV-BR-DSAR-06: Requests can be confirmed immediately; data provision can be within 15 days.
@@ -335,7 +335,7 @@ LGPD Art. 18 grants holders (titulares) the following rights:
 
 - **Trigger event:** A security incident that may cause relevant risk or damage to data subjects (LGPD Art. 48). This is a risk-proportionate trigger — not all breaches require notification.
 - **Supervisory authority:** ANPD — https://www.gov.br/anpd/pt-br
-- REQ-PRIV-BR-BREACH-01: **Notify ANPD and data subjects within a "reasonable period"** (LGPD Art. 48 — exact timeframe left to regulation; ANPD Resolution CD/ANPD No. 4/2023 specifies **3 working days** for preliminary notification to ANPD and **2 business days** for individual notification when the breach poses high risk).[^17] 🚩 LAWYER-REQUIRED {#lawyer-priv-07} — verify current ANPD regulatory resolution for breach notification timelines; Resolution CD/ANPD 4/2023 should be checked for amendments before Phase 18 launch.
+- REQ-PRIV-BR-BREACH-01: **Notify ANPD and data subjects within a "reasonable period"** (LGPD Art. 48 — exact timeframe left to regulation; ANPD Resolution CD/ANPD No. 4/2023 specifies **3 working days** for preliminary notification to ANPD and **2 business days** for individual notification when the breach poses high risk).[^2-17] 🚩 LAWYER-REQUIRED {#lawyer-priv-07} — verify current ANPD regulatory resolution for breach notification timelines; Resolution CD/ANPD 4/2023 should be checked for amendments before Phase 18 launch.
 - **Content:** Nature of breach; data affected; data subjects affected; immediate measures taken; risk to data subjects; contact of DPO.
 - REQ-PRIV-BR-BREACH-02: Document all breaches including unreported ones; ANPD may request breach records.
 - REQ-PRIV-BR-BREACH-03: If ANPD breach notification triggered simultaneously with ICO and EU DPA notification, coordinate timing — aim for all three within 72 hours.
@@ -355,7 +355,7 @@ LGPD Art. 33 permits international data transfers only under specific conditions
 - REQ-PRIV-BR-XFER-01: Execute ANPD-compatible standard contractual clauses with Supabase and Vercel for BR → US transfers (or confirm alternative mechanism with legal advice).
 - REQ-PRIV-BR-XFER-02: Document transfer mechanism for all processors in the Privacy Policy (Brazilian Portuguese section).
 
-**DPO (Encarregado) appointment:** LGPD Art. 41 — controllers must appoint a DPO (encarregado). The DPO is an individual or company responsible for communication between the controller, data subjects, and the ANPD. Unlike GDPR's size-based DPO exemption, LGPD Art. 41 appears to require appointment without a small-organisation exemption (though ANPD Resolução CD/ANPD nº 2/2022 may provide guidance for small organisations). 🚩 LAWYER-REQUIRED {#lawyer-priv-09} — confirm whether kitsubeat (as a micro-entity under ANPD guidance) is exempt from formal DPO appointment, or whether the founder can self-appoint; verify current ANPD position on sole trader / micro-entity exemption.[^18]
+**DPO (Encarregado) appointment:** LGPD Art. 41 — controllers must appoint a DPO (encarregado). The DPO is an individual or company responsible for communication between the controller, data subjects, and the ANPD. Unlike GDPR's size-based DPO exemption, LGPD Art. 41 appears to require appointment without a small-organisation exemption (though ANPD Resolução CD/ANPD nº 2/2022 may provide guidance for small organisations). 🚩 LAWYER-REQUIRED {#lawyer-priv-09} — confirm whether kitsubeat (as a micro-entity under ANPD guidance) is exempt from formal DPO appointment, or whether the founder can self-appoint; verify current ANPD position on sole trader / micro-entity exemption.[^2-18]
 
 - REQ-PRIV-BR-DPO-01: Name a DPO (encarregado) contact in the Brazilian-facing Privacy Policy section; this can be the founder initially pending legal advice; publish contact details as required by LGPD Art. 41, §1.
 
@@ -376,7 +376,7 @@ LGPD Art. 33 permits international data transfers only under specific conditions
 
 ### §2.5 CCPA
 
-**Applicable legislation:** California Consumer Privacy Act of 2018, California Civil Code §§ 1798.100–1798.199, as amended by the California Privacy Rights Act of 2020 (CPRA) — effective 1 January 2023. California Privacy Protection Agency (CPPA) is the enforcement agency. California AG has concurrent enforcement authority.[^19]
+**Applicable legislation:** California Consumer Privacy Act of 2018, California Civil Code §§ 1798.100–1798.199, as amended by the California Privacy Rights Act of 2020 (CPRA) — effective 1 January 2023. California Privacy Protection Agency (CPPA) is the enforcement agency. California AG has concurrent enforcement authority.[^2-19]
 
 #### 1. Applicability to kitsubeat
 
@@ -408,12 +408,12 @@ REQ-PRIV-CA-APPLICABILITY-01 — Phase 18 should include a CCPA-formatted "Calif
 
 **"Do Not Sell or Share My Personal Information":** kitsubeat does not sell or share personal information for cross-context behavioural advertising as of the beta. If PostHog or other analytics involve "sharing" of personal information with a third party for advertising purposes, this triggers DNSS obligations once applicable. REQ-PRIV-CA-DNSS-01 — confirm that Phase 15 analytics tool does not constitute "sharing" of personal information under CCPA § 1798.140(ah) (sharing = disclosing for cross-context behavioural advertising).
 
-**Global Privacy Control (GPC):** Once CCPA applies, kitsubeat must honour the GPC signal (a browser opt-out signal) as equivalent to a "Do Not Sell or Share" request. CPPA has confirmed this is mandatory enforcement-wise.[^20]
+**Global Privacy Control (GPC):** Once CCPA applies, kitsubeat must honour the GPC signal (a browser opt-out signal) as equivalent to a "Do Not Sell or Share" request. CPPA has confirmed this is mandatory enforcement-wise.[^2-20]
 
 #### 3. Verifiable Consumer Request Process
 
 - REQ-PRIV-CA-DSAR-01: Same privacy@ email channel handles CCPA requests once applicable.
-- REQ-PRIV-CA-DSAR-02: **Response window: 45 calendar days** from receipt (§ 1798.145(b)(1)). Can extend by one additional 45-day period for complex/numerous requests — notify consumer within first 45-day period.[^21]
+- REQ-PRIV-CA-DSAR-02: **Response window: 45 calendar days** from receipt (§ 1798.145(b)(1)). Can extend by one additional 45-day period for complex/numerous requests — notify consumer within first 45-day period.[^2-21]
 - REQ-PRIV-CA-DSAR-03: Must verify identity before disclosing or deleting; use 2-step verification (email confirmation + account ownership confirmation) for authenticated users.
 - REQ-PRIV-CA-DSAR-04: No fee for standard requests. Up to 2 requests per year free.
 - REQ-PRIV-CA-DSAR-05: If applicable: provide a "Data Download" tool (satisfies "specific pieces of information" right + portability).
@@ -460,7 +460,7 @@ CCPA does not have an equivalence requirement for international data transfers (
 
 ### What Counts as a Non-Essential Cookie
 
-UK PECR Regulation 6 (Privacy and Electronic Communications (EC Directive) Regulations 2003, as amended) requires prior, informed consent before storing or accessing information on a user's device unless the cookie/similar technology is "strictly necessary" for a service the user has explicitly requested.[^22]
+UK PECR Regulation 6 (Privacy and Electronic Communications (EC Directive) Regulations 2003, as amended) requires prior, informed consent before storing or accessing information on a user's device unless the cookie/similar technology is "strictly necessary" for a service the user has explicitly requested.[^2-22]
 
 **Strictly necessary (no consent required):**
 - Session authentication cookies (e.g. Supabase/Clerk session token)
@@ -480,7 +480,7 @@ Under PECR (UK) and ePrivacy Directive 2002/58/EC Art. 5(3) (transposed in EU me
 - **Prior** — obtained before the cookie is set (not retroactive)
 - **Specific** — separate consents per purpose category (analytics ≠ marketing)
 - **Informed** — data subject knows what they are consenting to
-- **Freely given** — rejecting must be as easy as accepting; no "cookie wall" blocking access to the service[^23]
+- **Freely given** — rejecting must be as easy as accepting; no "cookie wall" blocking access to the service[^2-23]
 - **Unambiguous** — affirmative action required; pre-ticked boxes are invalid (EDPB Guidelines 05/2020 on consent)
 - **Revocable** — must be as easy to withdraw consent as to give it; provide consent management preference link accessible from every page
 
@@ -576,48 +576,48 @@ REQ-PRIV-COOKIE-08: Cookie Policy must list every cookie name, purpose, duration
 
 ## 2.9 Footnotes
 
-[^1]: ICO — Fee tiers for 2024/25 are Tier 1 (small organisations): £40/year; Tier 2: £60/year; Tier 3 (large organisations, turnover >£36M): £2,900/year. https://ico.org.uk/for-organisations/data-protection-fee/
+[^2-1]: ICO — Fee tiers for 2024/25 are Tier 1 (small organisations): £40/year; Tier 2: £60/year; Tier 3 (large organisations, turnover >£36M): £2,900/year. https://ico.org.uk/for-organisations/data-protection-fee/
 
-[^2]: ICO Data Protection (Charges and Information) Regulations 2018 — https://www.legislation.gov.uk/uksi/2018/480/contents/made; ICO registration guide: https://ico.org.uk/for-organisations/data-protection-fee/
+[^2-2]: ICO Data Protection (Charges and Information) Regulations 2018 — https://www.legislation.gov.uk/uksi/2018/480/contents/made; ICO registration guide: https://ico.org.uk/for-organisations/data-protection-fee/
 
-[^3]: UK-GDPR Art. 9 special categories; ICO guidance on special category data — https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/special-category-data/
+[^2-3]: UK-GDPR Art. 9 special categories; ICO guidance on special category data — https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/special-category-data/
 
-[^4]: UK-GDPR Art. 12(3): response within "one month of receipt of the request"; Art. 12(4) for extension. ICO Right of access guide: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/right-of-access/
+[^2-4]: UK-GDPR Art. 12(3): response within "one month of receipt of the request"; Art. 12(4) for extension. ICO Right of access guide: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/right-of-access/
 
-[^5]: UK-GDPR Art. 33(1): "without undue delay and, where feasible, not later than 72 hours after having become aware." ICO breach notification guidance: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-data-breaches/personal-data-breaches-a-guide/
+[^2-5]: UK-GDPR Art. 33(1): "without undue delay and, where feasible, not later than 72 hours after having become aware." ICO breach notification guidance: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-data-breaches/personal-data-breaches-a-guide/
 
-[^6]: Supabase Data Processing Addendum including UK IDTA: https://supabase.com/legal/dpa
+[^2-6]: Supabase Data Processing Addendum including UK IDTA: https://supabase.com/legal/dpa
 
-[^7]: Vercel Data Processing Addendum: https://vercel.com/legal/dpa
+[^2-7]: Vercel Data Processing Addendum: https://vercel.com/legal/dpa
 
-[^8]: ICO adequacy decisions list: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/international-transfers/transfers-to-other-countries/
+[^2-8]: ICO adequacy decisions list: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/international-transfers/transfers-to-other-countries/
 
-[^9]: EU-GDPR Art. 55 — competence of supervisory authorities; Art. 56 — competence of lead supervisory authority (applies only to cross-border processing by EU-established controllers). For non-EU controllers under Art. 3(2), the competent authority is the DPA of the member state where the data subject resides.
+[^2-9]: EU-GDPR Art. 55 — competence of supervisory authorities; Art. 56 — competence of lead supervisory authority (applies only to cross-border processing by EU-established controllers). For non-EU controllers under Art. 3(2), the competent authority is the DPA of the member state where the data subject resides.
 
-[^10]: EU-GDPR Art. 27 — Representatives of controllers or processors not established in the Union. EDPB Guidelines 3/2018 on the territorial scope of the GDPR (Art. 3): https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32018-territorial-scope-gdpr-article-3_en
+[^2-10]: EU-GDPR Art. 27 — Representatives of controllers or processors not established in the Union. EDPB Guidelines 3/2018 on the territorial scope of the GDPR (Art. 3): https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32018-territorial-scope-gdpr-article-3_en
 
-[^11]: EDPB Guidelines 3/2018 — territorial scope: https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32018-territorial-scope-gdpr-article-3_en; EDPB Art. 27 FAQ: https://edpb.europa.eu/sme-data-protection-guide/what-gdpr-requires-non-eu-businesses_en
+[^2-11]: EDPB Guidelines 3/2018 — territorial scope: https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32018-territorial-scope-gdpr-article-3_en; EDPB Art. 27 FAQ: https://edpb.europa.eu/sme-data-protection-guide/what-gdpr-requires-non-eu-businesses_en
 
-[^12]: EU-GDPR Art. 33(1): "without undue delay and, where feasible, not later than 72 hours." EDPB Guidelines 9/2022 on personal data breach notification: https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-92022-personal-data-breach-notification_en
+[^2-12]: EU-GDPR Art. 33(1): "without undue delay and, where feasible, not later than 72 hours." EDPB Guidelines 9/2022 on personal data breach notification: https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-92022-personal-data-breach-notification_en
 
-[^13]: EU-US Data Privacy Framework — Commission Implementing Decision (EU) 2023/1795: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023D1795. DPF participant list: https://www.dataprivacyframework.gov/list
+[^2-13]: EU-US Data Privacy Framework — Commission Implementing Decision (EU) 2023/1795: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023D1795. DPF participant list: https://www.dataprivacyframework.gov/list
 
-[^14]: ANPD official website: https://www.gov.br/anpd/pt-br. LGPD text (Portuguese): https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
+[^2-14]: ANPD official website: https://www.gov.br/anpd/pt-br. LGPD text (Portuguese): https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm
 
-[^15]: LGPD Art. 3 — territorial scope. ANPD guidance note on extraterritorial application (Portuguese): available on anpd.gov.br publications.
+[^2-15]: LGPD Art. 3 — territorial scope. ANPD guidance note on extraterritorial application (Portuguese): available on anpd.gov.br publications.
 
-[^16]: LGPD Art. 19(I): "O titular pode solicitar ao controlador, a qualquer momento e mediante requisição: I - confirmação da existência de tratamento; II - acesso aos dados... O controlador deverá responder às solicitações do titular... em prazo de até 15 (quinze) dias corridos." (15 calendar days)
+[^2-16]: LGPD Art. 19(I): "O titular pode solicitar ao controlador, a qualquer momento e mediante requisição: I - confirmação da existência de tratamento; II - acesso aos dados... O controlador deverá responder às solicitações do titular... em prazo de até 15 (quinze) dias corridos." (15 calendar days)
 
-[^17]: ANPD Resolução CD/ANPD nº 4, de 24 de fevereiro de 2023 — Incident notification regulation. Available at: https://www.in.gov.br/web/dou/-/resolucao-cd/anpd-n-4-de-24-de-fevereiro-de-2023-465975831. Note: verify for amendments as of Phase 18 implementation date.
+[^2-17]: ANPD Resolução CD/ANPD nº 4, de 24 de fevereiro de 2023 — Incident notification regulation. Available at: https://www.in.gov.br/web/dou/-/resolucao-cd/anpd-n-4-de-24-de-fevereiro-de-2023-465975831. Note: verify for amendments as of Phase 18 implementation date.
 
-[^18]: LGPD Art. 41; ANPD Resolução CD/ANPD nº 2/2022 on small and medium entities: https://www.gov.br/anpd/pt-br/documentos-e-publicacoes/documentos-de-publicacoes/resolucoes/resolucao-cd-anpd-no-2-de-27-de-janeiro-de-2022.pdf
+[^2-18]: LGPD Art. 41; ANPD Resolução CD/ANPD nº 2/2022 on small and medium entities: https://www.gov.br/anpd/pt-br/documentos-e-publicacoes/documentos-de-publicacoes/resolucoes/resolucao-cd-anpd-no-2-de-27-de-janeiro-de-2022.pdf
 
-[^19]: CCPA text — California Civil Code § 1798.100 et seq.: https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=1.81.5. CPRA — California Proposition 24 (2020), effective 1 January 2023.
+[^2-19]: CCPA text — California Civil Code § 1798.100 et seq.: https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?lawCode=CIV&division=3.&title=1.81.5. CPRA — California Proposition 24 (2020), effective 1 January 2023.
 
-[^20]: CPPA enforcement guidance on Global Privacy Control: https://cppa.ca.gov/regulations/. AG press release confirming GPC enforcement: https://oag.ca.gov/news/press-releases/attorney-general-bonta-issues-press-release-re-gpc (verify URL at Phase 18 time).
+[^2-20]: CPPA enforcement guidance on Global Privacy Control: https://cppa.ca.gov/regulations/. AG press release confirming GPC enforcement: https://oag.ca.gov/news/press-releases/attorney-general-bonta-issues-press-release-re-gpc (verify URL at Phase 18 time).
 
-[^21]: CCPA § 1798.145(b)(1): "A business that receives a consumer request pursuant to Sections 1798.105, 1798.106, 1798.110, or 1798.115 shall... respond to the consumer within 45 days of receiving a verifiable consumer request."
+[^2-21]: CCPA § 1798.145(b)(1): "A business that receives a consumer request pursuant to Sections 1798.105, 1798.106, 1798.110, or 1798.115 shall... respond to the consumer within 45 days of receiving a verifiable consumer request."
 
-[^22]: UK PECR Regulation 6 — Privacy and Electronic Communications (EC Directive) Regulations 2003 as amended: https://www.legislation.gov.uk/uksi/2003/2426/regulation/6; ICO cookie guidance (2019, updated 2023): https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/privacy-in-the-digital-environment/guide-to-pecr/guidance-on-the-use-of-cookies-and-similar-technologies/
+[^2-22]: UK PECR Regulation 6 — Privacy and Electronic Communications (EC Directive) Regulations 2003 as amended: https://www.legislation.gov.uk/uksi/2003/2426/regulation/6; ICO cookie guidance (2019, updated 2023): https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/privacy-in-the-digital-environment/guide-to-pecr/guidance-on-the-use-of-cookies-and-similar-technologies/
 
-[^23]: EDPB Guidelines 05/2020 on consent under Regulation 2016/679, version 1.1, adopted 4 May 2020: https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en. EDPB Guidelines 03/2022 on deceptive design patterns in social media (banner design): https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-032022-dark-patterns-social-media-platform_en
+[^2-23]: EDPB Guidelines 05/2020 on consent under Regulation 2016/679, version 1.1, adopted 4 May 2020: https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-052020-consent-under-regulation-2016679_en. EDPB Guidelines 03/2022 on deceptive design patterns in social media (banner design): https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-032022-dark-patterns-social-media-platform_en
