@@ -1,53 +1,24 @@
 /**
- * dedupe-lesson-verses.ts — Remove duplicate verses from lessons-cache JSONs.
+ * dedupe-lesson-verses.ts — NEUTRALIZED.
  *
- * Duplicates can occur when apply-verse-patch.ts is re-run on an already-
- * patched lesson (the patch is idempotent per insertion point, not globally).
+ * This script previously keyed dedup on concatenated-surface tokens, which
+ * collapsed legitimate chorus repetitions (verses with identical text that
+ * play 2+ times in a song). Running it over the 130-song catalog on 2026-04-19
+ * (commit 43c0dac) flattened ~350 chorus repeats and broke in-app lyric sync
+ * on kitsubeat.vercel.app (reported by user for /songs/sign-flow and
+ * /songs/guren-does).
  *
- * Two verses are duplicates if their concatenated-surface-tokens match.
- * Keeps the first occurrence and renumbers verse_number sequentially.
- *
- * Usage:
- *   npx tsx scripts/seed/dedupe-lesson-verses.ts
+ * Do NOT run this script. If apply-verse-patch.ts produces duplicates from
+ * repeat invocations, fix idempotency in apply-verse-patch.ts directly.
+ * To re-align verse order and restore chorus repetitions against WhisperX
+ * synced_lrc, use:
+ *   npx tsx scripts/seed/restore-verse-order.ts
  */
 
-import { readFileSync, readdirSync, writeFileSync } from "fs";
-import { join, resolve } from "path";
-import { fileURLToPath } from "url";
-
-const ROOT = resolve(fileURLToPath(new URL(".", import.meta.url)), "../..");
-const LESSONS_DIR = join(ROOT, "data/lessons-cache");
-
-type Verse = {
-  verse_number: number;
-  tokens: { surface: string }[];
-  [k: string]: unknown;
-};
-
-let totalRemoved = 0;
-let affectedFiles = 0;
-
-for (const file of readdirSync(LESSONS_DIR).filter((f) => f.endsWith(".json"))) {
-  const path = join(LESSONS_DIR, file);
-  const lesson = JSON.parse(readFileSync(path, "utf-8"));
-  const verses: Verse[] = lesson.verses ?? [];
-  const seen = new Set<string>();
-  const kept: Verse[] = [];
-  for (const v of verses) {
-    const sig = v.tokens.map((t) => t.surface).join("");
-    if (seen.has(sig)) continue;
-    seen.add(sig);
-    kept.push(v);
-  }
-  const removed = verses.length - kept.length;
-  if (removed > 0) {
-    kept.forEach((v, i) => (v.verse_number = i + 1));
-    lesson.verses = kept;
-    writeFileSync(path, JSON.stringify(lesson, null, 2), "utf-8");
-    console.log(`[dedupe] ${file.replace(".json", "")}: ${verses.length} → ${kept.length} (-${removed})`);
-    totalRemoved += removed;
-    affectedFiles++;
-  }
-}
-
-console.log(`\n${affectedFiles} file(s) changed, ${totalRemoved} duplicate verse(s) removed`);
+console.error(
+  "[dedupe-lesson-verses] DISABLED — this script collapses chorus repetitions.\n" +
+    "Use scripts/seed/restore-verse-order.ts to realign verse order against\n" +
+    "synced_lrc (which preserves repeats). Fix apply-verse-patch.ts idempotency\n" +
+    "if you're trying to clean up re-apply duplicates."
+);
+process.exit(1);

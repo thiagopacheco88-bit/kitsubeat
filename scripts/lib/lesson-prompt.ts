@@ -104,10 +104,10 @@ function buildInstructionsBlock(): string {
 Generate a complete lesson JSON object for this anime song following these rules exactly:
 
 ### 1. Verse Segmentation
-- Split the lyrics into logical verses. Each chorus counts as one verse even if it repeats.
-- **Coverage requirement:** every Japanese lyric line in the Raw Lyrics block above must appear in the tokens of at least one verse. Only English-only lines (e.g. "Oh oh oh") and pure instrumental markers (e.g. "[Guitar solo]") may be omitted. Do not silently drop Japanese filler or low-content lines — the LyricsPanel highlights every line in real time, and unmapped lines cause stale highlights during playback.
-- Number verses starting at 1 (verse_number field).
-- Set start_time_ms and end_time_ms to 0 for now — these will be populated by the WhisperX timing pipeline in a separate step.
+- Split the lyrics into logical verses. Emit **each unique stanza exactly once** — if the same chorus text appears multiple times in the Raw Lyrics block, include it only once in the \`verses\` array. The post-processing script \`scripts/seed/restore-verse-order.ts\` expands chorus repetitions from WhisperX \`synced_lrc\` after you generate the lesson, so your output should be the de-duplicated canonical verse list.
+- **Coverage requirement:** every unique Japanese lyric line in the Raw Lyrics block above must appear in the tokens of at least one verse. Only English-only lines (e.g. "Oh oh oh") and pure instrumental markers (e.g. "[Guitar solo]") may be omitted. Do not silently drop Japanese filler or low-content lines — the LyricsPanel highlights every line in real time, and unmapped unique lines cannot be restored by post-processing.
+- Number verses starting at 1 (verse_number field). Order verses as they first appear in the song.
+- Set start_time_ms and end_time_ms to 0 for now — the WhisperX timing pipeline and \`restore-verse-order.ts\` populate these.
 
 ### 2. Token-Level Breakdown
 For each verse, produce a \`tokens\` array with one entry per meaningful word/particle:

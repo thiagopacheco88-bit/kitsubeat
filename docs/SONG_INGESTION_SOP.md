@@ -27,6 +27,7 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 | 11 | Lesson tokens emitted in romaji instead of kana/kanji | LCS alignment to TV lyrics fails at 0% overlap; LyricsPanel match fails | Gate 7: script-variant check (reject if >5% tokens are latin-only) |
 | 12 | TV YouTube video contains only voiceover / silence / wrong song | WhisperX transcribes the outro "ご視聴ありがとうございました"; 0% LCS vs full | Gate 2: score the TV candidate's audio content (reject on >50% non-song duration) |
 | 13 | English interjection splits Japanese into <6-char chunks | Audit reports false-negative unmatched even after verse added | Gate 7a: always include English-in-Japanese tokens as `grammar: "other"` |
+| 14 | Chorus-repetition collapse (surface-signature dedup) | App sync drifts after first chorus; chorus lines never re-highlight on 2nd/3rd play | Gate 7b: `restore-verse-order.ts` re-expands chorus repeats from `synced_lrc`. **Never** run `dedupe-lesson-verses.ts` — it is neutralized for this reason (see 2026-04-19 regression: 350 chorus verses flattened across 30 files). If `apply-verse-patch.ts` produces duplicates from a re-run, fix its idempotency — don't dedup downstream. |
 
 ## The 8 gates
 
@@ -52,6 +53,7 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 - Score ≥ 30 to auto-accept. Score 0-29 → log for manual review. Score < 0 → reject.
 - Title contains anime name OR `OP`/`ED`/`opening`/`ending` keyword.
 - Channel is on `PREFERRED_CHANNELS` list OR title contains `creditless`/`ncop`/`nced`/`tv size`/`official`.
+- **Prefer Crunchyroll Collection uploads when available** — they have the cleanest studio audio (no YouTube compression artefacts from re-uploads) and canonical creditless visuals. Add `Crunchyroll Collection` to `PREFERRED_CHANNELS` top-tier. Known risk: some Crunchyroll videos are geo-blocked outside their licensed regions — QA in Gate 8 must oEmbed-check the ID *and* confirm `embeddable` via `06-qa-geo-check.ts` (tier ≠ `restricted`). If restricted, keep the fallback source.
 - **Reject if title contains:** `live`, `cover`, `remix`, `nightcore`, `karaoke`, `instrumental`, `8d`, `slowed`, `reverb`, `acoustic` (unless studio acoustic confirmed).
 
 **Output:** `youtube_id` (full) and `youtube_id_short` (TV) on `songs` row. Run `10-prepare-tv.ts` to materialize TV stub.
@@ -149,6 +151,22 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 - **Unusual bracket characters** (`《 》` book-quote markers): the normalize regex doesn't strip them. Include them as "other" tokens so the verse blob contains them, OR add to the normalize regex in both the audit AND `LyricsPanel.buildVerseTiming` for consistency.
 - **Verses with `start_time_ms: 0, end_time_ms: 0`** on new patches are acceptable — timing comes from `synced_lrc` matching at render time, not from these fields.
 
+### Gate 7b — Verse-order normalization (chorus-repeat expansion)
+
+**Tool:** `scripts/seed/restore-verse-order.ts` (run per slug or `--all` after Gate 7a).
+
+**What it does:** walks `data/lyrics-cache/<slug>.json` `synced_lrc` in order; for each line, finds the matching verse from `data/lessons-cache/<slug>.json` by normalized-surface prefix match (falls back to romaji match for romaji-transcribed songs). Emits a rebuilt `lesson.verses` that follows the audio order **with chorus repetitions reinstated** — e.g. if `synced_lrc` has the chorus lines at both 60s and 189s, the output has two chorus verses with those timings.
+
+**Why this exists:** `buildVerseTiming` in [src/app/songs/[slug]/components/LyricsPanel.tsx](../src/app/songs/[slug]/components/LyricsPanel.tsx) walks verses sequentially against `synced_lrc`. If chorus is collapsed to a single verse in the lesson, only the *first* chorus play highlights; later plays go silent AND advance `lrcIdx` confusingly, drifting every subsequent verse.
+
+**Pass criterion:** `output_verses ≥ unique_verses` (strictly ≥ is fine; `>` means at least one chorus repeat was restored). Unmatched unique verses are appended at the end untimed (no content loss).
+
+**Safety:** refuses to write for songs where nothing matched (e.g. romaji-only `synced_lrc` vs kanji-only lesson tokens when verse `romaji` tokens are empty). Writes `.bak` next to each modified JSON.
+
+**Idempotent:** re-running on an already-expanded lesson is a no-op (every chorus appearance already has its synced line).
+
+**Forbidden:** do **not** run `dedupe-lesson-verses.ts` (neutralized). If `apply-verse-patch.ts` produced duplicates from a re-invocation, fix the insertion-guard in `apply-verse-patch.ts` instead of dedup-ing downstream.
+
 ### Gate 8 — Pre-insert verification + DB write
 
 **Pre-insert:**
@@ -179,6 +197,8 @@ Gate 5 full      Gate 5 TV     ← parallel, both run WhisperX
 Gate 7           Gate 6 (derive from full)
   ↓                ↓
 Gate 7a (audit)    │
+  ↓                │
+Gate 7b (verse-order normalize against synced_lrc)
   ↓                ↓
               Gate 8
 ```
