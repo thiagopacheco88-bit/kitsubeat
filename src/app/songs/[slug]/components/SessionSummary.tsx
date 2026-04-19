@@ -7,6 +7,7 @@ import StarDisplay from "./StarDisplay";
 import MasteryDetailPopover from "./MasteryDetailPopover";
 import type { Question } from "@/lib/exercises/generator";
 import type { AnswerRecord } from "@/stores/exerciseSession";
+import { xpWithinCurrentLevel } from "@/lib/gamification/level-curve";
 
 interface SessionSummaryProps {
   questions: Question[];
@@ -18,6 +19,13 @@ interface SessionSummaryProps {
   userId: string;
   onRetry: () => void;
   onClose: () => void;
+  /**
+   * IANA timezone from Intl.DateTimeFormat().resolvedOptions().timeZone.
+   * Read ONCE in ExerciseSession on mount and threaded here to avoid calling
+   * Intl inside the async save() callback (no-op difference but cleaner).
+   * Falls back to 'UTC' if not provided.
+   */
+  tz?: string;
 }
 
 function formatTime(ms: number): string {
@@ -44,6 +52,7 @@ export default function SessionSummary({
   songVersionId,
   userId,
   onRetry,
+  tz,
 }: SessionSummaryProps) {
   const [saving, setSaving] = useState(true);
   const [stars, setStars] = useState<0 | 1 | 2 | 3>(0);
@@ -60,6 +69,21 @@ export default function SessionSummary({
   } | null>(null);
   const [saveError, setSaveError] = useState(false);
   const [wordsExpanded, setWordsExpanded] = useState(false);
+  // Phase 12 Plan 04 — gamification state
+  const [xpGained, setXpGained] = useState(0);
+  const [xpTotal, setXpTotal] = useState(0);
+  const [currentLevel, setCurrentLevel] = useState(1);
+  const [previousLevel, setPreviousLevel] = useState(1);
+  const [leveledUp, setLeveledUp] = useState(false);
+  const [streakCurrent, setStreakCurrent] = useState(0);
+  const [graceApplied, setGraceApplied] = useState(false);
+  const [milestoneXp, setMilestoneXp] = useState(0);
+  const [rewardSlotPreview, setRewardSlotPreview] = useState<{
+    id: string;
+    label: string;
+    level_threshold: number;
+  } | null>(null);
+  const [pathAdvancedTo, setPathAdvancedTo] = useState<string | null>(null);
 
   // --- Compute stats ---
   const totalQuestions = questions.length;
@@ -92,9 +116,11 @@ export default function SessionSummary({
         const result = await saveSessionResults({
           userId,
           songVersionId,
+          songSlug,
           answers: answerArray,
           mode,
           durationMs: totalTimeMs,
+          tz: tz ?? Intl.DateTimeFormat().resolvedOptions().timeZone,
         });
 
         setStars(result.stars as 0 | 1 | 2 | 3);
@@ -102,6 +128,22 @@ export default function SessionSummary({
         setBonusBadge(result.bonusBadge);
         setPreviousBonusBadge(result.previousBonusBadge);
         setSongMastery(result.songMastery);
+        // Phase 12 Plan 04 — store gamification fields
+        setXpGained(result.xpGained);
+        setXpTotal(result.xpTotal);
+        setCurrentLevel(result.currentLevel);
+        setPreviousLevel(result.previousLevel);
+        setLeveledUp(result.leveledUp);
+        setStreakCurrent(result.streakCurrent);
+        setGraceApplied(result.graceApplied);
+        setMilestoneXp(result.milestoneXp);
+        setRewardSlotPreview(result.rewardSlotPreview);
+        setPathAdvancedTo(result.pathAdvancedTo);
+        // Level-up console signal for Plan 06 overlay wiring
+        if (result.leveledUp) {
+          // eslint-disable-next-line no-console
+          console.info("[gamification] level up to", result.currentLevel);
+        }
       } catch (err) {
         console.error("Failed to save session results:", err);
         setSaveError(true);
@@ -285,6 +327,73 @@ export default function SessionSummary({
         </p>
       )}
 
+      {/* Phase 12 Plan 04 — Gamification summary rows */}
+      {!saving && xpGained > 0 && (
+        <div
+          className="w-full max-w-xs flex flex-col gap-2 rounded-lg border border-gray-700 bg-gray-900/80 px-4 py-3"
+          data-level-up={leveledUp ? currentLevel : ""}
+        >
+          {/* XP gained row */}
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-gray-400">XP earned</span>
+            <span className="font-semibold text-yellow-400">+{xpGained} XP</span>
+          </div>
+          {milestoneXp > 0 && (
+            <p className="text-xs text-yellow-300">
+              +{milestoneXp} streak milestone bonus!
+            </p>
+          )}
+
+          {/* Streak flame */}
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-gray-400">Streak</span>
+            <span className="font-semibold text-orange-400">
+              {"\uD83D\uDD25"} {streakCurrent} day{streakCurrent === 1 ? "" : "s"}
+            </span>
+          </div>
+          {graceApplied && (
+            <p className="text-xs text-sky-300">
+              Phew &mdash; your streak survived today 🎐
+            </p>
+          )}
+
+          {/* Level progress bar */}
+          {(() => {
+            const { xpInLevel, xpToNext } = xpWithinCurrentLevel(xpTotal);
+            const pct = xpToNext > 0 ? Math.round((xpInLevel / xpToNext) * 100) : 100;
+            return (
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center justify-between text-xs text-gray-400">
+                  <span>Level {currentLevel}</span>
+                  <span>
+                    {xpInLevel} / {xpToNext} XP to Level {currentLevel + 1}
+                  </span>
+                </div>
+                <div className="h-2 w-full overflow-hidden rounded-full bg-gray-800">
+                  <div
+                    className="h-full bg-indigo-500 transition-all"
+                    style={{ width: `${pct}%` }}
+                    aria-label={`${pct}% progress to Level ${currentLevel + 1}`}
+                  />
+                </div>
+              </div>
+            );
+          })()}
+
+          {/* Next reward slot preview — M4: render NOTHING if null */}
+          {rewardSlotPreview !== null && (
+            <div className="mt-1 flex flex-col gap-0.5 border-t border-gray-700 pt-2">
+              <p className="text-xs text-gray-500">
+                Next reward at Level {rewardSlotPreview.level_threshold}
+              </p>
+              <p className="text-xs font-medium text-gray-300">
+                {rewardSlotPreview.label}
+              </p>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* CTA buttons */}
       <div className="flex flex-col items-center gap-3 w-full max-w-xs">
         <button
@@ -293,6 +402,15 @@ export default function SessionSummary({
         >
           Practice Again
         </button>
+        {/* Continue Path — shown when path advanced this session */}
+        {pathAdvancedTo !== null && (
+          <Link
+            href="/path"
+            className="w-full rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-700 text-center"
+          >
+            Continue Path
+          </Link>
+        )}
         <Link
           href="/songs"
           className="w-full rounded-lg border border-gray-600 bg-gray-800 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700 text-center"
