@@ -1,0 +1,1124 @@
+{
+  "patches": [
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "Always",
+            "reading": "Always",
+            "romaji": "Always",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "Always",
+              "pt-BR": "Always",
+              "es": "Always"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "(",
+            "reading": "(",
+            "romaji": "(",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "(",
+              "pt-BR": "(",
+              "es": "("
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "叫べ",
+            "reading": "さけべ",
+            "romaji": "sakebe",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "叫べ",
+              "pt-BR": "叫べ",
+              "es": "叫べ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "shout",
+            "reading": "shout",
+            "romaji": "shout",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "shout",
+              "pt-BR": "shout",
+              "es": "shout"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "out",
+            "reading": "out",
+            "romaji": "out",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "out",
+              "pt-BR": "out",
+              "es": "out"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": ")",
+            "reading": ")",
+            "romaji": ")",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": ")",
+              "pt-BR": ")",
+              "es": ")"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "all",
+            "reading": "all",
+            "romaji": "all",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "all",
+              "pt-BR": "all",
+              "es": "all"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "time",
+            "reading": "time",
+            "romaji": "time",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "time",
+              "pt-BR": "time",
+              "es": "time"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "(",
+            "reading": "(",
+            "romaji": "(",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "(",
+              "pt-BR": "(",
+              "es": "("
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "掴め",
+            "reading": "つかめ",
+            "romaji": "tsukame",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "掴め",
+              "pt-BR": "掴め",
+              "es": "掴め"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "catch",
+            "reading": "catch",
+            "romaji": "catch",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "catch",
+              "pt-BR": "catch",
+              "es": "catch"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "up",
+            "reading": "up",
+            "romaji": "up",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "up",
+              "pt-BR": "up",
+              "es": "up"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": ")",
+            "reading": ")",
+            "romaji": ")",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": ")",
+              "pt-BR": ")",
+              "es": ")"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) Always (叫べ shout out) all time (掴め catch up)",
+          "pt-BR": "(auto-coverage) Always (叫べ shout out) all time (掴め catch up)",
+          "es": "(auto-coverage) Always (叫べ shout out) all time (掴め catch up)"
+        },
+        "literal_meaning": {
+          "en": "Always + ( + 叫べ + shout + out + ) + all + time + ( + 掴め + catch + up + )"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "今",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "今",
+              "pt-BR": "今",
+              "es": "今"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "いま",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "いま",
+              "pt-BR": "いま",
+              "es": "いま"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "イマ",
+            "reading": "イマ",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "イマ",
+              "pt-BR": "イマ",
+              "es": "イマ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "flame",
+            "reading": "flame",
+            "romaji": "flame",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "flame",
+              "pt-BR": "flame",
+              "es": "flame"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "up",
+            "reading": "up",
+            "romaji": "up",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "up",
+              "pt-BR": "up",
+              "es": "up"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "(",
+            "reading": "(",
+            "romaji": "(",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "(",
+              "pt-BR": "(",
+              "es": "("
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "catch",
+            "reading": "catch",
+            "romaji": "catch",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "catch",
+              "pt-BR": "catch",
+              "es": "catch"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "the",
+            "reading": "the",
+            "romaji": "the",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "the",
+              "pt-BR": "the",
+              "es": "the"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "fire",
+            "reading": "fire",
+            "romaji": "fire",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "fire",
+              "pt-BR": "fire",
+              "es": "fire"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": ")",
+            "reading": ")",
+            "romaji": ")",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": ")",
+              "pt-BR": ")",
+              "es": ")"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 今 いま イマ flame up (catch the fire)",
+          "pt-BR": "(auto-coverage) 今 いま イマ flame up (catch the fire)",
+          "es": "(auto-coverage) 今 いま イマ flame up (catch the fire)"
+        },
+        "literal_meaning": {
+          "en": "今 + いま + イマ + flame + up + ( + catch + the + fire + )"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "今",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "今",
+              "pt-BR": "今",
+              "es": "今"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "いま",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "いま",
+              "pt-BR": "いま",
+              "es": "いま"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "イマ",
+            "reading": "イマ",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "イマ",
+              "pt-BR": "イマ",
+              "es": "イマ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "flame",
+            "reading": "flame",
+            "romaji": "flame",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "flame",
+              "pt-BR": "flame",
+              "es": "flame"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "up",
+            "reading": "up",
+            "romaji": "up",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "up",
+              "pt-BR": "up",
+              "es": "up"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "(",
+            "reading": "(",
+            "romaji": "(",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "(",
+              "pt-BR": "(",
+              "es": "("
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "blaze",
+            "reading": "blaze",
+            "romaji": "blaze",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "blaze",
+              "pt-BR": "blaze",
+              "es": "blaze"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "up",
+            "reading": "up",
+            "romaji": "up",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "up",
+              "pt-BR": "up",
+              "es": "up"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "!)",
+            "reading": "!)",
+            "romaji": "!)",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "!)",
+              "pt-BR": "!)",
+              "es": "!)"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 今 いま イマ flame up (blaze up!)",
+          "pt-BR": "(auto-coverage) 今 いま イマ flame up (blaze up!)",
+          "es": "(auto-coverage) 今 いま イマ flame up (blaze up!)"
+        },
+        "literal_meaning": {
+          "en": "今 + いま + イマ + flame + up + ( + blaze + up + !)"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "空",
+            "reading": "そら",
+            "romaji": "sora",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "空",
+              "pt-BR": "空",
+              "es": "空"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "駆け回れ",
+            "reading": "かけまわれ",
+            "romaji": "kakemaware",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "駆け回れ",
+              "pt-BR": "駆け回れ",
+              "es": "駆け回れ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "fly",
+            "reading": "fly",
+            "romaji": "fly",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "fly",
+              "pt-BR": "fly",
+              "es": "fly"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "about",
+            "reading": "about",
+            "romaji": "about",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "about",
+              "pt-BR": "about",
+              "es": "about"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "hey",
+            "reading": "hey",
+            "romaji": "hey",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "hey",
+              "pt-BR": "hey",
+              "es": "hey"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "!",
+            "reading": "!",
+            "romaji": "!",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "!",
+              "pt-BR": "!",
+              "es": "!"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "その",
+            "reading": "その",
+            "romaji": "sono",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "その",
+              "pt-BR": "その",
+              "es": "その"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "目",
+            "reading": "め",
+            "romaji": "me",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "目",
+              "pt-BR": "目",
+              "es": "目"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "開け",
+            "reading": "あけ",
+            "romaji": "ake",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "開け",
+              "pt-BR": "開け",
+              "es": "開け"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なら",
+            "reading": "なら",
+            "romaji": "nara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なら",
+              "pt-BR": "なら",
+              "es": "なら"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "shining",
+            "reading": "shining",
+            "romaji": "shining",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "shining",
+              "pt-BR": "shining",
+              "es": "shining"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "sun",
+            "reading": "sun",
+            "romaji": "sun",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "sun",
+              "pt-BR": "sun",
+              "es": "sun"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "rising",
+            "reading": "rising",
+            "romaji": "rising",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "rising",
+              "pt-BR": "rising",
+              "es": "rising"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 空駆け回れ fly about hey! その目を開けたなら shining sun rising",
+          "pt-BR": "(auto-coverage) 空駆け回れ fly about hey! その目を開けたなら shining sun rising",
+          "es": "(auto-coverage) 空駆け回れ fly about hey! その目を開けたなら shining sun rising"
+        },
+        "literal_meaning": {
+          "en": "空 + 駆け回れ + fly + about + hey + ! + その + 目 + を + 開け + た + なら + shining + sun + rising"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "romaji": "kono",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "この",
+              "pt-BR": "この",
+              "es": "この"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "夜",
+            "reading": "よる",
+            "romaji": "yoru",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "夜",
+              "pt-BR": "夜",
+              "es": "夜"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "駆け抜けろ",
+            "reading": "かけぬけろ",
+            "romaji": "kakenukero",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "駆け抜けろ",
+              "pt-BR": "駆け抜けろ",
+              "es": "駆け抜けろ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "！",
+            "reading": "！",
+            "romaji": "!",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "！",
+              "pt-BR": "！",
+              "es": "！"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) この夜を駆け抜けろ！",
+          "pt-BR": "(auto-coverage) この夜を駆け抜けろ！",
+          "es": "(auto-coverage) この夜を駆け抜けろ！"
+        },
+        "literal_meaning": {
+          "en": "この + 夜 + を + 駆け抜けろ + ！"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "Always",
+            "reading": "Always",
+            "romaji": "Always",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "Always",
+              "pt-BR": "Always",
+              "es": "Always"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "(",
+            "reading": "(",
+            "romaji": "(",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "(",
+              "pt-BR": "(",
+              "es": "("
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "照らせ",
+            "reading": "てらせ",
+            "romaji": "terase",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "照らせ",
+              "pt-BR": "照らせ",
+              "es": "照らせ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "light",
+            "reading": "light",
+            "romaji": "light",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "light",
+              "pt-BR": "light",
+              "es": "light"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "up",
+            "reading": "up",
+            "romaji": "up",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "up",
+              "pt-BR": "up",
+              "es": "up"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": ")",
+            "reading": ")",
+            "romaji": ")",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": ")",
+              "pt-BR": ")",
+              "es": ")"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "all",
+            "reading": "all",
+            "romaji": "all",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "all",
+              "pt-BR": "all",
+              "es": "all"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "right",
+            "reading": "right",
+            "romaji": "right",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "right",
+              "pt-BR": "right",
+              "es": "right"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "(",
+            "reading": "(",
+            "romaji": "(",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "(",
+              "pt-BR": "(",
+              "es": "("
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "進め",
+            "reading": "すすめ",
+            "romaji": "susume",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "進め",
+              "pt-BR": "進め",
+              "es": "進め"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "speed",
+            "reading": "speed",
+            "romaji": "speed",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "speed",
+              "pt-BR": "speed",
+              "es": "speed"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "up",
+            "reading": "up",
+            "romaji": "up",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "up",
+              "pt-BR": "up",
+              "es": "up"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": ")",
+            "reading": ")",
+            "romaji": ")",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": ")",
+              "pt-BR": ")",
+              "es": ")"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) Always (照らせ light up) all right (進め speed up)",
+          "pt-BR": "(auto-coverage) Always (照らせ light up) all right (進め speed up)",
+          "es": "(auto-coverage) Always (照らせ light up) all right (進め speed up)"
+        },
+        "literal_meaning": {
+          "en": "Always + ( + 照らせ + light + up + ) + all + right + ( + 進め + speed + up + )"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "歌え",
+            "reading": "うたえ",
+            "romaji": "utae",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "歌え",
+              "pt-BR": "歌え",
+              "es": "歌え"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "歌え",
+            "reading": "うたえ",
+            "romaji": "utae",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "歌え",
+              "pt-BR": "歌え",
+              "es": "歌え"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "吠えろ",
+            "reading": "ほえろ",
+            "romaji": "hoero",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "吠えろ",
+              "pt-BR": "吠えろ",
+              "es": "吠えろ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "吠えろ",
+            "reading": "ほえろ",
+            "romaji": "hoero",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "吠えろ",
+              "pt-BR": "吠えろ",
+              "es": "吠えろ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "希望",
+            "reading": "きぼう",
+            "romaji": "kibō",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "希望",
+              "pt-BR": "希望",
+              "es": "希望"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "光",
+            "reading": "ひかり",
+            "romaji": "hikari",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "光",
+              "pt-BR": "光",
+              "es": "光"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "望む",
+            "reading": "のぞむ",
+            "romaji": "nozomu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "望む",
+              "pt-BR": "望む",
+              "es": "望む"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なら",
+            "reading": "なら",
+            "romaji": "nara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なら",
+              "pt-BR": "なら",
+              "es": "なら"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ば",
+            "reading": "ば",
+            "romaji": "ba",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ば",
+              "pt-BR": "ば",
+              "es": "ば"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 歌え 歌え 吠えろ 吠えろ 希望の光を望むのならば",
+          "pt-BR": "(auto-coverage) 歌え 歌え 吠えろ 吠えろ 希望の光を望むのならば",
+          "es": "(auto-coverage) 歌え 歌え 吠えろ 吠えろ 希望の光を望むのならば"
+        },
+        "literal_meaning": {
+          "en": "歌え + 歌え + 吠えろ + 吠えろ + 希望 + の + 光 + を + 望む + の + なら + ば"
+        }
+      }
+    }
+  ]
+}

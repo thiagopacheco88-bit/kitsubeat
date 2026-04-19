@@ -1,0 +1,285 @@
+{
+  "patches": [
+    {
+      "after_original": 17,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "ワカラナイ",
+            "reading": "ワカラナイ",
+            "romaji": "wakaranai",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ワカラナイ",
+              "pt-BR": "ワカラナイ",
+              "es": "ワカラナイ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ワカラナイ",
+            "reading": "ワカラナイ",
+            "romaji": "wakaranai",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ワカラナイ",
+              "pt-BR": "ワカラナイ",
+              "es": "ワカラナイ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "うわべ",
+            "reading": "うわべ",
+            "romaji": "uwabe",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "うわべ",
+              "pt-BR": "うわべ",
+              "es": "うわべ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "だけ",
+            "reading": "だけ",
+            "romaji": "dake",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "だけ",
+              "pt-BR": "だけ",
+              "es": "だけ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "じゃ",
+            "reading": "じゃ",
+            "romaji": "ja",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "じゃ",
+              "pt-BR": "じゃ",
+              "es": "じゃ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "わから",
+            "reading": "わから",
+            "romaji": "wakara",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "わから",
+              "pt-BR": "わから",
+              "es": "わから"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ない",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ない",
+              "pt-BR": "ない",
+              "es": "ない"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) ワカラナイ ワカラナイ うわべだけじゃわからない",
+          "pt-BR": "(auto-coverage) ワカラナイ ワカラナイ うわべだけじゃわからない",
+          "es": "(auto-coverage) ワカラナイ ワカラナイ うわべだけじゃわからない"
+        },
+        "literal_meaning": {
+          "en": "ワカラナイ + ワカラナイ + うわべ + だけ + じゃ + わから + ない"
+        }
+      }
+    },
+    {
+      "after_original": 17,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "そいつ",
+            "reading": "そいつ",
+            "romaji": "soitsu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "そいつ",
+              "pt-BR": "そいつ",
+              "es": "そいつ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "灯す",
+            "reading": "ともす",
+            "romaji": "tomosu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "灯す",
+              "pt-BR": "灯す",
+              "es": "灯す"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よう",
+            "reading": "よう",
+            "romaji": "yō",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "よう",
+              "pt-BR": "よう",
+              "es": "よう"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "手",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "手",
+              "pt-BR": "手",
+              "es": "手"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "伸ばし",
+            "reading": "のばし",
+            "romaji": "nobashi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "伸ばし",
+              "pt-BR": "伸ばし",
+              "es": "伸ばし"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "泳ぐ",
+            "reading": "およぐ",
+            "romaji": "oyogu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "泳ぐ",
+              "pt-BR": "泳ぐ",
+              "es": "泳ぐ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "人",
+            "reading": "ひと",
+            "romaji": "hito",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "人",
+              "pt-BR": "人",
+              "es": "人"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) そいつを灯すように 手を伸ばしては泳ぐ人",
+          "pt-BR": "(auto-coverage) そいつを灯すように 手を伸ばしては泳ぐ人",
+          "es": "(auto-coverage) そいつを灯すように 手を伸ばしては泳ぐ人"
+        },
+        "literal_meaning": {
+          "en": "そいつ + を + 灯す + よう + に + 手 + を + 伸ばし + て + は + 泳ぐ + 人"
+        }
+      }
+    }
+  ]
+}

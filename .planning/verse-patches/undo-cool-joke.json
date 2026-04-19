@@ -1,0 +1,237 @@
+{
+  "patches": [
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "誰",
+            "reading": "だれ",
+            "romaji": "dare",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "誰",
+              "pt-BR": "誰",
+              "es": "誰"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "君",
+            "reading": "きみ",
+            "romaji": "kimi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "君",
+              "pt-BR": "君",
+              "es": "君"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "代わり",
+            "reading": "かわり",
+            "romaji": "kawari",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "代わり",
+              "pt-BR": "代わり",
+              "es": "代わり"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なんて",
+            "reading": "なんて",
+            "romaji": "nante",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なんて",
+              "pt-BR": "なんて",
+              "es": "なんて"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 誰にも君の代わりなんて",
+          "pt-BR": "(auto-coverage) 誰にも君の代わりなんて",
+          "es": "(auto-coverage) 誰にも君の代わりなんて"
+        },
+        "literal_meaning": {
+          "en": "誰 + に + も + 君 + の + 代わり + なんて"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "なれる",
+            "reading": "なれる",
+            "romaji": "nareru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "なれる",
+              "pt-BR": "なれる",
+              "es": "なれる"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "はず",
+            "reading": "はず",
+            "romaji": "hazu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "はず",
+              "pt-BR": "はず",
+              "es": "はず"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ない",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "ない",
+              "pt-BR": "ない",
+              "es": "ない"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "romaji": "kara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "から",
+              "pt-BR": "から",
+              "es": "から"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) なれるはずはないから",
+          "pt-BR": "(auto-coverage) なれるはずはないから",
+          "es": "(auto-coverage) なれるはずはないから"
+        },
+        "literal_meaning": {
+          "en": "なれる + はず + は + ない + から"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "Yeah",
+            "reading": "Yeah",
+            "romaji": "Yeah",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "Yeah",
+              "pt-BR": "Yeah",
+              "es": "Yeah"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "もう一度",
+            "reading": "もういちど",
+            "romaji": "mōichido",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "もう一度",
+              "pt-BR": "もう一度",
+              "es": "もう一度"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) Yeah もう一度",
+          "pt-BR": "(auto-coverage) Yeah もう一度",
+          "es": "(auto-coverage) Yeah もう一度"
+        },
+        "literal_meaning": {
+          "en": "Yeah + もう一度"
+        }
+      }
+    }
+  ]
+}

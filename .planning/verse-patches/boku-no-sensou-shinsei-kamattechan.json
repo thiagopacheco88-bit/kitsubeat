@@ -1,0 +1,315 @@
+{
+  "patches": [
+    {
+      "after_original": 14,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "下校",
+            "reading": "げこう",
+            "romaji": "gekō",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "下校",
+              "pt-BR": "下校",
+              "es": "下校"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "時間",
+            "reading": "じかん",
+            "romaji": "jikan",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "時間",
+              "pt-BR": "時間",
+              "es": "時間"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "他人",
+            "reading": "たにん",
+            "romaji": "tanin",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "他人",
+              "pt-BR": "他人",
+              "es": "他人"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "影",
+            "reading": "かげ",
+            "romaji": "kage",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "影",
+              "pt-BR": "影",
+              "es": "影"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "踏み",
+            "reading": "ふみ",
+            "romaji": "fumi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "踏み",
+              "pt-BR": "踏み",
+              "es": "踏み"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 下校時間 他人の影踏み",
+          "pt-BR": "(auto-coverage) 下校時間 他人の影踏み",
+          "es": "(auto-coverage) 下校時間 他人の影踏み"
+        },
+        "literal_meaning": {
+          "en": "下校 + 時間 + 他人 + の + 影 + 踏み"
+        }
+      }
+    },
+    {
+      "after_original": 14,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "気づい",
+            "reading": "きづい",
+            "romaji": "kizui",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "気づい",
+              "pt-BR": "気づい",
+              "es": "気づい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "たら",
+            "reading": "たら",
+            "romaji": "tara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "たら",
+              "pt-BR": "たら",
+              "es": "たら"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "夜明け",
+            "reading": "よあけ",
+            "romaji": "yoake",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "夜明け",
+              "pt-BR": "夜明け",
+              "es": "夜明け"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "1",
+            "reading": "1",
+            "romaji": "1",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "1",
+              "pt-BR": "1",
+              "es": "1"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "人",
+            "reading": "にん",
+            "romaji": "hito",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "人",
+              "pt-BR": "人",
+              "es": "人"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "きり",
+            "reading": "きり",
+            "romaji": "kiri",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "きり",
+              "pt-BR": "きり",
+              "es": "きり"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 気づいたら夜明け 1人きり",
+          "pt-BR": "(auto-coverage) 気づいたら夜明け 1人きり",
+          "es": "(auto-coverage) 気づいたら夜明け 1人きり"
+        },
+        "literal_meaning": {
+          "en": "気づい + たら + 夜明け + 1 + 人 + きり"
+        }
+      }
+    },
+    {
+      "after_original": 14,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "romaji": "ashita",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "明日",
+              "pt-BR": "明日",
+              "es": "明日"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "準備",
+            "reading": "じゅんび",
+            "romaji": "jumbi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "準備",
+              "pt-BR": "準備",
+              "es": "準備"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "どうせ",
+            "reading": "どうせ",
+            "romaji": "dōse",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "どうせ",
+              "pt-BR": "どうせ",
+              "es": "どうせ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "また",
+            "reading": "また",
+            "romaji": "mata",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "また",
+              "pt-BR": "また",
+              "es": "また"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ある",
+            "reading": "ある",
+            "romaji": "aru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "ある",
+              "pt-BR": "ある",
+              "es": "ある"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "し",
+            "reading": "し",
+            "romaji": "shi",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "し",
+              "pt-BR": "し",
+              "es": "し"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 明日の準備がどうせまたあるし",
+          "pt-BR": "(auto-coverage) 明日の準備がどうせまたあるし",
+          "es": "(auto-coverage) 明日の準備がどうせまたあるし"
+        },
+        "literal_meaning": {
+          "en": "明日 + の + 準備 + が + どうせ + また + ある + し"
+        }
+      }
+    }
+  ]
+}

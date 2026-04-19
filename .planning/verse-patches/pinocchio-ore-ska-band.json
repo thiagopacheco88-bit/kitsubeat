@@ -1,0 +1,181 @@
+{
+  "patches": [
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "思わせぶり",
+            "reading": "おもわせぶり",
+            "romaji": "omowaseburi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "思わせぶり",
+              "pt-BR": "思わせぶり",
+              "es": "思わせぶり"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "テリー",
+            "reading": "てりー",
+            "romaji": "terī",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "テリー",
+              "pt-BR": "テリー",
+              "es": "テリー"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 思わせぶりテリー",
+          "pt-BR": "(auto-coverage) 思わせぶりテリー",
+          "es": "(auto-coverage) 思わせぶりテリー"
+        },
+        "literal_meaning": {
+          "en": "思わせぶり + テリー"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "愛す",
+            "reading": "あいす",
+            "romaji": "aisu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "愛す",
+              "pt-BR": "愛す",
+              "es": "愛す"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "べき",
+            "reading": "べき",
+            "romaji": "beki",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "べき",
+              "pt-BR": "べき",
+              "es": "べき"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "顔",
+            "reading": "かお",
+            "romaji": "kao",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "顔",
+              "pt-BR": "顔",
+              "es": "顔"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "唾",
+            "reading": "つば",
+            "romaji": "tsuba",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "唾",
+              "pt-BR": "唾",
+              "es": "唾"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "!!",
+            "reading": "!!",
+            "romaji": "!!",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "!!",
+              "pt-BR": "!!",
+              "es": "!!"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ミスター",
+            "reading": "みすたー",
+            "romaji": "misutā",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ミスター",
+              "pt-BR": "ミスター",
+              "es": "ミスター"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "クリケット",
+            "reading": "くりけっと",
+            "romaji": "kuriketto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "クリケット",
+              "pt-BR": "クリケット",
+              "es": "クリケット"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 愛すべき顔に唾を!!ミスタークリケット",
+          "pt-BR": "(auto-coverage) 愛すべき顔に唾を!!ミスタークリケット",
+          "es": "(auto-coverage) 愛すべき顔に唾を!!ミスタークリケット"
+        },
+        "literal_meaning": {
+          "en": "愛す + べき + 顔 + に + 唾 + を + !! + ミスター + クリケット"
+        }
+      }
+    }
+  ]
+}

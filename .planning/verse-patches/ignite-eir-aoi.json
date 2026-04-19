@@ -1,0 +1,820 @@
+{
+  "patches": [
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "恐れ",
+            "reading": "おそれ",
+            "romaji": "osore",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "恐れ",
+              "pt-BR": "恐れ",
+              "es": "恐れ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ず",
+            "reading": "ず",
+            "romaji": "zu",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ず",
+              "pt-BR": "ず",
+              "es": "ず"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "今",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "今",
+              "pt-BR": "今",
+              "es": "今"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "過去",
+            "reading": "かこ",
+            "romaji": "kako",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "過去",
+              "pt-BR": "過去",
+              "es": "過去"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "怯え",
+            "reading": "おびえ",
+            "romaji": "obie",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "怯え",
+              "pt-BR": "怯え",
+              "es": "怯え"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "自分",
+            "reading": "じぶん",
+            "romaji": "jibun",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "自分",
+              "pt-BR": "自分",
+              "es": "自分"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 恐れずに今 過去に怯えた自分を",
+          "pt-BR": "(auto-coverage) 恐れずに今 過去に怯えた自分を",
+          "es": "(auto-coverage) 恐れずに今 過去に怯えた自分を"
+        },
+        "literal_meaning": {
+          "en": "恐れ + ず + に + 今 + 過去 + に + 怯え + た + 自分 + を"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "romaji": "kono",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "この",
+              "pt-BR": "この",
+              "es": "この"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "手",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "手",
+              "pt-BR": "手",
+              "es": "手"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "解き放て",
+            "reading": "ときはなて",
+            "romaji": "tokihanate",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "解き放て",
+              "pt-BR": "解き放て",
+              "es": "解き放て"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) この手で解き放て",
+          "pt-BR": "(auto-coverage) この手で解き放て",
+          "es": "(auto-coverage) この手で解き放て"
+        },
+        "literal_meaning": {
+          "en": "この + 手 + で + 解き放て"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "romaji": "ashita",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "明日",
+              "pt-BR": "明日",
+              "es": "明日"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "信じ",
+            "reading": "しんじ",
+            "romaji": "shinji",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "信じ",
+              "pt-BR": "信じ",
+              "es": "信じ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 明日を信じて",
+          "pt-BR": "(auto-coverage) 明日を信じて",
+          "es": "(auto-coverage) 明日を信じて"
+        },
+        "literal_meaning": {
+          "en": "明日 + を + 信じ + て"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "錆び付い",
+            "reading": "さびつい",
+            "romaji": "sabitsui",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "錆び付い",
+              "pt-BR": "錆び付い",
+              "es": "錆び付い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "い",
+            "reading": "い",
+            "romaji": "i",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "い",
+              "pt-BR": "い",
+              "es": "い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "まま",
+            "reading": "まま",
+            "romaji": "mama",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "まま",
+              "pt-BR": "まま",
+              "es": "まま"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 錆び付いていたままの",
+          "pt-BR": "(auto-coverage) 錆び付いていたままの",
+          "es": "(auto-coverage) 錆び付いていたままの"
+        },
+        "literal_meaning": {
+          "en": "錆び付い + て + い + た + まま + の"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "扉",
+            "reading": "とびら",
+            "romaji": "tobira",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "扉",
+              "pt-BR": "扉",
+              "es": "扉"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "打ち破れ",
+            "reading": "うちやぶれ",
+            "romaji": "uchiyabure",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "打ち破れ",
+              "pt-BR": "打ち破れ",
+              "es": "打ち破れ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 扉を打ち破れ",
+          "pt-BR": "(auto-coverage) 扉を打ち破れ",
+          "es": "(auto-coverage) 扉を打ち破れ"
+        },
+        "literal_meaning": {
+          "en": "扉 + を + 打ち破れ"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "振り絞っ",
+            "reading": "ふりしぼっ",
+            "romaji": "furishibotsu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "振り絞っ",
+              "pt-BR": "振り絞っ",
+              "es": "振り絞っ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "感情",
+            "reading": "かんじょう",
+            "romaji": "kanjō",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "感情",
+              "pt-BR": "感情",
+              "es": "感情"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 振り絞った感情が",
+          "pt-BR": "(auto-coverage) 振り絞った感情が",
+          "es": "(auto-coverage) 振り絞った感情が"
+        },
+        "literal_meaning": {
+          "en": "振り絞っ + た + 感情 + が"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "静寂",
+            "reading": "せいじゃく",
+            "romaji": "seijaku",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "静寂",
+              "pt-BR": "静寂",
+              "es": "静寂"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "闇",
+            "reading": "やみ",
+            "romaji": "yami",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "闇",
+              "pt-BR": "闇",
+              "es": "闇"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "切り裂く",
+            "reading": "きりさく",
+            "romaji": "kirisaku",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "切り裂く",
+              "pt-BR": "切り裂く",
+              "es": "切り裂く"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よう",
+            "reading": "よう",
+            "romaji": "yō",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "よう",
+              "pt-BR": "よう",
+              "es": "よう"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 静寂の闇を 切り裂くように",
+          "pt-BR": "(auto-coverage) 静寂の闇を 切り裂くように",
+          "es": "(auto-coverage) 静寂の闇を 切り裂くように"
+        },
+        "literal_meaning": {
+          "en": "静寂 + の + 闇 + を + 切り裂く + よう + に"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "流れ星",
+            "reading": "ながれぼし",
+            "romaji": "nagareboshi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "流れ星",
+              "pt-BR": "流れ星",
+              "es": "流れ星"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "瞬く",
+            "reading": "まばたく",
+            "romaji": "mabataku",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "瞬く",
+              "pt-BR": "瞬く",
+              "es": "瞬く"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "世界",
+            "reading": "せかい",
+            "romaji": "sekai",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "世界",
+              "pt-BR": "世界",
+              "es": "世界"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "生まれ変わる",
+            "reading": "うまれかわる",
+            "romaji": "umarekawaru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "生まれ変わる",
+              "pt-BR": "生まれ変わる",
+              "es": "生まれ変わる"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 流れ星が瞬く 世界が生まれ変わる",
+          "pt-BR": "(auto-coverage) 流れ星が瞬く 世界が生まれ変わる",
+          "es": "(auto-coverage) 流れ星が瞬く 世界が生まれ変わる"
+        },
+        "literal_meaning": {
+          "en": "流れ星 + が + 瞬く + 世界 + が + 生まれ変わる"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "夜空",
+            "reading": "よぞら",
+            "romaji": "yozora",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "夜空",
+              "pt-BR": "夜空",
+              "es": "夜空"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "幕開け",
+            "reading": "まくあけ",
+            "romaji": "makuake",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "幕開け",
+              "pt-BR": "幕開け",
+              "es": "幕開け"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "見",
+            "reading": "み",
+            "romaji": "mi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "見",
+              "pt-BR": "見",
+              "es": "見"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なら",
+            "reading": "なら",
+            "romaji": "nara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なら",
+              "pt-BR": "なら",
+              "es": "なら"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 夜空の幕開けを見たなら",
+          "pt-BR": "(auto-coverage) 夜空の幕開けを見たなら",
+          "es": "(auto-coverage) 夜空の幕開けを見たなら"
+        },
+        "literal_meaning": {
+          "en": "夜空 + の + 幕開け + を + 見 + た + なら"
+        }
+      }
+    }
+  ]
+}

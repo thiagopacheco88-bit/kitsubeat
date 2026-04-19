@@ -1,0 +1,125 @@
+{
+  "patches": [
+    {
+      "after_original": 15,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "ゲット",
+            "reading": "ゲット",
+            "romaji": "getto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ゲット",
+              "pt-BR": "ゲット",
+              "es": "ゲット"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "だ",
+            "reading": "だ",
+            "romaji": "da",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "だ",
+              "pt-BR": "だ",
+              "es": "だ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ぜ",
+            "reading": "ぜ",
+            "romaji": "ze",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ぜ",
+              "pt-BR": "ぜ",
+              "es": "ぜ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "!",
+            "reading": "!",
+            "romaji": "!",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "!",
+              "pt-BR": "!",
+              "es": "!"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ゲット",
+            "reading": "ゲット",
+            "romaji": "getto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ゲット",
+              "pt-BR": "ゲット",
+              "es": "ゲット"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "だ",
+            "reading": "だ",
+            "romaji": "da",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "だ",
+              "pt-BR": "だ",
+              "es": "だ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ぜ",
+            "reading": "ぜ",
+            "romaji": "ze",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ぜ",
+              "pt-BR": "ぜ",
+              "es": "ぜ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "!",
+            "reading": "!",
+            "romaji": "!",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "!",
+              "pt-BR": "!",
+              "es": "!"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) ゲットだぜ! ゲットだぜ!",
+          "pt-BR": "(auto-coverage) ゲットだぜ! ゲットだぜ!",
+          "es": "(auto-coverage) ゲットだぜ! ゲットだぜ!"
+        },
+        "literal_meaning": {
+          "en": "ゲット + だ + ぜ + ! + ゲット + だ + ぜ + !"
+        }
+      }
+    }
+  ]
+}

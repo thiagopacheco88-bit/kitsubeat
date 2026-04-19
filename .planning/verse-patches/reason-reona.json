@@ -1,0 +1,86 @@
+{
+  "patches": [
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "伝え",
+            "reading": "つたえ",
+            "romaji": "tsutae",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "伝え",
+              "pt-BR": "伝え",
+              "es": "伝え"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "たい",
+            "reading": "たい",
+            "romaji": "tai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "たい",
+              "pt-BR": "たい",
+              "es": "たい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よ",
+            "reading": "よ",
+            "romaji": "yo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "よ",
+              "pt-BR": "よ",
+              "es": "よ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "たい",
+            "reading": "たい",
+            "romaji": "tai",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "たい",
+              "pt-BR": "たい",
+              "es": "たい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よ",
+            "reading": "よ",
+            "romaji": "yo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "よ",
+              "pt-BR": "よ",
+              "es": "よ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 伝えたいよ たいよ",
+          "pt-BR": "(auto-coverage) 伝えたいよ たいよ",
+          "es": "(auto-coverage) 伝えたいよ たいよ"
+        },
+        "literal_meaning": {
+          "en": "伝え + たい + よ + たい + よ"
+        }
+      }
+    }
+  ]
+}

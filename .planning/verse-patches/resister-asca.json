@@ -1,0 +1,315 @@
+{
+  "patches": [
+    {
+      "after_original": 16,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "まだ",
+            "reading": "まだ",
+            "romaji": "mada",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "まだ",
+              "pt-BR": "まだ",
+              "es": "まだ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "見",
+            "reading": "み",
+            "romaji": "mi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "見",
+              "pt-BR": "見",
+              "es": "見"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ぬ",
+            "reading": "ぬ",
+            "romaji": "nu",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ぬ",
+              "pt-BR": "ぬ",
+              "es": "ぬ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "明日",
+            "reading": "あした",
+            "romaji": "ashita",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "明日",
+              "pt-BR": "明日",
+              "es": "明日"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "微笑む",
+            "reading": "ほほえむ",
+            "romaji": "hohoemu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "微笑む",
+              "pt-BR": "微笑む",
+              "es": "微笑む"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "君",
+            "reading": "きみ",
+            "romaji": "kimi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "君",
+              "pt-BR": "君",
+              "es": "君"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "辿り",
+            "reading": "たどり",
+            "romaji": "tadori",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "辿り",
+              "pt-BR": "辿り",
+              "es": "辿り"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "着ける",
+            "reading": "つける",
+            "romaji": "tsukeru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "着ける",
+              "pt-BR": "着ける",
+              "es": "着ける"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "romaji": "kara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "から",
+              "pt-BR": "から",
+              "es": "から"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) まだ見ぬ明日で 微笑む君に辿り着けるから",
+          "pt-BR": "(auto-coverage) まだ見ぬ明日で 微笑む君に辿り着けるから",
+          "es": "(auto-coverage) まだ見ぬ明日で 微笑む君に辿り着けるから"
+        },
+        "literal_meaning": {
+          "en": "まだ + 見 + ぬ + 明日 + で + 微笑む + 君 + に + 辿り + 着ける + から"
+        }
+      }
+    },
+    {
+      "after_original": 16,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "声",
+            "reading": "こえ",
+            "romaji": "koe",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "声",
+              "pt-BR": "声",
+              "es": "声"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "届く",
+            "reading": "とどく",
+            "romaji": "todoku",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "届く",
+              "pt-BR": "届く",
+              "es": "届く"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "まで",
+            "reading": "まで",
+            "romaji": "made",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "まで",
+              "pt-BR": "まで",
+              "es": "まで"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 声が届くまで",
+          "pt-BR": "(auto-coverage) 声が届くまで",
+          "es": "(auto-coverage) 声が届くまで"
+        },
+        "literal_meaning": {
+          "en": "声 + が + 届く + まで"
+        }
+      }
+    },
+    {
+      "after_original": 16,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "運命",
+            "reading": "うんめい",
+            "romaji": "ummei",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "運命",
+              "pt-BR": "運命",
+              "es": "運命"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "貫い",
+            "reading": "つらぬい",
+            "romaji": "tsuranui",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "貫い",
+              "pt-BR": "貫い",
+              "es": "貫い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ゆけ",
+            "reading": "ゆけ",
+            "romaji": "yuke",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "ゆけ",
+              "pt-BR": "ゆけ",
+              "es": "ゆけ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 運命を貫いてゆけ",
+          "pt-BR": "(auto-coverage) 運命を貫いてゆけ",
+          "es": "(auto-coverage) 運命を貫いてゆけ"
+        },
+        "literal_meaning": {
+          "en": "運命 + を + 貫い + て + ゆけ"
+        }
+      }
+    }
+  ]
+}

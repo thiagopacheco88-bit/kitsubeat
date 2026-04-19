@@ -1,0 +1,125 @@
+{
+  "patches": [
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "消去",
+            "reading": "しょうきょ",
+            "romaji": "shōkyo",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "消去",
+              "pt-BR": "消去",
+              "es": "消去"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "し",
+            "reading": "し",
+            "romaji": "shi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "し",
+              "pt-BR": "し",
+              "es": "し"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "メモリー",
+            "reading": "めもりー",
+            "romaji": "memorī",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "メモリー",
+              "pt-BR": "メモリー",
+              "es": "メモリー"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "見",
+            "reading": "み",
+            "romaji": "mi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "見",
+              "pt-BR": "見",
+              "es": "見"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "つ",
+            "reading": "つ",
+            "romaji": "tsu",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "つ",
+              "pt-BR": "つ",
+              "es": "つ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 消去してメモリー 見つてた",
+          "pt-BR": "(auto-coverage) 消去してメモリー 見つてた",
+          "es": "(auto-coverage) 消去してメモリー 見つてた"
+        },
+        "literal_meaning": {
+          "en": "消去 + し + て + メモリー + 見 + つ + て + た"
+        }
+      }
+    }
+  ]
+}

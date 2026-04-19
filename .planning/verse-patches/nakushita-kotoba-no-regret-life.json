@@ -1,0 +1,389 @@
+{
+  "patches": [
+    {
+      "after_original": 5,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "あなた",
+            "reading": "あなた",
+            "romaji": "anata",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "あなた",
+              "pt-BR": "あなた",
+              "es": "あなた"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "思う",
+            "reading": "おもう",
+            "romaji": "omou",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "思う",
+              "pt-BR": "思う",
+              "es": "思う"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "こと",
+            "reading": "こと",
+            "romaji": "koto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "こと",
+              "pt-BR": "こと",
+              "es": "こと"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "冷める",
+            "reading": "さめる",
+            "romaji": "sameru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "冷める",
+              "pt-BR": "冷める",
+              "es": "冷める"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "こと",
+            "reading": "こと",
+            "romaji": "koto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "こと",
+              "pt-BR": "こと",
+              "es": "こと"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なく",
+            "reading": "なく",
+            "romaji": "naku",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "なく",
+              "pt-BR": "なく",
+              "es": "なく"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "手元",
+            "reading": "てもと",
+            "romaji": "temoto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "手元",
+              "pt-BR": "手元",
+              "es": "手元"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "掴み",
+            "reading": "つかみ",
+            "romaji": "tsukami",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "掴み",
+              "pt-BR": "掴み",
+              "es": "掴み"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "たい",
+            "reading": "たい",
+            "romaji": "tai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "たい",
+              "pt-BR": "たい",
+              "es": "たい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "のに",
+            "reading": "のに",
+            "romaji": "noni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "のに",
+              "pt-BR": "のに",
+              "es": "のに"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) あなたが思うことを 冷めることなく手元に掴みたいのに",
+          "pt-BR": "(auto-coverage) あなたが思うことを 冷めることなく手元に掴みたいのに",
+          "es": "(auto-coverage) あなたが思うことを 冷めることなく手元に掴みたいのに"
+        },
+        "literal_meaning": {
+          "en": "あなた + が + 思う + こと + を + 冷める + こと + なく + 手元 + に + 掴み + たい + のに"
+        }
+      }
+    },
+    {
+      "after_original": 5,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "「",
+            "reading": "「",
+            "romaji": "\"",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "「",
+              "pt-BR": "「",
+              "es": "「"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "人",
+            "reading": "ひと",
+            "romaji": "hito",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "人",
+              "pt-BR": "人",
+              "es": "人"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "」",
+            "reading": "」",
+            "romaji": "\"",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "」",
+              "pt-BR": "」",
+              "es": "」"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ある",
+            "reading": "ある",
+            "romaji": "aru",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ある",
+              "pt-BR": "ある",
+              "es": "ある"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "僕達",
+            "reading": "ぼくたち",
+            "romaji": "bokutachi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "僕達",
+              "pt-BR": "僕達",
+              "es": "僕達"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "その",
+            "reading": "その",
+            "romaji": "sono",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "その",
+              "pt-BR": "その",
+              "es": "その"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "気持ち",
+            "reading": "きもち",
+            "romaji": "kimochi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "気持ち",
+              "pt-BR": "気持ち",
+              "es": "気持ち"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "分かち",
+            "reading": "わかち",
+            "romaji": "wakachi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "分かち",
+              "pt-BR": "分かち",
+              "es": "分かち"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "合え",
+            "reading": "あえ",
+            "romaji": "ae",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "合え",
+              "pt-BR": "合え",
+              "es": "合え"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ない",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ない",
+              "pt-BR": "ない",
+              "es": "ない"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "まま",
+            "reading": "まま",
+            "romaji": "mama",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "まま",
+              "pt-BR": "まま",
+              "es": "まま"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 「人」である僕達は その気持ちを分かち合えないまま",
+          "pt-BR": "(auto-coverage) 「人」である僕達は その気持ちを分かち合えないまま",
+          "es": "(auto-coverage) 「人」である僕達は その気持ちを分かち合えないまま"
+        },
+        "literal_meaning": {
+          "en": "「 + 人 + 」 + で + ある + 僕達 + は + その + 気持ち + を + 分かち + 合え + ない + まま"
+        }
+      }
+    }
+  ]
+}

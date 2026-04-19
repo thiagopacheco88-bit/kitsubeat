@@ -1,0 +1,864 @@
+{
+  "patches": [
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "雲間",
+            "reading": "くもま",
+            "romaji": "kumoma",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "雲間",
+              "pt-BR": "雲間",
+              "es": "雲間"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "射し込む",
+            "reading": "さしこむ",
+            "romaji": "sashikomu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "射し込む",
+              "pt-BR": "射し込む",
+              "es": "射し込む"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "光",
+            "reading": "ひかり",
+            "romaji": "hikari",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "光",
+              "pt-BR": "光",
+              "es": "光"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "微か",
+            "reading": "かすか",
+            "romaji": "kasuka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "微か",
+              "pt-BR": "微か",
+              "es": "微か"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "走る",
+            "reading": "はしる",
+            "romaji": "hashiru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "走る",
+              "pt-BR": "走る",
+              "es": "走る"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "この",
+            "reading": "この",
+            "romaji": "kono",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "この",
+              "pt-BR": "この",
+              "es": "この"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "痛み",
+            "reading": "いたみ",
+            "romaji": "itami",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "痛み",
+              "pt-BR": "痛み",
+              "es": "痛み"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 雲間に射し込む光 微かに走るこの痛み",
+          "pt-BR": "(auto-coverage) 雲間に射し込む光 微かに走るこの痛み",
+          "es": "(auto-coverage) 雲間に射し込む光 微かに走るこの痛み"
+        },
+        "literal_meaning": {
+          "en": "雲間 + に + 射し込む + 光 + 微か + に + 走る + この + 痛み"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "無くす",
+            "reading": "なくす",
+            "romaji": "nakusu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "無くす",
+              "pt-BR": "無くす",
+              "es": "無くす"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "もの",
+            "reading": "もの",
+            "romaji": "mono",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "もの",
+              "pt-BR": "もの",
+              "es": "もの"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "何",
+            "reading": "なに",
+            "romaji": "nani",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "何",
+              "pt-BR": "何",
+              "es": "何"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "無い",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "無い",
+              "pt-BR": "無い",
+              "es": "無い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "震える",
+            "reading": "ふるえる",
+            "romaji": "furueru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "震える",
+              "pt-BR": "震える",
+              "es": "震える"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "指",
+            "reading": "ゆび",
+            "romaji": "yubi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "指",
+              "pt-BR": "指",
+              "es": "指"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "握りしめ",
+            "reading": "にぎりしめ",
+            "romaji": "nigirishime",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "握りしめ",
+              "pt-BR": "握りしめ",
+              "es": "握りしめ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 無くすものは何も無い 震える指握りしめ",
+          "pt-BR": "(auto-coverage) 無くすものは何も無い 震える指握りしめ",
+          "es": "(auto-coverage) 無くすものは何も無い 震える指握りしめ"
+        },
+        "literal_meaning": {
+          "en": "無くす + もの + は + 何 + も + 無い + 震える + 指 + 握りしめ"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "君",
+            "reading": "きみ",
+            "romaji": "kimi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "君",
+              "pt-BR": "君",
+              "es": "君"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "無垢",
+            "reading": "むく",
+            "romaji": "muku",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "無垢",
+              "pt-BR": "無垢",
+              "es": "無垢"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "な",
+            "reading": "な",
+            "romaji": "na",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "な",
+              "pt-BR": "な",
+              "es": "な"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "笑顔",
+            "reading": "えがお",
+            "romaji": "egao",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "笑顔",
+              "pt-BR": "笑顔",
+              "es": "笑顔"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "だけ",
+            "reading": "だけ",
+            "romaji": "dake",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "だけ",
+              "pt-BR": "だけ",
+              "es": "だけ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "焼き付け",
+            "reading": "やきつけ",
+            "romaji": "yakitsuke",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "焼き付け",
+              "pt-BR": "焼き付け",
+              "es": "焼き付け"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 君の無垢な笑顔だけを焼き付け",
+          "pt-BR": "(auto-coverage) 君の無垢な笑顔だけを焼き付け",
+          "es": "(auto-coverage) 君の無垢な笑顔だけを焼き付け"
+        },
+        "literal_meaning": {
+          "en": "君 + の + 無垢 + な + 笑顔 + だけ + を + 焼き付け"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "終わら",
+            "reading": "おわら",
+            "romaji": "owara",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "終わら",
+              "pt-BR": "終わら",
+              "es": "終わら"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ない",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ない",
+              "pt-BR": "ない",
+              "es": "ない"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "エピソード",
+            "reading": "えぴそーど",
+            "romaji": "episōdo",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "エピソード",
+              "pt-BR": "エピソード",
+              "es": "エピソード"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "果て",
+            "reading": "はて",
+            "romaji": "hate",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "果て",
+              "pt-BR": "果て",
+              "es": "果て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "掴め",
+            "reading": "つかめ",
+            "romaji": "tsukame",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "掴め",
+              "pt-BR": "掴め",
+              "es": "掴め"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "たら",
+            "reading": "たら",
+            "romaji": "tara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "たら",
+              "pt-BR": "たら",
+              "es": "たら"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 終わらないエピソードの果てに掴めたら",
+          "pt-BR": "(auto-coverage) 終わらないエピソードの果てに掴めたら",
+          "es": "(auto-coverage) 終わらないエピソードの果てに掴めたら"
+        },
+        "literal_meaning": {
+          "en": "終わら + ない + エピソード + の + 果て + に + 掴め + たら"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "君",
+            "reading": "きみ",
+            "romaji": "kimi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "君",
+              "pt-BR": "君",
+              "es": "君"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "romaji": "to",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "と",
+              "pt-BR": "と",
+              "es": "と"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "想い",
+            "reading": "おもい",
+            "romaji": "omoi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "想い",
+              "pt-BR": "想い",
+              "es": "想い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "今",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "今",
+              "pt-BR": "今",
+              "es": "今"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 君との想いが今",
+          "pt-BR": "(auto-coverage) 君との想いが今",
+          "es": "(auto-coverage) 君との想いが今"
+        },
+        "literal_meaning": {
+          "en": "君 + と + の + 想い + が + 今"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "幼き",
+            "reading": "おさなき",
+            "romaji": "osanaki",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "幼き",
+              "pt-BR": "幼き",
+              "es": "幼き"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "日",
+            "reading": "ひ",
+            "romaji": "hi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "日",
+              "pt-BR": "日",
+              "es": "日"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "欠片",
+            "reading": "かけら",
+            "romaji": "kakera",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "欠片",
+              "pt-BR": "欠片",
+              "es": "欠片"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "繋ぎ",
+            "reading": "つなぎ",
+            "romaji": "tsunagi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "繋ぎ",
+              "pt-BR": "繋ぎ",
+              "es": "繋ぎ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "彩っ",
+            "reading": "いろどっ",
+            "romaji": "irodotsu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "彩っ",
+              "pt-BR": "彩っ",
+              "es": "彩っ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 幼き日の欠片を繋ぎ彩って",
+          "pt-BR": "(auto-coverage) 幼き日の欠片を繋ぎ彩って",
+          "es": "(auto-coverage) 幼き日の欠片を繋ぎ彩って"
+        },
+        "literal_meaning": {
+          "en": "幼き + 日 + の + 欠片 + を + 繋ぎ + 彩っ + て"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "ふたり",
+            "reading": "ふたり",
+            "romaji": "futari",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ふたり",
+              "pt-BR": "ふたり",
+              "es": "ふたり"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "描い",
+            "reading": "えがい",
+            "romaji": "egai",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "描い",
+              "pt-BR": "描い",
+              "es": "描い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "心",
+            "reading": "こころ",
+            "romaji": "kokoro",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "心",
+              "pt-BR": "心",
+              "es": "心"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "軌跡",
+            "reading": "きせき",
+            "romaji": "kiseki",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "軌跡",
+              "pt-BR": "軌跡",
+              "es": "軌跡"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "辿る",
+            "reading": "たどる",
+            "romaji": "tadoru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "辿る",
+              "pt-BR": "辿る",
+              "es": "辿る"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "romaji": "kara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "から",
+              "pt-BR": "から",
+              "es": "から"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) ふたりで描いた心の軌跡辿るから",
+          "pt-BR": "(auto-coverage) ふたりで描いた心の軌跡辿るから",
+          "es": "(auto-coverage) ふたりで描いた心の軌跡辿るから"
+        },
+        "literal_meaning": {
+          "en": "ふたり + で + 描い + た + 心 + の + 軌跡 + 辿る + から"
+        }
+      }
+    }
+  ]
+}

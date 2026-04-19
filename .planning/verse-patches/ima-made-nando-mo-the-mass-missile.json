@@ -1,0 +1,272 @@
+{
+  "patches": [
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "脇役",
+            "reading": "わきやく",
+            "romaji": "wakiyaku",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "脇役",
+              "pt-BR": "脇役",
+              "es": "脇役"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なんて",
+            "reading": "なんて",
+            "romaji": "nante",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なんて",
+              "pt-BR": "なんて",
+              "es": "なんて"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "もう",
+            "reading": "もう",
+            "romaji": "mō",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "もう",
+              "pt-BR": "もう",
+              "es": "もう"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "たくさん",
+            "reading": "たくさん",
+            "romaji": "takusan",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "たくさん",
+              "pt-BR": "たくさん",
+              "es": "たくさん"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "だ",
+            "reading": "だ",
+            "romaji": "da",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "だ",
+              "pt-BR": "だ",
+              "es": "だ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 脇役なんて もうたくさんだ",
+          "pt-BR": "(auto-coverage) 脇役なんて もうたくさんだ",
+          "es": "(auto-coverage) 脇役なんて もうたくさんだ"
+        },
+        "literal_meaning": {
+          "en": "脇役 + なんて + もう + たくさん + だ"
+        }
+      }
+    },
+    {
+      "after_original": 10,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "つらぬく",
+            "reading": "つらぬく",
+            "romaji": "tsuranuku",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "つらぬく",
+              "pt-BR": "つらぬく",
+              "es": "つらぬく"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ため",
+            "reading": "ため",
+            "romaji": "tame",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ため",
+              "pt-BR": "ため",
+              "es": "ため"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "いろいろ",
+            "reading": "いろいろ",
+            "romaji": "iroiro",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "いろいろ",
+              "pt-BR": "いろいろ",
+              "es": "いろいろ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "まげ",
+            "reading": "まげ",
+            "romaji": "mage",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "まげ",
+              "pt-BR": "まげ",
+              "es": "まげ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "信じる",
+            "reading": "しんじる",
+            "romaji": "shinjiru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "信じる",
+              "pt-BR": "信じる",
+              "es": "信じる"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ため",
+            "reading": "ため",
+            "romaji": "tame",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ため",
+              "pt-BR": "ため",
+              "es": "ため"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "疑っ",
+            "reading": "うたがっ",
+            "romaji": "utagatsu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "疑っ",
+              "pt-BR": "疑っ",
+              "es": "疑っ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "き",
+            "reading": "き",
+            "romaji": "ki",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "き",
+              "pt-BR": "き",
+              "es": "き"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) つらぬくために いろいろまげた 信じるために 疑ってきた",
+          "pt-BR": "(auto-coverage) つらぬくために いろいろまげた 信じるために 疑ってきた",
+          "es": "(auto-coverage) つらぬくために いろいろまげた 信じるために 疑ってきた"
+        },
+        "literal_meaning": {
+          "en": "つらぬく + ため + に + いろいろ + まげ + た + 信じる + ため + に + 疑っ + て + き + た"
+        }
+      }
+    }
+  ]
+}

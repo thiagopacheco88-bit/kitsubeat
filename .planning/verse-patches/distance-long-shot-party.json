@@ -1,0 +1,864 @@
+{
+  "patches": [
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "Oh",
+            "reading": "Oh",
+            "romaji": "Oh",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "Oh",
+              "pt-BR": "Oh",
+              "es": "Oh"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "今",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "今",
+              "pt-BR": "今",
+              "es": "今"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "旅立つ",
+            "reading": "たびだつ",
+            "romaji": "tabidatsu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "旅立つ",
+              "pt-BR": "旅立つ",
+              "es": "旅立つ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よ",
+            "reading": "よ",
+            "romaji": "yo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "よ",
+              "pt-BR": "よ",
+              "es": "よ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) Oh 今 旅立つよ",
+          "pt-BR": "(auto-coverage) Oh 今 旅立つよ",
+          "es": "(auto-coverage) Oh 今 旅立つよ"
+        },
+        "literal_meaning": {
+          "en": "Oh + 今 + 旅立つ + よ"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "Everyday",
+            "reading": "Everyday",
+            "romaji": "Everyday",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "Everyday",
+              "pt-BR": "Everyday",
+              "es": "Everyday"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "この",
+            "reading": "この",
+            "romaji": "kono",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "この",
+              "pt-BR": "この",
+              "es": "この"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "先",
+            "reading": "さき",
+            "romaji": "saki",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "先",
+              "pt-BR": "先",
+              "es": "先"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "shining",
+            "reading": "shining",
+            "romaji": "shining",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "shining",
+              "pt-BR": "shining",
+              "es": "shining"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "day",
+            "reading": "day",
+            "romaji": "day",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "day",
+              "pt-BR": "day",
+              "es": "day"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) Everyday この先もshining day",
+          "pt-BR": "(auto-coverage) Everyday この先もshining day",
+          "es": "(auto-coverage) Everyday この先もshining day"
+        },
+        "literal_meaning": {
+          "en": "Everyday + この + 先 + も + shining + day"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "変わら",
+            "reading": "かわら",
+            "romaji": "kawara",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "変わら",
+              "pt-BR": "変わら",
+              "es": "変わら"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ず",
+            "reading": "ず",
+            "romaji": "zu",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ず",
+              "pt-BR": "ず",
+              "es": "ず"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "singin",
+            "reading": "singin",
+            "romaji": "singin",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "singin",
+              "pt-BR": "singin",
+              "es": "singin"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "'",
+            "reading": "'",
+            "romaji": "'",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "'",
+              "pt-BR": "'",
+              "es": "'"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "光る",
+            "reading": "ひかる",
+            "romaji": "hikaru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "光る",
+              "pt-BR": "光る",
+              "es": "光る"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "朝",
+            "reading": "あさ",
+            "romaji": "asa",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "朝",
+              "pt-BR": "朝",
+              "es": "朝"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "smile",
+            "reading": "smile",
+            "romaji": "smile",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "smile",
+              "pt-BR": "smile",
+              "es": "smile"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 変わらずsingin' 光る朝のsmile",
+          "pt-BR": "(auto-coverage) 変わらずsingin' 光る朝のsmile",
+          "es": "(auto-coverage) 変わらずsingin' 光る朝のsmile"
+        },
+        "literal_meaning": {
+          "en": "変わら + ず + singin + ' + 光る + 朝 + の + smile"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "飛び立つ",
+            "reading": "とびたつ",
+            "romaji": "tobitatsu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "飛び立つ",
+              "pt-BR": "飛び立つ",
+              "es": "飛び立つ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "future",
+            "reading": "future",
+            "romaji": "future",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "future",
+              "pt-BR": "future",
+              "es": "future"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "目指し",
+            "reading": "めざし",
+            "romaji": "mezashi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "目指し",
+              "pt-BR": "目指し",
+              "es": "目指し"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "た",
+            "reading": "た",
+            "romaji": "ta",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "た",
+              "pt-BR": "た",
+              "es": "た"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "go",
+            "reading": "go",
+            "romaji": "go",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "go",
+              "pt-BR": "go",
+              "es": "go"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "far",
+            "reading": "far",
+            "romaji": "far",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "far",
+              "pt-BR": "far",
+              "es": "far"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "心",
+            "reading": "こころ",
+            "romaji": "kokoro",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "心",
+              "pt-BR": "心",
+              "es": "心"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "dream",
+            "reading": "dream",
+            "romaji": "dream",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "dream",
+              "pt-BR": "dream",
+              "es": "dream"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "of",
+            "reading": "of",
+            "romaji": "of",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "of",
+              "pt-BR": "of",
+              "es": "of"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 飛び立つfuture 目指したgo far 心のdream of",
+          "pt-BR": "(auto-coverage) 飛び立つfuture 目指したgo far 心のdream of",
+          "es": "(auto-coverage) 飛び立つfuture 目指したgo far 心のdream of"
+        },
+        "literal_meaning": {
+          "en": "飛び立つ + future + 目指し + た + go + far + 心 + の + dream + of"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "You",
+            "reading": "You",
+            "romaji": "You",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "You",
+              "pt-BR": "You",
+              "es": "You"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "'",
+            "reading": "'",
+            "romaji": "'",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "'",
+              "pt-BR": "'",
+              "es": "'"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "re",
+            "reading": "re",
+            "romaji": "re",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "re",
+              "pt-BR": "re",
+              "es": "re"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "my",
+            "reading": "my",
+            "romaji": "my",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "my",
+              "pt-BR": "my",
+              "es": "my"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "dream",
+            "reading": "dream",
+            "romaji": "dream",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "dream",
+              "pt-BR": "dream",
+              "es": "dream"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ああ",
+            "reading": "ああ",
+            "romaji": "ā",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "ああ",
+              "pt-BR": "ああ",
+              "es": "ああ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "もう",
+            "reading": "もう",
+            "romaji": "mō",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "もう",
+              "pt-BR": "もう",
+              "es": "もう"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "二度と",
+            "reading": "にどと",
+            "romaji": "nidoto",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "二度と",
+              "pt-BR": "二度と",
+              "es": "二度と"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "そう",
+            "reading": "そう",
+            "romaji": "sō",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "そう",
+              "pt-BR": "そう",
+              "es": "そう"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "戻ら",
+            "reading": "もどら",
+            "romaji": "modora",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "戻ら",
+              "pt-BR": "戻ら",
+              "es": "戻ら"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ない",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ない",
+              "pt-BR": "ない",
+              "es": "ない"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "days",
+            "reading": "days",
+            "romaji": "days",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "days",
+              "pt-BR": "days",
+              "es": "days"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) You're my dream ああ もう二度と そう 戻らない days",
+          "pt-BR": "(auto-coverage) You're my dream ああ もう二度と そう 戻らない days",
+          "es": "(auto-coverage) You're my dream ああ もう二度と そう 戻らない days"
+        },
+        "literal_meaning": {
+          "en": "You + ' + re + my + dream + ああ + もう + 二度と + そう + 戻ら + ない + days"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "負け",
+            "reading": "まけ",
+            "romaji": "make",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "負け",
+              "pt-BR": "負け",
+              "es": "負け"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "続け",
+            "reading": "つづけ",
+            "romaji": "tsuzuke",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "続け",
+              "pt-BR": "続け",
+              "es": "続け"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ゲーム",
+            "reading": "げーむ",
+            "romaji": "gēmu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ゲーム",
+              "pt-BR": "ゲーム",
+              "es": "ゲーム"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "これから",
+            "reading": "これから",
+            "romaji": "korekara",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "これから",
+              "pt-BR": "これから",
+              "es": "これから"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "始まっ",
+            "reading": "はじまっ",
+            "romaji": "hajimatsu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "始まっ",
+              "pt-BR": "始まっ",
+              "es": "始まっ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "く",
+            "reading": "く",
+            "romaji": "ku",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "く",
+              "pt-BR": "く",
+              "es": "く"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "one",
+            "reading": "one",
+            "romaji": "one",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "one",
+              "pt-BR": "one",
+              "es": "one"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "dream",
+            "reading": "dream",
+            "romaji": "dream",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "dream",
+              "pt-BR": "dream",
+              "es": "dream"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 負け続けのゲーム これから始まってく one dream",
+          "pt-BR": "(auto-coverage) 負け続けのゲーム これから始まってく one dream",
+          "es": "(auto-coverage) 負け続けのゲーム これから始まってく one dream"
+        },
+        "literal_meaning": {
+          "en": "負け + 続け + の + ゲーム + これから + 始まっ + て + く + one + dream"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "そう",
+            "reading": "そう",
+            "romaji": "sō",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "そう",
+              "pt-BR": "そう",
+              "es": "そう"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "I",
+            "reading": "I",
+            "romaji": "I",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "I",
+              "pt-BR": "I",
+              "es": "I"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "'",
+            "reading": "'",
+            "romaji": "'",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "'",
+              "pt-BR": "'",
+              "es": "'"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ll",
+            "reading": "ll",
+            "romaji": "ll",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ll",
+              "pt-BR": "ll",
+              "es": "ll"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "go",
+            "reading": "go",
+            "romaji": "go",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "go",
+              "pt-BR": "go",
+              "es": "go"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "the",
+            "reading": "the",
+            "romaji": "the",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "the",
+              "pt-BR": "the",
+              "es": "the"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "distance",
+            "reading": "distance",
+            "romaji": "distance",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "distance",
+              "pt-BR": "distance",
+              "es": "distance"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) そう I'll go the distance",
+          "pt-BR": "(auto-coverage) そう I'll go the distance",
+          "es": "(auto-coverage) そう I'll go the distance"
+        },
+        "literal_meaning": {
+          "en": "そう + I + ' + ll + go + the + distance"
+        }
+      }
+    }
+  ]
+}

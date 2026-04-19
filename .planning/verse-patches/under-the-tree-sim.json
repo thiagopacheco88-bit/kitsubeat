@@ -1,0 +1,168 @@
+{
+  "patches": [
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "問いかけ",
+            "reading": "といかけ",
+            "romaji": "toikake",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "問いかけ",
+              "pt-BR": "問いかけ",
+              "es": "問いかけ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "答え",
+            "reading": "こたえ",
+            "romaji": "kotae",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "答え",
+              "pt-BR": "答え",
+              "es": "答え"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なく",
+            "reading": "なく",
+            "romaji": "naku",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なく",
+              "pt-BR": "なく",
+              "es": "なく"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 問いかけに答えはなく",
+          "pt-BR": "(auto-coverage) 問いかけに答えはなく",
+          "es": "(auto-coverage) 問いかけに答えはなく"
+        },
+        "literal_meaning": {
+          "en": "問いかけ + に + 答え + は + なく"
+        }
+      }
+    },
+    {
+      "after_original": 6,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "追いかけ",
+            "reading": "おいかけ",
+            "romaji": "oikake",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "追いかけ",
+              "pt-BR": "追いかけ",
+              "es": "追いかけ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "遅く",
+            "reading": "おそく",
+            "romaji": "osoku",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "遅く",
+              "pt-BR": "遅く",
+              "es": "遅く"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "遠く",
+            "reading": "とおく",
+            "romaji": "tōku",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "遠く",
+              "pt-BR": "遠く",
+              "es": "遠く"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 追いかけても 遅く 遠く",
+          "pt-BR": "(auto-coverage) 追いかけても 遅く 遠く",
+          "es": "(auto-coverage) 追いかけても 遅く 遠く"
+        },
+        "literal_meaning": {
+          "en": "追いかけ + て + も + 遅く + 遠く"
+        }
+      }
+    }
+  ]
+}

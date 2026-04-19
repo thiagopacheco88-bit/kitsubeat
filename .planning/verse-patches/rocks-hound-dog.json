@@ -1,0 +1,315 @@
+{
+  "patches": [
+    {
+      "after_original": 11,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "遙",
+            "reading": "遙",
+            "romaji": "遙",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "遙",
+              "pt-BR": "遙",
+              "es": "遙"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "romaji": "ka",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "か",
+              "pt-BR": "か",
+              "es": "か"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "光",
+            "reading": "ひかり",
+            "romaji": "hikari",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "光",
+              "pt-BR": "光",
+              "es": "光"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "on",
+            "reading": "on",
+            "romaji": "on",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "on",
+              "pt-BR": "on",
+              "es": "on"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "the",
+            "reading": "the",
+            "romaji": "the",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "the",
+              "pt-BR": "the",
+              "es": "the"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "way",
+            "reading": "way",
+            "romaji": "way",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "way",
+              "pt-BR": "way",
+              "es": "way"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 遙か光の on the way",
+          "pt-BR": "(auto-coverage) 遙か光の on the way",
+          "es": "(auto-coverage) 遙か光の on the way"
+        },
+        "literal_meaning": {
+          "en": "遙 + か + 光 + の + on + the + way"
+        }
+      }
+    },
+    {
+      "after_original": 11,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "誰",
+            "reading": "だれ",
+            "romaji": "dare",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "誰",
+              "pt-BR": "誰",
+              "es": "誰"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "こと",
+            "reading": "こと",
+            "romaji": "koto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "こと",
+              "pt-BR": "こと",
+              "es": "こと"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なく",
+            "reading": "なく",
+            "romaji": "naku",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なく",
+              "pt-BR": "なく",
+              "es": "なく"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "誰",
+            "reading": "だれ",
+            "romaji": "dare",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "誰",
+              "pt-BR": "誰",
+              "es": "誰"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "せい",
+            "reading": "せい",
+            "romaji": "sei",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "せい",
+              "pt-BR": "せい",
+              "es": "せい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なく",
+            "reading": "なく",
+            "romaji": "naku",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "なく",
+              "pt-BR": "なく",
+              "es": "なく"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 誰のことでなく 誰のせいでなく",
+          "pt-BR": "(auto-coverage) 誰のことでなく 誰のせいでなく",
+          "es": "(auto-coverage) 誰のことでなく 誰のせいでなく"
+        },
+        "literal_meaning": {
+          "en": "誰 + の + こと + で + なく + 誰 + の + せい + で + なく"
+        }
+      }
+    },
+    {
+      "after_original": 11,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "胸",
+            "reading": "むね",
+            "romaji": "mune",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "胸",
+              "pt-BR": "胸",
+              "es": "胸"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ROCKS",
+            "reading": "ROCKS",
+            "romaji": "ROCKS",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "ROCKS",
+              "pt-BR": "ROCKS",
+              "es": "ROCKS"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 胸に ROCKS",
+          "pt-BR": "(auto-coverage) 胸に ROCKS",
+          "es": "(auto-coverage) 胸に ROCKS"
+        },
+        "literal_meaning": {
+          "en": "胸 + に + ROCKS"
+        }
+      }
+    }
+  ]
+}

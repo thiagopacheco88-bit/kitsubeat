@@ -1,0 +1,194 @@
+{
+  "patches": [
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "お",
+            "reading": "お",
+            "romaji": "o",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "お",
+              "pt-BR": "お",
+              "es": "お"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "花",
+            "reading": "はな",
+            "romaji": "hana",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "花",
+              "pt-BR": "花",
+              "es": "花"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ゆれる",
+            "reading": "ゆれる",
+            "romaji": "yureru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "ゆれる",
+              "pt-BR": "ゆれる",
+              "es": "ゆれる"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よ",
+            "reading": "よ",
+            "romaji": "yo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "よ",
+              "pt-BR": "よ",
+              "es": "よ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ゆれる",
+            "reading": "ゆれる",
+            "romaji": "yureru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "ゆれる",
+              "pt-BR": "ゆれる",
+              "es": "ゆれる"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よ",
+            "reading": "よ",
+            "romaji": "yo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "よ",
+              "pt-BR": "よ",
+              "es": "よ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) お花もゆれるよ ゆれるよ",
+          "pt-BR": "(auto-coverage) お花もゆれるよ ゆれるよ",
+          "es": "(auto-coverage) お花もゆれるよ ゆれるよ"
+        },
+        "literal_meaning": {
+          "en": "お + 花 + も + ゆれる + よ + ゆれる + よ"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "お",
+            "reading": "お",
+            "romaji": "o",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "お",
+              "pt-BR": "お",
+              "es": "お"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "日",
+            "reading": "ひ",
+            "romaji": "hi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "日",
+              "pt-BR": "日",
+              "es": "日"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "さま",
+            "reading": "さま",
+            "romaji": "sama",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "さま",
+              "pt-BR": "さま",
+              "es": "さま"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "こっそり",
+            "reading": "こっそり",
+            "romaji": "kossori",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "こっそり",
+              "pt-BR": "こっそり",
+              "es": "こっそり"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) お日さまも こっそり",
+          "pt-BR": "(auto-coverage) お日さまも こっそり",
+          "es": "(auto-coverage) お日さまも こっそり"
+        },
+        "literal_meaning": {
+          "en": "お + 日 + さま + も + こっそり"
+        }
+      }
+    }
+  ]
+}

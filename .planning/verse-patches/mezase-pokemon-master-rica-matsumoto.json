@@ -1,0 +1,527 @@
+{
+  "patches": [
+    {
+      "after_original": 32,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "たとえ",
+            "reading": "たとえ",
+            "romaji": "tatoe",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "たとえ",
+              "pt-BR": "たとえ",
+              "es": "たとえ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "火",
+            "reading": "ひ",
+            "romaji": "hi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "火",
+              "pt-BR": "火",
+              "es": "火"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なか",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "なか",
+              "pt-BR": "なか",
+              "es": "なか"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "中",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "中",
+              "pt-BR": "中",
+              "es": "中"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "水",
+            "reading": "みず",
+            "romaji": "mizu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "水",
+              "pt-BR": "水",
+              "es": "水"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なか",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "なか",
+              "pt-BR": "なか",
+              "es": "なか"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "中",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "中",
+              "pt-BR": "中",
+              "es": "中"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) たとえ火のなかの中 水のなかの中",
+          "pt-BR": "(auto-coverage) たとえ火のなかの中 水のなかの中",
+          "es": "(auto-coverage) たとえ火のなかの中 水のなかの中"
+        },
+        "literal_meaning": {
+          "en": "たとえ + 火 + の + なか + の + 中 + 水 + の + なか + の + 中"
+        }
+      }
+    },
+    {
+      "after_original": 32,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "草",
+            "reading": "くさ",
+            "romaji": "kusa",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "草",
+              "pt-BR": "草",
+              "es": "草"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なか",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "なか",
+              "pt-BR": "なか",
+              "es": "なか"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "中",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "中",
+              "pt-BR": "中",
+              "es": "中"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "森",
+            "reading": "もり",
+            "romaji": "mori",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "森",
+              "pt-BR": "森",
+              "es": "森"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なか",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "なか",
+              "pt-BR": "なか",
+              "es": "なか"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "中",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "中",
+              "pt-BR": "中",
+              "es": "中"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 草のなかの中 森のなかの中",
+          "pt-BR": "(auto-coverage) 草のなかの中 森のなかの中",
+          "es": "(auto-coverage) 草のなかの中 森のなかの中"
+        },
+        "literal_meaning": {
+          "en": "草 + の + なか + の + 中 + 森 + の + なか + の + 中"
+        }
+      }
+    },
+    {
+      "after_original": 32,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "土",
+            "reading": "ど",
+            "romaji": "do",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "土",
+              "pt-BR": "土",
+              "es": "土"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なか",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "なか",
+              "pt-BR": "なか",
+              "es": "なか"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "中",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "中",
+              "pt-BR": "中",
+              "es": "中"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "雲",
+            "reading": "くも",
+            "romaji": "kumo",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "雲",
+              "pt-BR": "雲",
+              "es": "雲"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "なか",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "なか",
+              "pt-BR": "なか",
+              "es": "なか"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "中",
+            "reading": "なか",
+            "romaji": "naka",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "中",
+              "pt-BR": "中",
+              "es": "中"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 土のなかの中 雲のなかの中",
+          "pt-BR": "(auto-coverage) 土のなかの中 雲のなかの中",
+          "es": "(auto-coverage) 土のなかの中 雲のなかの中"
+        },
+        "literal_meaning": {
+          "en": "土 + の + なか + の + 中 + 雲 + の + なか + の + 中"
+        }
+      }
+    },
+    {
+      "after_original": 32,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "GET",
+            "reading": "GET",
+            "romaji": "GET",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "GET",
+              "pt-BR": "GET",
+              "es": "GET"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "だ",
+            "reading": "だ",
+            "romaji": "da",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "だ",
+              "pt-BR": "だ",
+              "es": "だ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ぜ",
+            "reading": "ぜ",
+            "romaji": "ze",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ぜ",
+              "pt-BR": "ぜ",
+              "es": "ぜ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "!",
+            "reading": "!",
+            "romaji": "!",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "!",
+              "pt-BR": "!",
+              "es": "!"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) GETだぜ!",
+          "pt-BR": "(auto-coverage) GETだぜ!",
+          "es": "(auto-coverage) GETだぜ!"
+        },
+        "literal_meaning": {
+          "en": "GET + だ + ぜ + !"
+        }
+      }
+    }
+  ]
+}

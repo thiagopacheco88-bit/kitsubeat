@@ -1,0 +1,229 @@
+{
+  "patches": [
+    {
+      "after_original": 11,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "君",
+            "reading": "きみ",
+            "romaji": "kimi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "君",
+              "pt-BR": "君",
+              "es": "君"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "が",
+            "reading": "が",
+            "romaji": "ga",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "が",
+              "pt-BR": "が",
+              "es": "が"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "あきらめ",
+            "reading": "あきらめ",
+            "romaji": "akirame",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "あきらめ",
+              "pt-BR": "あきらめ",
+              "es": "あきらめ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "たり",
+            "reading": "たり",
+            "romaji": "tari",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "たり",
+              "pt-BR": "たり",
+              "es": "たり"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "し",
+            "reading": "し",
+            "romaji": "shi",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "し",
+              "pt-BR": "し",
+              "es": "し"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ない",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "ない",
+              "pt-BR": "ない",
+              "es": "ない"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "こと",
+            "reading": "こと",
+            "romaji": "koto",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "こと",
+              "pt-BR": "こと",
+              "es": "こと"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "、",
+            "reading": "、",
+            "romaji": ",",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "、",
+              "pt-BR": "、",
+              "es": "、"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "僕",
+            "reading": "ぼく",
+            "romaji": "boku",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "僕",
+              "pt-BR": "僕",
+              "es": "僕"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "知っ",
+            "reading": "しっ",
+            "romaji": "shitsu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "知っ",
+              "pt-BR": "知っ",
+              "es": "知っ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "いる",
+            "reading": "いる",
+            "romaji": "iru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "いる",
+              "pt-BR": "いる",
+              "es": "いる"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "から",
+            "reading": "から",
+            "romaji": "kara",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "から",
+              "pt-BR": "から",
+              "es": "から"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ねえ",
+            "reading": "ねえ",
+            "romaji": "nē",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "ねえ",
+              "pt-BR": "ねえ",
+              "es": "ねえ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "baby",
+            "reading": "baby",
+            "romaji": "baby",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "baby",
+              "pt-BR": "baby",
+              "es": "baby"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 君があきらめたりしないこと、僕は知っているからねえbaby",
+          "pt-BR": "(auto-coverage) 君があきらめたりしないこと、僕は知っているからねえbaby",
+          "es": "(auto-coverage) 君があきらめたりしないこと、僕は知っているからねえbaby"
+        },
+        "literal_meaning": {
+          "en": "君 + が + あきらめ + たり + し + ない + こと + 、 + 僕 + は + 知っ + て + いる + から + ねえ + baby"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "patches": [
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "この",
+            "reading": "この",
+            "romaji": "kono",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "この",
+              "pt-BR": "この",
+              "es": "この"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "場所",
+            "reading": "ばしょ",
+            "romaji": "basho",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "場所",
+              "pt-BR": "場所",
+              "es": "場所"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "Period",
+            "reading": "Period",
+            "romaji": "Period",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "Period",
+              "pt-BR": "Period",
+              "es": "Period"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) この場所でPeriodに",
+          "pt-BR": "(auto-coverage) この場所でPeriodに",
+          "es": "(auto-coverage) この場所でPeriodに"
+        },
+        "literal_meaning": {
+          "en": "この + 場所 + で + Period + に"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "向かう",
+            "reading": "むかう",
+            "romaji": "mukau",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "向かう",
+              "pt-BR": "向かう",
+              "es": "向かう"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "先",
+            "reading": "さき",
+            "romaji": "saki",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "先",
+              "pt-BR": "先",
+              "es": "先"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ほら",
+            "reading": "ほら",
+            "romaji": "hora",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "ほら",
+              "pt-BR": "ほら",
+              "es": "ほら"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 向かう先はほら",
+          "pt-BR": "(auto-coverage) 向かう先はほら",
+          "es": "(auto-coverage) 向かう先はほら"
+        },
+        "literal_meaning": {
+          "en": "向かう + 先 + は + ほら"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "煌めく",
+            "reading": "きらめく",
+            "romaji": "kirameku",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "煌めく",
+              "pt-BR": "煌めく",
+              "es": "煌めく"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "世界",
+            "reading": "せかい",
+            "romaji": "sekai",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "世界",
+              "pt-BR": "世界",
+              "es": "世界"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 煌めく世界",
+          "pt-BR": "(auto-coverage) 煌めく世界",
+          "es": "(auto-coverage) 煌めく世界"
+        },
+        "literal_meaning": {
+          "en": "煌めく + 世界"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "真実",
+            "reading": "しんじつ",
+            "romaji": "shinjitsu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "真実",
+              "pt-BR": "真実",
+              "es": "真実"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "指先",
+            "reading": "ゆびさき",
+            "romaji": "yubisaki",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "指先",
+              "pt-BR": "指先",
+              "es": "指先"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 真実は指先に",
+          "pt-BR": "(auto-coverage) 真実は指先に",
+          "es": "(auto-coverage) 真実は指先に"
+        },
+        "literal_meaning": {
+          "en": "真実 + は + 指先 + に"
+        }
+      }
+    }
+  ]
+}

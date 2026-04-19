@@ -1,0 +1,311 @@
+{
+  "patches": [
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "風",
+            "reading": "かぜ",
+            "romaji": "kaze",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "風",
+              "pt-BR": "風",
+              "es": "風"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "よ",
+            "reading": "よ",
+            "romaji": "yo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "よ",
+              "pt-BR": "よ",
+              "es": "よ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "太陽",
+            "reading": "たいよう",
+            "romaji": "taiyō",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "太陽",
+              "pt-BR": "太陽",
+              "es": "太陽"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "君",
+            "reading": "きみ",
+            "romaji": "kimi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "君",
+              "pt-BR": "君",
+              "es": "君"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "人知れず",
+            "reading": "ひとしれず",
+            "romaji": "hitoshirezu",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "人知れず",
+              "pt-BR": "人知れず",
+              "es": "人知れず"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "泣い",
+            "reading": "ない",
+            "romaji": "nai",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "泣い",
+              "pt-BR": "泣い",
+              "es": "泣い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "いる",
+            "reading": "いる",
+            "romaji": "iru",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "いる",
+              "pt-BR": "いる",
+              "es": "いる"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "かい",
+            "reading": "かい",
+            "romaji": "kai",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "かい",
+              "pt-BR": "かい",
+              "es": "かい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "?",
+            "reading": "?",
+            "romaji": "?",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "?",
+              "pt-BR": "?",
+              "es": "?"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 風よ太陽 君も人知れず泣いているのかい?",
+          "pt-BR": "(auto-coverage) 風よ太陽 君も人知れず泣いているのかい?",
+          "es": "(auto-coverage) 風よ太陽 君も人知れず泣いているのかい?"
+        },
+        "literal_meaning": {
+          "en": "風 + よ + 太陽 + 君 + も + 人知れず + 泣い + て + いる + の + かい + ?"
+        }
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "むしろ",
+            "reading": "むしろ",
+            "romaji": "mushiro",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "むしろ",
+              "pt-BR": "むしろ",
+              "es": "むしろ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "1",
+            "reading": "1",
+            "romaji": "1",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "1",
+              "pt-BR": "1",
+              "es": "1"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "つ",
+            "reading": "つ",
+            "romaji": "tsu",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "つ",
+              "pt-BR": "つ",
+              "es": "つ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "1",
+            "reading": "1",
+            "romaji": "1",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "1",
+              "pt-BR": "1",
+              "es": "1"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "つ",
+            "reading": "つ",
+            "romaji": "tsu",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "つ",
+              "pt-BR": "つ",
+              "es": "つ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "思い",
+            "reading": "おもい",
+            "romaji": "omoi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "思い",
+              "pt-BR": "思い",
+              "es": "思い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "を",
+            "reading": "を",
+            "romaji": "o",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "を",
+              "pt-BR": "を",
+              "es": "を"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ねじ込む",
+            "reading": "ねじこむ",
+            "romaji": "nejikomu",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "ねじ込む",
+              "pt-BR": "ねじ込む",
+              "es": "ねじ込む"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) むしろ1つ1つの思いをねじ込む",
+          "pt-BR": "(auto-coverage) むしろ1つ1つの思いをねじ込む",
+          "es": "(auto-coverage) むしろ1つ1つの思いをねじ込む"
+        },
+        "literal_meaning": {
+          "en": "むしろ + 1 + つ + 1 + つ + の + 思い + を + ねじ込む"
+        }
+      }
+    }
+  ]
+}

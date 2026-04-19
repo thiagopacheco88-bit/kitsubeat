@@ -1,0 +1,332 @@
+{
+  "patches": [
+    {
+      "after_original": 15,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "最終",
+            "reading": "さいしゅう",
+            "romaji": "saishū",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "最終",
+              "pt-BR": "最終",
+              "es": "最終"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "的",
+            "reading": "てき",
+            "romaji": "teki",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "的",
+              "pt-BR": "的",
+              "es": "的"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "全て",
+            "reading": "すべて",
+            "romaji": "subete",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "全て",
+              "pt-BR": "全て",
+              "es": "全て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "ありふれ",
+            "reading": "ありふれ",
+            "romaji": "arifure",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "ありふれ",
+              "pt-BR": "ありふれ",
+              "es": "ありふれ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "いく",
+            "reading": "いく",
+            "romaji": "iku",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "いく",
+              "pt-BR": "いく",
+              "es": "いく"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 最終的に全てはありふれていく",
+          "pt-BR": "(auto-coverage) 最終的に全てはありふれていく",
+          "es": "(auto-coverage) 最終的に全てはありふれていく"
+        },
+        "literal_meaning": {
+          "en": "最終 + 的 + に + 全て + は + ありふれ + て + いく"
+        }
+      }
+    },
+    {
+      "after_original": 15,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "先生",
+            "reading": "せんせい",
+            "romaji": "sensei",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "先生",
+              "pt-BR": "先生",
+              "es": "先生"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "あんた",
+            "reading": "あんた",
+            "romaji": "anta",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "あんた",
+              "pt-BR": "あんた",
+              "es": "あんた"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "裏切り",
+            "reading": "うらぎり",
+            "romaji": "uragiri",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "裏切り",
+              "pt-BR": "裏切り",
+              "es": "裏切り"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "もん",
+            "reading": "もん",
+            "romaji": "mon",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "もん",
+              "pt-BR": "もん",
+              "es": "もん"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "だ",
+            "reading": "だ",
+            "romaji": "da",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "だ",
+              "pt-BR": "だ",
+              "es": "だ"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 先生 あんた裏切りもんだ",
+          "pt-BR": "(auto-coverage) 先生 あんた裏切りもんだ",
+          "es": "(auto-coverage) 先生 あんた裏切りもんだ"
+        },
+        "literal_meaning": {
+          "en": "先生 + あんた + 裏切り + もん + だ"
+        }
+      }
+    },
+    {
+      "after_original": 15,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "そんな",
+            "reading": "そんな",
+            "romaji": "sonna",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "そんな",
+              "pt-BR": "そんな",
+              "es": "そんな"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "承知",
+            "reading": "しょうち",
+            "romaji": "shōchi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "承知",
+              "pt-BR": "承知",
+              "es": "承知"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) そんなの承知",
+          "pt-BR": "(auto-coverage) そんなの承知",
+          "es": "(auto-coverage) そんなの承知"
+        },
+        "literal_meaning": {
+          "en": "そんな + の + 承知"
+        }
+      }
+    },
+    {
+      "after_original": 15,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "仕掛けろ",
+            "reading": "しかけろ",
+            "romaji": "shikakero",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "仕掛けろ",
+              "pt-BR": "仕掛けろ",
+              "es": "仕掛けろ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "今",
+            "reading": "いま",
+            "romaji": "ima",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "今",
+              "pt-BR": "今",
+              "es": "今"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "すぐ",
+            "reading": "すぐ",
+            "romaji": "sugu",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "すぐ",
+              "pt-BR": "すぐ",
+              "es": "すぐ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "に",
+            "reading": "に",
+            "romaji": "ni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "に",
+              "pt-BR": "に",
+              "es": "に"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 仕掛けろ 今すぐに",
+          "pt-BR": "(auto-coverage) 仕掛けろ 今すぐに",
+          "es": "(auto-coverage) 仕掛けろ 今すぐに"
+        },
+        "literal_meaning": {
+          "en": "仕掛けろ + 今 + すぐ + に"
+        }
+      }
+    }
+  ]
+}

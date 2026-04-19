@@ -1,0 +1,518 @@
+{
+  "patches": [
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "いつも",
+            "reading": "いつも",
+            "romaji": "itsumo",
+            "grammar": "adverb",
+            "grammar_color": "orange",
+            "meaning": {
+              "en": "いつも",
+              "pt-BR": "いつも",
+              "es": "いつも"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "新しい",
+            "reading": "あたらしい",
+            "romaji": "atarashii",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "新しい",
+              "pt-BR": "新しい",
+              "es": "新しい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "一",
+            "reading": "いち",
+            "romaji": "ichi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "一",
+              "pt-BR": "一",
+              "es": "一"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "歩",
+            "reading": "ほ",
+            "romaji": "fu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "歩",
+              "pt-BR": "歩",
+              "es": "歩"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) いつも新しい一歩は",
+          "pt-BR": "(auto-coverage) いつも新しい一歩は",
+          "es": "(auto-coverage) いつも新しい一歩は"
+        },
+        "literal_meaning": {
+          "en": "いつも + 新しい + 一 + 歩 + は"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "重く",
+            "reading": "おもく",
+            "romaji": "omoku",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "重く",
+              "pt-BR": "重く",
+              "es": "重く"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "て",
+            "reading": "て",
+            "romaji": "te",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "て",
+              "pt-BR": "て",
+              "es": "て"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "寂しい",
+            "reading": "さびしい",
+            "romaji": "sabishii",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "寂しい",
+              "pt-BR": "寂しい",
+              "es": "寂しい"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 重くて寂しい",
+          "pt-BR": "(auto-coverage) 重くて寂しい",
+          "es": "(auto-coverage) 重くて寂しい"
+        },
+        "literal_meaning": {
+          "en": "重く + て + 寂しい"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "真夏",
+            "reading": "まなつ",
+            "romaji": "manatsu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "真夏",
+              "pt-BR": "真夏",
+              "es": "真夏"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "日差し",
+            "reading": "ひざし",
+            "romaji": "hizashi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "日差し",
+              "pt-BR": "日差し",
+              "es": "日差し"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "真冬",
+            "reading": "まふゆ",
+            "romaji": "mafuyu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "真冬",
+              "pt-BR": "真冬",
+              "es": "真冬"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "白い",
+            "reading": "しろい",
+            "romaji": "shiroi",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "白い",
+              "pt-BR": "白い",
+              "es": "白い"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "雪",
+            "reading": "ゆき",
+            "romaji": "yuki",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "雪",
+              "pt-BR": "雪",
+              "es": "雪"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 真夏の日差し 真冬の白い雪",
+          "pt-BR": "(auto-coverage) 真夏の日差し 真冬の白い雪",
+          "es": "(auto-coverage) 真夏の日差し 真冬の白い雪"
+        },
+        "literal_meaning": {
+          "en": "真夏 + の + 日差し + 真冬 + の + 白い + 雪"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "幸せ",
+            "reading": "しあわせ",
+            "romaji": "shiawase",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "幸せ",
+              "pt-BR": "幸せ",
+              "es": "幸せ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "な",
+            "reading": "な",
+            "romaji": "na",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "な",
+              "pt-BR": "な",
+              "es": "な"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "のに",
+            "reading": "のに",
+            "romaji": "noni",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "のに",
+              "pt-BR": "のに",
+              "es": "のに"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "どこ",
+            "reading": "どこ",
+            "romaji": "doko",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "どこ",
+              "pt-BR": "どこ",
+              "es": "どこ"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "か",
+            "reading": "か",
+            "romaji": "ka",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "か",
+              "pt-BR": "か",
+              "es": "か"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "で",
+              "pt-BR": "で",
+              "es": "で"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "寂しい",
+            "reading": "さびしい",
+            "romaji": "sabishii",
+            "grammar": "adjective",
+            "grammar_color": "green",
+            "meaning": {
+              "en": "寂しい",
+              "pt-BR": "寂しい",
+              "es": "寂しい"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "は",
+            "reading": "は",
+            "romaji": "wa",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "は",
+              "pt-BR": "は",
+              "es": "は"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) 幸せなのに どこかで寂しいのは",
+          "pt-BR": "(auto-coverage) 幸せなのに どこかで寂しいのは",
+          "es": "(auto-coverage) 幸せなのに どこかで寂しいのは"
+        },
+        "literal_meaning": {
+          "en": "幸せ + な + のに + どこ + か + で + 寂しい + の + は"
+        }
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "あなた",
+            "reading": "あなた",
+            "romaji": "anata",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "あなた",
+              "pt-BR": "あなた",
+              "es": "あなた"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "より",
+            "reading": "より",
+            "romaji": "yori",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "より",
+              "pt-BR": "より",
+              "es": "より"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "も",
+            "reading": "も",
+            "romaji": "mo",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "も",
+              "pt-BR": "も",
+              "es": "も"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "大きな",
+            "reading": "おおきな",
+            "romaji": "ōkina",
+            "grammar": "other",
+            "grammar_color": "none",
+            "meaning": {
+              "en": "大きな",
+              "pt-BR": "大きな",
+              "es": "大きな"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "私",
+            "reading": "わたし",
+            "romaji": "watashi",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "私",
+              "pt-BR": "私",
+              "es": "私"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "愛",
+            "reading": "あい",
+            "romaji": "ai",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "愛",
+              "pt-BR": "愛",
+              "es": "愛"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "の",
+            "reading": "の",
+            "romaji": "no",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "の",
+              "pt-BR": "の",
+              "es": "の"
+            },
+            "jlpt_level": "unknown"
+          },
+          {
+            "surface": "せい",
+            "reading": "せい",
+            "romaji": "sei",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "せい",
+              "pt-BR": "せい",
+              "es": "せい"
+            },
+            "jlpt_level": "unknown"
+          }
+        ],
+        "translations": {
+          "en": "(auto-coverage) あなたよりも大きな 私の愛のせい",
+          "pt-BR": "(auto-coverage) あなたよりも大きな 私の愛のせい",
+          "es": "(auto-coverage) あなたよりも大きな 私の愛のせい"
+        },
+        "literal_meaning": {
+          "en": "あなた + より + も + 大きな + 私 + の + 愛 + の + せい"
+        }
+      }
+    }
+  ]
+}
