@@ -39,6 +39,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 9: Kana Trainer** - Deliver a standalone hiragana/katakana trainer with row-by-row unlock and SRS-lite 10-star mastery
 - [x] **Phase 10: Advanced Exercises & Full Mastery** - Add grammar conjugation, listening drill, and sentence order exercises to complete the 3-star system (completed 2026-04-18)
 - [x] **Phase 11: Cross-Song Vocabulary** - Surface vocabulary mastery across all songs and deliver the premium cross-song review dashboard (completed 2026-04-18)
+- [ ] **Phase 11.1: Add-Song Pipeline** - INSERTED 2026-04-19 - Durable CLI pipeline for adding new songs end-to-end (discovery → lyrics/timing → lesson → DB) with validation gates surfaced by the TV backfill. Decimal-shifted from "Phase 12" to free the slot for v3.0 gamification. Draft CONTEXT at [.planning/phases/11.1-add-song-pipeline/11.1-CONTEXT.md](phases/11.1-add-song-pipeline/11.1-CONTEXT.md)
 - ➡️ **Phase 12: Anime Scenes & Cultural Vocabulary** - **MOVED** to v4.0 as Phase 21 (deferred until after v3.0 launch)
 
 ### v3.0 Launch Readiness
@@ -301,16 +302,26 @@ Plans:
 - LGPD still in scope (Brazilian audience via creator background and Portuguese translation support)
 
 ### Phase 12: Learning Path & Gamification
-**Goal**: Replace "any song, any time" with a curated beginner→advanced path; users see XP, streaks, levels, and diegetic unlock gates that make every session feel like measurable forward motion. Scaffolds reward slots that v4.0 Phase 21 fills with anime scenes.
+**Goal**: Replace "any song, any time" with a curated beginner→advanced path; users see XP, streaks, levels, and diegetic celebrations that make every session feel like measurable forward motion. Scaffolds reward slots that v4.0 Phase 21 fills with anime scenes.
 **Depends on**: Phase 11
 **Requirements**: TBD
 **Success Criteria** (what must be TRUE):
-  1. A new learner lands on a single "start here" path with JLPT-aligned milestones; advanced songs stay locked until prerequisites clear
-  2. Every session ends with XP gained, current streak, level progress, and a preview of the next unlock
-  3. Streak tracking persists with timezone-aware day rollovers and one grace day per week
-  4. Level-ups trigger a celebratory moment and a diegetic unlock (new song, new drill mode) — not just a silent number change
-  5. Reward-slot scaffolding exists at each tier — v4.0 Phase 21 will populate these with anime scenes
-**Plans**: TBD
+  1. A new learner picks one of 3 starter songs and lands on a curated stepped path that groups songs by the existing `difficulty_tier` ENUM (basic → intermediate → advanced); the recommended next song is highlighted with a path-order XP bonus, but no song is locked by level (existing freemium quotas remain the only access barrier)
+  2. Every session ends with XP gained, current streak, level progress, and (when applicable) a preview of the next reward slot to unlock
+  3. Streak tracking persists with timezone-aware day rollovers (device timezone, auto-detected) and one auto-applied grace day per week; broken streaks reset silently while the user's all-time best is preserved
+  4. Level-ups trigger a full-screen celebratory moment with sound + haptic (configurable) and unlock cosmetic content (avatar borders, profile color themes, badges); reward-slot infrastructure for v4.0 Phase 21 cultural content is scaffolded but invisible until populated
+  5. A JLPT mastery + gap-analysis view extends the existing `/vocabulary` dashboard from day 1, surfacing per-tier vocabulary gaps (e.g., "87/180 N5 words mastered")
+  6. Song tier (`difficulty_tier`) and vocabulary tier (JLPT `N5–N1`) remain parallel taxonomies — no re-tagging of either; songs use B/I/A on the path, vocab uses JLPT in the gap dashboard
+**Decisions captured**: [.planning/phases/12-learning-path-and-gamification/12-CONTEXT.md](phases/12-learning-path-and-gamification/12-CONTEXT.md)
+**Research captured**: [.planning/phases/12-learning-path-and-gamification/12-RESEARCH.md](phases/12-learning-path-and-gamification/12-RESEARCH.md)
+**Plans:** 6 plans
+Plans:
+- [ ] 12-01-PLAN.md — Schema + migration (0008_gamification.sql) + reward-slot seed + starter-pick verification script
+- [ ] 12-02-PLAN.md — TDD: XP calculator + level curve + streak state machine + reward-slot filter + analytics stub (pure functions)
+- [ ] 12-03-PLAN.md — RewardSlotContent discriminated-union types + cosmetic catalog + starter-song decision checkpoint
+- [ ] 12-04-PLAN.md — Extend saveSessionResults (single write boundary) + setStarterSong + SessionSummary XP/streak/level UI + integration tests
+- [ ] 12-05-PLAN.md — JLPT gap dashboard on /vocabulary + /profile HUD + sound/haptic settings toggles
+- [ ] 12-06-PLAN.md — /path route + StarterPick + LevelUpTakeover + CosmeticsProvider + SFX + E2E spec + human-verify checkpoint
 
 ### Phase 13: Performance & Caching
 **Goal**: First meaningful paint under 2s on mid-range mobile over 4G; subsequent song loads feel instant; no perceptible lag during exercise interactions.
