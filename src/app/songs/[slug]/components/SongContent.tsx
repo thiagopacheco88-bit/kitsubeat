@@ -46,10 +46,19 @@ export default function SongContent({
   songId: string;
   initialKnown: { total: number; known: number; mastered: number; learning: number };
 }) {
-  // Default to TV version if available, otherwise full
-  const tvVersion = versions.find((v) => v.type === "tv");
+  // TV is only a usable version if it has synced_lrc — without it the lyrics
+  // panel sits frozen because LyricsPanel.buildVerseTiming has no timeline to
+  // match verses against. Every current TV row has synced_lrc=null (WhisperX
+  // was only run for full cuts), so default to full and hide the toggle until
+  // the TV WhisperX batch lands. When TV sync data exists, the old default
+  // "TV first" behavior kicks back in automatically.
   const fullVersion = versions.find((v) => v.type === "full");
-  const hasMultiple = versions.length > 1;
+  const tvVersionRaw = versions.find((v) => v.type === "tv");
+  const tvVersion =
+    tvVersionRaw && tvVersionRaw.synced_lrc && tvVersionRaw.synced_lrc.length > 0
+      ? tvVersionRaw
+      : undefined;
+  const hasMultiple = versions.length > 1 && !!tvVersion;
 
   const [activeType, setActiveType] = useState<"tv" | "full">(
     tvVersion ? "tv" : "full"
