@@ -94,6 +94,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 10 P07 | 15 | 2 tasks | 9 files |
 | Phase 12-learning-path-and-gamification P02 | 8 | 4 tasks | 9 files |
 | Phase 12 P01 | 9 | 2 tasks | 4 files |
+| Phase 12-learning-path-and-gamification P03 | 35 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -294,6 +295,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 12]: content jsonb typed as plain jsonb in schema.ts; Plan 03 narrows to RewardSlotContent union
 - [Phase 12]: Researcher starter picks all fail basic-tier check; SUBSTITUTION NEEDED flagged for Plan 03
 - [Phase 12]: Migration applied via tsx neon script; drizzle-kit push has interactive prompt blocking automation
+- [Phase 12-learning-path-and-gamification]: Starter songs: under-the-tree-sim/misa-no-uta-aya-hirano/yume-wo-kanaete-doraemon-mao (user option-b)
+- [Phase 12-learning-path-and-gamification]: AnimeSceneContent.media_url typed string|null — Phase 21 INSERTs without code change
 
 ### Pending Todos
 
