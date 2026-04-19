@@ -17,8 +17,11 @@ import {
 import { QuotaExhaustedError } from "@/lib/exercises/errors";
 import { recordSongAttempt, getSongCountForFamily } from "@/lib/exercises/counters";
 import { isPremium } from "@/app/actions/userPrefs";
-import { userExerciseSongCounters } from "@/lib/db/schema";
+import { userExerciseSongCounters, users } from "@/lib/db/schema";
 import { and } from "drizzle-orm";
+import { applyGamificationUpdate } from "@/lib/gamification/session-integration";
+import type { GamificationResult } from "@/lib/gamification/session-integration";
+import { STARTER_SONG_SLUGS } from "@/lib/gamification/starter-songs";
 
 // ---------------------------------------------------------------------------
 // Phase 10 Plan 06 — Advanced Drills access summary (server action).
@@ -117,9 +120,20 @@ interface SaveSessionInput {
   // TODO: replace with Clerk userId from auth()
   userId: string;
   songVersionId: string;
+  /**
+   * Song slug — required for gamification path advancement (Plan 12-04).
+   * Optional for legacy test callers; defaults to empty string (no path advance).
+   */
+  songSlug?: string;
   answers: AnswerRecord[];
   mode: "short" | "full";
   durationMs: number;
+  /**
+   * IANA timezone from Intl.DateTimeFormat().resolvedOptions().timeZone.
+   * Used for TZ-aware streak day rollover and daily XP cap.
+   * Falls back to 'UTC' if not provided (legacy callers).
+   */
+  tz?: string;
 }
 
 interface SongMasteryCounts {
@@ -147,6 +161,29 @@ interface SaveSessionResult {
    */
   previousBonusBadge: boolean;
   songMastery: SongMasteryCounts;
+  // ── Phase 12 Plan 04 — Gamification fields ──────────────────────────────
+  /** XP gained this session (after soft cap). Includes streak milestone bonus. */
+  xpGained: number;
+  /** User's total accumulated XP after this session. */
+  xpTotal: number;
+  /** User's level before this session. */
+  previousLevel: number;
+  /** User's level after this session. */
+  currentLevel: number;
+  /** True if the user crossed a level threshold during this session. */
+  leveledUp: boolean;
+  /** Current streak count (in user's local calendar days). */
+  streakCurrent: number;
+  /** All-time best streak. */
+  streakBest: number;
+  /** True if the grace day was applied to preserve the streak. */
+  graceApplied: boolean;
+  /** Streak milestone bonus XP earned (0 if no milestone hit). */
+  milestoneXp: number;
+  /** Next locked reward slot preview (null if none available). */
+  rewardSlotPreview: { id: string; label: string; level_threshold: number } | null;
+  /** Slug of the next path node if path advanced; null if not on path or no advance. */
+  pathAdvancedTo: string | null;
 }
 
 // ---------------------------------------------------------------------------
@@ -166,7 +203,7 @@ interface SaveSessionResult {
 export async function saveSessionResults(
   input: SaveSessionInput
 ): Promise<SaveSessionResult> {
-  const { userId, songVersionId, answers, mode } = input;
+  const { userId, songVersionId, songSlug = "", answers, mode, tz = "UTC" } = input;
 
   // --- Step 1: Split answers by group ---
   //
@@ -306,6 +343,17 @@ export async function saveSessionResults(
       bonusBadge: false,
       previousBonusBadge: false,
       songMastery: { total: 0, mastered: 0, learning: 0, new: 0 },
+      xpGained: 0,
+      xpTotal: 0,
+      previousLevel: 1,
+      currentLevel: 1,
+      leveledUp: false,
+      streakCurrent: 0,
+      streakBest: 0,
+      graceApplied: false,
+      milestoneXp: 0,
+      rewardSlotPreview: null,
+      pathAdvancedTo: null,
     };
   }
 
@@ -506,6 +554,45 @@ export async function saveSessionResults(
     }
   }
 
+  // --- Step 10: Gamification update (Phase 12 Plan 04) ---
+  //
+  // Single write boundary (M6): all XP/streak/level/path writes go through
+  // applyGamificationUpdate. Called AFTER the stars/progress upsert so that
+  // `stars` and `previousStars` are the final post-upsert values — required for
+  // accurate star-bonus XP calculation (e.g., if this session earned Star 2,
+  // calculateXp sees newStars=2, previousStars=1).
+  let gamification: GamificationResult;
+  try {
+    gamification = await applyGamificationUpdate({
+      userId,
+      tz,
+      correctAnswers: answers.filter((a) => a.correct).length,
+      totalAnswers: answers.length,
+      sessionType: mode,
+      newStars: stars,
+      previousStars,
+      songSlug,
+    });
+  } catch (err) {
+    // Gamification failure must NEVER fail the session save — progress/stars
+    // write is the user-visible side effect. Log and return zeros.
+    // eslint-disable-next-line no-console
+    console.error("[saveSessionResults] gamification update failed:", err);
+    gamification = {
+      xpGained: 0,
+      xpTotal: 0,
+      previousLevel: 1,
+      currentLevel: 1,
+      leveledUp: false,
+      streakCurrent: 0,
+      streakBest: 0,
+      graceApplied: false,
+      milestoneXp: 0,
+      rewardSlotPreview: null,
+      pathAdvancedTo: null,
+    };
+  }
+
   return {
     completionPct: updated.completion_pct,
     stars,
@@ -513,6 +600,17 @@ export async function saveSessionResults(
     bonusBadge,
     previousBonusBadge,
     songMastery,
+    xpGained: gamification.xpGained,
+    xpTotal: gamification.xpTotal,
+    previousLevel: gamification.previousLevel,
+    currentLevel: gamification.currentLevel,
+    leveledUp: gamification.leveledUp,
+    streakCurrent: gamification.streakCurrent,
+    streakBest: gamification.streakBest,
+    graceApplied: gamification.graceApplied,
+    milestoneXp: gamification.milestoneXp,
+    rewardSlotPreview: gamification.rewardSlotPreview,
+    pathAdvancedTo: gamification.pathAdvancedTo,
   };
 }
 

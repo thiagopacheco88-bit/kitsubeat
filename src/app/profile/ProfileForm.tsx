@@ -10,6 +10,9 @@ interface ProfileFormProps {
   isPremium: boolean;
   defaultCap: number;
   maxCap: number;
+  /** Phase 12: celebration effects defaults */
+  initialSoundEnabled: boolean;
+  initialHapticsEnabled: boolean;
 }
 
 type SaveState =
@@ -25,9 +28,13 @@ export default function ProfileForm({
   isPremium,
   defaultCap,
   maxCap,
+  initialSoundEnabled,
+  initialHapticsEnabled,
 }: ProfileFormProps) {
   const [skipLearning, setSkipLearning] = useState(initialSkipLearning);
   const [newCardCap, setNewCardCap] = useState<number>(initialNewCardCap);
+  const [soundEnabled, setSoundEnabled] = useState(initialSoundEnabled);
+  const [hapticsEnabled, setHapticsEnabled] = useState(initialHapticsEnabled);
   const [state, setState] = useState<SaveState>({ kind: "idle" });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -45,6 +52,8 @@ export default function ProfileForm({
       await updateUserPrefs(userId, {
         skipLearning,
         newCardCap: capToSend,
+        soundEnabled,
+        hapticsEnabled,
       });
       setState({ kind: "saved" });
     } catch (err) {
@@ -119,6 +128,54 @@ export default function ProfileForm({
           </p>
         )}
       </div>
+
+      {/* Celebration effects — sound + haptics toggles */}
+      <fieldset className="space-y-4">
+        <legend className="font-medium text-white">Celebration effects</legend>
+
+        <label className="flex cursor-pointer items-start gap-3">
+          <input
+            type="checkbox"
+            checked={soundEnabled}
+            onChange={(e) => {
+              setSoundEnabled(e.target.checked);
+              setState({ kind: "idle" });
+            }}
+            className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-red-600"
+          />
+          <span>
+            <span className="block font-medium text-white">
+              Sound effects
+            </span>
+            <span className="block text-sm text-gray-400">
+              Play a chime on level-up.
+            </span>
+          </span>
+        </label>
+
+        <label className="flex cursor-pointer items-start gap-3">
+          <input
+            type="checkbox"
+            checked={hapticsEnabled}
+            onChange={(e) => {
+              setHapticsEnabled(e.target.checked);
+              setState({ kind: "idle" });
+            }}
+            className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-red-600"
+          />
+          <span>
+            <span className="block font-medium text-white">
+              Haptic feedback
+            </span>
+            <span className="block text-sm text-gray-400">
+              Vibrate on mobile on level-up.
+            </span>
+            <span className="block text-xs text-gray-500 mt-0.5">
+              No effect on iOS — Web Vibration API unsupported.
+            </span>
+          </span>
+        </label>
+      </fieldset>
 
       {/* Submit + status */}
       <div className="flex items-center gap-4">

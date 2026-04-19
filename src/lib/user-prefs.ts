@@ -19,4 +19,8 @@ export const REVIEW_NEW_DAILY_CAP = 20;
 export interface UserPrefs {
   skipLearning: boolean;
   newCardCap: number;
+  /** Phase 12: Play a chime on level-up. Default ON. */
+  soundEnabled: boolean;
+  /** Phase 12: Vibrate on mobile on level-up. Default ON (no effect on iOS — Web Vibration API unsupported). */
+  hapticsEnabled: boolean;
 }

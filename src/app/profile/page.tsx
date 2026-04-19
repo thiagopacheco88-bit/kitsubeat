@@ -31,6 +31,8 @@ export default async function ProfilePage() {
           isPremium={premium}
           defaultCap={DEFAULT_NEW_CARD_CAP}
           maxCap={PREMIUM_NEW_CARD_CAP_CEILING}
+          initialSoundEnabled={prefs.soundEnabled}
+          initialHapticsEnabled={prefs.hapticsEnabled}
         />
       </section>
     </main>

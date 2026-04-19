@@ -53,6 +53,16 @@ export default function ExerciseSession({
   // Translation language for localizing learn card meaning
   const { translationLang } = usePlayer();
 
+  // Phase 12 Plan 04: Read device TZ ONCE on mount.
+  // Passed to SessionSummary so saveSessionResults can use TZ-aware streak rollover.
+  const [tz] = useState<string>(() => {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    } catch {
+      return "UTC";
+    }
+  });
+
   // Fade transition state — used to animate between questions
   const [visible, setVisible] = useState(true);
 
@@ -79,6 +89,7 @@ export default function ExerciseSession({
           userId={userId}
           onRetry={onRetry}
           onClose={onRetry}
+          tz={tz}
         />
       </div>
     );
