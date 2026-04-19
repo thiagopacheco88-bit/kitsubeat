@@ -1,0 +1,76 @@
+{"patches":[
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"答え","reading":"こたえ","romaji":"kotae","grammar":"noun","grammar_color":"blue","meaning":{"en":"answer","pt-BR":"resposta","es":"respuesta"},"jlpt_level":"N5"},
+  {"surface":"のない","reading":"のない","romaji":"nonai","grammar":"particle","grammar_color":"grey","meaning":{"en":"without","pt-BR":"sem","es":"sin"},"jlpt_level":"N4"},
+  {"surface":"人生","reading":"じんせい","romaji":"jinsei","grammar":"noun","grammar_color":"blue","meaning":{"en":"life","pt-BR":"vida","es":"vida"},"jlpt_level":"N3"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"くじけそう","reading":"くじけそう","romaji":"kujikesou","grammar":"verb","grammar_color":"red","meaning":{"en":"about to falter","pt-BR":"prestes a ceder","es":"a punto de flaquear"},"jlpt_level":"N2"},
+  {"surface":"になる","reading":"になる","romaji":"ninaru","grammar":"verb","grammar_color":"red","meaning":{"en":"become","pt-BR":"tornar-se","es":"volverse"},"jlpt_level":"N5"},
+  {"surface":"けど","reading":"けど","romaji":"kedo","grammar":"particle","grammar_color":"grey","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N5"}
+],"translations":{"en":"In a life without answers, I nearly give up, but —","pt-BR":"Numa vida sem respostas, quase desisto, mas —","es":"En una vida sin respuestas, casi me rindo, pero —"},"literal_meaning":{"en":"answer + without + life + in + about-to-falter + become + but"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"心","reading":"こころ","romaji":"kokoro","grammar":"noun","grammar_color":"blue","meaning":{"en":"heart","pt-BR":"coração","es":"corazón"},"jlpt_level":"N4"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"つながってる","reading":"つながってる","romaji":"tsunagatteru","grammar":"verb","grammar_color":"red","meaning":{"en":"is connected","pt-BR":"está conectado","es":"está conectado"},"jlpt_level":"N3"},
+  {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"}
+],"translations":{"en":"Our hearts are still connected.","pt-BR":"Nossos corações estão conectados.","es":"Nuestros corazones siguen unidos."},"literal_meaning":{"en":"heart + topic + is-connected + emphasis"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"たとえ","reading":"たとえ","romaji":"tatoe","grammar":"adverb","grammar_color":"orange","meaning":{"en":"even if","pt-BR":"mesmo se","es":"aunque"},"jlpt_level":"N3"},
+  {"surface":"遠く","reading":"とおく","romaji":"tooku","grammar":"adverb","grammar_color":"orange","meaning":{"en":"far","pt-BR":"longe","es":"lejos"},"jlpt_level":"N5"},
+  {"surface":"離れても","reading":"はなれても","romaji":"hanaretemo","grammar":"verb","grammar_color":"red","meaning":{"en":"apart (te-mo)","pt-BR":"separados","es":"separados"},"jlpt_level":"N4"}
+],"translations":{"en":"Even if we're far apart.","pt-BR":"Mesmo que estejamos distantes.","es":"Aunque estemos lejos."},"literal_meaning":{"en":"even-if + far + apart"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"共に","reading":"ともに","romaji":"tomoni","grammar":"adverb","grammar_color":"orange","meaning":{"en":"together","pt-BR":"juntos","es":"juntos"},"jlpt_level":"N3"},
+  {"surface":"共に","reading":"ともに","romaji":"tomoni","grammar":"adverb","grammar_color":"orange","meaning":{"en":"together","pt-BR":"juntos","es":"juntos"},"jlpt_level":"N3"},
+  {"surface":"生きてゆこう","reading":"いきてゆこう","romaji":"ikiteyukou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's live on","pt-BR":"vamos viver","es":"vivamos"},"jlpt_level":"N3"}
+],"translations":{"en":"Together, together, let's live on.","pt-BR":"Juntos, juntos, vamos viver.","es":"Juntos, juntos, sigamos viviendo."},"literal_meaning":{"en":"together + together + let's-live-on"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+  {"surface":"全力疾走","reading":"ぜんりょくしっそう","romaji":"zenryoku-shissou","grammar":"noun","grammar_color":"blue","meaning":{"en":"full-speed dash","pt-BR":"corrida a toda","es":"carrera a todo"},"jlpt_level":"N1"},
+  {"surface":"目指す","reading":"めざす","romaji":"mezasu","grammar":"verb","grammar_color":"red","meaning":{"en":"aim for","pt-BR":"visar","es":"apuntar"},"jlpt_level":"N3"},
+  {"surface":"のは","reading":"のは","romaji":"nowa","grammar":"particle","grammar_color":"grey","meaning":{"en":"the thing","pt-BR":"o que","es":"lo que"},"jlpt_level":"N4"},
+  {"surface":"あの","reading":"あの","romaji":"ano","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"aquele","es":"aquel"},"jlpt_level":"N5"},
+  {"surface":"頂上","reading":"ちょうじょう","romaji":"choujou","grammar":"noun","grammar_color":"blue","meaning":{"en":"summit","pt-BR":"cume","es":"cima"},"jlpt_level":"N3"}
+],"translations":{"en":"That all-out run — what we aim at is that summit.","pt-BR":"Essa corrida total — nosso alvo é o cume.","es":"Esa carrera a todo — apuntamos a aquella cumbre."},"literal_meaning":{"en":"that + full-speed-dash + aim-for + thing + that + summit"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"Our","reading":"Our","romaji":"Our","grammar":"other","grammar_color":"none","meaning":{"en":"our","pt-BR":"nosso","es":"nuestro"},"jlpt_level":"unknown"},
+  {"surface":"lives","reading":"lives","romaji":"lives","grammar":"other","grammar_color":"none","meaning":{"en":"lives","pt-BR":"vidas","es":"vidas"},"jlpt_level":"unknown"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"Winding","reading":"Winding","romaji":"Winding","grammar":"other","grammar_color":"none","meaning":{"en":"winding","pt-BR":"sinuoso","es":"sinuoso"},"jlpt_level":"unknown"},
+  {"surface":"road","reading":"road","romaji":"road","grammar":"other","grammar_color":"none","meaning":{"en":"road","pt-BR":"estrada","es":"camino"},"jlpt_level":"unknown"}
+],"translations":{"en":"Our lives are a winding road.","pt-BR":"Nossas vidas são uma estrada sinuosa.","es":"Nuestras vidas son un camino sinuoso."},"literal_meaning":{"en":"Our + lives + topic + Winding + road"}}},
+{"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"たとえ","reading":"たとえ","romaji":"tatoe","grammar":"adverb","grammar_color":"orange","meaning":{"en":"even if","pt-BR":"mesmo se","es":"aunque"},"jlpt_level":"N3"},
+  {"surface":"間違っても","reading":"まちがっても","romaji":"machigattemo","grammar":"verb","grammar_color":"red","meaning":{"en":"even if wrong","pt-BR":"mesmo errando","es":"aunque te equivoques"},"jlpt_level":"N4"},
+  {"surface":"無駄","reading":"むだ","romaji":"muda","grammar":"noun","grammar_color":"blue","meaning":{"en":"waste","pt-BR":"desperdício","es":"desperdicio"},"jlpt_level":"N3"},
+  {"surface":"じゃない","reading":"じゃない","romaji":"janai","grammar":"verb","grammar_color":"red","meaning":{"en":"not","pt-BR":"não é","es":"no es"},"jlpt_level":"N5"},
+  {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because","pt-BR":"porque","es":"porque"},"jlpt_level":"N5"},
+  {"surface":"迷わず","reading":"まよわず","romaji":"mayowazu","grammar":"verb","grammar_color":"red","meaning":{"en":"without hesitation","pt-BR":"sem hesitar","es":"sin dudar"},"jlpt_level":"N3"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"without","pt-BR":"sem","es":"sin"},"jlpt_level":"N5"},
+  {"surface":"すすめ","reading":"すすめ","romaji":"susume","grammar":"verb","grammar_color":"red","meaning":{"en":"go (imp.)","pt-BR":"avance","es":"avanza"},"jlpt_level":"N4"}
+],"translations":{"en":"Even if you're wrong it's not wasted — press on without hesitation.","pt-BR":"Mesmo errando, não é em vão — avance sem hesitar.","es":"Aunque te equivoques no se pierde — avanza sin dudar."},"literal_meaning":{"en":"even-if + wrong + waste + not + because + without-hesitation + without + go"}}},
+{"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+  {"surface":"手","reading":"て","romaji":"te","grammar":"noun","grammar_color":"blue","meaning":{"en":"hand","pt-BR":"mão","es":"mano"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"空","reading":"そら","romaji":"sora","grammar":"noun","grammar_color":"blue","meaning":{"en":"sky","pt-BR":"céu","es":"cielo"},"jlpt_level":"N5"},
+  {"surface":"にかざせ","reading":"にかざせ","romaji":"nikazase","grammar":"verb","grammar_color":"red","meaning":{"en":"hold up (imp.)","pt-BR":"erga","es":"levanta"},"jlpt_level":"N2"}
+],"translations":{"en":"Hold that hand up to the sky.","pt-BR":"Erga essa mão ao céu.","es":"Levanta esa mano hacia el cielo."},"literal_meaning":{"en":"that + hand + obj + sky + hold-up"}}},
+{"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"答え","reading":"こたえ","romaji":"kotae","grammar":"noun","grammar_color":"blue","meaning":{"en":"answer","pt-BR":"resposta","es":"respuesta"},"jlpt_level":"N5"},
+  {"surface":"の無い","reading":"のない","romaji":"nonai","grammar":"particle","grammar_color":"grey","meaning":{"en":"without","pt-BR":"sem","es":"sin"},"jlpt_level":"N4"},
+  {"surface":"人生","reading":"じんせい","romaji":"jinsei","grammar":"noun","grammar_color":"blue","meaning":{"en":"life","pt-BR":"vida","es":"vida"},"jlpt_level":"N3"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"迷ってばかり","reading":"まよってばかり","romaji":"mayottebakari","grammar":"verb","grammar_color":"red","meaning":{"en":"always lost","pt-BR":"sempre perdido","es":"siempre perdido"},"jlpt_level":"N3"},
+  {"surface":"だけど","reading":"だけど","romaji":"dakedo","grammar":"particle","grammar_color":"grey","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N4"}
+],"translations":{"en":"In a life without answers, I'm always lost — but.","pt-BR":"Numa vida sem respostas, sempre perdida — mas.","es":"En una vida sin respuestas, siempre perdida — pero."},"literal_meaning":{"en":"answer + without + life + in + always-lost + but"}}},
+{"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"答え","reading":"こたえ","romaji":"kotae","grammar":"noun","grammar_color":"blue","meaning":{"en":"answer","pt-BR":"resposta","es":"respuesta"},"jlpt_level":"N5"},
+  {"surface":"の無い","reading":"のない","romaji":"nonai","grammar":"particle","grammar_color":"grey","meaning":{"en":"without","pt-BR":"sem","es":"sin"},"jlpt_level":"N4"},
+  {"surface":"人生","reading":"じんせい","romaji":"jinsei","grammar":"noun","grammar_color":"blue","meaning":{"en":"life","pt-BR":"vida","es":"vida"},"jlpt_level":"N3"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"くじけそう","reading":"くじけそう","romaji":"kujikesou","grammar":"verb","grammar_color":"red","meaning":{"en":"about to falter","pt-BR":"prestes a ceder","es":"a punto de flaquear"},"jlpt_level":"N2"},
+  {"surface":"になる","reading":"になる","romaji":"ninaru","grammar":"verb","grammar_color":"red","meaning":{"en":"become","pt-BR":"tornar-se","es":"volverse"},"jlpt_level":"N5"},
+  {"surface":"けど","reading":"けど","romaji":"kedo","grammar":"particle","grammar_color":"grey","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N5"}
+],"translations":{"en":"In a life without answers, I nearly give up — but.","pt-BR":"Numa vida sem respostas, quase desisto — mas.","es":"En una vida sin respuestas, casi flaqueo — pero."},"literal_meaning":{"en":"answer + without + life + in + about-to-falter + become + but"}}}
+]}

@@ -1,0 +1,124 @@
+{
+  "patches": [
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"夢","reading":"ゆめ","romaji":"yume","grammar":"noun","grammar_color":"blue","meaning":{"en":"dream","pt-BR":"sonho","es":"sueño"},"jlpt_level":"N5"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"扉","reading":"とびら","romaji":"tobira","grammar":"noun","grammar_color":"blue","meaning":{"en":"door","pt-BR":"porta","es":"puerta"},"jlpt_level":"N3"},
+      {"surface":"蹴飛ばして","reading":"けとばして","romaji":"ketobashite","grammar":"verb","grammar_color":"red","meaning":{"en":"kick down (te-form)","pt-BR":"chutar","es":"patear"},"jlpt_level":"N2"}
+    ],"translations":{"en":"Kick down the door of dreams,","pt-BR":"Chute a porta dos sonhos,","es":"Patea la puerta de los sueños,"},"literal_meaning":{"en":"dream + of + door + kick-down"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"導火線","reading":"どうかせん","romaji":"doukasen","grammar":"noun","grammar_color":"blue","meaning":{"en":"fuse","pt-BR":"pavio","es":"mecha"},"jlpt_level":"N1"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"on","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"火","reading":"ひ","romaji":"hi","grammar":"noun","grammar_color":"blue","meaning":{"en":"fire","pt-BR":"fogo","es":"fuego"},"jlpt_level":"N4"},
+      {"surface":"点いた","reading":"ついた","romaji":"tsuita","grammar":"verb","grammar_color":"red","meaning":{"en":"was lit","pt-BR":"acendeu","es":"se prendió"},"jlpt_level":"N3"},
+      {"surface":"Bomb","reading":"Bomb","romaji":"Bomb","grammar":"other","grammar_color":"none","meaning":{"en":"bomb","pt-BR":"bomba","es":"bomba"},"jlpt_level":"unknown"}
+    ],"translations":{"en":"The fuse is lit — Bomb.","pt-BR":"O pavio foi aceso — Bomba.","es":"La mecha está encendida — Bomba."},"literal_meaning":{"en":"fuse + on + fire + was-lit + Bomb"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"自ら","reading":"みずから","romaji":"mizukara","grammar":"adverb","grammar_color":"orange","meaning":{"en":"by oneself","pt-BR":"por si mesmo","es":"por sí mismo"},"jlpt_level":"N2"},
+      {"surface":"動かなきゃ","reading":"うごかなきゃ","romaji":"ugokanakya","grammar":"verb","grammar_color":"red","meaning":{"en":"must move","pt-BR":"precisa se mover","es":"hay que moverse"},"jlpt_level":"N3"}
+    ],"translations":{"en":"Unless you move yourself,","pt-BR":"Se você mesmo não se mover,","es":"Si no te mueves tú mismo,"},"literal_meaning":{"en":"by-oneself + must-move"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"死ぬ気","reading":"しぬき","romaji":"shinuki","grammar":"noun","grammar_color":"blue","meaning":{"en":"do-or-die spirit","pt-BR":"espírito de tudo-ou-nada","es":"espíritu de todo-o-nada"},"jlpt_level":"N2"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+      {"surface":"挑みな","reading":"いどみな","romaji":"idomina","grammar":"verb","grammar_color":"red","meaning":{"en":"challenge (imperative)","pt-BR":"desafie","es":"desafía"},"jlpt_level":"N2"}
+    ],"translations":{"en":"Challenge it with everything you've got,","pt-BR":"Enfrente com espírito de tudo-ou-nada,","es":"Enfréntalo con espíritu de todo-o-nada,"},"literal_meaning":{"en":"do-or-die + with + challenge"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"ビビらず","reading":"ビビらず","romaji":"bibirazu","grammar":"verb","grammar_color":"red","meaning":{"en":"without flinching","pt-BR":"sem vacilar","es":"sin vacilar"},"jlpt_level":"N2"},
+      {"surface":"踏み出す","reading":"ふみだす","romaji":"fumidasu","grammar":"verb","grammar_color":"red","meaning":{"en":"to step out","pt-BR":"dar um passo","es":"dar un paso"},"jlpt_level":"N2"}
+    ],"translations":{"en":"Step forward without hesitation,","pt-BR":"Dê um passo sem vacilar,","es":"Da un paso sin vacilar,"},"literal_meaning":{"en":"without-flinching + step-out"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"飛び立つ","reading":"とびたつ","romaji":"tobitatsu","grammar":"verb","grammar_color":"red","meaning":{"en":"to take off","pt-BR":"decolar","es":"despegar"},"jlpt_level":"N2"},
+      {"surface":"時","reading":"とき","romaji":"toki","grammar":"noun","grammar_color":"blue","meaning":{"en":"time","pt-BR":"hora","es":"tiempo"},"jlpt_level":"N5"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+    ],"translations":{"en":"It's time to take flight!","pt-BR":"É hora de decolar!","es":"¡Es hora de despegar!"},"literal_meaning":{"en":"take-off + time + be"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"見えない","reading":"みえない","romaji":"mienai","grammar":"verb","grammar_color":"red","meaning":{"en":"invisible","pt-BR":"invisível","es":"invisible"},"jlpt_level":"N4"},
+      {"surface":"扉","reading":"とびら","romaji":"tobira","grammar":"noun","grammar_color":"blue","meaning":{"en":"door","pt-BR":"porta","es":"puerta"},"jlpt_level":"N3"},
+      {"surface":"開く","reading":"ひらく","romaji":"hiraku","grammar":"verb","grammar_color":"red","meaning":{"en":"to open","pt-BR":"abrir","es":"abrir"},"jlpt_level":"N4"},
+      {"surface":"まで","reading":"まで","romaji":"made","grammar":"particle","grammar_color":"grey","meaning":{"en":"until","pt-BR":"até","es":"hasta"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Until the invisible door opens,","pt-BR":"Até a porta invisível se abrir,","es":"Hasta que la puerta invisible se abra,"},"literal_meaning":{"en":"invisible + door + open + until"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"消えない","reading":"きえない","romaji":"kienai","grammar":"verb","grammar_color":"red","meaning":{"en":"unfading","pt-BR":"que não apaga","es":"que no se apaga"},"jlpt_level":"N4"},
+      {"surface":"意志","reading":"いし","romaji":"ishi","grammar":"noun","grammar_color":"blue","meaning":{"en":"will","pt-BR":"vontade","es":"voluntad"},"jlpt_level":"N2"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+      {"surface":"抱く","reading":"いだく","romaji":"idaku","grammar":"verb","grammar_color":"red","meaning":{"en":"to hold","pt-BR":"abraçar","es":"abrazar"},"jlpt_level":"N2"},
+      {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only","pt-BR":"apenas","es":"sólo"},"jlpt_level":"N4"}
+    ],"translations":{"en":"just keep holding an unfading will.","pt-BR":"apenas mantenha uma vontade inabalável.","es":"mantén sólo una voluntad que no se apaga."},"literal_meaning":{"en":"unfading + will + obj + hold + only"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"自分","reading":"じぶん","romaji":"jibun","grammar":"noun","grammar_color":"blue","meaning":{"en":"self","pt-BR":"si mesmo","es":"uno mismo"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"欲しがらなきゃ","reading":"ほしがらなきゃ","romaji":"hoshigaranakya","grammar":"verb","grammar_color":"red","meaning":{"en":"must want","pt-BR":"precisa querer","es":"hay que querer"},"jlpt_level":"N3"}
+    ],"translations":{"en":"Unless you yourself want it,","pt-BR":"Se você mesmo não desejar,","es":"Si tú mismo no lo quieres,"},"literal_meaning":{"en":"self + subj + must-want"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"何で","reading":"なんで","romaji":"nande","grammar":"other","grammar_color":"none","meaning":{"en":"why","pt-BR":"por quê","es":"por qué"},"jlpt_level":"N5"},
+      {"surface":"何で","reading":"なんで","romaji":"nande","grammar":"other","grammar_color":"none","meaning":{"en":"why","pt-BR":"por quê","es":"por qué"},"jlpt_level":"N5"},
+      {"surface":"何で","reading":"なんで","romaji":"nande","grammar":"other","grammar_color":"none","meaning":{"en":"why","pt-BR":"por quê","es":"por qué"},"jlpt_level":"N5"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"前","reading":"まえ","romaji":"mae","grammar":"noun","grammar_color":"blue","meaning":{"en":"before","pt-BR":"antes","es":"antes"},"jlpt_level":"N5"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Before asking \"why, why, why\",","pt-BR":"Antes de perguntar \"por quê, por quê\",","es":"Antes de preguntar \"por qué, por qué\","},"literal_meaning":{"en":"why + why + why + of + before + at"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"動いて","reading":"うごいて","romaji":"ugoite","grammar":"verb","grammar_color":"red","meaning":{"en":"move (te-form)","pt-BR":"mova","es":"muévete"},"jlpt_level":"N4"},
+      {"surface":"動いて","reading":"うごいて","romaji":"ugoite","grammar":"verb","grammar_color":"red","meaning":{"en":"move","pt-BR":"mova","es":"muévete"},"jlpt_level":"N4"},
+      {"surface":"動いてみな","reading":"うごいてみな","romaji":"ugoitemina","grammar":"verb","grammar_color":"red","meaning":{"en":"try moving (imperative)","pt-BR":"tente mover","es":"prueba a moverte"},"jlpt_level":"N3"}
+    ],"translations":{"en":"move, move, just try moving.","pt-BR":"mova, mova, experimente se mover.","es":"muévete, muévete, prueba a moverte."},"literal_meaning":{"en":"move + move + try-moving"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"見て","reading":"みて","romaji":"mite","grammar":"verb","grammar_color":"red","meaning":{"en":"look (te-form)","pt-BR":"olhe","es":"mira"},"jlpt_level":"N5"},
+      {"surface":"聞いて","reading":"きいて","romaji":"kiite","grammar":"verb","grammar_color":"red","meaning":{"en":"listen (te-form)","pt-BR":"ouça","es":"escucha"},"jlpt_level":"N5"},
+      {"surface":"Use","reading":"Use","romaji":"Use","grammar":"other","grammar_color":"none","meaning":{"en":"use","pt-BR":"use","es":"usa"},"jlpt_level":"unknown"},
+      {"surface":"Your","reading":"Your","romaji":"Your","grammar":"other","grammar_color":"none","meaning":{"en":"your","pt-BR":"seu","es":"tu"},"jlpt_level":"unknown"},
+      {"surface":"Body","reading":"Body","romaji":"Body","grammar":"other","grammar_color":"none","meaning":{"en":"body","pt-BR":"corpo","es":"cuerpo"},"jlpt_level":"unknown"}
+    ],"translations":{"en":"Look and listen — Use Your Body.","pt-BR":"Olhe e ouça — Use Seu Corpo.","es":"Mira y escucha — Usa Tu Cuerpo."},"literal_meaning":{"en":"look + listen + Use + Your + Body"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"世の中","reading":"よのなか","romaji":"yononaka","grammar":"noun","grammar_color":"blue","meaning":{"en":"the world","pt-BR":"o mundo","es":"el mundo"},"jlpt_level":"N3"},
+      {"surface":"ウソ","reading":"ウソ","romaji":"uso","grammar":"noun","grammar_color":"blue","meaning":{"en":"lie","pt-BR":"mentira","es":"mentira"},"jlpt_level":"N4"},
+      {"surface":"ばかり","reading":"ばかり","romaji":"bakari","grammar":"particle","grammar_color":"grey","meaning":{"en":"nothing but","pt-BR":"só","es":"sólo"},"jlpt_level":"N4"}
+    ],"translations":{"en":"The world is nothing but lies.","pt-BR":"O mundo é só mentiras.","es":"El mundo es sólo mentiras."},"literal_meaning":{"en":"world + lie + nothing-but"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"手口","reading":"てぐち","romaji":"teguchi","grammar":"noun","grammar_color":"blue","meaning":{"en":"method; trick","pt-BR":"método","es":"método"},"jlpt_level":"N2"},
+      {"surface":"理不尽","reading":"りふじん","romaji":"rifujin","grammar":"adjective","grammar_color":"green","meaning":{"en":"unreasonable","pt-BR":"injusto","es":"injusto"},"jlpt_level":"N1"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+    ],"translations":{"en":"The tricks are unreasonable.","pt-BR":"Os métodos são injustos.","es":"Los métodos son injustos."},"literal_meaning":{"en":"method + unreasonable + be"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"出口","reading":"でぐち","romaji":"deguchi","grammar":"noun","grammar_color":"blue","meaning":{"en":"exit","pt-BR":"saída","es":"salida"},"jlpt_level":"N5"},
+      {"surface":"求めたきゃ","reading":"もとめたきゃ","romaji":"motometakya","grammar":"verb","grammar_color":"red","meaning":{"en":"if you want","pt-BR":"se quiser","es":"si quieres"},"jlpt_level":"N3"},
+      {"surface":"自分","reading":"じぶん","romaji":"jibun","grammar":"noun","grammar_color":"blue","meaning":{"en":"self","pt-BR":"si mesmo","es":"uno mismo"},"jlpt_level":"N4"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"by","pt-BR":"por","es":"por"},"jlpt_level":"N5"},
+      {"surface":"掴みな","reading":"つかみな","romaji":"tsukamina","grammar":"verb","grammar_color":"red","meaning":{"en":"grab (imperative)","pt-BR":"agarre","es":"agarra"},"jlpt_level":"N3"}
+    ],"translations":{"en":"If you want an exit, grab it yourself.","pt-BR":"Se quer uma saída, agarre-a você mesmo.","es":"Si quieres una salida, agárrala tú mismo."},"literal_meaning":{"en":"exit + if-want + self + by + grab"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"いばら","reading":"いばら","romaji":"ibara","grammar":"noun","grammar_color":"blue","meaning":{"en":"thorns","pt-BR":"espinhos","es":"espinas"},"jlpt_level":"N1"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"中","reading":"なか","romaji":"naka","grammar":"noun","grammar_color":"blue","meaning":{"en":"inside","pt-BR":"dentro","es":"dentro"},"jlpt_level":"N5"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"真実","reading":"しんじつ","romaji":"shinjitsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"truth","pt-BR":"verdade","es":"verdad"},"jlpt_level":"N2"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"一つ","reading":"ひとつ","romaji":"hitotsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"one","pt-BR":"um","es":"uno"},"jlpt_level":"N5"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Amid the thorns, there's only one truth.","pt-BR":"Entre os espinhos, há apenas uma verdade.","es":"Entre las espinas, sólo hay una verdad."},"literal_meaning":{"en":"thorns + of + inside + in + truth + topic + one + be"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"痛い","reading":"いたい","romaji":"itai","grammar":"adjective","grammar_color":"green","meaning":{"en":"painful","pt-BR":"doloroso","es":"doloroso"},"jlpt_level":"N5"},
+      {"surface":"ぜ","reading":"ぜ","romaji":"ze","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis (masc)","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N3"},
+      {"surface":"痛い","reading":"いたい","romaji":"itai","grammar":"adjective","grammar_color":"green","meaning":{"en":"painful","pt-BR":"doloroso","es":"doloroso"},"jlpt_level":"N5"},
+      {"surface":"ぜ","reading":"ぜ","romaji":"ze","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N3"},
+      {"surface":"そりゃ","reading":"そりゃ","romaji":"sorya","grammar":"other","grammar_color":"none","meaning":{"en":"well; that","pt-BR":"claro","es":"claro"},"jlpt_level":"N4"},
+      {"surface":"痛い","reading":"いたい","romaji":"itai","grammar":"adjective","grammar_color":"green","meaning":{"en":"painful","pt-BR":"doloroso","es":"doloroso"},"jlpt_level":"N5"},
+      {"surface":"ぜ","reading":"ぜ","romaji":"ze","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N3"}
+    ],"translations":{"en":"It hurts, it hurts — of course it hurts.","pt-BR":"Dói, dói — claro que dói.","es":"Duele, duele — claro que duele."},"literal_meaning":{"en":"painful + emphasis + painful + emphasis + well + painful + emphasis"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"当たって","reading":"あたって","romaji":"atatte","grammar":"verb","grammar_color":"red","meaning":{"en":"hit (te-form)","pt-BR":"bater","es":"golpear"},"jlpt_level":"N3"},
+      {"surface":"当たって","reading":"あたって","romaji":"atatte","grammar":"verb","grammar_color":"red","meaning":{"en":"hit","pt-BR":"bater","es":"golpear"},"jlpt_level":"N3"},
+      {"surface":"ぶっ壊せ","reading":"ぶっこわせ","romaji":"bukkowase","grammar":"verb","grammar_color":"red","meaning":{"en":"smash it (imp.)","pt-BR":"arrebente","es":"destrúyelo"},"jlpt_level":"N2"}
+    ],"translations":{"en":"Ram it, ram it, smash it down!","pt-BR":"Bata, bata, arrebente!","es":"Golpea, golpea, ¡destrúyelo!"},"literal_meaning":{"en":"hit + hit + smash"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"頭","reading":"あたま","romaji":"atama","grammar":"noun","grammar_color":"blue","meaning":{"en":"head","pt-BR":"cabeça","es":"cabeza"},"jlpt_level":"N5"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"前","reading":"まえ","romaji":"mae","grammar":"noun","grammar_color":"blue","meaning":{"en":"before","pt-BR":"antes","es":"antes"},"jlpt_level":"N5"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"全身","reading":"ぜんしん","romaji":"zenshin","grammar":"noun","grammar_color":"blue","meaning":{"en":"whole body","pt-BR":"corpo todo","es":"cuerpo entero"},"jlpt_level":"N2"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+      {"surface":"Feel","reading":"Feel","romaji":"Feel","grammar":"other","grammar_color":"none","meaning":{"en":"feel","pt-BR":"sentir","es":"sentir"},"jlpt_level":"unknown"},
+      {"surface":"That","reading":"That","romaji":"That","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"aquilo","es":"eso"},"jlpt_level":"unknown"}
+    ],"translations":{"en":"Before your head — with your whole body, Feel That.","pt-BR":"Antes da cabeça — com o corpo todo, Feel That.","es":"Antes que la cabeza — con todo el cuerpo, Feel That."},"literal_meaning":{"en":"head + of + before + at + whole-body + with + Feel + That"}}}
+  ]
+}

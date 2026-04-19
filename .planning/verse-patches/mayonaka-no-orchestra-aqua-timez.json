@@ -1,0 +1,183 @@
+{"patches":[
+{"after_original":3,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"足もと","reading":"あしもと","romaji":"ashimoto","grammar":"noun","grammar_color":"blue","meaning":{"en":"at feet","pt-BR":"aos pés","es":"a los pies"},"jlpt_level":"N2"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"小さな","reading":"ちいさな","romaji":"chiisana","grammar":"adjective","grammar_color":"green","meaning":{"en":"small","pt-BR":"pequeno","es":"pequeño"},"jlpt_level":"N5"},
+  {"surface":"海","reading":"うみ","romaji":"umi","grammar":"noun","grammar_color":"blue","meaning":{"en":"sea","pt-BR":"mar","es":"mar"},"jlpt_level":"N5"},
+  {"surface":"になった","reading":"になった","romaji":"ninatta","grammar":"verb","grammar_color":"red","meaning":{"en":"became","pt-BR":"tornou-se","es":"se volvió"},"jlpt_level":"N5"}
+],"translations":{"en":"became a little sea at my feet.","pt-BR":"tornou-se um pequeno mar aos meus pés.","es":"se volvió un pequeño mar a mis pies."},"literal_meaning":{"en":"at-feet + at + small + sea + became"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"地面","reading":"じめん","romaji":"jimen","grammar":"noun","grammar_color":"blue","meaning":{"en":"ground","pt-BR":"chão","es":"suelo"},"jlpt_level":"N3"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"動かない","reading":"うごかない","romaji":"ugokanai","grammar":"verb","grammar_color":"red","meaning":{"en":"doesn't move","pt-BR":"não se move","es":"no se mueve"},"jlpt_level":"N4"},
+  {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"歩く","reading":"あるく","romaji":"aruku","grammar":"verb","grammar_color":"red","meaning":{"en":"walk","pt-BR":"caminhar","es":"caminar"},"jlpt_level":"N5"},
+  {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"or","pt-BR":"ou","es":"o"},"jlpt_level":"N5"},
+  {"surface":"歩かない","reading":"あるかない","romaji":"arukanai","grammar":"verb","grammar_color":"red","meaning":{"en":"don't walk","pt-BR":"não caminha","es":"no camina"},"jlpt_level":"N5"},
+  {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"just","pt-BR":"apenas","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+],"translations":{"en":"The ground doesn't move — only whether you walk or not.","pt-BR":"O chão não se move — só se você anda ou não.","es":"La tierra no se mueve — sólo si tú andas o no."},"literal_meaning":{"en":"ground + topic + doesn't-move + you + subj + walk + or + don't-walk + just + be"}}},
+{"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"分け合える","reading":"わけあえる","romaji":"wakeaeru","grammar":"verb","grammar_color":"red","meaning":{"en":"can share","pt-BR":"poder partilhar","es":"poder compartir"},"jlpt_level":"N2"},
+  {"surface":"人","reading":"ひと","romaji":"hito","grammar":"noun","grammar_color":"blue","meaning":{"en":"person","pt-BR":"pessoa","es":"persona"},"jlpt_level":"N5"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"いる","reading":"いる","romaji":"iru","grammar":"verb","grammar_color":"red","meaning":{"en":"exists","pt-BR":"existir","es":"existir"},"jlpt_level":"N5"},
+  {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"or","pt-BR":"ou","es":"o"},"jlpt_level":"N5"},
+  {"surface":"いない","reading":"いない","romaji":"inai","grammar":"verb","grammar_color":"red","meaning":{"en":"doesn't exist","pt-BR":"não existe","es":"no existe"},"jlpt_level":"N5"},
+  {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"or","pt-BR":"ou","es":"o"},"jlpt_level":"N5"},
+  {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"just","pt-BR":"apenas","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+],"translations":{"en":"It's just whether you have someone to share with or not.","pt-BR":"É só se você tem alguém com quem dividir ou não.","es":"Sólo importa si tienes alguien con quien compartir o no."},"literal_meaning":{"en":"can-share + person + subj + exists + or + doesn't-exist + or + just + be"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"すれたフリ","reading":"すれたふり","romaji":"suretafuri","grammar":"noun","grammar_color":"blue","meaning":{"en":"pretending to be jaded","pt-BR":"fingir ser endurecido","es":"fingir estar curtido"},"jlpt_level":"N1"},
+  {"surface":"をして","reading":"をして","romaji":"woshite","grammar":"verb","grammar_color":"red","meaning":{"en":"doing","pt-BR":"fazendo","es":"haciendo"},"jlpt_level":"N5"},
+  {"surface":"不透明","reading":"ふとうめい","romaji":"futoumei","grammar":"adjective","grammar_color":"green","meaning":{"en":"opaque","pt-BR":"opaco","es":"opaco"},"jlpt_level":"N2"},
+  {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na","pt-BR":"na","es":"na"},"jlpt_level":"N5"},
+  {"surface":"世界","reading":"せかい","romaji":"sekai","grammar":"noun","grammar_color":"blue","meaning":{"en":"world","pt-BR":"mundo","es":"mundo"},"jlpt_level":"N5"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"住みついた","reading":"すみついた","romaji":"sumitsuita","grammar":"verb","grammar_color":"red","meaning":{"en":"settled","pt-BR":"me estabeleci","es":"me establecí"},"jlpt_level":"N2"}
+],"translations":{"en":"Pretending to be jaded, we settled in an opaque world.","pt-BR":"Fingindo estar endurecidos, nos fixamos num mundo opaco.","es":"Fingiendo estar curtidos, nos asentamos en un mundo opaco."},"literal_meaning":{"en":"jaded-pretend + doing + opaque + na + world + in + settled"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"重たい","reading":"おもたい","romaji":"omotai","grammar":"adjective","grammar_color":"green","meaning":{"en":"heavy","pt-BR":"pesado","es":"pesado"},"jlpt_level":"N2"},
+  {"surface":"自由","reading":"じゆう","romaji":"jiyuu","grammar":"noun","grammar_color":"blue","meaning":{"en":"freedom","pt-BR":"liberdade","es":"libertad"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"引きずって","reading":"ひきずって","romaji":"hikizutte","grammar":"verb","grammar_color":"red","meaning":{"en":"dragging (te-form)","pt-BR":"arrastando","es":"arrastrando"},"jlpt_level":"N3"},
+  {"surface":"歩いてた","reading":"あるいてた","romaji":"aruiteta","grammar":"verb","grammar_color":"red","meaning":{"en":"was walking","pt-BR":"caminhava","es":"caminaba"},"jlpt_level":"N5"}
+],"translations":{"en":"I was walking, dragging heavy freedom behind me.","pt-BR":"Caminhava arrastando uma liberdade pesada.","es":"Caminaba arrastrando una libertad pesada."},"literal_meaning":{"en":"heavy + freedom + obj + dragging + was-walking"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"別れ","reading":"わかれ","romaji":"wakare","grammar":"noun","grammar_color":"blue","meaning":{"en":"parting","pt-BR":"separação","es":"separación"},"jlpt_level":"N3"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"来る","reading":"くる","romaji":"kuru","grammar":"verb","grammar_color":"red","meaning":{"en":"come","pt-BR":"vir","es":"venir"},"jlpt_level":"N5"},
+  {"surface":"たび","reading":"たび","romaji":"tabi","grammar":"noun","grammar_color":"blue","meaning":{"en":"each time","pt-BR":"cada vez","es":"cada vez"},"jlpt_level":"N3"},
+  {"surface":"空","reading":"そら","romaji":"sora","grammar":"noun","grammar_color":"blue","meaning":{"en":"sky","pt-BR":"céu","es":"cielo"},"jlpt_level":"N5"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"とおざかって","reading":"とおざかって","romaji":"toozakatte","grammar":"verb","grammar_color":"red","meaning":{"en":"receding","pt-BR":"afastando","es":"alejándose"},"jlpt_level":"N2"},
+  {"surface":"行く","reading":"いく","romaji":"iku","grammar":"verb","grammar_color":"red","meaning":{"en":"go","pt-BR":"ir","es":"ir"},"jlpt_level":"N5"},
+  {"surface":"ように","reading":"ように","romaji":"youni","grammar":"particle","grammar_color":"grey","meaning":{"en":"as if","pt-BR":"como se","es":"como si"},"jlpt_level":"N3"},
+  {"surface":"見えた","reading":"みえた","romaji":"mieta","grammar":"verb","grammar_color":"red","meaning":{"en":"looked","pt-BR":"parecia","es":"parecía"},"jlpt_level":"N4"}
+],"translations":{"en":"Each time farewell came, it looked as if the sky was receding.","pt-BR":"Cada vez que a despedida vinha, parecia que o céu se afastava.","es":"Cada vez que llegaba la despedida, parecía que el cielo se alejaba."},"literal_meaning":{"en":"parting + subj + come + each-time + sky + subj + receding + go + as-if + looked"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"サヨナラ","reading":"サヨナラ","romaji":"sayonara","grammar":"noun","grammar_color":"blue","meaning":{"en":"goodbye","pt-BR":"adeus","es":"adiós"},"jlpt_level":"N5"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"雨","reading":"あめ","romaji":"ame","grammar":"noun","grammar_color":"blue","meaning":{"en":"rain","pt-BR":"chuva","es":"lluvia"},"jlpt_level":"N5"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"つぶやいた","reading":"つぶやいた","romaji":"tsubuyaita","grammar":"verb","grammar_color":"red","meaning":{"en":"murmured","pt-BR":"sussurrou","es":"susurró"},"jlpt_level":"N2"},
+  {"surface":"開いた","reading":"ひらいた","romaji":"hiraita","grammar":"verb","grammar_color":"red","meaning":{"en":"opened","pt-BR":"aberto","es":"abierto"},"jlpt_level":"N4"},
+  {"surface":"まま","reading":"まま","romaji":"mama","grammar":"particle","grammar_color":"grey","meaning":{"en":"still","pt-BR":"ainda","es":"aún"},"jlpt_level":"N4"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"傘","reading":"かさ","romaji":"kasa","grammar":"noun","grammar_color":"blue","meaning":{"en":"umbrella","pt-BR":"guarda-chuva","es":"paraguas"},"jlpt_level":"N5"},
+  {"surface":"がある","reading":"がある","romaji":"gaaru","grammar":"verb","grammar_color":"red","meaning":{"en":"there is","pt-BR":"há","es":"hay"},"jlpt_level":"N5"},
+  {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+  {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+],"translations":{"en":"The goodbye rain whispered: there's an umbrella still open.","pt-BR":"A chuva do adeus sussurrou: há um guarda-chuva ainda aberto.","es":"La lluvia del adiós susurró: hay un paraguas que sigue abierto."},"literal_meaning":{"en":"goodbye + of + rain + subj + murmured + opened + still + of + umbrella + there-is + explanatory + be"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"ここ","reading":"ここ","romaji":"koko","grammar":"other","grammar_color":"none","meaning":{"en":"here","pt-BR":"aqui","es":"aquí"},"jlpt_level":"N5"},
+  {"surface":"にある","reading":"にある","romaji":"niaru","grammar":"verb","grammar_color":"red","meaning":{"en":"is here","pt-BR":"está aqui","es":"está aquí"},"jlpt_level":"N5"},
+  {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+  {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+  {"surface":"開いた","reading":"ひらいた","romaji":"hiraita","grammar":"verb","grammar_color":"red","meaning":{"en":"opened","pt-BR":"aberto","es":"abierto"},"jlpt_level":"N4"},
+  {"surface":"まま","reading":"まま","romaji":"mama","grammar":"particle","grammar_color":"grey","meaning":{"en":"still","pt-BR":"ainda","es":"aún"},"jlpt_level":"N4"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"優しさ","reading":"やさしさ","romaji":"yasashisa","grammar":"noun","grammar_color":"blue","meaning":{"en":"kindness","pt-BR":"gentileza","es":"amabilidad"},"jlpt_level":"N3"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este","es":"este"},"jlpt_level":"N5"},
+  {"surface":"胸","reading":"むね","romaji":"mune","grammar":"noun","grammar_color":"blue","meaning":{"en":"chest","pt-BR":"peito","es":"pecho"},"jlpt_level":"N3"},
+  {"surface":"にずっと","reading":"にずっと","romaji":"nizutto","grammar":"particle","grammar_color":"grey","meaning":{"en":"always in","pt-BR":"sempre em","es":"siempre en"},"jlpt_level":"N4"}
+],"translations":{"en":"It's here — kindness still open, always in this heart.","pt-BR":"Está aqui — uma gentileza aberta, sempre neste peito.","es":"Está aquí — una amabilidad aún abierta, siempre en este pecho."},"literal_meaning":{"en":"here + is + explanatory + be + opened + still + of + kindness + subj + this + chest + always-in"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"僕","reading":"ぼく","romaji":"boku","grammar":"noun","grammar_color":"blue","meaning":{"en":"I","pt-BR":"eu","es":"yo"},"jlpt_level":"N4"},
+  {"surface":"には","reading":"には","romaji":"niwa","grammar":"particle","grammar_color":"grey","meaning":{"en":"for","pt-BR":"para","es":"para"},"jlpt_level":"N5"},
+  {"surface":"まだ","reading":"まだ","romaji":"mada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"still","pt-BR":"ainda","es":"aún"},"jlpt_level":"N5"},
+  {"surface":"諦めていない","reading":"あきらめていない","romaji":"akirameteinai","grammar":"verb","grammar_color":"red","meaning":{"en":"haven't given up","pt-BR":"não desisti","es":"no he renunciado"},"jlpt_level":"N3"},
+  {"surface":"再会","reading":"さいかい","romaji":"saikai","grammar":"noun","grammar_color":"blue","meaning":{"en":"reunion","pt-BR":"reencontro","es":"reencuentro"},"jlpt_level":"N2"},
+  {"surface":"がある","reading":"がある","romaji":"gaaru","grammar":"verb","grammar_color":"red","meaning":{"en":"exists","pt-BR":"existe","es":"existe"},"jlpt_level":"N5"},
+  {"surface":"約束","reading":"やくそく","romaji":"yakusoku","grammar":"noun","grammar_color":"blue","meaning":{"en":"promise","pt-BR":"promessa","es":"promesa"},"jlpt_level":"N4"}
+],"translations":{"en":"I still have reunions I haven't given up on — promises.","pt-BR":"Ainda tenho reencontros aos quais não desisti — promessas.","es":"Aún tengo reencuentros a los que no he renunciado — promesas."},"literal_meaning":{"en":"I + for + still + haven't-given-up + reunion + exists + promise"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"星くず","reading":"ほしくず","romaji":"hoshikuzu","grammar":"noun","grammar_color":"blue","meaning":{"en":"stardust","pt-BR":"poeira estelar","es":"polvo de estrellas"},"jlpt_level":"N1"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"ベッド","reading":"ベッド","romaji":"beddo","grammar":"noun","grammar_color":"blue","meaning":{"en":"bed","pt-BR":"cama","es":"cama"},"jlpt_level":"N5"},
+  {"surface":"にして","reading":"にして","romaji":"nishite","grammar":"verb","grammar_color":"red","meaning":{"en":"using as","pt-BR":"usando como","es":"usando como"},"jlpt_level":"N3"},
+  {"surface":"眠っている","reading":"ねむっている","romaji":"nemutteiru","grammar":"verb","grammar_color":"red","meaning":{"en":"is sleeping","pt-BR":"está dormindo","es":"está durmiendo"},"jlpt_level":"N4"},
+  {"surface":"あの","reading":"あの","romaji":"ano","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"aquele","es":"aquel"},"jlpt_level":"N5"},
+  {"surface":"人","reading":"ひと","romaji":"hito","grammar":"noun","grammar_color":"blue","meaning":{"en":"person","pt-BR":"pessoa","es":"persona"},"jlpt_level":"N5"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"a"},"jlpt_level":"N5"}
+],"translations":{"en":"To that person, sleeping on a bed of stardust.","pt-BR":"Àquela pessoa que dorme em uma cama de poeira estelar.","es":"A aquella persona que duerme en una cama de polvo estelar."},"literal_meaning":{"en":"stardust + obj + bed + using-as + is-sleeping + that + person + to"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"季節","reading":"きせつ","romaji":"kisetsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"season","pt-BR":"estação","es":"estación"},"jlpt_level":"N4"},
+  {"surface":"のない","reading":"のない","romaji":"nonai","grammar":"particle","grammar_color":"grey","meaning":{"en":"without","pt-BR":"sem","es":"sin"},"jlpt_level":"N4"},
+  {"surface":"街","reading":"まち","romaji":"machi","grammar":"noun","grammar_color":"blue","meaning":{"en":"town","pt-BR":"cidade","es":"ciudad"},"jlpt_level":"N5"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"しゃがみ込む","reading":"しゃがみこむ","romaji":"shagamikomu","grammar":"verb","grammar_color":"red","meaning":{"en":"crouch down","pt-BR":"agachar-se","es":"acuclillarse"},"jlpt_level":"N2"},
+  {"surface":"男の子","reading":"おとこのこ","romaji":"otokonoko","grammar":"noun","grammar_color":"blue","meaning":{"en":"boy","pt-BR":"menino","es":"niño"},"jlpt_level":"N5"}
+],"translations":{"en":"A boy crouching in a town without seasons.","pt-BR":"Um menino agachado numa cidade sem estações.","es":"Un niño acuclillado en una ciudad sin estaciones."},"literal_meaning":{"en":"season + without + town + in + crouch + boy"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"頭","reading":"あたま","romaji":"atama","grammar":"noun","grammar_color":"blue","meaning":{"en":"head","pt-BR":"cabeça","es":"cabeza"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"なでてくれる","reading":"なでてくれる","romaji":"nadetekureru","grammar":"verb","grammar_color":"red","meaning":{"en":"pats (for me)","pt-BR":"acaricia","es":"acaricia"},"jlpt_level":"N3"},
+  {"surface":"人","reading":"ひと","romaji":"hito","grammar":"noun","grammar_color":"blue","meaning":{"en":"person","pt-BR":"pessoa","es":"persona"},"jlpt_level":"N5"},
+  {"surface":"がいなかった","reading":"がいなかった","romaji":"gainakatta","grammar":"verb","grammar_color":"red","meaning":{"en":"wasn't there","pt-BR":"não havia","es":"no había"},"jlpt_level":"N5"},
+  {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"just","pt-BR":"apenas","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"それだけ","reading":"それだけ","romaji":"soredake","grammar":"other","grammar_color":"none","meaning":{"en":"just that","pt-BR":"só isso","es":"sólo eso"},"jlpt_level":"N4"},
+  {"surface":"なのに","reading":"なのに","romaji":"nanoni","grammar":"particle","grammar_color":"grey","meaning":{"en":"even though","pt-BR":"apesar de","es":"aunque"},"jlpt_level":"N3"}
+],"translations":{"en":"He just had no one to pat his head — just that, and yet...","pt-BR":"Só não tinha quem lhe afagasse a cabeça — só isso, e no entanto...","es":"Sólo no tenía quien le acariciara la cabeza — sólo eso, y sin embargo..."},"literal_meaning":{"en":"head + obj + pat-for-me + person + wasn't + just + just-that + even-though"}}},
+{"after_original":9,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"星","reading":"ほし","romaji":"hoshi","grammar":"noun","grammar_color":"blue","meaning":{"en":"stars","pt-BR":"estrelas","es":"estrellas"},"jlpt_level":"N4"},
+  {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+  {"surface":"見つめあう","reading":"みつめあう","romaji":"mitsumeau","grammar":"verb","grammar_color":"red","meaning":{"en":"gaze at each other","pt-BR":"se encaram","es":"se miran fijamente"},"jlpt_level":"N3"},
+  {"surface":"寒がりな","reading":"さむがりな","romaji":"samugarina","grammar":"adjective","grammar_color":"green","meaning":{"en":"sensitive to cold","pt-BR":"sensíveis ao frio","es":"friolentos"},"jlpt_level":"N2"},
+  {"surface":"子供たち","reading":"こどもたち","romaji":"kodomotachi","grammar":"noun","grammar_color":"blue","meaning":{"en":"children","pt-BR":"crianças","es":"niños"},"jlpt_level":"N5"}
+],"translations":{"en":"Cold-prone children, gazing back at the stars.","pt-BR":"Crianças friorentas que encaram as estrelas.","es":"Niños friolentos que miran a las estrellas."},"literal_meaning":{"en":"stars + with + gaze + cold-sensitive + children"}}},
+{"after_original":10,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"一人ぼっち","reading":"ひとりぼっち","romaji":"hitoribocchi","grammar":"noun","grammar_color":"blue","meaning":{"en":"all alone","pt-BR":"sozinho","es":"completamente solo"},"jlpt_level":"N2"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"as","pt-BR":"como","es":"como"},"jlpt_level":"N5"},
+  {"surface":"生きてゆけてしまう","reading":"いきてゆけてしまう","romaji":"ikiteyuketeshimau","grammar":"verb","grammar_color":"red","meaning":{"en":"end up being able to live","pt-BR":"acabar conseguindo viver","es":"terminar viviendo"},"jlpt_level":"N2"},
+  {"surface":"なんて","reading":"なんて","romaji":"nante","grammar":"particle","grammar_color":"grey","meaning":{"en":"something like","pt-BR":"coisa assim","es":"cosa así"},"jlpt_level":"N3"},
+  {"surface":"こと","reading":"こと","romaji":"koto","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing","pt-BR":"coisa","es":"cosa"},"jlpt_level":"N5"}
+],"translations":{"en":"Something like ending up able to live all alone —","pt-BR":"Uma coisa como acabar conseguindo viver sozinho —","es":"Algo como terminar viviendo completamente solo —"},"literal_meaning":{"en":"all-alone + as + end-up-living + something-like + thing"}}},
+{"after_original":10,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"真夜中","reading":"まよなか","romaji":"mayonaka","grammar":"noun","grammar_color":"blue","meaning":{"en":"midnight","pt-BR":"meia-noite","es":"medianoche"},"jlpt_level":"N3"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"歌","reading":"うた","romaji":"uta","grammar":"noun","grammar_color":"blue","meaning":{"en":"song","pt-BR":"canção","es":"canción"},"jlpt_level":"N5"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"叫ぶ","reading":"さけぶ","romaji":"sakebu","grammar":"verb","grammar_color":"red","meaning":{"en":"shout","pt-BR":"grita","es":"grita"},"jlpt_level":"N3"},
+  {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"},
+  {"surface":"僕","reading":"ぼく","romaji":"boku","grammar":"noun","grammar_color":"blue","meaning":{"en":"I","pt-BR":"eu","es":"yo"},"jlpt_level":"N4"},
+  {"surface":"本当は","reading":"ほんとうは","romaji":"hontouwa","grammar":"adverb","grammar_color":"orange","meaning":{"en":"actually","pt-BR":"na verdade","es":"en realidad"},"jlpt_level":"N4"},
+  {"surface":"さびしかった","reading":"さびしかった","romaji":"sabishikatta","grammar":"adjective","grammar_color":"green","meaning":{"en":"was lonely","pt-BR":"estava sozinho","es":"estaba solo"},"jlpt_level":"N4"}
+],"translations":{"en":"The midnight song shouts: I was actually, actually lonely.","pt-BR":"A canção da meia-noite grita: na verdade, eu estava sozinho.","es":"La canción de medianoche grita: en realidad estaba solo."},"literal_meaning":{"en":"midnight + of + song + topic + shout + emphasis + I + actually + was-lonely"}}},
+{"after_original":10,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"太陽","reading":"たいよう","romaji":"taiyou","grammar":"noun","grammar_color":"blue","meaning":{"en":"sun","pt-BR":"sol","es":"sol"},"jlpt_level":"N4"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"眩しさ","reading":"まぶしさ","romaji":"mabushisa","grammar":"noun","grammar_color":"blue","meaning":{"en":"dazzle","pt-BR":"brilho ofuscante","es":"resplandor"},"jlpt_level":"N2"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"by","pt-BR":"por","es":"por"},"jlpt_level":"N5"},
+  {"surface":"かき消されて","reading":"かきけされて","romaji":"kakikesarete","grammar":"verb","grammar_color":"red","meaning":{"en":"drowned out (te-form)","pt-BR":"apagado","es":"ahogado"},"jlpt_level":"N2"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"}
+],"translations":{"en":"Even if drowned out by the dazzle of the sun,","pt-BR":"Mesmo apagado pelo brilho do sol,","es":"Aunque lo apague el resplandor del sol,"},"literal_meaning":{"en":"sun + of + dazzle + by + drowned-out + even"}}},
+{"after_original":10,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"さあ","reading":"さあ","romaji":"saa","grammar":"other","grammar_color":"none","meaning":{"en":"come on","pt-BR":"vamos","es":"vamos"},"jlpt_level":"N5"},
+  {"surface":"旗","reading":"はた","romaji":"hata","grammar":"noun","grammar_color":"blue","meaning":{"en":"flag","pt-BR":"bandeira","es":"bandera"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"振ろうか","reading":"ふろうか","romaji":"furouka","grammar":"verb","grammar_color":"red","meaning":{"en":"shall we wave?","pt-BR":"vamos agitar?","es":"¿agitamos?"},"jlpt_level":"N4"},
+  {"surface":"肩","reading":"かた","romaji":"kata","grammar":"noun","grammar_color":"blue","meaning":{"en":"shoulder","pt-BR":"ombro","es":"hombro"},"jlpt_level":"N4"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"組もうか","reading":"くもうか","romaji":"kumouka","grammar":"verb","grammar_color":"red","meaning":{"en":"shall we link?","pt-BR":"vamos enlaçar?","es":"¿nos abrazamos?"},"jlpt_level":"N3"},
+  {"surface":"ただ","reading":"ただ","romaji":"tada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"just","pt-BR":"só","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"うたおうか","reading":"うたおうか","romaji":"utaouka","grammar":"verb","grammar_color":"red","meaning":{"en":"shall we sing?","pt-BR":"vamos cantar?","es":"¿cantamos?"},"jlpt_level":"N4"},
+  {"surface":"どれでもいい","reading":"どれでもいい","romaji":"doredemoii","grammar":"adjective","grammar_color":"green","meaning":{"en":"whichever is fine","pt-BR":"tanto faz","es":"cualquiera está bien"},"jlpt_level":"N3"},
+  {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"}
+],"translations":{"en":"Come on, shall we wave a flag? Link shoulders? Just sing? Any is fine.","pt-BR":"Vamos — bandeira, ombros, cantar? Tanto faz.","es":"Vamos — bandera, hombros, canto? Cualquiera vale."},"literal_meaning":{"en":"come-on + flag + obj + shall-we-wave + shoulder + obj + shall-we-link + just + shall-we-sing + whichever-fine + emphasis"}}},
+{"after_original":10,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"分け合える","reading":"わけあえる","romaji":"wakeaeru","grammar":"verb","grammar_color":"red","meaning":{"en":"can share","pt-BR":"pode partilhar","es":"puede compartir"},"jlpt_level":"N2"},
+  {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"いる","reading":"いる","romaji":"iru","grammar":"verb","grammar_color":"red","meaning":{"en":"exists","pt-BR":"existe","es":"existe"},"jlpt_level":"N5"},
+  {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"or","pt-BR":"ou","es":"o"},"jlpt_level":"N5"},
+  {"surface":"いない","reading":"いない","romaji":"inai","grammar":"verb","grammar_color":"red","meaning":{"en":"doesn't exist","pt-BR":"não existe","es":"no existe"},"jlpt_level":"N5"},
+  {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"or","pt-BR":"ou","es":"o"},"jlpt_level":"N5"},
+  {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"just","pt-BR":"apenas","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+  {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"}
+],"translations":{"en":"It's just whether you have a you to share with — or not.","pt-BR":"É só se há um você com quem dividir — ou não.","es":"Sólo importa si tienes un tú con quien compartir — o no."},"literal_meaning":{"en":"can-share + you + subj + exists + or + doesn't-exist + or + just + be + emphasis"}}}
+]}

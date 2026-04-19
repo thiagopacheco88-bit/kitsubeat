@@ -1,0 +1,329 @@
+{
+  "patches": [
+    {
+      "after_original": 2,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"哀願","reading":"あいがん","romaji":"aigan","grammar":"noun","grammar_color":"blue","meaning":{"en":"entreaty; plea","pt-BR":"súplica","es":"súplica"},"jlpt_level":"N1"},
+          {"surface":"せず","reading":"せず","romaji":"sezu","grammar":"verb","grammar_color":"red","meaning":{"en":"without doing","pt-BR":"sem fazer","es":"sin hacer"},"jlpt_level":"N3"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"},
+          {"surface":"法","reading":"ほう","romaji":"hou","grammar":"noun","grammar_color":"blue","meaning":{"en":"law","pt-BR":"lei","es":"ley"},"jlpt_level":"N3"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"a"},"jlpt_level":"N5"},
+          {"surface":"悪","reading":"あく","romaji":"aku","grammar":"noun","grammar_color":"blue","meaning":{"en":"evil","pt-BR":"mal","es":"mal"},"jlpt_level":"N3"},
+          {"surface":"繫ごう","reading":"つなごう","romaji":"tsunagou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's connect","pt-BR":"vamos conectar","es":"conectemos"},"jlpt_level":"N3"},
+          {"surface":"牢","reading":"ろう","romaji":"rou","grammar":"noun","grammar_color":"blue","meaning":{"en":"prison","pt-BR":"prisão","es":"prisión"},"jlpt_level":"N1"},
+          {"surface":"へ","reading":"へ","romaji":"e","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"hacia"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Without pleading — drag evil to the law, to the cell.","pt-BR":"Sem súplica — arrastar o mal à lei, à cela.","es":"Sin súplica — arrastrar el mal a la ley, a la celda."},
+        "literal_meaning":{"en":"entreaty + not-do + even + law + to + evil + connect + prison + to"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"裁き","reading":"さばき","romaji":"sabaki","grammar":"noun","grammar_color":"blue","meaning":{"en":"judgment","pt-BR":"julgamento","es":"juicio"},"jlpt_level":"N2"},
+          {"surface":"犯罪","reading":"はんざい","romaji":"hanzai","grammar":"noun","grammar_color":"blue","meaning":{"en":"crime","pt-BR":"crime","es":"crimen"},"jlpt_level":"N3"},
+          {"surface":"統括","reading":"とうかつ","romaji":"toukatsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"unification; oversight","pt-BR":"unificação","es":"unificación"},"jlpt_level":"N1"},
+          {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"quote","pt-BR":"citação","es":"cita"},"jlpt_level":"N5"},
+          {"surface":"ほざく","reading":"ほざく","romaji":"hozaku","grammar":"verb","grammar_color":"red","meaning":{"en":"to prattle; to drivel","pt-BR":"tagarelar","es":"parlotear"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"They spout \"judgement and crime oversight\".","pt-BR":"Eles tagarelam sobre \"julgamento e controle do crime\".","es":"Parlotean sobre \"juicio y control del crimen\"."},
+        "literal_meaning":{"en":"judgment + crime + oversight + quote + prattle"}
+      }
+    },
+    {
+      "after_original": 4,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"誰","reading":"だれ","romaji":"dare","grammar":"other","grammar_color":"none","meaning":{"en":"who","pt-BR":"quem","es":"quién"},"jlpt_level":"N5"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+          {"surface":"打開策","reading":"だかいさく","romaji":"dakaisaku","grammar":"noun","grammar_color":"blue","meaning":{"en":"breakthrough plan","pt-BR":"plano de ruptura","es":"plan de ruptura"},"jlpt_level":"N1"},
+          {"surface":"など","reading":"など","romaji":"nado","grammar":"particle","grammar_color":"grey","meaning":{"en":"etc.; things like","pt-BR":"etc.","es":"etc."},"jlpt_level":"N4"},
+          {"surface":"わかる","reading":"わかる","romaji":"wakaru","grammar":"verb","grammar_color":"red","meaning":{"en":"to understand","pt-BR":"entender","es":"entender"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Who understands a way out?","pt-BR":"Quem entende uma saída?","es":"¿Quién entiende una salida?"},
+        "literal_meaning":{"en":"who + subj + breakthrough-plan + etc + understand"}
+      }
+    },
+    {
+      "after_original": 5,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"得る","reading":"える","romaji":"eru","grammar":"verb","grammar_color":"red","meaning":{"en":"to gain","pt-BR":"obter","es":"obtener"},"jlpt_level":"N3"},
+          {"surface":"熱","reading":"ねつ","romaji":"netsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"heat; fever","pt-BR":"calor","es":"calor"},"jlpt_level":"N4"},
+          {"surface":"まさに","reading":"まさに","romaji":"masani","grammar":"adverb","grammar_color":"orange","meaning":{"en":"exactly","pt-BR":"exatamente","es":"exactamente"},"jlpt_level":"N2"},
+          {"surface":"デスパイレーツ","reading":"デスパイレーツ","romaji":"desupaireetsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"Despirates (band term)","pt-BR":"Despirates","es":"Despirates"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"The heat they earn — truly \"Despirates\".","pt-BR":"O calor que conseguem — verdadeiros \"Despirates\".","es":"El calor que consiguen — verdaderos \"Despirates\"."},
+        "literal_meaning":{"en":"gain + heat + exactly + Despirates"}
+      }
+    },
+    {
+      "after_original": 5,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"贖う","reading":"あがなう","romaji":"aganau","grammar":"verb","grammar_color":"red","meaning":{"en":"to atone for","pt-BR":"expiar","es":"expiar"},"jlpt_level":"N1"},
+          {"surface":"法律","reading":"ほうりつ","romaji":"houritsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"law","pt-BR":"lei","es":"ley"},"jlpt_level":"N3"},
+          {"surface":"ゲーム","reading":"ゲーム","romaji":"geemu","grammar":"noun","grammar_color":"blue","meaning":{"en":"game","pt-BR":"jogo","es":"juego"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Atoning — the game of law.","pt-BR":"Expiando — o jogo da lei.","es":"Expiando — el juego de la ley."},
+        "literal_meaning":{"en":"atone + law + game"}
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"いつ","reading":"いつ","romaji":"itsu","grammar":"other","grammar_color":"none","meaning":{"en":"when","pt-BR":"quando","es":"cuándo"},"jlpt_level":"N5"},
+          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"from","pt-BR":"desde","es":"desde"},"jlpt_level":"N5"},
+          {"surface":"半分","reading":"はんぶん","romaji":"hanbun","grammar":"noun","grammar_color":"blue","meaning":{"en":"half","pt-BR":"metade","es":"mitad"},"jlpt_level":"N4"},
+          {"surface":"ノイズ","reading":"ノイズ","romaji":"noizu","grammar":"noun","grammar_color":"blue","meaning":{"en":"noise","pt-BR":"ruído","es":"ruido"},"jlpt_level":"N3"}
+        ],
+        "translations":{"en":"Since when has it been half noise?","pt-BR":"Desde quando é metade ruído?","es":"¿Desde cuándo es mitad ruido?"},
+        "literal_meaning":{"en":"when + from + half + noise"}
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"世の中","reading":"よのなか","romaji":"yononaka","grammar":"noun","grammar_color":"blue","meaning":{"en":"the world; society","pt-BR":"sociedade","es":"sociedad"},"jlpt_level":"N3"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+          {"surface":"潜み","reading":"ひそみ","romaji":"hisomi","grammar":"verb","grammar_color":"red","meaning":{"en":"to lurk (stem)","pt-BR":"esconder-se","es":"acechar"},"jlpt_level":"N1"},
+          {"surface":"落下","reading":"らっか","romaji":"rakka","grammar":"noun","grammar_color":"blue","meaning":{"en":"fall","pt-BR":"queda","es":"caída"},"jlpt_level":"N2"},
+          {"surface":"し","reading":"し","romaji":"shi","grammar":"verb","grammar_color":"red","meaning":{"en":"to do (past stem)","pt-BR":"fazer","es":"hacer"},"jlpt_level":"N5"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"},
+          {"surface":"あれ","reading":"あれ","romaji":"are","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"aquilo","es":"aquello"},"jlpt_level":"N5"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+          {"surface":"ねえ","reading":"ねえ","romaji":"nee","grammar":"adjective","grammar_color":"green","meaning":{"en":"not (colloquial)","pt-BR":"não (coloquial)","es":"no (coloquial)"},"jlpt_level":"N3"},
+          {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"question","pt-BR":"pergunta","es":"pregunta"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Isn't that the thing lurking in the world, now fallen?","pt-BR":"Não é aquilo à espreita na sociedade, que já caiu?","es":"¿No es aquello que acecha en el mundo, ya caído?"},
+        "literal_meaning":{"en":"world + in + lurk + fall + do + past + that + topic + not + Q"}
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"誰","reading":"だれ","romaji":"dare","grammar":"other","grammar_color":"none","meaning":{"en":"who","pt-BR":"quem","es":"quién"},"jlpt_level":"N5"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+          {"surface":"書き換える","reading":"かきかえる","romaji":"kakikaeru","grammar":"verb","grammar_color":"red","meaning":{"en":"to rewrite","pt-BR":"reescrever","es":"reescribir"},"jlpt_level":"N2"},
+          {"surface":"世界","reading":"せかい","romaji":"sekai","grammar":"noun","grammar_color":"blue","meaning":{"en":"world","pt-BR":"mundo","es":"mundo"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"汚れ","reading":"よごれ","romaji":"yogore","grammar":"noun","grammar_color":"blue","meaning":{"en":"filth","pt-BR":"sujeira","es":"suciedad"},"jlpt_level":"N3"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"}
+        ],
+        "translations":{"en":"Who rewrites the world's filth?","pt-BR":"Quem reescreve a sujeira do mundo?","es":"¿Quién reescribe la suciedad del mundo?"},
+        "literal_meaning":{"en":"who + subj + rewrite + world + of + filth + topic"}
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"消滅","reading":"しょうめつ","romaji":"shoumetsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"extinction","pt-BR":"extinção","es":"extinción"},"jlpt_level":"N1"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"連鎖","reading":"れんさ","romaji":"rensa","grammar":"noun","grammar_color":"blue","meaning":{"en":"chain","pt-BR":"cadeia","es":"cadena"},"jlpt_level":"N1"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+          {"surface":"ざわつく","reading":"ざわつく","romaji":"zawatsuku","grammar":"verb","grammar_color":"red","meaning":{"en":"to stir; murmur","pt-BR":"murmurar","es":"murmurar"},"jlpt_level":"N1"},
+          {"surface":"下界","reading":"げかい","romaji":"gekai","grammar":"noun","grammar_color":"blue","meaning":{"en":"lower world","pt-BR":"mundo inferior","es":"mundo inferior"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"The lower world stirs at the chain of extinction.","pt-BR":"O mundo inferior murmura diante da cadeia de extinção.","es":"El mundo inferior se agita ante la cadena de extinción."},
+        "literal_meaning":{"en":"extinction + of + chain + at + stir + lower-world"}
+      }
+    },
+    {
+      "after_original": 7,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"マスター","reading":"マスター","romaji":"masutaa","grammar":"noun","grammar_color":"blue","meaning":{"en":"master","pt-BR":"mestre","es":"maestro"},"jlpt_level":"N3"},
+          {"surface":"抹殺","reading":"まっさつ","romaji":"massatsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"erasure; annihilation","pt-BR":"aniquilação","es":"aniquilación"},"jlpt_level":"N1"},
+          {"surface":"運命","reading":"うんめい","romaji":"unmei","grammar":"noun","grammar_color":"blue","meaning":{"en":"fate","pt-BR":"destino","es":"destino"},"jlpt_level":"N3"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"自爆","reading":"じばく","romaji":"jibaku","grammar":"noun","grammar_color":"blue","meaning":{"en":"self-destruction","pt-BR":"autodestruição","es":"autodestrucción"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"Master-annihilation — fate's self-destruction.","pt-BR":"Aniquilação do mestre — a autodestruição do destino.","es":"Aniquilación del amo — la autodestrucción del destino."},
+        "literal_meaning":{"en":"master + annihilation + fate + of + self-destruction"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"断片","reading":"だんぺん","romaji":"danpen","grammar":"noun","grammar_color":"blue","meaning":{"en":"fragment","pt-BR":"fragmento","es":"fragmento"},"jlpt_level":"N1"},
+          {"surface":"邪念","reading":"じゃねん","romaji":"janen","grammar":"noun","grammar_color":"blue","meaning":{"en":"evil thought","pt-BR":"pensamento malévolo","es":"pensamiento malvado"},"jlpt_level":"N1"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"鉄鎚","reading":"てっつい","romaji":"tettsui","grammar":"noun","grammar_color":"blue","meaning":{"en":"iron hammer","pt-BR":"martelo de ferro","es":"martillo de hierro"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"Fragmented iron hammer of evil thoughts.","pt-BR":"Martelo de ferro fragmentado de pensamentos malignos.","es":"Martillo de hierro fragmentado de pensamientos malignos."},
+        "literal_meaning":{"en":"fragment + evil-thought + of + iron-hammer"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"奪われ","reading":"うばわれ","romaji":"ubaware","grammar":"verb","grammar_color":"red","meaning":{"en":"to be taken (passive stem)","pt-BR":"ser tirado","es":"ser arrebatado"},"jlpt_level":"N3"},
+          {"surface":"ゆく","reading":"ゆく","romaji":"yuku","grammar":"verb","grammar_color":"red","meaning":{"en":"to go (aux, ongoing)","pt-BR":"continuar","es":"continuar"},"jlpt_level":"N4"},
+          {"surface":"生命","reading":"せいめい","romaji":"seimei","grammar":"noun","grammar_color":"blue","meaning":{"en":"life","pt-BR":"vida","es":"vida"},"jlpt_level":"N2"}
+        ],
+        "translations":{"en":"Life being stolen away.","pt-BR":"Vida sendo arrancada.","es":"Vida siendo arrebatada."},
+        "literal_meaning":{"en":"be-taken + go + life"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"極悪人","reading":"ごくあくにん","romaji":"gokuakunin","grammar":"noun","grammar_color":"blue","meaning":{"en":"villain","pt-BR":"vilão","es":"villano"},"jlpt_level":"N1"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+          {"surface":"飽和","reading":"ほうわ","romaji":"houwa","grammar":"noun","grammar_color":"blue","meaning":{"en":"saturation","pt-BR":"saturação","es":"saturación"},"jlpt_level":"N1"},
+          {"surface":"至急","reading":"しきゅう","romaji":"shikyuu","grammar":"adverb","grammar_color":"orange","meaning":{"en":"urgently","pt-BR":"urgente","es":"urgente"},"jlpt_level":"N2"},
+          {"surface":"罪人","reading":"ざいにん","romaji":"zainin","grammar":"noun","grammar_color":"blue","meaning":{"en":"criminal","pt-BR":"criminoso","es":"criminal"},"jlpt_level":"N2"},
+          {"surface":"斬り","reading":"ぎり","romaji":"giri","grammar":"verb","grammar_color":"red","meaning":{"en":"to cut down (stem)","pt-BR":"cortar","es":"cortar"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"Villains saturate — urgently cut down the sinners.","pt-BR":"Vilões saturam — corte com urgência os pecadores.","es":"Villanos saturan — corta urgentemente a los pecadores."},
+        "literal_meaning":{"en":"villain + subj + saturation + urgently + criminal + cut"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"判定","reading":"はんてい","romaji":"hantei","grammar":"noun","grammar_color":"blue","meaning":{"en":"judgment; ruling","pt-BR":"decisão","es":"decisión"},"jlpt_level":"N2"},
+          {"surface":"人権","reading":"じんけん","romaji":"jinken","grammar":"noun","grammar_color":"blue","meaning":{"en":"human rights","pt-BR":"direitos humanos","es":"derechos humanos"},"jlpt_level":"N1"},
+          {"surface":"事件","reading":"じけん","romaji":"jiken","grammar":"noun","grammar_color":"blue","meaning":{"en":"incident","pt-BR":"incidente","es":"incidente"},"jlpt_level":"N3"},
+          {"surface":"憎悪","reading":"ぞうお","romaji":"zouo","grammar":"noun","grammar_color":"blue","meaning":{"en":"hatred","pt-BR":"ódio","es":"odio"},"jlpt_level":"N1"},
+          {"surface":"臓器","reading":"ぞうき","romaji":"zouki","grammar":"noun","grammar_color":"blue","meaning":{"en":"organ","pt-BR":"órgão","es":"órgano"},"jlpt_level":"N1"},
+          {"surface":"広げ","reading":"ひろげ","romaji":"hiroge","grammar":"verb","grammar_color":"red","meaning":{"en":"to spread (stem)","pt-BR":"estender","es":"extender"},"jlpt_level":"N3"},
+          {"surface":"懺悔","reading":"ざんげ","romaji":"zange","grammar":"noun","grammar_color":"blue","meaning":{"en":"confession; repentance","pt-BR":"confissão","es":"confesión"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"Verdict! Human-rights incident — hatred spreading organs, confession.","pt-BR":"Veredicto! Incidente de direitos humanos — ódio expandindo órgãos, confissão.","es":"¡Veredicto! Incidente de derechos humanos — odio expandiendo órganos, confesión."},
+        "literal_meaning":{"en":"judgment + human-rights + incident + hatred + organ + spread + confession"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"ほくそ笑む","reading":"ほくそえむ","romaji":"hokusoemu","grammar":"verb","grammar_color":"red","meaning":{"en":"to smirk","pt-BR":"sorrir satisfeito","es":"sonreír satisfecho"},"jlpt_level":"N1"},
+          {"surface":"死神","reading":"しにがみ","romaji":"shinigami","grammar":"noun","grammar_color":"blue","meaning":{"en":"death god","pt-BR":"deus da morte","es":"dios de la muerte"},"jlpt_level":"N2"},
+          {"surface":"因果関係","reading":"いんがかんけい","romaji":"inga-kankei","grammar":"noun","grammar_color":"blue","meaning":{"en":"cause and effect","pt-BR":"causa e efeito","es":"causa y efecto"},"jlpt_level":"N1"},
+          {"surface":"なぜ","reading":"なぜ","romaji":"naze","grammar":"other","grammar_color":"none","meaning":{"en":"why","pt-BR":"por quê","es":"por qué"},"jlpt_level":"N4"}
+        ],
+        "translations":{"en":"A smirking death god — cause and effect, but why?","pt-BR":"Um shinigami que sorri satisfeito — causa e efeito, por quê?","es":"Un shinigami que sonríe con satisfacción — causa y efecto, ¿por qué?"},
+        "literal_meaning":{"en":"smirk + death-god + cause-and-effect + why"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"真相","reading":"しんそう","romaji":"shinsou","grammar":"noun","grammar_color":"blue","meaning":{"en":"truth","pt-BR":"verdade","es":"verdad"},"jlpt_level":"N2"},
+          {"surface":"皆","reading":"みな","romaji":"mina","grammar":"noun","grammar_color":"blue","meaning":{"en":"all; everyone","pt-BR":"todos","es":"todos"},"jlpt_level":"N5"},
+          {"surface":"知り得ぬ","reading":"しりえぬ","romaji":"shirienu","grammar":"verb","grammar_color":"red","meaning":{"en":"cannot know","pt-BR":"não pode saber","es":"no puede saber"},"jlpt_level":"N1"},
+          {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+          {"surface":"哀れ","reading":"あわれ","romaji":"aware","grammar":"noun","grammar_color":"blue","meaning":{"en":"pity; sorrow","pt-BR":"pena","es":"piedad"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"The truth no one can ever know — that pity.","pt-BR":"A verdade que ninguém pode saber — essa piedade.","es":"La verdad que nadie puede saber — esa piedad."},
+        "literal_meaning":{"en":"truth + all + cannot-know + that + pity"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"上","reading":"うえ","romaji":"ue","grammar":"noun","grammar_color":"blue","meaning":{"en":"above","pt-BR":"em cima","es":"arriba"},"jlpt_level":"N5"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+          {"surface":"闇","reading":"やみ","romaji":"yami","grammar":"noun","grammar_color":"blue","meaning":{"en":"darkness","pt-BR":"escuridão","es":"oscuridad"},"jlpt_level":"N2"},
+          {"surface":"葬儀","reading":"そうぎ","romaji":"sougi","grammar":"noun","grammar_color":"blue","meaning":{"en":"funeral","pt-BR":"funeral","es":"funeral"},"jlpt_level":"N1"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"修羅場","reading":"しゅらば","romaji":"shuraba","grammar":"noun","grammar_color":"blue","meaning":{"en":"scene of carnage","pt-BR":"cena caótica","es":"escena caótica"},"jlpt_level":"N1"},
+          {"surface":"心理","reading":"しんり","romaji":"shinri","grammar":"noun","grammar_color":"blue","meaning":{"en":"psychology","pt-BR":"psicologia","es":"psicología"},"jlpt_level":"N2"},
+          {"surface":"論議","reading":"ろんぎ","romaji":"rongi","grammar":"noun","grammar_color":"blue","meaning":{"en":"debate","pt-BR":"debate","es":"debate"},"jlpt_level":"N1"},
+          {"surface":"Peace","reading":"Peace","romaji":"Peace","grammar":"other","grammar_color":"none","meaning":{"en":"peace (English)","pt-BR":"paz","es":"paz"},"jlpt_level":"unknown"}
+        ],
+        "translations":{"en":"Above — a dark-funeral carnage, psychological debate. Peace.","pt-BR":"No alto — um funeral sombrio, caos e debate psicológico. Peace.","es":"Arriba — un funeral oscuro, carnicería, debate psicológico. Peace."},
+        "literal_meaning":{"en":"above + at + darkness + funeral + of + carnage + psychology + debate + Peace"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"エラー","reading":"エラー","romaji":"eraa","grammar":"noun","grammar_color":"blue","meaning":{"en":"error","pt-BR":"erro","es":"error"},"jlpt_level":"N3"},
+          {"surface":"無念","reading":"むねん","romaji":"munen","grammar":"noun","grammar_color":"blue","meaning":{"en":"regret; chagrin","pt-BR":"arrependimento","es":"remordimiento"},"jlpt_level":"N1"},
+          {"surface":"何","reading":"なん","romaji":"nan","grammar":"other","grammar_color":"none","meaning":{"en":"how many","pt-BR":"quantos","es":"cuántos"},"jlpt_level":"N5"},
+          {"surface":"万年","reading":"まんねん","romaji":"mannen","grammar":"noun","grammar_color":"blue","meaning":{"en":"ten thousand years","pt-BR":"dez mil anos","es":"diez mil años"},"jlpt_level":"N3"},
+          {"surface":"不憫","reading":"ふびん","romaji":"fubin","grammar":"adjective","grammar_color":"green","meaning":{"en":"pitiful","pt-BR":"lamentável","es":"lamentable"},"jlpt_level":"N1"}
+        ],
+        "translations":{"en":"Error — regret spanning tens of thousands of years, how pitiful.","pt-BR":"Erro — arrependimento por dezenas de milhares de anos, lamentável.","es":"Error — lamento de decenas de miles de años, lamentable."},
+        "literal_meaning":{"en":"error + regret + how-many + ten-thousand-years + pitiful"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"暴乱世","reading":"ぼうらんせ","romaji":"bouranse","grammar":"noun","grammar_color":"blue","meaning":{"en":"age of chaos","pt-BR":"era do caos","es":"era del caos"},"jlpt_level":"N1"},
+          {"surface":"絶望","reading":"ぜつぼう","romaji":"zetsubou","grammar":"noun","grammar_color":"blue","meaning":{"en":"despair","pt-BR":"desespero","es":"desesperación"},"jlpt_level":"N2"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"a","es":"a"},"jlpt_level":"N5"},
+          {"surface":"ペイン","reading":"ペイン","romaji":"pein","grammar":"noun","grammar_color":"blue","meaning":{"en":"pain","pt-BR":"dor","es":"dolor"},"jlpt_level":"N3"}
+        ],
+        "translations":{"en":"A violent age — despair and pain.","pt-BR":"Uma era de caos — desespero e dor.","es":"Una era violenta — desesperación y dolor."},
+        "literal_meaning":{"en":"violent-age + despair + to + pain"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"Dancin","reading":"Dancin","romaji":"Dancin","grammar":"other","grammar_color":"none","meaning":{"en":"dancing (English)","pt-BR":"dançando","es":"bailando"},"jlpt_level":"unknown"},
+          {"surface":"心臓","reading":"しんぞう","romaji":"shinzou","grammar":"noun","grammar_color":"blue","meaning":{"en":"heart","pt-BR":"coração","es":"corazón"},"jlpt_level":"N2"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+          {"surface":"Bloody","reading":"Bloody","romaji":"Bloody","grammar":"other","grammar_color":"none","meaning":{"en":"bloody (English)","pt-BR":"sanguento","es":"sangriento"},"jlpt_level":"unknown"}
+        ],
+        "translations":{"en":"Dancin' — the heart's Bloody.","pt-BR":"Dancin' — o Bloody do coração.","es":"Dancin' — el Bloody del corazón."},
+        "literal_meaning":{"en":"Dancin + heart + of + Bloody"}
+      }
+    },
+    {
+      "after_original": 8,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"愛","reading":"あい","romaji":"ai","grammar":"noun","grammar_color":"blue","meaning":{"en":"love","pt-BR":"amor","es":"amor"},"jlpt_level":"N4"},
+          {"surface":"轟音","reading":"ごうおん","romaji":"gouon","grammar":"noun","grammar_color":"blue","meaning":{"en":"roar; blast","pt-BR":"estrondo","es":"estruendo"},"jlpt_level":"N1"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj marker","pt-BR":"marcador na","es":"marcador na"},"jlpt_level":"N5"},
+          {"surface":"音色","reading":"ねいろ","romaji":"neiro","grammar":"noun","grammar_color":"blue","meaning":{"en":"tone; timbre","pt-BR":"timbre","es":"timbre"},"jlpt_level":"N2"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+          {"surface":"生","reading":"なま","romaji":"nama","grammar":"noun","grammar_color":"blue","meaning":{"en":"raw; alive","pt-BR":"cru; vivo","es":"crudo; vivo"},"jlpt_level":"N3"}
+        ],
+        "translations":{"en":"Love — a roaring tone is raw/alive.","pt-BR":"Amor — um timbre estrondoso é cru.","es":"Amor — un timbre estruendoso es crudo."},
+        "literal_meaning":{"en":"love + roar + na + tone + topic + raw"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "patches": [
+    {"after_original":2,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"からんころん","reading":"からんころん","romaji":"karankoron","grammar":"other","grammar_color":"none","meaning":{"en":"clip-clop (sound of geta)","pt-BR":"tec-tec (geta)","es":"cloc-cloc (geta)"},"jlpt_level":"N2"},
+      {"surface":"音","reading":"おと","romaji":"oto","grammar":"noun","grammar_color":"blue","meaning":{"en":"sound","pt-BR":"som","es":"sonido"},"jlpt_level":"N5"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+      {"surface":"たてる","reading":"たてる","romaji":"tateru","grammar":"verb","grammar_color":"red","meaning":{"en":"to make (sound)","pt-BR":"fazer","es":"hacer"},"jlpt_level":"N4"}
+    ],"translations":{"en":"Making a clip-clop sound,","pt-BR":"Fazendo um som de tec-tec,","es":"Haciendo un sonido de cloc-cloc,"},"literal_meaning":{"en":"clip-clop + sound + obj + make"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"少し","reading":"すこし","romaji":"sukoshi","grammar":"adverb","grammar_color":"orange","meaning":{"en":"a little","pt-BR":"um pouco","es":"un poco"},"jlpt_level":"N5"},
+      {"surface":"疲れて","reading":"つかれて","romaji":"tsukarete","grammar":"verb","grammar_color":"red","meaning":{"en":"tired (te-form)","pt-BR":"cansado","es":"cansado"},"jlpt_level":"N4"},
+      {"surface":"二人","reading":"ふたり","romaji":"futari","grammar":"noun","grammar_color":"blue","meaning":{"en":"two people","pt-BR":"nós dois","es":"los dos"},"jlpt_level":"N5"},
+      {"surface":"道端","reading":"みちばた","romaji":"michibata","grammar":"noun","grammar_color":"blue","meaning":{"en":"roadside","pt-BR":"beira da estrada","es":"borde del camino"},"jlpt_level":"N2"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"on","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"腰掛けたら","reading":"こしかけたら","romaji":"koshikaketara","grammar":"verb","grammar_color":"red","meaning":{"en":"when we sat down","pt-BR":"quando sentamos","es":"cuando nos sentamos"},"jlpt_level":"N3"}
+    ],"translations":{"en":"A little tired, when the two of us sat at the roadside,","pt-BR":"Um pouco cansados, quando nos sentamos à beira do caminho,","es":"Un poco cansados, cuando los dos nos sentamos al borde del camino,"},"literal_meaning":{"en":"a-little + tired + two-people + roadside + on + sat-down"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"遠く","reading":"とおく","romaji":"tooku","grammar":"adverb","grammar_color":"orange","meaning":{"en":"far","pt-BR":"longe","es":"lejos"},"jlpt_level":"N5"},
+      {"surface":"聞こえる","reading":"きこえる","romaji":"kikoeru","grammar":"verb","grammar_color":"red","meaning":{"en":"to be audible","pt-BR":"ouvir-se","es":"oírse"},"jlpt_level":"N4"},
+      {"surface":"お囃子","reading":"おはやし","romaji":"ohayashi","grammar":"noun","grammar_color":"blue","meaning":{"en":"festival music","pt-BR":"música de festival","es":"música de festival"},"jlpt_level":"N1"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"音","reading":"おと","romaji":"oto","grammar":"noun","grammar_color":"blue","meaning":{"en":"sound","pt-BR":"som","es":"sonido"},"jlpt_level":"N5"}
+    ],"translations":{"en":"the sound of festival music heard in the distance.","pt-BR":"o som da música do festival ouvido à distância.","es":"el sonido de la música del festival oído a lo lejos."},"literal_meaning":{"en":"far + audible + festival-music + of + sound"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"ひゅるりら","reading":"ひゅるりら","romaji":"hyururira","grammar":"other","grammar_color":"none","meaning":{"en":"whistle (sound)","pt-BR":"assovio","es":"silbido"},"jlpt_level":"N1"},
+      {"surface":"鳴り響く","reading":"なりひびく","romaji":"narihibiku","grammar":"verb","grammar_color":"red","meaning":{"en":"to resound","pt-BR":"ressoar","es":"resonar"},"jlpt_level":"N2"}
+    ],"translations":{"en":"Hyururira — a whistle rings out.","pt-BR":"Hyururira — um assovio ressoa.","es":"Hyururira — un silbido resuena."},"literal_meaning":{"en":"whistle-sound + resound"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"夜空","reading":"よぞら","romaji":"yozora","grammar":"noun","grammar_color":"blue","meaning":{"en":"night sky","pt-BR":"céu noturno","es":"cielo nocturno"},"jlpt_level":"N3"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"咲いた","reading":"さいた","romaji":"saita","grammar":"verb","grammar_color":"red","meaning":{"en":"bloomed","pt-BR":"floresceu","es":"floreció"},"jlpt_level":"N4"},
+      {"surface":"大きな","reading":"おおきな","romaji":"ookina","grammar":"adjective","grammar_color":"green","meaning":{"en":"big","pt-BR":"grande","es":"grande"},"jlpt_level":"N5"},
+      {"surface":"大きな","reading":"おおきな","romaji":"ookina","grammar":"adjective","grammar_color":"green","meaning":{"en":"big","pt-BR":"grande","es":"grande"},"jlpt_level":"N5"},
+      {"surface":"錦冠","reading":"にしきかんむり","romaji":"nishiki-kanmuri","grammar":"noun","grammar_color":"blue","meaning":{"en":"brocade crown (firework)","pt-BR":"coroa de brocado (fogo)","es":"corona de brocado (fuego)"},"jlpt_level":"N1"}
+    ],"translations":{"en":"In the night sky, a huge, huge brocade-crown firework bloomed.","pt-BR":"No céu noturno, um enorme fogo de artifício em forma de coroa floresceu.","es":"En el cielo nocturno, una inmensa corona de fuegos artificiales floreció."},"literal_meaning":{"en":"night-sky + in + bloomed + big + big + brocade-crown"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"もう少し","reading":"もうすこし","romaji":"mousukoshi","grammar":"adverb","grammar_color":"orange","meaning":{"en":"a bit more","pt-BR":"mais um pouco","es":"un poco más"},"jlpt_level":"N4"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"in; with","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"夏","reading":"なつ","romaji":"natsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"summer","pt-BR":"verão","es":"verano"},"jlpt_level":"N5"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"終わる","reading":"おわる","romaji":"owaru","grammar":"verb","grammar_color":"red","meaning":{"en":"to end","pt-BR":"terminar","es":"terminar"},"jlpt_level":"N5"}
+    ],"translations":{"en":"In just a little more, summer will end.","pt-BR":"Em pouco tempo, o verão vai acabar.","es":"Dentro de poco, el verano terminará."},"literal_meaning":{"en":"a-bit-more + in + summer + subj + end"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"ふっと","reading":"ふっと","romaji":"futto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"suddenly","pt-BR":"de repente","es":"de repente"},"jlpt_level":"N2"},
+      {"surface":"切なく","reading":"せつなく","romaji":"setsunaku","grammar":"adjective","grammar_color":"green","meaning":{"en":"painful (adv)","pt-BR":"melancólico","es":"melancólico"},"jlpt_level":"N2"},
+      {"surface":"なる","reading":"なる","romaji":"naru","grammar":"verb","grammar_color":"red","meaning":{"en":"to become","pt-BR":"tornar-se","es":"volverse"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Suddenly I feel a pang of sorrow.","pt-BR":"De repente me sinto melancólica.","es":"De repente me pongo melancólica."},"literal_meaning":{"en":"suddenly + painful + become"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"逆さま","reading":"さかさま","romaji":"sakasama","grammar":"noun","grammar_color":"blue","meaning":{"en":"upside-down","pt-BR":"de cabeça para baixo","es":"al revés"},"jlpt_level":"N2"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"ハート","reading":"ハート","romaji":"haato","grammar":"noun","grammar_color":"blue","meaning":{"en":"heart","pt-BR":"coração","es":"corazón"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"打ちあがって","reading":"うちあがって","romaji":"uchiagatte","grammar":"verb","grammar_color":"red","meaning":{"en":"launched up (te-form)","pt-BR":"lançado ao alto","es":"lanzado al alto"},"jlpt_level":"N2"},
+      {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past","pt-BR":"passado","es":"pasado"},"jlpt_level":"N5"}
+    ],"translations":{"en":"An upside-down heart had been launched up.","pt-BR":"Um coração de cabeça para baixo foi lançado ao céu.","es":"Un corazón al revés fue lanzado al cielo."},"literal_meaning":{"en":"upside-down + of + heart + subj + launched-up + past"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"あはは","reading":"あはは","romaji":"ahaha","grammar":"other","grammar_color":"none","meaning":{"en":"laughter sound","pt-BR":"risada","es":"risa"},"jlpt_level":"N5"},
+      {"surface":"って","reading":"って","romaji":"tte","grammar":"particle","grammar_color":"grey","meaning":{"en":"quote","pt-BR":"citação","es":"cita"},"jlpt_level":"N4"},
+      {"surface":"笑いあって","reading":"わらいあって","romaji":"waraiatte","grammar":"verb","grammar_color":"red","meaning":{"en":"laughed together (te-form)","pt-BR":"rimos juntos","es":"reímos juntos"},"jlpt_level":"N3"}
+    ],"translations":{"en":"We laughed together, \"ahaha\",","pt-BR":"Rimos juntos \"ahaha\",","es":"Reímos juntos \"ahaha\","},"literal_meaning":{"en":"laughter + quote + laughed-together"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"好き","reading":"すき","romaji":"suki","grammar":"adjective","grammar_color":"green","meaning":{"en":"like; love","pt-BR":"gostar","es":"gustar"},"jlpt_level":"N5"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+      {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"},
+      {"surface":"って","reading":"って","romaji":"tte","grammar":"particle","grammar_color":"grey","meaning":{"en":"quote","pt-BR":"citação","es":"cita"},"jlpt_level":"N4"}
+    ],"translations":{"en":"— \"I love you,\" —","pt-BR":"— \"eu te amo,\" —","es":"— \"te quiero,\" —"},"literal_meaning":{"en":"like + be + emphasis + quote"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"キス","reading":"キス","romaji":"kisu","grammar":"noun","grammar_color":"blue","meaning":{"en":"kiss","pt-BR":"beijo","es":"beso"},"jlpt_level":"N4"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+      {"surface":"した","reading":"した","romaji":"shita","grammar":"verb","grammar_color":"red","meaning":{"en":"did","pt-BR":"fiz","es":"hice"},"jlpt_level":"N5"}
+    ],"translations":{"en":"— and we kissed.","pt-BR":"— e nos beijamos.","es":"— y nos besamos."},"literal_meaning":{"en":"kiss + obj + did"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"もう","reading":"もう","romaji":"mou","grammar":"adverb","grammar_color":"orange","meaning":{"en":"already; just","pt-BR":"já","es":"ya"},"jlpt_level":"N5"},
+      {"surface":"忘れよう","reading":"わすれよう","romaji":"wasureyou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's forget","pt-BR":"vamos esquecer","es":"olvidemos"},"jlpt_level":"N5"},
+      {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"こと","reading":"こと","romaji":"koto","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing","pt-BR":"coisa","es":"cosa"},"jlpt_level":"N5"},
+      {"surface":"全部","reading":"ぜんぶ","romaji":"zenbu","grammar":"noun","grammar_color":"blue","meaning":{"en":"all","pt-BR":"tudo","es":"todo"},"jlpt_level":"N5"}
+    ],"translations":{"en":"I'll forget everything about you now.","pt-BR":"Vou esquecer tudo sobre você.","es":"Voy a olvidarte por completo."},"literal_meaning":{"en":"already + let's-forget + you + of + thing + all"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"こんなにも","reading":"こんなにも","romaji":"konnanimo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"so much","pt-BR":"tanto","es":"tanto"},"jlpt_level":"N3"},
+      {"surface":"悲しくて","reading":"かなしくて","romaji":"kanashikute","grammar":"adjective","grammar_color":"green","meaning":{"en":"sad (te-form)","pt-BR":"triste","es":"triste"},"jlpt_level":"N5"}
+    ],"translations":{"en":"It's so very sad,","pt-BR":"É tão triste,","es":"Es tan triste,"},"literal_meaning":{"en":"so-much + sad"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"どうして","reading":"どうして","romaji":"doushite","grammar":"other","grammar_color":"none","meaning":{"en":"why","pt-BR":"por quê","es":"por qué"},"jlpt_level":"N5"},
+      {"surface":"出会って","reading":"であって","romaji":"deatte","grammar":"verb","grammar_color":"red","meaning":{"en":"to meet (te-form)","pt-BR":"encontrar","es":"encontrar"},"jlpt_level":"N3"},
+      {"surface":"しまった","reading":"しまった","romaji":"shimatta","grammar":"verb","grammar_color":"red","meaning":{"en":"ended up","pt-BR":"acabei por","es":"acabé por"},"jlpt_level":"N4"},
+      {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+      {"surface":"だろう","reading":"だろう","romaji":"darou","grammar":"other","grammar_color":"none","meaning":{"en":"I wonder","pt-BR":"será que","es":"me pregunto"},"jlpt_level":"N4"}
+    ],"translations":{"en":"why did we ever have to meet?","pt-BR":"por que tivemos que nos encontrar?","es":"¿por qué tuvimos que encontrarnos?"},"literal_meaning":{"en":"why + met + ended-up + explanatory + I-wonder"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"目","reading":"め","romaji":"me","grammar":"noun","grammar_color":"blue","meaning":{"en":"eyes","pt-BR":"olhos","es":"ojos"},"jlpt_level":"N5"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+      {"surface":"閉じれば","reading":"とじれば","romaji":"tojireba","grammar":"verb","grammar_color":"red","meaning":{"en":"if I close","pt-BR":"se fecho","es":"si cierro"},"jlpt_level":"N4"}
+    ],"translations":{"en":"If I close my eyes,","pt-BR":"Se fecho os olhos,","es":"Si cierro los ojos,"},"literal_meaning":{"en":"eyes + obj + if-close"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+      {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"still","pt-BR":"ainda","es":"aún"},"jlpt_level":"N5"},
+      {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"そこ","reading":"そこ","romaji":"soko","grammar":"other","grammar_color":"none","meaning":{"en":"there","pt-BR":"ali","es":"ahí"},"jlpt_level":"N5"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"いる","reading":"いる","romaji":"iru","grammar":"verb","grammar_color":"red","meaning":{"en":"exists","pt-BR":"está","es":"está"},"jlpt_level":"N5"},
+      {"surface":"よう","reading":"よう","romaji":"you","grammar":"other","grammar_color":"none","meaning":{"en":"looks like","pt-BR":"parece","es":"parece"},"jlpt_level":"N4"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form","pt-BR":"te","es":"te"},"jlpt_level":"N5"}
+    ],"translations":{"en":"— it's as if you're still there.","pt-BR":"— é como se você ainda estivesse ali.","es":"— es como si aún estuvieras allí."},"literal_meaning":{"en":"now + still + you + subj + there + at + exist + looks-like + te"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"甘い","reading":"あまい","romaji":"amai","grammar":"adjective","grammar_color":"green","meaning":{"en":"sweet","pt-BR":"doce","es":"dulce"},"jlpt_level":"N5"},
+      {"surface":"吐息","reading":"といき","romaji":"toiki","grammar":"noun","grammar_color":"blue","meaning":{"en":"sigh","pt-BR":"suspiro","es":"suspiro"},"jlpt_level":"N1"}
+    ],"translations":{"en":"A sweet sigh.","pt-BR":"Um suspiro doce.","es":"Un dulce suspiro."},"literal_meaning":{"en":"sweet + sigh"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"微熱","reading":"びねつ","romaji":"binetsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"slight fever","pt-BR":"febre leve","es":"fiebre ligera"},"jlpt_level":"N2"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+      {"surface":"帯びる","reading":"おびる","romaji":"obiru","grammar":"verb","grammar_color":"red","meaning":{"en":"to carry; be tinged with","pt-BR":"carregar","es":"llevar"},"jlpt_level":"N1"},
+      {"surface":"私","reading":"わたし","romaji":"watashi","grammar":"noun","grammar_color":"blue","meaning":{"en":"I","pt-BR":"eu","es":"yo"},"jlpt_level":"N5"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+      {"surface":"恋した","reading":"こいした","romaji":"koishita","grammar":"verb","grammar_color":"red","meaning":{"en":"fell in love","pt-BR":"me apaixonei","es":"me enamoré"},"jlpt_level":"N3"}
+    ],"translations":{"en":"Carrying a faint fever, I fell in love with you.","pt-BR":"Carregando uma febre leve, me apaixonei por você.","es":"Con una fiebre ligera, me enamoré de ti."},"literal_meaning":{"en":"slight-fever + obj + carry + I + topic + you + with + fell-in-love"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+      {"surface":"声","reading":"こえ","romaji":"koe","grammar":"noun","grammar_color":"blue","meaning":{"en":"voice","pt-BR":"voz","es":"voz"},"jlpt_level":"N5"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"},
+      {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+      {"surface":"瞳","reading":"ひとみ","romaji":"hitomi","grammar":"noun","grammar_color":"blue","meaning":{"en":"eyes; pupils","pt-BR":"olhos","es":"ojos"},"jlpt_level":"N3"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"with","pt-BR":"com","es":"con"},"jlpt_level":"N5"}
+    ],"translations":{"en":"— to that voice, to those eyes.","pt-BR":"— com essa voz, com esses olhos.","es":"— con esa voz, con esos ojos."},"literal_meaning":{"en":"that + voice + with + that + eyes + with"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"気づけば","reading":"きづけば","romaji":"kidzukeba","grammar":"verb","grammar_color":"red","meaning":{"en":"when I noticed","pt-BR":"quando percebo","es":"cuando me doy cuenta"},"jlpt_level":"N3"},
+      {"surface":"時","reading":"とき","romaji":"toki","grammar":"noun","grammar_color":"blue","meaning":{"en":"time","pt-BR":"tempo","es":"tiempo"},"jlpt_level":"N5"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"過ぎ去って","reading":"すぎさって","romaji":"sugisatte","grammar":"verb","grammar_color":"red","meaning":{"en":"passed by (te-form)","pt-BR":"passou","es":"pasado"},"jlpt_level":"N2"},
+      {"surface":"く","reading":"く","romaji":"ku","grammar":"verb","grammar_color":"red","meaning":{"en":"= 行く (ongoing)","pt-BR":"=iku","es":"=iku"},"jlpt_level":"N5"},
+      {"surface":"のに","reading":"のに","romaji":"noni","grammar":"particle","grammar_color":"grey","meaning":{"en":"even though","pt-BR":"apesar de","es":"aunque"},"jlpt_level":"N4"}
+    ],"translations":{"en":"Even though, when I notice, time keeps slipping away,","pt-BR":"Mesmo quando percebo que o tempo continua passando,","es":"Aunque, cuando me doy cuenta, el tiempo sigue pasando,"},"literal_meaning":{"en":"when-notice + time + topic + passed + go + even-though"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"まだ","reading":"まだ","romaji":"mada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"still","pt-BR":"ainda","es":"aún"},"jlpt_level":"N5"},
+      {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"面影","reading":"おもかげ","romaji":"omokage","grammar":"noun","grammar_color":"blue","meaning":{"en":"image; traces","pt-BR":"vestígios","es":"vestigios"},"jlpt_level":"N1"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"objeto","es":"objeto"},"jlpt_level":"N5"},
+      {"surface":"探して","reading":"さがして","romaji":"sagashite","grammar":"verb","grammar_color":"red","meaning":{"en":"searching (te-form)","pt-BR":"procurando","es":"buscando"},"jlpt_level":"N4"}
+    ],"translations":{"en":"I'm still searching for your traces.","pt-BR":"ainda procuro seus vestígios.","es":"aún busco tus vestigios."},"literal_meaning":{"en":"still + you + of + traces + obj + searching"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"もうすぐ","reading":"もうすぐ","romaji":"mousugu","grammar":"adverb","grammar_color":"orange","meaning":{"en":"soon","pt-BR":"em breve","es":"pronto"},"jlpt_level":"N4"},
+      {"surface":"次","reading":"つぎ","romaji":"tsugi","grammar":"noun","grammar_color":"blue","meaning":{"en":"next","pt-BR":"próximo","es":"próximo"},"jlpt_level":"N5"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"季節","reading":"きせつ","romaji":"kisetsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"season","pt-BR":"estação","es":"estación"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Soon the next season,","pt-BR":"Em breve, a próxima estação,","es":"Pronto, la próxima estación,"},"literal_meaning":{"en":"soon + next + of + season + subj"}}},
+    {"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"やって来る","reading":"やってくる","romaji":"yattekuru","grammar":"verb","grammar_color":"red","meaning":{"en":"to come","pt-BR":"chegar","es":"llegar"},"jlpt_level":"N3"},
+      {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"}
+    ],"translations":{"en":"— will come.","pt-BR":"— vai chegar.","es":"— llegará."},"literal_meaning":{"en":"come + emphasis"}}}
+  ]
+}

@@ -1,0 +1,130 @@
+{"patches":[
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"矛盾","reading":"むじゅん","romaji":"mujun","grammar":"noun","grammar_color":"blue","meaning":{"en":"contradiction","pt-BR":"contradição","es":"contradicción"},"jlpt_level":"N2"},
+  {"surface":"単純","reading":"たんじゅん","romaji":"tanjun","grammar":"adjective","grammar_color":"green","meaning":{"en":"simple","pt-BR":"simples","es":"simple"},"jlpt_level":"N3"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-connector","pt-BR":"te","es":"te"},"jlpt_level":"N5"},
+  {"surface":"淡い","reading":"あわい","romaji":"awai","grammar":"adjective","grammar_color":"green","meaning":{"en":"pale","pt-BR":"pálido","es":"pálido"},"jlpt_level":"N2"},
+  {"surface":"希望","reading":"きぼう","romaji":"kibou","grammar":"noun","grammar_color":"blue","meaning":{"en":"hope","pt-BR":"esperança","es":"esperanza"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"抱えたって","reading":"かかえたって","romaji":"kakaetatte","grammar":"verb","grammar_color":"red","meaning":{"en":"even carrying","pt-BR":"mesmo carregando","es":"aunque cargue"},"jlpt_level":"N3"}
+],"translations":{"en":"Contradictions, simple, holding a faint hope.","pt-BR":"Contradições, simples, abraçando uma leve esperança.","es":"Contradicciones, simple, aferrándome a una leve esperanza."},"literal_meaning":{"en":"contradiction + simple + te + pale + hope + obj + even-carrying"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"行き止まり","reading":"いきどまり","romaji":"ikidomari","grammar":"noun","grammar_color":"blue","meaning":{"en":"dead end","pt-BR":"beco sem saída","es":"callejón sin salida"},"jlpt_level":"N2"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"言葉","reading":"ことば","romaji":"kotoba","grammar":"noun","grammar_color":"blue","meaning":{"en":"words","pt-BR":"palavras","es":"palabras"},"jlpt_level":"N5"},
+  {"surface":"はいらなくて","reading":"はいらなくて","romaji":"wairanakute","grammar":"verb","grammar_color":"red","meaning":{"en":"aren't needed","pt-BR":"não preciso","es":"no hacen falta"},"jlpt_level":"N4"}
+],"translations":{"en":"At the dead end, words aren't needed.","pt-BR":"No beco sem saída, palavras não são precisas.","es":"En el callejón sin salida, las palabras no hacen falta."},"literal_meaning":{"en":"dead-end + at + words + aren't-needed"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"時間制限","reading":"じかんせいげん","romaji":"jikan-seigen","grammar":"noun","grammar_color":"blue","meaning":{"en":"time limit","pt-BR":"limite de tempo","es":"límite de tiempo"},"jlpt_level":"N2"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"by","pt-BR":"por","es":"por"},"jlpt_level":"N5"},
+  {"surface":"焦る","reading":"あせる","romaji":"aseru","grammar":"verb","grammar_color":"red","meaning":{"en":"feel rushed","pt-BR":"ficar aflito","es":"impacientarse"},"jlpt_level":"N2"},
+  {"surface":"期待","reading":"きたい","romaji":"kitai","grammar":"noun","grammar_color":"blue","meaning":{"en":"expectation","pt-BR":"expectativa","es":"expectativa"},"jlpt_level":"N3"},
+  {"surface":"過剰","reading":"かじょう","romaji":"kajou","grammar":"adjective","grammar_color":"green","meaning":{"en":"excessive","pt-BR":"excessivo","es":"excesivo"},"jlpt_level":"N1"},
+  {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na","pt-BR":"na","es":"na"},"jlpt_level":"N5"}
+],"translations":{"en":"Rushed by the time limit, excessive expectation —","pt-BR":"Aflita pelo limite de tempo, expectativa excessiva —","es":"Apremiada por el plazo, expectativa excesiva —"},"literal_meaning":{"en":"time-limit + by + feel-rushed + expectation + excessive + na"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"進行形","reading":"しんこうけい","romaji":"shinkoukei","grammar":"noun","grammar_color":"blue","meaning":{"en":"in-progress","pt-BR":"em progresso","es":"en progreso"},"jlpt_level":"N1"},
+  {"surface":"高揚感","reading":"こうようかん","romaji":"kouyoukan","grammar":"noun","grammar_color":"blue","meaning":{"en":"exhilaration","pt-BR":"exaltação","es":"exaltación"},"jlpt_level":"N1"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"一瞬","reading":"いっしゅん","romaji":"isshun","grammar":"adverb","grammar_color":"orange","meaning":{"en":"for an instant","pt-BR":"por um instante","es":"por un instante"},"jlpt_level":"N3"},
+  {"surface":"はじける","reading":"はじける","romaji":"hajikeru","grammar":"verb","grammar_color":"red","meaning":{"en":"burst","pt-BR":"estourar","es":"estallar"},"jlpt_level":"N2"}
+],"translations":{"en":"Bursting for a moment in the rush of progress.","pt-BR":"Estouro por um instante na exaltação em progresso.","es":"Estallo un instante en la euforia en progreso."},"literal_meaning":{"en":"in-progress + exhilaration + at + for-instant + burst"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"いつでも","reading":"いつでも","romaji":"itsudemo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"always","pt-BR":"sempre","es":"siempre"},"jlpt_level":"N5"},
+  {"surface":"探し物","reading":"さがしもの","romaji":"sagashimono","grammar":"noun","grammar_color":"blue","meaning":{"en":"what I seek","pt-BR":"o que busco","es":"lo que busco"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"違って","reading":"ちがって","romaji":"chigatte","grammar":"verb","grammar_color":"red","meaning":{"en":"differ (te-form)","pt-BR":"diferente","es":"distinto"},"jlpt_level":"N4"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"},
+  {"surface":"迷う","reading":"まよう","romaji":"mayou","grammar":"verb","grammar_color":"red","meaning":{"en":"get lost","pt-BR":"se perder","es":"perderse"},"jlpt_level":"N3"},
+  {"surface":"たびに","reading":"たびに","romaji":"tabini","grammar":"particle","grammar_color":"grey","meaning":{"en":"every time","pt-BR":"toda vez","es":"cada vez"},"jlpt_level":"N3"}
+],"translations":{"en":"Always, even if what I seek differs, every time I get lost.","pt-BR":"Sempre — mesmo sendo diferente — toda vez que me perco.","es":"Siempre — aunque cambie lo que busco — cada vez que me pierdo."},"literal_meaning":{"en":"always + what-I-seek + obj + differ + even + get-lost + every-time"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"光ってた","reading":"ひかってた","romaji":"hikatteta","grammar":"verb","grammar_color":"red","meaning":{"en":"was shining","pt-BR":"brilhava","es":"brillaba"},"jlpt_level":"N3"},
+  {"surface":"一歩","reading":"いっぽ","romaji":"ippo","grammar":"noun","grammar_color":"blue","meaning":{"en":"one step","pt-BR":"um passo","es":"un paso"},"jlpt_level":"N3"},
+  {"surface":"より","reading":"より","romaji":"yori","grammar":"particle","grammar_color":"grey","meaning":{"en":"than","pt-BR":"que","es":"que"},"jlpt_level":"N4"},
+  {"surface":"近い","reading":"ちかい","romaji":"chikai","grammar":"adjective","grammar_color":"green","meaning":{"en":"close","pt-BR":"próximo","es":"cercano"},"jlpt_level":"N5"},
+  {"surface":"確かな","reading":"たしかな","romaji":"tashikana","grammar":"adjective","grammar_color":"green","meaning":{"en":"certain","pt-BR":"certo","es":"firme"},"jlpt_level":"N3"},
+  {"surface":"想い","reading":"おもい","romaji":"omoi","grammar":"noun","grammar_color":"blue","meaning":{"en":"feeling","pt-BR":"sentimento","es":"sentimiento"},"jlpt_level":"N3"}
+],"translations":{"en":"A feeling closer than the shining step —","pt-BR":"Um sentimento mais próximo que o passo brilhante —","es":"Un sentimiento más cercano que el paso que brillaba —"},"literal_meaning":{"en":"was-shining + one-step + than + close + certain + feeling"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"つながる","reading":"つながる","romaji":"tsunagaru","grammar":"verb","grammar_color":"red","meaning":{"en":"connecting","pt-BR":"conectando","es":"conectando"},"jlpt_level":"N3"},
+  {"surface":"景色","reading":"けしき","romaji":"keshiki","grammar":"noun","grammar_color":"blue","meaning":{"en":"scenery","pt-BR":"paisagem","es":"paisaje"},"jlpt_level":"N4"},
+  {"surface":"まで","reading":"まで","romaji":"made","grammar":"particle","grammar_color":"grey","meaning":{"en":"until","pt-BR":"até","es":"hasta"},"jlpt_level":"N5"}
+],"translations":{"en":"Up to the scenery that connects,","pt-BR":"Até a paisagem que conecta,","es":"Hasta el paisaje que se conecta,"},"literal_meaning":{"en":"connecting + scenery + until"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"かすかな","reading":"かすかな","romaji":"kasukana","grammar":"adjective","grammar_color":"green","meaning":{"en":"faint","pt-BR":"leve","es":"tenue"},"jlpt_level":"N2"},
+  {"surface":"未来","reading":"みらい","romaji":"mirai","grammar":"noun","grammar_color":"blue","meaning":{"en":"future","pt-BR":"futuro","es":"futuro"},"jlpt_level":"N4"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"}
+],"translations":{"en":"a faint future,","pt-BR":"um futuro tênue,","es":"un futuro tenue,"},"literal_meaning":{"en":"faint + future + obj"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"照らしたくて","reading":"てらしたくて","romaji":"terashitakute","grammar":"verb","grammar_color":"red","meaning":{"en":"wanting to illuminate","pt-BR":"querendo iluminar","es":"queriendo iluminar"},"jlpt_level":"N2"},
+  {"surface":"使い切って","reading":"つかいきって","romaji":"tsukaikitte","grammar":"verb","grammar_color":"red","meaning":{"en":"using up (te-form)","pt-BR":"esgotar","es":"agotar"},"jlpt_level":"N2"},
+  {"surface":"辿り着く","reading":"たどりつく","romaji":"tadoritsuku","grammar":"verb","grammar_color":"red","meaning":{"en":"arrive at last","pt-BR":"finalmente chegar","es":"por fin llegar"},"jlpt_level":"N2"}
+],"translations":{"en":"I want to illuminate it — spending all, I finally arrive.","pt-BR":"Quero iluminá-lo — esgotando tudo, finalmente chego.","es":"Quiero iluminarlo — usándolo todo, por fin llego."},"literal_meaning":{"en":"want-to-illuminate + use-up + arrive"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"決断","reading":"けつだん","romaji":"ketsudan","grammar":"noun","grammar_color":"blue","meaning":{"en":"decision","pt-BR":"decisão","es":"decisión"},"jlpt_level":"N2"},
+  {"surface":"だらけ","reading":"だらけ","romaji":"darake","grammar":"particle","grammar_color":"grey","meaning":{"en":"full of","pt-BR":"cheio de","es":"lleno de"},"jlpt_level":"N2"},
+  {"surface":"だって","reading":"だって","romaji":"datte","grammar":"particle","grammar_color":"grey","meaning":{"en":"even if","pt-BR":"mesmo","es":"aunque"},"jlpt_level":"N3"},
+  {"surface":"誓う","reading":"ちかう","romaji":"chikau","grammar":"verb","grammar_color":"red","meaning":{"en":"swear","pt-BR":"jurar","es":"jurar"},"jlpt_level":"N2"},
+  {"surface":"絶対","reading":"ぜったい","romaji":"zettai","grammar":"adverb","grammar_color":"orange","meaning":{"en":"absolutely","pt-BR":"absolutamente","es":"absolutamente"},"jlpt_level":"N3"},
+  {"surface":"何万回","reading":"なんまんかい","romaji":"nanmankai","grammar":"noun","grammar_color":"blue","meaning":{"en":"tens of thousands of times","pt-BR":"dezenas de milhares de vezes","es":"decenas de miles de veces"},"jlpt_level":"N3"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"}
+],"translations":{"en":"Even loaded with decisions — I swear, absolutely, tens of thousands of times.","pt-BR":"Mesmo cheia de decisões — juro, absolutamente, dezenas de milhares de vezes.","es":"Aunque lleno de decisiones — juro, absolutamente, decenas de miles de veces."},"literal_meaning":{"en":"decision + full-of + even-if + swear + absolutely + tens-of-thousands + even"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"不完全","reading":"ふかんぜん","romaji":"fukanzen","grammar":"adjective","grammar_color":"green","meaning":{"en":"imperfect","pt-BR":"imperfeito","es":"imperfecto"},"jlpt_level":"N2"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-connector","pt-BR":"te","es":"te"},"jlpt_level":"N5"},
+  {"surface":"無限大","reading":"むげんだい","romaji":"mugendai","grammar":"noun","grammar_color":"blue","meaning":{"en":"infinite","pt-BR":"infinito","es":"infinito"},"jlpt_level":"N2"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te","pt-BR":"te","es":"te"},"jlpt_level":"N5"},
+  {"surface":"かき出して","reading":"かきだして","romaji":"kakidashite","grammar":"verb","grammar_color":"red","meaning":{"en":"scoop out (te-form)","pt-BR":"retirar","es":"sacar"},"jlpt_level":"N1"},
+  {"surface":"いく","reading":"いく","romaji":"iku","grammar":"verb","grammar_color":"red","meaning":{"en":"go (aux)","pt-BR":"ir","es":"ir"},"jlpt_level":"N5"}
+],"translations":{"en":"Imperfect, infinite, scooping it out.","pt-BR":"Imperfeita, infinita, retirando tudo.","es":"Imperfecta, infinita, sacándolo todo."},"literal_meaning":{"en":"imperfect + te + infinite + te + scoop-out + go"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"ただ","reading":"ただ","romaji":"tada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"just","pt-BR":"só","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"果て","reading":"はて","romaji":"hate","grammar":"noun","grammar_color":"blue","meaning":{"en":"end","pt-BR":"fim","es":"fin"},"jlpt_level":"N2"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"見えない","reading":"みえない","romaji":"mienai","grammar":"verb","grammar_color":"red","meaning":{"en":"can't see","pt-BR":"não se vê","es":"no se ve"},"jlpt_level":"N4"},
+  {"surface":"くらい","reading":"くらい","romaji":"kurai","grammar":"particle","grammar_color":"grey","meaning":{"en":"to the extent","pt-BR":"tanto","es":"tanto"},"jlpt_level":"N4"}
+],"translations":{"en":"So much that the end isn't visible.","pt-BR":"Tanto que o fim não se vê.","es":"Tanto que no se ve el fin."},"literal_meaning":{"en":"just + end + subj + can't-see + to-extent"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"目覚める","reading":"めざめる","romaji":"mezameru","grammar":"verb","grammar_color":"red","meaning":{"en":"awaken","pt-BR":"despertar","es":"despertar"},"jlpt_level":"N3"},
+  {"surface":"ような","reading":"ような","romaji":"youna","grammar":"particle","grammar_color":"grey","meaning":{"en":"like","pt-BR":"como","es":"como"},"jlpt_level":"N4"},
+  {"surface":"感傷","reading":"かんしょう","romaji":"kanshou","grammar":"noun","grammar_color":"blue","meaning":{"en":"sentiment","pt-BR":"sentimento","es":"sentimiento"},"jlpt_level":"N1"},
+  {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"and","pt-BR":"e","es":"y"},"jlpt_level":"N5"},
+  {"surface":"変わらない","reading":"かわらない","romaji":"kawaranai","grammar":"verb","grammar_color":"red","meaning":{"en":"unchanging","pt-BR":"imutável","es":"inmutable"},"jlpt_level":"N4"},
+  {"surface":"イメージ","reading":"イメージ","romaji":"imeeji","grammar":"noun","grammar_color":"blue","meaning":{"en":"image","pt-BR":"imagem","es":"imagen"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"重ねた","reading":"かさねた","romaji":"kasaneta","grammar":"verb","grammar_color":"red","meaning":{"en":"overlaid","pt-BR":"sobreposto","es":"superpuso"},"jlpt_level":"N3"}
+],"translations":{"en":"I layered awakening-like sentiment with an unchanging image.","pt-BR":"Sobrepus sentimento desperto e uma imagem imutável.","es":"Superpuse un sentimiento despertar con una imagen inmutable."},"literal_meaning":{"en":"awaken + like + sentiment + and + unchanging + image + obj + overlaid"}}},
+{"after_original":13,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"甘い","reading":"あまい","romaji":"amai","grammar":"adjective","grammar_color":"green","meaning":{"en":"sweet","pt-BR":"doce","es":"dulce"},"jlpt_level":"N5"},
+  {"surface":"夢","reading":"ゆめ","romaji":"yume","grammar":"noun","grammar_color":"blue","meaning":{"en":"dream","pt-BR":"sonho","es":"sueño"},"jlpt_level":"N5"},
+  {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+  {"surface":"けど","reading":"けど","romaji":"kedo","grammar":"particle","grammar_color":"grey","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N5"}
+],"translations":{"en":"A sweet dream, but —","pt-BR":"Um sonho doce, mas —","es":"Un sueño dulce, pero —"},"literal_meaning":{"en":"sweet + dream + be + but"}}},
+{"after_original":13,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"自由","reading":"じゆう","romaji":"jiyuu","grammar":"noun","grammar_color":"blue","meaning":{"en":"freedom","pt-BR":"liberdade","es":"libertad"},"jlpt_level":"N3"},
+  {"surface":"なんて","reading":"なんて","romaji":"nante","grammar":"particle","grammar_color":"grey","meaning":{"en":"things like","pt-BR":"coisas como","es":"cosas como"},"jlpt_level":"N3"},
+  {"surface":"過ぎ去って","reading":"すぎさって","romaji":"sugisatte","grammar":"verb","grammar_color":"red","meaning":{"en":"pass (te-form)","pt-BR":"passar","es":"pasar"},"jlpt_level":"N2"},
+  {"surface":"消えて","reading":"きえて","romaji":"kiete","grammar":"verb","grammar_color":"red","meaning":{"en":"fade (te-form)","pt-BR":"desaparecer","es":"desvanecerse"},"jlpt_level":"N4"},
+  {"surface":"行く","reading":"いく","romaji":"iku","grammar":"verb","grammar_color":"red","meaning":{"en":"go (aux)","pt-BR":"ir","es":"ir"},"jlpt_level":"N5"}
+],"translations":{"en":"Freedom passes by and fades away.","pt-BR":"A liberdade passa e se desvanece.","es":"La libertad pasa y se desvanece."},"literal_meaning":{"en":"freedom + things-like + pass + fade + go"}}},
+{"after_original":13,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"避けられなくたって","reading":"さけられなくたって","romaji":"sakerarenakutatte","grammar":"verb","grammar_color":"red","meaning":{"en":"even if unavoidable","pt-BR":"mesmo inevitável","es":"aunque inevitable"},"jlpt_level":"N2"},
+  {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"何千","reading":"なんぜん","romaji":"nanzen","grammar":"noun","grammar_color":"blue","meaning":{"en":"thousands","pt-BR":"milhares","es":"miles"},"jlpt_level":"N3"},
+  {"surface":"何万回","reading":"なんまんかい","romaji":"nanmankai","grammar":"noun","grammar_color":"blue","meaning":{"en":"tens of thousands","pt-BR":"dezenas de milhares","es":"decenas de miles"},"jlpt_level":"N3"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"}
+],"translations":{"en":"Even if unavoidable — you, thousands and tens of thousands of times,","pt-BR":"Mesmo sem escapatória — você, milhares e milhares de vezes,","es":"Aunque no pueda evitarse — a ti, miles y decenas de miles de veces,"},"literal_meaning":{"en":"even-unavoidable + you + obj + thousands + tens-of-thousands + even"}}},
+{"after_original":13,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"理由","reading":"りゆう","romaji":"riyuu","grammar":"noun","grammar_color":"blue","meaning":{"en":"reason","pt-BR":"razão","es":"razón"},"jlpt_level":"N4"},
+  {"surface":"なんて","reading":"なんて","romaji":"nante","grammar":"particle","grammar_color":"grey","meaning":{"en":"things like","pt-BR":"coisas como","es":"cosas como"},"jlpt_level":"N3"},
+  {"surface":"振り切って","reading":"ふりきって","romaji":"furikitte","grammar":"verb","grammar_color":"red","meaning":{"en":"shake off (te-form)","pt-BR":"descartar","es":"sacudir"},"jlpt_level":"N2"},
+  {"surface":"抱きしめる","reading":"だきしめる","romaji":"dakishimeru","grammar":"verb","grammar_color":"red","meaning":{"en":"hold tight","pt-BR":"abraçar com força","es":"abrazar fuerte"},"jlpt_level":"N2"}
+],"translations":{"en":"I'll shake off reasons and hold you tight.","pt-BR":"Vou descartar as razões e te abraçar com força.","es":"Voy a sacudir las razones y abrazarte fuerte."},"literal_meaning":{"en":"reason + things-like + shake-off + hold-tight"}}},
+{"after_original":13,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"まだ","reading":"まだ","romaji":"mada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"still","pt-BR":"ainda","es":"aún"},"jlpt_level":"N5"},
+  {"surface":"伝えきれない","reading":"つたえきれない","romaji":"tsutaekirenai","grammar":"verb","grammar_color":"red","meaning":{"en":"can't fully convey","pt-BR":"não posso transmitir tudo","es":"no puedo transmitir todo"},"jlpt_level":"N3"},
+  {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because","pt-BR":"porque","es":"porque"},"jlpt_level":"N5"}
+],"translations":{"en":"Because I still can't fully convey it.","pt-BR":"Porque ainda não consigo transmitir tudo.","es":"Porque aún no puedo transmitirlo todo."},"literal_meaning":{"en":"still + can't-fully-convey + because"}}}
+]}

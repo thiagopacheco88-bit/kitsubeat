@@ -1,0 +1,142 @@
+{
+  "patches": [
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"言葉","reading":"ことば","romaji":"kotoba","grammar":"noun","grammar_color":"blue","meaning":{"en":"words","pt-BR":"palavras","es":"palabras"},"jlpt_level":"N5"},
+      {"surface":"じゃない","reading":"じゃない","romaji":"janai","grammar":"verb","grammar_color":"red","meaning":{"en":"not","pt-BR":"não é","es":"no es"},"jlpt_level":"N5"},
+      {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+      {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only","pt-BR":"só","es":"sólo"},"jlpt_level":"N4"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"感じてたい","reading":"かんじてたい","romaji":"kanjitetai","grammar":"verb","grammar_color":"red","meaning":{"en":"want to keep feeling","pt-BR":"quero seguir sentindo","es":"quiero seguir sintiendo"},"jlpt_level":"N4"}
+    ],"translations":{"en":"Not words — I want to keep feeling only now.","pt-BR":"Não palavras — quero seguir sentindo só o agora.","es":"No palabras — quiero seguir sintiendo sólo el ahora."},"literal_meaning":{"en":"words + not + now + only + obj + want-to-keep-feeling"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"感じてたい","reading":"かんじてたい","romaji":"kanjitetai","grammar":"verb","grammar_color":"red","meaning":{"en":"want to keep feeling","pt-BR":"quero seguir sentindo","es":"quiero seguir sintiendo"},"jlpt_level":"N4"}
+    ],"translations":{"en":"I want to keep feeling you.","pt-BR":"Quero seguir sentindo você.","es":"Quiero seguir sintiéndote."},"literal_meaning":{"en":"you + obj + want-to-keep-feeling"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"大体","reading":"だいたい","romaji":"daitai","grammar":"adverb","grammar_color":"orange","meaning":{"en":"mostly","pt-BR":"geralmente","es":"generalmente"},"jlpt_level":"N4"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"大丈夫","reading":"だいじょうぶ","romaji":"daijoubu","grammar":"adjective","grammar_color":"green","meaning":{"en":"all right","pt-BR":"tudo bem","es":"todo bien"},"jlpt_level":"N5"},
+      {"surface":"さ","reading":"さ","romaji":"sa","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N4"},
+      {"surface":"うまく","reading":"うまく","romaji":"umaku","grammar":"adverb","grammar_color":"orange","meaning":{"en":"well","pt-BR":"bem","es":"bien"},"jlpt_level":"N4"},
+      {"surface":"やろうぜ","reading":"やろうぜ","romaji":"yarouze","grammar":"verb","grammar_color":"red","meaning":{"en":"let's do it","pt-BR":"vamos fazer","es":"hagámoslo"},"jlpt_level":"N3"}
+    ],"translations":{"en":"Mostly it's fine — let's pull it off.","pt-BR":"Geralmente tudo bem — vamos dar conta.","es":"Generalmente va bien — hagámoslo bien."},"literal_meaning":{"en":"mostly + topic + all-right + emphasis + well + let's-do"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"不安","reading":"ふあん","romaji":"fuan","grammar":"noun","grammar_color":"blue","meaning":{"en":"anxiety","pt-BR":"ansiedade","es":"ansiedad"},"jlpt_level":"N3"},
+      {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj","pt-BR":"na","es":"na"},"jlpt_level":"N5"},
+      {"surface":"とき","reading":"とき","romaji":"toki","grammar":"noun","grammar_color":"blue","meaning":{"en":"time","pt-BR":"momento","es":"momento"},"jlpt_level":"N5"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"俺","reading":"おれ","romaji":"ore","grammar":"noun","grammar_color":"blue","meaning":{"en":"I","pt-BR":"eu","es":"yo"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"ついてる","reading":"ついてる","romaji":"tsuiteru","grammar":"verb","grammar_color":"red","meaning":{"en":"am with you","pt-BR":"estou com você","es":"estoy contigo"},"jlpt_level":"N4"}
+    ],"translations":{"en":"When you're anxious, I'm with you.","pt-BR":"Quando estiver ansioso, eu estou com você.","es":"Cuando estés ansioso, yo estoy contigo."},"literal_meaning":{"en":"anxiety + na + time + topic + I + subj + am-with"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"どっか","reading":"どっか","romaji":"dokka","grammar":"other","grammar_color":"none","meaning":{"en":"somewhere","pt-BR":"em algum lugar","es":"en algún lugar"},"jlpt_level":"N4"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"光ってる","reading":"ひかってる","romaji":"hikatteru","grammar":"verb","grammar_color":"red","meaning":{"en":"is shining","pt-BR":"brilhando","es":"brillando"},"jlpt_level":"N3"},
+      {"surface":"未来","reading":"みらい","romaji":"mirai","grammar":"noun","grammar_color":"blue","meaning":{"en":"future","pt-BR":"futuro","es":"futuro"},"jlpt_level":"N4"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"目指して","reading":"めざして","romaji":"mezashite","grammar":"verb","grammar_color":"red","meaning":{"en":"aim for (te-form)","pt-BR":"mirar","es":"apuntar a"},"jlpt_level":"N3"}
+    ],"translations":{"en":"Aiming for a future shining somewhere,","pt-BR":"Mirando um futuro que brilha em algum lugar,","es":"Apuntando a un futuro que brilla en algún lugar,"},"literal_meaning":{"en":"somewhere + at + shining + future + obj + aim-for"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"こうやって","reading":"こうやって","romaji":"kouyatte","grammar":"adverb","grammar_color":"orange","meaning":{"en":"like this","pt-BR":"assim","es":"así"},"jlpt_level":"N4"},
+      {"surface":"考えた","reading":"かんがえた","romaji":"kangaeta","grammar":"verb","grammar_color":"red","meaning":{"en":"thought","pt-BR":"pensei","es":"pensé"},"jlpt_level":"N4"},
+      {"surface":"こと","reading":"こと","romaji":"koto","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing","pt-BR":"coisa","es":"cosa"},"jlpt_level":"N5"},
+      {"surface":"忘れない","reading":"わすれない","romaji":"wasurenai","grammar":"verb","grammar_color":"red","meaning":{"en":"won't forget","pt-BR":"não vou esquecer","es":"no olvidaré"},"jlpt_level":"N5"}
+    ],"translations":{"en":"I won't forget what I thought like this.","pt-BR":"Não vou esquecer o que pensei assim.","es":"No olvidaré lo que pensé así."},"literal_meaning":{"en":"like-this + thought + thing + won't-forget"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"行け","reading":"いけ","romaji":"ike","grammar":"verb","grammar_color":"red","meaning":{"en":"go (imperative)","pt-BR":"vá","es":"ve"},"jlpt_level":"N4"},
+      {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+      {"surface":"先","reading":"さき","romaji":"saki","grammar":"noun","grammar_color":"blue","meaning":{"en":"beyond","pt-BR":"além","es":"más allá"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"tomorrow","reading":"tomorrow","romaji":"tomorrow","grammar":"other","grammar_color":"none","meaning":{"en":"tomorrow","pt-BR":"amanhã","es":"mañana"},"jlpt_level":"unknown"}
+    ],"translations":{"en":"Go now — beyond it is tomorrow.","pt-BR":"Vá agora — além dele está o amanhã.","es":"Ve ahora — más allá está tomorrow."},"literal_meaning":{"en":"now + obj + go + that + beyond + subj + tomorrow"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"嫌い","reading":"きらい","romaji":"kirai","grammar":"adjective","grammar_color":"green","meaning":{"en":"hate","pt-BR":"odiar","es":"odiar"},"jlpt_level":"N5"},
+      {"surface":"じゃない","reading":"じゃない","romaji":"janai","grammar":"verb","grammar_color":"red","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"},
+      {"surface":"行動","reading":"こうどう","romaji":"koudou","grammar":"noun","grammar_color":"blue","meaning":{"en":"action","pt-BR":"ação","es":"acción"},"jlpt_level":"N3"},
+      {"surface":"すりゃ","reading":"すりゃ","romaji":"surya","grammar":"verb","grammar_color":"red","meaning":{"en":"if you do","pt-BR":"se fizer","es":"si haces"},"jlpt_level":"N3"},
+      {"surface":"OK","reading":"OK","romaji":"OK","grammar":"other","grammar_color":"none","meaning":{"en":"OK","pt-BR":"OK","es":"OK"},"jlpt_level":"unknown"}
+    ],"translations":{"en":"I don't hate it — if you act, it's OK.","pt-BR":"Não odeio — se agir, está OK.","es":"No lo odio — si actúas, está OK."},"literal_meaning":{"en":"hate + not + action + if-do + OK"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"Loud","reading":"Loud","romaji":"Loud","grammar":"other","grammar_color":"none","meaning":{"en":"loud","pt-BR":"alto","es":"alto"},"jlpt_level":"unknown"},
+      {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adj","pt-BR":"na","es":"na"},"jlpt_level":"N5"},
+      {"surface":"shout","reading":"shout","romaji":"shout","grammar":"other","grammar_color":"none","meaning":{"en":"shout","pt-BR":"grito","es":"grito"},"jlpt_level":"unknown"},
+      {"surface":"響かせる","reading":"ひびかせる","romaji":"hibikaseru","grammar":"verb","grammar_color":"red","meaning":{"en":"make resound","pt-BR":"fazer ressoar","es":"hacer resonar"},"jlpt_level":"N2"},
+      {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+      {"surface":"do","reading":"do","romaji":"do","grammar":"other","grammar_color":"none","meaning":{"en":"do","pt-BR":"faça","es":"haz"},"jlpt_level":"unknown"},
+      {"surface":"more","reading":"more","romaji":"more","grammar":"other","grammar_color":"none","meaning":{"en":"more","pt-BR":"mais","es":"más"},"jlpt_level":"unknown"},
+      {"surface":"rock","reading":"rock","romaji":"rock","grammar":"other","grammar_color":"none","meaning":{"en":"rock","pt-BR":"rock","es":"rock"},"jlpt_level":"unknown"}
+    ],"translations":{"en":"I'll make a Loud shout ring — do more rock.","pt-BR":"Faço um grito Loud ressoar — do more rock.","es":"Haré resonar un grito Loud — do more rock."},"literal_meaning":{"en":"Loud + na + shout + make-resound + explanatory + be + do + more + rock"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"いつか","reading":"いつか","romaji":"itsuka","grammar":"adverb","grammar_color":"orange","meaning":{"en":"someday","pt-BR":"um dia","es":"algún día"},"jlpt_level":"N4"},
+      {"surface":"BIG","reading":"BIG","romaji":"BIG","grammar":"other","grammar_color":"none","meaning":{"en":"BIG","pt-BR":"GRANDE","es":"GRANDE"},"jlpt_level":"unknown"},
+      {"surface":"思い切り","reading":"おもいきり","romaji":"omoikiri","grammar":"adverb","grammar_color":"orange","meaning":{"en":"with all one's might","pt-BR":"com toda a força","es":"con todas las ganas"},"jlpt_level":"N3"},
+      {"surface":"jump","reading":"jump","romaji":"jump","grammar":"other","grammar_color":"none","meaning":{"en":"jump","pt-BR":"pulo","es":"salto"},"jlpt_level":"unknown"}
+    ],"translations":{"en":"Someday BIG — jump with all your might.","pt-BR":"Um dia BIG — pule com toda a força.","es":"Algún día BIG — salta con todas las ganas."},"literal_meaning":{"en":"someday + BIG + with-all-might + jump"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"もっと","reading":"もっと","romaji":"motto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"more","pt-BR":"mais","es":"más"},"jlpt_level":"N4"},
+      {"surface":"聞かせてくれよ","reading":"きかせてくれよ","romaji":"kikasetekureyo","grammar":"verb","grammar_color":"red","meaning":{"en":"let me hear more","pt-BR":"me deixa ouvir mais","es":"déjame escuchar más"},"jlpt_level":"N3"}
+    ],"translations":{"en":"Let me hear more!","pt-BR":"Me deixa ouvir mais!","es":"¡Déjame escuchar más!"},"literal_meaning":{"en":"more + let-me-hear"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"願い","reading":"ねがい","romaji":"negai","grammar":"noun","grammar_color":"blue","meaning":{"en":"wish","pt-BR":"desejo","es":"deseo"},"jlpt_level":"N3"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"こめる","reading":"こめる","romaji":"komeru","grammar":"verb","grammar_color":"red","meaning":{"en":"put into","pt-BR":"colocar","es":"poner"},"jlpt_level":"N3"},
+      {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+    ],"translations":{"en":"I'll pour in my wishes.","pt-BR":"Vou colocar meus desejos.","es":"Voy a cargar mis deseos."},"literal_meaning":{"en":"wish + obj + put-into + explanatory + be"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"希望","reading":"きぼう","romaji":"kibou","grammar":"noun","grammar_color":"blue","meaning":{"en":"hope","pt-BR":"esperança","es":"esperanza"},"jlpt_level":"N3"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"}
+    ],"translations":{"en":"of hope —","pt-BR":"de esperança —","es":"de esperanza —"},"literal_meaning":{"en":"hope + of"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"おんなじ","reading":"おんなじ","romaji":"onnaji","grammar":"adjective","grammar_color":"green","meaning":{"en":"same","pt-BR":"mesmo","es":"mismo"},"jlpt_level":"N4"},
+      {"surface":"ような","reading":"ような","romaji":"youna","grammar":"particle","grammar_color":"grey","meaning":{"en":"kind of","pt-BR":"tipo","es":"tipo"},"jlpt_level":"N4"},
+      {"surface":"痛み","reading":"いたみ","romaji":"itami","grammar":"noun","grammar_color":"blue","meaning":{"en":"pain","pt-BR":"dor","es":"dolor"},"jlpt_level":"N3"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"抱えて","reading":"かかえて","romaji":"kakaete","grammar":"verb","grammar_color":"red","meaning":{"en":"carrying (te-form)","pt-BR":"carregando","es":"cargando"},"jlpt_level":"N3"},
+      {"surface":"だけど","reading":"だけど","romaji":"dakedo","grammar":"particle","grammar_color":"grey","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N4"},
+      {"surface":"飛ぶ","reading":"とぶ","romaji":"tobu","grammar":"verb","grammar_color":"red","meaning":{"en":"to fly","pt-BR":"voar","es":"volar"},"jlpt_level":"N5"},
+      {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Carrying the same kind of pain, but I still fly.","pt-BR":"Carregando a mesma dor, mas voando.","es":"Cargando el mismo dolor, pero vuelo."},"literal_meaning":{"en":"same + kind-of + pain + obj + carrying + but + fly + explanatory + be"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"笑顔","reading":"えがお","romaji":"egao","grammar":"noun","grammar_color":"blue","meaning":{"en":"smile","pt-BR":"sorriso","es":"sonrisa"},"jlpt_level":"N3"},
+      {"surface":"じゃない","reading":"じゃない","romaji":"janai","grammar":"verb","grammar_color":"red","meaning":{"en":"not","pt-BR":"não é","es":"no es"},"jlpt_level":"N5"},
+      {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+      {"surface":"なんか","reading":"なんか","romaji":"nanka","grammar":"particle","grammar_color":"grey","meaning":{"en":"anything like","pt-BR":"qualquer coisa","es":"algo así"},"jlpt_level":"N3"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"into","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"したくない","reading":"したくない","romaji":"shitakunai","grammar":"verb","grammar_color":"red","meaning":{"en":"don't want to make","pt-BR":"não quero fazer","es":"no quiero hacer"},"jlpt_level":"N4"}
+    ],"translations":{"en":"I don't want to turn you into someone who isn't smiling.","pt-BR":"Não quero te deixar sem sorriso.","es":"No quiero que te quedes sin sonrisa."},"literal_meaning":{"en":"smile + not + you + anything-like + into + don't-want-to-make"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"ひとりぼっち","reading":"ひとりぼっち","romaji":"hitoribocchi","grammar":"noun","grammar_color":"blue","meaning":{"en":"all alone","pt-BR":"completamente só","es":"completamente solo"},"jlpt_level":"N2"},
+      {"surface":"じゃない","reading":"じゃない","romaji":"janai","grammar":"verb","grammar_color":"red","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"}
+    ],"translations":{"en":"You're not alone.","pt-BR":"Você não está sozinho.","es":"No estás solo."},"literal_meaning":{"en":"all-alone + not"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"叫び続けて","reading":"さけびつづけて","romaji":"sakebitsudzukete","grammar":"verb","grammar_color":"red","meaning":{"en":"keep shouting (te-form)","pt-BR":"continue gritando","es":"sigue gritando"},"jlpt_level":"N3"},
+      {"surface":"明日","reading":"あした","romaji":"ashita","grammar":"noun","grammar_color":"blue","meaning":{"en":"tomorrow","pt-BR":"amanhã","es":"mañana"},"jlpt_level":"N5"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"トビラ","reading":"トビラ","romaji":"tobira","grammar":"noun","grammar_color":"blue","meaning":{"en":"door","pt-BR":"porta","es":"puerta"},"jlpt_level":"N3"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"こじ開ける","reading":"こじあける","romaji":"kojiakeru","grammar":"verb","grammar_color":"red","meaning":{"en":"pry open","pt-BR":"abrir à força","es":"abrir a la fuerza"},"jlpt_level":"N2"},
+      {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Keep shouting — I'll pry open tomorrow's door.","pt-BR":"Continue gritando — vou arrombar a porta do amanhã.","es":"Sigue gritando — abriré la puerta del mañana."},"literal_meaning":{"en":"keep-shouting + tomorrow + of + door + obj + pry-open + explanatory + be"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"誰","reading":"だれ","romaji":"dare","grammar":"other","grammar_color":"none","meaning":{"en":"someone","pt-BR":"alguém","es":"alguien"},"jlpt_level":"N5"},
+      {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"indefinite","pt-BR":"indefinido","es":"indefinido"},"jlpt_level":"N5"},
+      {"surface":"じゃない","reading":"じゃない","romaji":"janai","grammar":"verb","grammar_color":"red","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"},
+      {"surface":"俺たち","reading":"おれたち","romaji":"oretachi","grammar":"noun","grammar_color":"blue","meaning":{"en":"we","pt-BR":"nós","es":"nosotros"},"jlpt_level":"N4"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"信じてたい","reading":"しんじてたい","romaji":"shinjitetai","grammar":"verb","grammar_color":"red","meaning":{"en":"want to keep believing","pt-BR":"quero continuar acreditando","es":"quiero seguir creyendo"},"jlpt_level":"N4"}
+    ],"translations":{"en":"Not someone else — I want to keep believing in us.","pt-BR":"Não em outra pessoa — quero continuar acreditando em nós.","es":"No en otro — quiero seguir creyendo en nosotros."},"literal_meaning":{"en":"someone + indef + not + we + obj + want-to-keep-believing"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"夢","reading":"ゆめ","romaji":"yume","grammar":"noun","grammar_color":"blue","meaning":{"en":"dream","pt-BR":"sonho","es":"sueño"},"jlpt_level":"N5"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"信じてたい","reading":"しんじてたい","romaji":"shinjitetai","grammar":"verb","grammar_color":"red","meaning":{"en":"want to keep believing","pt-BR":"quero seguir acreditando","es":"quiero seguir creyendo"},"jlpt_level":"N4"}
+    ],"translations":{"en":"I want to keep believing in the dream.","pt-BR":"Quero continuar acreditando no sonho.","es":"Quiero seguir creyendo en el sueño."},"literal_meaning":{"en":"dream + obj + want-to-keep-believing"}}}
+  ]
+}

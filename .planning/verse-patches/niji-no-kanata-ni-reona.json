@@ -1,0 +1,97 @@
+{"patches":[
+{"after_original":1,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"赤い","reading":"あかい","romaji":"akai","grammar":"adjective","grammar_color":"green","meaning":{"en":"red","pt-BR":"vermelho","es":"rojo"},"jlpt_level":"N5"},
+  {"surface":"赤い","reading":"あかい","romaji":"akai","grammar":"adjective","grammar_color":"green","meaning":{"en":"red","pt-BR":"vermelho","es":"rojo"},"jlpt_level":"N5"},
+  {"surface":"錆色","reading":"さびいろ","romaji":"sabiiro","grammar":"noun","grammar_color":"blue","meaning":{"en":"rust color","pt-BR":"cor de ferrugem","es":"color óxido"},"jlpt_level":"N2"}
+],"translations":{"en":"Red, red, rust-colored.","pt-BR":"Vermelho, vermelho, cor de ferrugem.","es":"Rojo, rojo, color óxido."},"literal_meaning":{"en":"red + red + rust-color"}}},
+{"after_original":3,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"ずっと","reading":"ずっと","romaji":"zutto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"forever","pt-BR":"sempre","es":"siempre"},"jlpt_level":"N4"},
+  {"surface":"ずっと","reading":"ずっと","romaji":"zutto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"forever","pt-BR":"sempre","es":"siempre"},"jlpt_level":"N4"}
+],"translations":{"en":"Forever, forever.","pt-BR":"Sempre, sempre.","es":"Siempre, siempre."},"literal_meaning":{"en":"forever + forever"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"深く","reading":"ふかく","romaji":"fukaku","grammar":"adverb","grammar_color":"orange","meaning":{"en":"deeply","pt-BR":"profundamente","es":"profundamente"},"jlpt_level":"N4"},
+  {"surface":"深く","reading":"ふかく","romaji":"fukaku","grammar":"adverb","grammar_color":"orange","meaning":{"en":"deeply","pt-BR":"profundamente","es":"profundamente"},"jlpt_level":"N4"}
+],"translations":{"en":"Deep, deep.","pt-BR":"Fundo, fundo.","es":"Hondo, hondo."},"literal_meaning":{"en":"deeply + deeply"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"ふわふわ","reading":"ふわふわ","romaji":"fuwafuwa","grammar":"adverb","grammar_color":"orange","meaning":{"en":"fluffy","pt-BR":"macio","es":"esponjoso"},"jlpt_level":"N3"},
+  {"surface":"たてがみ","reading":"たてがみ","romaji":"tategami","grammar":"noun","grammar_color":"blue","meaning":{"en":"mane","pt-BR":"crina","es":"melena"},"jlpt_level":"N1"}
+],"translations":{"en":"A fluffy mane,","pt-BR":"Uma crina macia,","es":"Una melena esponjosa,"},"literal_meaning":{"en":"fluffy + mane"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"臆病風","reading":"おくびょうかぜ","romaji":"okubyoukaze","grammar":"noun","grammar_color":"blue","meaning":{"en":"timid wind","pt-BR":"vento covarde","es":"viento cobarde"},"jlpt_level":"N2"},
+  {"surface":"になびく","reading":"になびく","romaji":"ninabiku","grammar":"verb","grammar_color":"red","meaning":{"en":"flutters in","pt-BR":"flutua em","es":"ondea en"},"jlpt_level":"N2"}
+],"translations":{"en":"fluttering in the timid wind.","pt-BR":"flutuando no vento covarde.","es":"ondeando en el viento cobarde."},"literal_meaning":{"en":"timid-wind + flutters-in"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"あなた","reading":"あなた","romaji":"anata","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N5"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"わたし","reading":"わたし","romaji":"watashi","grammar":"noun","grammar_color":"blue","meaning":{"en":"me","pt-BR":"mim","es":"mí"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"弱くしたの","reading":"よわくしたの","romaji":"yowakushitano","grammar":"verb","grammar_color":"red","meaning":{"en":"made weak","pt-BR":"me enfraqueceu","es":"me debilitó"},"jlpt_level":"N3"}
+],"translations":{"en":"You're the one who made me weak.","pt-BR":"Foi você que me enfraqueceu.","es":"Fuiste tú quien me debilitó."},"literal_meaning":{"en":"you + subj + me + obj + made-weak"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"時間","reading":"じかん","romaji":"jikan","grammar":"noun","grammar_color":"blue","meaning":{"en":"time","pt-BR":"tempo","es":"tiempo"},"jlpt_level":"N5"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"足早","reading":"あしばや","romaji":"ashibaya","grammar":"adjective","grammar_color":"green","meaning":{"en":"quick-footed","pt-BR":"apressado","es":"apresurado"},"jlpt_level":"N2"},
+  {"surface":"心","reading":"こころ","romaji":"kokoro","grammar":"noun","grammar_color":"blue","meaning":{"en":"heart","pt-BR":"coração","es":"corazón"},"jlpt_level":"N4"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"裏腹","reading":"うらはら","romaji":"urahara","grammar":"noun","grammar_color":"blue","meaning":{"en":"contrary","pt-BR":"contrário","es":"contrario"},"jlpt_level":"N1"}
+],"translations":{"en":"Time races ahead; my heart is the opposite.","pt-BR":"O tempo corre; o coração, ao contrário.","es":"El tiempo corre; el corazón, lo contrario."},"literal_meaning":{"en":"time + topic + quick-footed + heart + topic + contrary"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"手","reading":"て","romaji":"te","grammar":"noun","grammar_color":"blue","meaning":{"en":"hand","pt-BR":"mão","es":"mano"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"振り","reading":"ふり","romaji":"furi","grammar":"verb","grammar_color":"red","meaning":{"en":"wave (stem)","pt-BR":"acenar","es":"agitar"},"jlpt_level":"N4"},
+  {"surface":"笑う","reading":"わらう","romaji":"warau","grammar":"verb","grammar_color":"red","meaning":{"en":"smile","pt-BR":"sorrir","es":"sonreír"},"jlpt_level":"N5"},
+  {"surface":"けど","reading":"けど","romaji":"kedo","grammar":"particle","grammar_color":"grey","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N5"}
+],"translations":{"en":"I wave and smile, but —","pt-BR":"Aceno e sorrio, mas —","es":"Saludo y sonrío, pero —"},"literal_meaning":{"en":"hand + obj + wave + smile + but"}}},
+{"after_original":4,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"脚","reading":"あし","romaji":"ashi","grammar":"noun","grammar_color":"blue","meaning":{"en":"legs","pt-BR":"pernas","es":"piernas"},"jlpt_level":"N2"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"震える","reading":"ふるえる","romaji":"furueru","grammar":"verb","grammar_color":"red","meaning":{"en":"tremble","pt-BR":"tremer","es":"temblar"},"jlpt_level":"N3"}
+],"translations":{"en":"my legs tremble.","pt-BR":"as pernas tremem.","es":"las piernas tiemblan."},"literal_meaning":{"en":"legs + topic + tremble"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"何","reading":"なに","romaji":"nani","grammar":"other","grammar_color":"none","meaning":{"en":"nothing","pt-BR":"nada","es":"nada"},"jlpt_level":"N5"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"nada","es":"nada"},"jlpt_level":"N5"},
+  {"surface":"見えない","reading":"みえない","romaji":"mienai","grammar":"verb","grammar_color":"red","meaning":{"en":"can't see","pt-BR":"não vejo","es":"no veo"},"jlpt_level":"N4"},
+  {"surface":"聞こえ","reading":"きこえ","romaji":"kikoe","grammar":"verb","grammar_color":"red","meaning":{"en":"hear (stem)","pt-BR":"ouvir","es":"oír"},"jlpt_level":"N4"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"either","pt-BR":"nem","es":"tampoco"},"jlpt_level":"N5"},
+  {"surface":"しない","reading":"しない","romaji":"shinai","grammar":"verb","grammar_color":"red","meaning":{"en":"don't","pt-BR":"não","es":"no"},"jlpt_level":"N5"}
+],"translations":{"en":"I can't see anything, I can't hear anything,","pt-BR":"Não vejo nada, não ouço nada,","es":"No veo nada, no oigo nada,"},"literal_meaning":{"en":"nothing + even + can't-see + hear + either + don't"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"物言わない","reading":"ものいわない","romaji":"monoiwanai","grammar":"verb","grammar_color":"red","meaning":{"en":"silent","pt-BR":"calado","es":"callado"},"jlpt_level":"N2"},
+  {"surface":"案山子","reading":"かかし","romaji":"kakashi","grammar":"noun","grammar_color":"blue","meaning":{"en":"scarecrow","pt-BR":"espantalho","es":"espantapájaros"},"jlpt_level":"N1"},
+  {"surface":"のまま","reading":"のまま","romaji":"nomama","grammar":"particle","grammar_color":"grey","meaning":{"en":"remain as","pt-BR":"permanecer como","es":"permanecer como"},"jlpt_level":"N4"},
+  {"surface":"いられたら","reading":"いられたら","romaji":"iraretara","grammar":"verb","grammar_color":"red","meaning":{"en":"if I could be","pt-BR":"se pudesse ficar","es":"si pudiera estar"},"jlpt_level":"N3"}
+],"translations":{"en":"if only I could stay a silent scarecrow,","pt-BR":"se pudesse ficar um espantalho calado,","es":"si pudiera seguir siendo un espantapájaros callado,"},"literal_meaning":{"en":"silent + scarecrow + remain-as + if-could-be"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este","es":"este"},"jlpt_level":"N5"},
+  {"surface":"疼き","reading":"うずき","romaji":"uzuki","grammar":"noun","grammar_color":"blue","meaning":{"en":"ache","pt-BR":"dor latejante","es":"dolor punzante"},"jlpt_level":"N1"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"also","pt-BR":"também","es":"también"},"jlpt_level":"N5"},
+  {"surface":"何もかも","reading":"なにもかも","romaji":"nanimokamo","grammar":"other","grammar_color":"none","meaning":{"en":"everything","pt-BR":"tudo","es":"todo"},"jlpt_level":"N3"}
+],"translations":{"en":"this ache and everything,","pt-BR":"esta dor latejante e tudo,","es":"este dolor punzante y todo,"},"literal_meaning":{"en":"this + ache + also + everything"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"知らずに","reading":"しらずに","romaji":"shirazuni","grammar":"adverb","grammar_color":"orange","meaning":{"en":"without knowing","pt-BR":"sem saber","es":"sin saber"},"jlpt_level":"N3"},
+  {"surface":"済んだ","reading":"すんだ","romaji":"sunda","grammar":"verb","grammar_color":"red","meaning":{"en":"could have ended","pt-BR":"teria bastado","es":"habría bastado"},"jlpt_level":"N3"},
+  {"surface":"はず","reading":"はず","romaji":"hazu","grammar":"noun","grammar_color":"blue","meaning":{"en":"expectation","pt-BR":"expectativa","es":"expectativa"},"jlpt_level":"N4"},
+  {"surface":"なのに","reading":"なのに","romaji":"nanoni","grammar":"particle","grammar_color":"grey","meaning":{"en":"even though","pt-BR":"apesar","es":"aunque"},"jlpt_level":"N3"}
+],"translations":{"en":"I should have been spared, even though...","pt-BR":"Poderia ter-me passado sem saber...","es":"Podría haberme ahorrado sin saberlo..."},"literal_meaning":{"en":"without-knowing + could-have-ended + expectation + even-though"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"凍てついて","reading":"いてついて","romaji":"itetsuite","grammar":"verb","grammar_color":"red","meaning":{"en":"frozen (te-form)","pt-BR":"congelado","es":"congelado"},"jlpt_level":"N1"},
+  {"surface":"いた","reading":"いた","romaji":"ita","grammar":"verb","grammar_color":"red","meaning":{"en":"was","pt-BR":"estava","es":"estaba"},"jlpt_level":"N5"},
+  {"surface":"胸","reading":"むね","romaji":"mune","grammar":"noun","grammar_color":"blue","meaning":{"en":"chest","pt-BR":"peito","es":"pecho"},"jlpt_level":"N3"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"}
+],"translations":{"en":"My frozen chest —","pt-BR":"Meu peito congelado —","es":"Mi pecho congelado —"},"literal_meaning":{"en":"frozen + was + chest + subj"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"溶け出して","reading":"とけだして","romaji":"tokedashite","grammar":"verb","grammar_color":"red","meaning":{"en":"melting (te-form)","pt-BR":"derretendo","es":"derritiéndose"},"jlpt_level":"N2"},
+  {"surface":"ああ","reading":"ああ","romaji":"aa","grammar":"other","grammar_color":"none","meaning":{"en":"ah","pt-BR":"ah","es":"ah"},"jlpt_level":"N5"},
+  {"surface":"痛いよ","reading":"いたいよ","romaji":"itaiyo","grammar":"adjective","grammar_color":"green","meaning":{"en":"it hurts","pt-BR":"dói","es":"duele"},"jlpt_level":"N5"},
+  {"surface":"痛いよ","reading":"いたいよ","romaji":"itaiyo","grammar":"adjective","grammar_color":"green","meaning":{"en":"it hurts","pt-BR":"dói","es":"duele"},"jlpt_level":"N5"}
+],"translations":{"en":"is melting — ah, it hurts, it hurts.","pt-BR":"está derretendo — ai, dói, dói.","es":"se derrite — ay, duele, duele."},"literal_meaning":{"en":"melting + ah + it-hurts + it-hurts"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"また","reading":"また","romaji":"mata","grammar":"adverb","grammar_color":"orange","meaning":{"en":"again","pt-BR":"de novo","es":"otra vez"},"jlpt_level":"N5"},
+  {"surface":"逢える","reading":"あえる","romaji":"aeru","grammar":"verb","grammar_color":"red","meaning":{"en":"can meet","pt-BR":"poder encontrar","es":"poder encontrar"},"jlpt_level":"N4"},
+  {"surface":"まで","reading":"まで","romaji":"made","grammar":"particle","grammar_color":"grey","meaning":{"en":"until","pt-BR":"até","es":"hasta"},"jlpt_level":"N5"}
+],"translations":{"en":"Until we meet again.","pt-BR":"Até nos vermos de novo.","es":"Hasta volvernos a ver."},"literal_meaning":{"en":"again + can-meet + until"}}},
+{"after_original":6,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"ねえ","reading":"ねえ","romaji":"nee","grammar":"particle","grammar_color":"grey","meaning":{"en":"hey","pt-BR":"ei","es":"oye"},"jlpt_level":"N5"},
+  {"surface":"おやすみ","reading":"おやすみ","romaji":"oyasumi","grammar":"other","grammar_color":"none","meaning":{"en":"good night","pt-BR":"boa noite","es":"buenas noches"},"jlpt_level":"N5"}
+],"translations":{"en":"Hey — good night.","pt-BR":"Ei — boa noite.","es":"Oye — buenas noches."},"literal_meaning":{"en":"hey + good-night"}}}
+]}

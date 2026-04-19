@@ -1,0 +1,194 @@
+{"patches":[
+{"after_original":3,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"誰か","reading":"だれか","romaji":"dareka","grammar":"other","grammar_color":"none","meaning":{"en":"someone","pt-BR":"alguém","es":"alguien"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"一一","reading":"いちいち","romaji":"ichiichi","grammar":"adverb","grammar_color":"orange","meaning":{"en":"one by one","pt-BR":"um por um","es":"uno por uno"},"jlpt_level":"N2"},
+  {"surface":"踏み潰した","reading":"ふみつぶした","romaji":"fumitsubushita","grammar":"verb","grammar_color":"red","meaning":{"en":"trampled","pt-BR":"pisoteei","es":"pisoteé"},"jlpt_level":"N2"}
+],"translations":{"en":"I trampled someone, one by one.","pt-BR":"Pisoteei alguém, um por um.","es":"Pisoteé a alguien, uno por uno."},"literal_meaning":{"en":"someone + obj + one-by-one + trampled"}}},
+{"after_original":5,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"いくつも","reading":"いくつも","romaji":"ikutsumo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"many","pt-BR":"vários","es":"muchos"},"jlpt_level":"N3"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"心臓","reading":"しんぞう","romaji":"shinzou","grammar":"noun","grammar_color":"blue","meaning":{"en":"heart","pt-BR":"coração","es":"corazón"},"jlpt_level":"N2"},
+  {"surface":"いのち","reading":"いのち","romaji":"inochi","grammar":"noun","grammar_color":"blue","meaning":{"en":"life (reading)","pt-BR":"vida","es":"vida"},"jlpt_level":"N4"},
+  {"surface":"見送って","reading":"みおくって","romaji":"miokutte","grammar":"verb","grammar_color":"red","meaning":{"en":"see off (te-form)","pt-BR":"despedir","es":"despedir"},"jlpt_level":"N3"}
+],"translations":{"en":"Seeing off many hearts (lives) —","pt-BR":"Despedindo-me de vários corações (vidas) —","es":"Despidiendo muchos corazones (vidas) —"},"literal_meaning":{"en":"many + of + heart + life + see-off"}}},
+{"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"ただ","reading":"ただ","romaji":"tada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"just","pt-BR":"só","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"大きく","reading":"おおきく","romaji":"ookiku","grammar":"adverb","grammar_color":"orange","meaning":{"en":"greatly","pt-BR":"grandiosamente","es":"enormemente"},"jlpt_level":"N5"},
+  {"surface":"地","reading":"ち","romaji":"chi","grammar":"noun","grammar_color":"blue","meaning":{"en":"earth","pt-BR":"terra","es":"tierra"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"鳴らし","reading":"ならし","romaji":"narashi","grammar":"verb","grammar_color":"red","meaning":{"en":"shaking (stem)","pt-BR":"fazer soar","es":"hacer sonar"},"jlpt_level":"N3"},
+  {"surface":"ながら","reading":"ながら","romaji":"nagara","grammar":"particle","grammar_color":"grey","meaning":{"en":"while","pt-BR":"enquanto","es":"mientras"},"jlpt_level":"N4"}
+],"translations":{"en":"While making the earth thunder greatly,","pt-BR":"Enquanto faço a terra trovejar,","es":"Mientras hago retumbar la tierra,"},"literal_meaning":{"en":"just + greatly + earth + obj + shake + while"}}},
+{"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"宵闇","reading":"よいやみ","romaji":"yoiyami","grammar":"noun","grammar_color":"blue","meaning":{"en":"twilight","pt-BR":"crepúsculo","es":"crepúsculo"},"jlpt_level":"N1"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"地平","reading":"ちへい","romaji":"chihei","grammar":"noun","grammar_color":"blue","meaning":{"en":"horizon","pt-BR":"horizonte","es":"horizonte"},"jlpt_level":"N1"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"根","reading":"ね","romaji":"ne","grammar":"noun","grammar_color":"blue","meaning":{"en":"root","pt-BR":"raiz","es":"raíz"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"張る","reading":"はる","romaji":"haru","grammar":"verb","grammar_color":"red","meaning":{"en":"take root","pt-BR":"criar raízes","es":"echar raíces"},"jlpt_level":"N3"},
+  {"surface":"ように","reading":"ように","romaji":"youni","grammar":"particle","grammar_color":"grey","meaning":{"en":"like","pt-BR":"como se","es":"como si"},"jlpt_level":"N3"}
+],"translations":{"en":"As if taking root on the twilight horizon,","pt-BR":"Como quem cria raízes no horizonte crepuscular,","es":"Como si echara raíces en el horizonte del crepúsculo,"},"literal_meaning":{"en":"twilight + of + horizon + at + root + obj + take-root + like"}}},
+{"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"誰か","reading":"だれか","romaji":"dareka","grammar":"other","grammar_color":"none","meaning":{"en":"someone","pt-BR":"alguém","es":"alguien"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"待つ","reading":"まつ","romaji":"matsu","grammar":"verb","grammar_color":"red","meaning":{"en":"wait","pt-BR":"esperar","es":"esperar"},"jlpt_level":"N5"},
+  {"surface":"一一","reading":"いちいち","romaji":"ichiichi","grammar":"adverb","grammar_color":"orange","meaning":{"en":"one by one","pt-BR":"um por um","es":"uno por uno"},"jlpt_level":"N2"}
+],"translations":{"en":"— waiting for someone, one by one.","pt-BR":"— esperando alguém, um por um.","es":"— esperando a alguien, uno por uno."},"literal_meaning":{"en":"someone + obj + wait + one-by-one"}}},
+{"after_original":11,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"息の根","reading":"いきのね","romaji":"ikinone","grammar":"noun","grammar_color":"blue","meaning":{"en":"life-breath","pt-BR":"sopro de vida","es":"aliento vital"},"jlpt_level":"N1"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"止めて","reading":"とめて","romaji":"tomete","grammar":"verb","grammar_color":"red","meaning":{"en":"stop (te-form)","pt-BR":"parar","es":"detener"},"jlpt_level":"N4"},
+  {"surface":"みろ","reading":"みろ","romaji":"miro","grammar":"verb","grammar_color":"red","meaning":{"en":"try (imperative)","pt-BR":"tente","es":"inténtalo"},"jlpt_level":"N3"}
+],"translations":{"en":"Try to snuff out my very breath!","pt-BR":"Tente cortar o meu sopro de vida!","es":"¡Intenta cortarme el aliento!"},"literal_meaning":{"en":"life-breath + obj + stop + try"}}},
+{"after_original":11,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"口先","reading":"くちさき","romaji":"kuchisaki","grammar":"noun","grammar_color":"blue","meaning":{"en":"lip service","pt-BR":"da boca","es":"de boca"},"jlpt_level":"N2"},
+  {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only","pt-BR":"apenas","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"正義","reading":"せいぎ","romaji":"seigi","grammar":"noun","grammar_color":"blue","meaning":{"en":"justice","pt-BR":"justiça","es":"justicia"},"jlpt_level":"N2"},
+  {"surface":"じゃ","reading":"じゃ","romaji":"ja","grammar":"particle","grammar_color":"grey","meaning":{"en":"with (neg.)","pt-BR":"com (neg)","es":"con (neg)"},"jlpt_level":"N4"},
+  {"surface":"届かない","reading":"とどかない","romaji":"todokanai","grammar":"verb","grammar_color":"red","meaning":{"en":"doesn't reach","pt-BR":"não alcança","es":"no llega"},"jlpt_level":"N3"}
+],"translations":{"en":"Empty-lipped justice won't reach anyone.","pt-BR":"Justiça só da boca não alcança ninguém.","es":"La justicia de boca no llega a nadie."},"literal_meaning":{"en":"lip-service + only + of + justice + with + doesn't-reach"}}},
+{"after_original":11,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"壁","reading":"かべ","romaji":"kabe","grammar":"noun","grammar_color":"blue","meaning":{"en":"wall","pt-BR":"muro","es":"muro"},"jlpt_level":"N4"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"破壊した","reading":"はかいした","romaji":"hakaishita","grammar":"verb","grammar_color":"red","meaning":{"en":"destroyed","pt-BR":"destruiu","es":"destruyó"},"jlpt_level":"N3"},
+  {"surface":"者達","reading":"ものたち","romaji":"monotachi","grammar":"noun","grammar_color":"blue","meaning":{"en":"those who","pt-BR":"aqueles que","es":"aquellos que"},"jlpt_level":"N3"},
+  {"surface":"俺達","reading":"おれたち","romaji":"oretachi","grammar":"noun","grammar_color":"blue","meaning":{"en":"we","pt-BR":"nós","es":"nosotros"},"jlpt_level":"N4"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"進み続ける","reading":"すすみつづける","romaji":"susumitsudzukeru","grammar":"verb","grammar_color":"red","meaning":{"en":"keep advancing","pt-BR":"continuar avançando","es":"seguir avanzando"},"jlpt_level":"N3"}
+],"translations":{"en":"We — those who broke the wall — keep advancing!","pt-BR":"Nós — aqueles que derrubamos o muro — continuamos avançando!","es":"Nosotros — los que rompimos el muro — seguimos avanzando!"},"literal_meaning":{"en":"wall + obj + destroyed + those-who + we + topic + keep-advancing"}}},
+{"after_original":12,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"落日","reading":"らくじつ","romaji":"rakujitsu","grammar":"noun","grammar_color":"blue","meaning":{"en":"setting sun","pt-BR":"sol poente","es":"sol poniente"},"jlpt_level":"N1"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"by","pt-BR":"por","es":"por"},"jlpt_level":"N5"},
+  {"surface":"追われ","reading":"おわれ","romaji":"oware","grammar":"verb","grammar_color":"red","meaning":{"en":"be chased","pt-BR":"ser perseguido","es":"ser perseguido"},"jlpt_level":"N3"},
+  {"surface":"羽","reading":"はね","romaji":"hane","grammar":"noun","grammar_color":"blue","meaning":{"en":"wings","pt-BR":"asas","es":"alas"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"腕がれ","reading":"もがれ","romaji":"mogare","grammar":"verb","grammar_color":"red","meaning":{"en":"be torn off","pt-BR":"arrancadas","es":"arrancadas"},"jlpt_level":"N1"},
+  {"surface":"夜明け","reading":"よあけ","romaji":"yoake","grammar":"noun","grammar_color":"blue","meaning":{"en":"dawn","pt-BR":"amanhecer","es":"amanecer"},"jlpt_level":"N3"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"詩","reading":"うた","romaji":"uta","grammar":"noun","grammar_color":"blue","meaning":{"en":"poem; song","pt-BR":"canção","es":"canción"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"待ち侘びる","reading":"まちわびる","romaji":"machiwabiru","grammar":"verb","grammar_color":"red","meaning":{"en":"wait impatiently","pt-BR":"esperar ansiosamente","es":"aguardar con ansias"},"jlpt_level":"N1"}
+],"translations":{"en":"Chased by the setting sun, wings torn off, yearning for dawn's song.","pt-BR":"Perseguido pelo pôr do sol, com as asas arrancadas, aguardando a canção da alvorada.","es":"Perseguido por el sol poniente, con las alas arrancadas, ansiando el canto del alba."},"literal_meaning":{"en":"setting-sun + by + be-chased + wings + obj + torn-off + dawn + of + song + obj + wait-impatiently"}}},
+{"after_original":12,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"時","reading":"とき","romaji":"toki","grammar":"noun","grammar_color":"blue","meaning":{"en":"sometimes","pt-BR":"às vezes","es":"a veces"},"jlpt_level":"N5"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"愛","reading":"あい","romaji":"ai","grammar":"noun","grammar_color":"blue","meaning":{"en":"love","pt-BR":"amor","es":"amor"},"jlpt_level":"N4"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"名","reading":"な","romaji":"na","grammar":"noun","grammar_color":"blue","meaning":{"en":"name","pt-BR":"nome","es":"nombre"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"欺いて","reading":"あざむいて","romaji":"azamuite","grammar":"verb","grammar_color":"red","meaning":{"en":"deceiving (te-form)","pt-BR":"enganando","es":"engañando"},"jlpt_level":"N1"},
+  {"surface":"衝撃","reading":"しょうげき","romaji":"shougeki","grammar":"noun","grammar_color":"blue","meaning":{"en":"shock","pt-BR":"choque","es":"choque"},"jlpt_level":"N2"},
+  {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"and","pt-BR":"e","es":"y"},"jlpt_level":"N5"},
+  {"surface":"絶望","reading":"ぜつぼう","romaji":"zetsubou","grammar":"noun","grammar_color":"blue","meaning":{"en":"despair","pt-BR":"desespero","es":"desesperación"},"jlpt_level":"N2"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"飼い慣らし","reading":"かいならし","romaji":"kainarashi","grammar":"verb","grammar_color":"red","meaning":{"en":"taming (stem)","pt-BR":"domesticar","es":"domesticar"},"jlpt_level":"N1"}
+],"translations":{"en":"At times deceiving the name of love, taming shock and despair.","pt-BR":"Às vezes enganando o nome do amor, domando choque e desespero.","es":"A veces engañando el nombre del amor, domesticando choque y desesperación."},"literal_meaning":{"en":"sometimes + at + love + of + name + obj + deceive + shock + and + despair + obj + tame"}}},
+{"after_original":12,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"ただ","reading":"ただ","romaji":"tada","grammar":"adverb","grammar_color":"orange","meaning":{"en":"just","pt-BR":"só","es":"sólo"},"jlpt_level":"N4"},
+  {"surface":"悪魔","reading":"あくま","romaji":"akuma","grammar":"noun","grammar_color":"blue","meaning":{"en":"devil","pt-BR":"demônio","es":"demonio"},"jlpt_level":"N2"},
+  {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"as","pt-BR":"como","es":"como"},"jlpt_level":"N5"},
+  {"surface":"蔑まれて","reading":"さげすまれて","romaji":"sagesumarete","grammar":"verb","grammar_color":"red","meaning":{"en":"be despised (te-form)","pt-BR":"ser desprezado","es":"ser despreciado"},"jlpt_level":"N1"},
+  {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N5"},
+  {"surface":"同じ","reading":"おなじ","romaji":"onaji","grammar":"adjective","grammar_color":"green","meaning":{"en":"same","pt-BR":"mesmo","es":"mismo"},"jlpt_level":"N5"},
+  {"surface":"樹","reading":"き","romaji":"ki","grammar":"noun","grammar_color":"blue","meaning":{"en":"tree","pt-BR":"árvore","es":"árbol"},"jlpt_level":"N5"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"下","reading":"した","romaji":"shita","grammar":"noun","grammar_color":"blue","meaning":{"en":"under","pt-BR":"embaixo","es":"debajo"},"jlpt_level":"N5"},
+  {"surface":"にいたかった","reading":"にいたかった","romaji":"niitakatta","grammar":"verb","grammar_color":"red","meaning":{"en":"wanted to be","pt-BR":"quis estar","es":"quise estar"},"jlpt_level":"N4"}
+],"translations":{"en":"Even scorned as a demon, I wanted to be under the same tree.","pt-BR":"Mesmo desprezado como demônio, eu queria estar sob a mesma árvore.","es":"Incluso despreciado como un demonio, quería estar bajo el mismo árbol."},"literal_meaning":{"en":"just + devil + as + be-despised + even + same + tree + of + under + wanted-to-be"}}},
+{"after_original":12,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"だが","reading":"だが","romaji":"daga","grammar":"other","grammar_color":"none","meaning":{"en":"but","pt-BR":"mas","es":"pero"},"jlpt_level":"N3"},
+  {"surface":"これ","reading":"これ","romaji":"kore","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"isto","es":"esto"},"jlpt_level":"N5"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"幼い","reading":"おさない","romaji":"osanai","grammar":"adjective","grammar_color":"green","meaning":{"en":"childish","pt-BR":"infantil","es":"infantil"},"jlpt_level":"N3"},
+  {"surface":"感傷","reading":"かんしょう","romaji":"kanshou","grammar":"noun","grammar_color":"blue","meaning":{"en":"sentimentality","pt-BR":"sentimentalismo","es":"sentimentalismo"},"jlpt_level":"N1"},
+  {"surface":"なら","reading":"なら","romaji":"nara","grammar":"particle","grammar_color":"grey","meaning":{"en":"if","pt-BR":"se","es":"si"},"jlpt_level":"N4"},
+  {"surface":"受け入れて","reading":"うけいれて","romaji":"ukeirete","grammar":"verb","grammar_color":"red","meaning":{"en":"accept (te-form)","pt-BR":"aceitar","es":"aceptar"},"jlpt_level":"N3"},
+  {"surface":"飲み込め","reading":"のみこめ","romaji":"nomikome","grammar":"verb","grammar_color":"red","meaning":{"en":"swallow (imp.)","pt-BR":"engula","es":"traga"},"jlpt_level":"N2"}
+],"translations":{"en":"But if this is childish sentiment — swallow it.","pt-BR":"Mas se isto é sentimento infantil — aceite e engula.","es":"Pero si esto es sentimentalismo infantil — acéptalo y trágalo."},"literal_meaning":{"en":"but + this + topic + childish + sentimentality + if + accept + swallow"}}},
+{"after_original":12,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"世界中","reading":"せかいじゅう","romaji":"sekaijuu","grammar":"noun","grammar_color":"blue","meaning":{"en":"worldwide","pt-BR":"no mundo todo","es":"en todo el mundo"},"jlpt_level":"N2"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"森","reading":"もり","romaji":"mori","grammar":"noun","grammar_color":"blue","meaning":{"en":"forests","pt-BR":"florestas","es":"bosques"},"jlpt_level":"N4"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"均したい","reading":"ならしたい","romaji":"narashitai","grammar":"verb","grammar_color":"red","meaning":{"en":"want to level","pt-BR":"quero nivelar","es":"quiero arrasar"},"jlpt_level":"N1"},
+  {"surface":"なら","reading":"なら","romaji":"nara","grammar":"particle","grammar_color":"grey","meaning":{"en":"if","pt-BR":"se","es":"si"},"jlpt_level":"N4"},
+  {"surface":"世界","reading":"せかい","romaji":"sekai","grammar":"noun","grammar_color":"blue","meaning":{"en":"world","pt-BR":"mundo","es":"mundo"},"jlpt_level":"N5"},
+  {"surface":"はあの","reading":"はあの","romaji":"waano","grammar":"particle","grammar_color":"grey","meaning":{"en":"that (topic)","pt-BR":"aquele","es":"aquel"},"jlpt_level":"N5"},
+  {"surface":"樹","reading":"き","romaji":"ki","grammar":"noun","grammar_color":"blue","meaning":{"en":"tree","pt-BR":"árvore","es":"árbol"},"jlpt_level":"N5"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"薙ぎ倒す","reading":"なぎたおす","romaji":"nagitaosu","grammar":"verb","grammar_color":"red","meaning":{"en":"cut down","pt-BR":"derrubar","es":"derribar"},"jlpt_level":"N1"}
+],"translations":{"en":"If you want to raze every forest, the world will cut down that tree.","pt-BR":"Se quiser arrasar todas as florestas, o mundo derrubará aquela árvore.","es":"Si quieres arrasar todos los bosques, el mundo derribará aquel árbol."},"literal_meaning":{"en":"worldwide + of + forest + obj + want-to-level + if + world + that + tree + obj + cut-down"}}},
+{"after_original":12,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"人","reading":"ひと","romaji":"hito","grammar":"noun","grammar_color":"blue","meaning":{"en":"people","pt-BR":"pessoas","es":"personas"},"jlpt_level":"N5"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"望み","reading":"のぞみ","romaji":"nozomi","grammar":"noun","grammar_color":"blue","meaning":{"en":"wish","pt-BR":"desejo","es":"deseo"},"jlpt_level":"N3"},
+  {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+  {"surface":"産んだ","reading":"うんだ","romaji":"unda","grammar":"verb","grammar_color":"red","meaning":{"en":"bore","pt-BR":"gerou","es":"engendró"},"jlpt_level":"N4"},
+  {"surface":"遠き","reading":"とおき","romaji":"tooki","grammar":"adjective","grammar_color":"green","meaning":{"en":"distant (archaic)","pt-BR":"distante","es":"lejano"},"jlpt_level":"N1"},
+  {"surface":"痛み","reading":"いたみ","romaji":"itami","grammar":"noun","grammar_color":"blue","meaning":{"en":"pain","pt-BR":"dor","es":"dolor"},"jlpt_level":"N3"},
+  {"surface":"時代","reading":"じだい","romaji":"jidai","grammar":"noun","grammar_color":"blue","meaning":{"en":"era","pt-BR":"era","es":"era"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"超えて","reading":"こえて","romaji":"koete","grammar":"verb","grammar_color":"red","meaning":{"en":"crossing (te-form)","pt-BR":"atravessando","es":"cruzando"},"jlpt_level":"N3"},
+  {"surface":"罪","reading":"つみ","romaji":"tsumi","grammar":"noun","grammar_color":"blue","meaning":{"en":"sin","pt-BR":"pecado","es":"pecado"},"jlpt_level":"N3"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"廻る","reading":"めぐる","romaji":"meguru","grammar":"verb","grammar_color":"red","meaning":{"en":"revolve","pt-BR":"circular","es":"girar"},"jlpt_level":"N2"}
+],"translations":{"en":"A distant pain born of human wishes — sin revolves across eras.","pt-BR":"Uma dor distante nascida do desejo humano — o pecado circula através das eras.","es":"Un dolor lejano nacido del deseo humano — el pecado gira a través de las eras."},"literal_meaning":{"en":"people + of + wish + subj + bore + distant + pain + era + obj + cross + sin + topic + revolve"}}},
+{"after_original":14,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"過去","reading":"かこ","romaji":"kako","grammar":"noun","grammar_color":"blue","meaning":{"en":"past","pt-BR":"passado","es":"pasado"},"jlpt_level":"N4"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"抱いた","reading":"いだいた","romaji":"idaita","grammar":"verb","grammar_color":"red","meaning":{"en":"embraced","pt-BR":"abraçou","es":"abrazó"},"jlpt_level":"N2"},
+  {"surface":"夢","reading":"ゆめ","romaji":"yume","grammar":"noun","grammar_color":"blue","meaning":{"en":"dream","pt-BR":"sonho","es":"sueño"},"jlpt_level":"N5"},
+  {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+  {"surface":"中","reading":"なか","romaji":"naka","grammar":"noun","grammar_color":"blue","meaning":{"en":"inside","pt-BR":"dentro","es":"dentro"},"jlpt_level":"N5"},
+  {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"出会い","reading":"であい","romaji":"deai","grammar":"noun","grammar_color":"blue","meaning":{"en":"meetings","pt-BR":"encontros","es":"encuentros"},"jlpt_level":"N3"},
+  {"surface":"と","reading":"と","romaji":"to","grammar":"particle","grammar_color":"grey","meaning":{"en":"and","pt-BR":"e","es":"y"},"jlpt_level":"N5"},
+  {"surface":"別れ","reading":"わかれ","romaji":"wakare","grammar":"noun","grammar_color":"blue","meaning":{"en":"partings","pt-BR":"separações","es":"separaciones"},"jlpt_level":"N3"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"繰り返し","reading":"くりかえし","romaji":"kurikaeshi","grammar":"verb","grammar_color":"red","meaning":{"en":"repeat","pt-BR":"repetir","es":"repetir"},"jlpt_level":"N3"},
+  {"surface":"廻った","reading":"めぐった","romaji":"megutta","grammar":"verb","grammar_color":"red","meaning":{"en":"went around","pt-BR":"percorreu","es":"recorrió"},"jlpt_level":"N2"}
+],"translations":{"en":"In a dream clutching the past, I cycled through meetings and partings.","pt-BR":"Num sonho que abraçava o passado, percorri encontros e despedidas.","es":"En un sueño que abrazaba el pasado, recorrí encuentros y despedidas."},"literal_meaning":{"en":"past + obj + embraced + dream + of + inside + at + meetings + and + partings + obj + repeat + went-around"}}},
+{"after_original":15,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"虚言","reading":"きょげん","romaji":"kyogen","grammar":"noun","grammar_color":"blue","meaning":{"en":"lie","pt-BR":"mentira","es":"mentira"},"jlpt_level":"N1"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"吐いて","reading":"はいて","romaji":"haite","grammar":"verb","grammar_color":"red","meaning":{"en":"spit (te-form)","pt-BR":"cuspir","es":"escupir"},"jlpt_level":"N3"},
+  {"surface":"虚構","reading":"きょこう","romaji":"kyokou","grammar":"noun","grammar_color":"blue","meaning":{"en":"fiction","pt-BR":"ficção","es":"ficción"},"jlpt_level":"N1"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"纏う","reading":"まとう","romaji":"matou","grammar":"verb","grammar_color":"red","meaning":{"en":"clad in","pt-BR":"vestir","es":"vestir"},"jlpt_level":"N1"},
+  {"surface":"進撃","reading":"しんげき","romaji":"shingeki","grammar":"noun","grammar_color":"blue","meaning":{"en":"advance; attack","pt-BR":"avanço","es":"avance"},"jlpt_level":"N1"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"侵撃","reading":"しんげき","romaji":"shingeki","grammar":"noun","grammar_color":"blue","meaning":{"en":"invasion","pt-BR":"invasão","es":"invasión"},"jlpt_level":"N1"},
+  {"surface":"と為す","reading":"となす","romaji":"tonasu","grammar":"verb","grammar_color":"red","meaning":{"en":"turn into","pt-BR":"tornar","es":"volver"},"jlpt_level":"N1"},
+  {"surface":"まで","reading":"まで","romaji":"made","grammar":"particle","grammar_color":"grey","meaning":{"en":"until","pt-BR":"até","es":"hasta"},"jlpt_level":"N5"}
+],"translations":{"en":"Spitting lies and clad in fiction, until advance turns into invasion.","pt-BR":"Cuspindo mentiras e vestindo ficção, até o avanço virar invasão.","es":"Escupiendo mentiras y vestido de ficción, hasta que el avance se vuelva invasión."},"literal_meaning":{"en":"lie + obj + spit + fiction + obj + clad-in + advance + obj + invasion + turn-into + until"}}},
+{"after_original":15,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"お前ら","reading":"おまえら","romaji":"omaera","grammar":"noun","grammar_color":"blue","meaning":{"en":"you all","pt-BR":"vocês","es":"ustedes"},"jlpt_level":"N4"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"モリ","reading":"モリ","romaji":"mori","grammar":"noun","grammar_color":"blue","meaning":{"en":"forest (kana)","pt-BR":"floresta","es":"bosque"},"jlpt_level":"N4"},
+  {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+  {"surface":"出ろ","reading":"でろ","romaji":"dero","grammar":"verb","grammar_color":"red","meaning":{"en":"leave (imp.)","pt-BR":"saiam","es":"salgan"},"jlpt_level":"N4"},
+  {"surface":"何度","reading":"なんど","romaji":"nando","grammar":"adverb","grammar_color":"orange","meaning":{"en":"however many times","pt-BR":"quantas vezes","es":"cuantas veces"},"jlpt_level":"N4"},
+  {"surface":"道","reading":"みち","romaji":"michi","grammar":"noun","grammar_color":"blue","meaning":{"en":"path","pt-BR":"caminho","es":"camino"},"jlpt_level":"N5"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"on","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+  {"surface":"迷っても","reading":"まよっても","romaji":"mayottemo","grammar":"verb","grammar_color":"red","meaning":{"en":"even if lost","pt-BR":"mesmo se se perder","es":"aunque se pierda"},"jlpt_level":"N3"}
+],"translations":{"en":"All of you — leave the forest, however many times you lose the way.","pt-BR":"Vocês todos — saiam da floresta, não importa quantas vezes se percam.","es":"Ustedes — salgan del bosque, cuantas veces se pierdan."},"literal_meaning":{"en":"you-all + topic + forest + obj + leave + however-many-times + path + on + even-if-lost"}}},
+{"after_original":15,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"報われる","reading":"むくわれる","romaji":"mukuwareru","grammar":"verb","grammar_color":"red","meaning":{"en":"be rewarded","pt-BR":"ser recompensado","es":"ser recompensado"},"jlpt_level":"N2"},
+  {"surface":"まで","reading":"まで","romaji":"made","grammar":"particle","grammar_color":"grey","meaning":{"en":"until","pt-BR":"até","es":"hasta"},"jlpt_level":"N5"},
+  {"surface":"俺達","reading":"おれたち","romaji":"oretachi","grammar":"noun","grammar_color":"blue","meaning":{"en":"we","pt-BR":"nós","es":"nosotros"},"jlpt_level":"N4"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"進み続ける","reading":"すすみつづける","romaji":"susumitsudzukeru","grammar":"verb","grammar_color":"red","meaning":{"en":"keep advancing","pt-BR":"continuar avançando","es":"seguir avanzando"},"jlpt_level":"N3"}
+],"translations":{"en":"Until we are rewarded, we keep advancing.","pt-BR":"Até sermos recompensados, continuamos avançando.","es":"Hasta ser recompensados, seguimos avanzando."},"literal_meaning":{"en":"be-rewarded + until + we + topic + keep-advancing"}}},
+{"after_original":15,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+  {"surface":"だから","reading":"だから","romaji":"dakara","grammar":"other","grammar_color":"none","meaning":{"en":"therefore","pt-BR":"portanto","es":"por eso"},"jlpt_level":"N5"},
+  {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este","es":"este"},"jlpt_level":"N5"},
+  {"surface":"罪","reading":"つみ","romaji":"tsumi","grammar":"noun","grammar_color":"blue","meaning":{"en":"sin","pt-BR":"pecado","es":"pecado"},"jlpt_level":"N3"},
+  {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+  {"surface":"赦さず","reading":"ゆるさず","romaji":"yurusazu","grammar":"verb","grammar_color":"red","meaning":{"en":"without forgiving","pt-BR":"sem perdoar","es":"sin perdonar"},"jlpt_level":"N2"},
+  {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"without","pt-BR":"sem","es":"sin"},"jlpt_level":"N5"},
+  {"surface":"往け","reading":"ゆけ","romaji":"yuke","grammar":"verb","grammar_color":"red","meaning":{"en":"go (imp.)","pt-BR":"siga","es":"sigue"},"jlpt_level":"N4"}
+],"translations":{"en":"So march on without forgiving this sin.","pt-BR":"Então siga sem perdoar este pecado.","es":"Entonces sigue sin perdonar este pecado."},"literal_meaning":{"en":"therefore + this + sin + topic + without-forgive + without + go"}}}
+]}

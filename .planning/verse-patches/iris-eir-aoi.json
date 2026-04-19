@@ -1,0 +1,147 @@
+{
+  "patches": [
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"探す","reading":"さがす","romaji":"sagasu","grammar":"verb","grammar_color":"red","meaning":{"en":"to search","pt-BR":"procurar","es":"buscar"},"jlpt_level":"N4"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"nominalizer","pt-BR":"nominalizador","es":"nominalizador"},"jlpt_level":"N5"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"すごく","reading":"すごく","romaji":"sugoku","grammar":"adverb","grammar_color":"orange","meaning":{"en":"very","pt-BR":"muito","es":"muy"},"jlpt_level":"N5"},
+      {"surface":"得意","reading":"とくい","romaji":"tokui","grammar":"adjective","grammar_color":"green","meaning":{"en":"good at","pt-BR":"bom em","es":"bueno en"},"jlpt_level":"N4"},
+      {"surface":"だった","reading":"だった","romaji":"datta","grammar":"verb","grammar_color":"red","meaning":{"en":"was","pt-BR":"era","es":"era"},"jlpt_level":"N5"}
+    ],"translations":{"en":"I was very good at searching.","pt-BR":"Eu era muito bom em procurar.","es":"Era muy bueno buscando."},"literal_meaning":{"en":"search + nmz + topic + very + good-at + was"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"今日","reading":"きょう","romaji":"kyou","grammar":"noun","grammar_color":"blue","meaning":{"en":"today","pt-BR":"hoje","es":"hoy"},"jlpt_level":"N5"},
+      {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"also","pt-BR":"também","es":"también"},"jlpt_level":"N5"},
+      {"surface":"太陽","reading":"たいよう","romaji":"taiyou","grammar":"noun","grammar_color":"blue","meaning":{"en":"sun","pt-BR":"sol","es":"sol"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"優しげ","reading":"やさしげ","romaji":"yasashige","grammar":"adjective","grammar_color":"green","meaning":{"en":"gentle-looking","pt-BR":"com ar gentil","es":"con aire gentil"},"jlpt_level":"N2"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"adverbial","pt-BR":"adverbial","es":"adverbial"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Today too the sun gently,","pt-BR":"Hoje também o sol gentilmente,","es":"Hoy también el sol gentilmente,"},"literal_meaning":{"en":"today + also + sun + subj + gentle-looking + adv"}}},
+    {"after_original":7,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"何もかも","reading":"なにもかも","romaji":"nanimokamo","grammar":"other","grammar_color":"none","meaning":{"en":"everything","pt-BR":"tudo","es":"todo"},"jlpt_level":"N3"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"},
+      {"surface":"照らす","reading":"てらす","romaji":"terasu","grammar":"verb","grammar_color":"red","meaning":{"en":"to illuminate","pt-BR":"iluminar","es":"iluminar"},"jlpt_level":"N2"}
+    ],"translations":{"en":"illuminates everything.","pt-BR":"ilumina tudo.","es":"ilumina todo."},"literal_meaning":{"en":"everything + obj + illuminate"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"僕","reading":"ぼく","romaji":"boku","grammar":"noun","grammar_color":"blue","meaning":{"en":"I","pt-BR":"eu","es":"yo"},"jlpt_level":"N4"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"いつも","reading":"いつも","romaji":"itsumo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"always","pt-BR":"sempre","es":"siempre"},"jlpt_level":"N5"},
+      {"surface":"真面目","reading":"まじめ","romaji":"majime","grammar":"adjective","grammar_color":"green","meaning":{"en":"serious","pt-BR":"sério","es":"serio"},"jlpt_level":"N4"},
+      {"surface":"すぎて","reading":"すぎて","romaji":"sugite","grammar":"verb","grammar_color":"red","meaning":{"en":"too (te-form)","pt-BR":"demais","es":"demasiado"},"jlpt_level":"N4"}
+    ],"translations":{"en":"I'm always too serious,","pt-BR":"Sou sempre sério demais,","es":"Siempre soy demasiado serio,"},"literal_meaning":{"en":"I + topic + always + serious + too"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"君","reading":"きみ","romaji":"kimi","grammar":"noun","grammar_color":"blue","meaning":{"en":"you","pt-BR":"você","es":"tú"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"いつも","reading":"いつも","romaji":"itsumo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"always","pt-BR":"sempre","es":"siempre"},"jlpt_level":"N5"},
+      {"surface":"笑う","reading":"わらう","romaji":"warau","grammar":"verb","grammar_color":"red","meaning":{"en":"to laugh","pt-BR":"rir","es":"reír"},"jlpt_level":"N5"},
+      {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because","pt-BR":"porque","es":"porque"},"jlpt_level":"N5"}
+    ],"translations":{"en":"because you're always laughing.","pt-BR":"porque você sempre ri.","es":"porque tú siempre ríes."},"literal_meaning":{"en":"you + subj + always + laugh + because"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"こんな","reading":"こんな","romaji":"konna","grammar":"other","grammar_color":"none","meaning":{"en":"such","pt-BR":"tal","es":"tal"},"jlpt_level":"N5"},
+      {"surface":"日々","reading":"ひび","romaji":"hibi","grammar":"noun","grammar_color":"blue","meaning":{"en":"days","pt-BR":"dias","es":"días"},"jlpt_level":"N3"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Such days —","pt-BR":"Dias assim —","es":"Días así —"},"literal_meaning":{"en":"such + days + subj"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"ずっと","reading":"ずっと","romaji":"zutto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"forever","pt-BR":"para sempre","es":"para siempre"},"jlpt_level":"N4"},
+      {"surface":"続いた","reading":"つづいた","romaji":"tsudzuita","grammar":"verb","grammar_color":"red","meaning":{"en":"continued (past)","pt-BR":"continuou","es":"continuó"},"jlpt_level":"N4"},
+      {"surface":"なら","reading":"なら","romaji":"nara","grammar":"particle","grammar_color":"grey","meaning":{"en":"if","pt-BR":"se","es":"si"},"jlpt_level":"N4"},
+      {"surface":"良い","reading":"いい","romaji":"ii","grammar":"adjective","grammar_color":"green","meaning":{"en":"good","pt-BR":"bom","es":"bueno"},"jlpt_level":"N5"},
+      {"surface":"のに","reading":"のに","romaji":"noni","grammar":"particle","grammar_color":"grey","meaning":{"en":"even though","pt-BR":"apesar","es":"aunque"},"jlpt_level":"N4"},
+      {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"sentence-end","pt-BR":"final","es":"final"},"jlpt_level":"N4"}
+    ],"translations":{"en":"— if only they'd last forever.","pt-BR":"— se pudessem durar para sempre.","es":"— si pudieran durar para siempre."},"literal_meaning":{"en":"forever + continued + if + good + even-though + ending"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"支えて","reading":"ささえて","romaji":"sasaete","grammar":"verb","grammar_color":"red","meaning":{"en":"support (te-form)","pt-BR":"apoiar","es":"apoyar"},"jlpt_level":"N3"},
+      {"surface":"くれた","reading":"くれた","romaji":"kureta","grammar":"verb","grammar_color":"red","meaning":{"en":"did for me","pt-BR":"fez por mim","es":"lo hizo por mí"},"jlpt_level":"N4"},
+      {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+      {"surface":"腕","reading":"うで","romaji":"ude","grammar":"noun","grammar_color":"blue","meaning":{"en":"arm","pt-BR":"braço","es":"brazo"},"jlpt_level":"N4"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"on","pt-BR":"em","es":"en"},"jlpt_level":"N5"}
+    ],"translations":{"en":"On those arms that supported me,","pt-BR":"Nesses braços que me apoiaram,","es":"En esos brazos que me sostuvieron,"},"literal_meaning":{"en":"support + for-me + that + arm + on"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"甘えて","reading":"あまえて","romaji":"amaete","grammar":"verb","grammar_color":"red","meaning":{"en":"depend (te-form)","pt-BR":"depender","es":"depender"},"jlpt_level":"N3"},
+      {"surface":"みても","reading":"みても","romaji":"mitemo","grammar":"verb","grammar_color":"red","meaning":{"en":"try-also","pt-BR":"tentar também","es":"intentar también"},"jlpt_level":"N4"},
+      {"surface":"いい","reading":"いい","romaji":"ii","grammar":"adjective","grammar_color":"green","meaning":{"en":"fine","pt-BR":"tudo bem","es":"está bien"},"jlpt_level":"N5"},
+      {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"Q","pt-BR":"pergunta","es":"pregunta"},"jlpt_level":"N5"},
+      {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"I wonder","pt-BR":"será","es":"me pregunto"},"jlpt_level":"N4"}
+    ],"translations":{"en":"may I lean on them, I wonder?","pt-BR":"posso me apoiar, será?","es":"¿puedo apoyarme?"},"literal_meaning":{"en":"depend + try + fine + Q + I-wonder"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"胸","reading":"むね","romaji":"mune","grammar":"noun","grammar_color":"blue","meaning":{"en":"chest","pt-BR":"peito","es":"pecho"},"jlpt_level":"N3"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"青い","reading":"あおい","romaji":"aoi","grammar":"adjective","grammar_color":"green","meaning":{"en":"blue","pt-BR":"azul","es":"azul"},"jlpt_level":"N5"},
+      {"surface":"花びら","reading":"はなびら","romaji":"hanabira","grammar":"noun","grammar_color":"blue","meaning":{"en":"petal","pt-BR":"pétala","es":"pétalo"},"jlpt_level":"N2"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"},
+      {"surface":"そっと","reading":"そっと","romaji":"sotto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"softly","pt-BR":"suavemente","es":"suavemente"},"jlpt_level":"N3"}
+    ],"translations":{"en":"The blue petals in my chest softly,","pt-BR":"As pétalas azuis no meu peito suavemente,","es":"Los pétalos azules en mi pecho suavemente,"},"literal_meaning":{"en":"chest + of + blue + petal + subj + softly"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"散り始めた","reading":"ちりはじめた","romaji":"chirihajimeta","grammar":"verb","grammar_color":"red","meaning":{"en":"began to scatter","pt-BR":"começou a cair","es":"empezó a caer"},"jlpt_level":"N2"}
+    ],"translations":{"en":"began to scatter.","pt-BR":"começou a cair.","es":"empezó a caer."},"literal_meaning":{"en":"began-to-scatter"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"どうして","reading":"どうして","romaji":"doushite","grammar":"other","grammar_color":"none","meaning":{"en":"why","pt-BR":"por quê","es":"por qué"},"jlpt_level":"N5"},
+      {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+      {"surface":"になって","reading":"になって","romaji":"ninatte","grammar":"verb","grammar_color":"red","meaning":{"en":"now that (te-form)","pt-BR":"agora que","es":"ahora que"},"jlpt_level":"N3"},
+      {"surface":"全て","reading":"すべて","romaji":"subete","grammar":"noun","grammar_color":"blue","meaning":{"en":"everything","pt-BR":"tudo","es":"todo"},"jlpt_level":"N4"},
+      {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subj","pt-BR":"sujeito","es":"sujeto"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Why, now of all times, does everything,","pt-BR":"Por que, agora, tudo,","es":"¿Por qué, ahora, todo,"},"literal_meaning":{"en":"why + now + become + everything + subj"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"愛しく","reading":"いとしく","romaji":"itoshiku","grammar":"adjective","grammar_color":"green","meaning":{"en":"dear (adv)","pt-BR":"querido","es":"querido"},"jlpt_level":"N2"},
+      {"surface":"思える","reading":"おもえる","romaji":"omoeru","grammar":"verb","grammar_color":"red","meaning":{"en":"feel; seem","pt-BR":"sentir","es":"sentir"},"jlpt_level":"N3"},
+      {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+      {"surface":"だろう","reading":"だろう","romaji":"darou","grammar":"other","grammar_color":"none","meaning":{"en":"I wonder","pt-BR":"será","es":"me pregunto"},"jlpt_level":"N4"}
+    ],"translations":{"en":"feel so dear to me?","pt-BR":"me parecer tão querido?","es":"me parece tan querido?"},"literal_meaning":{"en":"dear + feel + explanatory + I-wonder"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"かすむ","reading":"かすむ","romaji":"kasumu","grammar":"verb","grammar_color":"red","meaning":{"en":"to blur","pt-BR":"embaçar","es":"difuminar"},"jlpt_level":"N2"},
+      {"surface":"景色","reading":"けしき","romaji":"keshiki","grammar":"noun","grammar_color":"blue","meaning":{"en":"scenery","pt-BR":"paisagem","es":"paisaje"},"jlpt_level":"N4"},
+      {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
+      {"surface":"先","reading":"さき","romaji":"saki","grammar":"noun","grammar_color":"blue","meaning":{"en":"beyond","pt-BR":"além","es":"más allá"},"jlpt_level":"N4"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"見えた","reading":"みえた","romaji":"mieta","grammar":"verb","grammar_color":"red","meaning":{"en":"I saw","pt-BR":"vi","es":"vi"},"jlpt_level":"N4"}
+    ],"translations":{"en":"Beyond the blurring scenery, I saw,","pt-BR":"Além da paisagem embaçada, vi,","es":"Más allá del paisaje borroso, vi,"},"literal_meaning":{"en":"blur + scenery + of + beyond + at + saw"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"泣き笑い","reading":"なきわらい","romaji":"nakiwarai","grammar":"noun","grammar_color":"blue","meaning":{"en":"laughing through tears","pt-BR":"rir chorando","es":"reír llorando"},"jlpt_level":"N1"}
+    ],"translations":{"en":"a tearful smile.","pt-BR":"um sorriso de lágrimas.","es":"una sonrisa de lágrimas."},"literal_meaning":{"en":"laugh-cry"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"そんな","reading":"そんな","romaji":"sonna","grammar":"other","grammar_color":"none","meaning":{"en":"like that","pt-BR":"assim","es":"así"},"jlpt_level":"N5"},
+      {"surface":"風","reading":"ふう","romaji":"fuu","grammar":"noun","grammar_color":"blue","meaning":{"en":"way","pt-BR":"maneira","es":"manera"},"jlpt_level":"N4"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in","pt-BR":"em","es":"en"},"jlpt_level":"N5"}
+    ],"translations":{"en":"In that way —","pt-BR":"Dessa maneira —","es":"De esa manera —"},"literal_meaning":{"en":"like-that + way + in"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"どうか","reading":"どうか","romaji":"douka","grammar":"adverb","grammar_color":"orange","meaning":{"en":"please","pt-BR":"por favor","es":"por favor"},"jlpt_level":"N4"},
+      {"surface":"笑わないで","reading":"わらわないで","romaji":"warawanaide","grammar":"verb","grammar_color":"red","meaning":{"en":"don't laugh","pt-BR":"não ria","es":"no rías"},"jlpt_level":"N5"},
+      {"surface":"欲しい","reading":"ほしい","romaji":"hoshii","grammar":"adjective","grammar_color":"green","meaning":{"en":"want","pt-BR":"quero","es":"quiero"},"jlpt_level":"N5"},
+      {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because","pt-BR":"porque","es":"porque"},"jlpt_level":"N5"}
+    ],"translations":{"en":"because please don't laugh that way.","pt-BR":"porque por favor não ria assim.","es":"porque por favor no te rías así."},"literal_meaning":{"en":"please + not-laugh + want + because"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"本当","reading":"ほんとう","romaji":"hontou","grammar":"noun","grammar_color":"blue","meaning":{"en":"truth","pt-BR":"verdade","es":"verdad"},"jlpt_level":"N5"},
+      {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic","pt-BR":"tópico","es":"tema"},"jlpt_level":"N5"},
+      {"surface":"ね","reading":"ね","romaji":"ne","grammar":"particle","grammar_color":"grey","meaning":{"en":"you see","pt-BR":"sabe","es":"sabes"},"jlpt_level":"N5"},
+      {"surface":"いつ","reading":"いつ","romaji":"itsu","grammar":"other","grammar_color":"none","meaning":{"en":"when","pt-BR":"quando","es":"cuándo"},"jlpt_level":"N5"},
+      {"surface":"だって","reading":"だって","romaji":"datte","grammar":"particle","grammar_color":"grey","meaning":{"en":"even","pt-BR":"mesmo","es":"incluso"},"jlpt_level":"N3"}
+    ],"translations":{"en":"The truth is, always,","pt-BR":"A verdade é que, sempre,","es":"La verdad es que, siempre,"},"literal_meaning":{"en":"truth + topic + you-see + when + even"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"大切","reading":"たいせつ","romaji":"taisetsu","grammar":"adjective","grammar_color":"green","meaning":{"en":"precious","pt-BR":"precioso","es":"precioso"},"jlpt_level":"N4"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-connector","pt-BR":"te","es":"te"},"jlpt_level":"N5"},
+      {"surface":"羨ましくて","reading":"うらやましくて","romaji":"urayamashikute","grammar":"adjective","grammar_color":"green","meaning":{"en":"envious (te-form)","pt-BR":"invejoso","es":"envidioso"},"jlpt_level":"N3"}
+    ],"translations":{"en":"You're precious, I'm envious,","pt-BR":"Você é preciosa, tenho inveja,","es":"Eres preciosa, tengo envidia,"},"literal_meaning":{"en":"precious + te + envious"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"ずっと","reading":"ずっと","romaji":"zutto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"forever","pt-BR":"sempre","es":"siempre"},"jlpt_level":"N4"},
+      {"surface":"側","reading":"そば","romaji":"soba","grammar":"noun","grammar_color":"blue","meaning":{"en":"beside","pt-BR":"ao lado","es":"al lado"},"jlpt_level":"N4"},
+      {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"いたい","reading":"いたい","romaji":"itai","grammar":"verb","grammar_color":"red","meaning":{"en":"want to be","pt-BR":"quero estar","es":"quiero estar"},"jlpt_level":"N5"},
+      {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"explanatory","pt-BR":"explicativo","es":"explicativo"},"jlpt_level":"N4"},
+      {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"be","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
+      {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis","pt-BR":"ênfase","es":"énfasis"},"jlpt_level":"N5"}
+    ],"translations":{"en":"I want to stay by your side forever.","pt-BR":"Quero estar sempre ao seu lado.","es":"Quiero estar siempre a tu lado."},"literal_meaning":{"en":"forever + beside + at + want-to-be + explanatory + be + emphasis"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"いつも","reading":"いつも","romaji":"itsumo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"always","pt-BR":"sempre","es":"siempre"},"jlpt_level":"N5"},
+      {"surface":"そば","reading":"そば","romaji":"soba","grammar":"noun","grammar_color":"blue","meaning":{"en":"beside","pt-BR":"ao lado","es":"al lado"},"jlpt_level":"N4"},
+      {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"at","pt-BR":"em","es":"en"},"jlpt_level":"N5"},
+      {"surface":"感じてた","reading":"かんじてた","romaji":"kanjiteta","grammar":"verb","grammar_color":"red","meaning":{"en":"was feeling","pt-BR":"sentia","es":"sentía"},"jlpt_level":"N4"},
+      {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because","pt-BR":"porque","es":"porque"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Because I always felt it by your side,","pt-BR":"Porque sempre senti isso ao seu lado,","es":"Porque siempre lo sentía a tu lado,"},"literal_meaning":{"en":"always + beside + at + was-feeling + because"}}},
+    {"after_original":8,"verse":{"start_time_ms":0,"end_time_ms":0,"tokens":[
+      {"surface":"いつか","reading":"いつか","romaji":"itsuka","grammar":"adverb","grammar_color":"orange","meaning":{"en":"someday","pt-BR":"um dia","es":"algún día"},"jlpt_level":"N4"},
+      {"surface":"また","reading":"また","romaji":"mata","grammar":"adverb","grammar_color":"orange","meaning":{"en":"again","pt-BR":"de novo","es":"otra vez"},"jlpt_level":"N5"},
+      {"surface":"その","reading":"その","romaji":"sono","grammar":"other","grammar_color":"none","meaning":{"en":"that","pt-BR":"esse","es":"ese"},"jlpt_level":"N5"},
+      {"surface":"傷","reading":"きず","romaji":"kizu","grammar":"noun","grammar_color":"blue","meaning":{"en":"wound","pt-BR":"ferida","es":"herida"},"jlpt_level":"N3"},
+      {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"obj","pt-BR":"obj","es":"obj"},"jlpt_level":"N5"}
+    ],"translations":{"en":"Someday again, that wound —","pt-BR":"Um dia de novo, aquela ferida —","es":"Algún día otra vez, esa herida —"},"literal_meaning":{"en":"someday + again + that + wound + obj"}}}
+  ]
+}
