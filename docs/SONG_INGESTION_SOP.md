@@ -27,6 +27,10 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 | 11 | Lesson tokens emitted in romaji instead of kana/kanji | LCS alignment to TV lyrics fails at 0% overlap; LyricsPanel match fails | Gate 7: script-variant check (reject if >5% tokens are latin-only) |
 | 12 | TV YouTube video contains only voiceover / silence / wrong song | WhisperX transcribes the outro "ご視聴ありがとうございました"; 0% LCS vs full | Gate 2: score the TV candidate's audio content (reject on >50% non-song duration) |
 | 13 | English interjection splits Japanese into <6-char chunks | Audit reports false-negative unmatched even after verse added | Gate 7a: always include English-in-Japanese tokens as `grammar: "other"` |
+| 14 | LRCLIB returns romaji transliteration instead of Japanese | kuroshiro parse rate stays 100% (passes Gate 4 false-positive); lesson tokens emitted in romaji; LCS to TV WhisperX fails | Gate 4: CJK character percentage ≥ 50% of non-whitespace chars |
+| 15 | WhisperX confidently mishears ("坊主構成" instead of "降る雨"); rebuilt lyrics are valid Japanese but wrong song | Lesson translations read as surreal nonsense; user playing along sees mismatched kanji on screen | Gate 3: prefer canonical lyrics source over WhisperX. If LRCLIB returns romaji-only, try Genius (proper JP) BEFORE falling back to WhisperX-rebuild. Only use WhisperX-rebuilt lyrics when no canonical text source exists. |
+| 16 | song_versions.youtube_id is NULL after DB insert → song page renders with no embedded player | Page loads, lyrics render, but `<YouTubeEmbed/>` never mounts because the parent component conditionally renders on `active.youtube_id` | Gate 8: post-insert, SELECT youtube_id from song_versions for the inserted slug; expect non-null. Root cause was `05-insert-db.ts` writing to legacy `songs.youtube_id` (column removed in schema split) + `sync-lessons-to-song-versions.ts` not populating youtube_id on new song_versions rows. Both fixed; verify on every new song. |
+| 17 | LyricsPanel never highlights / auto-scrolls because it derives verse timing from synced_lrc only — null or romaji-mismatch results in zero matches | Page renders correctly, audio plays, but no verse ever shows `data-active="true"`; user sees a static lyrics block | Patched `LyricsPanel.tsx` to fall back to lesson `start_time_ms`/`end_time_ms` when synced_lrc match returns empty. Affects all canonical-Genius songs (synced_lrc null) and any song where LRC text language differs from token language. |
 | 14 | Chorus-repetition collapse (surface-signature dedup) | App sync drifts after first chorus; chorus lines never re-highlight on 2nd/3rd play | Gate 7b: `restore-verse-order.ts` re-expands chorus repeats from `synced_lrc`. **Never** run `dedupe-lesson-verses.ts` — it is neutralized for this reason (see 2026-04-19 regression: 350 chorus verses flattened across 30 files). If `apply-verse-patch.ts` produces duplicates from a re-run, fix its idempotency — don't dedup downstream. |
 
 ## The 8 gates
@@ -64,9 +68,9 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 **Tool:** `scripts/seed/02-fetch-lyrics.ts` (LRCLIB → Genius → pending_whisper fallback).
 
 **Checks:**
-- Prefer LRCLIB (synced LRC available — best for sync).
-- If Genius: kuroshiro-tokenize and verify ≥ 95% of tokens parse.
-- If pending_whisper: WhisperX will fill it (Gate 5).
+- Prefer LRCLIB *only when its result is ≥ 50% CJK*. LRCLIB sometimes returns romaji transliterations that pass kuroshiro parse but are useless for tokens (Failure #14). When CJK < 50%, **fall through to Genius** before using WhisperX rebuild.
+- If Genius: kuroshiro-tokenize and verify ≥ 95% of tokens parse AND CJK ≥ 50%.
+- WhisperX-rebuilt lyrics (`source: "pending_whisper"` flow via `04b-backfill-whisper-lyrics.ts`) are the **last resort only**. WhisperX confidently mishears (Failure #15) — kanji that exist but aren't the song's actual lyrics. Lessons built on this source produce surreal translations. Document any WhisperX-rebuilt song in `BATCH_STATE.md` so a human can swap to canonical text later.
 
 **Do NOT fetch lyrics for the TV cut.** TV lyrics are derived in Gate 6.
 
@@ -75,11 +79,14 @@ Standard process for adding a new anime song to KitsuBeat with both **TV** and *
 **Run after Gate 3, before Gate 5.**
 
 **Checks:**
-- Word count of fetched lyrics within 30% of expected (3-5 min studio song ≈ 200-500 words).
+- Token count ≥ 100 (a real song has ≥ 100 tokens after kuroshiro tokenization).
+- Total Japanese character count (kana + kanji, range U+3040-U+30FF and U+4E00-U+9FFF) is ≥ **50%** of non-whitespace characters in `raw_lyrics`. **This catches LRCLIB romaji-only transliterations** that pass the kuroshiro parse-rate check (kuroshiro happily tokenizes romaji as proper nouns and reports 100% parse). Songs at 10-50% are MIXED and need manual review; < 10% is romaji-only and must be rebuilt from WhisperX.
 - No HTML/footnote artifacts (`[Verse 1]`, `[Chorus]`, `[1]`, `<i>` etc.) — strip if present.
 - kuroshiro parse rate ≥ 95% of tokens.
 
-**Failure action:** Re-fetch from alternate source, or mark `pending_whisper`.
+**Failure action:**
+- Romaji-only (CJK < 10%): mark `source: "pending_whisper"`, blank `raw_lyrics` and `tokens`, then run `04b-backfill-whisper-lyrics.ts` after Gate 5 to rebuild from WhisperX timing.
+- Mixed (10-50%): manually inspect the LRC — could be legitimate mixed lines or partial romanization. If partial romanization, treat same as romaji-only.
 
 ### Gate 5 — WhisperX timing extraction (full + TV)
 

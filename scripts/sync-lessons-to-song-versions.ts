@@ -47,6 +47,17 @@ async function main() {
     process.exit(1);
   }
 
+  // Load manifest so we can populate song_versions.youtube_id on insert/update.
+  // 05-insert-db.ts attempts to set songs.youtube_id, but that column was moved
+  // to song_versions in a schema migration; drizzle silently drops the unknown
+  // field, so without this lookup the YouTube embed never renders on the page.
+  const manifestPath = resolve(`data/songs-manifest${suffix}.json`);
+  const manifest: Array<{ slug: string; youtube_id: string | null }> = existsSync(manifestPath)
+    ? JSON.parse(readFileSync(manifestPath, "utf8"))
+    : [];
+  const ytBySlug = new Map(manifest.map((s) => [s.slug, s.youtube_id ?? null]));
+  console.log(`Manifest: ${manifest.length} entries; ${[...ytBySlug.values()].filter(Boolean).length} have youtube_id`);
+
   const files = args.slug
     ? [`${args.slug}.json`]
     : readdirSync(dir).filter((f) => f.endsWith(".json"));
@@ -94,21 +105,29 @@ async function main() {
       )
       .limit(1);
 
+    const youtubeId = ytBySlug.get(slug) ?? null;
+
     if (existing.length) {
       await db
         .update(songVersions)
-        .set({ lesson, updated_at: new Date() })
+        .set({
+          lesson,
+          // Backfill youtube_id when missing; preserve any existing value otherwise
+          ...(youtubeId ? { youtube_id: youtubeId } : {}),
+          updated_at: new Date(),
+        })
         .where(eq(songVersions.id, existing[0].id));
       updated++;
-      console.log(`[upd] ${slug} — vocab ${lesson?.vocabulary?.length ?? 0}`);
+      console.log(`[upd] ${slug} — vocab ${lesson?.vocabulary?.length ?? 0}, yt=${youtubeId ?? "null"}`);
     } else {
       await db.insert(songVersions).values({
         song_id: songId,
         version_type: args.version,
+        youtube_id: youtubeId,
         lesson,
       });
       inserted++;
-      console.log(`[new] ${slug} — vocab ${lesson?.vocabulary?.length ?? 0}`);
+      console.log(`[new] ${slug} — vocab ${lesson?.vocabulary?.length ?? 0}, yt=${youtubeId ?? "null"}`);
     }
   }
 

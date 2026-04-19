@@ -85,10 +85,22 @@ export default function LyricsPanel({
   const { currentTimeMs } = usePlayer();
   const verseRefs = useRef<Map<number, HTMLDivElement>>(new Map());
 
-  const verseTiming = useMemo(
-    () => buildVerseTiming(verses, syncedLrc ?? []),
-    [verses, syncedLrc]
-  );
+  const verseTiming = useMemo(() => {
+    // Primary path: align verses to LRCLIB synced lyrics by text matching.
+    const matched = buildVerseTiming(verses, syncedLrc ?? []);
+    if (matched.size > 0) return matched;
+    // Fallback: when synced_lrc is missing (canonical-Genius source) or its
+    // language doesn't match the verse tokens (e.g. romaji-LRC vs kanji
+    // tokens — Failure #14), use the lesson's own start/end_time_ms which
+    // come from WhisperX. The lesson schema requires these fields.
+    const fallback = new Map<number, { startMs: number; endMs: number }>();
+    for (const v of verses) {
+      if (typeof v.start_time_ms === "number" && typeof v.end_time_ms === "number") {
+        fallback.set(v.verse_number, { startMs: v.start_time_ms, endMs: v.end_time_ms });
+      }
+    }
+    return fallback;
+  }, [verses, syncedLrc]);
 
   // Determine active verse
   const activeVerse = useMemo(() => {
