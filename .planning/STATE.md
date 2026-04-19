@@ -96,6 +96,8 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 12 P01 | 9 | 2 tasks | 4 files |
 | Phase 12-learning-path-and-gamification P03 | 35 | 3 tasks | 4 files |
 | Phase 17 P01 | 4 | 1 tasks | 1 files |
+| Phase 17-legal-copyright-deep-dive-research P05 | 5 | 2 tasks | 1 files |
+| Phase 17 P04 | 5 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -301,6 +303,11 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 17-01]: WhisperX forced-alignment transcripts rated 🔴 under US §101 and UK CDPA s.9(3) — lawyer required before v3.0 launch
 - [Phase 17-01]: YouTube embed monetisation boundary ({#lawyer-yt-01}) deferred to pre-Phase 19 — 🟡 safe for free beta
 - [Phase 17-01]: Anime clips Phase 21 planning hard-blocked by {#lawyer-anime-01} — JASRAC + CODA enforcement cannot be self-navigated
+- [Phase 17]: EU AI Act Art. 50 disclosure covers both WhisperX and Claude lesson content
+- [Phase 17]: WCAG 2.1 AA is unconditional implementation baseline regardless of EAA applicability
+- [Phase 17-legal-copyright-deep-dive-research]: AADC 'design for 13+' posture adopted — no age-band differentiation needed since kitsubeat has no age-inappropriate content
+- [Phase 17-legal-copyright-deep-dive-research]: Parental consent NOT required for UK 13–17 signups under DPA 2018 s.9; parental-awareness nudge is optional UX only
+- [Phase 17-legal-copyright-deep-dive-research]: DPIA is a Phase 18 launch gate per AADC Standard 2 / DPA 2018 s.57; Art. 36 ICO consultation trigger requires lawyer review
 
 ### Pending Todos
 
