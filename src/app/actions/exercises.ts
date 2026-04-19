@@ -184,6 +184,11 @@ interface SaveSessionResult {
   rewardSlotPreview: { id: string; label: string; level_threshold: number } | null;
   /** Slug of the next path node if path advanced; null if not on path or no advance. */
   pathAdvancedTo: string | null;
+  // ── Phase 12 Plan 06 — LevelUpTakeover SFX / haptic gates ─────────────────
+  /** Whether user has sound enabled (for LevelUpTakeover SFX). */
+  soundEnabled: boolean;
+  /** Whether user has haptics enabled (for LevelUpTakeover haptic). */
+  hapticsEnabled: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -354,6 +359,8 @@ export async function saveSessionResults(
       milestoneXp: 0,
       rewardSlotPreview: null,
       pathAdvancedTo: null,
+      soundEnabled: true,
+      hapticsEnabled: true,
     };
   }
 
@@ -590,6 +597,8 @@ export async function saveSessionResults(
       milestoneXp: 0,
       rewardSlotPreview: null,
       pathAdvancedTo: null,
+      soundEnabled: true,
+      hapticsEnabled: true,
     };
   }
 
@@ -611,6 +620,8 @@ export async function saveSessionResults(
     milestoneXp: gamification.milestoneXp,
     rewardSlotPreview: gamification.rewardSlotPreview,
     pathAdvancedTo: gamification.pathAdvancedTo,
+    soundEnabled: gamification.soundEnabled,
+    hapticsEnabled: gamification.hapticsEnabled,
   };
 }
 

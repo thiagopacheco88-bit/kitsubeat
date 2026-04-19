@@ -5,6 +5,7 @@ import Link from "next/link";
 import { saveSessionResults } from "@/app/actions/exercises";
 import StarDisplay from "./StarDisplay";
 import MasteryDetailPopover from "./MasteryDetailPopover";
+import { LevelUpTakeover } from "@/app/components/LevelUpTakeover";
 import type { Question } from "@/lib/exercises/generator";
 import type { AnswerRecord } from "@/stores/exerciseSession";
 import { xpWithinCurrentLevel } from "@/lib/gamification/level-curve";
@@ -84,6 +85,10 @@ export default function SessionSummary({
     level_threshold: number;
   } | null>(null);
   const [pathAdvancedTo, setPathAdvancedTo] = useState<string | null>(null);
+  // Phase 12 Plan 06 — LevelUpTakeover state
+  const [levelUpDismissed, setLevelUpDismissed] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [hapticsEnabled, setHapticsEnabled] = useState(true);
 
   // --- Compute stats ---
   const totalQuestions = questions.length;
@@ -139,11 +144,9 @@ export default function SessionSummary({
         setMilestoneXp(result.milestoneXp);
         setRewardSlotPreview(result.rewardSlotPreview);
         setPathAdvancedTo(result.pathAdvancedTo);
-        // Level-up console signal for Plan 06 overlay wiring
-        if (result.leveledUp) {
-          // eslint-disable-next-line no-console
-          console.info("[gamification] level up to", result.currentLevel);
-        }
+        // Phase 12 Plan 06 — thread user prefs for LevelUpTakeover
+        setSoundEnabled(result.soundEnabled);
+        setHapticsEnabled(result.hapticsEnabled);
       } catch (err) {
         console.error("Failed to save session results:", err);
         setSaveError(true);
@@ -177,6 +180,18 @@ export default function SessionSummary({
 
   return (
     <div className="flex flex-col items-center gap-6 py-8 text-center">
+      {/* Phase 12 Plan 06 — Level-up full-screen takeover.
+          M3 guard: dismissed state prevents re-fire on re-render. */}
+      {leveledUp && !levelUpDismissed && (
+        <LevelUpTakeover
+          newLevel={currentLevel}
+          visible={true}
+          soundEnabled={soundEnabled}
+          hapticsEnabled={hapticsEnabled}
+          onDismiss={() => setLevelUpDismissed(true)}
+        />
+      )}
+
       <h2 className="text-xl font-bold text-white">Session Complete!</h2>
 
       {/* Accuracy display */}

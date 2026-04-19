@@ -44,3 +44,13 @@
 .star-shine {
   animation: star-shine 0.6s ease-out forwards;
 }
+
+/* Level-up takeover headline animation — Plan 06 */
+@keyframes level-pop {
+  0% { transform: scale(0.3); opacity: 0; }
+  40% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.level-pop {
+  animation: level-pop 0.8s ease-out forwards;
+}

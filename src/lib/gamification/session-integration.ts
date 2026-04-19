@@ -52,6 +52,10 @@ export interface GamificationResult {
   milestoneXp: number;
   rewardSlotPreview: { id: string; label: string; level_threshold: number } | null;
   pathAdvancedTo: string | null;
+  /** Plan 06: user's sound preference — passed through for LevelUpTakeover SFX gate */
+  soundEnabled: boolean;
+  /** Plan 06: user's haptic preference — passed through for LevelUpTakeover haptic gate */
+  hapticsEnabled: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -363,5 +367,8 @@ export async function applyGamificationUpdate(
     milestoneXp,
     rewardSlotPreview,
     pathAdvancedTo,
+    // Plan 06: thread user prefs through for LevelUpTakeover SFX/haptic gates
+    soundEnabled: userRow.soundEnabled ?? true,
+    hapticsEnabled: userRow.hapticsEnabled ?? true,
   };
 }
