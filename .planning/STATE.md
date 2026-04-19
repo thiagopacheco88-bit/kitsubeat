@@ -99,6 +99,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 17-legal-copyright-deep-dive-research P05 | 5 | 2 tasks | 1 files |
 | Phase 17 P04 | 5 | 2 tasks | 1 files |
 | Phase 17-legal-copyright-deep-dive-research P03 | 5 | 2 tasks | 1 files |
+| Phase 17 P02 | 6 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -312,6 +313,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 17-legal-copyright-deep-dive-research]: MOSS terminology corrected to OSS/IOSS; Stripe Tax config specced as 14-item Phase 19 checklist
 - [Phase 17-legal-copyright-deep-dive-research]: UK CCR Reg. 37 digital-content waiver identified as most critical consumer-law obligation at monetization
 - [Phase 17-legal-copyright-deep-dive-research]: Brazil CDC Art. 49 waiver scope lawyer-flagged; refund template activate-at-monetization parked
+- [Phase 17]: EU Art. 27 representative is a pre-launch hard gate: FSRS continuous tracking disqualifies the Art. 27(2) exemption
+- [Phase 17]: LGPD 15-day DSAR window is strictest deadline — all SARs should target 15-day response
+- [Phase 17]: Single unified 72-hour breach notification workflow covers UK-GDPR, EU-GDPR, LGPD simultaneously
 
 ### Pending Todos
 

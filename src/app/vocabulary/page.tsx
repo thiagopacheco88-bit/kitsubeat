@@ -7,6 +7,7 @@ import { getVocabularyDashboard } from "@/lib/db/queries";
 import { isPremium } from "@/app/actions/userPrefs";
 import VocabularyList from "./VocabularyList";
 import FilterControls from "./FilterControls";
+import { JlptGapSummary } from "./JlptGapSummary";
 
 import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
@@ -73,6 +74,7 @@ export default async function VocabularyPage({
           </p>
         </div>
       </header>
+      <JlptGapSummary userId={userId} />
       <FilterControls
         initial={{ tier: sp.tier, song: sp.song, sort: sp.sort }}
         sources={sources}

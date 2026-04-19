@@ -5,6 +5,7 @@ import {
   PREMIUM_NEW_CARD_CAP_CEILING,
 } from "@/lib/user-prefs";
 import ProfileForm from "./ProfileForm";
+import { ProfileHud } from "./ProfileHud";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 
 export default async function ProfilePage() {
@@ -17,6 +18,7 @@ export default async function ProfilePage() {
   return (
     <main className="mx-auto max-w-xl px-4 py-8 text-white">
       <h1 className="mb-6 text-2xl font-semibold">Profile</h1>
+      <ProfileHud userId={userId} />
       <div className="mb-6">
         <GlobalLearnedCounter variant="profile" />
       </div>
