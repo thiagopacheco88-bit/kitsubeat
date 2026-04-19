@@ -5,6 +5,9 @@ import {
   songVersions,
   vocabGlobal,
   userSongProgress,
+  users,
+  userCosmetics,
+  rewardSlotDefinitions,
   deriveStars,
   type SongVersion,
 } from "./schema";
@@ -760,4 +763,212 @@ export async function getNewCardBudget(userId: string): Promise<number> {
   const row = raw[0];
   if (!row || row.review_new_today_date !== today) return REVIEW_NEW_DAILY_CAP;
   return Math.max(0, REVIEW_NEW_DAILY_CAP - Number(row.review_new_today));
+}
+
+// =============================================================================
+// Phase 12 Plan 05: JLPT Gap + Gamification State
+// =============================================================================
+
+/**
+ * Shape of one JLPT tier row returned by getJlptGapSummary.
+ * total_count    — all vocabulary_items rows with this jlpt_level
+ * mastered_count — rows where user_vocab_mastery.state = 2 for this user
+ * known_count    — rows where state IN (1, 2, 3) for this user
+ */
+export interface JlptGapRow {
+  jlpt_level: 'N5' | 'N4' | 'N3' | 'N2' | 'N1';
+  total_count: number;
+  mastered_count: number;
+  known_count: number;
+}
+
+/**
+ * Returns per-JLPT-tier mastery aggregates for the vocabulary gap panel.
+ *
+ * Ordered N5 → N1. If a tier has no vocabulary_items seeded it is omitted;
+ * JlptGapSummary.tsx will render a "catalog data not yet seeded" row for any
+ * missing tier.
+ *
+ * Live-derived: reads user_vocab_mastery JOIN vocabulary_items — NO new table.
+ * Parallel taxonomy preserved: jlpt_level on vocabulary_items is untouched.
+ */
+export async function getJlptGapSummary(userId: string): Promise<JlptGapRow[]> {
+  // Ensure the users row exists so LEFT JOINs work correctly for brand-new users.
+  await db
+    .insert(users)
+    .values({ id: userId })
+    .onConflictDoNothing({ target: users.id });
+
+  const r = await db.execute<{
+    jlpt_level: string;
+    total_count: number;
+    mastered_count: number;
+    known_count: number;
+  }>(sql`
+    SELECT
+      vi.jlpt_level::text                                              AS jlpt_level,
+      COUNT(*)::int                                                    AS total_count,
+      COUNT(*) FILTER (WHERE m.state = 2)::int                        AS mastered_count,
+      COUNT(*) FILTER (WHERE m.state IN (1, 2, 3))::int               AS known_count
+    FROM vocabulary_items vi
+    LEFT JOIN user_vocab_mastery m
+      ON m.vocab_item_id = vi.id AND m.user_id = ${userId}
+    WHERE vi.jlpt_level IS NOT NULL
+    GROUP BY vi.jlpt_level
+    ORDER BY CASE vi.jlpt_level::text
+      WHEN 'N5' THEN 1
+      WHEN 'N4' THEN 2
+      WHEN 'N3' THEN 3
+      WHEN 'N2' THEN 4
+      WHEN 'N1' THEN 5
+    END ASC
+  `);
+
+  const rows = Array.isArray(r) ? r : (r.rows ?? []);
+  return (rows as Array<{
+    jlpt_level: string;
+    total_count: number;
+    mastered_count: number;
+    known_count: number;
+  }>).map((row) => ({
+    jlpt_level: row.jlpt_level as JlptGapRow['jlpt_level'],
+    total_count: Number(row.total_count),
+    mastered_count: Number(row.mastered_count),
+    known_count: Number(row.known_count),
+  }));
+}
+
+/**
+ * Full gamification state for the ProfileHud component.
+ *
+ * Fetches the user row (upsert-seeding defaults if missing) + LEFT JOINs to
+ * user_cosmetics + reward_slot_definitions for equipped border + theme.
+ *
+ * equipped_border / equipped_theme are nullable — if the user has no
+ * equipped cosmetic of that type, null is returned and the HUD renders the
+ * default ring-2 ring-muted fallback.
+ */
+export interface GamificationState {
+  xp_total: number;
+  level: number;
+  streak_current: number;
+  streak_best: number;
+  last_streak_date: string | null;
+  sound_enabled: boolean;
+  haptics_enabled: boolean;
+  current_path_node_slug: string | null;
+  equipped_border: { css_class: string; label: string } | null;
+  equipped_theme: { css_vars: Record<string, string>; label: string } | null;
+}
+
+/**
+ * Returns the user's full gamification state for HUD rendering.
+ *
+ * Cosmetic aggregation: fetches all equipped rows and partitions them by
+ * slot_type in JS — avoids two separate subqueries and handles the case where
+ * a user has no cosmetics at all (LEFT JOIN → null columns).
+ */
+export async function getUserGamificationState(userId: string): Promise<GamificationState> {
+  // Ensure row exists (upsert-seed pattern used throughout the app).
+  await db
+    .insert(users)
+    .values({ id: userId })
+    .onConflictDoNothing({ target: users.id });
+
+  // Fetch user row + all equipped cosmetic rows in one query.
+  const r = await db.execute<{
+    xp_total: number;
+    level: number;
+    streak_current: number;
+    streak_best: number;
+    last_streak_date: string | null;
+    sound_enabled: boolean;
+    haptics_enabled: boolean;
+    current_path_node_slug: string | null;
+    slot_type: string | null;
+    slot_content: unknown;
+  }>(sql`
+    SELECT
+      u.xp_total,
+      u.level,
+      u.streak_current,
+      u.streak_best,
+      u.last_streak_date::text AS last_streak_date,
+      u.sound_enabled,
+      u.haptics_enabled,
+      u.current_path_node_slug,
+      rsd.slot_type,
+      rsd.content AS slot_content
+    FROM users u
+    LEFT JOIN user_cosmetics uc ON uc.user_id = u.id AND uc.equipped = true
+    LEFT JOIN reward_slot_definitions rsd ON rsd.id = uc.slot_id AND rsd.active = true
+    WHERE u.id = ${userId}
+  `);
+
+  const rows = Array.isArray(r) ? r : (r.rows ?? []);
+
+  // All rows share the same user columns — use the first row as the base.
+  const base = rows[0] as {
+    xp_total: number;
+    level: number;
+    streak_current: number;
+    streak_best: number;
+    last_streak_date: string | null;
+    sound_enabled: boolean;
+    haptics_enabled: boolean;
+    current_path_node_slug: string | null;
+    slot_type: string | null;
+    slot_content: unknown;
+  } | undefined;
+
+  // Defensive: should never happen after the upsert, but guard anyway.
+  if (!base) {
+    return {
+      xp_total: 0,
+      level: 1,
+      streak_current: 0,
+      streak_best: 0,
+      last_streak_date: null,
+      sound_enabled: true,
+      haptics_enabled: true,
+      current_path_node_slug: null,
+      equipped_border: null,
+      equipped_theme: null,
+    };
+  }
+
+  // Partition equipped cosmetics by slot_type.
+  let equipped_border: GamificationState['equipped_border'] = null;
+  let equipped_theme: GamificationState['equipped_theme'] = null;
+
+  for (const row of rows) {
+    const typedRow = row as typeof base;
+    if (!typedRow.slot_type || !typedRow.slot_content) continue;
+
+    const content = typedRow.slot_content as Record<string, unknown>;
+    if (typedRow.slot_type === 'avatar_border' && typeof content.css_class === 'string') {
+      equipped_border = {
+        css_class: content.css_class,
+        label: typeof content.label === 'string' ? content.label : '',
+      };
+    } else if (typedRow.slot_type === 'color_theme' && content.css_vars && typeof content.css_vars === 'object') {
+      equipped_theme = {
+        css_vars: content.css_vars as Record<string, string>,
+        label: typeof content.label === 'string' ? content.label : '',
+      };
+    }
+  }
+
+  return {
+    xp_total: Number(base.xp_total),
+    level: Number(base.level),
+    streak_current: Number(base.streak_current),
+    streak_best: Number(base.streak_best),
+    last_streak_date: base.last_streak_date ?? null,
+    sound_enabled: Boolean(base.sound_enabled),
+    haptics_enabled: Boolean(base.haptics_enabled),
+    current_path_node_slug: base.current_path_node_slug ?? null,
+    equipped_border,
+    equipped_theme,
+  };
 }
