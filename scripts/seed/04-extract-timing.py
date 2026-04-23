@@ -325,7 +325,7 @@ def run_batch(manifest_path: str, output_dir: str) -> None:
         youtube_id = song.get("youtube_id", "")
 
         if not slug or not youtube_id:
-            print(f"[batch] [{i}/{total}] Skipping — missing slug or youtube_id: {song}")
+            print(f"[batch] [{i}/{total}] Skipping - missing slug or youtube_id")
             skipped += 1
             continue
 
