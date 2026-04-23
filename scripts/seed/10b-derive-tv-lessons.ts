@@ -34,6 +34,7 @@ import { join, resolve } from "path";
 import { fileURLToPath } from "url";
 
 import { LessonSchema, type Lesson } from "../types/lesson.js";
+import { initKuroshiro, toHepburnRomaji } from "../lib/kuroshiro-tokenizer.js";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Config
@@ -68,74 +69,141 @@ interface VerseAlignment {
   pct: number;
   tvStartIdx: number;
   tvEndIdx: number;
+  /** Char-level span of matched chars in tvChars — used to reject spurious
+   *  spread matches (a verse not really in TV whose chars got stolen piecewise
+   *  from across the whole transcript). */
+  tvCharStartIdx: number;
+  tvCharEndIdx: number;
 }
 
-function alignVersesToTv(full: FullLesson, tv: TimingCache): VerseAlignment[] {
-  const fullChars: string[] = [];
-  const fullCharVerse: number[] = [];
-  for (const v of full.verses) {
-    for (const tok of v.tokens) {
-      for (const ch of tok.surface) {
-        fullChars.push(ch);
-        fullCharVerse.push(v.verse_number);
-      }
-    }
-  }
-  const tvChars = tv.words.map((w) => w.word);
+/** Max ratio of matched-char tv span to verse romaji length. A verse not in
+ *  the TV can still accumulate matches on common phonemes (`no`, `wa`, `ni`,
+ *  vowels) — those matches spread across the whole transcript. Real matches
+ *  cluster tightly. Tightened from 3.0 to 2.0 because per-verse LCS (below) is
+ *  more permissive than global LCS — each verse gets its own alignment pass,
+ *  so spurious matches need a stricter cutoff. */
+const MAX_SPAN_RATIO = 2.0;
 
-  const N = fullChars.length;
+/** Minimum matched-char count for a verse to be considered present at all.
+ *  Very short verses (or common-phoneme-only fragments) could match a few
+ *  chars anywhere — require an absolute floor to reject them. */
+const MIN_MATCHED_CHARS = 8;
+
+// Normalise Hepburn romaji for LCS: lowercase, drop combining diacritics
+// (ū→u, ē→e), strip anything non-alphanumeric. Both sides go through this so
+// minor transliteration-style drift (Hepburn vs. loose romaji in LRCLIB) and
+// punctuation/whitespace don't break character-level matching.
+function normRomaji(s: string): string {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+// Full-lesson tokens already carry Hepburn `romaji`. Prefer that so romaji-only
+// verses (Karada naka furuwasu…) and kanji verses land in the same script.
+function tokenAlignText(tok: { surface: string; reading?: string; romaji?: string }): string {
+  return normRomaji(tok.romaji ?? tok.reading ?? tok.surface);
+}
+
+/** LCS between `verseChars` and `tvChars`. Returns tv-char indices of matched
+ *  chars (same length as matched count), in ascending order. Empty array if
+ *  no match. Runs per-verse so each verse gets its own alignment pass,
+ *  independent of what other verses match — this is what tolerates TV cuts
+ *  reordering verses. The global-LCS approach forced a single forward path
+ *  across the whole lesson, so a reordered verse (e.g. chorus-first cut) got
+ *  silently dropped whenever it conflicted with another verse's match.
+ */
+function lcsMatchedIndices(verseChars: string[], tvChars: string[]): number[] {
+  const N = verseChars.length;
   const M = tvChars.length;
+  if (N === 0 || M === 0) return [];
   const dp: Uint16Array[] = [];
   for (let i = 0; i <= N; i++) dp.push(new Uint16Array(M + 1));
   for (let i = 1; i <= N; i++) {
     for (let j = 1; j <= M; j++) {
       dp[i][j] =
-        fullChars[i - 1] === tvChars[j - 1]
+        verseChars[i - 1] === tvChars[j - 1]
           ? dp[i - 1][j - 1] + 1
           : Math.max(dp[i - 1][j], dp[i][j - 1]);
     }
   }
+  const matched: number[] = [];
+  let i = N;
+  let j = M;
+  while (i > 0 && j > 0) {
+    if (verseChars[i - 1] === tvChars[j - 1] && dp[i][j] === dp[i - 1][j - 1] + 1) {
+      matched.push(j - 1);
+      i--;
+      j--;
+    } else if (dp[i - 1][j] >= dp[i][j - 1]) {
+      i--;
+    } else {
+      j--;
+    }
+  }
+  matched.reverse();
+  return matched;
+}
 
-  const tvIdxForFull: number[] = new Array(N).fill(-1);
-  {
-    let i = N;
-    let j = M;
-    while (i > 0 && j > 0) {
-      if (fullChars[i - 1] === tvChars[j - 1] && dp[i][j] === dp[i - 1][j - 1] + 1) {
-        tvIdxForFull[i - 1] = j - 1;
-        i--;
-        j--;
-      } else if (dp[i - 1][j] >= dp[i][j - 1]) {
-        i--;
-      } else {
-        j--;
-      }
+async function alignVersesToTv(full: FullLesson, tv: TimingCache): Promise<VerseAlignment[]> {
+  // TV: convert each WhisperX word to normalised Hepburn romaji chars, keep
+  // tvCharIdx → tvWordIdx mapping for timing lookup.
+  const tvChars: string[] = [];
+  const tvCharToWordIdx: number[] = [];
+  for (let wi = 0; wi < tv.words.length; wi++) {
+    const romaji = await toHepburnRomaji(tv.words[wi].word);
+    for (const ch of normRomaji(romaji)) {
+      tvChars.push(ch);
+      tvCharToWordIdx.push(wi);
     }
   }
 
-  const perVerse = new Map<number, VerseAlignment>();
+  // Per-verse LCS: each verse searches the entire tvChars stream
+  // independently. Different verses may match overlapping or out-of-order
+  // windows, which is correct for reordered TV cuts.
+  const alignments: VerseAlignment[] = [];
   for (const v of full.verses) {
-    const verseLen = v.tokens.map((t) => t.surface).join("").length;
-    perVerse.set(v.verse_number, {
+    const verseChars: string[] = [];
+    for (const tok of v.tokens) {
+      for (const ch of tokenAlignText(tok)) verseChars.push(ch);
+    }
+    const verseLen = verseChars.length;
+
+    const matched = lcsMatchedIndices(verseChars, tvChars);
+    if (matched.length === 0) {
+      alignments.push({
+        verseNumber: v.verse_number,
+        matchedChars: 0,
+        verseLen,
+        pct: 0,
+        tvStartIdx: Number.POSITIVE_INFINITY,
+        tvEndIdx: -1,
+        tvCharStartIdx: Number.POSITIVE_INFINITY,
+        tvCharEndIdx: -1,
+      });
+      continue;
+    }
+
+    const tvCharStart = matched[0];
+    const tvCharEnd = matched[matched.length - 1];
+    const tvWordStart = tvCharToWordIdx[tvCharStart];
+    const tvWordEnd = tvCharToWordIdx[tvCharEnd];
+
+    alignments.push({
       verseNumber: v.verse_number,
-      matchedChars: 0,
+      matchedChars: matched.length,
       verseLen,
-      pct: 0,
-      tvStartIdx: Number.POSITIVE_INFINITY,
-      tvEndIdx: -1,
+      pct: verseLen > 0 ? matched.length / verseLen : 0,
+      tvStartIdx: tvWordStart,
+      tvEndIdx: tvWordEnd,
+      tvCharStartIdx: tvCharStart,
+      tvCharEndIdx: tvCharEnd,
     });
   }
-  for (let i = 0; i < N; i++) {
-    const tvIdx = tvIdxForFull[i];
-    if (tvIdx === -1) continue;
-    const vNum = fullCharVerse[i];
-    const a = perVerse.get(vNum)!;
-    a.matchedChars++;
-    if (tvIdx < a.tvStartIdx) a.tvStartIdx = tvIdx;
-    if (tvIdx > a.tvEndIdx) a.tvEndIdx = tvIdx;
-  }
-  for (const a of perVerse.values()) a.pct = a.matchedChars / a.verseLen;
-  return [...perVerse.values()];
+
+  return alignments;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -155,7 +223,18 @@ function computeVerseTimes(
   presenceThreshold: number
 ): DetectedVerse[] {
   const detected = aligned
-    .filter((a) => a.pct >= presenceThreshold && a.tvEndIdx >= 0)
+    .filter((a) => {
+      if (a.pct < presenceThreshold || a.tvEndIdx < 0) return false;
+      // Absolute floor: short matches on common phonemes are untrustworthy
+      // regardless of percentage — a 5/10 match on `no/wa/ni/a/i` could hit
+      // anywhere. Require a real char count.
+      if (a.matchedChars < MIN_MATCHED_CHARS) return false;
+      // Reject spurious spread matches: char-level span must be a small
+      // multiple of the verse's own length.
+      const spanChars = a.tvCharEndIdx - a.tvCharStartIdx + 1;
+      if (a.verseLen > 0 && spanChars / a.verseLen > MAX_SPAN_RATIO) return false;
+      return true;
+    })
     .map((a) => ({
       verseNumber: a.verseNumber,
       startMs: Math.round(tv.words[a.tvStartIdx].start * 1000),
@@ -264,7 +343,7 @@ interface SongResult {
   error?: string;
 }
 
-function deriveOne(slug: string, presenceThreshold: number): SongResult {
+async function deriveOne(slug: string, presenceThreshold: number): Promise<SongResult> {
   const fullPath = join(FULL_LESSONS_DIR, `${slug}.json`);
   const timingPath = join(TV_TIMING_DIR, `${slug}.json`);
   const outPath = join(TV_LESSONS_DIR, `${slug}.json`);
@@ -294,7 +373,7 @@ function deriveOne(slug: string, presenceThreshold: number): SongResult {
     const full = JSON.parse(readFileSync(fullPath, "utf-8")) as FullLesson;
     const tv = JSON.parse(readFileSync(timingPath, "utf-8")) as TimingCache;
 
-    const aligned = alignVersesToTv(full, tv);
+    const aligned = await alignVersesToTv(full, tv);
     const detected = computeVerseTimes(aligned, tv, presenceThreshold);
 
     if (detected.length === 0) {
@@ -368,7 +447,7 @@ function parseArgs(): { slug: string | null; threshold: number } {
   return args;
 }
 
-function main(): void {
+async function main(): Promise<void> {
   const args = parseArgs();
   mkdirSync(TV_LESSONS_DIR, { recursive: true });
 
@@ -388,9 +467,11 @@ function main(): void {
 
   console.log(`=== 10b-derive-tv-lessons: ${slugs.length} song(s), threshold=${args.threshold} ===\n`);
 
+  await initKuroshiro();
+
   const results: SongResult[] = [];
   for (const slug of slugs) {
-    const r = deriveOne(slug, args.threshold);
+    const r = await deriveOne(slug, args.threshold);
     results.push(r);
     const detail =
       r.status === "ok"
@@ -412,4 +493,7 @@ function main(): void {
   }
 }
 
-main();
+main().catch((err) => {
+  console.error("Fatal:", err);
+  process.exit(1);
+});
