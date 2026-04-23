@@ -1,14 +1,17 @@
 /**
  * run-pipeline.ts — KitsuBeat content pipeline orchestrator
  *
- * Runs all 7 seed steps in sequence with checkpoint/resume:
- *   Step 1: Build manifest       (01-build-manifest.ts)
- *   Step 2: Fetch lyrics         (02-fetch-lyrics.ts)
- *   Step 3: Extract timing       (04-extract-timing.py --batch)
- *   Step 4: Backfill lyrics      (04b-backfill-whisper-lyrics.ts)
- *   Step 5: Generate content     (03-generate-content.ts)
- *   Step 6: Push DB schema       (drizzle-kit push)
- *   Step 7: Insert into DB       (05-insert-db.ts)
+ * Runs all seed steps in sequence with checkpoint/resume:
+ *   Step 1:  Build manifest       (01-build-manifest.ts)
+ *   Step 2:  Fetch lyrics         (02-fetch-lyrics.ts)
+ *   Step 3:  Extract timing       (04-extract-timing.py --batch)
+ *   Step 4:  Detect beats         (04c-detect-beats.py --all)   [NEW]
+ *   Step 5:  Validate lyrics      (03b-validate-lyrics-vs-whisper.ts)
+ *   Step 6:  Backfill lyrics      (04b-backfill-whisper-lyrics.ts — uses beats)
+ *   Step 7:  Validate retime      (validate-retime.ts)          [NEW]
+ *   Step 8:  Generate content     (03-generate-content.ts)
+ *   Step 9:  Push DB schema       (drizzle-kit push)
+ *   Step 10: Insert into DB       (05-insert-db.ts)
  *
  * Checkpoint detection: each step checks for the presence of its expected
  * output before running. If output already exists, the step is skipped.
@@ -21,8 +24,8 @@
  *
  * Environment variables (from .env.local):
  *   Steps 1:       YOUTUBE_API_KEY (Spotify gracefully skipped — API locked since Mar 2025)
- *   Step 5:        ANTHROPIC_API_KEY
- *   Steps 6-7:     DATABASE_URL
+ *   Step 6:        ANTHROPIC_API_KEY
+ *   Steps 7-8:     DATABASE_URL
  */
 
 import { config } from "dotenv";
@@ -66,6 +69,8 @@ const MANIFEST_PATH = "data/songs-manifest.json";
 const LYRICS_CACHE_DIR = "data/lyrics-cache";
 const TIMING_CACHE_DIR = "data/timing-cache";
 const LESSONS_CACHE_DIR = "data/lessons-cache";
+const BEAT_CACHE_DIR = "data/beat-cache";
+const AUDIO_DIR = "public/audio";
 
 function countFilesInDir(dir: string): number {
   if (!existsSync(dir)) return 0;
@@ -142,7 +147,33 @@ const STEPS: PipelineStep[] = [
   },
   {
     number: 4,
-    name: "Backfill pending_whisper lyrics from WhisperX timing data",
+    name: "Detect beats via librosa (tempo grid for adaptive verse breaks)",
+    command: "python scripts/seed/04c-detect-beats.py --all",
+    isComplete: () => {
+      // Complete when every mp3 has a matching beat-cache entry.
+      if (!existsSync(AUDIO_DIR)) return true; // nothing to analyse
+      const audioCount = readdirSync(AUDIO_DIR).filter((f) => f.endsWith(".mp3")).length;
+      if (audioCount === 0) return true;
+      const beatCount = countFilesInDir(BEAT_CACHE_DIR);
+      return beatCount >= audioCount;
+    },
+    requiredEnvVars: [],
+  },
+  {
+    number: 5,
+    name: "Validate lyrics against WhisperX (flag mismatches, auto-demote clear wrongs)",
+    command: "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/03b-validate-lyrics-vs-whisper.ts",
+    isComplete: () => {
+      // Always re-run: the validator is fast and idempotent (quarantines rejects
+      // so a second pass has nothing left to flip). The generated report is the
+      // human-facing output — we want it fresh every pipeline run.
+      return false;
+    },
+    requiredEnvVars: [],
+  },
+  {
+    number: 6,
+    name: "Backfill pending_whisper lyrics from WhisperX + beat-cache",
     command: "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/04b-backfill-whisper-lyrics.ts",
     isComplete: () => {
       // Complete if no pending_whisper entries remain in lyrics-cache
@@ -151,7 +182,18 @@ const STEPS: PipelineStep[] = [
     requiredEnvVars: [],
   },
   {
-    number: 5,
+    number: 7,
+    name: "Validate retime (intro padding, verse drift, cursor-skip)",
+    command: "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/validate-retime.ts",
+    isComplete: () => {
+      // Always re-run — the report is fresh every pipeline pass and the
+      // validator is read-only.
+      return false;
+    },
+    requiredEnvVars: [],
+  },
+  {
+    number: 8,
     name: "Generate lesson content via Claude Batch API",
     command: "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/03-generate-content.ts",
     isComplete: () => {
@@ -163,7 +205,7 @@ const STEPS: PipelineStep[] = [
     requiredEnvVars: ["ANTHROPIC_API_KEY"],
   },
   {
-    number: 6,
+    number: 9,
     name: "Push DB schema to Neon Postgres (drizzle-kit push)",
     command: "npx drizzle-kit push",
     isComplete: () => {
@@ -175,12 +217,12 @@ const STEPS: PipelineStep[] = [
     requiredEnvVars: ["DATABASE_URL"],
   },
   {
-    number: 7,
+    number: 10,
     name: "Insert songs and lessons into Neon Postgres",
     command: "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/05-insert-db.ts",
     isComplete: () => {
       // No local artifact to check; assume not done unless user confirms
-      // In practice: run after Step 6 succeeds
+      // In practice: run after Step 9 succeeds
       return false;
     },
     requiredEnvVars: ["DATABASE_URL"],
@@ -211,7 +253,7 @@ async function runPipeline() {
   if (stepOnly !== null) {
     stepsToConsider = STEPS.filter((s) => s.number === stepOnly);
     if (stepsToConsider.length === 0) {
-      console.error(`[Error] Step ${stepOnly} does not exist. Valid steps: 1-7.`);
+      console.error(`[Error] Step ${stepOnly} does not exist. Valid steps: 1-10.`);
       process.exit(1);
     }
   }
