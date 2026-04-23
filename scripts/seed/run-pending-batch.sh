@@ -38,7 +38,7 @@ total=$(node -e "console.log(require('./$PENDING_MANIFEST').length)")
 log "Waiting for WhisperX batch. Target: $total songs with timing caches."
 
 stable_count=0
-stable_threshold=6  # 6 consecutive checks at 5-min intervals = 30min no new song = treat as done
+stable_threshold=18  # 18 consecutive checks at 5-min intervals = 90min no new song = treat as done
 prev_done=-1
 while :; do
   done=$(count_pending_done)
