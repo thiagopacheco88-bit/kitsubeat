@@ -45,7 +45,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 ### v3.0 Launch Readiness
 
 - [x] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginner→advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0 (completed 2026-04-19)
-- [ ] **Phase 13: Performance & Caching** - FMP <2s mobile 4G; bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe
+- [ ] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate — measurement against pages about to be redesigned in Phase 14 would be wasted work.)
 - [ ] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface
 - [ ] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated
 - [ ] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook
@@ -323,16 +323,14 @@ Plans:
 - [ ] 12-05-PLAN.md — JLPT gap dashboard on /vocabulary + /profile HUD + sound/haptic settings toggles
 - [ ] 12-06-PLAN.md — /path route + StarterPick + LevelUpTakeover + CosmeticsProvider + SFX + E2E spec + human-verify checkpoint
 
-### Phase 13: Performance & Caching
-**Goal**: First meaningful paint under 2s on mid-range mobile over 4G; subsequent song loads feel instant; no perceptible lag during exercise interactions.
+### Phase 13: Performance Infrastructure
+**Goal**: Ship the performance infrastructure whose shape is independent of visual design — caching, deferred loading, CI bundle budgets. Actual Lighthouse/LCP/TTI scoring is deferred to Phase 19 entry gate (after Phase 14 UX polish lands), so we don't score pages we're about to redesign.
 **Depends on**: Phase 12
 **Requirements**: TBD
 **Success Criteria**:
-  1. Lighthouse mobile performance >=85 on home, catalog, and song pages
-  2. Song page LCP <2.5s, TTI <3.5s on throttled 4G / Moto G4 profile
-  3. Already-visited song lessons serve from cache on repeat visit (no cold DB hit)
-  4. YouTube iframe deferred until in view; lesson panel renders independently of video load
-  5. Bundle size budget enforced in CI (song page JS <=200KB gzipped)
+  1. Already-visited song lessons serve from cache on repeat visit (no cold DB hit)
+  2. YouTube iframe deferred until in view; lesson panel renders independently of video load
+  3. Bundle size budget enforced in CI (song page JS <=200KB gzipped) — constrains Phase 14 UX polish from the start
 **Plans**: TBD
 
 ### Phase 14: UX Polish
@@ -411,6 +409,10 @@ Plans:
 **Goal**: Product opens to a limited external audience under the UK sole-trader name; three acquisition channels tested with tracked UTMs; validation signal from behavior, not self-report.
 **Depends on**: Phase 18
 **Requirements**: TBD
+**Entry Gate (Phase 13 performance validation — deferred here so measurement runs against the final Phase 14 UX)**:
+  - Lighthouse mobile performance >=85 on home, catalog, and song pages
+  - Song page LCP <2.5s, TTI <3.5s on throttled 4G / Moto G4 profile
+  - If either target misses, loop back to Phase 13/14 before opening beta
 **Success Criteria**:
   1. Marketing landing page describes the product in one sentence, shows a 30-second demo, has a single CTA (join beta)
   2. Three acquisition channels with trackable UTMs — e.g., r/LearnJapanese, a Japanese-learning Discord/forum, personal social; each channel's signup→first-session rate is measurable
