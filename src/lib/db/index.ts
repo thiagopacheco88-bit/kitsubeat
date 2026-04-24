@@ -15,12 +15,43 @@
  *      const db = getDb();  // call after dotenv loads DATABASE_URL
  */
 
-import { neon } from "@neondatabase/serverless";
+import { neon, neonConfig } from "@neondatabase/serverless";
 import { drizzle, type NeonHttpDatabase } from "drizzle-orm/neon-http";
 
 type DrizzleDb = NeonHttpDatabase;
 
 let _db: DrizzleDb | null = null;
+
+/**
+ * Retry wrapper for the Neon HTTP fetch. Neon serverless computes scale to
+ * zero when idle; the first request after suspension can fail with a transient
+ * "fetch failed" before the compute wakes up. Two quick retries with short
+ * backoff turn those cold-starts into a slight latency blip instead of a
+ * user-facing error page.
+ *
+ * Only transient network-layer failures are retried — once the request
+ * reaches Neon and returns any HTTP response (even 4xx/5xx), we return it
+ * unchanged so SQL errors surface as normal.
+ */
+const COLD_START_RETRIES = 2;
+const COLD_START_BACKOFF_MS = 250;
+
+const fetchWithColdStartRetry: typeof fetch = async (input, init) => {
+  let lastErr: unknown;
+  for (let attempt = 0; attempt <= COLD_START_RETRIES; attempt++) {
+    try {
+      return await fetch(input, init);
+    } catch (err) {
+      lastErr = err;
+      if (attempt < COLD_START_RETRIES) {
+        await new Promise((r) =>
+          setTimeout(r, COLD_START_BACKOFF_MS * (attempt + 1))
+        );
+      }
+    }
+  }
+  throw lastErr;
+};
 
 /**
  * Lazy database client factory.
@@ -40,6 +71,11 @@ export function getDb(): DrizzleDb {
     );
   }
 
+  // `fetchFunction` is a global-only option on NeonConfig — not accepted on the
+  // per-call `neon(url, options)` signature. Assigning to the module-scoped
+  // neonConfig applies the cold-start retry to every HTTP fetch this process
+  // makes, which is what we want (only one Neon client exists in app code).
+  neonConfig.fetchFunction = fetchWithColdStartRetry;
   const sql = neon(url);
   _db = drizzle(sql);
   return _db;
