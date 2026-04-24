@@ -46,6 +46,11 @@ yarn-error.log*
 Thumbs.db
 .dual-graph/
 
+# python
+.venv/
+__pycache__/
+*.pyc
+
 # pipeline data (large, not needed in deploy)
 data/
 tmp/
