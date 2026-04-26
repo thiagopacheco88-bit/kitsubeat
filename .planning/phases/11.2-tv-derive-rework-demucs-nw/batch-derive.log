@@ -1,0 +1,193 @@
+Lesson schema OK
+LESSON_JSON_SCHEMA has 3 top-level keys
+=== 10b-derive-tv-lessons-nw: 56 song(s) ===
+
+[1/56] [missing_timing    ] tsunaida-te-lilb
+[2/56] [ok                ] again-yui  verses 1/52  vocab 1/105  coverage 24%
+[3/56] [missing_timing    ] wind-akeboshi
+[4/56] [missing_timing    ] mayonaka-no-orchestra-aqua-timez
+[5/56] [missing_timing    ] viva-rock-japanese-side-orange-range
+[6/56] [missing_timing    ] nakushita-kotoba-no-regret-life
+[7/56] [ok                ] golden-time-lover-sukima-switch  verses 3/25  vocab 18/146  coverage 28%
+[8/56] [missing_timing    ] ima-made-nando-mo-the-mass-missile
+[9/56] [missing_timing    ] speed-analogfish
+[10/56] [missing_timing    ] parade-chaba
+[11/56] [ok                ] guren-does  verses 8/20  vocab 40/72  coverage 46%
+[12/56] [missing_timing    ] the-world-nightmare
+[13/56] [missing_timing    ] i-can-hear-dish
+[14/56] [missing_timing    ] period-chemistry
+[15/56] [ok                ] freedom-home-made-kazoku  verses 7/75  vocab 9/66  coverage 19%
+[16/56] [ok                ] alumina-nightmare  verses 9/11  vocab 30/37  coverage 69%
+[17/56] [missing_timing    ] let-it-out-miho-fukuhara
+[18/56] [ok                ] blue-bird-ikimonogakari  verses 13/33  vocab 28/60  coverage 44%
+[19/56] [ok                ] broken-youth-nico-touches-the-walls  verses 7/30  vocab 21/75  coverage 29%
+[20/56] [ok                ] diver-nico-touches-the-walls  verses 4/35  vocab 7/78  coverage 33%
+[21/56] [ok                ] flame-dish  verses 3/35  vocab 9/67  coverage 27%
+[22/56] [missing_timing    ] name-of-love-cinema-staff
+[23/56] [missing_timing    ] mother-mucc
+[24/56] [missing_timing    ] overfly-luna-haruna
+[25/56] [missing_timing    ] no-boy-no-cry-stance-punks
+[26/56] [missing_timing    ] place-to-try-totalfat
+[27/56] [missing_timing    ] remember-flow
+[28/56] [missing_timing    ] shinkokyuu-super-beaver
+[29/56] [ok                ] sign-flow  verses 12/12  vocab 17/17  coverage 0%
+[30/56] [missing_timing    ] shunkan-sentimental-scandal
+[31/56] [missing_timing    ] yellow-moon-akeboshi
+[32/56] [ok                ] crossing-field-lisa  verses 7/25  vocab 16/78  coverage 32%
+[33/56] [missing_timing    ] rocks-hound-dog
+[34/56] [ok                ] go-flow  verses 3/62  vocab 0/55  coverage 7%
+[35/56] [ok                ] harmonia-rythem  verses 11/37  vocab 3/32  coverage 29%
+[36/56] [ok                ] hajimete-kimi-to-shabetta-gagagasp  verses 1/24  vocab 3/34  coverage 29%
+[37/56] [missing_timing    ] soba-ni-iru-kara-amadori
+[38/56] [missing_timing    ] scenario-saboten
+[39/56] [missing_timing    ] moshimo-daisuke
+[40/56] [missing_timing    ] line-sukima-switch
+[41/56] [ok                ] for-you-azu  verses 9/42  vocab 16/55  coverage 37%
+[42/56] [missing_timing    ] spinning-world-diana-garnet
+[43/56] [ok                ] heroes-brian-the-sun  verses 9/23  vocab 35/55  coverage 53%
+[44/56] [ok                ] great-escape-cinema-staff  verses 5/20  vocab 21/57  coverage 39%
+[45/56] [missing_timing    ] uso-sid
+[46/56] [ok                ] haruka-kanata-asian-kung-fu-generation  verses 8/21  vocab 19/39  coverage 39%
+[47/56] [missing_timing    ] pinocchio-ore-ska-band
+[48/56] [ok                ] heros-come-back-nobodyknows  verses 19/22  vocab 13/15  coverage 68%
+[49/56] [ok                ] distance-long-shot-party  verses 10/31  vocab 10/37  coverage 43%
+[50/56] [missing_timing    ] kara-no-kokoro-anly
+[51/56] [missing_timing    ] mezamero-yasei-matchy-with-question
+[52/56] [missing_timing    ] long-kiss-goodbye-halcali
+[53/56] [missing_timing    ] utakata-hanabi-supercell
+[54/56] [missing_timing    ] u-can-do-it-domino
+[55/56] [missing_timing    ] sonna-kimi-konna-boku-thinking-dogs
+[56/56] [missing_timing    ] the-day-porno-graffitti
+
+=== Summary ===
+  missing_timing: 36
+  ok: 20
+Lesson schema OK
+LESSON_JSON_SCHEMA has 3 top-level keys
+=== 10b-derive-tv-lessons-nw: 56 song(s) ===
+
+[1/56] [ok                ] tsunaida-te-lilb  verses 6/44  vocab 33/109  coverage 25%
+[2/56] [ok                ] again-yui  verses 1/1  vocab 1/1  coverage 0%
+[3/56] [no_detected_verses] wind-akeboshi
+[4/56] [ok                ] mayonaka-no-orchestra-aqua-timez  verses 6/28  vocab 33/108  coverage 30%
+[5/56] [no_detected_verses] viva-rock-japanese-side-orange-range
+[6/56] [no_detected_verses] nakushita-kotoba-no-regret-life
+[7/56] [ok                ] golden-time-lover-sukima-switch  verses 3/3  vocab 18/18  coverage 0%
+[8/56] [ok                ] ima-made-nando-mo-the-mass-missile  verses 1/12  vocab 2/44  coverage 32%
+[9/56] [ok                ] speed-analogfish  verses 10/24  vocab 19/38  coverage 47%
+[10/56] [ok                ] parade-chaba  verses 4/33  vocab 12/77  coverage 31%
+[11/56] [ok                ] guren-does  verses 8/8  vocab 40/40  coverage 0%
+[12/56] [ok                ] the-world-nightmare  verses 5/21  vocab 12/41  coverage 36%
+[13/56] [ok                ] i-can-hear-dish  verses 20/57  vocab 37/73  coverage 39%
+[14/56] [ok                ] period-chemistry  verses 3/13  vocab 24/68  coverage 42%
+[15/56] [ok                ] freedom-home-made-kazoku  verses 7/7  vocab 9/9  coverage 0%
+[16/56] [ok                ] alumina-nightmare  verses 9/9  vocab 30/30  coverage 0%
+[17/56] [missing_timing    ] let-it-out-miho-fukuhara
+[18/56] [ok                ] blue-bird-ikimonogakari  verses 13/13  vocab 28/28  coverage 0%
+[19/56] [ok                ] broken-youth-nico-touches-the-walls  verses 7/7  vocab 21/21  coverage 0%
+[20/56] [ok                ] diver-nico-touches-the-walls  verses 4/4  vocab 7/7  coverage 0%
+[21/56] [ok                ] flame-dish  verses 3/3  vocab 9/9  coverage 0%
+[22/56] [ok                ] name-of-love-cinema-staff  verses 2/27  vocab 15/67  coverage 31%
+[23/56] [missing_timing    ] mother-mucc
+[24/56] [ok                ] overfly-luna-haruna  verses 2/19  vocab 5/80  coverage 31%
+[25/56] [ok                ] no-boy-no-cry-stance-punks  verses 1/23  vocab 5/82  coverage 27%
+[26/56] [ok                ] place-to-try-totalfat  verses 16/39  vocab 22/44  coverage 42%
+[27/56] [no_detected_verses] remember-flow
+[28/56] [ok                ] shinkokyuu-super-beaver  verses 6/34  vocab 14/96  coverage 35%
+[29/56] [ok                ] sign-flow  verses 12/12  vocab 17/17  coverage 0%
+[30/56] [ok                ] shunkan-sentimental-scandal  verses 2/29  vocab 6/79  coverage 29%
+[31/56] [ok                ] yellow-moon-akeboshi  verses 1/30  vocab 0/61  coverage 18%
+[32/56] [ok                ] crossing-field-lisa  verses 7/7  vocab 16/16  coverage 0%
+[33/56] [ok                ] rocks-hound-dog  verses 4/19  vocab 15/48  coverage 31%
+[34/56] [ok                ] go-flow  verses 3/3  vocab 0/0  coverage 0%
+[35/56] [ok                ] harmonia-rythem  verses 11/11  vocab 3/3  coverage 0%
+[36/56] [ok                ] hajimete-kimi-to-shabetta-gagagasp  verses 1/1  vocab 3/3  coverage 0%
+[37/56] [ok                ] soba-ni-iru-kara-amadori  verses 9/17  vocab 12/28  coverage 52%
+[38/56] [ok                ] scenario-saboten  verses 15/32  vocab 43/72  coverage 50%
+[39/56] [missing_timing    ] moshimo-daisuke
+[40/56] [missing_timing    ] line-sukima-switch
+[41/56] [ok                ] for-you-azu  verses 9/9  vocab 16/16  coverage 0%
+[42/56] [ok                ] spinning-world-diana-garnet  verses 9/43  vocab 28/76  coverage 37%
+[43/56] [ok                ] heroes-brian-the-sun  verses 9/9  vocab 35/35  coverage 0%
+[44/56] [ok                ] great-escape-cinema-staff  verses 5/5  vocab 21/21  coverage 0%
+[45/56] [ok                ] uso-sid  verses 7/23  vocab 32/65  coverage 44%
+[46/56] [ok                ] haruka-kanata-asian-kung-fu-generation  verses 8/8  vocab 19/19  coverage 0%
+[47/56] [no_detected_verses] pinocchio-ore-ska-band
+[48/56] [ok                ] heros-come-back-nobodyknows  verses 19/19  vocab 13/13  coverage 0%
+[49/56] [ok                ] distance-long-shot-party  verses 10/10  vocab 10/10  coverage 0%
+[50/56] [missing_timing    ] kara-no-kokoro-anly
+[51/56] [ok                ] mezamero-yasei-matchy-with-question  verses 5/30  vocab 5/83  coverage 37%
+[52/56] [missing_timing    ] long-kiss-goodbye-halcali
+[53/56] [ok                ] utakata-hanabi-supercell  verses 6/30  vocab 21/92  coverage 24%
+[54/56] [ok                ] u-can-do-it-domino  verses 13/51  vocab 21/57  coverage 36%
+[55/56] [ok                ] sonna-kimi-konna-boku-thinking-dogs  verses 9/34  vocab 33/78  coverage 30%
+[56/56] [ok                ] the-day-porno-graffitti  verses 9/34  vocab 31/85  coverage 40%
+
+=== Summary ===
+  ok: 45
+  no_detected_verses: 5
+  missing_timing: 6
+Lesson schema OK
+LESSON_JSON_SCHEMA has 3 top-level keys
+=== 10b-derive-tv-lessons-nw: 56 song(s) ===
+
+[1/56] [ok                ] tsunaida-te-lilb  verses 6/6  vocab 33/33  coverage 0%
+[2/56] [ok                ] again-yui  verses 1/1  vocab 1/1  coverage 0%
+[3/56] [no_detected_verses] wind-akeboshi
+[4/56] [ok                ] mayonaka-no-orchestra-aqua-timez  verses 6/6  vocab 33/33  coverage 0%
+[5/56] [no_detected_verses] viva-rock-japanese-side-orange-range
+[6/56] [no_detected_verses] nakushita-kotoba-no-regret-life
+[7/56] [ok                ] golden-time-lover-sukima-switch  verses 3/3  vocab 18/18  coverage 0%
+[8/56] [ok                ] ima-made-nando-mo-the-mass-missile  verses 1/1  vocab 2/2  coverage 0%
+[9/56] [ok                ] speed-analogfish  verses 10/10  vocab 19/19  coverage 0%
+[10/56] [ok                ] parade-chaba  verses 4/4  vocab 12/12  coverage 0%
+[11/56] [ok                ] guren-does  verses 8/8  vocab 40/40  coverage 0%
+[12/56] [ok                ] the-world-nightmare  verses 5/5  vocab 12/12  coverage 0%
+[13/56] [ok                ] i-can-hear-dish  verses 20/20  vocab 37/37  coverage 0%
+[14/56] [ok                ] period-chemistry  verses 3/3  vocab 24/24  coverage 0%
+[15/56] [ok                ] freedom-home-made-kazoku  verses 7/7  vocab 9/9  coverage 0%
+[16/56] [ok                ] alumina-nightmare  verses 9/9  vocab 30/30  coverage 0%
+[17/56] [ok                ] let-it-out-miho-fukuhara  verses 4/24  vocab 7/75  coverage 38%
+[18/56] [ok                ] blue-bird-ikimonogakari  verses 13/13  vocab 28/28  coverage 0%
+[19/56] [ok                ] broken-youth-nico-touches-the-walls  verses 7/7  vocab 21/21  coverage 0%
+[20/56] [ok                ] diver-nico-touches-the-walls  verses 4/4  vocab 7/7  coverage 0%
+[21/56] [ok                ] flame-dish  verses 3/3  vocab 9/9  coverage 0%
+[22/56] [ok                ] name-of-love-cinema-staff  verses 2/2  vocab 15/15  coverage 0%
+[23/56] [ok                ] mother-mucc  verses 3/8  vocab 15/43  coverage 44%
+[24/56] [ok                ] overfly-luna-haruna  verses 2/2  vocab 5/5  coverage 0%
+[25/56] [ok                ] no-boy-no-cry-stance-punks  verses 1/1  vocab 5/5  coverage 0%
+[26/56] [ok                ] place-to-try-totalfat  verses 16/16  vocab 22/22  coverage 0%
+[27/56] [no_detected_verses] remember-flow
+[28/56] [ok                ] shinkokyuu-super-beaver  verses 6/6  vocab 14/14  coverage 0%
+[29/56] [ok                ] sign-flow  verses 12/12  vocab 17/17  coverage 0%
+[30/56] [ok                ] shunkan-sentimental-scandal  verses 2/2  vocab 6/6  coverage 0%
+[31/56] [ok                ] yellow-moon-akeboshi  verses 1/1  vocab 0/0  coverage 0%
+[32/56] [ok                ] crossing-field-lisa  verses 7/7  vocab 16/16  coverage 0%
+[33/56] [ok                ] rocks-hound-dog  verses 4/4  vocab 15/15  coverage 0%
+[34/56] [ok                ] go-flow  verses 3/3  vocab 0/0  coverage 0%
+[35/56] [ok                ] harmonia-rythem  verses 11/11  vocab 3/3  coverage 0%
+[36/56] [ok                ] hajimete-kimi-to-shabetta-gagagasp  verses 1/1  vocab 3/3  coverage 0%
+[37/56] [ok                ] soba-ni-iru-kara-amadori  verses 9/9  vocab 12/12  coverage 0%
+[38/56] [ok                ] scenario-saboten  verses 15/15  vocab 43/43  coverage 0%
+[39/56] [ok                ] moshimo-daisuke  verses 6/27  vocab 31/63  coverage 44%
+[40/56] [ok                ] line-sukima-switch  verses 1/22  vocab 0/92  coverage 24%
+[41/56] [ok                ] for-you-azu  verses 9/9  vocab 16/16  coverage 0%
+[42/56] [ok                ] spinning-world-diana-garnet  verses 9/9  vocab 28/28  coverage 0%
+[43/56] [ok                ] heroes-brian-the-sun  verses 9/9  vocab 35/35  coverage 0%
+[44/56] [ok                ] great-escape-cinema-staff  verses 5/5  vocab 21/21  coverage 0%
+[45/56] [ok                ] uso-sid  verses 7/7  vocab 32/32  coverage 0%
+[46/56] [ok                ] haruka-kanata-asian-kung-fu-generation  verses 8/8  vocab 19/19  coverage 0%
+[47/56] [no_detected_verses] pinocchio-ore-ska-band
+[48/56] [ok                ] heros-come-back-nobodyknows  verses 19/19  vocab 13/13  coverage 0%
+[49/56] [ok                ] distance-long-shot-party  verses 10/10  vocab 10/10  coverage 0%
+[50/56] [ok                ] kara-no-kokoro-anly  verses 2/40  vocab 5/60  coverage 21%
+[51/56] [ok                ] mezamero-yasei-matchy-with-question  verses 5/5  vocab 5/5  coverage 0%
+[52/56] [ok                ] long-kiss-goodbye-halcali  verses 7/31  vocab 17/90  coverage 35%
+[53/56] [ok                ] utakata-hanabi-supercell  verses 6/6  vocab 21/21  coverage 0%
+[54/56] [ok                ] u-can-do-it-domino  verses 13/13  vocab 21/21  coverage 0%
+[55/56] [ok                ] sonna-kimi-konna-boku-thinking-dogs  verses 9/9  vocab 33/33  coverage 0%
+[56/56] [ok                ] the-day-porno-graffitti  verses 9/9  vocab 31/31  coverage 0%
+
+=== Summary ===
+  ok: 51
+  no_detected_verses: 5
