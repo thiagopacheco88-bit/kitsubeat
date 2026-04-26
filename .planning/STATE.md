@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 11.1-01-PLAN.md: youtube_id audit + shell wiring"
-last_updated: "2026-04-26T17:06:16.877Z"
+stopped_at: "Completed 11.1-02-PLAN.md: transaction wrap + integration test"
+last_updated: "2026-04-26T17:15:25.720Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 16
   completed_phases: 9
   total_plans: 76
-  completed_plans: 67
-  percent: 88
+  completed_plans: 68
+  percent: 89
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 11.1 (add-song-pipeline) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
@@ -43,7 +43,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-04-26
 
-Progress: [█████████░] 88%
+Progress: [█████████░] 89%
 
 ## Performance Metrics
 
@@ -125,6 +125,7 @@ Progress: [█████████░] 88%
 | Phase 11.2 P02 | 7 | 2 tasks | 2 files |
 | Phase 11.2 P03 | 3 min | 2 tasks | 3 files |
 | Phase 11.1 P01 | 2 | 2 tasks | 3 files |
+| Phase 11.1 P11.1-02 | 8 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -361,6 +362,9 @@ Progress: [█████████░] 88%
 - Dynamic import for DB in audit enables --self-test without DATABASE_URL
 - Cross-slug filter uses Set.size > 1; same youtube_id on full+tv of same slug allowed
 - Both batch shells use || exit 1 (not run_step wrapper) to propagate audit exit code
+- Use script-local Pool (not getDb()) because neon-http lacks callback transactions
+- Export insertSongTransactional() for direct test invocation without subprocess spawning
+- Guard main() with ESM basename check to prevent test import from triggering full upsert
 
 ### Pending Todos
 
@@ -386,8 +390,8 @@ Progress: [█████████░] 88%
 
 ## Session Continuity
 
-Last session: 2026-04-26T17:06:16.867Z
-Stopped at: Completed 11.1-01-PLAN.md: youtube_id audit + shell wiring
+Last session: 2026-04-26T17:15:25.711Z
+Stopped at: Completed 11.1-02-PLAN.md: transaction wrap + integration test
 Resume file: None
 
 **Planned Phase:** 11.1 (Add-Song Pipeline) — 3 plans — 2026-04-26T16:55:52.096Z
