@@ -1109,3 +1109,69 @@ C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\transformers\co
 
 ==================================================================
 [done] ok=3  skipped=0  failed=0  total=3
+C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\pyannote\audio\core\io.py:47: UserWarning: 
+torchcodec is not installed correctly so built-in audio decoding will fail. Solutions are:
+* use audio preloaded in-memory as a {'waveform': (channel, time) torch.Tensor, 'sample_rate': int} dictionary;
+* fix torchcodec installation. Error message was:
+
+Could not load libtorchcodec. Likely causes:
+          1. FFmpeg is not properly installed in your environment. We support
+             versions 4, 5, 6 and 7.
+          2. The PyTorch version (2.8.0+cpu) is not compatible with
+             this version of TorchCodec. Refer to the version compatibility
+             table:
+             https://github.com/pytorch/torchcodec?tab=readme-ov-file#installing-torchcodec.
+          3. Another runtime dependency; see exceptions below.
+        The following exceptions were raised as we tried to load libtorchcodec:
+        
+[start of libtorchcodec loading traceback]
+FFmpeg version 7: Could not find module 'C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\torchcodec\libtorchcodec_core7.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+FFmpeg version 6: Could not find module 'C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\torchcodec\libtorchcodec_core6.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+FFmpeg version 5: Could not find module 'C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\torchcodec\libtorchcodec_core5.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+FFmpeg version 4: Could not find module 'C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\torchcodec\libtorchcodec_core4.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+[end of libtorchcodec loading traceback].
+  warnings.warn(
+[config] model=large-v3  batch_size=4  language=ja  out=data/timing-cache-tv-stem
+==================================================================
+
+[1/3] wind-akeboshi
+  [whisperx] Device: cpu, compute_type: int8
+  [whisperx] Loading model 'large-v3' ...
+2026-04-26 22:03:35 - whisperx.vads.pyannote - INFO - Performing voice activity detection using Pyannote...
+Lightning automatically upgraded your loaded checkpoint from v1.5.4 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\whisperx\assets\pytorch_model.bin`
+C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\transformers\configuration_utils.py:335: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  warnings.warn(
+  [whisperx] Transcribing (batch_size=4) ...
+  [whisperx] Loading alignment model for 'ja' ...
+  [whisperx] Running forced alignment ...
+  [whisperx] Extracted 170 words from alignment
+  [ok] 170 words (80.8s) -> data/timing-cache-tv-stem\wind-akeboshi.json
+
+[2/3] remember-flow
+  [whisperx] Device: cpu, compute_type: int8
+  [whisperx] Loading model 'large-v3' ...
+2026-04-26 22:04:44 - whisperx.vads.pyannote - INFO - Performing voice activity detection using Pyannote...
+Lightning automatically upgraded your loaded checkpoint from v1.5.4 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\whisperx\assets\pytorch_model.bin`
+C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\transformers\configuration_utils.py:335: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  warnings.warn(
+  [whisperx] Transcribing (batch_size=4) ...
+  [whisperx] Loading alignment model for 'ja' ...
+  [whisperx] Running forced alignment ...
+  [whisperx] Extracted 161 words from alignment
+  [ok] 161 words (93.1s) -> data/timing-cache-tv-stem\remember-flow.json
+
+[3/3] shinkokyuu-super-beaver
+  [whisperx] Device: cpu, compute_type: int8
+  [whisperx] Loading model 'large-v3' ...
+2026-04-26 22:06:17 - whisperx.vads.pyannote - INFO - Performing voice activity detection using Pyannote...
+Lightning automatically upgraded your loaded checkpoint from v1.5.4 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\whisperx\assets\pytorch_model.bin`
+C:\Users\thiag\velora-projects\kitsubeat\.venv\Lib\site-packages\transformers\configuration_utils.py:335: UserWarning: Passing `gradient_checkpointing` to a config initialization is deprecated and will be removed in v5 Transformers. Using `model.gradient_checkpointing_enable()` instead, or if you are using the `Trainer` API, pass `gradient_checkpointing=True` in your `TrainingArguments`.
+  warnings.warn(
+  [whisperx] Transcribing (batch_size=4) ...
+  [whisperx] Loading alignment model for 'ja' ...
+  [whisperx] Running forced alignment ...
+  [whisperx] Extracted 190 words from alignment
+  [ok] 190 words (95.4s) -> data/timing-cache-tv-stem\shinkokyuu-super-beaver.json
+
+==================================================================
+[done] ok=3  skipped=0  failed=0  total=3

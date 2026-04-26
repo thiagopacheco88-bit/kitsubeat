@@ -255,7 +255,7 @@ Plans:
 - [x] 11.2-02-PLAN.md -- NW-based derive script (10b-derive-tv-lessons-nw.ts; replaces per-verse romaji LCS with global Needleman-Wunsch)
 - [x] 11.2-03-PLAN.md -- Audit script (audit-tv-lessons.ts; D-07 thresholds) + DB snapshot/restore escape hatch (D-09)
 - [~] 11.2-04-PLAN.md -- Pre-batch fixes: D-04 mountain-a-go-go full-lesson regen + D-02 archive old LCS scripts to _attic/ (PARTIAL: Task 2 archive shipped; Task 1 regen deferred — upstream lyrics-cache itself is romaji)
-- [ ] 11.2-05-PLAN.md -- 60-song NW batch run + per-straggler D-05 ladder triage (5-8h wall-clock)
+- [x] 11.2-05-PLAN.md -- 60-song NW batch run + per-straggler D-05 ladder triage — 47 lessons kept, 9 dropped (manifest dupes / English-only / NW-fail), 4 pre-excluded; ~2.5h actual
 - [ ] 11.2-06-PLAN.md -- 8-song spot-check (+/-500ms onset; sign-flow + 7 adversarial picks) + audit gate against data/lessons-cache-tv-nw/
 - [ ] 11.2-07-PLAN.md -- Snapshot + directory swap + 10c-load-tv-lessons.ts + final production-DB audit (catalog rollout)
 
