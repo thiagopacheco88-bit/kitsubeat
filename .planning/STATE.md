@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 11.2-01-PLAN.md: tv-demucs-isolate.py + tv-transcribe-stems.py"
-last_updated: "2026-04-26T16:34:05.969Z"
+stopped_at: "Completed 11.2-02-PLAN.md: NW-based TV lesson derive script"
+last_updated: "2026-04-26T16:46:23.986Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 16
   completed_phases: 9
-  total_plans: 73
-  completed_plans: 64
+  total_plans: 74
+  completed_plans: 65
   percent: 88
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 11.2 (tv-derive-rework-demucs-nw) — EXECUTING
-Plan: 2 of 7
+Plan: 3 of 7
 Status: Ready to execute
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
@@ -43,7 +43,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-04-26
 
-Progress: [█████████░] 88%
+Progress: [█████████░] 89%
 
 ## Performance Metrics
 
@@ -122,6 +122,7 @@ Progress: [█████████░] 88%
 | Phase 12-learning-path-and-gamification P04 | 65 | 3 tasks | 6 files |
 | Phase 12-learning-path-and-gamification P06 | 10 | 3 tasks | 14 files |
 | Phase 11.2 P01 | 4 min | 2 tasks | 2 files |
+| Phase 11.2 P02 | 7 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -350,6 +351,9 @@ Progress: [█████████░] 88%
 - TV Demucs pipeline uses demucs.separate.main() directly (not subprocess) per acceptance criteria
 - TV stems keep nested htdemucs/{slug}/vocals.wav layout (not flattened) per D-01
 - WhisperX env setup (.venv/Scripts PATH + PYTHONIOENCODING=utf-8) baked into tv-transcribe-stems.py main()
+- NW global alignment replaces per-verse LCS for TV lesson derive (SPEC-REQ-2)
+- TV time index: word.start for intermediate chars, word.end for last char per word
+- Test file in tests/unit/ not scripts/seed/ — vitest include config requires this
 
 ### Pending Todos
 
@@ -375,6 +379,6 @@ Progress: [█████████░] 88%
 
 ## Session Continuity
 
-Last session: 2026-04-26T16:34:05.961Z
-Stopped at: Completed 11.2-01-PLAN.md: tv-demucs-isolate.py + tv-transcribe-stems.py
+Last session: 2026-04-26T16:46:23.977Z
+Stopped at: Completed 11.2-02-PLAN.md: NW-based TV lesson derive script
 Resume file: None
