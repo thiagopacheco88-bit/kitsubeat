@@ -114,12 +114,34 @@ export default function LyricsPanel({
             return fb;
           })();
 
-    if (!offsetMs) return base;
     const shifted = new Map<number, { startMs: number; endMs: number }>();
-    for (const [k, t] of base) {
-      shifted.set(k, {
-        startMs: Math.max(0, t.startMs + offsetMs),
-        endMs: Math.max(0, t.endMs + offsetMs),
+    if (offsetMs) {
+      for (const [k, t] of base) {
+        shifted.set(k, {
+          startMs: Math.max(0, t.startMs + offsetMs),
+          endMs: Math.max(0, t.endMs + offsetMs),
+        });
+      }
+    } else {
+      for (const [k, t] of base) shifted.set(k, { ...t });
+    }
+
+    // Karaoke lead-in: light up the next verse slightly before its vocal
+    // starts. Lead is half the gap to the previous verse, capped at
+    // LEAD_MS_MAX, so back-to-back verses don't overlap and long
+    // instrumental gaps don't trigger the highlight too early.
+    const LEAD_MS_MAX = 500;
+    const ordered = verses
+      .map((v) => ({ vno: v.verse_number, t: shifted.get(v.verse_number) }))
+      .filter((x): x is { vno: number; t: { startMs: number; endMs: number } } => !!x.t)
+      .sort((a, b) => a.t.startMs - b.t.startMs);
+    for (let i = 0; i < ordered.length; i++) {
+      const prevEnd = i > 0 ? ordered[i - 1].t.endMs : ordered[i].t.startMs;
+      const gap = ordered[i].t.startMs - prevEnd;
+      const lead = Math.min(LEAD_MS_MAX, Math.max(0, Math.floor(gap / 2)));
+      shifted.set(ordered[i].vno, {
+        startMs: Math.max(0, ordered[i].t.startMs - lead),
+        endMs: ordered[i].t.endMs,
       });
     }
     return shifted;
