@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: Phase 11.1 context gathered
-last_updated: "2026-04-26T16:33:10.657Z"
-last_activity: 2026-04-26 -- Phase 11.2 execution started
+stopped_at: "Completed 11.2-01-PLAN.md: tv-demucs-isolate.py + tv-transcribe-stems.py"
+last_updated: "2026-04-26T16:34:05.969Z"
+last_activity: 2026-04-26
 progress:
   total_phases: 16
   completed_phases: 9
   total_plans: 73
-  completed_plans: 63
-  percent: 86
+  completed_plans: 64
+  percent: 88
 ---
 
 # Project State
@@ -26,8 +26,8 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 11.2 (tv-derive-rework-demucs-nw) — EXECUTING
-Plan: 1 of 7
-Status: Executing Phase 11.2
+Plan: 2 of 7
+Status: Ready to execute
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
 
@@ -41,9 +41,9 @@ Plan 10-07 complete — Phase 10 premium-gate UI finalization + Phase 10 end-to-
 
 Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUpsellModal (100 LOC) full-screen upsell with per-family copy (listening/10 vs advanced_drill/3), ESC/backdrop close, data-testid + data-family hooks. ExerciseTab gets third mode card "Advanced Drills" (always rendered — CONTEXT-locked); click handler fires `getAdvancedDrillAccess(userId, songVersionId)` server action (Promise.all of 2 checkExerciseAccess + isPremium); on quota exhaustion sets upsell state → modal renders → session does NOT start. buildQuestions gains optional `typeFilter: ExerciseType[]`; Advanced Drills passes `["grammar_conjugation","listening_drill","sentence_order"]`; per-vocab loop + sentence_order loop + grammar-point loop all honor the allowlist. saveSessionResults extended for ex5/ex6/ex7 via GREATEST(COALESCE) — mastery never regresses. recordVocabAnswer stamps user_exercise_song_counters on first answer for song_quota-gated types + server-side re-check; if non-premium user over limit, DELETEs the overshoot row and throws QuotaExhaustedError (RESEARCH Pitfall 6: one answer of slippage possible under cross-device race — documented in upsell past-tense copy). recordAdvancedDrillAttempt action for empty-vocabItemId callers (sentence_order / synthetic grammar_conjugation). saveSessionResults end-of-session safety-net stamps counter for every family present in answer batch (ON CONFLICT DO NOTHING across all 3 paths — no inflation). Phase 08.1-07 test.fixme REMOVED from regression-premium-gate.spec.ts; replaced with live QuotaExhaustedError assertion (seeds 10 listening counter rows, invokes recordVocabAnswer on 11th song, asserts throw + refund). New advanced-drill-quota.spec.ts (4 E2E: 11th-listening upsell, 4th-advanced upsell, independent counters via direct gate check, premium bypass with cleanup). UI regression contract preserved (0 `EXERCISE_FEATURE_FLAGS` imports in src/app or src/stores — confirmed by grep). 263 unit tests green (no regressions). Two Rule-3 auto-fixes (typeFilter TS narrowing → extracted typed const; saveSessionResults end-of-session safety-net needed because sentence_order + synthetic-vocab grammar_conjugation bypass recordVocabAnswer). Commits 0cc9dcd (Task 1 — UI + upsell), 4af194a (Task 2 — saveSessionResults + counter-increment + re-check), fcbb3ce (Task 3 — test.fixme unfix + quota E2E).
 
-Last activity: 2026-04-26 -- Phase 11.2 execution started
+Last activity: 2026-04-26
 
-Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 COMPLETE (6/6 plans); v2.0 Phase 10 COMPLETE (7/7 plans)
+Progress: [█████████░] 88%
 
 ## Performance Metrics
 
@@ -121,6 +121,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | Phase 12 P05 | 391 | 3 tasks | 9 files |
 | Phase 12-learning-path-and-gamification P04 | 65 | 3 tasks | 6 files |
 | Phase 12-learning-path-and-gamification P06 | 10 | 3 tasks | 14 files |
+| Phase 11.2 P01 | 4 min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -346,6 +347,9 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 - [Phase 12-04]: gamification failure isolated so progress write never fails on XP error
 - [Phase 12-learning-path-and-gamification]: PathHud kept separate from ProfileHud; consolidation to GamificationHud deferred to polish plan
 - [Phase 12-learning-path-and-gamification]: level-up.mp3 is a silent placeholder; CC0 asset from freesound.org required before beta
+- TV Demucs pipeline uses demucs.separate.main() directly (not subprocess) per acceptance criteria
+- TV stems keep nested htdemucs/{slug}/vocals.wav layout (not flattened) per D-01
+- WhisperX env setup (.venv/Scripts PATH + PYTHONIOENCODING=utf-8) baked into tv-transcribe-stems.py main()
 
 ### Pending Todos
 
@@ -371,6 +375,6 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 
 ## Session Continuity
 
-Last session: --stopped-at
-Stopped at: Phase 11.1 context gathered
-Resume file: --resume-file
+Last session: 2026-04-26T16:34:05.961Z
+Stopped at: Completed 11.2-01-PLAN.md: tv-demucs-isolate.py + tv-transcribe-stems.py
+Resume file: None
