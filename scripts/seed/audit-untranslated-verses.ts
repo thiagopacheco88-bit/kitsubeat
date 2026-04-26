@@ -26,7 +26,10 @@
  * one row per stub verse for the 6 IN_SCOPE_SLUGS, plus a stdout summary of the
  * catalog-wide count for operator visibility.
  *
- * Verify mode (--verify --slugs=<csv>) is implemented in Task 2 of this plan.
+ * --verify mode runs the same isStub() predicate against the lessons cache AND
+ * the Neon song_versions.lesson JSONB column for the supplied slugs. Exits 1 if
+ * any stubs remain in either source — this is the SPEC-REQ-7 gate that Plan 08
+ * (rollout) calls at the end of the phase.
  *
  * Usage:
  *   npx tsx scripts/seed/audit-untranslated-verses.ts
@@ -34,12 +37,17 @@
  *
  *   npx tsx scripts/seed/audit-untranslated-verses.ts --verify --slugs=<csv>
  *     # checks both data/lessons-cache/<slug>.json AND Neon song_versions.lesson;
- *     # exits 1 if any stubs remain in either source (Task 2 — see SPEC-REQ-7).
+ *     # exits 1 if any stubs remain in either source.
  */
 
-import { readFileSync, writeFileSync, readdirSync } from "fs";
+import { config } from "dotenv";
+import { existsSync, readFileSync, writeFileSync, readdirSync } from "fs";
 import { join, resolve } from "path";
 import { fileURLToPath } from "url";
+
+// Load .env.local FIRST — must happen before any DB client is created
+// (mirrors the pattern in scripts/seed/05-insert-db.ts line 42).
+config({ path: ".env.local" });
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const ROOT = resolve(__dirname, "../..");
@@ -192,10 +200,135 @@ function writeQueue(rows: StubRow[]): void {
 }
 
 // ---------------------------------------------------------------------------
-// Default mode entrypoint (cache walk + queue writer).
-// --verify mode is added in Task 2 of plan 11.3-02.
+// --verify mode: re-run the same isStub() predicate against BOTH the lessons
+// cache AND the Neon song_versions.lesson JSONB column for an explicit list
+// of slugs. Exit code 0 = both clean; 1 = at least one stub remains in either
+// source. This is the SPEC-REQ-7 gate that Plan 08 (rollout) calls at the
+// end of the phase.
+//
+// DB-side details:
+//   - Reuses the same WebSocket Pool + drizzle-orm/neon-serverless client
+//     pattern that scripts/seed/05-insert-db.ts uses (lines 44–46, 337–341).
+//   - Filters song_versions to version_type='full' only — that's the version
+//     05-insert-db.ts writes from the lessons cache. The 'tv' version_type is
+//     owned by the 10-prepare-tv pipeline and is intentionally NOT in scope
+//     for this phase. (05-insert-db.ts has no ORDER BY CASE — it writes 'full'
+//     unconditionally, so there is no precedence to mirror.)
+//   - Uses parameterized queries (Drizzle eq + inArray) — no SQL injection
+//     vector even though --slugs is operator-supplied.
+// ---------------------------------------------------------------------------
+async function runVerify(verifySlugs: string[]): Promise<number> {
+  // Cache-side check — re-uses isStub() against data/lessons-cache/<slug>.json.
+  let cacheTotal = 0;
+  const cachePerSlug = new Map<string, number>();
+  for (const slug of verifySlugs) {
+    const path = join(LESSONS_DIR, `${slug}.json`);
+    if (!existsSync(path)) {
+      console.warn(`[verify cache] ${slug}: SKIP — no cache file at ${path}`);
+      cachePerSlug.set(slug, 0);
+      continue;
+    }
+    let lesson: Lesson;
+    try {
+      lesson = JSON.parse(readFileSync(path, "utf-8")) as Lesson;
+    } catch (err) {
+      console.error(`[verify cache] ${slug}: ERROR parsing JSON — ${(err as Error).message}`);
+      cachePerSlug.set(slug, -1);
+      continue;
+    }
+    const verses = Array.isArray(lesson?.verses) ? lesson.verses : [];
+    const n = verses.filter((v) => isStub(v) !== false).length;
+    cachePerSlug.set(slug, n);
+    cacheTotal += n;
+    console.log(`[verify cache] ${slug}: ${n} stubs`);
+  }
+
+  // DB-side check — query Neon song_versions.lesson via Drizzle.
+  // Imports are dynamic so cache-only operators don't pay the DB-bundle cost
+  // when running default mode.
+  if (!process.env.DATABASE_URL) {
+    console.error("[verify] ERROR: DATABASE_URL is not set in .env.local — required for DB-side check.");
+    return 1;
+  }
+  const { Pool } = await import("@neondatabase/serverless");
+  const { drizzle: drizzlePool } = await import("drizzle-orm/neon-serverless");
+  const { eq, inArray, and } = await import("drizzle-orm");
+  const { songs, songVersions } = await import("../../src/lib/db/schema.js");
+
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  const db = drizzlePool(pool);
+
+  let dbTotal = 0;
+  const dbPerSlug = new Map<string, number>();
+  try {
+    // Single round-trip: pull the 'full' version for every requested slug.
+    const rows = await db
+      .select({
+        slug: songs.slug,
+        lesson: songVersions.lesson,
+      })
+      .from(songVersions)
+      .innerJoin(songs, eq(songVersions.song_id, songs.id))
+      .where(and(inArray(songs.slug, verifySlugs), eq(songVersions.version_type, "full")));
+
+    const rowsBySlug = new Map<string, unknown>();
+    for (const r of rows) rowsBySlug.set(r.slug, r.lesson);
+
+    for (const slug of verifySlugs) {
+      if (!rowsBySlug.has(slug)) {
+        console.warn(`[verify db] ${slug}: SKIP — no full version row in song_versions`);
+        dbPerSlug.set(slug, 0);
+        continue;
+      }
+      const lesson = rowsBySlug.get(slug) as Lesson | null;
+      const verses = Array.isArray(lesson?.verses) ? lesson!.verses : [];
+      const n = verses.filter((v) => isStub(v) !== false).length;
+      dbPerSlug.set(slug, n);
+      dbTotal += n;
+      console.log(`[verify db] ${slug}: ${n} stubs`);
+    }
+  } finally {
+    await pool.end();
+  }
+
+  // Final gate: PASS only if both sources are clean.
+  if (cacheTotal + dbTotal > 0) {
+    console.error(
+      `[verify] FAIL — cache: ${cacheTotal} stubs, db: ${dbTotal} stubs across ${verifySlugs.length} slug(s)`
+    );
+    return 1;
+  }
+  console.log(`[verify] PASS — zero stubs across cache + DB for ${verifySlugs.length} slugs`);
+  return 0;
+}
+
+// ---------------------------------------------------------------------------
+// Default mode entrypoint (cache walk + queue writer) OR --verify mode
+// dispatch (cache + DB stub check). CLI parsing mirrors the --slug= shape
+// from scripts/seed/05-insert-db.ts lines 307–310, but uses --slugs= (plural)
+// because verify takes a list and the plural form is more accurate.
 // ---------------------------------------------------------------------------
 async function main(): Promise<void> {
+  const isVerify = process.argv.includes("--verify");
+  const slugsArg = process.argv.find((a) => a.startsWith("--slugs="));
+  const verifySlugs = slugsArg
+    ? slugsArg
+        .slice("--slugs=".length)
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)
+    : null;
+
+  if (isVerify) {
+    if (!verifySlugs || verifySlugs.length === 0) {
+      console.error("--verify requires --slugs=<csv>");
+      process.exit(2);
+    }
+    const code = await runVerify(verifySlugs);
+    process.exit(code);
+  }
+
+  // Default mode: cache walk + queue writer.
   const result = walkCache();
 
   console.log(
