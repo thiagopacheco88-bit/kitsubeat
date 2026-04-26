@@ -239,7 +239,7 @@ Plans:
 **Requirements:** None mapped to REQUIREMENTS.md REQ-IDs (operational tooling phase). The 11 falsifiable acceptance criteria locked in 11.1-SPEC.md are the coverage requirement.
 **Plans:** 3 plans
 Plans:
-- [ ] 11.1-01-PLAN.md — Cross-song youtube_id audit script + wiring into both batch shells
+- [x] 11.1-01-PLAN.md — Cross-song youtube_id audit script + wiring into both batch shells
 - [ ] 11.1-02-PLAN.md — Per-song transactional DB write (script-local WebSocket pool) + Vitest rollback test
 - [ ] 11.1-03-PLAN.md — Operator quick-start README (docs/README-adding-songs.md, ≤ 100 lines, 5 locked scenarios)
 
