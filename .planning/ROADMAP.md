@@ -232,6 +232,17 @@ Plans:
 - [x] 08.1-07-PLAN.md -- Regression guards (cross-song leakage, premium gate bypass, geo fallback, stale lesson data)
 - [x] 08.1-08-PLAN.md -- Suite hardening (15-min speed budget enforcement, quarantine convention, CI workflow, docs)
 
+### Phase 11.1: Add-Song Pipeline (INSERTED 2026-04-19)
+
+**Goal:** Close three concrete gaps in the existing add-song pipeline so adding a new song to KitsuBeat is reliable enough that no song ships a streak-killer (broken karaoke, half-written DB row, duplicate YouTube ID), and operator overhead is reduced via a single-page README. The pipeline itself (the 8 gates documented in docs/SONG_INGESTION_SOP.md) is not rewritten — only the three gaps are filled.
+**Depends on:** Phase 11 (Cross-Song Vocabulary — schema dependency only; the songs/song_versions tables this phase wraps in transactions were finalized there)
+**Requirements:** None mapped to REQUIREMENTS.md REQ-IDs (operational tooling phase). The 11 falsifiable acceptance criteria locked in 11.1-SPEC.md are the coverage requirement.
+**Plans:** 3 plans
+Plans:
+- [ ] 11.1-01-PLAN.md — Cross-song youtube_id audit script + wiring into both batch shells
+- [ ] 11.1-02-PLAN.md — Per-song transactional DB write (script-local WebSocket pool) + Vitest rollback test
+- [ ] 11.1-03-PLAN.md — Operator quick-start README (docs/README-adding-songs.md, ≤ 100 lines, 5 locked scenarios)
+
 ### Phase 11.2: TV-Derive Rework with Demucs + Needleman-Wunsch (INSERTED 2026-04-26)
 
 **Goal:** Replace the LCS-based TV-lesson derivation (which fails on clean Demucs-stem WhisperX input) with a Demucs+WhisperX+Needleman-Wunsch pipeline; re-derive and reload all 60 TV lessons (including the 4 currently-failing stragglers); ship a regression-guarding audit script for loaded-but-degenerate TV lessons. Gated by an objective per-verse onset spot-check (8 adversarial songs across JLPT N5/N4/N3/N2; sign-flow MUST be in the set as the trigger case for the phase).
