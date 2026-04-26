@@ -4,7 +4,7 @@ milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
 stopped_at: "Completed 11.2-03-PLAN.md: audit + snapshot/restore scripts"
-last_updated: "2026-04-26T16:53:46.759Z"
+last_updated: "2026-04-26T16:55:52.106Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 16
@@ -386,3 +386,5 @@ Progress: [█████████░] 87%
 Last session: 2026-04-26T16:53:46.751Z
 Stopped at: Completed 11.2-03-PLAN.md: audit + snapshot/restore scripts
 Resume file: None
+
+**Planned Phase:** 11.1 (Add-Song Pipeline) — 3 plans — 2026-04-26T16:55:52.096Z
