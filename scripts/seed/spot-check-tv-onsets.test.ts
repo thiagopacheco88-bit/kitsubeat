@@ -10,8 +10,9 @@
  * Tests use synthetic lesson + stem JSON; no real catalog data needed.
  */
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import { checkVerseOnsets, type VerseOnsetResult } from "./spot-check-tv-onsets.js";
+import { initKuroshiro } from "../lib/kuroshiro-tokenizer.js";
 
 // ---------------------------------------------------------------------------
 // Synthetic data helpers
@@ -44,6 +45,10 @@ function makeTiming(words: Array<{ word: string; start: number; end: number }>) 
 // ---------------------------------------------------------------------------
 
 describe("checkVerseOnsets", () => {
+  // kuroshiro needs one-time initialization before any test that calls toHepburnRomaji
+  beforeAll(async () => {
+    await initKuroshiro();
+  });
   it("Test 1: delta within ±500ms → PASS (delta=100ms)", async () => {
     // Lesson says verse starts at 1000ms; audio onset (first matched char) is at 1100ms
     // delta = 1000 - 1100 = -100ms → |delta| = 100 ≤ 500 → PASS
