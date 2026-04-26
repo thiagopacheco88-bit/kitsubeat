@@ -5,10 +5,12 @@ import { getDb } from "../../src/lib/db/index.js";
 import { songs, songVersions } from "../../src/lib/db/schema.js";
 import { eq } from "drizzle-orm";
 
-const slugs = [
-  "mezase-pokemon-master-rica-matsumoto",
-  "guren-no-yumiya-linked-horizon",
-];
+const slugs = process.argv.slice(2).length
+  ? process.argv.slice(2)
+  : [
+      "mezase-pokemon-master-rica-matsumoto",
+      "guren-no-yumiya-linked-horizon",
+    ];
 
 const db = getDb();
 for (const slug of slugs) {
