@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
-status: ready_to_plan
-stopped_at: "Completed 11.1-03-PLAN.md: operator quick-start README"
-last_updated: "2026-04-26T17:19:02.678Z"
+status: executing
+stopped_at: "Completed 11.3-02-PLAN.md: stub-detection auditor + cache+DB verification gate"
+last_updated: "2026-04-26T21:19:59.211Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 16
-  completed_phases: 11
-  total_plans: 76
-  completed_plans: 70
-  percent: 69
+  completed_phases: 10
+  total_plans: 84
+  completed_plans: 71
+  percent: 85
 ---
 
 # Project State
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** Phase 11.1 — add-song-pipeline
+**Current focus:** Phase 11.3 — Fix Untranslated JP Verses
 
 ## Current Position
 
-Phase: 11.2
-Plan: Not started
-Status: Ready to plan
+Phase: 11.3 (Fix Untranslated JP Verses) — EXECUTING
+Plan: 2 of 8
+Status: Ready to execute
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
 
@@ -43,7 +43,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-04-26
 
-Progress: [█████████░] 92%
+Progress: [█████████░] 85%
 
 ## Performance Metrics
 
@@ -128,6 +128,7 @@ Progress: [█████████░] 92%
 | Phase 11.1 P01 | 2 | 2 tasks | 3 files |
 | Phase 11.1 P11.1-02 | 8 | 2 tasks | 2 files |
 | Phase 11.1 P03 | 3 | 1 tasks | 1 files |
+| Phase 11.3 P02 | 8 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -368,6 +369,8 @@ Progress: [█████████░] 92%
 - Export insertSongTransactional() for direct test invocation without subprocess spawning
 - Guard main() with ESM basename check to prevent test import from triggering full upsert
 - D-09 pure-pointers: README links into SOP only, zero SOP content duplication
+- 11.3-02: Broadened CONTEXT-locked stub predicate from tokens.length===1 to any-token-has-JP — required to match the load-bearing SPEC count of 159 in-scope stubs (catches auto-coverage placeholders the original predicate missed)
+- 11.3-02: --verify gate scopes to song_versions.version_type='full' (mirrors 05-insert-db.ts data flow); TV versions remain owned by 10-prepare-tv pipeline
 
 ### Pending Todos
 
@@ -393,8 +396,8 @@ Progress: [█████████░] 92%
 
 ## Session Continuity
 
-Last session: 2026-04-26T17:19:02.670Z
-Stopped at: Completed 11.1-03-PLAN.md: operator quick-start README
+Last session: 2026-04-26T21:19:59.202Z
+Stopped at: Completed 11.3-02-PLAN.md: stub-detection auditor + cache+DB verification gate
 Resume file: None
 
-**Planned Phase:** 11.1 (Add-Song Pipeline) — 3 plans — 2026-04-26T16:55:52.096Z
+**Planned Phase:** 11.3 (Fix Untranslated JP Verses) — 8 plans — 2026-04-26T19:37:13.470Z
