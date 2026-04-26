@@ -37,11 +37,12 @@ import { readFileSync, existsSync, statSync } from "fs";
 import { resolve, join } from "path";
 import { fileURLToPath } from "url";
 
-// Load .env.local FIRST — must happen before getDb() is called
+// Load .env.local FIRST — must happen before any DB client is created
 // (dotenv config runs synchronously at top of module body, before await/async code)
 config({ path: ".env.local" });
 
-import { getDb } from "../../src/lib/db/index.js";
+import { Pool } from "@neondatabase/serverless";
+import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
 import { songs, songVersions } from "../../src/lib/db/schema.js";
 import { SongManifestSchema } from "../types/manifest.js";
 import { LessonSchema, type Lesson } from "../types/lesson.js";
@@ -177,6 +178,126 @@ function buildWhisperLyrics(slug: string): WhisperLyricsJson | null {
 }
 
 // ---------------------------------------------------------------------------
+// Exported helper — used directly by integration tests
+// ---------------------------------------------------------------------------
+
+export interface InsertSongInputs {
+  lesson: Lesson;
+  lyricsSource: string | null;
+  syncedLrc: LyricsCacheEntry["synced_lrc"] | null;
+  canonicalLyrics: CanonicalLyricsJson | null;
+  whisperLyrics: WhisperLyricsJson | null;
+  timingYoutubeId: string | null;
+  timingData: TimingCacheEntry | null;
+}
+
+/**
+ * Upserts one song's `songs` row + `song_versions` row inside a single
+ * db.transaction() so a mid-row failure rolls back both writes atomically.
+ *
+ * Called by the per-song loop in main() and directly by integration tests.
+ * Throws on any DB error so the caller's catch block can record the failure.
+ */
+export async function insertSongTransactional(
+  db: ReturnType<typeof drizzlePool>,
+  song: {
+    slug: string;
+    title: string;
+    artist: string;
+    anime: string;
+    season_info?: string | null;
+    year_launched?: number | null;
+    genre_tags?: string[];
+    mood_tags?: string[];
+    youtube_id?: string | null;
+  },
+  inputs: InsertSongInputs,
+): Promise<void> {
+  const {
+    lesson,
+    lyricsSource,
+    syncedLrc,
+    canonicalLyrics,
+    whisperLyrics,
+    timingYoutubeId,
+    timingData,
+  } = inputs;
+
+  await db.transaction(async (tx) => {
+    // 1. Upsert shared metadata into songs; capture id for the version upsert.
+    const [songRow] = await tx
+      .insert(songs)
+      .values({
+        slug: song.slug,
+        title: song.title,
+        artist: song.artist,
+        anime: song.anime,
+        season_info: song.season_info ?? null,
+        year_launched: song.year_launched ?? null,
+        genre_tags: song.genre_tags ?? [],
+        mood_tags: song.mood_tags ?? [],
+        jlpt_level: lesson.jlpt_level,
+        difficulty_tier: lesson.difficulty_tier,
+        content_schema_version: 1,
+      })
+      .onConflictDoUpdate({
+        target: songs.slug,
+        set: {
+          title: song.title,
+          artist: song.artist,
+          anime: song.anime,
+          season_info: song.season_info ?? null,
+          year_launched: song.year_launched ?? null,
+          genre_tags: song.genre_tags ?? [],
+          mood_tags: song.mood_tags ?? [],
+          jlpt_level: lesson.jlpt_level,
+          difficulty_tier: lesson.difficulty_tier,
+          content_schema_version: 1,
+          updated_at: new Date(),
+        },
+      })
+      .returning({ id: songs.id });
+
+    if (!songRow) {
+      throw new Error("songs upsert returned no row");
+    }
+
+    // 2. Upsert the full-version row into song_versions inside the SAME transaction.
+    //    TV rows are owned by the 10-prepare-tv pipeline and are intentionally left alone.
+    await tx
+      .insert(songVersions)
+      .values({
+        song_id: songRow.id,
+        version_type: "full",
+        youtube_id: song.youtube_id ?? null,
+        lesson: lesson,
+        lyrics_source: lyricsSource,
+        synced_lrc: syncedLrc as unknown as Record<string, unknown> | null,
+        lyrics_offset_ms: 0,
+        canonical_lyrics: canonicalLyrics as unknown as Record<string, unknown> | null,
+        whisper_lyrics: whisperLyrics as unknown as Record<string, unknown> | null,
+        timing_youtube_id: timingYoutubeId,
+        timing_data: timingData as unknown as Record<string, unknown> | null,
+        timing_verified: "auto",
+      })
+      .onConflictDoUpdate({
+        target: [songVersions.song_id, songVersions.version_type],
+        set: {
+          youtube_id: song.youtube_id ?? null,
+          lesson: lesson,
+          lyrics_source: lyricsSource,
+          synced_lrc: syncedLrc as unknown as Record<string, unknown> | null,
+          canonical_lyrics: canonicalLyrics as unknown as Record<string, unknown> | null,
+          whisper_lyrics: whisperLyrics as unknown as Record<string, unknown> | null,
+          timing_youtube_id: timingYoutubeId,
+          timing_data: timingData as unknown as Record<string, unknown> | null,
+          updated_at: new Date(),
+        },
+      });
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -210,12 +331,23 @@ async function main(): Promise<void> {
     console.log(`  Loaded manifest: ${manifest.length} songs`);
   }
 
-  // 2. Process each song
+  // 2. Initialise script-local WebSocket pool (required for db.transaction()).
+  //    The app's getDb() returns NeonHttpDatabase which does NOT support callback
+  //    transactions — the WebSocket pool is the only viable path (D-04 + PATTERNS.md).
+  if (!process.env.DATABASE_URL) {
+    throw new Error("DATABASE_URL is not set in .env.local — required for WebSocket pool.");
+  }
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  const db = drizzlePool(pool);
+
+  // 3. Process each song
   let insertedCount = 0;
   let updatedCount = 0;
   let skippedCount = 0;
   let errorCount = 0;
+  const failedSlugs: string[] = [];
 
+  try {
   for (const song of manifest) {
     const lessonPath = join(LESSONS_CACHE_DIR, `${song.slug}.json`);
     const timingPath = join(TIMING_CACHE_DIR, `${song.slug}.json`);
@@ -279,85 +411,27 @@ async function main(): Promise<void> {
     const whisperLyrics = buildWhisperLyrics(song.slug);
 
     try {
-      const db = getDb();
-
-      // 1. Upsert shared metadata into songs; capture id for the version upsert.
-      const [songRow] = await db
-        .insert(songs)
-        .values({
-          slug: song.slug,
-          title: song.title,
-          artist: song.artist,
-          anime: song.anime,
-          season_info: song.season_info ?? null,
-          year_launched: song.year_launched ?? null,
-          genre_tags: song.genre_tags ?? [],
-          mood_tags: song.mood_tags ?? [],
-          jlpt_level: lesson.jlpt_level,
-          difficulty_tier: lesson.difficulty_tier,
-          content_schema_version: 1,
-        })
-        .onConflictDoUpdate({
-          target: songs.slug,
-          set: {
-            title: song.title,
-            artist: song.artist,
-            anime: song.anime,
-            season_info: song.season_info ?? null,
-            year_launched: song.year_launched ?? null,
-            genre_tags: song.genre_tags ?? [],
-            mood_tags: song.mood_tags ?? [],
-            jlpt_level: lesson.jlpt_level,
-            difficulty_tier: lesson.difficulty_tier,
-            content_schema_version: 1,
-            updated_at: new Date(),
-          },
-        })
-        .returning({ id: songs.id });
-
-      if (!songRow) {
-        throw new Error("songs upsert returned no row");
-      }
-
-      // 2. Upsert the full-version row into song_versions. TV rows are owned by
-      //    the 10-prepare-tv pipeline and are intentionally left alone here.
-      await db
-        .insert(songVersions)
-        .values({
-          song_id: songRow.id,
-          version_type: "full",
-          youtube_id: song.youtube_id ?? null,
-          lesson: lesson,
-          lyrics_source: lyricsSource,
-          synced_lrc: syncedLrc as unknown as Record<string, unknown> | null,
-          lyrics_offset_ms: 0,
-          canonical_lyrics: canonicalLyrics as unknown as Record<string, unknown> | null,
-          whisper_lyrics: whisperLyrics as unknown as Record<string, unknown> | null,
-          timing_youtube_id: timingYoutubeId,
-          timing_data: timingData as unknown as Record<string, unknown> | null,
-          timing_verified: "auto",
-        })
-        .onConflictDoUpdate({
-          target: [songVersions.song_id, songVersions.version_type],
-          set: {
-            youtube_id: song.youtube_id ?? null,
-            lesson: lesson,
-            lyrics_source: lyricsSource,
-            synced_lrc: syncedLrc as unknown as Record<string, unknown> | null,
-            canonical_lyrics: canonicalLyrics as unknown as Record<string, unknown> | null,
-            whisper_lyrics: whisperLyrics as unknown as Record<string, unknown> | null,
-            timing_youtube_id: timingYoutubeId,
-            timing_data: timingData as unknown as Record<string, unknown> | null,
-            updated_at: new Date(),
-          },
-        });
+      await insertSongTransactional(db, song, {
+        lesson,
+        lyricsSource,
+        syncedLrc,
+        canonicalLyrics,
+        whisperLyrics,
+        timingYoutubeId,
+        timingData,
+      });
 
       insertedCount++;
       process.stdout.write(`  [OK] ${song.slug} — upserted\n`);
     } catch (err) {
-      console.error(`  [ERROR] ${song.slug} — DB upsert failed: ${(err as Error).message}`);
+      // D-05 locked stderr format — emit ONLY slug + message, never connection string / stack.
+      console.error(`[insert-fail] slug=${song.slug} error=${(err as Error).message}`);
+      failedSlugs.push(song.slug);
       errorCount++;
     }
+  }
+  } finally {
+    await pool.end();
   }
 
   // Summary
@@ -367,6 +441,16 @@ async function main(): Promise<void> {
   console.log(`  Errors: ${errorCount}`);
   console.log(`  Total manifest songs: ${manifest.length}`);
   console.log("\nDone.");
+
+  // D-05 end-of-run failure summary (SPEC AC #9)
+  if (failedSlugs.length > 0) {
+    console.error(`\n${failedSlugs.length} songs failed: ${failedSlugs.join(", ")}`);
+  }
+  // Non-zero exit ONLY if every song failed — overnight pipelines value partial
+  // progress over zero progress (SPEC AC #9).
+  if (manifest.length > 0 && failedSlugs.length === manifest.length) {
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {
