@@ -27,7 +27,9 @@
  *
  * Usage:
  *   npx drizzle-kit push       # Create/sync songs table in Neon first
- *   npx tsx scripts/seed/05-insert-db.ts
+ *   npx tsx scripts/seed/05-insert-db.ts                 # all songs
+ *   npx tsx scripts/seed/05-insert-db.ts --slug=sign-flow         # one song
+ *   npx tsx scripts/seed/05-insert-db.ts --slug=sign-flow,fly-higher  # subset
  */
 
 import { config } from "dotenv";
@@ -181,6 +183,11 @@ function buildWhisperLyrics(slug: string): WhisperLyricsJson | null {
 async function main(): Promise<void> {
   console.log("=== 05-insert-db: Upsert Songs into Neon Postgres ===\n");
 
+  const slugArg = process.argv.find((a) => a.startsWith("--slug="));
+  const onlySlugs = slugArg
+    ? new Set(slugArg.slice("--slug=".length).split(",").map((s) => s.trim()).filter(Boolean))
+    : null;
+
   // 1. Load manifest
   if (!existsSync(MANIFEST_PATH)) {
     console.error(`ERROR: songs-manifest.json not found at ${MANIFEST_PATH}`);
@@ -188,8 +195,20 @@ async function main(): Promise<void> {
     process.exit(1);
   }
   const manifestRaw = JSON.parse(readFileSync(MANIFEST_PATH, "utf-8"));
-  const manifest = SongManifestSchema.parse(manifestRaw);
-  console.log(`  Loaded manifest: ${manifest.length} songs`);
+  const fullManifest = SongManifestSchema.parse(manifestRaw);
+  const manifest = onlySlugs
+    ? fullManifest.filter((s) => onlySlugs.has(s.slug))
+    : fullManifest;
+  if (onlySlugs) {
+    console.log(`  Loaded manifest: ${manifest.length}/${fullManifest.length} songs (filter: ${[...onlySlugs].join(", ")})`);
+    const missing = [...onlySlugs].filter((s) => !manifest.some((m) => m.slug === s));
+    if (missing.length > 0) {
+      console.error(`  ERROR: --slug values not in manifest: ${missing.join(", ")}`);
+      process.exit(1);
+    }
+  } else {
+    console.log(`  Loaded manifest: ${manifest.length} songs`);
+  }
 
   // 2. Process each song
   let insertedCount = 0;
