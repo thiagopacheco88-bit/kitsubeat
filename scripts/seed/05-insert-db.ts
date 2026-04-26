@@ -453,7 +453,26 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((err) => {
-  console.error("Fatal error:", err);
-  process.exit(1);
-});
+// Guard: only invoke main() when this file is the direct entry point (not imported).
+// Without this guard, test imports trigger main() against the dev DB (Rule-2 fix).
+//
+// tsx invokes the script by setting process.argv[1] to the .ts file path.
+// When imported by Vitest, process.argv[1] points to the vitest runner binary.
+// We compare the base filenames (no extension) to handle tsx's in-memory transform.
+const _selfBasename = fileURLToPath(import.meta.url)
+  .replace(/\\/g, "/")
+  .split("/")
+  .pop()
+  ?.replace(/\.[cm]?[jt]s$/, "") ?? "";
+const _entryBasename = (process.argv[1] ?? "")
+  .replace(/\\/g, "/")
+  .split("/")
+  .pop()
+  ?.replace(/\.[cm]?[jt]s$/, "") ?? "";
+
+if (_selfBasename && _selfBasename === _entryBasename) {
+  main().catch((err) => {
+    console.error("Fatal error:", err);
+    process.exit(1);
+  });
+}
