@@ -91,6 +91,9 @@ run_step "audit-lesson-coverage" \
 run_step "05-insert-db" \
   npx tsx --tsconfig tsconfig.scripts.json scripts/seed/05-insert-db.ts
 
+log "Step 8: cross-song youtube_id audit"
+npx tsx --tsconfig tsconfig.scripts.json scripts/seed/audit-yt-ids.ts || exit 1
+
 # ── Final summary ──────────────────────────────────────────────────────────
 lessons=$(ls data/lessons-cache/*.json 2>/dev/null | grep -vE '\.bak$|\.presplit' | wc -l)
 stems=$(ls data/vocal-stems/*.wav 2>/dev/null | wc -l)

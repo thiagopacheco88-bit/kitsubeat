@@ -95,3 +95,6 @@ cat > "$STATUS_FILE" <<JSON
 }
 JSON
 log "done — status: $STATUS_FILE"
+
+log "Step 6: cross-song youtube_id audit"
+npx tsx --tsconfig tsconfig.scripts.json scripts/seed/audit-yt-ids.ts || exit 1
