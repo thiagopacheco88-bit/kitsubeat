@@ -1,3 +1,19 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: Core Learning Experience
+status: executing
+stopped_at: Phase 11.1 context gathered
+last_updated: "2026-04-26T16:33:10.657Z"
+last_activity: 2026-04-26 -- Phase 11.2 execution started
+progress:
+  total_phases: 16
+  completed_phases: 9
+  total_plans: 73
+  completed_plans: 63
+  percent: 86
+---
+
 # Project State
 
 ## Project Reference
@@ -5,13 +21,13 @@
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** v2.0 Phase 10 COMPLETE — all 7 plans shipped. Star 3 celebration + bonus badge + catalog mastery decorations landed in Plan 10-07. Phase 11 (cross-song vocabulary) previously shipped; remaining work is Phase 12+ features or unfinished v1.0 Phase 1 plans.
+**Current focus:** Phase 11.2 — tv-derive-rework-demucs-nw
 
 ## Current Position
 
-Phase: 10 of 11 (Advanced Exercises & Full Mastery) — COMPLETE
-Plan: 7 of 7 complete (10-01 ✓, 10-02 ✓, 10-03 ✓, 10-04 ✓, 10-05 ✓, 10-06 ✓, 10-07 ✓). Phase 10 shipped end-to-end. Next: Phase 12 or Phase 1 remaining plans.
-Status: Plan 10-01 complete — data-layer foundation shipped: drizzle/0007_advanced_exercises.sql (ex5/ex6/ex7_best_accuracy cols on user_song_progress + user_exercise_song_counters table with UNIQUE(user_id, exercise_family, song_version_id)); ExerciseType union widened 4→7 (grammar_conjugation + listening_drill + sentence_order); Question interface widened one-shot with 4 optional wave-2 fields (conjugationBase/verseStartMs/verseTokens/translation); deriveStars widened 0|1|2→0|1|2|3 (Star 3 gated on Ex 6 ≥80%); deriveBonusBadge added (Ex 5 + Ex 7 both ≥80%); song_quota gate path in checkExerciseAccess(userId, type, {songVersionId}) with premium bypass + already-touched re-entry + quota_exhausted response; counters.ts thin drizzle wrapper (getSongCountForFamily + userHasTouchedSong + recordSongAttempt idempotent via ON CONFLICT DO NOTHING); RATING_WEIGHTS 4→7 entries (grammar_conjugation=4, listening_drill=3, sentence_order=4); 9 generator + 3 ExerciseSession throw-stub branches so wave-2 plans 10-03/04/05 REPLACE stub bodies only (parallel-safe). 34 new unit tests green (13 access mocked + 21 derive-stars+deriveBonusBadge); 6 counters integration tests behind describe.skip pending TEST_DATABASE_URL. Four Rule-3 deviations (migration collision 0006→0007, deriveStars signature threading through 4 call sites, Record<ExerciseType,number> exhaustiveness, resetTestProgress clears counter table). Commits 8a4a6f4 (schema+stubs), dd82cbb (counters+gate+tests).
+Phase: 11.2 (tv-derive-rework-demucs-nw) — EXECUTING
+Plan: 1 of 7
+Status: Executing Phase 11.2
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
 
@@ -25,13 +41,14 @@ Plan 10-07 complete — Phase 10 premium-gate UI finalization + Phase 10 end-to-
 
 Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUpsellModal (100 LOC) full-screen upsell with per-family copy (listening/10 vs advanced_drill/3), ESC/backdrop close, data-testid + data-family hooks. ExerciseTab gets third mode card "Advanced Drills" (always rendered — CONTEXT-locked); click handler fires `getAdvancedDrillAccess(userId, songVersionId)` server action (Promise.all of 2 checkExerciseAccess + isPremium); on quota exhaustion sets upsell state → modal renders → session does NOT start. buildQuestions gains optional `typeFilter: ExerciseType[]`; Advanced Drills passes `["grammar_conjugation","listening_drill","sentence_order"]`; per-vocab loop + sentence_order loop + grammar-point loop all honor the allowlist. saveSessionResults extended for ex5/ex6/ex7 via GREATEST(COALESCE) — mastery never regresses. recordVocabAnswer stamps user_exercise_song_counters on first answer for song_quota-gated types + server-side re-check; if non-premium user over limit, DELETEs the overshoot row and throws QuotaExhaustedError (RESEARCH Pitfall 6: one answer of slippage possible under cross-device race — documented in upsell past-tense copy). recordAdvancedDrillAttempt action for empty-vocabItemId callers (sentence_order / synthetic grammar_conjugation). saveSessionResults end-of-session safety-net stamps counter for every family present in answer batch (ON CONFLICT DO NOTHING across all 3 paths — no inflation). Phase 08.1-07 test.fixme REMOVED from regression-premium-gate.spec.ts; replaced with live QuotaExhaustedError assertion (seeds 10 listening counter rows, invokes recordVocabAnswer on 11th song, asserts throw + refund). New advanced-drill-quota.spec.ts (4 E2E: 11th-listening upsell, 4th-advanced upsell, independent counters via direct gate check, premium bypass with cleanup). UI regression contract preserved (0 `EXERCISE_FEATURE_FLAGS` imports in src/app or src/stores — confirmed by grep). 263 unit tests green (no regressions). Two Rule-3 auto-fixes (typeFilter TS narrowing → extracted typed const; saveSessionResults end-of-session safety-net needed because sentence_order + synthetic-vocab grammar_conjugation bypass recordVocabAnswer). Commits 0cc9dcd (Task 1 — UI + upsell), 4af194a (Task 2 — saveSessionResults + counter-increment + re-check), fcbb3ce (Task 3 — test.fixme unfix + quota E2E).
 
-Last activity: 2026-04-18 — **Plan 10-07 complete. Phase 10 end-to-end.** Star 3 celebration reuses existing Stars 1/2 confetti + star-shine primitive (CONTEXT-locked: no new animation library, no new CSS keyframes — JSDoc lock added to StarDisplay). SessionSummary callout flips to "You earned 3 stars — song mastered!" on the Star 3 transition; subtle "Bonus mastery unlocked!" amber line surfaces on the deriveBonusBadge false→true transition (no confetti — bonus stays secondary to stars). saveSessionResults returns bonusBadge + previousBonusBadge pair alongside stars/previousStars, both computed on the BEFORE-upsert row (Pitfall 7 — false-positive-callout immune). SongMasteredBanner (32-line diagonal amber "MASTERED" ribbon, top-right of thumbnail) + BonusBadgeIcon (33-line inline 16px violet sparkle adjacent to stars) ship as catalog decorations. getAllSongs(userId?) gains six correlated subqueries against user_song_progress (ex1_2_3/ex4/ex5/ex6/ex7 best_accuracy + completion_pct) with the same tv-preferred ORDER BY CASE the existing youtube_id subquery uses — single round-trip for the 200-row catalog, no N+1. SongCard reworked to render stars + ribbon + bonus from SongListItem fields at render time; unused `progress` prop removed (only call site passed song only). /songs page threads PLACEHOLDER_USER_ID='test-user-e2e' matching the existing pattern in /songs/[slug]/page.tsx. Sidecar fix relocated Plan 10-06's QuotaExhaustedError class export from the "use server" exercises.ts into new src/lib/exercises/errors.ts module + swapped the two import sites — unblocks `npm run build` which now passes end-to-end (21 routes, 102kB shared JS). 263 unit tests green, zero regressions. Commits 0306fde (Task 1 — StarDisplay JSDoc + SessionSummary callouts + Banner + Badge), 39f83dc (Task 2 — getAllSongs join + SongCard render-time derivation + page wiring), plus final metadata commit.
+Last activity: 2026-04-26 -- Phase 11.2 execution started
 
 Progress: [████████████] v1.0 Phase 1 in progress (6/8 plans); v2.0 Phase 08.1 COMPLETE (8/8 plans); v2.0 Phase 08.2 COMPLETE (3/3 plans); v2.0 Phase 08.3 COMPLETE (5/5 plans); v2.0 Phase 08.4 in progress (3/5 plans); v2.0 Phase 09 COMPLETE (6/6 plans); v2.0 Phase 10 COMPLETE (7/7 plans)
 
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 18
 - Average duration: 9.3 min
 - Total execution time: 2.73 hours
@@ -45,6 +62,7 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 
 **Recent Trend:**
+
 - Last 7 plans: 09-03 (3 min), 09-04 (3 min), 09-05 (3 min), 10-02 (9 min), 10-01 (35 min), 10-04 (14 min)
 - Trend: 10-04 at 14 min — Listening Drill integration on top of Plan 10-02 PlayerContext API + Plan 10-01 stubs. One Rule-3 deviation (widening generator.test.ts count assertions for the 5-type emission + Plan 10-05 sentence_order sibling). Commit hygiene messy (Tasks 1+2 bundled with sibling wave-2 commits under their labels) but CODE is verifiably in HEAD. Wave-2 parallel-safety contract from Plan 10-01 held: stubs replaced cleanly, no type conflicts.
 
@@ -353,6 +371,6 @@ Progress: [████████████] v1.0 Phase 1 in progress (6/8 p
 
 ## Session Continuity
 
-Last session: 2026-04-18
-Stopped at: **Completed Phase 10 Plan 07 — Phase 10 END-TO-END DONE.** StarDisplay (already widened 0|1|2|3 in Plan 10-01) gets a JSDoc lock confirming Star 3 reuses the Stars 1/2 `animate`-prop code path + the canvas-confetti dynamic-import burst at `stars > prevStarsRef.current` — CONTEXT-locked: no new animation library, no new CSS keyframes, no new @keyframes in globals.css. SessionSummary flips the callout to "You earned 3 stars — song mastered!" when `newStarEarned && stars === 3` (Stars 1/2 keep "You earned Star {stars}!"); new `bonusUnlocked = !saving && bonusBadge && !previousBonusBadge` branch surfaces a single-line muted amber `<p>Bonus mastery unlocked!</p>` with zero animation — stars remain primary, bonus is secondary. saveSessionResults returns new `{bonusBadge, previousBonusBadge}` pair computed via `deriveBonusBadge({ex5,ex7})` applied to BOTH the pre-upsert row (before GREATEST merges this session's ex5/ex7) AND the post-upsert row — Pitfall 7 symmetric with stars/previousStars. SongMasteredBanner (32-line diagonal amber ribbon top-right of thumbnail, rotated 45°, 100×100 overlay, "MASTERED" tracking-widest) + BonusBadgeIcon (33-line inline 16×16 4-point violet-400 sparkle SVG adjacent to stars, hover-tooltip "Bonus mastery: Grammar Conjugation + Sentence Order") ship as catalog decorations — violet deliberate so users don't misread bonus as a fourth star. getAllSongs now accepts optional userId; supplying it adds six correlated subqueries joining ex1_2_3/ex4/ex5/ex6/ex7 best_accuracy + completion_pct via tv-preferred ORDER BY CASE — same thumbnail-version contract the existing youtube_id subquery uses, single round-trip for the 200-row catalog. SongCard reworked to derive `stars = deriveStars({ex1_2_3,ex4,ex6})` + `bonus = deriveBonusBadge({ex5,ex7})` at render time; `showMasteryBanner = showProgress && stars===3` renders SongMasteredBanner BEFORE the OP-ED pill for visual priority; `showBonusBadge = showProgress && bonus` renders BonusBadgeIcon inline trailing StarDisplay via `gap-1.5`. Unused `progress` prop removed (only call site was passing song-only). Unauthenticated path: null accuracy fields + null completion_pct → showProgress=false → no ribbon, no badge, no stars row (CONTEXT invariant). /songs/page.tsx threads PLACEHOLDER_USER_ID='test-user-e2e' through getAllSongs matching /songs/[slug]/page.tsx pattern. Song detail page unchanged — does NOT currently fetch user_song_progress for header display (plan's "if SSR fetches progress" condition was false). Sidecar fix during execution moved Plan 10-06's QuotaExhaustedError class export out of `"use server"` exercises.ts into new `src/lib/exercises/errors.ts` module + swapped import sites in exercises.ts + regression-premium-gate.spec.ts — unblocks `npm run build` (was failing at webpack parse). Build now passes end-to-end (21 routes, 102 kB shared JS, production bundle emitted). 263 unit tests green / 1 expected fail / 14 skipped (no regressions from any change). Commits 0306fde (Task 1 — StarDisplay JSDoc + SessionSummary callouts + SongMasteredBanner + BonusBadgeIcon + saveSessionResults bonusBadge return fields), 39f83dc (Task 2 — getAllSongs userId join + SongCard render-time derivation + /songs page PLACEHOLDER_USER_ID). Phase 10 complete 7/7.
-Resume file: Phase 10 done. Next phase candidates: remaining v1.0 Phase 1 plans (6/8 complete), or Phase 12+ features.
+Last session: --stopped-at
+Stopped at: Phase 11.1 context gathered
+Resume file: --resume-file
