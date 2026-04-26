@@ -31,6 +31,9 @@ export default defineConfig({
       "src/**/*.{test,spec}.tsx",
       "tests/integration/**/*.{test,spec}.ts",
       "tests/unit/**/*.{test,spec}.ts",
+      // Phase 11.3 Plan 03: scripts/seed/apply-verse-patch.test.ts. Future
+      // test fixtures for batch scripts under scripts/ are picked up here too.
+      "scripts/**/*.{test,spec}.ts",
     ],
     exclude: [
       "node_modules/**",
