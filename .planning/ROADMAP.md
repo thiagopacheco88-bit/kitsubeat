@@ -251,9 +251,9 @@ Plans:
 **Plans:** 7 plans
 
 Plans:
-- [ ] 11.2-01-PLAN.md -- TV Demucs+WhisperX pipeline scripts (tv-demucs-isolate.py + tv-transcribe-stems.py mirroring ab-* shape)
-- [ ] 11.2-02-PLAN.md -- NW-based derive script (10b-derive-tv-lessons-nw.ts; replaces per-verse romaji LCS with global Needleman-Wunsch)
-- [ ] 11.2-03-PLAN.md -- Audit script (audit-tv-lessons.ts; D-07 thresholds) + DB snapshot/restore escape hatch (D-09)
+- [x] 11.2-01-PLAN.md -- TV Demucs+WhisperX pipeline scripts (tv-demucs-isolate.py + tv-transcribe-stems.py mirroring ab-* shape)
+- [x] 11.2-02-PLAN.md -- NW-based derive script (10b-derive-tv-lessons-nw.ts; replaces per-verse romaji LCS with global Needleman-Wunsch)
+- [x] 11.2-03-PLAN.md -- Audit script (audit-tv-lessons.ts; D-07 thresholds) + DB snapshot/restore escape hatch (D-09)
 - [ ] 11.2-04-PLAN.md -- Pre-batch fixes: D-04 mountain-a-go-go full-lesson regen + D-02 archive old LCS scripts to _attic/
 - [ ] 11.2-05-PLAN.md -- 60-song NW batch run + per-straggler D-05 ladder triage (5-8h wall-clock)
 - [ ] 11.2-06-PLAN.md -- 8-song spot-check (+/-500ms onset; sign-flow + 7 adversarial picks) + audit gate against data/lessons-cache-tv-nw/
