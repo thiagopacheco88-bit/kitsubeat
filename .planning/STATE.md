@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
-status: executing
-stopped_at: "Phase 11.2 Wave 2 PARTIAL — Plan 04 Task 2 (D-02 archive of 10b-derive-tv-lessons.ts and 10b2-derive-tv-monotonic.ts to _attic/) shipped via commit 0fe6352. Plan 04 Task 1 (D-04 mountain-a-go-go full-lesson regen) DEFERRED: investigation revealed the upstream lyrics-cache JSON is itself romaji-only ('Get up!!... Sumimasen / Boku tama ni...' with all 225 tokens having pos:'名詞' from being kuromoji-tokenized over romaji). Re-running 03-generate-content.ts or the inline Claude Code lesson prompt would feed romaji to the LLM and produce romaji tokens again — the real fix is upstream (refetch canonical JP lyrics → re-tokenize → regen lesson), out of scope for Wave 2. User opted to defer rather than spend API credits or work the lyrics-fetch fix here. Mountain-a-go-go is now an expected Wave 3 batch-run failure (1/60); Plan 11.2-05's D-05 fallback ladder triage explicitly handles stragglers. Real upstream fix likely lands via stashed scripts/seed/fetch-utanet-lyrics.ts (currently in stash@{0}) when convenient. Wave 1 (Plans 01/02/03) shipped earlier this session: tv-demucs-isolate.py + tv-transcribe-stems.py (Plan 01); 10b-derive-tv-lessons-nw.ts with 5 NW unit tests RED→GREEN (Plan 02; produced sign-flow validation JSON with 12 verses — plan acceptance text said 5 but 12 matches the 15-verse LCS reference, plan text was wrong); audit-tv-lessons.ts with --self-test green + snapshot/restore D-09 escape hatch scripts (Plan 03). Phase 11.1 plans 01 and 02 shipped in PARALLEL during this same session by a separate orchestrator thread — not part of Phase 11.2 work but visible in same git log. Phase 11.2 next: Wave 3 (Plan 05, 60-song NW batch, 5-8h wall-clock, --autonomous:false). Wave 3 needs explicit user go-ahead before kicking off."
-last_updated: "2026-04-26T17:35:00.000Z"
-last_activity: 2026-04-26 — Phase 11.2 Wave 2 partial: Plan 04 Task 2 archive shipped, Task 1 mountain-a-go-go regen deferred to Plan 05 D-05 triage
+status: verifying
+stopped_at: "Completed 11.1-03-PLAN.md: operator quick-start README"
+last_updated: "2026-04-26T17:19:02.678Z"
+last_activity: 2026-04-26
 progress:
   total_phases: 16
-  completed_phases: 9
+  completed_phases: 10
   total_plans: 76
-  completed_plans: 68
-  percent: 89
+  completed_plans: 70
+  percent: 92
 ---
 
 # Project State
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 
 Phase: 11.1 (add-song-pipeline) — EXECUTING
 Plan: 3 of 3
-Status: Ready to execute
+Status: Phase complete — ready for verification
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
 
@@ -43,7 +43,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-04-26
 
-Progress: [█████████░] 89%
+Progress: [█████████░] 92%
 
 ## Performance Metrics
 
@@ -126,6 +126,7 @@ Progress: [█████████░] 89%
 | Phase 11.2 P03 | 3 min | 2 tasks | 3 files |
 | Phase 11.1 P01 | 2 | 2 tasks | 3 files |
 | Phase 11.1 P11.1-02 | 8 | 2 tasks | 2 files |
+| Phase 11.1 P03 | 3 | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -365,6 +366,7 @@ Progress: [█████████░] 89%
 - Use script-local Pool (not getDb()) because neon-http lacks callback transactions
 - Export insertSongTransactional() for direct test invocation without subprocess spawning
 - Guard main() with ESM basename check to prevent test import from triggering full upsert
+- D-09 pure-pointers: README links into SOP only, zero SOP content duplication
 
 ### Pending Todos
 
@@ -390,8 +392,8 @@ Progress: [█████████░] 89%
 
 ## Session Continuity
 
-Last session: 2026-04-26T17:15:25.711Z
-Stopped at: Completed 11.1-02-PLAN.md: transaction wrap + integration test
+Last session: 2026-04-26T17:19:02.670Z
+Stopped at: Completed 11.1-03-PLAN.md: operator quick-start README
 Resume file: None
 
 **Planned Phase:** 11.1 (Add-Song Pipeline) — 3 plans — 2026-04-26T16:55:52.096Z
