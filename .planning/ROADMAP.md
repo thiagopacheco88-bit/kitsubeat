@@ -237,7 +237,7 @@ Plans:
 **Goal:** Close three concrete gaps in the existing add-song pipeline so adding a new song to KitsuBeat is reliable enough that no song ships a streak-killer (broken karaoke, half-written DB row, duplicate YouTube ID), and operator overhead is reduced via a single-page README. The pipeline itself (the 8 gates documented in docs/SONG_INGESTION_SOP.md) is not rewritten — only the three gaps are filled.
 **Depends on:** Phase 11 (Cross-Song Vocabulary — schema dependency only; the songs/song_versions tables this phase wraps in transactions were finalized there)
 **Requirements:** None mapped to REQUIREMENTS.md REQ-IDs (operational tooling phase). The 11 falsifiable acceptance criteria locked in 11.1-SPEC.md are the coverage requirement.
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 Plans:
 - [x] 11.1-01-PLAN.md — Cross-song youtube_id audit script + wiring into both batch shells
 - [x] 11.1-02-PLAN.md — Per-song transactional DB write (script-local WebSocket pool) + Vitest rollback test
