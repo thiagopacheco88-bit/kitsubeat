@@ -3,9 +3,9 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 11.1-02-PLAN.md: transaction wrap + integration test"
-last_updated: "2026-04-26T17:15:25.720Z"
-last_activity: 2026-04-26
+stopped_at: "Phase 11.2 Wave 2 PARTIAL — Plan 04 Task 2 (D-02 archive of 10b-derive-tv-lessons.ts and 10b2-derive-tv-monotonic.ts to _attic/) shipped via commit 0fe6352. Plan 04 Task 1 (D-04 mountain-a-go-go full-lesson regen) DEFERRED: investigation revealed the upstream lyrics-cache JSON is itself romaji-only ('Get up!!... Sumimasen / Boku tama ni...' with all 225 tokens having pos:'名詞' from being kuromoji-tokenized over romaji). Re-running 03-generate-content.ts or the inline Claude Code lesson prompt would feed romaji to the LLM and produce romaji tokens again — the real fix is upstream (refetch canonical JP lyrics → re-tokenize → regen lesson), out of scope for Wave 2. User opted to defer rather than spend API credits or work the lyrics-fetch fix here. Mountain-a-go-go is now an expected Wave 3 batch-run failure (1/60); Plan 11.2-05's D-05 fallback ladder triage explicitly handles stragglers. Real upstream fix likely lands via stashed scripts/seed/fetch-utanet-lyrics.ts (currently in stash@{0}) when convenient. Wave 1 (Plans 01/02/03) shipped earlier this session: tv-demucs-isolate.py + tv-transcribe-stems.py (Plan 01); 10b-derive-tv-lessons-nw.ts with 5 NW unit tests RED→GREEN (Plan 02; produced sign-flow validation JSON with 12 verses — plan acceptance text said 5 but 12 matches the 15-verse LCS reference, plan text was wrong); audit-tv-lessons.ts with --self-test green + snapshot/restore D-09 escape hatch scripts (Plan 03). Phase 11.1 plans 01 and 02 shipped in PARALLEL during this same session by a separate orchestrator thread — not part of Phase 11.2 work but visible in same git log. Phase 11.2 next: Wave 3 (Plan 05, 60-song NW batch, 5-8h wall-clock, --autonomous:false). Wave 3 needs explicit user go-ahead before kicking off."
+last_updated: "2026-04-26T17:35:00.000Z"
+last_activity: 2026-04-26 — Phase 11.2 Wave 2 partial: Plan 04 Task 2 archive shipped, Task 1 mountain-a-go-go regen deferred to Plan 05 D-05 triage
 progress:
   total_phases: 16
   completed_phases: 9
