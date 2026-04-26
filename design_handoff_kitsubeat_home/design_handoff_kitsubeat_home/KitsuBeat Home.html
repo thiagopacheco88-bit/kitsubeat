@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KitsuBeat — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0a0a; min-height: 100vh;
+               font-family: -apple-system, "SF Pro Text", system-ui, sans-serif;
+               -webkit-font-smoothing: antialiased; color: #fff; }
+  .stage { min-height: 100vh; display: flex; align-items: center; justify-content: center;
+           padding: 40px 20px;
+           background:
+             radial-gradient(1200px 700px at 10% 0%, rgba(239,68,68,0.07), transparent 60%),
+             radial-gradient(1000px 600px at 90% 100%, rgba(59,130,246,0.05), transparent 60%),
+             #0a0a0a; }
+  /* hide horizontal scrollbars inside the phone */
+  .phone *::-webkit-scrollbar { display: none; }
+  /* Tweaks panel */
+  .tweaks {
+    position: fixed; right: 18px; bottom: 18px; z-index: 100;
+    width: 260px; padding: 14px 14px 12px; border-radius: 16px;
+    background: rgba(20,20,20,0.92); backdrop-filter: blur(16px);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 12px 30px rgba(0,0,0,0.5);
+    color: #f5f5f4; font-family: -apple-system, system-ui;
+    display: none;
+  }
+  .tweaks.on { display: block; }
+  .tweaks h3 { margin: 0 0 10px; font-size: 12px; font-weight: 700;
+               letter-spacing: 1px; text-transform: uppercase; color: rgba(245,245,244,0.6); }
+  .tweaks .row { margin-bottom: 10px; }
+  .tweaks label { font-size: 11px; color: rgba(245,245,244,0.6);
+                  font-family: ui-monospace, monospace; letter-spacing: 0.4px; }
+  .seg { display: flex; margin-top: 6px; background: rgba(255,255,255,0.04);
+         border-radius: 10px; padding: 3px; }
+  .seg button { flex: 1; height: 30px; border: 0; background: transparent; color: rgba(245,245,244,0.7);
+                font-size: 12px; font-weight: 600; border-radius: 8px; cursor: pointer; }
+  .seg button.on { background: #ef4444; color: #fff; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div id="root" class="phone"></div>
+  </div>
+  <div id="tweaks" class="tweaks">
+    <h3>Tweaks</h3>
+    <div class="row">
+      <label>HERO LAYOUT</label>
+      <div class="seg" data-group="hero">
+        <button data-val="standard" class="on">Standard</button>
+        <button data-val="fullbleed">Full-bleed</button>
+      </div>
+    </div>
+    <div class="row">
+      <label>ACCENT INTENSITY</label>
+      <div class="seg" data-group="accent">
+        <button data-val="warm" class="on">Subtle</button>
+        <button data-val="bold">Bold</button>
+      </div>
+    </div>
+  </div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="ios-frame.jsx"></script>
+<script type="text/babel" src="home-screen.jsx"></script>
+
+<script type="text/babel">
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "hero": "fullbleed",
+    "accent": "warm"
+  }/*EDITMODE-END*/;
+
+  function App() {
+    const [tweaks, setTweaks] = React.useState(TWEAK_DEFAULTS);
+
+    React.useEffect(() => {
+      const onMsg = (e) => {
+        const d = e.data || {};
+        if (d.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('on');
+        if (d.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+      };
+      window.addEventListener('message', onMsg);
+      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+      return () => window.removeEventListener('message', onMsg);
+    }, []);
+
+    React.useEffect(() => {
+      const panel = document.getElementById('tweaks');
+      const handler = (e) => {
+        const btn = e.target.closest('button[data-val]');
+        if (!btn) return;
+        const group = btn.parentElement.dataset.group;
+        panel.querySelectorAll(`[data-group="${group}"] button`).forEach(b => b.classList.remove('on'));
+        btn.classList.add('on');
+        const next = { ...tweaks, [group]: btn.dataset.val };
+        setTweaks(next);
+        window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [group]: btn.dataset.val } }, '*');
+      };
+      panel.addEventListener('click', handler);
+      return () => panel.removeEventListener('click', handler);
+    }, [tweaks]);
+
+    return (
+      <IOSDevice dark={true} width={390} height={844}>
+        <KitsuHome tweaks={tweaks}/>
+      </IOSDevice>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

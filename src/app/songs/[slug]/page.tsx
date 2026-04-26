@@ -93,6 +93,7 @@ export default async function SongPlayerPage({
         youtube_id: v.youtube_id,
         lesson: enrichedLesson,
         synced_lrc: v.synced_lrc as { startMs: number; text: string }[] | null,
+        lyrics_offset_ms: v.lyrics_offset_ms,
       };
     });
 

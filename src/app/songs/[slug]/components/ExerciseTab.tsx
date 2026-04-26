@@ -10,8 +10,10 @@ import {
 } from "@/stores/exerciseSession";
 import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
 import { getAdvancedDrillAccess } from "@/app/actions/exercises";
+import { areAllGrammarRulesMasteredForSong } from "@/app/actions/grammarSession";
 import ExerciseSession from "./ExerciseSession";
 import AdvancedDrillsUpsellModal from "./AdvancedDrillsUpsellModal";
+import GrammarSessionRunner from "./GrammarSessionRunner";
 
 interface ExerciseTabProps {
   lesson: Lesson;
@@ -21,11 +23,23 @@ interface ExerciseTabProps {
   userId: string;
 }
 
-type TabState = "config" | "session";
-type Mode = "short" | "full" | "advanced_drills";
+type TabState = "config" | "session" | "grammar_session";
+type Mode = "short" | "full" | "grammar" | "advanced_drills";
 
 /**
- * Advanced Drills mode emits ONLY the Phase 10 quota-gated exercise types.
+ * Phase 13 — Quick / Full Practice emit ONLY vocabulary exercises. Grammar
+ * Conjugation, Listening Drill, and Sentence Order are advanced drills and
+ * must not appear in the vocab-only path.
+ */
+const VOCAB_ONLY_TYPES: ExerciseType[] = [
+  "vocab_meaning",
+  "meaning_vocab",
+  "reading_match",
+  "fill_lyric",
+];
+
+/**
+ * Advanced Drills mode emits ONLY the quota-gated advanced exercise types.
  * Passed as a typeFilter to buildQuestions — the generator's per-vocab and
  * per-verse / per-grammar-point loops honor the allowlist.
  */
@@ -123,10 +137,22 @@ export default function ExerciseTab({
     return sessionView;
   }
 
+  if (tabState === "grammar_session") {
+    return (
+      <GrammarSessionRunner
+        userId={userId}
+        songVersionId={songVersionId}
+        songSlug={songSlug}
+        onExit={() => setTabState("config")}
+      />
+    );
+  }
+
   // --- Config screen ---
   const vocabCount = lesson.vocabulary.filter((v) => v.vocab_item_id).length;
   const shortCount = Math.min(10, vocabCount * 4);
   const fullCount = Math.min(40, vocabCount * 4);
+  const songHasGrammar = (lesson.grammar_points?.length ?? 0) > 0;
 
   const handleStart = async (mode: Mode) => {
     setLoading(true);
@@ -134,6 +160,21 @@ export default function ExerciseTab({
     setUpsell(null);
 
     try {
+      // Grammar Session has a wholly different question flow (no per-vocab
+      // generator, on-demand AI bank). It delegates to GrammarSessionRunner
+      // which handles its own loading state and save path — we just switch
+      // tab state and return early.
+      if (mode === "grammar") {
+        if (!songHasGrammar) {
+          setError("This song has no grammar points to practice.");
+          setLoading(false);
+          return;
+        }
+        setTabState("grammar_session");
+        setLoading(false);
+        return;
+      }
+
       // Phase 10 Plan 06 — Advanced Drills mode requires the tab-open gate check
       // BEFORE any question generation. If either quota family is exhausted the
       // corresponding upsell modal renders and we bail without starting the
@@ -274,19 +315,39 @@ export default function ExerciseTab({
 
       // Build questions from the capped vocab.
       //
-      // Phase 10 Plan 06: Advanced Drills mode passes a type allowlist so the
-      // generator's per-vocab loop and the per-verse / per-grammar-point loops
-      // emit ONLY Ex 5/6/7. Short / Full modes omit the filter (preserves
-      // pre-Plan-06 behavior — Ex 1-4 + eligible Ex 5-7 all emit).
+      // Phase 13: Quick / Full use VOCAB_ONLY_TYPES so grammar / listening /
+      // sentence-order never leak into the vocab session. Advanced Drills
+      // stays on ADVANCED_DRILL_TYPES.
       const typeFilter =
-        mode === "advanced_drills" ? ADVANCED_DRILL_TYPES : undefined;
+        mode === "advanced_drills" ? ADVANCED_DRILL_TYPES : VOCAB_ONLY_TYPES;
       const engineMode: "short" | "full" =
         mode === "advanced_drills" ? "full" : mode;
+
+      // Phase 13 Ex 7 gate — only computed for advanced_drills mode. Requires:
+      //   (a) all grammar rules on this song at mastery level "advanced" + state=2
+      //   (b) set of vocab_item_ids at FSRS state=2 (mastered) — derived from
+      //       the stateMap we already have in scope.
+      let sentenceOrderGate: Parameters<typeof buildQuestions>[4] | undefined;
+      if (mode === "advanced_drills") {
+        const allGrammarMastered = songHasGrammar
+          ? await areAllGrammarRulesMasteredForSong(userId, songVersionId)
+          : true;
+        const masteredVocabIds = new Set<string>();
+        for (const [id, st] of Object.entries(stateMap)) {
+          if (st === 2) masteredVocabIds.add(id);
+        }
+        sentenceOrderGate = {
+          allGrammarMastered,
+          masteredVocabIds,
+        };
+      }
+
       const questions = buildQuestions(
         { ...lesson, vocabulary: filteredVocab },
         engineMode,
         jlptPool,
-        typeFilter
+        typeFilter,
+        sentenceOrderGate
       );
 
       if (questions.length === 0) {
@@ -365,6 +426,35 @@ export default function ExerciseTab({
             {loading ? "Loading..." : "Start"}
           </button>
         </div>
+
+        {/*
+         * Phase 13 — Grammar Session card.
+         *
+         * Hidden when the song has zero grammar points. Delegates entirely to
+         * GrammarSessionRunner on click; no buildQuestions path.
+         */}
+        {songHasGrammar && (
+          <div className="flex flex-col gap-3 rounded-xl border border-emerald-700/50 bg-gray-900 p-5">
+            <div>
+              <h3 className="font-semibold text-white">Grammar Session</h3>
+              <p className="mt-1 text-sm text-gray-400">
+                Per-rule drills · beginner → intermediate → advanced
+              </p>
+            </div>
+            <p className="text-sm text-gray-500">
+              Master each grammar point with level-adaptive drills. Unlocks the 3rd
+              star when the song has grammar.
+            </p>
+            <button
+              onClick={() => handleStart("grammar")}
+              disabled={loading}
+              data-testid="grammar-session-start"
+              className="mt-auto rounded-lg border border-emerald-500/50 bg-emerald-900/40 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-800/50 disabled:opacity-50"
+            >
+              {loading ? "Loading..." : "Start"}
+            </button>
+          </div>
+        )}
 
         {/*
          * Phase 10 Plan 06 — Advanced Drills mode card.
@@ -457,7 +547,9 @@ export default function ExerciseTab({
             </svg>
             <span>
               <span className="text-white font-medium">Star 3:</span> Score 80%+
-              on Listening Drill exercises
+              {songHasGrammar
+                ? " on the Grammar Session"
+                : " on Listening Drill exercises"}
             </span>
           </li>
         </ul>

@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP } from "next/font/google";
+import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
 import "./globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-noto-jp",
-});
 
 export const metadata: Metadata = {
   title: "KitsuBeat",
@@ -32,7 +27,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${notoSansJP.variable}`}>
+    <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        />
+      </head>
       <body className="min-h-screen bg-gray-950 text-gray-100 font-[family-name:var(--font-inter)] antialiased">
         <header className="sticky top-0 z-50 border-b border-gray-800 bg-gray-950/80 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">

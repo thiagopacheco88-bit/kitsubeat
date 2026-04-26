@@ -31,6 +31,7 @@ interface VersionData {
   youtube_id: string | null;
   lesson: Lesson;
   synced_lrc: { startMs: number; text: string }[] | null;
+  lyrics_offset_ms: number;
 }
 
 type ContentTab = "vocabulary" | "grammar" | "practice";
@@ -46,16 +47,12 @@ export default function SongContent({
   songId: string;
   initialKnown: { total: number; known: number; mastered: number; learning: number };
 }) {
-  // TV is only a usable version if it has synced_lrc — without it the lyrics
-  // panel sits frozen because LyricsPanel.buildVerseTiming has no timeline to
-  // match verses against. Every current TV row has synced_lrc=null (WhisperX
-  // was only run for full cuts), so default to full and hide the toggle until
-  // the TV WhisperX batch lands. When TV sync data exists, the old default
-  // "TV first" behavior kicks back in automatically.
+  // TV version is usable if it has a lesson with verse timing — LyricsPanel
+  // falls back to verse start_time_ms/end_time_ms when synced_lrc is absent.
   const fullVersion = versions.find((v) => v.type === "full");
   const tvVersionRaw = versions.find((v) => v.type === "tv");
   const tvVersion =
-    tvVersionRaw && tvVersionRaw.synced_lrc && tvVersionRaw.synced_lrc.length > 0
+    tvVersionRaw && tvVersionRaw.lesson?.verses?.length > 0
       ? tvVersionRaw
       : undefined;
   const hasMultiple = versions.length > 1 && !!tvVersion;
@@ -149,13 +146,17 @@ export default function SongContent({
         <SongLayout
           video={
             active.youtube_id ? (
-              <YouTubeEmbed videoId={active.youtube_id} />
+              <YouTubeEmbed
+                videoId={active.youtube_id}
+                songVersionId={active.id}
+              />
             ) : null
           }
           lyrics={
             <LyricsPanel
               verses={active.lesson.verses}
               syncedLrc={active.synced_lrc}
+              offsetMs={active.lyrics_offset_ms}
             />
           }
         />

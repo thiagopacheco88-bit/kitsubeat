@@ -37,6 +37,19 @@ const TARGETS: Target[] = [
   { slug: "idol-yoasobi", title: "Idol", artist: "YOASOBI", query: "YOASOBI Idol" },
   { slug: "yuusha-yoasobi", title: "Yuusha", artist: "YOASOBI", query: "YOASOBI Yuusha 勇者" },
   { slug: "redo-konomi-suzuki", title: "Redo", artist: "Konomi Suzuki", query: "鈴木このみ Redo" },
+  { slug: "adamas-lisa", title: "ADAMAS", artist: "LiSA", query: "LiSA ADAMAS SAO" },
+  { slug: "heros-come-back-nobodyknows", title: "Hero's Come Back", artist: "Nobodyknows+", query: "nobodyknows Hero's Come Back" },
+  { slug: "guren-no-yumiya-linked-horizon", title: "Guren no Yumiya", artist: "Linked Horizon", query: "Linked Horizon 紅蓮の弓矢 Guren no Yumiya" },
+  // 2026-04-26: re-fetch batch — songs whose lrclib match returned Hepburn
+  // romaji rather than canonical kana/kanji, blocking inline lesson generation.
+  { slug: "we-are-hiroshi-kitadani", title: "We Are!", artist: "Hiroshi Kitadani", query: "ウィーアー We Are 北谷洋 ワンピース" },
+  { slug: "we-go-hiroshi-kitadani", title: "We Go!", artist: "Hiroshi Kitadani", query: "ウィーゴー We Go 北谷洋 ワンピース" },
+  { slug: "tonight-tonight-tonight-beat-crusaders", title: "TONIGHT, TONIGHT, TONIGHT", artist: "Beat Crusaders", query: "Beat Crusaders TONIGHT TONIGHT TONIGHT ブリーチ" },
+  { slug: "face-my-fears-hikaru-utada-skrillex", title: "Face My Fears", artist: "Hikaru Utada & Skrillex", query: "宇多田ヒカル Face My Fears" },
+  { slug: "taidada-zutomayo", title: "Taidada", artist: "Zutomayo", query: "ずっと真夜中でいいのに タイダダ" },
+  { slug: "yuugure-no-tori-shinsei-kamattechan", title: "Yuugure no Tori (夕暮れの鳥)", artist: "Shinsei Kamattechan", query: "神聖かまってちゃん 夕暮れの鳥" },
+  // mountain-a-go-go-too-captain-straydum: not indexed on Genius (Naruto ED by
+  // a small band). Needs Uta-Net or J-Lyric fallback — tracked separately.
 ];
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36";

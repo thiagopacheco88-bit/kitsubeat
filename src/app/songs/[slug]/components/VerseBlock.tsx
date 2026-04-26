@@ -8,11 +8,15 @@ import TokenSpan from "./TokenSpan";
 export default function VerseBlock({
   verse,
   isActive = false,
+  startMs,
 }: {
   verse: Verse;
   isActive?: boolean;
+  /** When provided, clicking the verse seeks the player here and plays. */
+  startMs?: number;
 }) {
-  const { translationLang, showRomaji } = usePlayer();
+  const { translationLang, showRomaji, seekAndPlay } = usePlayer();
+  const canSeek = typeof startMs === "number";
 
   const translation =
     verse.translations[translationLang] ?? verse.translations["en"] ?? "";
@@ -34,7 +38,20 @@ export default function VerseBlock({
       data-active={isActive ? "true" : "false"}
       data-filler={isFiller ? "true" : undefined}
       {...testDataAttr}
+      onClick={
+        canSeek
+          ? (e) => {
+              // Don't hijack clicks on nested interactive children (token
+              // popups, the word-by-word <details> toggle, etc.).
+              const target = e.target as HTMLElement;
+              if (target.closest("button, summary, a, [role='button']")) return;
+              seekAndPlay(startMs!);
+            }
+          : undefined
+      }
       className={`rounded-lg border p-4 transition-all duration-300 ${
+        canSeek ? "cursor-pointer" : ""
+      } ${
         isActive
           ? "border-red-500/50 bg-red-950/20 shadow-lg shadow-red-500/5"
           : isFiller

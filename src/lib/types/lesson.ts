@@ -100,6 +100,65 @@ export interface GrammarPoint {
   jlpt_reference: string;
   explanation: Localizable;
   conjugation_path?: string;
+  /**
+   * Phase 13: UUID FK to grammar_rules, resolved at page load from the
+   * song_version_grammar_rules join. Absent on legacy song versions not yet
+   * processed by scripts/seed/12-backfill-grammar-rules.ts — the Grammar
+   * Session mode hides itself when any displayed grammar point is missing this.
+   */
+  grammar_rule_id?: string;
+}
+
+// =============================================================================
+// Phase 13: Grammar Session — per-rule mastery levels + exercise bank shapes
+// =============================================================================
+
+export type GrammarLevel = "beginner" | "intermediate" | "advanced";
+
+export type GrammarExerciseType = "mcq_fill_blank" | "write_romaji";
+
+/**
+ * One exercise row from the grammar_exercises table, serialized for the client.
+ *
+ * For "mcq_fill_blank" (beginner + intermediate), `distractors` is a 3-item
+ * array of wrong options; the UI shuffles [correct_answer, ...distractors] and
+ * asks the user to pick one.
+ *
+ * For "write_romaji" (advanced), `distractors` is null and the UI renders a
+ * free-text input; correct_answer is compared after romaji normalization.
+ *
+ * `prompt_jp_furigana` is a Japanese sentence with the target token replaced
+ * by a placeholder (e.g. "____"). The UI substitutes the chosen/typed answer
+ * back in for review feedback.
+ */
+export interface GrammarExercise {
+  id: string;
+  grammar_rule_id: string;
+  level: GrammarLevel;
+  exercise_type: GrammarExerciseType;
+  prompt_jp_furigana: string;
+  prompt_romaji: string | null;
+  prompt_translation: Localizable;
+  blank_token_index: number;
+  correct_answer: string;
+  distractors: string[] | null;
+  hint: string | null;
+}
+
+/**
+ * One question emitted by buildGrammarSessionQuestions for the session player.
+ * Bundles the exercise with the rule + user's current level so the UI can
+ * render the level badge and rule name without a second round-trip.
+ */
+export interface GrammarSessionQuestion {
+  rule: {
+    id: string;
+    name: string;
+    jlpt_reference: string;
+    explanation: Localizable;
+  };
+  level: GrammarLevel;
+  exercise: GrammarExercise;
 }
 
 export interface Lesson {

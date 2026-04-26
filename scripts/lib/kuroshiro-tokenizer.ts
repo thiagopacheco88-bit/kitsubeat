@@ -144,3 +144,27 @@ function katakanaToHiragana(str: string): string {
     String.fromCharCode(char.charCodeAt(0) - 0x60)
   );
 }
+
+/**
+ * Convert a string containing kanji/kana into Hepburn romaji.
+ * Pass-through for ASCII-only inputs; tries kuroshiro for everything else.
+ * Used by 10b-derive-tv-lessons.ts to bring WhisperX output into a shared
+ * script with romaji-only full-lesson tokens before LCS alignment.
+ */
+export async function toHepburnRomaji(s: string): Promise<string> {
+  if (!kuroshiroInstance) {
+    throw new Error("kuroshiro not initialized — call initKuroshiro() first");
+  }
+  if (!s) return "";
+  // Fast path: nothing Japanese to convert.
+  if (!/[\u3040-\u30ff\u4e00-\u9fff]/.test(s)) return s;
+  try {
+    return await kuroshiroInstance.convert(s, {
+      to: "romaji",
+      mode: "normal",
+      romajiSystem: "hepburn",
+    });
+  } catch {
+    return s;
+  }
+}

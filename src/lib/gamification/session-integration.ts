@@ -33,7 +33,7 @@ export interface GamificationInput {
   tz: string;
   correctAnswers: number;
   totalAnswers: number;
-  sessionType: "short" | "full";
+  sessionType: "short" | "full" | "grammar" | "advanced_drills";
   newStars: 0 | 1 | 2 | 3;
   previousStars: 0 | 1 | 2 | 3;
   songSlug: string;
@@ -114,7 +114,7 @@ async function getNextPathSlug(currentSlug: string): Promise<string | null> {
           ELSE 3
         END,
         COALESCE(${songs.popularity_rank}, 999999)
-      ) > (${currentTierOrd}, ${currentRank})`
+      ) > (${currentTierOrd}, ${currentRank}) AND ${songs.language} = 'ja'`
     )
     .orderBy(
       tierOrder,

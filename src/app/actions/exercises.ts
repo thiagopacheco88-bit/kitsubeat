@@ -2,7 +2,7 @@
 
 import { eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db/index";
-import { userSongProgress, deriveStars, deriveBonusBadge, userVocabMastery, userExerciseLog } from "@/lib/db/schema";
+import { userSongProgress, deriveStars, deriveBonusBadge, userVocabMastery, userExerciseLog, songVersionGrammarRules } from "@/lib/db/schema";
 import type { ExerciseType } from "@/lib/exercises/generator";
 import { ratingFor } from "@/lib/fsrs/rating";
 import { scheduleReview } from "@/lib/fsrs/scheduler";
@@ -258,15 +258,26 @@ export async function saveSessionResults(
     .limit(1);
 
   const previousRow = existingRows[0] ?? null;
+
+  // Phase 13 — does THIS song have grammar rules? Drives which accuracy
+  // column feeds Star 3 (grammar_best_accuracy for grammar songs; ex6 for
+  // vocab-only songs). One COUNT query, cheap.
+  const grammarRuleCountRows = await db
+    .select({ n: sql<number>`COUNT(*)::int` })
+    .from(songVersionGrammarRules)
+    .where(eq(songVersionGrammarRules.song_version_id, songVersionId));
+  const songHasGrammar = (grammarRuleCountRows[0]?.n ?? 0) > 0;
+
   const previousStars = previousRow
-    ? deriveStars({
-        ex1_2_3_best_accuracy: previousRow.ex1_2_3_best_accuracy,
-        ex4_best_accuracy: previousRow.ex4_best_accuracy,
-        // Phase 10: previous-stars snapshot must include Ex 6 so a user who
-        // already had Star 3 before this session sees previousStars=3 (no
-        // false confetti on a downgrade round — see Pitfall 7 in 10-RESEARCH).
-        ex6_best_accuracy: previousRow.ex6_best_accuracy,
-      })
+    ? deriveStars(
+        {
+          ex1_2_3_best_accuracy: previousRow.ex1_2_3_best_accuracy,
+          ex4_best_accuracy: previousRow.ex4_best_accuracy,
+          ex6_best_accuracy: previousRow.ex6_best_accuracy,
+          grammar_best_accuracy: previousRow.grammar_best_accuracy,
+        },
+        songHasGrammar
+      )
     : 0;
 
   // Phase 10 Plan 07 — bonus badge BEFORE snapshot, so SessionSummary can
@@ -364,12 +375,15 @@ export async function saveSessionResults(
     };
   }
 
-  const stars = deriveStars({
-    ex1_2_3_best_accuracy: updated.ex1_2_3_best_accuracy,
-    ex4_best_accuracy: updated.ex4_best_accuracy,
-    // Phase 10: Star 3 requires Ex 6 (Listening Drill) at ≥80%.
-    ex6_best_accuracy: updated.ex6_best_accuracy,
-  });
+  const stars = deriveStars(
+    {
+      ex1_2_3_best_accuracy: updated.ex1_2_3_best_accuracy,
+      ex4_best_accuracy: updated.ex4_best_accuracy,
+      ex6_best_accuracy: updated.ex6_best_accuracy,
+      grammar_best_accuracy: updated.grammar_best_accuracy,
+    },
+    songHasGrammar
+  );
 
   // Phase 10 Plan 07 — bonus badge AFTER snapshot. Combined with previousBonusBadge
   // above, the UI detects false → true transition for the subtle unlock callout.

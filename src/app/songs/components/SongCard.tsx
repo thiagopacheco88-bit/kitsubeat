@@ -7,12 +7,43 @@ import StarDisplay from "@/app/songs/[slug]/components/StarDisplay";
 import SongMasteredBanner from "./SongMasteredBanner";
 import BonusBadgeIcon from "./BonusBadgeIcon";
 
-function formatSeasonInfo(info: string | null): string | null {
+function formatSeasonInfo(info: string | null, anime: string): string | null {
   if (!info) return null;
-  // Extract just "OP 1" or "ED 3" from "Naruto Shippuden OP 1"
-  const match = info.match(/(OP|ED)\s*(\d+)/i);
-  if (match) return `${match[1].toUpperCase()} ${match[2]}`;
+
+  // "Naruto Shippuden OP 3" or "Death Note ED" (first-slot no digit).
+  const opEd = info.match(/\b(OP|ED)(?:\s+(\d+))?\b/i);
+  if (opEd) {
+    const kind = opEd[1].toUpperCase();
+    return opEd[2] ? `${kind} ${opEd[2]}` : kind;
+  }
+
+  if (/\bOST\b/i.test(info)) return "OST";
+  if (/\bInsert\b/i.test(info)) return "INSERT";
+  if (/\bMovie Theme\b/i.test(info)) return "MOVIE";
+
+  // Bare "Theme" suffix covers both movie themes ("{anime} Theme" where anime
+  // is already a film title) and character themes ("{anime} {Subject} Theme").
+  // Disambiguate by stripping the anime prefix: empty remainder = movie,
+  // otherwise the remainder is the character name (e.g. "Misa", "Trisha").
+  if (/\bTheme$/i.test(info) && anime) {
+    const remainder = info
+      .replace(anime, "")
+      .replace(/\s+Theme$/i, "")
+      .trim();
+    return remainder === "" ? "MOVIE" : remainder.toUpperCase();
+  }
   return null;
+}
+
+// Hide social-proof counts until a song has meaningful traction. At 0–4
+// learners, showing the number is demotivating ("only 2 people tried this");
+// above the threshold it reads as momentum. Revisit post-launch once baseline
+// traffic is known.
+const LEARNER_COUNT_MIN = 5;
+
+function formatLearnerCount(count: number): string {
+  if (count >= 1000) return `${(count / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  return count.toString();
 }
 
 interface SongCardProps {
@@ -37,20 +68,26 @@ export default function SongCard({ song }: SongCardProps) {
   const thumbnail = thumbnailId
     ? `https://img.youtube.com/vi/${thumbnailId}/mqdefault.jpg`
     : null;
-  const opEd = formatSeasonInfo(song.season_info);
+  const opEd = formatSeasonInfo(song.season_info, song.anime);
 
   // Phase 10 Plan 07 — render-time derivation from the five accuracy fields
   // joined by getAllSongs. Nullable fields default to 0 inside derive helpers.
-  const stars = deriveStars({
-    ex1_2_3_best_accuracy: song.ex1_2_3_best_accuracy,
-    ex4_best_accuracy: song.ex4_best_accuracy,
-    ex6_best_accuracy: song.ex6_best_accuracy,
-  });
+  const stars = deriveStars(
+    {
+      ex1_2_3_best_accuracy: song.ex1_2_3_best_accuracy,
+      ex4_best_accuracy: song.ex4_best_accuracy,
+      ex6_best_accuracy: song.ex6_best_accuracy,
+      grammar_best_accuracy: song.grammar_best_accuracy,
+    },
+    song.has_grammar ?? false
+  );
   const bonus = deriveBonusBadge({
     ex5_best_accuracy: song.ex5_best_accuracy,
     ex7_best_accuracy: song.ex7_best_accuracy,
   });
   const completionPct = (song.completion_pct ?? 0) as number;
+  const learnerCount = song.learner_count ?? 0;
+  const showLearnerCount = learnerCount >= LEARNER_COUNT_MIN;
 
   // Show progress only if the user has started (pct > 0 or stars > 0).
   const showProgress = completionPct > 0 || stars > 0;
@@ -118,6 +155,11 @@ export default function SongCard({ song }: SongCardProps) {
           {song.difficulty_tier && (
             <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[10px] text-gray-400">
               {song.difficulty_tier}
+            </span>
+          )}
+          {showLearnerCount && (
+            <span className="ml-auto text-[10px] text-gray-500">
+              {formatLearnerCount(learnerCount)} learners
             </span>
           )}
         </div>

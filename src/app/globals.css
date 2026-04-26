@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  --font-noto-jp: "Noto Sans JP", system-ui, sans-serif;
+}
+
 @theme {
   --color-grammar-noun: #3b82f6;
   --color-grammar-verb: #ef4444;

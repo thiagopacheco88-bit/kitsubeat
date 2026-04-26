@@ -35,7 +35,13 @@ export const XP_CONSTANTS = {
 
 export interface CalculateXpInput {
   correctAnswers: number;
-  sessionType: "short" | "full";
+  /**
+   * Phase 13: extended to include "grammar" (grammar session) and
+   * "advanced_drills" (Ex 5/6/7 drills). Bonus mapping: grammar → SESSION_SHORT,
+   * advanced_drills → SESSION_FULL — reflects the typical question count and
+   * cognitive load of each mode.
+   */
+  sessionType: "short" | "full" | "grammar" | "advanced_drills";
   /** Star level just achieved (0–3). */
   newStars: 0 | 1 | 2 | 3;
   /** Star level before this session (0–3). */
@@ -139,9 +145,12 @@ export function calculateXp(input: CalculateXpInput): CalculateXpResult {
     xpTodayBefore,
   } = input;
 
-  // 1. Base XP
+  // 1. Base XP — Phase 13: advanced_drills inherits the full-session bonus
+  // (same cognitive load as Full); grammar mirrors short (~10 questions).
   const sessionBonus =
-    sessionType === "full" ? XP_CONSTANTS.SESSION_FULL : XP_CONSTANTS.SESSION_SHORT;
+    sessionType === "full" || sessionType === "advanced_drills"
+      ? XP_CONSTANTS.SESSION_FULL
+      : XP_CONSTANTS.SESSION_SHORT;
   const starBonus = starBonusForDelta(newStars, previousStars);
   const xpBase = correctAnswers * XP_CONSTANTS.PER_ANSWER + sessionBonus + starBonus;
 

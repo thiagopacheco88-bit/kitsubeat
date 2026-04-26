@@ -134,3 +134,124 @@ export function estimateYouTubeQuota(searchCount: number): {
     percentOfDailyQuota: Math.round((units / dailyQuota) * 100),
   };
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Availability probe — videos.list classifier for the geo-audit pipeline.
+//
+// Used by scripts/seed/06-qa-geo-check.ts and scripts/backfill-geo-check.ts.
+// videos.list costs 1 unit per call and accepts up to 50 ids per call, so a
+// full-catalog audit is effectively free against the 10k daily quota.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Primary markets the product serves. A video is "americas" (playable) only
+ * if none of these regions appear in its regionRestriction.blocked list and,
+ * when an allowed list is set, every one of these regions is included.
+ */
+export const AMERICAS_REGIONS = ["US", "BR", "MX", "AR", "CL", "CO"] as const;
+
+/** Shape returned by fetchVideosMetadata — just the availability-relevant bits. */
+export interface VideoMetadata {
+  id: string;
+  embeddable: boolean;
+  privacyStatus: string; // "public" | "unlisted" | "private" (string for forward-compat)
+  regionRestriction?: {
+    blocked?: string[];
+    allowed?: string[];
+  };
+}
+
+/** Tier returned by classifyAvailability. */
+export type AvailabilityTier = "global" | "americas" | "restricted";
+
+/** Internal YouTube videos.list response shape (only the fields we read). */
+interface YouTubeVideosListResponse {
+  items?: Array<{
+    id: string;
+    status?: { privacyStatus?: string; embeddable?: boolean };
+    contentDetails?: {
+      regionRestriction?: { blocked?: string[]; allowed?: string[] };
+    };
+  }>;
+  error?: {
+    code: number;
+    message: string;
+    errors: Array<{ reason: string; domain: string }>;
+  };
+}
+
+/**
+ * Batch-fetch availability metadata for up to 50 YouTube IDs.
+ *
+ * IDs that YouTube doesn't return (deleted / private / bad id) are simply
+ * absent from the output array — callers compare input vs output by id to
+ * classify those as GONE.
+ *
+ * Throws YouTubeQuotaExceededError on quota errors so the geo-audit pipeline
+ * can report partial results and exit cleanly.
+ */
+export async function fetchVideosMetadata(
+  ids: string[],
+  apiKey: string
+): Promise<VideoMetadata[]> {
+  if (ids.length === 0) return [];
+  if (ids.length > 50) {
+    throw new Error(
+      `fetchVideosMetadata: max 50 ids per call, got ${ids.length}. Caller should chunk.`
+    );
+  }
+
+  const params = new URLSearchParams({
+    id: ids.join(","),
+    part: "status,contentDetails",
+    key: apiKey,
+  });
+  const url = `${YOUTUBE_API_BASE}/videos?${params}`;
+
+  const res = await fetch(url);
+  const data = (await res.json()) as YouTubeVideosListResponse;
+
+  if (data.error) {
+    if (data.error.errors.some((e) => e.reason === "quotaExceeded")) {
+      throw new YouTubeQuotaExceededError(
+        `YouTube API quota exceeded during videos.list. Try again tomorrow.`
+      );
+    }
+    throw new Error(`YouTube videos.list error (${data.error.code}): ${data.error.message}`);
+  }
+
+  return (data.items ?? []).map((item) => ({
+    id: item.id,
+    embeddable: item.status?.embeddable ?? false,
+    privacyStatus: item.status?.privacyStatus ?? "unknown",
+    regionRestriction: item.contentDetails?.regionRestriction,
+  }));
+}
+
+/**
+ * Classify a video's regional availability against a set of target regions.
+ *
+ *   - "global"     — no regionRestriction at all; playable everywhere
+ *   - "americas"   — regionRestriction present, but every target region is
+ *                    still playable (not in blocked; in allowed if allowed is set)
+ *   - "restricted" — at least one target region cannot play the video
+ */
+export function classifyAvailability(
+  meta: VideoMetadata,
+  targetRegions: readonly string[]
+): AvailabilityTier {
+  const rr = meta.regionRestriction;
+  if (!rr || (!rr.blocked?.length && !rr.allowed?.length)) return "global";
+
+  if (rr.blocked?.length) {
+    const blocksTarget = rr.blocked.some((r) => targetRegions.includes(r));
+    return blocksTarget ? "restricted" : "americas";
+  }
+
+  if (rr.allowed?.length) {
+    const allAllowed = targetRegions.every((r) => rr.allowed!.includes(r));
+    return allAllowed ? "americas" : "restricted";
+  }
+
+  return "global";
+}

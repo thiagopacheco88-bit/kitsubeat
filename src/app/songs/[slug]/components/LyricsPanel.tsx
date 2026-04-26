@@ -78,9 +78,17 @@ function buildVerseTiming(
 export default function LyricsPanel({
   verses,
   syncedLrc,
+  offsetMs = 0,
 }: {
   verses: Verse[];
   syncedLrc?: SyncedLine[] | null;
+  /**
+   * Milliseconds added to every verse start/end after timing is computed. Set
+   * per song_version in the DB (`song_versions.lyrics_offset_ms`) to correct
+   * drift between LRCLIB's reference audio and the YouTube cut we embed.
+   * Positive = delay the highlight; negative = pull it earlier.
+   */
+  offsetMs?: number;
 }) {
   const { currentTimeMs } = usePlayer();
   const verseRefs = useRef<Map<number, HTMLDivElement>>(new Map());
@@ -88,27 +96,45 @@ export default function LyricsPanel({
   const verseTiming = useMemo(() => {
     // Primary path: align verses to LRCLIB synced lyrics by text matching.
     const matched = buildVerseTiming(verses, syncedLrc ?? []);
-    if (matched.size > 0) return matched;
-    // Fallback: when synced_lrc is missing (canonical-Genius source) or its
-    // language doesn't match the verse tokens (e.g. romaji-LRC vs kanji
-    // tokens — Failure #14), use the lesson's own start/end_time_ms which
-    // come from WhisperX. The lesson schema requires these fields.
-    const fallback = new Map<number, { startMs: number; endMs: number }>();
-    for (const v of verses) {
-      if (typeof v.start_time_ms === "number" && typeof v.end_time_ms === "number") {
-        fallback.set(v.verse_number, { startMs: v.start_time_ms, endMs: v.end_time_ms });
-      }
+    const base =
+      matched.size > 0
+        ? matched
+        : (() => {
+            // Fallback: when synced_lrc is missing (canonical-Genius source)
+            // or its language doesn't match the verse tokens (e.g. romaji-LRC
+            // vs kanji tokens — Failure #14), use the lesson's own start/end
+            // _time_ms which come from WhisperX. The lesson schema requires
+            // these fields.
+            const fb = new Map<number, { startMs: number; endMs: number }>();
+            for (const v of verses) {
+              if (typeof v.start_time_ms === "number" && typeof v.end_time_ms === "number") {
+                fb.set(v.verse_number, { startMs: v.start_time_ms, endMs: v.end_time_ms });
+              }
+            }
+            return fb;
+          })();
+
+    if (!offsetMs) return base;
+    const shifted = new Map<number, { startMs: number; endMs: number }>();
+    for (const [k, t] of base) {
+      shifted.set(k, {
+        startMs: Math.max(0, t.startMs + offsetMs),
+        endMs: Math.max(0, t.endMs + offsetMs),
+      });
     }
-    return fallback;
-  }, [verses, syncedLrc]);
+    return shifted;
+  }, [verses, syncedLrc, offsetMs]);
 
   // Determine active verse
   const activeVerse = useMemo(() => {
     if (currentTimeMs <= 0 || verseTiming.size === 0) return null;
 
+    // 5-second grace period: keep a verse highlighted briefly after it ends
+    // (normal inter-verse gaps are <1s), but clear it during long instrumentals.
+    const GRACE_MS = 5000;
     for (let i = verses.length - 1; i >= 0; i--) {
       const timing = verseTiming.get(verses[i].verse_number);
-      if (timing && currentTimeMs >= timing.startMs) {
+      if (timing && currentTimeMs >= timing.startMs && currentTimeMs < timing.endMs + GRACE_MS) {
         return verses[i].verse_number;
       }
     }
@@ -136,6 +162,7 @@ export default function LyricsPanel({
           <VerseBlock
             verse={verse}
             isActive={activeVerse === verse.verse_number}
+            startMs={verseTiming.get(verse.verse_number)?.startMs}
           />
         </div>
       ))}

@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { eq, sql, asc, inArray } from "drizzle-orm";
 import { db } from "./index";
 import {
@@ -19,8 +20,9 @@ import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
 
 /**
  * Get a single song by slug, including all its versions (tv, full).
+ * Wrapped in React cache() so generateMetadata + the page body share one query per request.
  */
-export async function getSongBySlug(slug: string) {
+export const getSongBySlug = cache(async (slug: string) => {
   const rows = await db
     .select()
     .from(songs)
@@ -36,7 +38,7 @@ export async function getSongBySlug(slug: string) {
     .where(eq(songVersions.song_id, song.id));
 
   return { ...song, versions };
-}
+});
 
 export type SongWithVersions = NonNullable<Awaited<ReturnType<typeof getSongBySlug>>>;
 
@@ -125,6 +127,25 @@ export async function getAllSongs(userId?: string | null) {
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
+      // Phase 13 — grammar session accuracy (new Star 3 gate for songs with
+      // grammar). Same subquery shape as the Ex5-7 columns; NULL for users who
+      // haven't finished a grammar session yet.
+      grammar_best_accuracy: sql<number | null>`(
+        SELECT p.grammar_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      // Phase 13 — true if ANY of this song's versions has at least one entry
+      // in song_version_grammar_rules. Drives the deriveStars(songHasGrammar)
+      // branch so Star 3 checks grammar_best_accuracy on grammar songs and
+      // ex6_best_accuracy on vocab-only songs.
+      has_grammar: sql<boolean>`EXISTS (
+        SELECT 1 FROM song_version_grammar_rules svgr
+        INNER JOIN song_versions sv ON sv.id = svgr.song_version_id
+        WHERE sv.song_id = songs.id
+      )`,
       completion_pct: sql<number | null>`(
         SELECT p.completion_pct FROM user_song_progress p
         INNER JOIN song_versions sv ON sv.id = p.song_version_id
@@ -132,12 +153,23 @@ export async function getAllSongs(userId?: string | null) {
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
+      // Learner count: distinct (user_id OR session_key) across all versions
+      // of this song. COALESCE lets anonymous plays (user_id NULL) contribute
+      // as distinct by session_key — each tab/mount counts once, matching the
+      // "social proof" intent (how many humans have listened) without letting
+      // a single replaying user inflate the number.
+      learner_count: sql<number>`(
+        SELECT COUNT(DISTINCT COALESCE(sp.user_id, sp.session_key))::int
+        FROM song_plays sp
+        INNER JOIN song_versions sv ON sv.id = sp.song_version_id
+        WHERE sv.song_id = songs.id
+      )`,
     })
     .from(songs)
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    )`)
+    ) AND ${songs.language} = 'ja'`)
     .orderBy(asc(songs.popularity_rank));
 }
 
@@ -171,7 +203,7 @@ export async function getFeaturedSongs(limit: number = 6) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    )`)
+    ) AND ${songs.language} = 'ja'`)
     .orderBy(asc(songs.popularity_rank))
     .limit(limit);
 }
@@ -220,7 +252,7 @@ export async function getTopAnimeFranchises(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    )`)
+    ) AND ${songs.language} = 'ja'`)
     .groupBy(sql`regexp_replace(
       ${songs.anime},
       '( Season\\s.*| Final Season.*|:\\s.*|\\sII$|\\sIII$|\\sIV$| the Movie.*| Alternative.*| Extra.*)',
@@ -251,7 +283,7 @@ export async function getTopArtists(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    )`)
+    ) AND ${songs.language} = 'ja'`)
     .groupBy(songs.artist)
     .orderBy(sql`count(*) desc`)
     .limit(limit);
@@ -313,7 +345,7 @@ export async function getBeginnerSongs(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.jlpt_level} IN ('N5', 'N4')`)
+    ) AND ${songs.jlpt_level} IN ('N5', 'N4') AND ${songs.language} = 'ja'`)
     .orderBy(asc(songs.popularity_rank))
     .limit(limit);
 }
@@ -342,7 +374,7 @@ export async function getRecentSongs(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    )`)
+    ) AND ${songs.language} = 'ja'`)
     .orderBy(sql`${songs.created_at} desc`)
     .limit(limit);
 }
@@ -370,14 +402,26 @@ export async function getUserSongProgress(
   const row = rows[0] ?? null;
   if (!row) return null;
 
+  // Phase 13 — resolve songHasGrammar for this specific version so Star 3
+  // uses the grammar_best_accuracy gate when grammar exists.
+  const [{ n: ruleCount } = { n: 0 }] = await db.execute<{ n: number }>(sql`
+    SELECT COUNT(*)::int AS n
+    FROM song_version_grammar_rules
+    WHERE song_version_id = ${songVersionId}::uuid
+  `).then((r) => (Array.isArray(r) ? r : (r.rows ?? [])));
+  const songHasGrammar = Number(ruleCount ?? 0) > 0;
+
   return {
     ...row,
-    stars: deriveStars({
-      ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
-      ex4_best_accuracy: row.ex4_best_accuracy,
-      // Phase 10: Star 3 requires Ex 6 (Listening Drill) at ≥80%.
-      ex6_best_accuracy: row.ex6_best_accuracy,
-    }),
+    stars: deriveStars(
+      {
+        ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
+        ex4_best_accuracy: row.ex4_best_accuracy,
+        ex6_best_accuracy: row.ex6_best_accuracy,
+        grammar_best_accuracy: row.grammar_best_accuracy,
+      },
+      songHasGrammar
+    ),
   };
 }
 
@@ -405,16 +449,33 @@ export async function getUserSongProgressBatch(
       sql`${userSongProgress.user_id} = ${userId} AND ${userSongProgress.song_version_id} = ANY(${sql.raw(`ARRAY[${songVersionIds.map((id) => `'${id}'`).join(",")}]::uuid[]`)})`
     );
 
+  // Phase 13 — one round-trip to learn which song versions have grammar rules.
+  const grammarRows = await db.execute<{ song_version_id: string }>(sql`
+    SELECT DISTINCT song_version_id
+    FROM song_version_grammar_rules
+    WHERE song_version_id = ANY(${sql.raw(`ARRAY[${songVersionIds.map((id) => `'${id}'`).join(",")}]::uuid[]`)})
+  `);
+  const grammarRowsArr = Array.isArray(grammarRows)
+    ? grammarRows
+    : (grammarRows.rows ?? []);
+  const grammarVersionSet = new Set<string>(
+    grammarRowsArr.map((r) => r.song_version_id)
+  );
+
   const result = new Map<string, UserSongProgressWithStars>();
   for (const row of rows) {
+    const songHasGrammar = grammarVersionSet.has(row.song_version_id);
     result.set(row.song_version_id, {
       ...row,
-      stars: deriveStars({
-        ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
-        ex4_best_accuracy: row.ex4_best_accuracy,
-        // Phase 10: Star 3 requires Ex 6 (Listening Drill) at ≥80%.
-        ex6_best_accuracy: row.ex6_best_accuracy,
-      }),
+      stars: deriveStars(
+        {
+          ex1_2_3_best_accuracy: row.ex1_2_3_best_accuracy,
+          ex4_best_accuracy: row.ex4_best_accuracy,
+          ex6_best_accuracy: row.ex6_best_accuracy,
+          grammar_best_accuracy: row.grammar_best_accuracy,
+        },
+        songHasGrammar
+      ),
     });
   }
   return result;

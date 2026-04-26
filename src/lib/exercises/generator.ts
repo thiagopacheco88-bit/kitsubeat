@@ -560,27 +560,54 @@ function makeGrammarConjugationQuestion(
 // ---------------------------------------------------------------------------
 
 /**
+ * Phase 13 — Sentence Order mastery gate.
+ *
+ * Ex 7 (Sentence Order) is Advanced-Drills-only and requires the learner to
+ * have mastered the vocabulary of the candidate verse AND all grammar rules
+ * the song teaches. The grammar half is song-level (any unmastered rule
+ * blocks Ex 7 entirely); the vocab half is per-verse (verses with unmastered
+ * tokens are filtered out). Both halves are computed by the ExerciseTab before
+ * this generator is called.
+ *
+ * - `allGrammarMastered` — false = song has unmastered grammar, skip Ex 7
+ *                          entirely. true = proceed to per-verse vocab gate.
+ *                          Pass `true` for songs with zero grammar rules.
+ * - `masteredVocabIds`   — set of vocab_item_ids at FSRS state >= 2 (Review).
+ *                          Verses whose tokens are NOT all in this set are
+ *                          skipped by the per-verse gate. Pass `null` to
+ *                          disable the vocab gate (current behavior for
+ *                          unauthenticated or legacy callers).
+ */
+export interface SentenceOrderGate {
+  allGrammarMastered: boolean;
+  masteredVocabIds: Set<string> | null;
+}
+
+/**
  * Build a shuffled list of exercise questions from a lesson.
  *
- * @param lesson     - The lesson data (vocabulary + verses)
- * @param mode       - "short" (10 questions) or "full" (all*4 capped at 40)
- * @param jlptPool   - Same-JLPT-level vocabulary from vocabGlobal for distractor fallback
- * @param typeFilter - Phase 10 Plan 06: optional allowlist of ExerciseTypes to emit.
- *                     When provided, the per-vocab loop and the per-verse /
- *                     per-grammar-point loops each consult this set and skip
- *                     types that aren't in the allowlist. Used by the Practice
- *                     tab's "Advanced Drills" mode to emit ONLY Ex 5/6/7 —
- *                     passing ["grammar_conjugation", "listening_drill",
- *                     "sentence_order"] produces a session whose questions are
- *                     drawn exclusively from Plans 10-03/04/05. Omitted (or
- *                     undefined) preserves the pre-Plan-06 behavior: Ex 1-4 +
- *                     Ex 5-7 all emit where eligible.
+ * @param lesson             - The lesson data (vocabulary + verses)
+ * @param mode               - "short" (10 questions) or "full" (all*4 capped at 40)
+ * @param jlptPool           - Same-JLPT-level vocabulary from vocabGlobal for distractor fallback
+ * @param typeFilter         - Optional allowlist of ExerciseTypes to emit. When
+ *                             provided, the per-vocab loop and the per-verse /
+ *                             per-grammar-point loops each consult this set and
+ *                             skip types that aren't in the allowlist. Used by
+ *                             Advanced Drills (["grammar_conjugation",
+ *                             "listening_drill", "sentence_order"]) and Quick /
+ *                             Full Practice (vocab-only). Omitted preserves
+ *                             the pre-Phase-13 behavior: Ex 1-4 + Ex 5-7 all
+ *                             emit where eligible.
+ * @param sentenceOrderGate  - Phase 13: mastery gate for Ex 7. Pass from
+ *                             ExerciseTab after fetching user vocab + grammar
+ *                             mastery. Omitted = gate disabled (legacy).
  */
 export function buildQuestions(
   lesson: Lesson,
   mode: SessionConfig["mode"],
   jlptPool: VocabEntry[],
-  typeFilter?: ExerciseType[]
+  typeFilter?: ExerciseType[],
+  sentenceOrderGate?: SentenceOrderGate
 ): Question[] {
   // Only include vocab entries with a UUID identity
   const base = lesson.vocabulary.filter((v) => v.vocab_item_id);
@@ -650,9 +677,41 @@ export function buildQuestions(
   // Advanced Drills mode wires a filter.
   // -------------------------------------------------------------------------
   if (typeAllowed("sentence_order")) {
+  // Phase 13 song-level grammar gate — if the learner has any unmastered
+  // grammar rule for this song, Ex 7 is entirely skipped. When the gate is
+  // absent, allGrammarMastered defaults to true (legacy behavior).
+  const grammarGateOpen = sentenceOrderGate?.allGrammarMastered ?? true;
+  const vocabGateSet = sentenceOrderGate?.masteredVocabIds ?? null;
+  if (!grammarGateOpen) {
+    // Skip the whole Ex 7 loop — the learner hasn't earned it yet.
+  } else {
+  const verseVocabByToken = (() => {
+    // Build a surface → vocab_item_id lookup from the lesson's vocabulary so we
+    // can gate per-verse without expanding tokens with their own ids. Tokens
+    // without a matching vocab entry (particles, kana-only) are treated as
+    // always-mastered — the gate only blocks on content words.
+    const map = new Map<string, string | undefined>();
+    for (const v of lesson.vocabulary) {
+      if (!map.has(v.surface)) map.set(v.surface, v.vocab_item_id);
+    }
+    return map;
+  })();
+
   for (const verse of lesson.verses) {
     if (!Array.isArray(verse.tokens) || verse.tokens.length === 0) continue;
     if (verse.tokens.length > SENTENCE_ORDER_TOKEN_CAP) continue;
+
+    // Phase 13 per-verse vocab gate — every content-word token in the verse
+    // must map to a vocab_item_id that is in masteredVocabIds. Particles / kana
+    // tokens (no vocab_item_id) pass through.
+    if (vocabGateSet) {
+      const allTokensMastered = verse.tokens.every((t) => {
+        const id = verseVocabByToken.get(t.surface);
+        if (!id) return true; // not a tracked vocab item
+        return vocabGateSet.has(id);
+      });
+      if (!allTokensMastered) continue;
+    }
 
     const correctAnswer = verse.tokens.map((t) => t.surface).join("");
     // Translation hint target. The UI hides it by default and reveals on
@@ -692,6 +751,7 @@ export function buildQuestions(
           : undefined,
     });
   }
+  } // end grammarGateOpen else-branch (Phase 13)
   } // end sentence_order type-allowed guard
 
   // -------------------------------------------------------------------------

@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev --port 7000",
+    "dev": "next dev --turbopack --port 7000",
     "build": "next build",
     "vercel-build": "tsx --tsconfig tsconfig.scripts.json scripts/apply-migrations.ts && next build",
     "start": "next start",
@@ -39,6 +39,8 @@
     "test:quarantine": "tsx scripts/qa/run-quarantined.ts",
     "test:qa:enrichment": "tsx --tsconfig tsconfig.scripts.json scripts/seed/12-qa-enrichment.ts",
     "seed:reward-slots": "tsx --tsconfig tsconfig.scripts.json scripts/seed/14-seed-reward-slots.ts",
+    "seed:classify-themes": "tsx --tsconfig tsconfig.scripts.json scripts/seed/classify-song-themes.ts",
+    "seed:apply-themes": "tsx --tsconfig tsconfig.scripts.json scripts/seed/apply-theme-classifications.ts",
     "audit:starter-picks": "tsx --tsconfig tsconfig.scripts.json scripts/audit/verify-starter-picks.ts"
   },
   "dependencies": {

@@ -104,8 +104,9 @@ function buildInstructionsBlock(): string {
 Generate a complete lesson JSON object for this anime song following these rules exactly:
 
 ### 1. Verse Segmentation
-- Split the lyrics into logical verses. Emit **each unique stanza exactly once** — if the same chorus text appears multiple times in the Raw Lyrics block, include it only once in the \`verses\` array. The post-processing script \`scripts/seed/restore-verse-order.ts\` expands chorus repetitions from WhisperX \`synced_lrc\` after you generate the lesson, so your output should be the de-duplicated canonical verse list.
-- **Coverage requirement:** every unique Japanese lyric line in the Raw Lyrics block above must appear in the tokens of at least one verse. Only English-only lines (e.g. "Oh oh oh") and pure instrumental markers (e.g. "[Guitar solo]") may be omitted. Do not silently drop Japanese filler or low-content lines — the LyricsPanel highlights every line in real time, and unmapped unique lines cannot be restored by post-processing.
+- **Emit each lyric line in the Raw Lyrics block as its own verse.** Do NOT merge multiple lines into one verse. Each \`verses[]\` entry must correspond to exactly ONE line from the raw lyrics — this is critical because the LyricsPanel highlights one verse at a time in sync with the audio, and multi-line verses cause the highlight to stick on the same block for 15-20 seconds.
+- **Chorus repetitions:** if the same line appears multiple times across the song (chorus repeats), emit it **only once** here. The post-processing script \`scripts/seed/restore-verse-order.ts\` expands chorus repetitions from \`synced_lrc\` after generation.
+- **Coverage requirement:** every unique Japanese lyric line in the Raw Lyrics block must appear as its own verse. Only English-only lines (e.g. "Oh oh oh") and pure instrumental markers (e.g. "[Guitar solo]") may be omitted. Do not silently drop Japanese filler or low-content lines.
 - Number verses starting at 1 (verse_number field). Order verses as they first appear in the song.
 - Set start_time_ms and end_time_ms to 0 for now — the WhisperX timing pipeline and \`restore-verse-order.ts\` populate these.
 

@@ -60,6 +60,7 @@ const suffix = versionArg === "tv" ? "-tv" : "";
 const MANIFEST_PATH = `data/songs-manifest${suffix}.json`;
 const LYRICS_CACHE_DIR = `data/lyrics-cache${suffix}`;
 const TIMING_CACHE_DIR = `data/timing-cache${suffix}`;
+const TIMING_STEM_DIR = `data/timing-cache-stem${suffix}`;
 const BEAT_CACHE_DIR = `data/beat-cache`;
 
 /** Minimum gap size (seconds) to even consider significant. Smaller gaps are
@@ -263,11 +264,22 @@ function readLyricsCache(slug: string): LyricsCacheEntry | null {
   }
 }
 
-function readTimingCache(slug: string): TimingResult | null {
-  const path = join(TIMING_CACHE_DIR, `${slug}.json`);
-  if (!existsSync(path)) return null;
+/** Reads WhisperX timing for a slug. Prefers Demucs+stem output when present
+ *  (mean kCov +0.24 over raw audio, per ab-repass-report.json) and falls back
+ *  to raw-audio timing when the stem version isn't on disk yet. */
+function readTimingCache(slug: string): { result: TimingResult; source: "stem" | "orig" } | null {
+  const stemPath = join(TIMING_STEM_DIR, `${slug}.json`);
+  if (existsSync(stemPath)) {
+    try {
+      return { result: JSON.parse(readFileSync(stemPath, "utf-8")) as TimingResult, source: "stem" };
+    } catch {
+      /* fall through to orig */
+    }
+  }
+  const origPath = join(TIMING_CACHE_DIR, `${slug}.json`);
+  if (!existsSync(origPath)) return null;
   try {
-    return JSON.parse(readFileSync(path, "utf-8")) as TimingResult;
+    return { result: JSON.parse(readFileSync(origPath, "utf-8")) as TimingResult, source: "orig" };
   } catch {
     return null;
   }
@@ -336,16 +348,17 @@ async function backfillWhisperLyrics(): Promise<void> {
 
     console.log(`[backfill] ${slug} (source=pending_whisper) — processing...`);
 
-    // Read timing cache (must exist after Plan 03)
-    const timingEntry = readTimingCache(slug);
-    if (!timingEntry) {
+    // Read timing cache (prefers Demucs+stem output, falls back to raw audio)
+    const timingHit = readTimingCache(slug);
+    if (!timingHit) {
       console.warn(
-        `  [warn] ${slug} — timing cache not found at ${join(TIMING_CACHE_DIR, slug + ".json")}. ` +
+        `  [warn] ${slug} — no timing cache (looked at ${TIMING_STEM_DIR} and ${TIMING_CACHE_DIR}). ` +
           `Run Plan 03 WhisperX extraction first.`
       );
       missingTimingCache++;
       continue;
     }
+    const { result: timingEntry, source: timingSource } = timingHit;
 
     if (timingEntry.words.length === 0) {
       console.warn(`  [warn] ${slug} — timing cache has 0 words. Skipping.`);
@@ -356,6 +369,7 @@ async function backfillWhisperLyrics(): Promise<void> {
     try {
       // Reconstruct raw_lyrics from WhisperX words (uses beat-cache when present)
       const beats = readBeatCache(slug);
+      console.log(`  [timing-source] ${timingSource}`);
       const raw_lyrics = reconstructLyricsFromWords(timingEntry.words, beats);
       console.log(
         `  [reconstruct] ${timingEntry.words.length} words → ` +
