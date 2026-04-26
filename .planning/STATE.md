@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 11.3-02-PLAN.md: stub-detection auditor + cache+DB verification gate"
-last_updated: "2026-04-26T21:19:59.211Z"
+stopped_at: "Completed 11.3-03-PLAN.md: apply-verse-patch.ts replace-mode + entry-point guard"
+last_updated: "2026-04-26T21:31:27.982Z"
 last_activity: 2026-04-26
 progress:
   total_phases: 16
   completed_phases: 10
   total_plans: 84
-  completed_plans: 71
-  percent: 85
+  completed_plans: 73
+  percent: 87
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 11.3 (Fix Untranslated JP Verses) — EXECUTING
-Plan: 2 of 8
+Plan: 3 of 8
 Status: Ready to execute
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
@@ -43,7 +43,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-04-26
 
-Progress: [█████████░] 85%
+Progress: [█████████░] 87%
 
 ## Performance Metrics
 
@@ -129,6 +129,7 @@ Progress: [█████████░] 85%
 | Phase 11.1 P11.1-02 | 8 | 2 tasks | 2 files |
 | Phase 11.1 P03 | 3 | 1 tasks | 1 files |
 | Phase 11.3 P02 | 8 | 2 tasks | 3 files |
+| Phase 11.3 P03 | 11 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -371,6 +372,9 @@ Progress: [█████████░] 85%
 - D-09 pure-pointers: README links into SOP only, zero SOP content duplication
 - 11.3-02: Broadened CONTEXT-locked stub predicate from tokens.length===1 to any-token-has-JP — required to match the load-bearing SPEC count of 159 in-scope stubs (catches auto-coverage placeholders the original predicate missed)
 - 11.3-02: --verify gate scopes to song_versions.version_type='full' (mirrors 05-insert-db.ts data flow); TV versions remain owned by 10-prepare-tv pipeline
+- Replace idempotency by signature-scan-on-build (not per-iteration verse_number match) — handles slot-rename when mixed apply+append shifts the replaced row's verse_number
+- ESM entry-point guard wraps the entire CLI block (not just the error-exit branch) — lets apply-verse-patch.ts double as both CLI and Vitest-importable library
+- vitest.config.ts include glob extended to scripts/**/*.{test,spec}.ts — opens future seed-script test fixtures without further config edits
 
 ### Pending Todos
 
@@ -396,8 +400,8 @@ Progress: [█████████░] 85%
 
 ## Session Continuity
 
-Last session: 2026-04-26T21:19:59.202Z
-Stopped at: Completed 11.3-02-PLAN.md: stub-detection auditor + cache+DB verification gate
+Last session: 2026-04-26T21:31:27.969Z
+Stopped at: Completed 11.3-03-PLAN.md: apply-verse-patch.ts replace-mode + entry-point guard
 Resume file: None
 
 **Planned Phase:** 11.3 (Fix Untranslated JP Verses) — 8 plans — 2026-04-26T19:37:13.470Z
