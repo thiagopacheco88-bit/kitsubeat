@@ -96,23 +96,23 @@ export default function LyricsPanel({
   const verseTiming = useMemo(() => {
     // Primary path: align verses to LRCLIB synced lyrics by text matching.
     const matched = buildVerseTiming(verses, syncedLrc ?? []);
-    const base =
-      matched.size > 0
-        ? matched
-        : (() => {
-            // Fallback: when synced_lrc is missing (canonical-Genius source)
-            // or its language doesn't match the verse tokens (e.g. romaji-LRC
-            // vs kanji tokens — Failure #14), use the lesson's own start/end
-            // _time_ms which come from WhisperX. The lesson schema requires
-            // these fields.
-            const fb = new Map<number, { startMs: number; endMs: number }>();
-            for (const v of verses) {
-              if (typeof v.start_time_ms === "number" && typeof v.end_time_ms === "number") {
-                fb.set(v.verse_number, { startMs: v.start_time_ms, endMs: v.end_time_ms });
-              }
-            }
-            return fb;
-          })();
+    // Union strategy: matcher's LRC-derived timings are primary. For verses
+    // the matcher silently skipped (e.g. English-prefix lines like "ChAngE
+    // なびかない" where lesson tokens drop the English word, or chorus repeats
+    // the linear matcher walked past), fall back to the lesson's own
+    // start/end_time_ms — populated by restore-verse-order.ts /
+    // backfill-verse-timing-from-lrc.ts using per-verse local search
+    // against synced_lrc. Both sources are LRC-frame so the offset shift
+    // below applies uniformly. When matcher returns nothing at all (no
+    // synced_lrc / Failure #14 romaji-LRC), this collapses to the lesson
+    // values alone.
+    const base = new Map<number, { startMs: number; endMs: number }>(matched);
+    for (const v of verses) {
+      if (base.has(v.verse_number)) continue;
+      if ((v.start_time_ms ?? 0) > 0 || (v.end_time_ms ?? 0) > 0) {
+        base.set(v.verse_number, { startMs: v.start_time_ms, endMs: v.end_time_ms });
+      }
+    }
 
     const shifted = new Map<number, { startMs: number; endMs: number }>();
     if (offsetMs) {

@@ -84,13 +84,12 @@ function splitVerse(verse: Verse, timing: TimingData): Verse[] | null {
   const verseEndS = verse.end_time_ms / 1000;
   if (verseEndS <= verseStartS) return null;
 
+  // Collect candidate split times — silence gaps ≥ MIN_SILENCE_S between
+  // consecutive word ends and next starts. Empty when fewer than 2 Whisper
+  // words land in the verse window — proportional fallback handles those.
   const verseWords = words.filter(
     (w) => w.start >= verseStartS - 0.1 && w.end <= verseEndS + 0.1
   );
-  if (verseWords.length < 2) return null;
-
-  // Collect candidate split times — silence gaps ≥ MIN_SILENCE_S between
-  // consecutive word ends and next starts.
   const gaps: Array<{ splitAtS: number; sizeS: number }> = [];
   for (let i = 1; i < verseWords.length; i++) {
     const gap = verseWords[i].start - verseWords[i - 1].end;
@@ -108,19 +107,10 @@ function splitVerse(verse: Verse, timing: TimingData): Verse[] | null {
     1,
     Math.ceil(verse.tokens.length / TARGET_TOKENS) - 1
   );
-  if (gaps.length === 0) {
-    // No detected silence gaps — give up. Future enhancement: proportional
-    // split anyway.
-    return null;
-  }
-  const picked = gaps
-    .slice()
-    .sort((a, b) => b.sizeS - a.sizeS)
-    .slice(0, Math.min(desiredSplits, gaps.length))
-    .sort((a, b) => a.splitAtS - b.splitAtS);
 
   // Estimate each token's start time by proportional character offset across
-  // the verse's span.
+  // the verse's span. Needed by both the gap-driven and proportional-fallback
+  // split paths below.
   const totalChars = verse.tokens.reduce(
     (n, t) => n + (t.surface?.length ?? 0),
     0
@@ -132,6 +122,27 @@ function splitVerse(verse: Verse, timing: TimingData): Verse[] | null {
   for (const tok of verse.tokens) {
     tokenStartsS.push(verseStartS + (span * charCursor) / totalChars);
     charCursor += tok.surface?.length ?? 0;
+  }
+
+  // Pick split points. Prefer Whisper-detected silence gaps (musically
+  // meaningful breaks). Fall back to evenly-spaced token-index splits when
+  // the verse is sung in one breath — better than not splitting at all.
+  let picked: Array<{ splitAtS: number; sizeS: number }>;
+  if (gaps.length > 0) {
+    picked = gaps
+      .slice()
+      .sort((a, b) => b.sizeS - a.sizeS)
+      .slice(0, Math.min(desiredSplits, gaps.length))
+      .sort((a, b) => a.splitAtS - b.splitAtS);
+  } else {
+    const n = verse.tokens.length;
+    picked = [];
+    for (let k = 1; k <= desiredSplits; k++) {
+      const idx = Math.round((n * k) / (desiredSplits + 1));
+      if (idx > 0 && idx < n) {
+        picked.push({ splitAtS: tokenStartsS[idx], sizeS: 0 });
+      }
+    }
   }
 
   // Walk tokens, emitting a new segment whenever the next token crosses the
