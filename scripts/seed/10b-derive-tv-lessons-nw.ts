@@ -78,6 +78,7 @@ interface SongResult {
   totalVerses: number;
   vocabKept: number;
   totalVocab: number;
+  meanCoveragePct?: number;
   error?: string;
 }
 
@@ -546,6 +547,7 @@ async function deriveOne(
       totalVerses: full.verses.length,
       vocabKept: tvLesson.vocabulary.length,
       totalVocab: full.vocabulary.length,
+      meanCoveragePct: meanCoverage,
     };
   } catch (err) {
     return {
@@ -610,10 +612,10 @@ async function main(): Promise<void> {
     const r = await deriveOne(slug, args.force);
     results.push(r);
 
-    // Per-slug log format: [N/M] {slug} verses={K} aligned={J} coverage={mean}%
+    // Per-slug log format: [N/M] {slug} verses={K}/{total} vocab={J}/{total} coverage={mean}%
     const detail =
       r.status === "ok"
-        ? `  verses ${r.detectedVerses}/${r.totalVerses}  vocab ${r.vocabKept}/${r.totalVocab}`
+        ? `  verses ${r.detectedVerses}/${r.totalVerses}  vocab ${r.vocabKept}/${r.totalVocab}  coverage ${r.meanCoveragePct ?? 0}%`
         : r.error
           ? `  (${r.error})`
           : "";
