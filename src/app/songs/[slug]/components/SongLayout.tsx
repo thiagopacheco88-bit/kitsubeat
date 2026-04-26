@@ -19,7 +19,7 @@ export default function SongLayout({
   return (
     <div
       data-song-layout
-      className="flex flex-col gap-4 scroll-mt-2 max-lg:h-[calc(100dvh-12rem)] lg:flex-row"
+      className="flex flex-col gap-4 scroll-mt-16 max-lg:h-[calc(100dvh-12rem)] lg:flex-row"
     >
       <div className="max-lg:shrink-0 lg:w-[55%] lg:shrink-0">{video}</div>
 
