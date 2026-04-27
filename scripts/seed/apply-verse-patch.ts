@@ -54,6 +54,17 @@ type Patch = { patches: PatchEntry[] };
 const patchSig = (v: { tokens: VerseToken[] }): string =>
   v.tokens.map((t) => t.surface).join("");
 
+// Extended signature for replace-mode idempotency: surface concat AND verse-level
+// English translation. Phase 11.3 fixes verses where tokens are already correct
+// but translations are stub `(untranslated)` / `(auto-coverage) ...` placeholders;
+// surface-only patchSig would treat those as "already applied" and skip the fix.
+// Append-mode keeps surface-only patchSig — its concern is duplicate appends, not
+// translation upgrades.
+const patchSigWithTr = (v: {
+  tokens: VerseToken[];
+  translations: { en: string };
+}): string => `${patchSig(v)}␟${v.translations.en}`;
+
 export function applyPatch(slug: string): { before: number; after: number; skipped: number } {
   const lessonPath = join(LESSONS_DIR, `${slug}.json`);
   const patchPath = join(PATCHES_DIR, `${slug}.json`);
@@ -83,8 +94,8 @@ export function applyPatch(slug: string): { before: number; after: number; skipp
   const replaceMap = new Map<number, Omit<Verse, "verse_number">>();
   for (const p of patch.patches) {
     if (!("replace_verse_number" in p)) continue;
-    const replSig = patchSig(p.verse);
-    const alreadyApplied = original.some((v) => patchSig(v) === replSig);
+    const replSig = patchSigWithTr(p.verse);
+    const alreadyApplied = original.some((v) => patchSigWithTr(v) === replSig);
     if (alreadyApplied) {
       skipped++;
     } else {
@@ -107,11 +118,19 @@ export function applyPatch(slug: string): { before: number; after: number; skipp
     const replacement = replaceMap.get(v.verse_number);
     if (replacement) {
       // In-place edit: keep the slot (renumber pass below sets verse_number),
-      // replace the body. start_time_ms / end_time_ms come from the patch.
-      // Idempotency was already enforced when replaceMap was built — entries
-      // whose replacement signature already exists in `original` were filtered
-      // out, so reaching here means the swap is wanted.
-      merged.push({ verse_number: 0, ...replacement });
+      // replace the body. Idempotency was already enforced when replaceMap was
+      // built — entries whose (surface, translations.en) signature already
+      // exists in `original` were filtered out, so reaching here means the
+      // swap is wanted.
+      //
+      // Cache-side timing preservation: when the patch's start_time_ms /
+      // end_time_ms are 0 (e.g. translation-only fixes from Phase 11.3 where
+      // the drafter has no audio), keep the existing verse's timing instead
+      // of overwriting it with 0. A non-zero patch value still wins (covers
+      // the rare case a future patch deliberately sets timing).
+      const start_time_ms = replacement.start_time_ms || v.start_time_ms;
+      const end_time_ms = replacement.end_time_ms || v.end_time_ms;
+      merged.push({ verse_number: 0, ...replacement, start_time_ms, end_time_ms });
     } else {
       merged.push(v);
     }
