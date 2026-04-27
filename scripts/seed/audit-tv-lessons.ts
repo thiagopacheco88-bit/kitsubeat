@@ -7,8 +7,10 @@
  *
  * Exit code 0 = clean catalog; non-zero = at least one flagged lesson.
  *
- * Sign-flow pre-rework reference: 5 verses / 85s ≈ 0.059 density → SHOULD flag.
- * Typical anime OP: 8 verses / 90s ≈ 0.089 density → should pass.
+ * Sign-flow pre-rework reference: 5 verses / 85s ≈ 0.059 density → would flag at old 0.08 threshold.
+ * Thresholds relaxed per Plan 06 checkpoint (2026-04-26): density 0.08→0.03, max-span 15s→25s.
+ * Typical anime OP: 8 verses / 90s ≈ 0.089 density → passes.
+ * Degenerate reference: 1 verse / 100s → density 0.01 → flags.
  *
  * Usage:
  *   npx tsx scripts/seed/audit-tv-lessons.ts              # DB mode (canonical)
@@ -27,10 +29,33 @@ import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 // ---------------------------------------------------------------------------
-// D-07 Thresholds (locked — do not change without updating CONTEXT.md D-07)
+// D-07 Thresholds — updated per Plan 06 checkpoint decision (2026-04-26)
+//
+// DENSITY_FLOOR: 0.08 → 0.03
+//   Rationale: 0.08 was too aggressive for legitimate sparse anime TV cuts.
+//   Empirical evidence: real lessons like "kara-no-kokoro-anly" have only 3 verses
+//   over 100s (density=0.03) — the song is genuinely sparse, not degenerate.
+//   0.03 is the empirical lower bound for real content; below that is truly
+//   degenerate (e.g., a single mega-verse covering the whole song).
+//
+// MAX_VERSE_SPAN_MS: 15000 → 25000
+//   Rationale: 15s was too tight for real anime verses with held notes.
+//   Empirical evidence: crossing-field-lisa v3 = 17.7s of "いくつもの空を描いた..."
+//   is a legitimate single verse, not a degenerate merge. Real anime verses
+//   run 5-22s with held notes; 25s+ are genuinely degenerate.
+//   Degenerates like again-yui = 1 verse / 46.3s collapse to single-phrase
+//   mega-verses that clearly exceed 30s. 25s is the correct boundary.
+//
+// SELF-TEST MOCK update (same comment block):
+//   The mock was "5 verses / 85s, verse 3 spans 38s". After threshold relaxation:
+//   - density = 5/85 = 0.0588 > 0.03 (new DENSITY_FLOOR) → would NOT fire density flag
+//   - span = 38s > 25s (new MAX_VERSE_SPAN_MS=25000) → still fires max-span
+//   Mock adjusted to: "1 verse / 100s, verse 1 spans 50s"
+//   - density = 1/100 = 0.01 < 0.03 → fires density flag ✓
+//   - span = 50s > 25s → fires max-span flag ✓
 // ---------------------------------------------------------------------------
-const DENSITY_FLOOR = 0.08;       // verses per TV-second; < 0.08 flags
-const MAX_VERSE_SPAN_MS = 15_000; // any single verse > 15s flags
+const DENSITY_FLOOR = 0.03;       // verses per TV-second; < 0.03 flags (relaxed from 0.08 per Plan 06)
+const MAX_VERSE_SPAN_MS = 25_000; // any single verse > 25s flags (relaxed from 15s per Plan 06)
 
 // ---------------------------------------------------------------------------
 // Types
@@ -138,17 +163,20 @@ function printFlag(flag: Flag, verbose: boolean): void {
 function runSelfTest(): void {
   console.log("=== audit-tv-lessons self-test ===\n");
 
-  // Fabricated sign-flow pre-rework lesson:
-  // 5 verses spanning ~85s, with verse 3 spanning 38s (38000ms)
-  // Density = 5 / 85 = 0.0588... < 0.08 FLOOR  → should flag density
-  // Verse 3 span = 38000ms > 15000ms             → should flag max-span
+  // Mock lesson adjusted for relaxed thresholds (Plan 06 checkpoint, 2026-04-26):
+  //
+  // Original mock was: 5 verses / 85s, verse 3 spans 38s
+  //   - density = 5/85 = 0.0588 > 0.03 (new DENSITY_FLOOR) → would NOT fire after relaxation
+  //   - span 38s > 25s (new MAX_VERSE_SPAN_MS) → still fires
+  //
+  // Adjusted to: 1 verse / ~101s, verse 1 spans 100s
+  //   - density = 1/101 ≈ 0.0099 < 0.03 → fires density flag ✓
+  //   - span = 101000 - 1000 = 100000ms = 100s > 25000ms (25s) → fires max-span flag ✓
+  //
+  // Both flags still assert correctly with the relaxed thresholds.
   const mockLesson: Lesson = {
     verses: [
-      { verse_number: 1, start_time_ms: 1000,  end_time_ms: 8000  },
-      { verse_number: 2, start_time_ms: 8000,  end_time_ms: 15000 },
-      { verse_number: 3, start_time_ms: 15000, end_time_ms: 53000 }, // 38s span (degenerate)
-      { verse_number: 4, start_time_ms: 53000, end_time_ms: 70000 },
-      { verse_number: 5, start_time_ms: 70000, end_time_ms: 85000 }, // last verse end = 85s
+      { verse_number: 1, start_time_ms: 1000, end_time_ms: 102000 }, // span=101s > 25s; TV dur=102s → density=1/102≈0.0098 < 0.03
     ],
   };
 
@@ -157,9 +185,9 @@ function runSelfTest(): void {
   const hasDensityFlag = flags.some((f) => f.kind === "density");
   const hasMaxSpanFlag = flags.some((f) => f.kind === "max-span");
 
-  console.log("Mock lesson: 5 verses, 85s TV duration, verse 3 spans 38s");
-  console.log(`  Expected: density flag (density=${(5/85).toFixed(4)} < ${DENSITY_FLOOR})`);
-  console.log(`  Expected: max-span flag (38000ms > ${MAX_VERSE_SPAN_MS}ms)`);
+  console.log("Mock lesson: 1 verse, ~102s TV duration, verse 1 spans 101s");
+  console.log(`  Expected: density flag (density=${(1/102).toFixed(4)} < ${DENSITY_FLOOR})`);
+  console.log(`  Expected: max-span flag (101000ms > ${MAX_VERSE_SPAN_MS}ms)`);
   console.log();
 
   for (const flag of flags) {
@@ -329,7 +357,7 @@ OPTIONS
   --self-test     Run built-in regression test with mock sign-flow pre-rework lesson
   --help          Show this help message
 
-THRESHOLDS (D-07, locked)
+THRESHOLDS (D-07, relaxed per Plan 06 checkpoint 2026-04-26)
   density floor:  ${DENSITY_FLOOR} verses/sec  (< ${DENSITY_FLOOR} flags the lesson)
   max-span:       ${MAX_VERSE_SPAN_MS}ms per verse  (> ${MAX_VERSE_SPAN_MS}ms flags the lesson)
 

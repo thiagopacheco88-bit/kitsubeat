@@ -67,6 +67,39 @@ These 4 slugs were already excluded from `data/songs-manifest-tv.json` before Ph
 | newsong-tacica | deferred-with-rationale | Pre-existing exclusion. TV cut is "ご視聴ありがとうございました" outro voiceover — vocals absent. D-05 step 0 → step 3 (drop). To formally drop, requires DB DELETE. Out of scope this phase. | (n/a; not in batch manifest) |
 | whats-up-people-maximum-the-hormone | deferred-with-rationale | Pre-existing exclusion. Mixed English+Japanese ("What's up with my mind? アーメンボール!"). NW partial-alignment is plausible if user wants to retry with relaxed thresholds. Out of scope this phase. | (n/a; not in batch manifest) |
 
+---
+
+## Audit-Flagged Drops (Plan 06)
+
+**Date:** 2026-04-26
+**Plan:** 11.2-06 (spot-check + audit gate)
+**Context:** Thresholds relaxed per checkpoint decision: DENSITY_FLOOR 0.08→0.03, MAX_VERSE_SPAN_MS 15s→25s. After relaxation, 18 of 47 lessons still flagged. All 18 removed from catalog: `data/lessons-cache-tv-nw/{slug}.json`, `data/audio-tv/{slug}.mp3`, `data/vocal-stems-tv/htdemucs/{slug}/`, `data/timing-cache-tv-stem/{slug}.json`.
+
+**Remaining after drops:** 47 − 18 = 29 lessons in `data/lessons-cache-tv-nw/`.
+
+| Slug | Outcome | Flag(s) that fired | Specific values |
+|------|---------|--------------------|-----------------|
+| again-yui | removed-from-catalog-with-rationale | density + max-span | density=0.0160 (floor=0.03); verse 1 spans 46288ms (max=25000ms). Single-verse mega-lesson — the NW collapsed the entire TV cut into one verse. Degenerate. |
+| broken-youth-nico-touches-the-walls | removed-from-catalog-with-rationale | max-span | verse 7 spans 29811ms (max=25000ms). Single verse running ~30s indicates a verse-merge artifact. |
+| diver-nico-touches-the-walls | removed-from-catalog-with-rationale | max-span | verse 3 spans 26476ms (max=25000ms). Verse merge artifact. |
+| flame-dish | removed-from-catalog-with-rationale | max-span | verse 3 spans 29324ms (max=25000ms). Verse merge artifact. |
+| freedom-home-made-kazoku | removed-from-catalog-with-rationale | max-span | verse 1 spans 27848ms (max=25000ms). Verse merge artifact. |
+| golden-time-lover-sukima-switch | removed-from-catalog-with-rationale | max-span (×2) | verse 2 spans 26724ms; verse 3 spans 46367ms (max=25000ms). Multiple merged verses. |
+| kara-no-kokoro-anly | removed-from-catalog-with-rationale | density + max-span | density=0.0249 (floor=0.03); verse 1 spans 47929ms, verse 2 spans 31653ms. Very sparse + long verses — likely a slow ballad whose TV cut has very few lyric events, or NW merged multiple verses. |
+| let-it-out-miho-fukuhara | removed-from-catalog-with-rationale | max-span (×2) | verse 3 spans 26121ms; verse 4 spans 31445ms (max=25000ms). Multiple merged verses. |
+| line-sukima-switch | removed-from-catalog-with-rationale | density + max-span | density=0.0192 (floor=0.03); verse 1 spans 40267ms. Single-verse or near-single-verse degenerate. |
+| long-kiss-goodbye-halcali | removed-from-catalog-with-rationale | max-span | verse 5 spans 26555ms (max=25000ms). Verse merge artifact. |
+| mother-mucc | removed-from-catalog-with-rationale | max-span | verse 3 spans 26933ms (max=25000ms). Verse merge artifact. |
+| name-of-love-cinema-staff | removed-from-catalog-with-rationale | max-span | verse 1 spans 25407ms (max=25000ms). Marginal but exceeds threshold; verse merge artifact. |
+| no-boy-no-cry-stance-punks | removed-from-catalog-with-rationale | density + max-span | density=0.0208 (floor=0.03); verse 1 spans 33204ms. Single-verse degenerate. |
+| overfly-luna-haruna | removed-from-catalog-with-rationale | density + max-span | density=0.0241 (floor=0.03); verse 1 spans 59015ms. Single verse nearly 60s — extreme degenerate. |
+| shinkokyuu-super-beaver | removed-from-catalog-with-rationale | max-span | verse 7 spans 25602ms (max=25000ms). Marginal (602ms over threshold); removed conservatively as the derived lesson has only 8/34 verses (36% coverage) and the marginal violation indicates NW alignment uncertainty on the final verse. |
+| shunkan-sentimental-scandal | removed-from-catalog-with-rationale | density + max-span | density=0.0235 (floor=0.03); verse 1 spans 45478ms, verse 2 spans 37268ms. Two massive merged verses — severe degenerate. |
+| soba-ni-iru-kara-amadori | removed-from-catalog-with-rationale | max-span | verse 5 spans 25322ms (max=25000ms). Marginal (322ms over threshold); removed conservatively. |
+| utakata-hanabi-supercell | removed-from-catalog-with-rationale | max-span | verse 2 spans 34103ms (max=25000ms). Verse merge artifact. |
+
+---
+
 ## Followups
 
 - **Phase 11.1 / Add-Song Pipeline cleanup:** The 6 youtube-id duplicates in `data/songs-manifest-tv.json` and the 2 mismatched full-version youtube-ids in `data/songs-manifest.json` indicate the upstream manifest is unreliable. Auditing all manifests against canonical YouTube ids should be part of the Add-Song Pipeline work.
