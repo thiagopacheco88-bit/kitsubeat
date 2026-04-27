@@ -91,3 +91,16 @@ Loader output (29 [ok] slugs):
 - Closing: Phase 11.2 is complete.
 
 Finished: 2026-04-27T19:15:00Z
+Lesson schema OK
+LESSON_JSON_SCHEMA has 3 top-level keys
+=== 10c-load-tv-lessons: 3 TV row(s) ===
+
+[ok           ] sign-flow  verses=12  vocab=17
+[ok           ] uso-sid  verses=7  vocab=32
+[ok           ] the-day-porno-graffitti  verses=9  vocab=31
+
+=== Summary ===
+  loaded:       3
+  missing_file: 0
+  invalid:      0
+  errors:       0
