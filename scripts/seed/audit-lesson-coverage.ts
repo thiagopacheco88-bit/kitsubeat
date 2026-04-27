@@ -1,11 +1,20 @@
 /**
- * audit-lesson-coverage.ts — One-off audit: count Japanese lyric lines that
- * do NOT map to any verse in the paired lesson. Uses the same normalize rule
- * as LyricsPanel.buildVerseTiming so the measurement reflects actual
- * highlight behaviour.
+ * audit-lesson-coverage.ts — Count Japanese lyric lines that do NOT map to
+ * any verse in the paired lesson. Uses the same normalize rule as
+ * LyricsPanel.buildVerseTiming so the measurement reflects actual highlight
+ * behaviour.
+ *
+ * Interpretation by version:
+ *   --version full (default): every unmatched JP line is a real highlight gap
+ *     (the player will not light any verse for that line). High unmatched
+ *     percentage = render bug.
+ *   --version tv: TV cuts are subsets of the full lyrics, so SOME unmatched
+ *     lines are legitimate (lines absent from the cut). Only outlier songs
+ *     with disproportionate gaps relative to the cohort merit attention.
  *
  * Usage:
- *   npx tsx scripts/seed/audit-lesson-coverage.ts
+ *   npx tsx scripts/seed/audit-lesson-coverage.ts                    # full (default)
+ *   npx tsx scripts/seed/audit-lesson-coverage.ts --version tv       # TV cohort
  */
 
 import { existsSync, readFileSync, readdirSync, writeFileSync } from "fs";
@@ -14,14 +23,28 @@ import { fileURLToPath } from "url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const ROOT = resolve(__dirname, "../../");
+
+const args = process.argv.slice(2);
+const versionIdx = args.indexOf("--version");
+const version: "full" | "tv" =
+  versionIdx !== -1 && args[versionIdx + 1] === "tv" ? "tv" : "full";
+
 const LYRICS_DIR = join(ROOT, "data/lyrics-cache");
-const LESSONS_DIR = join(ROOT, "data/lessons-cache");
+const LESSONS_DIR =
+  version === "tv" ? join(ROOT, "data/lessons-cache-tv") : join(ROOT, "data/lessons-cache");
+const REPORT_FILENAME =
+  version === "tv" ? "lesson-coverage-audit-tv.csv" : "lesson-coverage-audit.csv";
+
+if (!existsSync(LESSONS_DIR)) {
+  console.error(`[audit] lessons dir not found: ${LESSONS_DIR}`);
+  process.exit(1);
+}
 
 // Matches LyricsPanel.buildVerseTiming normalize
 const normalize = (s: string) =>
-  s.replace(/[\s\u3000、。！？・「」『』（）\-,.!?()"']/g, "").toLowerCase();
+  s.replace(/[\s　、。！？・「」『』（）\-,.!?()"']/g, "").toLowerCase();
 
-const JP_RE = /[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]/;
+const JP_RE = /[぀-ゟ゠-ヿ一-鿿]/;
 const isJapanese = (s: string) => JP_RE.test(s);
 
 type Row = {
@@ -87,11 +110,15 @@ const total = rows.length;
 const totalJp = rows.reduce((s, r) => s + r.total_jp_lines, 0);
 const totalUnmatched = rows.reduce((s, r) => s + r.unmatched, 0);
 
-console.log(`=== Lesson coverage audit ===`);
+console.log(`=== Lesson coverage audit (version=${version}) ===`);
 console.log(`Songs audited:        ${total}`);
 console.log(`Songs with gaps:      ${affected.length} (${Math.round((affected.length / total) * 100)}%)`);
 console.log(`Total JP lines:       ${totalJp}`);
 console.log(`Total unmatched:      ${totalUnmatched} (${Math.round((totalUnmatched / totalJp) * 100)}%)`);
+if (version === "tv") {
+  console.log(`Note: TV cuts subset full lyrics; some unmatched is expected.`);
+  console.log(`      Outliers (top 15 below) are the candidates for review.`);
+}
 console.log();
 console.log(`Top 15 worst offenders:`);
 console.log(`  ${"slug".padEnd(44)} ${"unmatched/total".padEnd(18)} pct  sample`);
@@ -102,7 +129,7 @@ for (const r of affected.slice(0, 15)) {
   );
 }
 
-const csvPath = join(ROOT, "data/lesson-coverage-audit.csv");
+const csvPath = join(ROOT, "data", REPORT_FILENAME);
 writeFileSync(
   csvPath,
   "slug,total_jp_lines,unmatched,unmatched_pct,sample_1,sample_2,sample_3\n" +
