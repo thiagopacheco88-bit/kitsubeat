@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
-status: executing
+status: ready_to_plan
 stopped_at: "Completed 11.2-07-PLAN.md: Phase 11.2 COMPLETE — 29 NW TV lessons live in production; zero audit flags"
 last_updated: "2026-04-27T19:50:51.029Z"
 last_activity: 2026-04-27
 progress:
   total_phases: 16
-  completed_phases: 11
+  completed_phases: 12
   total_plans: 84
   completed_plans: 75
-  percent: 89
+  percent: 75
 ---
 
 # Project State
@@ -25,9 +25,9 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 
 ## Current Position
 
-Phase: 11.3 (Fix Untranslated JP Verses) — EXECUTING
-Plan: 5 of 8
-Status: Ready to execute
+Phase: 12
+Plan: Not started
+Status: Ready to plan
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
 
@@ -49,7 +49,7 @@ Progress: [█████████░] 89%
 
 **Velocity:**
 
-- Total plans completed: 21
+- Total plans completed: 29
 - Average duration: 9.3 min
 - Total execution time: 2.73 hours
 
@@ -61,6 +61,7 @@ Progress: [█████████░] 89%
 | 08.1-end-to-end-qa-suite | 8/8 | 66 min | 8 min |
 | 08.2-fsrs-progressive-disclosure | 3/3 | 16 min | 5 min |
 | 11.1 | 3 | - | - |
+| 11.3 | 8 | - | - |
 
 **Recent Trend:**
 

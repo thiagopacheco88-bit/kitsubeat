@@ -41,7 +41,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 11: Cross-Song Vocabulary** - Surface vocabulary mastery across all songs and deliver the premium cross-song review dashboard (completed 2026-04-18)
 - [x] **Phase 11.1: Add-Song Pipeline** - INSERTED 2026-04-19 - Durable CLI pipeline for adding new songs end-to-end (discovery → lyrics/timing → lesson → DB) with validation gates surfaced by the TV backfill. Decimal-shifted from "Phase 12" to free the slot for v3.0 gamification. Draft CONTEXT at [.planning/phases/11.1-add-song-pipeline/11.1-CONTEXT.md](phases/11.1-add-song-pipeline/11.1-CONTEXT.md)
 - [x] **Phase 11.2: TV-Derive Rework with Demucs + Needleman-Wunsch** - INSERTED 2026-04-26 - Catalog-wide repair of all 60 TV-version song lessons. Replace 10b's per-verse romaji LCS (which scatters matches and trips MAX_SPAN_RATIO even on clean Demucs-stem WhisperX input) with Needleman-Wunsch global alignment. Adds TV Demucs+WhisperX pipeline (yt-dlp → htdemucs → WhisperX large-v3 ja → NW vs full lesson → segment-anchored verse projection → 10c-load). Surfaced after sign-flow TV cut shipped broken on Vercel. Draft CONTEXT at [.planning/phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md](phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md) — Completed 2026-04-27
-- [ ] **Phase 11.3: Fix Untranslated JP Verses** - INSERTED 2026-04-26 - Catalog-wide retranslation of 970 broken JP verses across 102 of 274 songs (likely a side effect of bec890c's lesson-prompt coverage rule causing the LLM to emit single-token "(untranslated lyric line)" stubs instead of tokenising/translating filler lines). Local-LLM (Ollama) drafts using whole-song context + neighbour-verse translations as anchors, inline review for high-difficulty verses, splice via existing verse-patch infrastructure. Draft CONTEXT at [.planning/phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md](phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md)
+- [x] **Phase 11.3: Fix Untranslated JP Verses** - INSERTED 2026-04-26 - Catalog-wide retranslation of 970 broken JP verses across 102 of 274 songs (likely a side effect of bec890c's lesson-prompt coverage rule causing the LLM to emit single-token "(untranslated lyric line)" stubs instead of tokenising/translating filler lines). Local-LLM (Ollama) drafts using whole-song context + neighbour-verse translations as anchors, inline review for high-difficulty verses, splice via existing verse-patch infrastructure. Draft CONTEXT at [.planning/phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md](phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md) (completed 2026-04-27)
 - ➡️ **Phase 12: Anime Scenes & Cultural Vocabulary** - **MOVED** to v4.0 as Phase 21 (deferred until after v3.0 launch)
 
 ### v3.0 Launch Readiness
@@ -264,17 +264,17 @@ Plans:
 **Goal:** Replace stub-translated JP verses with proper tokenized translations (en + pt-BR + es) across the 6 worst-offender songs in the catalog — 159 broken verses total — and ship the cleaned lessons to Neon with a verifiable zero-stub gate. Stub signature: single-token verse where `tokens[0].surface` is Japanese and `translations.en` starts with `(`. Local-LLM (Ollama) drafts using whole-song context + 2-verse-window neighbour translations as anchors; inline Claude Code review absorbs every Ollama fail; splice via existing verse-patch infrastructure extended with `replace_verse_number` mode.
 **Depends on:** Phase 11.1 (Add-Song Pipeline conventions — `05-insert-db.ts --slug=` filter and per-slug DB-push pattern shipped 2026-04-26)
 **Requirements:** SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7 (locked in 11.3-SPEC.md; no upstream REQUIREMENTS.md REQ-IDs map to this phase)
-**Plans:** 8 plans
+**Plans:** 8/8 plans complete
 
 Plans:
-- [ ] 11.3-01-PLAN.md — Ollama install + 2-model pull + JP→multi-locale JSON smoke (SPEC-REQ-1)
-- [ ] 11.3-02-PLAN.md — audit-untranslated-verses.ts + queue TSV + --verify cache+DB gate (SPEC-REQ-2, SPEC-REQ-7)
-- [ ] 11.3-03-PLAN.md — apply-verse-patch.ts replace-mode + Vitest fixture (D-11 ordering, SPEC-REQ-5)
-- [ ] 11.3-04-PLAN.md — qwen vs llama pilot + MODEL-PILOT.md + LOCKED_OLLAMA_MODEL lock (D-01, SPEC-REQ-1/3)
-- [ ] 11.3-05-PLAN.md — Ollama drafter (whole-song + 2-verse window, schema-validate, INLINE-REVIEW-QUEUE on flag) (SPEC-REQ-3)
-- [ ] 11.3-06-PLAN.md — Inline Claude Code review of every flagged verse (SPEC-REQ-4)
-- [ ] 11.3-07-PLAN.md — Smoke: yellow-moon-akeboshi end-to-end + Vercel play-through (D-09, D-10, SPEC-REQ-5/6)
-- [ ] 11.3-08-PLAN.md — Catalog rollout: remaining 5 slugs + final 6-slug --verify gate (SPEC-REQ-6, SPEC-REQ-7)
+- [x] 11.3-01-PLAN.md — Ollama install + 2-model pull + JP→multi-locale JSON smoke (SPEC-REQ-1)
+- [x] 11.3-02-PLAN.md — audit-untranslated-verses.ts + queue TSV + --verify cache+DB gate (SPEC-REQ-2, SPEC-REQ-7)
+- [x] 11.3-03-PLAN.md — apply-verse-patch.ts replace-mode + Vitest fixture (D-11 ordering, SPEC-REQ-5)
+- [x] 11.3-04-PLAN.md — qwen vs llama pilot + MODEL-PILOT.md + LOCKED_OLLAMA_MODEL lock (D-01, SPEC-REQ-1/3)
+- [x] 11.3-05-PLAN.md — Ollama drafter (whole-song + 2-verse window, schema-validate, INLINE-REVIEW-QUEUE on flag) (SPEC-REQ-3)
+- [x] 11.3-06-PLAN.md — Inline Claude Code review of every flagged verse (SPEC-REQ-4)
+- [x] 11.3-07-PLAN.md — Smoke: yellow-moon-akeboshi end-to-end + Vercel play-through (D-09, D-10, SPEC-REQ-5/6)
+- [x] 11.3-08-PLAN.md — Catalog rollout: remaining 5 slugs + final 6-slug --verify gate (SPEC-REQ-6, SPEC-REQ-7)
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
