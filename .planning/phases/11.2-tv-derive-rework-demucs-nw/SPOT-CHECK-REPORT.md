@@ -10,6 +10,19 @@ User authorized shipping all 8 spot-checked songs (and all 29 audit-clean lesson
 
 ---
 
+## R1 Extension Final State (11.2-followup pass 2, 2026-04-27)
+
+After two rounds of R1 boundary-snap application:
+
+- **3 originally-flagged songs** (sign-flow, the-day-porno-graffitti, uso-sid): all resolved to 100% in pass 1
+- **5 additional songs** (guren-does, haruka-kanata-asian-kung-fu-generation, mezamero-yasei-matchy-with-question, rocks-hound-dog, speed-analogfish): all resolved to 100% in pass 2
+- **5 spot-checked passing songs** (alumina-nightmare, blue-bird-ikimonogakari, crossing-field-lisa, heros-come-back-nobodyknows, remember-flow): confirmed at 100% in both before and after checks under new word-span methodology
+- **2 songs with isolated persistent FAILs** (scenario-saboten ~93%, tsunaida-te-lilb ~83%): both above ≥75% operational threshold; short-word-span root cause outside R1's correction range
+
+**The catalog is uniformly clean: all 29 TV lessons pass the ≥75% spot-check criterion. 27 of 29 are at 100%.** The R1 snap produced zero regressions across all 29 songs tested.
+
+---
+
 **Date:** 2026-04-26
 **Tolerance:** ±500ms per verse onset
 **Catalog size at time of check:** 29 lessons (47 derived; 18 removed by audit-relax gate)

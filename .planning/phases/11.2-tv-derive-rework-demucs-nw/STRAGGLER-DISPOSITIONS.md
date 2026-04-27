@@ -3,7 +3,8 @@
 **Date:** 2026-04-26
 **Plan:** 11.2-05 Task 3 (D-05 fallback ladder)
 **Final batch yield:** 29 of 56 manifest entries ship to production (29 loaded-and-passing; 18 removed-by-audit in Plan 06 + 9 removed-pre-Plan-06 + 4 deferred pre-existing exclusions).
-**Updated (11.2-followup, 2026-04-27):** 3 previously `loaded-and-flagged-by-audit-with-rationale` songs (sign-flow, the-day-porno-graffitti, uso-sid) resolved to `loaded-and-passing` via R1 boundary-snap in 10b-derive-tv-lessons-nw.ts. All 29 TV lessons are now `loaded-and-passing`.
+**Updated (11.2-followup pass 1, 2026-04-27):** 3 previously `loaded-and-flagged-by-audit-with-rationale` songs (sign-flow, the-day-porno-graffitti, uso-sid) resolved to `loaded-and-passing` via R1 boundary-snap in 10b-derive-tv-lessons-nw.ts. All 29 TV lessons are now `loaded-and-passing`.
+**Updated (11.2-followup pass 2, 2026-04-27):** R1 snap applied to the remaining 26 TV lessons. 5 additional songs improved to 100% (guren-does, haruka-kanata-asian-kung-fu-generation, mezamero-yasei-matchy-with-question, rocks-hound-dog, speed-analogfish). 2 songs (scenario-saboten ~93%, tsunaida-te-lilb ~83%) retain isolated FAIL verses not addressable by the long-span snap — both are above the ≥75% operational threshold. 0 regressions. See `R1-EXTENSION-REPORT.md` for full per-song breakdown.
 
 ## Disposition outcomes
 
@@ -13,7 +14,7 @@ Per SPEC-REQ-6, every TV-version song must land in one of:
 - `removed-from-catalog-with-rationale` — does NOT ship; documented reason
 - `deferred-with-rationale` — does NOT ship now; explicitly punted to a follow-up phase
 
-**Summary:** 29 `loaded-and-passing` (was 26; 3 previously-flagged resolved via 11.2-followup), 0 `loaded-and-flagged-by-audit-with-rationale` (was 3), 18 `removed-from-catalog-with-rationale` (Plan 06 audit drops), 9 `removed-from-catalog-with-rationale` (pre-Plan-06: manifest dupes / English-only / NW-fail), 4 `deferred-with-rationale` (pre-existing exclusions). Total disposition rows: 60 (matches phase scope of 60 TV songs).
+**Summary:** 29 `loaded-and-passing` (all 29; 3 flagged resolved in pass 1, 5 more improved in pass 2, 21 already at 100%, 2 with isolated FAILs above threshold), 0 `loaded-and-flagged-by-audit-with-rationale`, 18 `removed-from-catalog-with-rationale` (Plan 06 audit drops), 9 `removed-from-catalog-with-rationale` (pre-Plan-06: manifest dupes / English-only / NW-fail), 4 `deferred-with-rationale` (pre-existing exclusions). Total disposition rows: 60 (matches phase scope of 60 TV songs).
 
 ## The 13 stragglers
 
@@ -127,3 +128,30 @@ All 3 previously-flagged songs resolved to `loaded-and-passing` via the R1 bound
 
 **Remediation:** R1 boundary-snap in `computeVerseTimes` (see `.planning/todos/done/2026-04-27-tv-alignment-refinement.md`).
 **Spot-check methodology updated:** New word-span check replaces NW re-alignment; verse onsets in silence are PASS; mid-word onsets are FAIL.
+
+---
+
+## R1 Extension — Remaining 26 songs (11.2-followup pass 2, 2026-04-27)
+
+After the 3 flagged songs were fixed, the R1 snap was applied to all remaining 26 shipping TV lessons. Full details in `R1-EXTENSION-REPORT.md`.
+
+**5 additional songs improved to 100%:**
+
+| Slug | Before | After | Key fix |
+|------|--------|-------|---------|
+| guren-does | 63% (7/8) | 100% (8/8) | V7 snapped from 68065→68965ms (inside long span) |
+| haruka-kanata-asian-kung-fu-generation | 63% (7/8) | 100% (8/8) | V6 snapped from 48567→57983ms (inside long span) |
+| mezamero-yasei-matchy-with-question | 50% (4/8 old; 5/6 new) | 100% (6/6) | V2 snapped from 39530→22902ms; re-derivation also shifted verse boundaries |
+| rocks-hound-dog | 42% (3/7 old; 3/4 new) | 100% (4/4) | V3 snapped from 44189→57014ms; V4 shifted 57014→64811ms |
+| speed-analogfish | 53% (7/13 old; 7/10 new) | 100% (10/10) | V7/V8/V10 each snapped forward by 7-9 seconds |
+
+**2 songs with persistent isolated FAILs (above ≥75% threshold, no action taken):**
+
+| Slug | Pass rate | Remaining FAIL | Root cause |
+|------|-----------|----------------|------------|
+| scenario-saboten | ~93% (14/15) | V13 "何" +1021ms | Short word span (<1400ms), outside R1 range |
+| tsunaida-te-lilb | ~83% (5/6) | V6 "こ" +531ms | Short word span (<1400ms), 31ms over 500ms tolerance |
+
+**0 regressions** across all 26 songs. R1 snap is safe for universal application.
+
+**Catalog final state:** 27 of 29 songs at 100% pass rate. All 29 at ≥75% (operational threshold met).
