@@ -11,6 +11,12 @@
  * Skipped: verses with start_time_ms === 0 (low-coverage emission — the deriver
  * explicitly claimed no TV timing for this verse).
  *
+ * Methodology fix (Plan 06 checkpoint 2026-04-26):
+ * Previously compared lesson.start_time_ms (gap-midpoint adjusted) against raw
+ * NW first-matched-char time (not adjusted) → systematic false FAILs.
+ * Fix: applies computeVerseTimes (same gap-midpoint expansion as the deriver)
+ * to predicted rawSpans before comparing, so comparison is apples-to-apples.
+ *
  * Usage:
  *   npx tsx scripts/seed/spot-check-tv-onsets.ts --slug sign-flow
  *   npx tsx scripts/seed/spot-check-tv-onsets.ts --slugs sign-flow,uso-sid,again-yui
@@ -22,7 +28,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { needlemanWunsch, normRomaji, tokenAlignText } from "./10b-derive-tv-lessons-nw.js";
+import { needlemanWunsch, normRomaji, tokenAlignText, computeVerseTimes } from "./10b-derive-tv-lessons-nw.js";
 import { initKuroshiro, toHepburnRomaji } from "../lib/kuroshiro-tokenizer.js";
 
 // ---------------------------------------------------------------------------
@@ -172,7 +178,50 @@ export async function checkVerseOnsets(
     }
   }
 
-  // Per-verse: find first matched char → predicted onset
+  // Per-verse: collect rawSpans (first/last matched char → startMs/endMs).
+  // We then apply computeVerseTimes (same gap-midpoint expansion as the deriver)
+  // so the predicted startMs is apples-to-apples with lesson.start_time_ms.
+  //
+  // Without this adjustment: lesson.start_time_ms has gap-midpoint applied,
+  // but rawFirstMatchedCharMs does not → systematic mismatch → false FAILs.
+  const rawSpans: Array<{ verseNumber: number; startMs: number; endMs: number }> = [];
+  const verseSkipReasons = new Map<number, string>(); // verseNumber → skip reason
+
+  for (const range of verseRanges) {
+    const { verseNumber, charStart, charEnd } = range;
+
+    // Collect all matched bIndices for this verse's range
+    const matchedBIndices: number[] = [];
+    for (let ai = charStart; ai <= charEnd; ai++) {
+      const bi = aToB.get(ai);
+      if (bi !== undefined) matchedBIndices.push(bi);
+    }
+
+    if (matchedBIndices.length === 0) {
+      verseSkipReasons.set(verseNumber, "no matched chars in verse range");
+      continue;
+    }
+
+    const firstBi = Math.min(...matchedBIndices);
+    const lastBi = Math.max(...matchedBIndices);
+    const startMs = tvCharToStartMs[firstBi] ?? null;
+    const endMs = tvCharToStartMs[lastBi] ?? null;
+
+    if (startMs === null || endMs === null) {
+      verseSkipReasons.set(verseNumber, "timing index out of bounds");
+      continue;
+    }
+
+    rawSpans.push({ verseNumber, startMs, endMs });
+  }
+
+  // Apply the same gap-midpoint expansion that the deriver applies.
+  // This produces predicted startMs values comparable to lesson.start_time_ms.
+  const tvFirstWordStartMs = tvCharToStartMs[0] ?? 0;
+  const adjustedSpans = computeVerseTimes(rawSpans, tvFirstWordStartMs);
+  const adjustedByVerseNumber = new Map(adjustedSpans.map((s) => [s.verseNumber, s]));
+
+  // Build results per verse
   const results: VerseOnsetResult[] = [];
 
   for (const verse of lesson.verses) {
@@ -191,54 +240,33 @@ export async function checkVerseOnsets(
       continue;
     }
 
-    const range = verseRanges.find((r) => r.verseNumber === verse.verse_number);
-    if (!range) {
+    const skipReason = verseSkipReasons.get(verse.verse_number);
+    if (skipReason) {
       results.push({
         verseNumber: verse.verse_number,
         lessonStartMs,
         predictedOnsetMs: null,
         deltaMs: null,
         status: "SKIP",
-        note: "verse range not found",
+        note: skipReason,
       });
       continue;
     }
 
-    // Find first matched char in verse range
-    let firstMatchedBi: number | null = null;
-    for (let ai = range.charStart; ai <= range.charEnd; ai++) {
-      const bi = aToB.get(ai);
-      if (bi !== undefined) {
-        firstMatchedBi = bi;
-        break;
-      }
-    }
-
-    if (firstMatchedBi === null) {
+    const adjusted = adjustedByVerseNumber.get(verse.verse_number);
+    if (!adjusted) {
       results.push({
         verseNumber: verse.verse_number,
         lessonStartMs,
         predictedOnsetMs: null,
         deltaMs: null,
         status: "SKIP",
-        note: "no matched chars in verse range",
+        note: "verse not in adjusted spans (below presence threshold?)",
       });
       continue;
     }
 
-    const predictedOnsetMs = tvCharToStartMs[firstMatchedBi] ?? null;
-    if (predictedOnsetMs === null) {
-      results.push({
-        verseNumber: verse.verse_number,
-        lessonStartMs,
-        predictedOnsetMs: null,
-        deltaMs: null,
-        status: "SKIP",
-        note: "timing index out of bounds",
-      });
-      continue;
-    }
-
+    const predictedOnsetMs = adjusted.startMs;
     const deltaMs = lessonStartMs - predictedOnsetMs;
     const status: VerseOnsetStatus = Math.abs(deltaMs) <= toleranceMs ? "PASS" : "FAIL";
 

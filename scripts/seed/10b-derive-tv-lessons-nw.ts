@@ -210,7 +210,8 @@ export function tokenAlignText(tok: {
 // (copied verbatim from 10b-derive-tv-lessons.ts)
 // ─────────────────────────────────────────────────────────────────────────────
 
-interface DetectedVerse {
+/** Exported so spot-check-tv-onsets.ts can use the same type. */
+export interface DetectedVerse {
   verseNumber: number;
   startMs: number;
   endMs: number;
@@ -221,8 +222,11 @@ interface DetectedVerse {
  * Tightens inter-verse boundaries by averaging adjacent verse end/start.
  * The first verse's start clamps to the first TV word's start.
  * The last verse's end gets a +1s sustain buffer.
+ *
+ * Exported so spot-check-tv-onsets.ts can apply the same adjustment and compare
+ * apples-to-apples against lesson.start_time_ms (which was produced by this fn).
  */
-function computeVerseTimes(
+export function computeVerseTimes(
   rawSpans: Array<{ verseNumber: number; startMs: number; endMs: number }>,
   tvFirstWordStartMs: number
 ): DetectedVerse[] {
@@ -633,7 +637,13 @@ async function main(): Promise<void> {
   }
 }
 
-main().catch((err) => {
-  console.error("Fatal:", err);
-  process.exit(1);
-});
+// Run only when invoked directly (not when imported by tests or other scripts)
+const isMain = process.argv[1]?.replace(/\\/g, "/").endsWith("10b-derive-tv-lessons-nw.ts") ||
+  process.argv[1]?.replace(/\\/g, "/").endsWith("10b-derive-tv-lessons-nw.js");
+
+if (isMain) {
+  main().catch((err) => {
+    console.error("Fatal:", err);
+    process.exit(1);
+  });
+}
