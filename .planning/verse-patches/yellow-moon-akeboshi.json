@@ -1,1265 +1,515 @@
 {
   "patches": [
     {
-      "after_original": 7,
+      "replace_verse_number": 2,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "乗れ",
-            "reading": "のれ",
-            "romaji": "nore",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "乗れ",
-              "pt-BR": "乗れ",
-              "es": "乗れ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ない",
-            "reading": "ない",
-            "romaji": "nai",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "ない",
-              "pt-BR": "ない",
-              "es": "ない"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "fuzz",
-            "reading": "fuzz",
-            "romaji": "fuzz",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "fuzz",
-              "pt-BR": "fuzz",
-              "es": "fuzz"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "guitar",
-            "reading": "guitar",
-            "romaji": "guitar",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "guitar",
-              "pt-BR": "guitar",
-              "es": "guitar"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "変",
-            "reading": "へん",
-            "romaji": "hen",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "変",
-              "pt-BR": "変",
-              "es": "変"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "な",
-            "reading": "な",
-            "romaji": "na",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "な",
-              "pt-BR": "な",
-              "es": "な"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "公園",
-            "reading": "こうえん",
-            "romaji": "kōen",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "公園",
-              "pt-BR": "公園",
-              "es": "公園"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "乗れ", "reading": "のれ", "romaji": "nore", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to ride / to get on (potential stem)", "pt-BR": "subir / pegar (raiz potencial)", "es": "subir / montar (raíz potencial)" }, "jlpt_level": "N4" },
+          { "surface": "ない", "reading": "ない", "romaji": "nai", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "negative ending (cannot)", "pt-BR": "terminação negativa (não pode)", "es": "terminación negativa (no puede)" }, "jlpt_level": "N5" },
+          { "surface": "fuzz", "reading": "fuzz", "romaji": "fuzz", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "fuzz (English: distortion effect)", "pt-BR": "fuzz (efeito de distorção)", "es": "fuzz (efecto de distorsión)" }, "jlpt_level": "unknown" },
+          { "surface": "guitar", "reading": "guitar", "romaji": "guitar", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "guitar (English)", "pt-BR": "guitarra (em inglês)", "es": "guitarra (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "変", "reading": "へん", "romaji": "hen", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "strange; weird", "pt-BR": "estranho; esquisito", "es": "extraño; raro" }, "jlpt_level": "N4" },
+          { "surface": "な", "reading": "な", "romaji": "na", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "attributive marker (for な-adjectives)", "pt-BR": "marcador atributivo (para adjetivos な)", "es": "marcador atributivo (para adjetivos な)" }, "jlpt_level": "N5" },
+          { "surface": "公園", "reading": "こうえん", "romaji": "kōen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "park", "pt-BR": "parque", "es": "parque" }, "jlpt_level": "N5" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "at; in (location of action)", "pt-BR": "em (lugar da ação)", "es": "en (lugar de la acción)" }, "jlpt_level": "N5" }
         ],
         "translations": {
-          "en": "(auto-coverage) 乗れない fuzz guitar 変な公園で",
-          "pt-BR": "(auto-coverage) 乗れない fuzz guitar 変な公園で",
-          "es": "(auto-coverage) 乗れない fuzz guitar 変な公園で"
+          "en": "I can't ride the groove of a fuzz guitar, in a strange park",
+          "pt-BR": "Não consigo entrar no ritmo da fuzz guitar, num parque estranho",
+          "es": "No puedo subirme al ritmo de la fuzz guitar, en un parque extraño"
         },
-        "literal_meaning": {
-          "en": "乗れ + ない + fuzz + guitar + 変 + な + 公園 + で"
-        }
+        "literal_meaning": { "en": "ride + cannot + fuzz + guitar + strange + (attributive) + park + at" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 5,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "地球",
-            "reading": "ちきゅう",
-            "romaji": "chikyū",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "地球",
-              "pt-BR": "地球",
-              "es": "地球"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "は",
-            "reading": "は",
-            "romaji": "wa",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "は",
-              "pt-BR": "は",
-              "es": "は"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ゴール",
-            "reading": "ごーる",
-            "romaji": "gōru",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "ゴール",
-              "pt-BR": "ゴール",
-              "es": "ゴール"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ライン",
-            "reading": "らいん",
-            "romaji": "rain",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "ライン",
-              "pt-BR": "ライン",
-              "es": "ライン"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "、",
-            "reading": "、",
-            "romaji": ",",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "、",
-              "pt-BR": "、",
-              "es": "、"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "犬",
-            "reading": "いぬ",
-            "romaji": "inu",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "犬",
-              "pt-BR": "犬",
-              "es": "犬"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ライオン",
-            "reading": "らいおん",
-            "romaji": "raion",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "ライオン",
-              "pt-BR": "ライオン",
-              "es": "ライオン"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "地球", "reading": "ちきゅう", "romaji": "chikyū", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "Earth; the planet", "pt-BR": "Terra; o planeta", "es": "Tierra; el planeta" }, "jlpt_level": "N4" },
+          { "surface": "は", "reading": "は", "romaji": "wa", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "topic marker", "pt-BR": "marcador de tópico", "es": "marcador de tema" }, "jlpt_level": "N5" },
+          { "surface": "ゴール", "reading": "ごーる", "romaji": "gōru", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "goal (English loanword)", "pt-BR": "gol (do inglês)", "es": "meta (del inglés)" }, "jlpt_level": "N4" },
+          { "surface": "ライン", "reading": "らいん", "romaji": "rain", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "line (English loanword)", "pt-BR": "linha (do inglês)", "es": "línea (del inglés)" }, "jlpt_level": "N4" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "犬", "reading": "いぬ", "romaji": "inu", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "dog", "pt-BR": "cachorro", "es": "perro" }, "jlpt_level": "N5" },
+          { "surface": "も", "reading": "も", "romaji": "mo", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "also; too", "pt-BR": "também", "es": "también" }, "jlpt_level": "N5" },
+          { "surface": "ライオン", "reading": "らいおん", "romaji": "raion", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "lion", "pt-BR": "leão", "es": "león" }, "jlpt_level": "N4" },
+          { "surface": "も", "reading": "も", "romaji": "mo", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "also; too", "pt-BR": "também", "es": "también" }, "jlpt_level": "N5" }
         ],
         "translations": {
-          "en": "(auto-coverage) 地球はゴールライン、犬もライオンも",
-          "pt-BR": "(auto-coverage) 地球はゴールライン、犬もライオンも",
-          "es": "(auto-coverage) 地球はゴールライン、犬もライオンも"
+          "en": "Earth is the goal line — dogs and lions alike",
+          "pt-BR": "A Terra é a linha de chegada — cachorros e leões também",
+          "es": "La Tierra es la meta — perros y leones por igual"
         },
-        "literal_meaning": {
-          "en": "地球 + は + ゴール + ライン + 、 + 犬 + も + ライオン + も"
-        }
+        "literal_meaning": { "en": "Earth + (topic) + goal + line + , + dog + also + lion + also" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 6,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "火星",
-            "reading": "かせい",
-            "romaji": "kasei",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "火星",
-              "pt-BR": "火星",
-              "es": "火星"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "に",
-            "reading": "に",
-            "romaji": "ni",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "に",
-              "pt-BR": "に",
-              "es": "に"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "moving",
-            "reading": "moving",
-            "romaji": "moving",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "moving",
-              "pt-BR": "moving",
-              "es": "moving"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "on",
-            "reading": "on",
-            "romaji": "on",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "on",
-              "pt-BR": "on",
-              "es": "on"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "なんか",
-            "reading": "なんか",
-            "romaji": "nanka",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "なんか",
-              "pt-BR": "なんか",
-              "es": "なんか"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "めんどう",
-            "reading": "めんどう",
-            "romaji": "mendō",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "めんどう",
-              "pt-BR": "めんどう",
-              "es": "めんどう"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "火星", "reading": "かせい", "romaji": "kasei", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "Mars (the planet)", "pt-BR": "Marte (o planeta)", "es": "Marte (el planeta)" }, "jlpt_level": "N3" },
+          { "surface": "に", "reading": "に", "romaji": "ni", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "to; toward (direction)", "pt-BR": "para; em direção a (direção)", "es": "a; hacia (dirección)" }, "jlpt_level": "N5" },
+          { "surface": "moving", "reading": "moving", "romaji": "moving", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "moving (English)", "pt-BR": "moving / mudança (em inglês)", "es": "moving / mudanza (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "on", "reading": "on", "romaji": "on", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "on (English; together with 'moving' = 'moving on')", "pt-BR": "on (em inglês; junto com 'moving' = 'seguindo em frente')", "es": "on (en inglés; junto con 'moving' = 'siguiendo adelante')" }, "jlpt_level": "unknown" },
+          { "surface": "なんか", "reading": "なんか", "romaji": "nanka", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "something like; sort of (downplaying)", "pt-BR": "tipo; meio que (atenuante)", "es": "algo así como; en plan (atenuante)" }, "jlpt_level": "N3" },
+          { "surface": "めんどう", "reading": "めんどう", "romaji": "mendō", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "troublesome; a hassle", "pt-BR": "trabalhoso; chato", "es": "molesto; un fastidio" }, "jlpt_level": "N3" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "and; -te form ending (connective)", "pt-BR": "e; terminação -te (conectivo)", "es": "y; terminación -te (conectivo)" }, "jlpt_level": "N5" }
         ],
         "translations": {
-          "en": "(auto-coverage) 火星に moving on なんかめんどうで",
-          "pt-BR": "(auto-coverage) 火星に moving on なんかめんどうで",
-          "es": "(auto-coverage) 火星に moving on なんかめんどうで"
+          "en": "Moving on to Mars — kind of a hassle",
+          "pt-BR": "Seguindo em frente pra Marte — meio que uma trabalheira",
+          "es": "Siguiendo adelante hasta Marte — en plan un fastidio"
         },
-        "literal_meaning": {
-          "en": "火星 + に + moving + on + なんか + めんどう + で"
-        }
+        "literal_meaning": { "en": "Mars + to + moving + on + sort-of + troublesome + and" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 8,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "目",
-            "reading": "め",
-            "romaji": "me",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "目",
-              "pt-BR": "目",
-              "es": "目"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "を",
-            "reading": "を",
-            "romaji": "o",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "を",
-              "pt-BR": "を",
-              "es": "を"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "見",
-            "reading": "み",
-            "romaji": "mi",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "見",
-              "pt-BR": "見",
-              "es": "見"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "、",
-            "reading": "、",
-            "romaji": ",",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "、",
-              "pt-BR": "、",
-              "es": "、"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "Tell",
-            "reading": "Tell",
-            "romaji": "Tell",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "Tell",
-              "pt-BR": "Tell",
-              "es": "Tell"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "me",
-            "reading": "me",
-            "romaji": "me",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "me",
-              "pt-BR": "me",
-              "es": "me"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "yes",
-            "reading": "yes",
-            "romaji": "yes",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "yes",
-              "pt-BR": "yes",
-              "es": "yes"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "or",
-            "reading": "or",
-            "romaji": "or",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "or",
-              "pt-BR": "or",
-              "es": "or"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "no",
-            "reading": "no",
-            "romaji": "no",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "no",
-              "pt-BR": "no",
-              "es": "no"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "?",
-            "reading": "?",
-            "romaji": "?",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "?",
-              "pt-BR": "?",
-              "es": "?"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "Shadow", "reading": "Shadow", "romaji": "Shadow", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "shadow (English)", "pt-BR": "sombra (em inglês)", "es": "sombra (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "moon", "reading": "moon", "romaji": "moon", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "moon (English)", "pt-BR": "lua (em inglês)", "es": "luna (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "まだ", "reading": "まだ", "romaji": "mada", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "still; yet", "pt-BR": "ainda", "es": "aún; todavía" }, "jlpt_level": "N5" },
+          { "surface": "夢", "reading": "ゆめ", "romaji": "yume", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "dream", "pt-BR": "sonho", "es": "sueño" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見", "reading": "み", "romaji": "mi", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to see (te-form stem; here 'to dream')", "pt-BR": "ver (raiz da forma -te; aqui 'sonhar')", "es": "ver (raíz de la forma -te; aquí 'soñar')" }, "jlpt_level": "N5" },
+          { "surface": "てる", "reading": "てる", "romaji": "teru", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "-te + iru contraction (continuous tense)", "pt-BR": "contração -te + iru (tempo contínuo)", "es": "contracción -te + iru (tiempo continuo)" }, "jlpt_level": "N4" }
         ],
         "translations": {
-          "en": "(auto-coverage) 目を見て、Tell me yes or no?",
-          "pt-BR": "(auto-coverage) 目を見て、Tell me yes or no?",
-          "es": "(auto-coverage) 目を見て、Tell me yes or no?"
+          "en": "Shadow moon — I'm still dreaming",
+          "pt-BR": "Lua de sombra — ainda estou sonhando",
+          "es": "Luna de sombra — aún estoy soñando"
         },
-        "literal_meaning": {
-          "en": "目 + を + 見 + て + 、 + Tell + me + yes + or + no + ?"
-        }
+        "literal_meaning": { "en": "Shadow + moon + still + dream + (object) + see + -ing" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 9,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "散らかっ",
-            "reading": "ちらかっ",
-            "romaji": "chirakatsu",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "散らかっ",
-              "pt-BR": "散らかっ",
-              "es": "散らかっ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "た",
-            "reading": "た",
-            "romaji": "ta",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "た",
-              "pt-BR": "た",
-              "es": "た"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "まま",
-            "reading": "まま",
-            "romaji": "mama",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "まま",
-              "pt-BR": "まま",
-              "es": "まま"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "気持ち",
-            "reading": "きもち",
-            "romaji": "kimochi",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "気持ち",
-              "pt-BR": "気持ち",
-              "es": "気持ち"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "を",
-            "reading": "を",
-            "romaji": "o",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "を",
-              "pt-BR": "を",
-              "es": "を"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "伝え",
-            "reading": "つたえ",
-            "romaji": "tsutae",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "伝え",
-              "pt-BR": "伝え",
-              "es": "伝え"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "たい",
-            "reading": "たい",
-            "romaji": "tai",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "たい",
-              "pt-BR": "たい",
-              "es": "たい"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る; imperative-ish)", "pt-BR": "olhe (forma -te de 見る; imperativa)", "es": "mira (forma -te de 見る; imperativa)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "背", "reading": "せ", "romaji": "se", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "back (of body)", "pt-BR": "costas", "es": "espalda" }, "jlpt_level": "N4" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "向け合い", "reading": "むけあい", "romaji": "mukeai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to face each other / turn (towards each other) — stem", "pt-BR": "virar-se um para o outro — raiz", "es": "enfrentarse / volverse el uno al otro — raíz" }, "jlpt_level": "N3" },
+          { "surface": "ながら", "reading": "ながら", "romaji": "nagara", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "while (doing); simultaneously", "pt-BR": "enquanto (fazendo); ao mesmo tempo", "es": "mientras (haciendo); a la vez" }, "jlpt_level": "N4" }
         ],
         "translations": {
-          "en": "(auto-coverage) 散らかったままの気持ちを伝えたい",
-          "pt-BR": "(auto-coverage) 散らかったままの気持ちを伝えたい",
-          "es": "(auto-coverage) 散らかったままの気持ちを伝えたい"
+          "en": "Look me in the eye, look me in the eye — while turning our backs to each other",
+          "pt-BR": "Me olhe nos olhos, me olhe nos olhos — enquanto viramos as costas um para o outro",
+          "es": "Mírame a los ojos, mírame a los ojos — mientras nos damos la espalda"
         },
-        "literal_meaning": {
-          "en": "散らかっ + た + まま + の + 気持ち + を + 伝え + たい"
-        }
+        "literal_meaning": { "en": "eye + (object) + look + , + eye + (object) + look + , + back + (object) + turn-toward-each-other + while" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 10,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "体",
-            "reading": "からだ",
-            "romaji": "karada",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "体",
-              "pt-BR": "体",
-              "es": "体"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "を",
-            "reading": "を",
-            "romaji": "o",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "を",
-              "pt-BR": "を",
-              "es": "を"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "抱きしめ",
-            "reading": "だきしめ",
-            "romaji": "dakishime",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "抱きしめ",
-              "pt-BR": "抱きしめ",
-              "es": "抱きしめ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "、",
-            "reading": "、",
-            "romaji": ",",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "、",
-              "pt-BR": "、",
-              "es": "、"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "金",
-            "reading": "きん",
-            "romaji": "kimu",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "金",
-              "pt-BR": "金",
-              "es": "金"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "協会",
-            "reading": "きょうかい",
-            "romaji": "kyōkai",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "協会",
-              "pt-BR": "協会",
-              "es": "協会"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "Tell", "reading": "Tell", "romaji": "Tell", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "tell (English)", "pt-BR": "tell / dizer (em inglês)", "es": "tell / decir (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "me", "reading": "me", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "me (English)", "pt-BR": "me / mim (em inglês)", "es": "me / a mí (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "yes", "reading": "yes", "romaji": "yes", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "yes (English)", "pt-BR": "sim (em inglês)", "es": "sí (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "or", "reading": "or", "romaji": "or", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "or (English)", "pt-BR": "ou (em inglês)", "es": "o (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "no", "reading": "no", "romaji": "no", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "no (English)", "pt-BR": "não (em inglês)", "es": "no (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(ponto de interrogação)", "es": "(signo de interrogación)" }, "jlpt_level": "unknown" }
         ],
         "translations": {
-          "en": "(auto-coverage) 体を抱きしめて、金の協会で",
-          "pt-BR": "(auto-coverage) 体を抱きしめて、金の協会で",
-          "es": "(auto-coverage) 体を抱きしめて、金の協会で"
+          "en": "Look me in the eye — tell me, yes or no?",
+          "pt-BR": "Me olhe nos olhos — me diga, sim ou não?",
+          "es": "Mírame a los ojos — dime, ¿sí o no?"
         },
-        "literal_meaning": {
-          "en": "体 + を + 抱きしめ + て + 、 + 金 + の + 協会 + で"
-        }
+        "literal_meaning": { "en": "eye + (object) + look + , + Tell + me + yes + or + no + ?" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 12,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "目",
-            "reading": "め",
-            "romaji": "me",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "目",
-              "pt-BR": "目",
-              "es": "目"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "を",
-            "reading": "を",
-            "romaji": "o",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "を",
-              "pt-BR": "を",
-              "es": "を"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "見",
-            "reading": "み",
-            "romaji": "mi",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "見",
-              "pt-BR": "見",
-              "es": "見"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "、",
-            "reading": "、",
-            "romaji": ",",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "、",
-              "pt-BR": "、",
-              "es": "、"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "いつ",
-            "reading": "いつ",
-            "romaji": "itsu",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "いつ",
-              "pt-BR": "いつ",
-              "es": "いつ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "会える",
-            "reading": "あえる",
-            "romaji": "aeru",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "会える",
-              "pt-BR": "会える",
-              "es": "会える"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "？",
-            "reading": "？",
-            "romaji": "?",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "？",
-              "pt-BR": "？",
-              "es": "？"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "Every", "reading": "Every", "romaji": "Every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "day", "reading": "day", "romaji": "day", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "day (English)", "pt-BR": "day / dia (em inglês)", "es": "day / día (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": ", ", "reading": ", ", "romaji": ", ", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "every", "reading": "every", "romaji": "every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "night", "reading": "night", "romaji": "night", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "night (English)", "pt-BR": "night / noite (em inglês)", "es": "night / noche (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": ", ", "reading": ", ", "romaji": ", ", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "ありふれた", "reading": "ありふれた", "romaji": "arifureta", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "common; ordinary; everyday", "pt-BR": "comum; corriqueiro; do dia a dia", "es": "común; corriente; cotidiano" }, "jlpt_level": "N2" },
+          { "surface": "合図", "reading": "あいず", "romaji": "aizu", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "signal; sign; cue", "pt-BR": "sinal; gesto; deixa", "es": "señal; seña" }, "jlpt_level": "N3" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "with; by means of (instrumental)", "pt-BR": "com; por meio de (instrumental)", "es": "con; por medio de (instrumental)" }, "jlpt_level": "N5" }
         ],
         "translations": {
-          "en": "(auto-coverage) 目を見て、いつ会える？",
-          "pt-BR": "(auto-coverage) 目を見て、いつ会える？",
-          "es": "(auto-coverage) 目を見て、いつ会える？"
+          "en": "Every day, every night — with ordinary signals",
+          "pt-BR": "Todo dia, toda noite — com sinais comuns",
+          "es": "Cada día, cada noche — con señales corrientes"
         },
-        "literal_meaning": {
-          "en": "目 + を + 見 + て + 、 + いつ + 会える + ？"
-        }
+        "literal_meaning": { "en": "every + day + , + every + night + , + ordinary + signal + with" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 13,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "散らかっ",
-            "reading": "ちらかっ",
-            "romaji": "chirakatsu",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "散らかっ",
-              "pt-BR": "散らかっ",
-              "es": "散らかっ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "た",
-            "reading": "た",
-            "romaji": "ta",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "た",
-              "pt-BR": "た",
-              "es": "た"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "まま",
-            "reading": "まま",
-            "romaji": "mama",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "まま",
-              "pt-BR": "まま",
-              "es": "まま"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "気持ち",
-            "reading": "きもち",
-            "romaji": "kimochi",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "気持ち",
-              "pt-BR": "気持ち",
-              "es": "気持ち"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "を",
-            "reading": "を",
-            "romaji": "o",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "を",
-              "pt-BR": "を",
-              "es": "を"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "、",
-            "reading": "、",
-            "romaji": ",",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "、",
-              "pt-BR": "、",
-              "es": "、"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "今",
-            "reading": "いま",
-            "romaji": "ima",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "今",
-              "pt-BR": "今",
-              "es": "今"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "すぐ",
-            "reading": "すぐ",
-            "romaji": "sugu",
-            "grammar": "adverb",
-            "grammar_color": "orange",
-            "meaning": {
-              "en": "すぐ",
-              "pt-BR": "すぐ",
-              "es": "すぐ"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "散らかっ", "reading": "ちらかっ", "romaji": "chirakatta", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to be scattered / messy (past stem)", "pt-BR": "estar bagunçado / espalhado (raiz passada)", "es": "estar desordenado / esparcido (raíz pasada)" }, "jlpt_level": "N3" },
+          { "surface": "た", "reading": "た", "romaji": "ta", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "past-tense ending", "pt-BR": "terminação de tempo passado", "es": "terminación de tiempo pasado" }, "jlpt_level": "N5" },
+          { "surface": "まま", "reading": "まま", "romaji": "mama", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "as is; the way it is", "pt-BR": "do jeito que está; tal como está", "es": "tal como está; sin cambios" }, "jlpt_level": "N3" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "modifier; of (linking)", "pt-BR": "modificador; de (ligação)", "es": "modificador; de (enlace)" }, "jlpt_level": "N5" },
+          { "surface": "気持ち", "reading": "きもち", "romaji": "kimochi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "feeling(s); emotion(s)", "pt-BR": "sentimento(s); emoção(ões)", "es": "sentimiento(s); emoción(es)" }, "jlpt_level": "N4" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "伝え", "reading": "つたえ", "romaji": "tsutae", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to convey; to tell (stem)", "pt-BR": "transmitir; contar (raiz)", "es": "transmitir; contar (raíz)" }, "jlpt_level": "N4" },
+          { "surface": "たい", "reading": "たい", "romaji": "tai", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "want to (desiderative)", "pt-BR": "querer (desiderativo)", "es": "querer (desiderativo)" }, "jlpt_level": "N5" }
         ],
         "translations": {
-          "en": "(auto-coverage) 散らかったままの気持ちを、今すぐ",
-          "pt-BR": "(auto-coverage) 散らかったままの気持ちを、今すぐ",
-          "es": "(auto-coverage) 散らかったままの気持ちを、今すぐ"
+          "en": "I want to tell you my feelings, scattered as they are",
+          "pt-BR": "Quero te contar meus sentimentos, do jeito bagunçado que estão",
+          "es": "Quiero contarte mis sentimientos, así de desordenados como están"
         },
-        "literal_meaning": {
-          "en": "散らかっ + た + まま + の + 気持ち + を + 、 + 今 + すぐ"
-        }
+        "literal_meaning": { "en": "scatter + past + as-is + (modifier) + feelings + (object) + convey + want-to" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 15,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "魔法",
-            "reading": "まほう",
-            "romaji": "mahō",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "魔法",
-              "pt-BR": "魔法",
-              "es": "魔法"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "コード",
-            "reading": "こーど",
-            "romaji": "kōdo",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "コード",
-              "pt-BR": "コード",
-              "es": "コード"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "チェンジ",
-            "reading": "ちぇんじ",
-            "romaji": "chenji",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "チェンジ",
-              "pt-BR": "チェンジ",
-              "es": "チェンジ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "、",
-            "reading": "、",
-            "romaji": ",",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "、",
-              "pt-BR": "、",
-              "es": "、"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "眠れ",
-            "reading": "ねむれ",
-            "romaji": "nemure",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "眠れ",
-              "pt-BR": "眠れ",
-              "es": "眠れ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ない",
-            "reading": "ない",
-            "romaji": "nai",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "ない",
-              "pt-BR": "ない",
-              "es": "ない"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "街",
-            "reading": "まち",
-            "romaji": "machi",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "街",
-              "pt-BR": "街",
-              "es": "街"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "体", "reading": "からだ", "romaji": "karada", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "body", "pt-BR": "corpo", "es": "cuerpo" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "抱きしめ", "reading": "だきしめ", "romaji": "dakishime", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to hug tightly; to embrace (stem)", "pt-BR": "abraçar com força (raiz)", "es": "abrazar fuerte (raíz)" }, "jlpt_level": "N3" },
+          { "surface": "て", "reading": "て", "romaji": "te", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "-te form (connective; 'and')", "pt-BR": "forma -te (conectiva; 'e')", "es": "forma -te (conectiva; 'y')" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "金", "reading": "きん", "romaji": "kin", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "gold; golden", "pt-BR": "ouro; dourado", "es": "oro; dorado" }, "jlpt_level": "N4" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "of; modifier (possessive/attributive)", "pt-BR": "de; modificador (possessivo/atributivo)", "es": "de; modificador (posesivo/atributivo)" }, "jlpt_level": "N5" },
+          { "surface": "協会", "reading": "きょうかい", "romaji": "kyōkai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "association; hall (here: a stylized 'golden hall' image)", "pt-BR": "associação; salão (aqui: imagem estilizada de 'salão dourado')", "es": "asociación; salón (aquí: imagen estilizada de 'salón dorado')" }, "jlpt_level": "N3" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "at; in (location of action)", "pt-BR": "em (lugar da ação)", "es": "en (lugar de la acción)" }, "jlpt_level": "N5" }
         ],
         "translations": {
-          "en": "(auto-coverage) 魔法のコードチェンジ、眠れない街",
-          "pt-BR": "(auto-coverage) 魔法のコードチェンジ、眠れない街",
-          "es": "(auto-coverage) 魔法のコードチェンジ、眠れない街"
+          "en": "Holding myself tight, in the golden hall",
+          "pt-BR": "Me abraçando, no salão dourado",
+          "es": "Abrazándome fuerte, en el salón dorado"
         },
-        "literal_meaning": {
-          "en": "魔法 + の + コード + チェンジ + 、 + 眠れ + ない + 街"
-        }
+        "literal_meaning": { "en": "body + (object) + embrace + and + , + gold + (modifier) + hall + at" }
       }
     },
     {
-      "after_original": 7,
+      "replace_verse_number": 16,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "日替わり",
-            "reading": "ひがわり",
-            "romaji": "higawari",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "日替わり",
-              "pt-BR": "日替わり",
-              "es": "日替わり"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "な",
-            "reading": "な",
-            "romaji": "na",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "な",
-              "pt-BR": "な",
-              "es": "な"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "jazz",
-            "reading": "jazz",
-            "romaji": "jazz",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "jazz",
-              "pt-BR": "jazz",
-              "es": "jazz"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "guitar",
-            "reading": "guitar",
-            "romaji": "guitar",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "guitar",
-              "pt-BR": "guitar",
-              "es": "guitar"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "そっと",
-            "reading": "そっと",
-            "romaji": "sotto",
-            "grammar": "adverb",
-            "grammar_color": "orange",
-            "meaning": {
-              "en": "そっと",
-              "pt-BR": "そっと",
-              "es": "そっと"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "マイナー",
-            "reading": "まいなー",
-            "romaji": "mainā",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "マイナー",
-              "pt-BR": "マイナー",
-              "es": "マイナー"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          }
+          { "surface": "Yellow", "reading": "Yellow", "romaji": "Yellow", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "yellow (English)", "pt-BR": "amarelo (em inglês)", "es": "amarillo (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "moon", "reading": "moon", "romaji": "moon", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "moon (English)", "pt-BR": "lua (em inglês)", "es": "luna (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "欠け", "reading": "かけ", "romaji": "kake", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to be chipped; to wane (stem)", "pt-BR": "ficar incompleto; minguar (raiz)", "es": "estar mellado; menguar (raíz)" }, "jlpt_level": "N3" },
+          { "surface": "た", "reading": "た", "romaji": "ta", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "past-tense ending (here: attributive 'chipped')", "pt-BR": "terminação de passado (aqui: atributiva 'que minguou')", "es": "terminación de pasado (aquí: atributiva 'menguada')" }, "jlpt_level": "N5" },
+          { "surface": "夜空", "reading": "よぞら", "romaji": "yozora", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "night sky", "pt-BR": "céu noturno", "es": "cielo nocturno" }, "jlpt_level": "N3" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "at; in (location)", "pt-BR": "em (lugar)", "es": "en (lugar)" }, "jlpt_level": "N5" },
+          { "surface": "は", "reading": "は", "romaji": "wa", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "topic marker (contrastive here)", "pt-BR": "marcador de tópico (aqui contrastivo)", "es": "marcador de tema (aquí contrastivo)" }, "jlpt_level": "N5" },
+          { "surface": "月", "reading": "つき", "romaji": "tsuki", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "moon", "pt-BR": "lua", "es": "luna" }, "jlpt_level": "N5" },
+          { "surface": "は", "reading": "は", "romaji": "wa", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "topic marker", "pt-BR": "marcador de tópico", "es": "marcador de tema" }, "jlpt_level": "N5" },
+          { "surface": "今日", "reading": "きょう", "romaji": "kyō", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "today", "pt-BR": "hoje", "es": "hoy" }, "jlpt_level": "N5" },
+          { "surface": "も", "reading": "も", "romaji": "mo", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "also; even (here: 'still / again today')", "pt-BR": "também; até (aqui: 'ainda hoje')", "es": "también; incluso (aquí: 'aún hoy')" }, "jlpt_level": "N5" },
+          { "surface": "静かな", "reading": "しずかな", "romaji": "shizuka na", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "quiet; calm (na-adjective + な)", "pt-BR": "tranquilo; sereno (adjetivo na + な)", "es": "tranquilo; sereno (adjetivo na + な)" }, "jlpt_level": "N5" },
+          { "surface": "顔", "reading": "かお", "romaji": "kao", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "face", "pt-BR": "rosto; cara", "es": "rostro; cara" }, "jlpt_level": "N5" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "with; by means of", "pt-BR": "com; por meio de", "es": "con; mediante" }, "jlpt_level": "N5" },
+          { "surface": "光る", "reading": "ひかる", "romaji": "hikaru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to shine; to glow", "pt-BR": "brilhar; reluzir", "es": "brillar; resplandecer" }, "jlpt_level": "N4" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "explanatory; nominalizer (informal)", "pt-BR": "explicativo; nominalizador (informal)", "es": "explicativo; nominalizador (informal)" }, "jlpt_level": "N5" },
+          { "surface": "さ", "reading": "さ", "romaji": "sa", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "casual emphatic ending", "pt-BR": "terminação enfática casual", "es": "terminación enfática casual" }, "jlpt_level": "N3" }
         ],
         "translations": {
-          "en": "(auto-coverage) 日替わりな jazz guitar そっとマイナーで",
-          "pt-BR": "(auto-coverage) 日替わりな jazz guitar そっとマイナーで",
-          "es": "(auto-coverage) 日替わりな jazz guitar そっとマイナーで"
+          "en": "Yellow moon — in the broken night sky, the moon still shines tonight with a quiet face",
+          "pt-BR": "Lua amarela — no céu noturno em pedaços, a lua ainda brilha hoje com um rosto sereno",
+          "es": "Luna amarilla — en el cielo nocturno roto, la luna aún brilla esta noche con rostro sereno"
         },
-        "literal_meaning": {
-          "en": "日替わり + な + jazz + guitar + そっと + マイナー + で"
-        }
+        "literal_meaning": { "en": "Yellow + moon + chipped + (past) + night-sky + at + (topic) + moon + (topic) + today + also + quiet + face + with + shines + (explanatory) + (emphatic)" }
+      }
+    },
+    {
+      "replace_verse_number": 17,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "背", "reading": "せ", "romaji": "se", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "back (of body)", "pt-BR": "costas", "es": "espalda" }, "jlpt_level": "N4" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "向け合い", "reading": "むけあい", "romaji": "mukeai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to face each other / turn (towards each other) — stem", "pt-BR": "virar-se um para o outro — raiz", "es": "enfrentarse / volverse el uno al otro — raíz" }, "jlpt_level": "N3" },
+          { "surface": "ながら", "reading": "ながら", "romaji": "nagara", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "while (doing); simultaneously", "pt-BR": "enquanto (fazendo); ao mesmo tempo", "es": "mientras (haciendo); a la vez" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "Look me in the eye, look me in the eye — while turning our backs to each other",
+          "pt-BR": "Me olhe nos olhos, me olhe nos olhos — enquanto viramos as costas um para o outro",
+          "es": "Mírame a los ojos, mírame a los ojos — mientras nos damos la espalda"
+        },
+        "literal_meaning": { "en": "eye + (object) + look + , + eye + (object) + look + , + back + (object) + turn-toward-each-other + while" }
+      }
+    },
+    {
+      "replace_verse_number": 18,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "Tell", "reading": "Tell", "romaji": "Tell", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "tell (English)", "pt-BR": "tell / dizer (em inglês)", "es": "tell / decir (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "me", "reading": "me", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "me (English)", "pt-BR": "me / mim (em inglês)", "es": "me / a mí (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "yes", "reading": "yes", "romaji": "yes", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "yes (English)", "pt-BR": "sim (em inglês)", "es": "sí (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "or", "reading": "or", "romaji": "or", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "or (English)", "pt-BR": "ou (em inglês)", "es": "o (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "no", "reading": "no", "romaji": "no", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "no (English)", "pt-BR": "não (em inglês)", "es": "no (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(ponto de interrogação)", "es": "(signo de interrogación)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "Look me in the eye — tell me, yes or no?",
+          "pt-BR": "Me olhe nos olhos — me diga, sim ou não?",
+          "es": "Mírame a los ojos — dime, ¿sí o no?"
+        },
+        "literal_meaning": { "en": "eye + (object) + look + , + Tell + me + yes + or + no + ?" }
+      }
+    },
+    {
+      "replace_verse_number": 19,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "Every", "reading": "Every", "romaji": "Every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "day", "reading": "day", "romaji": "day", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "day (English)", "pt-BR": "day / dia (em inglês)", "es": "day / día (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": ", ", "reading": ", ", "romaji": ", ", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "every", "reading": "every", "romaji": "every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "night", "reading": "night", "romaji": "night", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "night (English)", "pt-BR": "night / noite (em inglês)", "es": "night / noche (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "思いつく", "reading": "おもいつく", "romaji": "omoitsuku", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to come to mind; to think of", "pt-BR": "vir à mente; ocorrer", "es": "venir a la mente; ocurrírsele" }, "jlpt_level": "N3" },
+          { "surface": "言葉", "reading": "ことば", "romaji": "kotoba", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "words; language", "pt-BR": "palavras; linguagem", "es": "palabras; lenguaje" }, "jlpt_level": "N5" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "with; by means of (instrumental)", "pt-BR": "com; por meio de (instrumental)", "es": "con; por medio de (instrumental)" }, "jlpt_level": "N5" }
+        ],
+        "translations": {
+          "en": "Every day, every night — with whatever words come to mind",
+          "pt-BR": "Todo dia, toda noite — com as palavras que me vêm à cabeça",
+          "es": "Cada día, cada noche — con las palabras que se me ocurren"
+        },
+        "literal_meaning": { "en": "every + day + , + every + night + come-to-mind + words + with" }
+      }
+    },
+    {
+      "replace_verse_number": 20,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "Every", "reading": "Every", "romaji": "Every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "day", "reading": "day", "romaji": "day", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "day (English)", "pt-BR": "day / dia (em inglês)", "es": "day / día (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": ", ", "reading": ", ", "romaji": ", ", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "every", "reading": "every", "romaji": "every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "night", "reading": "night", "romaji": "night", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "night (English)", "pt-BR": "night / noite (em inglês)", "es": "night / noche (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "君", "reading": "きみ", "romaji": "kimi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "you (familiar)", "pt-BR": "você (íntimo)", "es": "tú (familiar)" }, "jlpt_level": "N4" },
+          { "surface": "へ", "reading": "へ", "romaji": "e", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "to; toward (direction)", "pt-BR": "para; em direção a (direção)", "es": "a; hacia (dirección)" }, "jlpt_level": "N5" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "of (linking)", "pt-BR": "de (ligação)", "es": "de (enlace)" }, "jlpt_level": "N5" },
+          { "surface": "想い", "reading": "おもい", "romaji": "omoi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "feeling(s); thought(s); affection", "pt-BR": "sentimento(s); afeto", "es": "sentimiento(s); afecto" }, "jlpt_level": "N3" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "伝えよう", "reading": "つたえよう", "romaji": "tsutaeyō", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "let's convey; I'll tell (volitional of 伝える)", "pt-BR": "vamos transmitir; vou contar (volitivo de 伝える)", "es": "vamos a transmitir; voy a contar (volitivo de 伝える)" }, "jlpt_level": "N4" },
+          { "surface": ", ", "reading": ", ", "romaji": ", ", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "every", "reading": "every", "romaji": "every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English; trailing fragment)", "pt-BR": "every / todo (em inglês; fragmento final)", "es": "every / cada (en inglés; fragmento final)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "Every day, every night — let me tell you how I feel about you, every…",
+          "pt-BR": "Todo dia, toda noite — quero te contar o que sinto por você, every…",
+          "es": "Cada día, cada noche — quiero contarte lo que siento por ti, every…"
+        },
+        "literal_meaning": { "en": "every + day + , + every + night + you + to + (modifier) + feelings + (object) + let-me-convey + , + every" }
+      }
+    },
+    {
+      "replace_verse_number": 22,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "Shadow", "reading": "Shadow", "romaji": "Shadow", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "shadow (English)", "pt-BR": "sombra (em inglês)", "es": "sombra (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "moon", "reading": "moon", "romaji": "moon", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "moon (English)", "pt-BR": "lua (em inglês)", "es": "luna (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "まだ", "reading": "まだ", "romaji": "mada", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "still; yet", "pt-BR": "ainda", "es": "aún; todavía" }, "jlpt_level": "N5" },
+          { "surface": "夢", "reading": "ゆめ", "romaji": "yume", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "dream", "pt-BR": "sonho", "es": "sueño" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見", "reading": "み", "romaji": "mi", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to see (te-form stem; here 'to dream')", "pt-BR": "ver (raiz da forma -te; aqui 'sonhar')", "es": "ver (raíz de la forma -te; aquí 'soñar')" }, "jlpt_level": "N5" },
+          { "surface": "てる", "reading": "てる", "romaji": "teru", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "-te + iru contraction (continuous tense)", "pt-BR": "contração -te + iru (tempo contínuo)", "es": "contracción -te + iru (tiempo continuo)" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "Shadow moon — I'm still dreaming",
+          "pt-BR": "Lua de sombra — ainda estou sonhando",
+          "es": "Luna de sombra — aún estoy soñando"
+        },
+        "literal_meaning": { "en": "Shadow + moon + still + dream + (object) + see + -ing" }
+      }
+    },
+    {
+      "replace_verse_number": 23,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "背", "reading": "せ", "romaji": "se", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "back (of body)", "pt-BR": "costas", "es": "espalda" }, "jlpt_level": "N4" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "向け合い", "reading": "むけあい", "romaji": "mukeai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to face each other / turn (towards each other) — stem", "pt-BR": "virar-se um para o outro — raiz", "es": "enfrentarse / volverse el uno al otro — raíz" }, "jlpt_level": "N3" },
+          { "surface": "ながら", "reading": "ながら", "romaji": "nagara", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "while (doing); simultaneously", "pt-BR": "enquanto (fazendo); ao mesmo tempo", "es": "mientras (haciendo); a la vez" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "Look me in the eye, look me in the eye — while turning our backs to each other",
+          "pt-BR": "Me olhe nos olhos, me olhe nos olhos — enquanto viramos as costas um para o outro",
+          "es": "Mírame a los ojos, mírame a los ojos — mientras nos damos la espalda"
+        },
+        "literal_meaning": { "en": "eye + (object) + look + , + eye + (object) + look + , + back + (object) + turn-toward-each-other + while" }
+      }
+    },
+    {
+      "replace_verse_number": 24,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "目", "reading": "め", "romaji": "me", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "eye(s)", "pt-BR": "olho(s)", "es": "ojo(s)" }, "jlpt_level": "N5" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "見て", "reading": "みて", "romaji": "mite", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "look (te-form of 見る)", "pt-BR": "olhe (forma -te de 見る)", "es": "mira (forma -te de 見る)" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "いつ", "reading": "いつ", "romaji": "itsu", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "when", "pt-BR": "quando", "es": "cuándo" }, "jlpt_level": "N5" },
+          { "surface": "会える", "reading": "あえる", "romaji": "aeru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to be able to meet (potential of 会う)", "pt-BR": "poder se encontrar (potencial de 会う)", "es": "poder encontrarse (potencial de 会う)" }, "jlpt_level": "N4" },
+          { "surface": "？", "reading": "？", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(ponto de interrogação)", "es": "(signo de interrogación)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "Look me in the eye — when can we meet?",
+          "pt-BR": "Me olhe nos olhos — quando vamos nos ver?",
+          "es": "Mírame a los ojos — ¿cuándo podemos vernos?"
+        },
+        "literal_meaning": { "en": "eye + (object) + look + , + when + can-meet + ?" }
+      }
+    },
+    {
+      "replace_verse_number": 26,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "Every", "reading": "Every", "romaji": "Every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "day", "reading": "day", "romaji": "day", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "day (English)", "pt-BR": "day / dia (em inglês)", "es": "day / día (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": ", ", "reading": ", ", "romaji": ", ", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "every", "reading": "every", "romaji": "every", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "every (English)", "pt-BR": "every / todo (em inglês)", "es": "every / cada (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "night", "reading": "night", "romaji": "night", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "night (English)", "pt-BR": "night / noite (em inglês)", "es": "night / noche (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "ありふれた", "reading": "ありふれた", "romaji": "arifureta", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "common; ordinary; everyday", "pt-BR": "comum; corriqueiro; do dia a dia", "es": "común; corriente; cotidiano" }, "jlpt_level": "N2" },
+          { "surface": "合図", "reading": "あいず", "romaji": "aizu", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "signal; sign; cue", "pt-BR": "sinal; gesto; deixa", "es": "señal; seña" }, "jlpt_level": "N3" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "with; by means of (instrumental)", "pt-BR": "com; por meio de (instrumental)", "es": "con; por medio de (instrumental)" }, "jlpt_level": "N5" }
+        ],
+        "translations": {
+          "en": "Every day, every night — with ordinary signals",
+          "pt-BR": "Todo dia, toda noite — com sinais comuns",
+          "es": "Cada día, cada noche — con señales corrientes"
+        },
+        "literal_meaning": { "en": "every + day + , + every + night + ordinary + signal + with" }
+      }
+    },
+    {
+      "replace_verse_number": 27,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "散らかっ", "reading": "ちらかっ", "romaji": "chirakatta", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to be scattered / messy (past stem)", "pt-BR": "estar bagunçado / espalhado (raiz passada)", "es": "estar desordenado / esparcido (raíz pasada)" }, "jlpt_level": "N3" },
+          { "surface": "た", "reading": "た", "romaji": "ta", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "past-tense ending", "pt-BR": "terminação de tempo passado", "es": "terminación de tiempo pasado" }, "jlpt_level": "N5" },
+          { "surface": "まま", "reading": "まま", "romaji": "mama", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "as is; the way it is", "pt-BR": "do jeito que está; tal como está", "es": "tal como está; sin cambios" }, "jlpt_level": "N3" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "modifier; of (linking)", "pt-BR": "modificador; de (ligação)", "es": "modificador; de (enlace)" }, "jlpt_level": "N5" },
+          { "surface": "気持ち", "reading": "きもち", "romaji": "kimochi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "feeling(s); emotion(s)", "pt-BR": "sentimento(s); emoção(ões)", "es": "sentimiento(s); emoción(es)" }, "jlpt_level": "N4" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "今", "reading": "いま", "romaji": "ima", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "now", "pt-BR": "agora", "es": "ahora" }, "jlpt_level": "N5" },
+          { "surface": "すぐ", "reading": "すぐ", "romaji": "sugu", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "immediately; right away", "pt-BR": "imediatamente; já", "es": "enseguida; ya mismo" }, "jlpt_level": "N5" }
+        ],
+        "translations": {
+          "en": "My scattered feelings — right now",
+          "pt-BR": "Meus sentimentos bagunçados — agora mesmo",
+          "es": "Mis sentimientos desordenados — ahora mismo"
+        },
+        "literal_meaning": { "en": "scatter + past + as-is + (modifier) + feelings + (object) + , + now + immediately" }
+      }
+    },
+    {
+      "replace_verse_number": 28,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "魔法", "reading": "まほう", "romaji": "mahō", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "magic; sorcery", "pt-BR": "magia; feitiçaria", "es": "magia; hechicería" }, "jlpt_level": "N3" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "of (linking)", "pt-BR": "de (ligação)", "es": "de (enlace)" }, "jlpt_level": "N5" },
+          { "surface": "コード", "reading": "こーど", "romaji": "kōdo", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "chord (music)", "pt-BR": "acorde (música)", "es": "acorde (música)" }, "jlpt_level": "N4" },
+          { "surface": "チェンジ", "reading": "ちぇんじ", "romaji": "chenji", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "change (English loanword)", "pt-BR": "mudança (do inglês 'change')", "es": "cambio (del inglés 'change')" }, "jlpt_level": "N4" },
+          { "surface": "、", "reading": "、", "romaji": ",", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(comma)", "pt-BR": "(vírgula)", "es": "(coma)" }, "jlpt_level": "unknown" },
+          { "surface": "眠れ", "reading": "ねむれ", "romaji": "nemure", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to be able to sleep (potential stem of 眠る)", "pt-BR": "conseguir dormir (raiz potencial de 眠る)", "es": "poder dormir (raíz potencial de 眠る)" }, "jlpt_level": "N4" },
+          { "surface": "ない", "reading": "ない", "romaji": "nai", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "negative ending (cannot)", "pt-BR": "terminação negativa (não pode)", "es": "terminación negativa (no puede)" }, "jlpt_level": "N5" },
+          { "surface": "街", "reading": "まち", "romaji": "machi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "town; city; streets", "pt-BR": "cidade; ruas", "es": "ciudad; pueblo; calles" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "A magic chord change — the sleepless city",
+          "pt-BR": "Uma mudança mágica de acorde — a cidade que não dorme",
+          "es": "Un cambio mágico de acordes — la ciudad que no duerme"
+        },
+        "literal_meaning": { "en": "magic + (modifier) + chord + change + , + sleep + cannot + city" }
+      }
+    },
+    {
+      "replace_verse_number": 29,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "日替わり", "reading": "ひがわり", "romaji": "higawari", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "changing daily; daily-special", "pt-BR": "que muda todo dia; especial do dia", "es": "que cambia a diario; especial del día" }, "jlpt_level": "N2" },
+          { "surface": "な", "reading": "な", "romaji": "na", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "attributive marker (for な-adjectives)", "pt-BR": "marcador atributivo (para adjetivos な)", "es": "marcador atributivo (para adjetivos な)" }, "jlpt_level": "N5" },
+          { "surface": "jazz", "reading": "jazz", "romaji": "jazz", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "jazz (English)", "pt-BR": "jazz (em inglês)", "es": "jazz (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "guitar", "reading": "guitar", "romaji": "guitar", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "guitar (English)", "pt-BR": "guitarra (em inglês)", "es": "guitarra (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "そっと", "reading": "そっと", "romaji": "sotto", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "softly; gently; quietly", "pt-BR": "suavemente; baixinho", "es": "suavemente; despacio" }, "jlpt_level": "N3" },
+          { "surface": "マイナー", "reading": "まいなー", "romaji": "mainā", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "minor key (music; English loanword)", "pt-BR": "tom menor (música; do inglês)", "es": "tono menor (música; del inglés)" }, "jlpt_level": "N3" },
+          { "surface": "で", "reading": "で", "romaji": "de", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "with; in (instrumental)", "pt-BR": "com; em (instrumental)", "es": "con; en (instrumental)" }, "jlpt_level": "N5" }
+        ],
+        "translations": {
+          "en": "Day-by-day jazz guitar — softly in a minor key",
+          "pt-BR": "Jazz guitar do dia — suavemente em tom menor",
+          "es": "Jazz guitar del día — suavemente en tono menor"
+        },
+        "literal_meaning": { "en": "daily-changing + (attributive) + jazz + guitar + softly + minor + in" }
       }
     }
   ]
