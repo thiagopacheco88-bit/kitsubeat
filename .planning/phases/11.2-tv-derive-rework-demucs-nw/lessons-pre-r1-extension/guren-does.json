@@ -1,0 +1,1905 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 11377,
+      "end_time_ms": 16441,
+      "tokens": [
+        {
+          "surface": "明かり",
+          "reading": "あかり",
+          "romaji": "akari",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "light; brightness"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "あれ",
+          "reading": "あれ",
+          "romaji": "are",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "if there is"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ば",
+          "reading": "ば",
+          "romaji": "ba",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "if (conditional)",
+            "pt-BR": "se (condicional)",
+            "es": "si (condicional)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "影",
+          "reading": "かげ",
+          "romaji": "kage",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "shadow",
+            "pt-BR": "sombra",
+            "es": "sombra"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "できる",
+          "reading": "できる",
+          "romaji": "dekiru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "is created; appears"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "quotation",
+            "pt-BR": "citação",
+            "es": "cita"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "言った",
+          "reading": "いった",
+          "romaji": "itta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "said",
+            "pt-BR": "disse",
+            "es": "dijo"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "You said that where there is light, there are shadows",
+        "pt-BR": "Voce disse que onde ha luz, ha sombras",
+        "es": "Dijiste que donde hay luz, hay sombras"
+      },
+      "literal_meaning": {
+        "en": "light + subject + if-exists + shadow + subject + is-created + quotation + said"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 16441,
+      "end_time_ms": 22445,
+      "tokens": [
+        {
+          "surface": "あの",
+          "reading": "あの",
+          "romaji": "ano",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "日",
+          "reading": "ひ",
+          "romaji": "hi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "day",
+            "pt-BR": "dia",
+            "es": "día"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "声",
+          "reading": "こえ",
+          "romaji": "koe",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "voice",
+            "pt-BR": "voz",
+            "es": "voz"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "忘れられず",
+          "reading": "わすれられず",
+          "romaji": "wasurerezu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unable to forget"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in state of",
+            "pt-BR": "em estado de",
+            "es": "en estado de"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "I can't forget your voice from that day",
+        "pt-BR": "Nao consigo esquecer a sua voz daquele dia",
+        "es": "No puedo olvidar tu voz de aquel dia"
+      },
+      "literal_meaning": {
+        "en": "that + day + of + you + of + voice + subject + unable-to-forget + in-state"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 22445,
+      "end_time_ms": 38538,
+      "tokens": [
+        {
+          "surface": "強く",
+          "reading": "つよく",
+          "romaji": "tsuyoku",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "strongly",
+            "pt-BR": "fortemente",
+            "es": "fuertemente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ありたい",
+          "reading": "ありたい",
+          "romaji": "aritai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "want to be",
+            "pt-BR": "querer ser",
+            "es": "querer ser"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "quotation",
+            "pt-BR": "citação",
+            "es": "cita"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "願い",
+          "reading": "ねがい",
+          "romaji": "negai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "wishing",
+            "pt-BR": "desejando",
+            "es": "deseando"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "蝋燭",
+          "reading": "ろうそく",
+          "romaji": "rousoku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "candle"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "消した",
+          "reading": "けした",
+          "romaji": "keshita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "extinguished"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "指",
+          "reading": "ゆび",
+          "romaji": "yubi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "finger",
+            "pt-BR": "dedo",
+            "es": "dedo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "火",
+          "reading": "ひ",
+          "romaji": "hi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "fire",
+            "pt-BR": "fogo",
+            "es": "fuego"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "熱さ",
+          "reading": "あつさ",
+          "romaji": "atsusa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heat"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "by",
+            "pt-BR": "por",
+            "es": "por"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "命",
+          "reading": "いのち",
+          "romaji": "inochi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "life",
+            "pt-BR": "vida",
+            "es": "vida"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "覚えて",
+          "reading": "おぼえて",
+          "romaji": "oboete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "remembering; feeling"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Wishing to be strong, the fingers that snuffed out the candle felt life in the heat of the flame",
+        "pt-BR": "Desejando ser forte, os dedos que apagaram a vela sentiram a vida no calor da chama",
+        "es": "Deseando ser fuerte, los dedos que apagaron la vela sintieron la vida en el calor de la llama"
+      },
+      "literal_meaning": {
+        "en": "strongly + want-to-be + quotation + wishing / candle + object + extinguished + finger / fire + of + heat + by + life + object + feeling"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 38538,
+      "end_time_ms": 43579,
+      "tokens": [
+        {
+          "surface": "僕",
+          "reading": "ぼく",
+          "romaji": "boku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "僕",
+            "pt-BR": "僕",
+            "es": "僕"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "の",
+            "pt-BR": "の",
+            "es": "の"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "コア",
+          "reading": "こあ",
+          "romaji": "koa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "コア",
+            "pt-BR": "コア",
+            "es": "コア"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "が",
+            "pt-BR": "が",
+            "es": "が"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "弾ける",
+          "reading": "はじける",
+          "romaji": "hajikeru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "弾ける",
+            "pt-BR": "弾ける",
+            "es": "弾ける"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 僕のコアが弾ける",
+        "pt-BR": "(auto-coverage) 僕のコアが弾ける",
+        "es": "(auto-coverage) 僕のコアが弾ける"
+      },
+      "literal_meaning": {
+        "en": "僕 + の + コア + が + 弾ける"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 43579,
+      "end_time_ms": 53561,
+      "tokens": [
+        {
+          "surface": "紅蓮",
+          "reading": "ぐれん",
+          "romaji": "guren",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "crimson; crimson lotus"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "愛",
+          "reading": "あい",
+          "romaji": "ai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "love",
+            "pt-BR": "amor",
+            "es": "amor"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart",
+            "pt-BR": "coração",
+            "es": "corazón"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "焼いて",
+          "reading": "やいて",
+          "romaji": "yaite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "burning",
+            "pt-BR": "queimando",
+            "es": "ardiendo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "風",
+          "reading": "かぜ",
+          "romaji": "kaze",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "wind",
+            "pt-BR": "vento",
+            "es": "viento"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "迷え",
+          "reading": "まよえ",
+          "romaji": "mayoe",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "get lost (conditional)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ば",
+          "reading": "ば",
+          "romaji": "ba",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "if",
+            "pt-BR": "se",
+            "es": "si"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "涙",
+          "reading": "なみだ",
+          "romaji": "namida",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "tears",
+            "pt-BR": "lágrimas",
+            "es": "lágrimas"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "落ちる",
+          "reading": "おちる",
+          "romaji": "ochiru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to fall",
+            "pt-BR": "cair",
+            "es": "caer"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Crimson love burns the heart - if you lose your way in the wind, tears will fall",
+        "pt-BR": "O amor carmesim queima o coracao - se voce se perder no vento, lagrimas cairao",
+        "es": "El amor carmes quema el corazon - si te pierdes en el viento, las lagrimas caeran"
+      },
+      "literal_meaning": {
+        "en": "crimson + of + love + subject + heart + object + burning / wind + in + get-lost + if + tears + subject + fall"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 53561,
+      "end_time_ms": 68065,
+      "tokens": [
+        {
+          "surface": "傷つき",
+          "reading": "きずつき",
+          "romaji": "kizutsuki",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "getting hurt"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ながら",
+          "reading": "ながら",
+          "romaji": "nagara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "while",
+            "pt-BR": "enquanto",
+            "es": "mientras"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "未来",
+          "reading": "みらい",
+          "romaji": "mirai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "future",
+            "pt-BR": "futuro",
+            "es": "futuro"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "信じて",
+          "reading": "しんじて",
+          "romaji": "shinjite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "believing",
+            "pt-BR": "acreditando",
+            "es": "creyendo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "また",
+          "reading": "また",
+          "romaji": "mata",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "again",
+            "pt-BR": "de novo",
+            "es": "otra vez"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "先",
+          "reading": "さき",
+          "romaji": "saki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "ahead; beyond",
+            "pt-BR": "adiante; além",
+            "es": "adelante; más allá"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "へ",
+          "reading": "へ",
+          "romaji": "e",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward",
+            "pt-BR": "em direção a",
+            "es": "hacia"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "その",
+          "reading": "その",
+          "romaji": "sono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "先",
+          "reading": "さき",
+          "romaji": "saki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "beyond",
+            "pt-BR": "além",
+            "es": "más allá"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "へ",
+          "reading": "へ",
+          "romaji": "e",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward",
+            "pt-BR": "em direção a",
+            "es": "hacia"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "行こう",
+          "reading": "いこう",
+          "romaji": "ikou",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "let's go",
+            "pt-BR": "vamos",
+            "es": "vamos"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "While getting hurt, believing in the future - let's go further, and even further beyond",
+        "pt-BR": "Enquanto nos machucamos, acreditando no futuro - vamos adiante, e ainda mais alem",
+        "es": "Mientras nos herimos, creyendo en el futuro - sigamos adelante, y aun mas alla"
+      },
+      "literal_meaning": {
+        "en": "getting-hurt + while + future + believing / again + ahead + toward + that + beyond + toward + let's-go"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 68065,
+      "end_time_ms": 74717,
+      "tokens": [
+        {
+          "surface": "瓦礫",
+          "reading": "がれき",
+          "romaji": "gareki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "rubble; debris"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "空",
+          "reading": "そら",
+          "romaji": "sora",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sky",
+            "pt-BR": "céu",
+            "es": "cielo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "僕ら",
+          "reading": "ぼくら",
+          "romaji": "bokura",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "we; us",
+            "pt-BR": "nós",
+            "es": "nosotros"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "絆",
+          "reading": "きずな",
+          "romaji": "kizuna",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "bond; ties",
+            "pt-BR": "laço; vínculo",
+            "es": "lazo; vínculo"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "襲う",
+          "reading": "おそう",
+          "romaji": "osou",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to attack"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "まやかし",
+          "reading": "まやかし",
+          "romaji": "mayakashi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "deception; illusion"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "蹴散らして",
+          "reading": "けちらして",
+          "romaji": "kechirashite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to kick away; scatter"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "やる",
+          "reading": "やる",
+          "romaji": "yaru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to do (forcefully)"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "The sky of rubble is our bond - we'll kick away the deceptions that attack us",
+        "pt-BR": "O ceu de escombros e nosso laco - vamos chutar para longe as ilusoes que nos atacam",
+        "es": "El cielo de escombros es nuestro vinculo - patearemos las ilusiones que nos atacan"
+      },
+      "literal_meaning": {
+        "en": "rubble + of + sky + topic + us + of + bond / attacking + deception + kick-away + do-forcefully"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 74717,
+      "end_time_ms": 79768,
+      "tokens": [
+        {
+          "surface": "戦い",
+          "reading": "たたかい",
+          "romaji": "tatakai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "戦い",
+            "pt-BR": "戦い",
+            "es": "戦い"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "の",
+            "pt-BR": "の",
+            "es": "の"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "果て",
+          "reading": "はて",
+          "romaji": "hate",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "果て",
+            "pt-BR": "果て",
+            "es": "果て"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "に",
+            "pt-BR": "に",
+            "es": "に"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "何",
+          "reading": "なに",
+          "romaji": "nani",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "何",
+            "pt-BR": "何",
+            "es": "何"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "も",
+            "pt-BR": "も",
+            "es": "も"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "なく",
+          "reading": "なく",
+          "romaji": "naku",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "なく",
+            "pt-BR": "なく",
+            "es": "なく"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "て",
+            "pt-BR": "て",
+            "es": "て"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "も",
+            "pt-BR": "も",
+            "es": "も"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 戦いの果てに何もなくても",
+        "pt-BR": "(auto-coverage) 戦いの果てに何もなくても",
+        "es": "(auto-coverage) 戦いの果てに何もなくても"
+      },
+      "literal_meaning": {
+        "en": "戦い + の + 果て + に + 何 + も + なく + て + も"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "明かり",
+      "reading": "あかり",
+      "romaji": "akari",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "light; lamp; glow",
+        "pt-BR": "luz; lampada; claridade",
+        "es": "luz; lampara; resplandor"
+      },
+      "example_from_song": "明かりがあれば影ができると言った",
+      "additional_examples": [
+        "部屋の明かりをつける",
+        "月の明かりが差し込む"
+      ]
+    },
+    {
+      "surface": "ある",
+      "reading": "ある",
+      "romaji": "aru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to be; to exist; to have (inanimate)",
+        "pt-BR": "existir; haver; ter (inanimado)",
+        "es": "haber; existir; tener (inanimado)"
+      },
+      "example_from_song": "明かりがあれば影ができると言った",
+      "additional_examples": [
+        "机の上に本がある",
+        "時間がある"
+      ]
+    },
+    {
+      "surface": "影",
+      "reading": "かげ",
+      "romaji": "kage",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "shadow; silhouette",
+        "pt-BR": "sombra; silhueta",
+        "es": "sombra; silueta"
+      },
+      "example_from_song": "明かりがあれば影ができると言った",
+      "additional_examples": [
+        "木の影に座る",
+        "影が長く伸びる"
+      ]
+    },
+    {
+      "surface": "できる",
+      "reading": "できる",
+      "romaji": "dekiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to be able to; to come into being; to be formed",
+        "pt-BR": "poder; conseguir; formar-se",
+        "es": "poder; ser capaz de; formarse"
+      },
+      "example_from_song": "明かりがあれば影ができると言った",
+      "additional_examples": [
+        "日本語ができる",
+        "友達ができる"
+      ]
+    },
+    {
+      "surface": "言う",
+      "reading": "いう",
+      "romaji": "iu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to say; to tell",
+        "pt-BR": "dizer; falar",
+        "es": "decir; hablar"
+      },
+      "example_from_song": "明かりがあれば影ができると言った",
+      "additional_examples": [
+        "名前を言う",
+        "さようならと言う"
+      ]
+    },
+    {
+      "surface": "声",
+      "reading": "こえ",
+      "romaji": "koe",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "voice",
+        "pt-BR": "voz",
+        "es": "voz"
+      },
+      "example_from_song": "あの日の君の声が忘れられずに",
+      "additional_examples": [
+        "大きな声で話す",
+        "声をかける"
+      ]
+    },
+    {
+      "surface": "忘れる",
+      "reading": "わすれる",
+      "romaji": "wasureru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to forget; to leave behind",
+        "pt-BR": "esquecer; deixar para tras",
+        "es": "olvidar; dejarse"
+      },
+      "example_from_song": "あの日の君の声が忘れられずに",
+      "additional_examples": [
+        "約束を忘れる",
+        "傘を忘れた"
+      ]
+    },
+    {
+      "surface": "強い",
+      "reading": "つよい",
+      "romaji": "tsuyoi",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "strong; powerful",
+        "pt-BR": "forte; poderoso",
+        "es": "fuerte; poderoso"
+      },
+      "example_from_song": "強くありたいと願い",
+      "additional_examples": [
+        "強い風が吹く",
+        "心が強い人"
+      ]
+    },
+    {
+      "surface": "願う",
+      "reading": "ねがう",
+      "romaji": "negau",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to wish for; to pray; to hope",
+        "pt-BR": "desejar; orar; esperar",
+        "es": "desear; rogar; anhelar"
+      },
+      "example_from_song": "強くありたいと願い",
+      "additional_examples": [
+        "幸せを願う",
+        "平和を願う"
+      ]
+    },
+    {
+      "surface": "蝋燭",
+      "reading": "ろうそく",
+      "romaji": "rousoku",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "candle",
+        "pt-BR": "vela",
+        "es": "vela"
+      },
+      "example_from_song": "蝋燭を消した指",
+      "additional_examples": [
+        "蝋燭に火を灯す",
+        "蝋燭の炎が揺れる"
+      ]
+    },
+    {
+      "surface": "消す",
+      "reading": "けす",
+      "romaji": "kesu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to turn off; to extinguish; to erase",
+        "pt-BR": "apagar; desligar",
+        "es": "apagar; borrar"
+      },
+      "example_from_song": "蝋燭を消した指",
+      "additional_examples": [
+        "電気を消す",
+        "火を消す"
+      ]
+    },
+    {
+      "surface": "指",
+      "reading": "ゆび",
+      "romaji": "yubi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "finger",
+        "pt-BR": "dedo",
+        "es": "dedo"
+      },
+      "example_from_song": "蝋燭を消した指",
+      "additional_examples": [
+        "指で指す",
+        "指が長い"
+      ]
+    },
+    {
+      "surface": "火",
+      "reading": "ひ",
+      "romaji": "hi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "fire; flame",
+        "pt-BR": "fogo; chama",
+        "es": "fuego; llama"
+      },
+      "example_from_song": "火の熱さに命を覚えて",
+      "additional_examples": [
+        "火をつける",
+        "火が燃える"
+      ]
+    },
+    {
+      "surface": "熱い",
+      "reading": "あつい",
+      "romaji": "atsui",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "hot (to the touch); passionate",
+        "pt-BR": "quente (ao toque); fervoroso",
+        "es": "caliente (al tacto); apasionado"
+      },
+      "example_from_song": "火の熱さに命を覚えて",
+      "additional_examples": [
+        "熱いお茶を飲む",
+        "熱い思い"
+      ]
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "life; lifespan",
+        "pt-BR": "vida",
+        "es": "vida"
+      },
+      "example_from_song": "火の熱さに命を覚えて",
+      "additional_examples": [
+        "命を大切にする",
+        "命をかけて戦う"
+      ]
+    },
+    {
+      "surface": "覚える",
+      "reading": "おぼえる",
+      "romaji": "oboeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to remember; to feel; to learn by heart",
+        "pt-BR": "lembrar; sentir; memorizar",
+        "es": "recordar; sentir; memorizar"
+      },
+      "example_from_song": "火の熱さに命を覚えて",
+      "additional_examples": [
+        "漢字を覚える",
+        "痛みを覚える"
+      ]
+    },
+    {
+      "surface": "コア",
+      "reading": "こあ",
+      "romaji": "koa",
+      "part_of_speech": "noun",
+      "jlpt_level": "unknown",
+      "meaning": {
+        "en": "core",
+        "pt-BR": "nucleo; centro",
+        "es": "nucleo; centro"
+      },
+      "example_from_song": "僕のコアが弾ける",
+      "additional_examples": [
+        "地球のコア",
+        "コアな部分"
+      ]
+    },
+    {
+      "surface": "弾ける",
+      "reading": "はじける",
+      "romaji": "hajikeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to burst; to pop; to split open",
+        "pt-BR": "estourar; rebentar; explodir",
+        "es": "estallar; reventar; abrirse"
+      },
+      "example_from_song": "僕のコアが弾ける",
+      "additional_examples": [
+        "風船が弾ける",
+        "笑顔が弾ける"
+      ]
+    },
+    {
+      "surface": "紅蓮",
+      "reading": "ぐれん",
+      "romaji": "guren",
+      "part_of_speech": "noun",
+      "jlpt_level": "unknown",
+      "meaning": {
+        "en": "crimson; deep red (of flames or a lotus)",
+        "pt-BR": "carmesim; vermelho intenso (de chamas ou lotus)",
+        "es": "carmesi; rojo intenso (de llamas o loto)"
+      },
+      "example_from_song": "紅蓮の愛が心を焼いて",
+      "additional_examples": [
+        "紅蓮の炎",
+        "紅蓮に染まる空"
+      ]
+    },
+    {
+      "surface": "愛",
+      "reading": "あい",
+      "romaji": "ai",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "love; affection",
+        "pt-BR": "amor; afeto",
+        "es": "amor; afecto"
+      },
+      "example_from_song": "紅蓮の愛が心を焼いて",
+      "additional_examples": [
+        "深い愛",
+        "愛を伝える"
+      ]
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "heart; mind; spirit",
+        "pt-BR": "coracao; mente; espirito",
+        "es": "corazon; mente; espiritu"
+      },
+      "example_from_song": "紅蓮の愛が心を焼いて",
+      "additional_examples": [
+        "心が痛む",
+        "優しい心"
+      ]
+    },
+    {
+      "surface": "焼く",
+      "reading": "やく",
+      "romaji": "yaku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to burn; to bake; to grill",
+        "pt-BR": "queimar; assar; grelhar",
+        "es": "quemar; hornear; asar"
+      },
+      "example_from_song": "紅蓮の愛が心を焼いて",
+      "additional_examples": [
+        "パンを焼く",
+        "胸を焼く思い"
+      ]
+    },
+    {
+      "surface": "風",
+      "reading": "かぜ",
+      "romaji": "kaze",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "wind; breeze",
+        "pt-BR": "vento; brisa",
+        "es": "viento; brisa"
+      },
+      "example_from_song": "風に迷えば涙が落ちる",
+      "additional_examples": [
+        "強い風が吹く",
+        "風が冷たい"
+      ]
+    },
+    {
+      "surface": "迷う",
+      "reading": "まよう",
+      "romaji": "mayou",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to get lost; to hesitate; to waver",
+        "pt-BR": "perder-se; hesitar; ficar em duvida",
+        "es": "perderse; dudar; vacilar"
+      },
+      "example_from_song": "風に迷えば涙が落ちる",
+      "additional_examples": [
+        "道に迷う",
+        "選択に迷う"
+      ]
+    },
+    {
+      "surface": "涙",
+      "reading": "なみだ",
+      "romaji": "namida",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "tears",
+        "pt-BR": "lagrimas",
+        "es": "lagrimas"
+      },
+      "example_from_song": "風に迷えば涙が落ちる",
+      "additional_examples": [
+        "涙を流す",
+        "涙が止まらない"
+      ]
+    },
+    {
+      "surface": "落ちる",
+      "reading": "おちる",
+      "romaji": "ochiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to fall; to drop",
+        "pt-BR": "cair",
+        "es": "caer"
+      },
+      "example_from_song": "風に迷えば涙が落ちる",
+      "additional_examples": [
+        "葉が落ちる",
+        "試験に落ちる"
+      ]
+    },
+    {
+      "surface": "傷つく",
+      "reading": "きずつく",
+      "romaji": "kizutsuku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to get hurt; to be wounded (physically or emotionally)",
+        "pt-BR": "machucar-se; ferir-se (fisica ou emocionalmente)",
+        "es": "herirse; lastimarse (fisica o emocionalmente)"
+      },
+      "example_from_song": "傷つきながら未来信じて",
+      "additional_examples": [
+        "心が傷つく",
+        "言葉に傷つく"
+      ]
+    },
+    {
+      "surface": "未来",
+      "reading": "みらい",
+      "romaji": "mirai",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "future",
+        "pt-BR": "futuro",
+        "es": "futuro"
+      },
+      "example_from_song": "傷つきながら未来信じて",
+      "additional_examples": [
+        "明るい未来",
+        "未来を描く"
+      ]
+    },
+    {
+      "surface": "信じる",
+      "reading": "しんじる",
+      "romaji": "shinjiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to believe; to trust",
+        "pt-BR": "acreditar; confiar",
+        "es": "creer; confiar"
+      },
+      "example_from_song": "傷つきながら未来信じて",
+      "additional_examples": [
+        "友達を信じる",
+        "自分を信じる"
+      ]
+    },
+    {
+      "surface": "先",
+      "reading": "さき",
+      "romaji": "saki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "ahead; beyond; future",
+        "pt-BR": "adiante; alem; futuro",
+        "es": "adelante; mas alla; futuro"
+      },
+      "example_from_song": "また先へその先へ行こう",
+      "additional_examples": [
+        "この先の道",
+        "先のことを考える"
+      ]
+    },
+    {
+      "surface": "行く",
+      "reading": "いく",
+      "romaji": "iku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to go",
+        "pt-BR": "ir",
+        "es": "ir"
+      },
+      "example_from_song": "また先へその先へ行こう",
+      "additional_examples": [
+        "学校に行く",
+        "一緒に行こう"
+      ]
+    },
+    {
+      "surface": "瓦礫",
+      "reading": "がれき",
+      "romaji": "gareki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "rubble; debris; wreckage",
+        "pt-BR": "escombros; entulho; destrocos",
+        "es": "escombros; ruinas"
+      },
+      "example_from_song": "瓦礫の空は僕らの絆",
+      "additional_examples": [
+        "瓦礫の山",
+        "瓦礫を片付ける"
+      ]
+    },
+    {
+      "surface": "空",
+      "reading": "そら",
+      "romaji": "sora",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "sky",
+        "pt-BR": "ceu",
+        "es": "cielo"
+      },
+      "example_from_song": "瓦礫の空は僕らの絆",
+      "additional_examples": [
+        "青い空",
+        "空を見上げる"
+      ]
+    },
+    {
+      "surface": "絆",
+      "reading": "きずな",
+      "romaji": "kizuna",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "bond; tie; emotional connection",
+        "pt-BR": "laco; vinculo; conexao emocional",
+        "es": "lazo; vinculo; conexion"
+      },
+      "example_from_song": "瓦礫の空は僕らの絆",
+      "additional_examples": [
+        "家族の絆",
+        "強い絆で結ばれる"
+      ]
+    },
+    {
+      "surface": "襲う",
+      "reading": "おそう",
+      "romaji": "osou",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to attack; to assault; to strike",
+        "pt-BR": "atacar; assaltar",
+        "es": "atacar; asaltar"
+      },
+      "example_from_song": "襲うまやかし蹴散らしてやる",
+      "additional_examples": [
+        "敵が襲ってくる",
+        "不安が襲う"
+      ]
+    },
+    {
+      "surface": "まやかし",
+      "reading": "まやかし",
+      "romaji": "mayakashi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "deception; sham; fake",
+        "pt-BR": "engano; farsa; falsidade",
+        "es": "engano; falsedad; farsa"
+      },
+      "example_from_song": "襲うまやかし蹴散らしてやる",
+      "additional_examples": [
+        "まやかしの言葉",
+        "まやかしに騙される"
+      ]
+    },
+    {
+      "surface": "蹴る",
+      "reading": "ける",
+      "romaji": "keru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to kick",
+        "pt-BR": "chutar",
+        "es": "patear; dar una patada"
+      },
+      "example_from_song": "襲うまやかし蹴散らしてやる",
+      "additional_examples": [
+        "ボールを蹴る",
+        "ドアを蹴る"
+      ]
+    },
+    {
+      "surface": "散らす",
+      "reading": "ちらす",
+      "romaji": "chirasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to scatter; to disperse",
+        "pt-BR": "espalhar; dispersar",
+        "es": "esparcir; dispersar"
+      },
+      "example_from_song": "襲うまやかし蹴散らしてやる",
+      "additional_examples": [
+        "花びらを散らす",
+        "敵を散らす"
+      ]
+    },
+    {
+      "surface": "戦い",
+      "reading": "たたかい",
+      "romaji": "tatakai",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "battle; fight; struggle",
+        "pt-BR": "batalha; luta",
+        "es": "batalla; lucha; combate"
+      },
+      "example_from_song": "戦いの果てに何もなくても",
+      "additional_examples": [
+        "激しい戦い",
+        "戦いに勝つ"
+      ]
+    },
+    {
+      "surface": "果て",
+      "reading": "はて",
+      "romaji": "hate",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "end; limit; extremity",
+        "pt-BR": "fim; limite; extremidade",
+        "es": "fin; limite; extremo"
+      },
+      "example_from_song": "戦いの果てに何もなくても",
+      "additional_examples": [
+        "地の果て",
+        "旅の果て"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜ば (conditional)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Change the verb ending to form an 'if' condition. For -ru verbs (ichidan), replace る with れば. For -u verbs (godan), change the final syllable to its え-row equivalent and add ば.\n\nExample from this song: あれば (areba) = 'if there is' — from ある (aru, 'to exist') → あれば (areba, 'if there is'). Also: 迷えば (mayoeba) = 'if you get lost' — from 迷う (mayou, 'to lose one's way') → 迷えば (mayoeba)\n\nMore examples:\n• 行く (iku, 'to go') → 行けば (ikeba, 'if you go')\n• 食べる (taberu, 'to eat') → 食べれば (tabereba, 'if you eat')\n• 安い (yasui, 'cheap') → 安ければ (yasukereba, 'if it's cheap')\n\nNote: The ば-conditional often implies a natural or expected consequence: 'if A, then naturally B'. For godan verbs: う→えば, く→けば, す→せば, つ→てば, む→めば, ぶ→べば, ぬ→ねば, る→れば."
+      },
+      "conjugation_path": "ある (aru, 'to exist') → あれば (areba, 'if there is') / 迷う (mayou, 'to get lost') → 迷えば (mayoeba, 'if you get lost')"
+    },
+    {
+      "name": "〜ながら (while doing)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Attach ながら (nagara) to the verb stem (masu-stem) to express doing two actions simultaneously — 'while doing X, also Y'. The main action comes at the end of the sentence.\n\nExample from this song: 傷つきながら (kizutsuki nagara) = 'while getting hurt' — from 傷つく (kizutsuku, 'to get hurt') → 傷つき (kizutsuki, stem) + ながら (nagara, 'while')\n\nMore examples:\n• 歩く (aruku, 'to walk') → 歩きながら (aruki nagara, 'while walking')\n• 食べる (taberu, 'to eat') → 食べながら (tabe nagara, 'while eating')\n• 聞く (kiku, 'to listen') → 聞きながら (kiki nagara, 'while listening')\n\nNote: The subject must be the same for both actions. You can't say 'while I walk, he eats'. The verb stem is formed by dropping ます from the polite form: 食べます → 食べ."
+      },
+      "conjugation_path": "傷つく (kizutsuku, 'to get hurt') → 傷つき (kizutsuki, stem) + ながら (nagara, 'while') → 傷つきながら (kizutsuki nagara, 'while getting hurt')"
+    },
+    {
+      "name": "〜ず(に) (without doing)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Change the verb to its negative stem (the ない-form minus ない) and add ず (zu). This means 'without doing X'. Adding に (ni) after is optional and more common in modern Japanese.\n\nExample from this song: 忘れられず (wasurerezu) = 'unable to forget / without being able to forget' — from 忘れる (wasureru, 'to forget') → 忘れられる (wasurerareru, potential: 'can forget') → 忘れられず (wasurerezu, 'without being able to forget')\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べず (tabezu, 'without eating')\n• 言う (iu, 'to say') → 言わず (iwazu, 'without saying')\n• する (suru, 'to do') → せず (sezu, 'without doing') — irregular!\n\nNote: ず is a classical Japanese negative that survives in modern usage. It sounds more literary/poetic than ないで. する → せず is the only irregular form."
+      },
+      "conjugation_path": "忘れる (wasureru, 'to forget') → 忘れられる (wasurerareru, 'can forget') → 忘れられず (wasurerezu, 'without being able to forget')"
+    },
+    {
+      "name": "意志形 〜よう (volitional)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Change the verb ending to express intention or 'let's do'. For -ru verbs (ichidan), replace る with よう. For -u verbs (godan), change the final syllable to its お-row equivalent and add う.\n\nExample from this song: 行こう (ikou) = 'let's go' — from 行く (iku, 'to go') → change く (ku) to こ (ko) + う (u) = 行こう (ikou)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べよう (tabeyou, 'let's eat')\n• 見る (miru, 'to see') → 見よう (miyou, 'let's see')\n• する (suru, 'to do') → しよう (shiyou, 'let's do it')\n\nNote: For godan verbs: く→こう, す→そう, つ→とう, む→もう, ぶ→ぼう, ぬ→のう, う→おう, る→ろう. The volitional expresses the speaker's will ('I'll do it') or an invitation ('let's do it')."
+      },
+      "conjugation_path": "行く (iku, 'to go') → 行こう (ikou, 'let's go')"
+    },
+    {
+      "name": "〜にでもなれる (can even become)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Combine に (ni, 'into') + でも (demo, 'even') + なれる (nareru, 'can become') to express willingness to become something, even something extreme. It shows determination or desperation.\n\nExample from this song: The song expresses the intensity of being willing to become anything — 'I can even become [something extreme]' — showing the singer's resolve.\n\nMore examples:\n• 鬼 (oni, 'demon') → 鬼にでもなれる (oni ni demo nareru, 'can even become a demon')\n• 何 (nani, 'anything') → 何にでもなれる (nani ni demo nareru, 'can become anything')\n• 盾 (tate, 'shield') → 盾にでもなれる (tate ni demo nareru, 'can even become a shield')\n\nNote: でも adds the nuance of 'even' — it emphasizes that the subject is willing to go to that extreme. Without でも, it's simply 'can become'. なれる is the potential form of なる (naru, 'to become')."
+      },
+      "conjugation_path": "なる (naru, 'to become') → なれる (nareru, 'can become') → 鬼にでもなれる (oni ni demo nareru, 'can even become a demon')"
+    },
+    {
+      "name": "〜てやる (do forcefully/for someone)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Add てやる (te yaru) after the te-form of a verb to express doing something with determination, defiance, or for someone else (in a rough/masculine way). It shows a strong, aggressive resolve.\n\nExample from this song: The song uses てやる to convey fierce determination — 'I'll definitely do it!' with a defiant edge.\n\nMore examples:\n• 見る (miru, 'to see') → 見てやる (mite yaru, 'I'll show you / I'll see it through')\n• 倒す (taosu, 'to defeat') → 倒してやる (taoshite yaru, 'I'll take you down!')\n• 勝つ (katsu, 'to win') → 勝ってやる (katte yaru, 'I'll win, just watch!')\n\nNote: てやる is masculine and assertive. It can mean 'do something for someone' (condescending) or 'I'll definitely do it' (determined). The polite equivalent for doing favors is てあげる (te ageru)."
+      },
+      "conjugation_path": "倒す (taosu, 'to defeat') → 倒して (taoshite, te-form) + やる (yaru, 'do forcefully') → 倒してやる (taoshite yaru, 'I'll take you down!')"
+    }
+  ]
+}

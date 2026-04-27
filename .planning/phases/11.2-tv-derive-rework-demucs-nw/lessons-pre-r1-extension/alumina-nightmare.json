@@ -1,0 +1,1337 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 668,
+      "end_time_ms": 2130,
+      "tokens": [
+        {
+          "surface": "誰",
+          "reading": "だれ",
+          "romaji": "dare",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "anyone"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "by",
+            "pt-BR": "por",
+            "es": "por"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even (no one)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "見れない",
+          "reading": "みれない",
+          "romaji": "mirenai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "cannot see"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ユメ",
+          "reading": "ゆめ",
+          "romaji": "yume",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "dream",
+            "pt-BR": "sonho",
+            "es": "sueño"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "見て",
+          "reading": "みて",
+          "romaji": "mite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "seeing; having seen"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Seeing a dream that no one else can see,",
+        "pt-BR": "Vendo um sonho que ninguem mais pode ver,",
+        "es": "Viendo un sueno que nadie mas puede ver,"
+      },
+      "literal_meaning": {
+        "en": "anyone + by + even + cannot-see + dream + object + seeing"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 2130,
+      "end_time_ms": 4573,
+      "tokens": [
+        {
+          "surface": "要らない",
+          "reading": "いらない",
+          "romaji": "iranai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "not needed"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "もの",
+          "reading": "もの",
+          "romaji": "mono",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "things",
+            "pt-BR": "coisas",
+            "es": "cosas"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "全て",
+          "reading": "すべて",
+          "romaji": "subete",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "everything",
+            "pt-BR": "tudo",
+            "es": "todo"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "捨てた",
+          "reading": "すてた",
+          "romaji": "suteta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "threw away"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "I threw away everything I didn't need.",
+        "pt-BR": "Eu joguei fora tudo o que nao precisava.",
+        "es": "Tire todo lo que no necesitaba."
+      },
+      "literal_meaning": {
+        "en": "not-needed + things + topic + everything + threw-away"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 4573,
+      "end_time_ms": 14093,
+      "tokens": [
+        {
+          "surface": "ゆずれない",
+          "reading": "ゆずれない",
+          "romaji": "yuzurenai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unyielding; won't give in"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "想い",
+          "reading": "おもい",
+          "romaji": "omoi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "feelings; thoughts",
+            "pt-BR": "sentimentos; pensamentos",
+            "es": "sentimientos; pensamientos"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "this",
+            "pt-BR": "isto",
+            "es": "esto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "胸",
+          "reading": "むね",
+          "romaji": "mune",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "chest; heart",
+            "pt-BR": "peito; coração",
+            "es": "pecho; corazón"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "宿して",
+          "reading": "やどして",
+          "romaji": "yadoshite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "harboring; dwelling"
+          },
+          "jlpt_level": "N2"
+        }
+      ],
+      "translations": {
+        "en": "Harboring unyielding feelings in this chest,",
+        "pt-BR": "Abrigando sentimentos inabaláveis neste peito,",
+        "es": "Albergando sentimientos inquebrantables en este pecho,"
+      },
+      "literal_meaning": {
+        "en": "unyielding + feelings + this + chest + in + harboring"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 14093,
+      "end_time_ms": 25904,
+      "tokens": [
+        {
+          "surface": "犠牲",
+          "reading": "ぎせい",
+          "romaji": "gisei",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sacrifice",
+            "pt-BR": "sacrifício",
+            "es": "sacrificio"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "枷",
+          "reading": "かせ",
+          "romaji": "kase",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "shackles; chains"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "by",
+            "pt-BR": "por",
+            "es": "por"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "足",
+          "reading": "あし",
+          "romaji": "ashi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "feet; legs"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "とられて",
+          "reading": "とられて",
+          "romaji": "torarete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "caught; trapped"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "even if my feet are caught by the shackles of sacrifice.",
+        "pt-BR": "mesmo que meus pes sejam presos pelas correntes do sacrificio.",
+        "es": "incluso si mis pies quedan atrapados por las cadenas del sacrificio."
+      },
+      "literal_meaning": {
+        "en": "sacrifice + of + shackles + by + feet + object + caught + even"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 25904,
+      "end_time_ms": 30318,
+      "tokens": [
+        {
+          "surface": "溢れる",
+          "reading": "あふれる",
+          "romaji": "afureru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "overflowing",
+            "pt-BR": "transbordando",
+            "es": "desbordando"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "衝動",
+          "reading": "しょうどう",
+          "romaji": "shoudou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "impulse",
+            "pt-BR": "impulso",
+            "es": "impulso"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "押さえきれない",
+          "reading": "おさえきれない",
+          "romaji": "osaekirenai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can't hold back"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "I can't hold back this overflowing impulse.",
+        "pt-BR": "Nao consigo conter este impulso transbordante.",
+        "es": "No puedo contener este impulso desbordante."
+      },
+      "literal_meaning": {
+        "en": "overflowing + impulse + can't-hold-back"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 30318,
+      "end_time_ms": 39416,
+      "tokens": [
+        {
+          "surface": "強く",
+          "reading": "つよく",
+          "romaji": "tsuyoku",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "strongly",
+            "pt-BR": "fortemente",
+            "es": "fuertemente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "求める",
+          "reading": "もとめる",
+          "romaji": "motomeru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to seek; to desire"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart; mind",
+            "pt-BR": "coração; mente",
+            "es": "corazón; mente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ある",
+          "reading": "ある",
+          "romaji": "aru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "exists",
+            "pt-BR": "existe",
+            "es": "existe"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "から",
+          "reading": "から",
+          "romaji": "kara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "because",
+            "pt-BR": "porque",
+            "es": "porque"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Because there is a heart that strongly desires.",
+        "pt-BR": "Porque existe um coracao que deseja fortemente.",
+        "es": "Porque hay un corazon que desea fuertemente."
+      },
+      "literal_meaning": {
+        "en": "strongly + seek + heart + subject + exists + because"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 39416,
+      "end_time_ms": 48903,
+      "tokens": [
+        {
+          "surface": "偽り",
+          "reading": "いつわり",
+          "romaji": "itsuwari",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "falsehood"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "恐れ",
+          "reading": "おそれ",
+          "romaji": "osore",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "fear",
+            "pt-BR": "medo",
+            "es": "miedo"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "虚飾",
+          "reading": "きょしょく",
+          "romaji": "kyoshoku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "vanity; pretense"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "憂い",
+          "reading": "うれい",
+          "romaji": "urei",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "grief; sorrow"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "様々",
+          "reading": "さまざま",
+          "romaji": "samazama",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "various",
+            "pt-BR": "vários",
+            "es": "varios"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "な",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "attributive",
+            "pt-BR": "atributivo",
+            "es": "atributivo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ネガティブ",
+          "reading": "ネガティブ",
+          "romaji": "negatibu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "negativity"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "by",
+            "pt-BR": "por",
+            "es": "por"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "By various negativities — falsehood, fear, vanity, sorrow —",
+        "pt-BR": "Por varias negatividades — falsidade, medo, vaidade, tristeza —",
+        "es": "Por diversas negatividades — falsedad, miedo, vanidad, tristeza —"
+      },
+      "literal_meaning": {
+        "en": "falsehood + fear + vanity + sorrow + various + attributive + negativity + by"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 48903,
+      "end_time_ms": 49954,
+      "tokens": [
+        {
+          "surface": "とらわれる",
+          "reading": "とらわれる",
+          "romaji": "torawareru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to be captured; to be bound"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "ほど",
+          "reading": "ほど",
+          "romaji": "hodo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "to the extent of",
+            "pt-BR": "a ponto de",
+            "es": "hasta el punto de"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "弱く",
+          "reading": "よわく",
+          "romaji": "yowaku",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "weakly"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic (contrastive)",
+            "pt-BR": "tópico (contrastivo)",
+            "es": "tema (contrastivo)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ない",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "not",
+            "pt-BR": "não",
+            "es": "no"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "I'm not so weak as to be captured by them.",
+        "pt-BR": "Nao sou tao fraco a ponto de ser capturado por elas.",
+        "es": "No soy tan debil como para ser atrapado por ellas."
+      },
+      "literal_meaning": {
+        "en": "captured + to-the-extent + weak + contrastive + not"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 49954,
+      "end_time_ms": 53536,
+      "tokens": [
+        {
+          "surface": "孤独",
+          "reading": "こどく",
+          "romaji": "kodoku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "solitude; loneliness",
+            "pt-BR": "solidão",
+            "es": "soledad"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "知らぬ",
+          "reading": "しらぬ",
+          "romaji": "shiranu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "not knowing (archaic)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "Trickster",
+          "reading": "トリックスター",
+          "romaji": "torikkusutaa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "trickster"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "A trickster who doesn't even know loneliness.",
+        "pt-BR": "Um trapaceiro que nem conhece a solidao.",
+        "es": "Un bromista que ni siquiera conoce la soledad."
+      },
+      "literal_meaning": {
+        "en": "solitude + even + not-knowing + trickster"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "見れる",
+      "reading": "みれる",
+      "romaji": "mireru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to be able to see (ra-nuki variant of 見られる)",
+        "pt-BR": "poder ver (variante ra-nuki de 見られる)",
+        "es": "poder ver (variante ra-nuki de 見られる)"
+      },
+      "example_from_song": "誰にも見れないユメを見て",
+      "additional_examples": [
+        "ここから富士山が見れる",
+        "今夜は星が見れるよ"
+      ]
+    },
+    {
+      "surface": "ユメ",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "dream",
+        "pt-BR": "sonho",
+        "es": "sueño"
+      },
+      "example_from_song": "誰にも見れないユメを見て",
+      "additional_examples": [
+        "ユメを追いかける",
+        "大きなユメを持つ"
+      ]
+    },
+    {
+      "surface": "見る",
+      "reading": "みる",
+      "romaji": "miru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to see; to look at; to watch",
+        "pt-BR": "ver; olhar; assistir",
+        "es": "ver; mirar"
+      },
+      "example_from_song": "誰にも見れないユメを見て",
+      "additional_examples": [
+        "映画を見る",
+        "夢を見る"
+      ]
+    },
+    {
+      "surface": "要る",
+      "reading": "いる",
+      "romaji": "iru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to need; to be necessary",
+        "pt-BR": "precisar; ser necessário",
+        "es": "necesitar; hacer falta"
+      },
+      "example_from_song": "要らないものは全て捨てた",
+      "additional_examples": [
+        "お金が要る",
+        "時間が要る仕事"
+      ]
+    },
+    {
+      "surface": "全て",
+      "reading": "すべて",
+      "romaji": "subete",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "all; everything",
+        "pt-BR": "tudo; todos",
+        "es": "todo; totalidad"
+      },
+      "example_from_song": "要らないものは全て捨てた",
+      "additional_examples": [
+        "全てを失う",
+        "全てが順調だ"
+      ]
+    },
+    {
+      "surface": "捨てる",
+      "reading": "すてる",
+      "romaji": "suteru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to throw away; to discard; to abandon",
+        "pt-BR": "jogar fora; descartar; abandonar",
+        "es": "tirar; desechar; abandonar"
+      },
+      "example_from_song": "要らないものは全て捨てた",
+      "additional_examples": [
+        "ゴミを捨てる",
+        "過去を捨てる"
+      ]
+    },
+    {
+      "surface": "譲れる",
+      "reading": "ゆずれる",
+      "romaji": "yuzureru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to be able to yield; to be able to give up (potential of 譲る)",
+        "pt-BR": "poder ceder; poder abrir mão (potencial de 譲る)",
+        "es": "poder ceder; poder renunciar (potencial de 譲る)"
+      },
+      "example_from_song": "ゆずれない想い この胸に宿して",
+      "additional_examples": [
+        "席を譲れる人",
+        "どうしても譲れない一線"
+      ]
+    },
+    {
+      "surface": "想い",
+      "reading": "おもい",
+      "romaji": "omoi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "feelings; thoughts; heartfelt emotion",
+        "pt-BR": "sentimentos; pensamentos; emoção sincera",
+        "es": "sentimientos; pensamientos; emoción sincera"
+      },
+      "example_from_song": "ゆずれない想い この胸に宿して",
+      "additional_examples": [
+        "熱い想い",
+        "想いを伝える"
+      ]
+    },
+    {
+      "surface": "胸",
+      "reading": "むね",
+      "romaji": "mune",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "chest; breast; heart",
+        "pt-BR": "peito; coração",
+        "es": "pecho; corazón"
+      },
+      "example_from_song": "ゆずれない想い この胸に宿して",
+      "additional_examples": [
+        "胸が痛む",
+        "胸に手を当てる"
+      ]
+    },
+    {
+      "surface": "宿す",
+      "reading": "やどす",
+      "romaji": "yadosu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to carry within; to harbor; to give lodging to",
+        "pt-BR": "abrigar; guardar dentro de si",
+        "es": "albergar; guardar en sí"
+      },
+      "example_from_song": "ゆずれない想い この胸に宿して",
+      "additional_examples": [
+        "希望を胸に宿す",
+        "命を宿す"
+      ]
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "sacrifice; victim",
+        "pt-BR": "sacrifício; vítima",
+        "es": "sacrificio; víctima"
+      },
+      "example_from_song": "犠牲の枷に足をとられても",
+      "additional_examples": [
+        "犠牲を払う",
+        "戦争の犠牲になる"
+      ]
+    },
+    {
+      "surface": "枷",
+      "reading": "かせ",
+      "romaji": "kase",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "shackle; fetter; burden",
+        "pt-BR": "grilhão; algema; fardo",
+        "es": "grillete; cadena; carga"
+      },
+      "example_from_song": "犠牲の枷に足をとられても",
+      "additional_examples": [
+        "過去の枷",
+        "枷を外す"
+      ]
+    },
+    {
+      "surface": "足",
+      "reading": "あし",
+      "romaji": "ashi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "foot; leg",
+        "pt-BR": "pé; perna",
+        "es": "pie; pierna"
+      },
+      "example_from_song": "犠牲の枷に足をとられても",
+      "additional_examples": [
+        "足が速い",
+        "足を洗う"
+      ]
+    },
+    {
+      "surface": "取る",
+      "reading": "とる",
+      "romaji": "toru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to take; to grab; to seize",
+        "pt-BR": "pegar; tomar; agarrar",
+        "es": "tomar; coger; agarrar"
+      },
+      "example_from_song": "犠牲の枷に足をとられても",
+      "additional_examples": [
+        "本を取る",
+        "手を取る"
+      ]
+    },
+    {
+      "surface": "溢れる",
+      "reading": "あふれる",
+      "romaji": "afureru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to overflow; to brim over",
+        "pt-BR": "transbordar; exceder",
+        "es": "desbordar; rebosar"
+      },
+      "example_from_song": "溢れる衝動押さえきれない",
+      "additional_examples": [
+        "涙が溢れる",
+        "愛が溢れる"
+      ]
+    },
+    {
+      "surface": "衝動",
+      "reading": "しょうどう",
+      "romaji": "shōdō",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "impulse; urge",
+        "pt-BR": "impulso; ímpeto",
+        "es": "impulso; arranque"
+      },
+      "example_from_song": "溢れる衝動押さえきれない",
+      "additional_examples": [
+        "衝動買い",
+        "衝動に駆られる"
+      ]
+    },
+    {
+      "surface": "押さえる",
+      "reading": "おさえる",
+      "romaji": "osaeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to hold down; to suppress; to restrain",
+        "pt-BR": "conter; reprimir; segurar",
+        "es": "contener; reprimir; sujetar"
+      },
+      "example_from_song": "溢れる衝動押さえきれない",
+      "additional_examples": [
+        "感情を押さえる",
+        "痛みを押さえる"
+      ]
+    },
+    {
+      "surface": "強い",
+      "reading": "つよい",
+      "romaji": "tsuyoi",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "strong; powerful",
+        "pt-BR": "forte; poderoso",
+        "es": "fuerte; poderoso"
+      },
+      "example_from_song": "強く求める心があるから",
+      "additional_examples": [
+        "強い風",
+        "意志が強い"
+      ]
+    },
+    {
+      "surface": "求める",
+      "reading": "もとめる",
+      "romaji": "motomeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to seek; to desire; to request",
+        "pt-BR": "buscar; desejar; procurar",
+        "es": "buscar; desear; solicitar"
+      },
+      "example_from_song": "強く求める心があるから",
+      "additional_examples": [
+        "助けを求める",
+        "愛を求める"
+      ]
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "heart; mind; spirit",
+        "pt-BR": "coração; mente; espírito",
+        "es": "corazón; mente; espíritu"
+      },
+      "example_from_song": "強く求める心があるから",
+      "additional_examples": [
+        "心が痛む",
+        "優しい心"
+      ]
+    },
+    {
+      "surface": "ある",
+      "reading": "ある",
+      "romaji": "aru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to be (inanimate); to exist; to have",
+        "pt-BR": "existir; haver; ter (objetos)",
+        "es": "haber; existir; tener (cosas)"
+      },
+      "example_from_song": "強く求める心があるから",
+      "additional_examples": [
+        "机の上に本がある",
+        "時間がある"
+      ]
+    },
+    {
+      "surface": "偽り",
+      "reading": "いつわり",
+      "romaji": "itsuwari",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "lie; falsehood; deception",
+        "pt-BR": "mentira; falsidade; engano",
+        "es": "mentira; falsedad; engaño"
+      },
+      "example_from_song": "「偽り」「恐れ」「虚飾」「憂い」 様々なネガティブに",
+      "additional_examples": [
+        "偽りの愛",
+        "偽りなく話す"
+      ]
+    },
+    {
+      "surface": "恐れ",
+      "reading": "おそれ",
+      "romaji": "osore",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "fear; dread; apprehension",
+        "pt-BR": "medo; temor; receio",
+        "es": "miedo; temor; recelo"
+      },
+      "example_from_song": "「偽り」「恐れ」「虚飾」「憂い」 様々なネガティブに",
+      "additional_examples": [
+        "失敗の恐れ",
+        "恐れを抱く"
+      ]
+    },
+    {
+      "surface": "虚飾",
+      "reading": "きょしょく",
+      "romaji": "kyoshoku",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "ostentation; vain show; empty pretension",
+        "pt-BR": "ostentação; vaidade vazia",
+        "es": "ostentación; apariencia vana"
+      },
+      "example_from_song": "「偽り」「恐れ」「虚飾」「憂い」 様々なネガティブに",
+      "additional_examples": [
+        "虚飾に満ちた世界",
+        "虚飾を捨てる"
+      ]
+    },
+    {
+      "surface": "憂い",
+      "reading": "うれい",
+      "romaji": "urei",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "grief; sorrow; anxiety",
+        "pt-BR": "tristeza; pesar; angústia",
+        "es": "pesar; tristeza; inquietud"
+      },
+      "example_from_song": "「偽り」「恐れ」「虚飾」「憂い」 様々なネガティブに",
+      "additional_examples": [
+        "憂いを帯びた瞳",
+        "後顧の憂い"
+      ]
+    },
+    {
+      "surface": "様々",
+      "reading": "さまざま",
+      "romaji": "samazama",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "various; diverse; all kinds of",
+        "pt-BR": "vários; diversos; de todo tipo",
+        "es": "varios; diversos; de todo tipo"
+      },
+      "example_from_song": "「偽り」「恐れ」「虚飾」「憂い」 様々なネガティブに",
+      "additional_examples": [
+        "様々な人",
+        "様々な問題"
+      ]
+    },
+    {
+      "surface": "ネガティブ",
+      "reading": "ネガティブ",
+      "romaji": "negatibu",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "negative; negativity",
+        "pt-BR": "negativo; negatividade",
+        "es": "negativo; negatividad"
+      },
+      "example_from_song": "「偽り」「恐れ」「虚飾」「憂い」 様々なネガティブに",
+      "additional_examples": [
+        "ネガティブな考え",
+        "ネガティブにならないで"
+      ]
+    },
+    {
+      "surface": "捕らわれる",
+      "reading": "とらわれる",
+      "romaji": "torawareru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to be caught; to be bound by; to be obsessed with",
+        "pt-BR": "ser capturado; ficar preso a; ser tomado por",
+        "es": "ser atrapado; quedar atado a; obsesionarse"
+      },
+      "example_from_song": "とらわれるほど弱くはない",
+      "additional_examples": [
+        "過去にとらわれる",
+        "偏見にとらわれる"
+      ]
+    },
+    {
+      "surface": "弱い",
+      "reading": "よわい",
+      "romaji": "yowai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "weak; fragile",
+        "pt-BR": "fraco; frágil",
+        "es": "débil; frágil"
+      },
+      "example_from_song": "とらわれるほど弱くはない",
+      "additional_examples": [
+        "弱い光",
+        "気が弱い"
+      ]
+    },
+    {
+      "surface": "ない",
+      "reading": "ない",
+      "romaji": "nai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "not existing; not having; no",
+        "pt-BR": "não existir; não ter",
+        "es": "no existir; no tener"
+      },
+      "example_from_song": "とらわれるほど弱くはない",
+      "additional_examples": [
+        "お金がない",
+        "時間がない"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜にも...ない (not even / no one can)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Combine a question word (誰/dare = who, 何/nani = what, どこ/doko = where) with にも (ni mo) and a negative verb. This creates absolute negation — 'no one', 'nothing', 'nowhere'.\n\nExample from this song: 誰にも見れない (dare ni mo mirenai) = 'no one can see' — from 誰 (dare, 'who') + にも (ni mo, 'even to') + 見れない (mirenai, 'cannot see')\n\nMore examples:\n• 何も食べない (nani mo tabenai, 'eat nothing / don't eat anything')\n• どこにも行かない (doko ni mo ikanai, 'don't go anywhere')\n• 誰にも言わない (dare ni mo iwanai, 'won't tell anyone')\n\nNote: The particle も (mo) combined with a negative verb creates total negation. Without the negative, も means 'also/even'. 誰にも (dare ni mo) + positive = 'to everyone'; + negative = 'to no one'."
+      },
+      "conjugation_path": "誰 (dare, 'who') + にも (ni mo, 'even to') + 見れない (mirenai, 'cannot see') = 誰にも見れない (dare ni mo mirenai, 'no one can see')"
+    },
+    {
+      "name": "〜ても concessive (even if)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Take the て-form (te-form) of a verb and add も (mo). This creates 'even if' — the outcome remains the same regardless of the condition.\n\nExample from this song: とられても (toraretemo) = 'even if taken away' — from とられる (torareru, 'to be taken', passive) → とられて (torarete, te-form) + も (mo)\n\nMore examples:\n• 失敗する (shippai suru, 'to fail') → 失敗しても (shippai shitemo, 'even if I fail')\n• 雨が降る (ame ga furu, 'it rains') → 雨が降っても (ame ga futtemo, 'even if it rains')\n• 難しい (muzukashii, 'difficult') → 難しくても (muzukashikutemo, 'even if it's difficult')\n\nNote: This is one of the most common concessive patterns in Japanese. For い-adjectives, change い to くても. For な-adjectives/nouns, use でも (demo)."
+      },
+      "conjugation_path": "とられる (torareru, 'to be taken') → とられて (torarete, te-form) → とられても (toraretemo, 'even if taken away')"
+    },
+    {
+      "name": "〜きれない (can't completely)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Take the verb masu-stem and add きれない (kirenai). This means 'cannot completely do' or 'unable to do all of'. きる (kiru) as an auxiliary means 'to do completely'.\n\nExample from this song: 押さえきれない (osae kirenai) = 'can't hold back completely' — from 押さえる (osaeru, 'to hold back') → 押さえ (osae, masu-stem) + きれない (kirenai, 'can't completely')\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べきれない (tabe kirenai, 'can't eat it all')\n• 数える (kazoeru, 'to count') → 数えきれない (kazoe kirenai, 'too many to count')\n• 言う (iu, 'to say') → 言いきれない (ii kirenai, 'can't say everything')\n\nNote: The positive form きる (kiru) means 'to do completely': 食べきる (tabe kiru, 'eat it all'). The negative きれない expresses the impossibility of completing the action."
+      },
+      "conjugation_path": "押さえる (osaeru, 'to hold back') → 押さえ (osae, masu-stem) + きれない (kirenai, 'can't completely') → 押さえきれない (osae kirenai, 'can't completely hold back')"
+    },
+    {
+      "name": "〜から (because)",
+      "jlpt_reference": "JLPT N5",
+      "explanation": {
+        "en": "How it works: Place から (kara) at the end of a clause to express a reason — 'because'. It follows verbs, adjectives, or nouns (with だ/da).\n\nExample from this song: The lyrics use から to explain motivations and reasons for the speaker's feelings and actions.\n\nMore examples:\n• 暑い (atsui, 'hot') → 暑いから (atsui kara, 'because it's hot')\n• 好きだ (suki da, 'like') → 好きだから (suki da kara, 'because I like it')\n• 行く (iku, 'to go') → 行くから (iku kara, 'because I'm going')\n\nNote: から is more subjective and personal compared to ので (node), which sounds more objective and polite. In casual speech, から is much more common. The reason comes before から, and the result follows."
+      },
+      "conjugation_path": "[reason clause] + から (kara, 'because') → [result clause]"
+    },
+    {
+      "name": "〜ほど...ない (not to the extent)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Use ほど (hodo, 'to the extent') with a negative verb to say 'not as much as' or 'not to the point of'. It sets an upper limit that isn't reached.\n\nExample from this song: The lyrics use this pattern to express that something doesn't reach a certain degree or intensity.\n\nMore examples:\n• 死ぬ (shinu, 'to die') → 死ぬほどではない (shinu hodo dewa nai, 'not to the point of dying')\n• 彼 (kare, 'he') → 彼ほど強くない (kare hodo tsuyokunai, 'not as strong as him')\n• 昨日 (kinou, 'yesterday') → 昨日ほど寒くない (kinou hodo samukunai, 'not as cold as yesterday')\n\nNote: ほど alone means 'to the extent that': 泣くほど嬉しい (naku hodo ureshii, 'so happy I could cry'). Adding ない makes it 'not to that extent'. This is useful for softened comparisons."
+      },
+      "conjugation_path": "[noun/verb] + ほど (hodo, 'to the extent') + [negative] = 'not as much as...'"
+    },
+    {
+      "name": "〜ぬ archaic negative",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "How it works: Replace the modern negative ending ない (nai) with ぬ (nu). This is the classical Japanese negative, used in literary contexts, poetry, and song lyrics for a dramatic or elevated tone.\n\nExample from this song: 知らぬ (shiranu) = 'not knowing' — from 知る (shiru, 'to know') → 知らない (shiranai, modern negative) → 知らぬ (shiranu, archaic negative)\n\nMore examples:\n• 見る (miru, 'to see') → 見えぬ (mienu, 'cannot see')\n• 言う (iu, 'to say') → 言わぬ (iwanu, 'do not say')\n• 消える (kieru, 'to disappear') → 消えぬ (kienu, 'does not disappear')\n\nNote: ぬ is the attributive form (can modify nouns directly). The base form is ず (zu): 知らず (shirazu, 'without knowing'). Both appear in anime songs for poetic gravity."
+      },
+      "conjugation_path": "知る (shiru, 'to know') → 知らない (shiranai, modern negative) → 知らぬ (shiranu, archaic negative, 'not knowing')"
+    }
+  ]
+}

@@ -1,0 +1,1086 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 17235,
+      "end_time_ms": 28230,
+      "tokens": [
+        {
+          "surface": "終わり",
+          "reading": "おわり",
+          "romaji": "owari",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "end",
+            "pt-BR": "fim",
+            "es": "fin"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "なき",
+          "reading": "なき",
+          "romaji": "naki",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "without; endless (literary)"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "旅",
+          "reading": "たび",
+          "romaji": "tabi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "journey; trip",
+            "pt-BR": "jornada; viagem",
+            "es": "viaje; travesía"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "途中",
+          "reading": "とちゅう",
+          "romaji": "tochuu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "midway; in the middle of"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "立ち止まり",
+          "reading": "たちどまり",
+          "romaji": "tachidomari",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to stop; to stand still"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "そうな",
+          "reading": "そうな",
+          "romaji": "souna",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "seeming like; about to"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "時",
+          "reading": "とき",
+          "romaji": "toki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "time; when",
+            "pt-BR": "tempo; quando",
+            "es": "tiempo; cuando"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "深い",
+          "reading": "ふかい",
+          "romaji": "fukai",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "deep",
+            "pt-BR": "profundo",
+            "es": "profundo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ため息",
+          "reading": "ためいき",
+          "romaji": "tameiki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sigh"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "こぼす",
+          "reading": "こぼす",
+          "romaji": "kobosu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to spill; to let out"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "僕ら",
+          "reading": "ぼくら",
+          "romaji": "bokura",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "we; us",
+            "pt-BR": "nós",
+            "es": "nosotros"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "In the middle of an endless journey, when we feel like stopping, we let out deep sighs.",
+        "pt-BR": "No meio de uma jornada sem fim, quando sentimos que vamos parar, soltamos suspiros profundos.",
+        "es": "En medio de un viaje sin fin, cuando sentimos que vamos a detenernos, dejamos escapar profundos suspiros."
+      },
+      "literal_meaning": {
+        "en": "end + without + journey + of + midway / stand-still + about-to + time / deep + sigh + spill + we + topic"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 28230,
+      "end_time_ms": 45510,
+      "tokens": [
+        {
+          "surface": "掴み",
+          "reading": "つかみ",
+          "romaji": "tsukami",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to grab; to seize"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "かけて",
+          "reading": "かけて",
+          "romaji": "kakete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "about to; on the verge of"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "contrast marker"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "また",
+          "reading": "また",
+          "romaji": "mata",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "again",
+            "pt-BR": "de novo",
+            "es": "otra vez"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "離れ",
+          "reading": "はなれ",
+          "romaji": "hanare",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to separate; to move away"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "te-form connector",
+            "pt-BR": "conector forma-te",
+            "es": "conector forma-te"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "いった",
+          "reading": "いった",
+          "romaji": "itta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "went (away)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "でも",
+          "reading": "でも",
+          "romaji": "demo",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "but; however",
+            "pt-BR": "mas; porém",
+            "es": "pero; sin embargo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "今",
+          "reading": "いま",
+          "romaji": "ima",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "now",
+            "pt-BR": "agora",
+            "es": "ahora"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "もう",
+          "reading": "もう",
+          "romaji": "mou",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "already; no longer",
+            "pt-BR": "já; não mais",
+            "es": "ya; ya no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "何",
+          "reading": "なに",
+          "romaji": "nani",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "what",
+            "pt-BR": "o quê",
+            "es": "qué"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "also; even",
+            "pt-BR": "também; mesmo",
+            "es": "también; incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "恐れる",
+          "reading": "おそれる",
+          "romaji": "osoreru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to fear",
+            "pt-BR": "temer",
+            "es": "temer"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "こと",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing",
+            "pt-BR": "coisa",
+            "es": "cosa"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ない",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "not; nothing"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "We almost grasped it but it slipped away again. But now there is nothing more to fear.",
+        "pt-BR": "Quase alcancamos, mas escapou de novo. Mas agora nao ha mais nada a temer.",
+        "es": "Casi lo agarramos pero se escapo de nuevo. Pero ahora ya no hay nada que temer."
+      },
+      "literal_meaning": {
+        "en": "grab + about-to + contrast + again + separate + te + went / but + now + topic + already + nothing + fear + thing + topic + not"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 45510,
+      "end_time_ms": 62507,
+      "tokens": [
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart; mind",
+            "pt-BR": "coração; mente",
+            "es": "corazón; mente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "繋ぐ",
+          "reading": "つなぐ",
+          "romaji": "tsunagu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to connect; to link"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "強い",
+          "reading": "つよい",
+          "romaji": "tsuyoi",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "strong",
+            "pt-BR": "forte",
+            "es": "fuerte"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "絆",
+          "reading": "きずな",
+          "romaji": "kizuna",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "bond; ties",
+            "pt-BR": "laço; vínculo",
+            "es": "lazo; vínculo"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "けして",
+          "reading": "けして",
+          "romaji": "kesshite",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "never; by no means"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "解け",
+          "reading": "とけ",
+          "romaji": "toke",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to unravel; to come undone"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "しない",
+          "reading": "しない",
+          "romaji": "shinai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "will not do"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "さ",
+          "reading": "さ",
+          "romaji": "sa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "casual emphasis",
+            "pt-BR": "ênfase casual",
+            "es": "énfasis casual"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "探し",
+          "reading": "さがし",
+          "romaji": "sagashi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to search for",
+            "pt-BR": "procurar",
+            "es": "buscar"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "続けて",
+          "reading": "つづけて",
+          "romaji": "tsuzukete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to keep doing; to continue"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "辿り着いた",
+          "reading": "たどりついた",
+          "romaji": "tadoritsuita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "arrived at; reached"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "this",
+            "pt-BR": "isto",
+            "es": "esto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "場所",
+          "reading": "ばしょ",
+          "romaji": "basho",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "place",
+            "pt-BR": "lugar",
+            "es": "lugar"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "で",
+          "reading": "で",
+          "romaji": "de",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "at; in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "The strong bond connecting our hearts will never come undone. We kept searching and arrived at this place — Period.",
+        "pt-BR": "O forte laco que conecta nossos coracoes nunca se desfara. Continuamos buscando e chegamos a este lugar — Period.",
+        "es": "El fuerte lazo que conecta nuestros corazones nunca se deshara. Seguimos buscando y llegamos a este lugar — Period."
+      },
+      "literal_meaning": {
+        "en": "heart + object + connect + strong + bond + topic / never + unravel + emphasis + will-not + casual / search + continue + arrived + this + place + at"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "終わる",
+      "reading": "おわる",
+      "romaji": "owaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to end; to finish",
+        "pt-BR": "terminar; acabar",
+        "es": "terminar; acabar"
+      },
+      "example_from_song": "終わりなき旅の途中 立ち止まりそうな時",
+      "additional_examples": [
+        "仕事が終わる",
+        "映画が終わった"
+      ]
+    },
+    {
+      "surface": "ない",
+      "reading": "ない",
+      "romaji": "nai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "not existing; not having; no",
+        "pt-BR": "não existir; não ter",
+        "es": "no existir; no tener"
+      },
+      "example_from_song": "終わりなき旅の途中 立ち止まりそうな時",
+      "additional_examples": [
+        "お金がない",
+        "時間がない"
+      ]
+    },
+    {
+      "surface": "旅",
+      "reading": "たび",
+      "romaji": "tabi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "journey; trip; travel",
+        "pt-BR": "viagem; jornada",
+        "es": "viaje; travesía"
+      },
+      "example_from_song": "終わりなき旅の途中 立ち止まりそうな時",
+      "additional_examples": [
+        "長い旅",
+        "旅に出る"
+      ]
+    },
+    {
+      "surface": "途中",
+      "reading": "とちゅう",
+      "romaji": "tochuu",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "on the way; midway; in the middle of",
+        "pt-BR": "no caminho; no meio de",
+        "es": "en el camino; a medio camino"
+      },
+      "example_from_song": "終わりなき旅の途中 立ち止まりそうな時",
+      "additional_examples": [
+        "帰り途中",
+        "仕事の途中"
+      ]
+    },
+    {
+      "surface": "立ち止まる",
+      "reading": "たちどまる",
+      "romaji": "tachidomaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to stop (walking); to halt; to pause",
+        "pt-BR": "parar (de andar); deter-se",
+        "es": "detenerse; pararse"
+      },
+      "example_from_song": "終わりなき旅の途中 立ち止まりそうな時",
+      "additional_examples": [
+        "道で立ち止まる",
+        "一度立ち止まって考える"
+      ]
+    },
+    {
+      "surface": "深い",
+      "reading": "ふかい",
+      "romaji": "fukai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "deep; profound",
+        "pt-BR": "profundo",
+        "es": "profundo; hondo"
+      },
+      "example_from_song": "深いため息こぼす 僕らは",
+      "additional_examples": [
+        "深い海",
+        "深い意味"
+      ]
+    },
+    {
+      "surface": "息",
+      "reading": "いき",
+      "romaji": "iki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "breath",
+        "pt-BR": "respiração; fôlego",
+        "es": "aliento; respiración"
+      },
+      "example_from_song": "深いため息こぼす 僕らは",
+      "additional_examples": [
+        "息を吸う",
+        "息が切れる"
+      ]
+    },
+    {
+      "surface": "こぼす",
+      "reading": "こぼす",
+      "romaji": "kobosu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to spill; to let fall; to let out (a sigh, complaint)",
+        "pt-BR": "derramar; deixar escapar (suspiro)",
+        "es": "derramar; dejar escapar (un suspiro)"
+      },
+      "example_from_song": "深いため息こぼす 僕らは",
+      "additional_examples": [
+        "水をこぼす",
+        "涙をこぼす"
+      ]
+    },
+    {
+      "surface": "掴む",
+      "reading": "つかむ",
+      "romaji": "tsukamu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to grasp; to grab; to catch",
+        "pt-BR": "agarrar; pegar",
+        "es": "agarrar; coger"
+      },
+      "example_from_song": "掴みかけてはまた離れていった",
+      "additional_examples": [
+        "ロープを掴む",
+        "チャンスを掴む"
+      ]
+    },
+    {
+      "surface": "また",
+      "reading": "また",
+      "romaji": "mata",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "again; once more",
+        "pt-BR": "de novo; outra vez",
+        "es": "otra vez; de nuevo"
+      },
+      "example_from_song": "掴みかけてはまた離れていった",
+      "additional_examples": [
+        "また明日",
+        "また会おう"
+      ]
+    },
+    {
+      "surface": "離れる",
+      "reading": "はなれる",
+      "romaji": "hanareru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to be separated; to leave; to move away",
+        "pt-BR": "afastar-se; separar-se",
+        "es": "separarse; alejarse"
+      },
+      "example_from_song": "掴みかけてはまた離れていった",
+      "additional_examples": [
+        "故郷を離れる",
+        "席を離れる"
+      ]
+    },
+    {
+      "surface": "今",
+      "reading": "いま",
+      "romaji": "ima",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "now; the present",
+        "pt-BR": "agora; o presente",
+        "es": "ahora; el presente"
+      },
+      "example_from_song": "でも今はもう何も恐れることはない",
+      "additional_examples": [
+        "今すぐ",
+        "今の時代"
+      ]
+    },
+    {
+      "surface": "もう",
+      "reading": "もう",
+      "romaji": "mou",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "already; anymore; (no) longer",
+        "pt-BR": "já; não mais",
+        "es": "ya; ya no"
+      },
+      "example_from_song": "でも今はもう何も恐れることはない",
+      "additional_examples": [
+        "もう終わった",
+        "もう行かない"
+      ]
+    },
+    {
+      "surface": "恐れる",
+      "reading": "おそれる",
+      "romaji": "osoreru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to fear; to be afraid of",
+        "pt-BR": "temer; ter medo de",
+        "es": "temer; tener miedo de"
+      },
+      "example_from_song": "でも今はもう何も恐れることはない",
+      "additional_examples": [
+        "失敗を恐れる",
+        "恐れずに進む"
+      ]
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "heart; mind; spirit",
+        "pt-BR": "coração; mente; espírito",
+        "es": "corazón; mente; espíritu"
+      },
+      "example_from_song": "心を繋ぐ強い絆は",
+      "additional_examples": [
+        "優しい心",
+        "心に響く"
+      ]
+    },
+    {
+      "surface": "繋ぐ",
+      "reading": "つなぐ",
+      "romaji": "tsunagu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to connect; to tie; to link",
+        "pt-BR": "conectar; ligar; amarrar",
+        "es": "conectar; unir; atar"
+      },
+      "example_from_song": "心を繋ぐ強い絆は",
+      "additional_examples": [
+        "手を繋ぐ",
+        "電話を繋ぐ"
+      ]
+    },
+    {
+      "surface": "強い",
+      "reading": "つよい",
+      "romaji": "tsuyoi",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "strong; powerful",
+        "pt-BR": "forte; poderoso",
+        "es": "fuerte; poderoso"
+      },
+      "example_from_song": "心を繋ぐ強い絆は",
+      "additional_examples": [
+        "強い風",
+        "強い意志"
+      ]
+    },
+    {
+      "surface": "絆",
+      "reading": "きずな",
+      "romaji": "kizuna",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "bond; ties (between people)",
+        "pt-BR": "laço; vínculo",
+        "es": "lazo; vínculo"
+      },
+      "example_from_song": "心を繋ぐ強い絆は",
+      "additional_examples": [
+        "家族の絆",
+        "絆を深める"
+      ]
+    },
+    {
+      "surface": "消す",
+      "reading": "けす",
+      "romaji": "kesu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to erase; to turn off; to extinguish",
+        "pt-BR": "apagar; desligar",
+        "es": "borrar; apagar"
+      },
+      "example_from_song": "けして解けはしないさ",
+      "additional_examples": [
+        "電気を消す",
+        "記憶を消す"
+      ]
+    },
+    {
+      "surface": "解ける",
+      "reading": "とける",
+      "romaji": "tokeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to come undone; to be solved; to loosen",
+        "pt-BR": "desatar-se; ser resolvido; afrouxar",
+        "es": "desatarse; resolverse; soltarse"
+      },
+      "example_from_song": "けして解けはしないさ",
+      "additional_examples": [
+        "紐が解ける",
+        "問題が解ける"
+      ]
+    },
+    {
+      "surface": "する",
+      "reading": "する",
+      "romaji": "suru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to do; to make",
+        "pt-BR": "fazer",
+        "es": "hacer"
+      },
+      "example_from_song": "けして解けはしないさ",
+      "additional_examples": [
+        "勉強をする",
+        "料理をする"
+      ]
+    },
+    {
+      "surface": "探す",
+      "reading": "さがす",
+      "romaji": "sagasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to search for; to look for",
+        "pt-BR": "procurar; buscar",
+        "es": "buscar"
+      },
+      "example_from_song": "探し続けて辿り着いた",
+      "additional_examples": [
+        "鍵を探す",
+        "仕事を探す"
+      ]
+    },
+    {
+      "surface": "辿る",
+      "reading": "たどる",
+      "romaji": "tadoru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to follow (a path); to trace; to pursue",
+        "pt-BR": "seguir (um caminho); traçar",
+        "es": "seguir (un camino); rastrear"
+      },
+      "example_from_song": "探し続けて辿り着いた",
+      "additional_examples": [
+        "記憶を辿る",
+        "道を辿る"
+      ]
+    },
+    {
+      "surface": "着く",
+      "reading": "つく",
+      "romaji": "tsuku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to arrive; to reach",
+        "pt-BR": "chegar; alcançar",
+        "es": "llegar; alcanzar"
+      },
+      "example_from_song": "探し続けて辿り着いた",
+      "additional_examples": [
+        "駅に着く",
+        "家に着いた"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜なき (literary negation, 'without')",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "How it works: なき (naki) is the classical/literary form of ない (nai, 'without/not'), used to modify nouns. It gives a poetic, timeless quality.\n\nExample from this song: 終わりなき (owari naki) = 'endless / without end' — from 終わり (owari, 'end') + なき (naki, literary 'without')\n\nMore examples:\n• 果てなき旅 (hate naki tabi, 'an endless journey') — from 果て (hate, 'end')\n• 名もなき花 (na mo naki hana, 'a nameless flower') — from 名 (na, 'name')\n• 限りなき愛 (kagiri naki ai, 'limitless love') — from 限り (kagiri, 'limit')\n\nNote: なき is the literary equivalent of ない used as an adjective. Modern Japanese would say 終わりのない (owari no nai). なき appears in song titles, poetry, and formal writing for its elegance."
+      },
+      "conjugation_path": "終わり (owari, 'end') + なき (naki, literary 'without') → 終わりなき (owari naki, 'endless / without end')"
+    },
+    {
+      "name": "〜かけて (on the verge of)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: かける (kakeru) attached to a verb's masu-stem means 'about to,' 'on the verge of,' or 'half-done.' It expresses an incomplete or starting action.\n\nExample from this song: 掴みかけて (tsukami kakete) = 'on the verge of grasping' — from 掴む (tsukamu, 'to grasp') → 掴み (tsukami, stem) + かけて (kakete)\n\nMore examples:\n• 死にかける (shini kakeru, 'nearly die') — from 死ぬ (shinu, 'to die')\n• 言いかけて止めた (ii kakete yameta, 'started to say but stopped') — from 言う (iu, 'to say')\n• 食べかけのパン (tabe kake no pan, 'half-eaten bread') — from 食べる (taberu, 'to eat')\n\nNote: 〜かけ as a noun modifier means 'half-done': 読みかけの本 (yomikake no hon, 'half-read book'). The て-form かけて connects to the next action: 'was on the verge of X, and then...'"
+      },
+      "conjugation_path": "掴む (tsukamu, 'to grasp') → 掴み (tsukami, stem) + かけて (kakete, 'on the verge of') → 掴みかけて (tsukami kakete, 'on the verge of grasping')"
+    },
+    {
+      "name": "けして〜ない (never)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: けして (keshite) or 決して (keshite) combined with a negative verb means 'never' or 'by no means.' It creates an emphatic absolute negation.\n\nExample from this song: The song uses けして...ない to express something that will absolutely never happen — an unbreakable resolve.\n\nMore examples:\n• 決して忘れない (keshite wasurenai, 'I will never forget') — from 忘れる (wasureru, 'to forget')\n• 決して諦めない (keshite akiramenai, 'I will never give up') — from 諦める (akirameru, 'to give up')\n• 決して許さない (keshite yurusanai, 'I will never forgive') — from 許す (yurusu, 'to forgive')\n\nNote: 決して must always pair with a negative form. Never use it with positive verbs. It's stronger than ぜんぜん〜ない (zenzen ~nai, 'not at all'). 決して expresses firm determination."
+      },
+      "conjugation_path": "決して (keshite, 'never') + verb negative form → 決して〜ない (keshite ~nai, 'absolutely never')"
+    },
+    {
+      "name": "〜ずに (without doing)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: ずに (zu ni) is the classical negative te-form meaning 'without doing.' Replace ない with ず and add に to connect to the next action.\n\nExample from this song: 逸らさずに (sorasazu ni) = 'without averting (one's gaze)' — from 逸らす (sorasu, 'to avert') → 逸らさない (sorasanai) → 逸らさず (sorasazu) + に (ni)\n\nMore examples:\n• 食べずに寝た (tabezu ni neta, 'slept without eating') — from 食べる (taberu, 'to eat')\n• 迷わずに進む (mayowazu ni susumu, 'advance without hesitating') — from 迷う (mayou, 'to hesitate')\n• 諦めずに頑張る (akiramezu ni ganbaru, 'keep trying without giving up')\n\nNote: ずに = literary ないで. Exception: する → せずに (sezu ni), not しずに. ず can also stand alone without に in literary contexts: 言わず語らず (iwazu katarazu, 'without saying or telling')."
+      },
+      "conjugation_path": "逸らす (sorasu, 'to avert') → 逸らさない (sorasanai) → 逸らさず (sorasazu) + に (ni) → 逸らさずに (sorasazu ni, 'without averting')"
+    },
+    {
+      "name": "〜ために (for the sake of)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: ために (tame ni) expresses purpose ('in order to') or benefit ('for the sake of'). After a verb dictionary form, it means 'in order to do.' After a noun + の, it means 'for the sake of.'\n\nExample from this song: The song uses ために to express what the speaker is striving for — the purpose behind their actions.\n\nMore examples:\n• 合格するために勉強する (goukaku suru tame ni benkyou suru, 'study in order to pass')\n• 家族のために働く (kazoku no tame ni hataraku, 'work for the family')\n• 健康のために走る (kenkou no tame ni hashiru, 'run for health')\n\nNote: Verb + ために = 'in order to (do).' Noun + のために = 'for the sake of (noun).' Compare with ように, which is for non-volitional results."
+      },
+      "conjugation_path": "verb dictionary form + ために (tame ni, 'in order to') / noun + の + ために (no tame ni, 'for the sake of')"
+    },
+    {
+      "name": "〜ていく (continuing into the future)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: ていく (te iku) expresses an action or change continuing from now into the future. It shows forward progression through time.\n\nExample from this song: 生きていく (ikite iku) = 'will go on living' — from 生きる (ikiru, 'to live') → 生きて (ikite) + いく (iku, 'to go')\n\nMore examples:\n• 強くなっていく (tsuyoku natte iku, 'getting stronger and stronger')\n• 変わっていく (kawatte iku, 'keeps changing over time') — from 変わる (kawaru, 'to change')\n• 学んでいく (manande iku, 'will continue learning') — from 学ぶ (manabu, 'to learn')\n\nNote: ていく shows future-directed change. てくる shows past-to-present change. 生きていく is a powerful expression meaning 'I will go on living' — often used to express determination in the face of difficulty."
+      },
+      "conjugation_path": "生きる (ikiru, 'to live') → 生きて (ikite) + いく (iku, 'to go') → 生きていく (ikite iku, 'will go on living')"
+    }
+  ]
+}

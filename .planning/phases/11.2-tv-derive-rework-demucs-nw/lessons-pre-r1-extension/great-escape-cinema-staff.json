@@ -1,0 +1,1234 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 14192,
+      "end_time_ms": 24614,
+      "tokens": [
+        {
+          "surface": "例えば",
+          "reading": "たとえば",
+          "romaji": "tatoeba",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "for example; suppose"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "俺",
+          "reading": "おれ",
+          "romaji": "ore",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "I (masculine)",
+            "pt-BR": "eu (masculino)",
+            "es": "yo (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "俺",
+          "reading": "おれ",
+          "romaji": "ore",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "I",
+            "pt-BR": "eu",
+            "es": "yo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "じゃない",
+          "reading": "じゃない",
+          "romaji": "janai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "is not",
+            "pt-BR": "não é",
+            "es": "no es"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "として",
+          "reading": "として",
+          "romaji": "toshite",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "assuming that"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "お前",
+          "reading": "おまえ",
+          "romaji": "omae",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you (rough)",
+            "pt-BR": "você (informal)",
+            "es": "tú (informal)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "お前",
+          "reading": "おまえ",
+          "romaji": "omae",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "だ",
+          "reading": "だ",
+          "romaji": "da",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "is",
+            "pt-BR": "é",
+            "es": "es"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "that (quotation)",
+            "pt-BR": "que (citação)",
+            "es": "que (cita)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "言いきれる",
+          "reading": "いいきれる",
+          "romaji": "iikireru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can say with certainty"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "のか",
+          "reading": "のか",
+          "romaji": "noka",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "question (rhetorical)"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Suppose I wasn't me - could you say for certain that you are you?",
+        "pt-BR": "Supondo que eu nao fosse eu - voce poderia dizer com certeza que voce e voce?",
+        "es": "Suponiendo que yo no fuera yo - ¿podrias decir con certeza que tu eres tu?"
+      },
+      "literal_meaning": {
+        "en": "for-example + I + subject + I + is-not + assuming / you + topic + you + is + quotation + can-say-for-certain + question"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 24614,
+      "end_time_ms": 35417,
+      "tokens": [
+        {
+          "surface": "砂",
+          "reading": "すな",
+          "romaji": "suna",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sand",
+            "pt-BR": "areia",
+            "es": "arena"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "器",
+          "reading": "うつわ",
+          "romaji": "utsuwa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "vessel; container"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "壊し",
+          "reading": "こわし",
+          "romaji": "kowashi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to break",
+            "pt-BR": "quebrar",
+            "es": "romper"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "te-form connector",
+            "pt-BR": "conector forma-te",
+            "es": "conector forma-te"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "こぼれた",
+          "reading": "こぼれた",
+          "romaji": "koboreta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "spilled"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart; mind",
+            "pt-BR": "coração; mente",
+            "es": "corazón; mente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "拾って",
+          "reading": "ひろって",
+          "romaji": "hirotte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to pick up"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "集められる",
+          "reading": "あつめられる",
+          "romaji": "atsumerareru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can gather"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "か",
+          "reading": "か",
+          "romaji": "ka",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "question marker",
+            "pt-BR": "marcador de pergunta",
+            "es": "marcador de pregunta"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Breaking the vessel of sand - can you pick up and gather the spilled heart?",
+        "pt-BR": "Quebrando o vaso de areia - voce consegue juntar e recolher o coracao derramado?",
+        "es": "Rompiendo el recipiente de arena - ¿puedes recoger y reunir el corazon derramado?"
+      },
+      "literal_meaning": {
+        "en": "sand + of + vessel + object + break + te + spilled + heart + object + pick-up + can-gather + question"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 35417,
+      "end_time_ms": 54447,
+      "tokens": [
+        {
+          "surface": "誰か",
+          "reading": "だれか",
+          "romaji": "dareka",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "someone",
+            "pt-BR": "alguém",
+            "es": "alguien"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "呼ぶ",
+          "reading": "よぶ",
+          "romaji": "yobu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to call",
+            "pt-BR": "chamar",
+            "es": "llamar"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "声",
+          "reading": "こえ",
+          "romaji": "koe",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "voice",
+            "pt-BR": "voz",
+            "es": "voz"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "耳鳴り",
+          "reading": "みみなり",
+          "romaji": "miminari",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "ringing in the ears"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "into",
+            "pt-BR": "para dentro",
+            "es": "hacia dentro"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "変わった",
+          "reading": "かわった",
+          "romaji": "kawatta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "changed",
+            "pt-BR": "mudou",
+            "es": "cambió"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "時",
+          "reading": "とき",
+          "romaji": "toki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "time",
+            "pt-BR": "tempo",
+            "es": "tiempo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "止まった",
+          "reading": "とまった",
+          "romaji": "tomatta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "stopped"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "みたいだ",
+          "reading": "みたいだ",
+          "romaji": "mitaida",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "it seems like"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "さぁ",
+          "reading": "さぁ",
+          "romaji": "saa",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "come on; now",
+            "pt-BR": "vamos; agora",
+            "es": "vamos; ahora"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "目",
+          "reading": "め",
+          "romaji": "me",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "eyes",
+            "pt-BR": "olhos",
+            "es": "ojos"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "覚ませ",
+          "reading": "さませ",
+          "romaji": "samase",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "wake up! (imperative)",
+            "pt-BR": "acorde! (imperativo)",
+            "es": "¡despierta! (imperativo)"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "Someone's calling voice turned into ringing in my ears. Time seemed to stop. Now, wake up!",
+        "pt-BR": "A voz de alguem chamando virou um zumbido nos ouvidos. O tempo pareceu parar. Vamos, acorde!",
+        "es": "La voz de alguien llamando se convirtio en un zumbido. El tiempo parecio detenerse. ¡Vamos, despierta!"
+      },
+      "literal_meaning": {
+        "en": "someone + of + calling + voice + subject + ear-ringing + into + changed / time + subject + stopped + seems-like / come-on + eyes + object + wake-imperative"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 54447,
+      "end_time_ms": 72232,
+      "tokens": [
+        {
+          "surface": "生きた",
+          "reading": "いきた",
+          "romaji": "ikita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "living",
+            "pt-BR": "vivendo",
+            "es": "viviendo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "屍",
+          "reading": "しかばね",
+          "romaji": "shikabane",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "corpse",
+            "pt-BR": "cadáver",
+            "es": "cadáver"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "みたいだった",
+          "reading": "みたいだった",
+          "romaji": "mitai datta",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "was like"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "俺達",
+          "reading": "おれたち",
+          "romaji": "oretachi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "we (masculine)",
+            "pt-BR": "nós (masculino)",
+            "es": "nosotros (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "壁",
+          "reading": "かべ",
+          "romaji": "kabe",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "wall",
+            "pt-BR": "muro",
+            "es": "muro"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "外",
+          "reading": "そと",
+          "romaji": "soto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "outside"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "へ",
+          "reading": "へ",
+          "romaji": "e",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward",
+            "pt-BR": "em direção a",
+            "es": "hacia"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "We who were like living corpses - beyond the wall",
+        "pt-BR": "Nos que eramos como cadaveres vivos - para alem do muro",
+        "es": "Nosotros que eramos como cadaveres vivientes - mas alla del muro"
+      },
+      "literal_meaning": {
+        "en": "living + corpse + was-like + we + topic + wall + of + outside + toward"
+      },
+      "cultural_context": {
+        "en": "The 'wall' is a direct reference to Attack on Titan's iconic walls (Wall Maria, Rose, Sina) that confine humanity"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 72232,
+      "end_time_ms": 76913,
+      "tokens": [
+        {
+          "surface": "また",
+          "reading": "また",
+          "romaji": "mata",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "また",
+            "pt-BR": "また",
+            "es": "また"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "会お",
+          "reading": "あお",
+          "romaji": "ao",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "会お",
+            "pt-BR": "会お",
+            "es": "会お"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "う",
+          "reading": "う",
+          "romaji": "u",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "う",
+            "pt-BR": "う",
+            "es": "う"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ぜ",
+          "reading": "ぜ",
+          "romaji": "ze",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "ぜ",
+            "pt-BR": "ぜ",
+            "es": "ぜ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "地図",
+          "reading": "ちず",
+          "romaji": "chizu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "地図",
+            "pt-BR": "地図",
+            "es": "地図"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "に",
+            "pt-BR": "に",
+            "es": "に"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ない",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "ない",
+            "pt-BR": "ない",
+            "es": "ない"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "場所",
+          "reading": "ばしょ",
+          "romaji": "basho",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "場所",
+            "pt-BR": "場所",
+            "es": "場所"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "で",
+          "reading": "で",
+          "romaji": "de",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "で",
+            "pt-BR": "で",
+            "es": "で"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) また会おうぜ 地図にない場所で",
+        "pt-BR": "(auto-coverage) また会おうぜ 地図にない場所で",
+        "es": "(auto-coverage) また会おうぜ 地図にない場所で"
+      },
+      "literal_meaning": {
+        "en": "また + 会お + う + ぜ + 地図 + に + ない + 場所 + で"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "言う",
+      "reading": "いう",
+      "romaji": "iu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to say; to tell",
+        "pt-BR": "dizer; falar",
+        "es": "decir; hablar"
+      },
+      "example_from_song": "お前はお前だと言いきれるのか？",
+      "additional_examples": [
+        "名前を言う",
+        "本当のことを言う"
+      ]
+    },
+    {
+      "surface": "砂",
+      "reading": "すな",
+      "romaji": "suna",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "sand",
+        "pt-BR": "areia",
+        "es": "arena"
+      },
+      "example_from_song": "砂の器を壊して こぼれた",
+      "additional_examples": [
+        "砂浜を歩く",
+        "砂が風に舞う"
+      ]
+    },
+    {
+      "surface": "器",
+      "reading": "うつわ",
+      "romaji": "utsuwa",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "vessel; container; receptacle",
+        "pt-BR": "recipiente; vasilha",
+        "es": "recipiente; vasija"
+      },
+      "example_from_song": "砂の器を壊して こぼれた",
+      "additional_examples": [
+        "陶器の器",
+        "器に盛る"
+      ]
+    },
+    {
+      "surface": "壊す",
+      "reading": "こわす",
+      "romaji": "kowasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to break; to destroy",
+        "pt-BR": "quebrar; destruir",
+        "es": "romper; destruir"
+      },
+      "example_from_song": "砂の器を壊して こぼれた",
+      "additional_examples": [
+        "おもちゃを壊す",
+        "約束を壊す"
+      ]
+    },
+    {
+      "surface": "こぼれる",
+      "reading": "こぼれる",
+      "romaji": "koboreru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to spill; to overflow; to fall out",
+        "pt-BR": "derramar; transbordar",
+        "es": "derramarse; desbordarse"
+      },
+      "example_from_song": "砂の器を壊して こぼれた",
+      "additional_examples": [
+        "水がこぼれる",
+        "涙がこぼれる"
+      ]
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "heart; mind; spirit",
+        "pt-BR": "coração; mente; espírito",
+        "es": "corazón; mente; espíritu"
+      },
+      "example_from_song": "心を拾って集められるか？",
+      "additional_examples": [
+        "優しい心",
+        "心を込める"
+      ]
+    },
+    {
+      "surface": "拾う",
+      "reading": "ひろう",
+      "romaji": "hirou",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to pick up; to gather",
+        "pt-BR": "pegar; recolher",
+        "es": "recoger; levantar"
+      },
+      "example_from_song": "心を拾って集められるか？",
+      "additional_examples": [
+        "ゴミを拾う",
+        "落ちた鍵を拾う"
+      ]
+    },
+    {
+      "surface": "集める",
+      "reading": "あつめる",
+      "romaji": "atsumeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to collect; to gather",
+        "pt-BR": "colecionar; reunir",
+        "es": "reunir; coleccionar"
+      },
+      "example_from_song": "心を拾って集められるか？",
+      "additional_examples": [
+        "切手を集める",
+        "情報を集める"
+      ]
+    },
+    {
+      "surface": "誰か",
+      "reading": "だれか",
+      "romaji": "dareka",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "someone; somebody",
+        "pt-BR": "alguém",
+        "es": "alguien"
+      },
+      "example_from_song": "誰かの呼ぶ声が 耳鳴りに変わった",
+      "additional_examples": [
+        "誰か来た",
+        "誰かに聞く"
+      ]
+    },
+    {
+      "surface": "呼ぶ",
+      "reading": "よぶ",
+      "romaji": "yobu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to call; to summon",
+        "pt-BR": "chamar; convocar",
+        "es": "llamar; convocar"
+      },
+      "example_from_song": "誰かの呼ぶ声が 耳鳴りに変わった",
+      "additional_examples": [
+        "名前を呼ぶ",
+        "助けを呼ぶ"
+      ]
+    },
+    {
+      "surface": "声",
+      "reading": "こえ",
+      "romaji": "koe",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "voice",
+        "pt-BR": "voz",
+        "es": "voz"
+      },
+      "example_from_song": "誰かの呼ぶ声が 耳鳴りに変わった",
+      "additional_examples": [
+        "大きな声",
+        "声をかける"
+      ]
+    },
+    {
+      "surface": "耳鳴り",
+      "reading": "みみなり",
+      "romaji": "miminari",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "ringing in the ears; tinnitus",
+        "pt-BR": "zumbido no ouvido",
+        "es": "zumbido en los oídos; tinnitus"
+      },
+      "example_from_song": "誰かの呼ぶ声が 耳鳴りに変わった",
+      "additional_examples": [
+        "耳鳴りがする",
+        "ひどい耳鳴り"
+      ]
+    },
+    {
+      "surface": "変わる",
+      "reading": "かわる",
+      "romaji": "kawaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to change; to be transformed",
+        "pt-BR": "mudar; transformar-se",
+        "es": "cambiar; transformarse"
+      },
+      "example_from_song": "誰かの呼ぶ声が 耳鳴りに変わった",
+      "additional_examples": [
+        "季節が変わる",
+        "顔色が変わる"
+      ]
+    },
+    {
+      "surface": "時",
+      "reading": "とき",
+      "romaji": "toki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "time; moment; occasion",
+        "pt-BR": "tempo; momento; ocasião",
+        "es": "tiempo; momento; ocasión"
+      },
+      "example_from_song": "時が止まったみたいだ",
+      "additional_examples": [
+        "時が過ぎる",
+        "その時が来た"
+      ]
+    },
+    {
+      "surface": "止まる",
+      "reading": "とまる",
+      "romaji": "tomaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to stop; to come to a halt",
+        "pt-BR": "parar; deter-se",
+        "es": "detenerse; pararse"
+      },
+      "example_from_song": "時が止まったみたいだ",
+      "additional_examples": [
+        "電車が止まる",
+        "時計が止まる"
+      ]
+    },
+    {
+      "surface": "目",
+      "reading": "め",
+      "romaji": "me",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "eye",
+        "pt-BR": "olho",
+        "es": "ojo"
+      },
+      "example_from_song": "さぁ 目を覚ませ",
+      "additional_examples": [
+        "目を閉じる",
+        "目が合う"
+      ]
+    },
+    {
+      "surface": "覚ます",
+      "reading": "さます",
+      "romaji": "samasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to wake (someone) up; to awaken; to snap out of",
+        "pt-BR": "acordar; despertar",
+        "es": "despertar; hacer despertar"
+      },
+      "example_from_song": "さぁ 目を覚ませ",
+      "additional_examples": [
+        "目を覚ます",
+        "酔いを覚ます"
+      ]
+    },
+    {
+      "surface": "会う",
+      "reading": "あう",
+      "romaji": "au",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to meet; to see (a person)",
+        "pt-BR": "encontrar-se; ver (alguém)",
+        "es": "encontrarse; ver (a alguien)"
+      },
+      "example_from_song": "また会おうぜ 地図にない場所で",
+      "additional_examples": [
+        "友達に会う",
+        "駅で会う"
+      ]
+    },
+    {
+      "surface": "地図",
+      "reading": "ちず",
+      "romaji": "chizu",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "map",
+        "pt-BR": "mapa",
+        "es": "mapa"
+      },
+      "example_from_song": "また会おうぜ 地図にない場所で",
+      "additional_examples": [
+        "地図を広げる",
+        "日本の地図"
+      ]
+    },
+    {
+      "surface": "ない",
+      "reading": "ない",
+      "romaji": "nai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "not existing; not having; no",
+        "pt-BR": "não existir; não ter",
+        "es": "no existir; no tener"
+      },
+      "example_from_song": "また会おうぜ 地図にない場所で",
+      "additional_examples": [
+        "お金がない",
+        "時間がない"
+      ]
+    },
+    {
+      "surface": "場所",
+      "reading": "ばしょ",
+      "romaji": "basho",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "place; location; spot",
+        "pt-BR": "lugar; local",
+        "es": "lugar; sitio"
+      },
+      "example_from_song": "また会おうぜ 地図にない場所で",
+      "additional_examples": [
+        "静かな場所",
+        "場所を決める"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜として (assuming; as)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Add として (toshite) after a noun to mean 'as (a role/capacity)' or to set up a hypothetical frame. It establishes the perspective or role through which something is considered.\n\nExample from this song: The song uses として to frame scenarios hypothetically — 'assuming this is the case' or 'as if this were so'.\n\nMore examples:\n• 先生 (sensei, 'teacher') → 先生として (sensei toshite, 'as a teacher')\n• 友達 (tomodachi, 'friend') → 友達として (tomodachi toshite, 'as a friend')\n• 日本人 (nihonjin, 'Japanese person') → 日本人として (nihonjin toshite, 'as a Japanese person')\n\nNote: として can also mean 'even (one)' in negative sentences: 一人として来なかった (hitori toshite konakatta, 'not even one person came')."
+      },
+      "conjugation_path": "先生 (sensei, 'teacher') + として (toshite, 'as') → 先生として (sensei toshite, 'as a teacher')"
+    },
+    {
+      "name": "〜みたいだ (it seems like; it's like)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add みたいだ (mitai da) after a noun, verb, or adjective to express resemblance or conjecture — 'it seems like X' or 'it's like X'. This is the casual equivalent of ようだ.\n\nExample from this song: The song uses みたいだ to compare feelings and situations to something familiar, creating vivid imagery.\n\nMore examples:\n• 夢 (yume, 'dream') → 夢みたいだ (yume mitai da, 'it's like a dream')\n• 死んだ (shinda, 'died') → 死んだみたいだ (shinda mitai da, 'it seems like it died')\n• 春 (haru, 'spring') → 春みたいだ (haru mitai da, 'it's like spring')\n\nNote: Before a noun, use みたいな: 夢みたいな世界 (yume mitai na sekai, 'a world like a dream'). Before a verb, use みたいに: 鳥みたいに飛ぶ (tori mitai ni tobu, 'fly like a bird')."
+      },
+      "conjugation_path": "夢 (yume, 'dream') + みたいだ (mitai da, 'seems like') → 夢みたいだ (yume mitai da, 'it's like a dream')"
+    },
+    {
+      "name": "〜出す (to start doing; to burst out)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Attach 出す (dasu, 'to put out') to the verb stem (masu-stem) to express a sudden or explosive beginning of an action — 'burst out doing' or 'start to do'.\n\nExample from this song: 抜け出す (nukedasu) = 'to break out / escape' — from 抜ける (nukeru, 'to slip through') → 抜け (nuke, stem) + 出す (dasu, 'to burst out'). Also: 逃げ出す (nigedasu) = 'to run away' — from 逃げる (nigeru, 'to flee') → 逃げ (nige, stem) + 出す (dasu)\n\nMore examples:\n• 走る (hashiru, 'to run') → 走り出す (hashiridasu, 'to start running suddenly')\n• 泣く (naku, 'to cry') → 泣き出す (nakidasu, 'to burst into tears')\n• 笑う (warau, 'to laugh') → 笑い出す (waraidasu, 'to burst out laughing')\n\nNote: 〜出す emphasizes the sudden, often unstoppable nature of the action starting. Compare with 〜始める (hajimeru), which is a neutral 'begin to'."
+      },
+      "conjugation_path": "抜ける (nukeru, 'to slip through') → 抜け (nuke, stem) + 出す (dasu, 'burst out') → 抜け出す (nukedasu, 'to break out') / 逃げる (nigeru, 'to flee') → 逃げ出す (nigedasu, 'to run away')"
+    },
+    {
+      "name": "命令形 (imperative form)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Change the verb ending to create a direct command. For -ru verbs (ichidan), replace る with ろ. For -u verbs (godan), change the final syllable to its え-row equivalent.\n\nExample from this song: 覚ませ (samase) = 'Wake up!' — from 覚ます (samasu, 'to wake/awaken') → change す (su) to せ (se)\n\nMore examples:\n• 走る (hashiru, 'to run') → 走れ (hashire, 'Run!')\n• 食べる (taberu, 'to eat') → 食べろ (tabero, 'Eat!')\n• 立つ (tatsu, 'to stand') → 立て (tate, 'Stand!')\n\nNote: For godan verbs: す→せ, く→け, む→め, つ→て, ぬ→ね, ぶ→べ, う→え, る→れ. For ichidan verbs: る→ろ. This is very direct — use with caution in real life, but it's extremely common in songs and anime."
+      },
+      "conjugation_path": "覚ます (samasu, 'to awaken') → 覚ませ (samase, 'Wake up!')"
+    },
+    {
+      "name": "〜のか (rhetorical question)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add のか (no ka) at the end of a sentence to create an emotionally charged question, often rhetorical. の adds an explanatory tone, and か marks the question. Together they express doubt, frustration, or deep wondering.\n\nExample from this song: The song uses のか to question reality with emotional weight — 'Is it really...?' or 'Can it be that...?'\n\nMore examples:\n• 何 (nani, 'what') → 何なのか (nan na no ka, 'what is it, really?')\n• できる (dekiru, 'can do') → できるのか (dekiru no ka, 'can it really be done?')\n• 本当 (hontō, 'true') → 本当なのか (hontō na no ka, 'is it really true?')\n\nNote: In casual male speech, のか often drops to のか without rising intonation, making it sound reflective rather than questioning. It adds more emotional weight than plain か alone."
+      },
+      "conjugation_path": "できる (dekiru, 'can do') + のか (no ka, rhetorical question) → できるのか (dekiru no ka, 'can it really be done?')"
+    },
+    {
+      "name": "〜に変わる (to change into)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Use noun + に (ni, 'into') + 変わる (kawaru, 'to change') to express transformation from one thing to another. The particle に marks what something changes into.\n\nExample from this song: 声が耳鳴りに変わった (koe ga miminari ni kawatta) = 'the voice changed into a ringing in the ears' — from 声 (koe, 'voice') + が (ga, subject) + 耳鳴り (miminari, 'ringing') + に (ni, 'into') + 変わった (kawatta, 'changed')\n\nMore examples:\n• 雨が雪に変わる (ame ga yuki ni kawaru, 'the rain changes to snow')\n• 緑が赤に変わる (midori ga aka ni kawaru, 'green changes to red')\n• 笑顔が涙に変わった (egao ga namida ni kawatta, 'the smile turned to tears')\n\nNote: 変わる (kawaru) is intransitive (changes by itself). 変える (kaeru) is transitive (someone changes it). 色を変える (iro wo kaeru, 'to change the color')."
+      },
+      "conjugation_path": "声 (koe, 'voice') + が (ga) + 耳鳴り (miminari, 'ringing') + に (ni, 'into') + 変わった (kawatta, 'changed') → 声が耳鳴りに変わった (koe ga miminari ni kawatta, 'the voice changed into ringing')"
+    }
+  ]
+}

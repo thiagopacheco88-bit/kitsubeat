@@ -1,0 +1,578 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "basic",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 1943,
+      "end_time_ms": 3304,
+      "tokens": [
+        {
+          "surface": "ねえ",
+          "reading": "ねえ",
+          "romaji": "nee",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "hey; say"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "聞こえます",
+          "reading": "きこえます",
+          "romaji": "kikoemasu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can you hear"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "か",
+          "reading": "か",
+          "romaji": "ka",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "question marker",
+            "pt-BR": "marcador de pergunta",
+            "es": "marcador de pregunta"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Hey, can you hear me?",
+        "pt-BR": "Ei, voce consegue me ouvir?",
+        "es": "Oye, ¿puedes oirme?"
+      },
+      "literal_meaning": {
+        "en": "hey + can-hear + question"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 3304,
+      "end_time_ms": 14990,
+      "tokens": [
+        {
+          "surface": "空",
+          "reading": "そら",
+          "romaji": "sora",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sky",
+            "pt-BR": "céu",
+            "es": "cielo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "果てしなく",
+          "reading": "はてしなく",
+          "romaji": "hateshinaku",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "endlessly",
+            "pt-BR": "infinitamente",
+            "es": "interminablemente"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "青く",
+          "reading": "あおく",
+          "romaji": "aoku",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "blue (adverbial)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "澄んでいて",
+          "reading": "すんでいて",
+          "romaji": "sundeite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "is clear"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "The sky is endlessly blue and clear",
+        "pt-BR": "O ceu e infinitamente azul e limpo",
+        "es": "El cielo es infinitamente azul y claro"
+      },
+      "literal_meaning": {
+        "en": "sky + topic + endlessly + blue + is-clear"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 14990,
+      "end_time_ms": 23755,
+      "tokens": [
+        {
+          "surface": "Umi wa kagirinaku kōdaide ite",
+          "reading": "Umi wa kagirinaku kōdaide ite",
+          "romaji": "Umi wa kagirinaku kōdaide ite",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 23755,
+      "end_time_ms": 38783,
+      "tokens": [
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "いつまでも",
+          "reading": "いつまでも",
+          "romaji": "itsumademo",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "forever",
+            "pt-BR": "para sempre",
+            "es": "para siempre"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "笑顔",
+          "reading": "えがお",
+          "romaji": "egao",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "smile",
+            "pt-BR": "sorriso",
+            "es": "sonrisa"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "でいて",
+          "reading": "でいて",
+          "romaji": "deite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "please be; stay"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "じゃないと",
+          "reading": "じゃないと",
+          "romaji": "janaito",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "if not; otherwise"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "泣いちゃう",
+          "reading": "ないちゃう",
+          "romaji": "naichau",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "will end up crying"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "から",
+          "reading": "から",
+          "romaji": "kara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "because",
+            "pt-BR": "porque",
+            "es": "porque"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Please keep smiling forever - because if you don't, I'll end up crying",
+        "pt-BR": "Por favor continue sorrindo para sempre - porque se nao, vou acabar chorando",
+        "es": "Por favor sigue sonriendo para siempre - porque si no, terminare llorando"
+      },
+      "literal_meaning": {
+        "en": "you + topic + forever + smile + please-be / if-not + will-end-up-crying + because"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 38783,
+      "end_time_ms": 42366,
+      "tokens": [
+        {
+          "surface": "Mawari o mi mawasanakute mo",
+          "reading": "Mawari o mi mawasanakute mo",
+          "romaji": "Mawari o mi mawasanakute mo",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 42366,
+      "end_time_ms": 46348,
+      "tokens": [
+        {
+          "surface": "Mō ī nda yo",
+          "reading": "Mō ī nda yo",
+          "romaji": "Mō ī nda yo",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 46348,
+      "end_time_ms": 48110,
+      "tokens": [
+        {
+          "surface": "Kono-te no nakaniha min'na ga",
+          "reading": "Kono-te no nakaniha min'na ga",
+          "romaji": "Kono-te no nakaniha min'na ga",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 48110,
+      "end_time_ms": 60801,
+      "tokens": [
+        {
+          "surface": "Nakitaku natte nigetaku natte",
+          "reading": "Nakitaku natte nigetaku natte",
+          "romaji": "Nakitaku natte nigetaku natte",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 60801,
+      "end_time_ms": 64703,
+      "tokens": [
+        {
+          "surface": "Shiawase o wasurete shimattara",
+          "reading": "Shiawase o wasurete shimattara",
+          "romaji": "Shiawase o wasurete shimattara",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 10,
+      "start_time_ms": 64703,
+      "end_time_ms": 72849,
+      "tokens": [
+        {
+          "surface": "Min'na utae",
+          "reading": "Min'na utae",
+          "romaji": "Min'na utae",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 11,
+      "start_time_ms": 72849,
+      "end_time_ms": 80553,
+      "tokens": [
+        {
+          "surface": "ハルモニア",
+          "reading": "ハルモニア",
+          "romaji": "harumonia",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "harmonia (harmony)"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "感じて",
+          "reading": "かんじて",
+          "romaji": "kanjite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "feel it"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "テレパシー",
+          "reading": "テレパシー",
+          "romaji": "terepashii",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "telepathy"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "Feel the harmonia, telepathy",
+        "pt-BR": "Sinta a harmonia, telepatia",
+        "es": "Siente la armonia, telepatia"
+      },
+      "literal_meaning": {
+        "en": "harmonia + feel + telepathy"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "ハルモニア",
+      "reading": "ハルモニア",
+      "romaji": "harumonia",
+      "part_of_speech": "noun",
+      "jlpt_level": "unknown",
+      "meaning": {
+        "en": "harmonia; harmony (from Greek/Latin, poetic loanword)",
+        "pt-BR": "harmonia (palavra emprestada do grego/latim, poética)",
+        "es": "harmonía (préstamo poético del griego/latín)"
+      },
+      "example_from_song": "ハルモニア 感じてテレパシー",
+      "additional_examples": [
+        "ハルモニアの調べ",
+        "静かなハルモニア"
+      ]
+    },
+    {
+      "surface": "感じる",
+      "reading": "かんじる",
+      "romaji": "kanjiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to feel; to sense",
+        "pt-BR": "sentir; perceber",
+        "es": "sentir; percibir"
+      },
+      "example_from_song": "ハルモニア 感じてテレパシー",
+      "additional_examples": [
+        "温かさを感じる",
+        "不安を感じる"
+      ]
+    },
+    {
+      "surface": "テレパシー",
+      "reading": "テレパシー",
+      "romaji": "terepashii",
+      "part_of_speech": "noun",
+      "jlpt_level": "unknown",
+      "meaning": {
+        "en": "telepathy",
+        "pt-BR": "telepatia",
+        "es": "telepatía"
+      },
+      "example_from_song": "ハルモニア 感じてテレパシー",
+      "additional_examples": [
+        "テレパシーで伝える",
+        "不思議なテレパシー"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜でいて (please be/stay)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Use で (de, state marker) + いて (ite, te-form of いる, 'to be') to request someone to remain in a certain state — 'please stay/be [adjective]'. Often used with adjectives and な-adjectives.\n\nExample from this song: The song asks someone to stay a certain way — 'please remain as you are' — using でいて to express the wish for continued existence in that state.\n\nMore examples:\n• 元気 (genki, 'healthy') → 元気でいて (genki de ite, 'please stay healthy')\n• そのまま (sono mama, 'as is') → そのままでいて (sono mama de ite, 'please stay as you are')\n• 優しい (yasashii, 'kind') → 優しくいて (yasashiku ite, 'please stay kind')\n\nNote: For な-adjectives and nouns, use で: 元気でいて. For い-adjectives, use the く-form: 優しくいて. Adding ください makes it more polite: 元気でいてください."
+      },
+      "conjugation_path": "元気 (genki, 'healthy') + で (de, state) + いて (ite, 'be') → 元気でいて (genki de ite, 'please stay healthy')"
+    },
+    {
+      "name": "〜てしまう (end up doing, regrettably)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add てしまう (te shimau) after the te-form of a verb to express that something happened completely, often with regret or that it was unintentional. In casual speech, it contracts to ちゃう (chau) or じゃう (jau).\n\nExample from this song: 忘れちゃう (wasurechau) = 'end up forgetting (regrettably)' — from 忘れる (wasureru, 'to forget') → 忘れて (wasurete, te-form) + しまう (shimau) → casual: 忘れちゃう (wasurechau)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べてしまう (tabete shimau, 'end up eating it all') → 食べちゃう (tabechau)\n• 壊す (kowasu, 'to break') → 壊してしまう (kowashite shimau, 'accidentally break') → 壊しちゃう (kowashichau)\n• 飲む (nomu, 'to drink') → 飲んでしまう (nonde shimau) → 飲んじゃう (nonjau)\n\nNote: Contraction rules: てしまう → ちゃう, でしまう → じゃう. Past tense: ちゃった/じゃった. てしまう can also express completion without regret in some contexts."
+      },
+      "conjugation_path": "忘れる (wasureru, 'to forget') → 忘れて (wasurete) + しまう (shimau) → 忘れてしまう (wasurete shimau, 'end up forgetting') → 忘れちゃう (wasurechau, casual)"
+    },
+    {
+      "name": "〜たくなる (come to want to)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Take the たい (tai, 'want to') form of a verb, change い to く, then add なる (naru, 'to become'). This expresses a spontaneous feeling arising — 'come to want to do X'.\n\nExample from this song: 泣きたくなる (nakitaku naru) = 'come to want to cry' — from 泣く (naku, 'to cry') → 泣きたい (nakitai, 'want to cry') → 泣きたく (nakitaku) + なる (naru, 'become') = 泣きたくなる (nakitaku naru)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べたくなる (tabetaku naru, 'come to want to eat')\n• 帰る (kaeru, 'to return') → 帰りたくなる (kaeritaku naru, 'come to want to go home')\n• 会う (au, 'to meet') → 会いたくなる (aitaku naru, 'come to want to see someone')\n\nNote: This describes feelings that arise naturally, not deliberate decisions. たい conjugates like an い-adjective: たい → たく (adverb form) + なる."
+      },
+      "conjugation_path": "泣く (naku, 'to cry') → 泣きたい (nakitai, 'want to cry') → 泣きたく (nakitaku) + なる (naru, 'become') → 泣きたくなる (nakitaku naru, 'come to want to cry')"
+    },
+    {
+      "name": "〜なくても (even without doing)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Take the negative form of a verb (ない), change it to なくて (nakute), then add も (mo, 'even'). This means 'even if you don't do X' or 'even without doing X'.\n\nExample from this song: 見回さなくても (miwasanakutemo) = 'even without looking around' — from 見回す (miwasu, 'to look around') → 見回さない (miwasanai, 'don't look around') → 見回さなくても (miwasanakutemo, 'even without looking around')\n\nMore examples:\n• 言う (iu, 'to say') → 言わなくても (iwanakutemo, 'even without saying')\n• 食べる (taberu, 'to eat') → 食べなくても (tabenakutemo, 'even without eating')\n• 心配する (shinpai suru, 'to worry') → 心配しなくても (shinpai shinakutemo, 'even without worrying')\n\nNote: なくても often implies 'it's fine / it'll be okay even without doing X'. Compare with なくてもいい (nakutemo ii, 'it's okay not to')."
+      },
+      "conjugation_path": "見回す (miwasu, 'to look around') → 見回さない (miwasanai, 'don't look around') → 見回さなくても (miwasanakutemo, 'even without looking around')"
+    },
+    {
+      "name": "命令形 (imperative)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Change the verb ending to create a direct command. For -u verbs (godan), change the final syllable to its え-row equivalent. For -ru verbs (ichidan), replace る with ろ.\n\nExample from this song: 歌え (utae) = 'Sing!' — from 歌う (utau, 'to sing') → change う (u) to え (e) = 歌え (utae)\n\nMore examples:\n• 走る (hashiru, 'to run') → 走れ (hashire, 'Run!')\n• 起きる (okiru, 'to wake up') → 起きろ (okiro, 'Wake up!')\n• 頑張る (ganbaru, 'to do your best') → 頑張れ (ganbare, 'Do your best!')\n\nNote: The imperative is very forceful. In this song, it's used as encouragement — 歌え means 'Sing!' in an inspiring way. Godan: う→え. Ichidan: る→ろ. The special verbs: する→しろ, 来る→来い (koi)."
+      },
+      "conjugation_path": "歌う (utau, 'to sing') → 歌え (utae, 'Sing!')"
+    },
+    {
+      "name": "〜んだよ (explanatory emphasis)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add んだよ (nda yo) at the end of a sentence to strongly explain or emphasize something. ん (n) is the contracted explanatory の (no), だ (da) is the copula, and よ (yo) adds assertive emphasis.\n\nExample from this song: The song uses んだよ to assert emotional truths with feeling — 'that's the way it is!' or 'I'm telling you that...'.\n\nMore examples:\n• 好き (suki, 'like') → 好きなんだよ (suki nandayo, 'I'm telling you, I like it!')\n• 行く (iku, 'to go') → 行くんだよ (iku ndayo, 'I'm going, you know!')\n• 大丈夫 (daijoubu, 'fine') → 大丈夫なんだよ (daijoubu nandayo, 'I'm telling you, it's fine!')\n\nNote: んだよ is casual and direct. It's warmer than plain よ because の/ん adds the feeling of 'let me explain why'. After な-adjectives and nouns, add な before んだよ."
+      },
+      "conjugation_path": "好き (suki, 'like') + なんだよ (nandayo, 'I'm telling you') → 好きなんだよ (suki nandayo, 'I'm telling you, I like it!')"
+    }
+  ]
+}

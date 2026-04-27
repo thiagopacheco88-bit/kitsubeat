@@ -1,0 +1,741 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 15176,
+      "end_time_ms": 39530,
+      "tokens": [
+        {
+          "surface": "道",
+          "reading": "みち",
+          "romaji": "michi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "道",
+            "pt-BR": "道",
+            "es": "道"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "に",
+            "pt-BR": "に",
+            "es": "に"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "刻む",
+          "reading": "きざむ",
+          "romaji": "kizamu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "刻む",
+            "pt-BR": "刻む",
+            "es": "刻む"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "迷い",
+          "reading": "まよい",
+          "romaji": "mayoi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "迷い",
+            "pt-BR": "迷い",
+            "es": "迷い"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "なき",
+          "reading": "なき",
+          "romaji": "naki",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "なき",
+            "pt-BR": "なき",
+            "es": "なき"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "足跡",
+          "reading": "あしあと",
+          "romaji": "ashiato",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "足跡",
+            "pt-BR": "足跡",
+            "es": "足跡"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 道に刻む 迷いなき足跡",
+        "pt-BR": "(auto-coverage) 道に刻む 迷いなき足跡",
+        "es": "(auto-coverage) 道に刻む 迷いなき足跡"
+      },
+      "literal_meaning": {
+        "en": "道 + に + 刻む + 迷い + なき + 足跡"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 39530,
+      "end_time_ms": 51999,
+      "tokens": [
+        {
+          "surface": "その",
+          "reading": "その",
+          "romaji": "sono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "その",
+            "pt-BR": "その",
+            "es": "その"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "一",
+          "reading": "いち",
+          "romaji": "ichi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "一",
+            "pt-BR": "一",
+            "es": "一"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "歩",
+          "reading": "ほ",
+          "romaji": "fu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "歩",
+            "pt-BR": "歩",
+            "es": "歩"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "から",
+          "reading": "から",
+          "romaji": "kara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "から",
+            "pt-BR": "から",
+            "es": "から"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "全て",
+          "reading": "すべて",
+          "romaji": "subete",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "全て",
+            "pt-BR": "全て",
+            "es": "全て"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "が",
+            "pt-BR": "が",
+            "es": "が"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "始まっ",
+          "reading": "はじまっ",
+          "romaji": "hajimatsu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "始まっ",
+            "pt-BR": "始まっ",
+            "es": "始まっ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "て",
+            "pt-BR": "て",
+            "es": "て"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) その一歩から 全てが始まって",
+        "pt-BR": "(auto-coverage) その一歩から 全てが始まって",
+        "es": "(auto-coverage) その一歩から 全てが始まって"
+      },
+      "literal_meaning": {
+        "en": "その + 一 + 歩 + から + 全て + が + 始まっ + て"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 51999,
+      "end_time_ms": 63480,
+      "tokens": [
+        {
+          "surface": "叫び声",
+          "reading": "さけびごえ",
+          "romaji": "sakebigoe",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "shout; scream"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "真実",
+          "reading": "しんじつ",
+          "romaji": "shinjitsu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "truth",
+            "pt-BR": "verdade",
+            "es": "verdad"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "だけ",
+          "reading": "だけ",
+          "romaji": "dake",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "only",
+            "pt-BR": "apenas",
+            "es": "solo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "to",
+            "pt-BR": "para",
+            "es": "para"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "響く",
+          "reading": "ひびく",
+          "romaji": "hibiku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to resonate; to echo"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "だろう",
+          "reading": "だろう",
+          "romaji": "darou",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "probably",
+            "pt-BR": "provavelmente",
+            "es": "probablemente"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Our shouts will surely resonate only with the truth",
+        "pt-BR": "Nossos gritos certamente ressoarão apenas com a verdade",
+        "es": "Nuestros gritos seguramente resonarán solo con la verdad"
+      },
+      "literal_meaning": {
+        "en": "shout (topic) truth only to resonate probably"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 63480,
+      "end_time_ms": 69345,
+      "tokens": [
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart",
+            "pt-BR": "coração",
+            "es": "corazón"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "燃やせ",
+          "reading": "もやせ",
+          "romaji": "moyase",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "set ablaze (imperative)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "そして",
+          "reading": "そして",
+          "romaji": "soshite",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "and then",
+            "pt-BR": "e então",
+            "es": "y entonces"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "手",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "hand",
+            "pt-BR": "mão",
+            "es": "mano"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "つなごう",
+          "reading": "つなごう",
+          "romaji": "tsunagou",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "let's connect"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "永遠",
+          "reading": "えいえん",
+          "romaji": "eien",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "eternity",
+            "pt-BR": "eternidade",
+            "es": "eternidad"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "possessive",
+            "pt-BR": "possessivo",
+            "es": "posesivo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "願い",
+          "reading": "ねがい",
+          "romaji": "negai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "wish",
+            "pt-BR": "desejo",
+            "es": "deseo"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Set your heart ablaze, and then let's join hands — with an eternal wish held close",
+        "pt-BR": "Incendeie seu coração, e então vamos dar as mãos — com um desejo eterno guardado",
+        "es": "Enciende tu corazón, y luego unamos nuestras manos — con un deseo eterno guardado"
+      },
+      "literal_meaning": {
+        "en": "heart set-ablaze, and-then hands (obj) let's-connect, eternal wish (obj)"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 69345,
+      "end_time_ms": 80537,
+      "tokens": [
+        {
+          "surface": "求める",
+          "reading": "もとめる",
+          "romaji": "motomeru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to seek"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "なら",
+          "reading": "なら",
+          "romaji": "nara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "if",
+            "pt-BR": "se",
+            "es": "si"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "探している",
+          "reading": "さがしている",
+          "romaji": "sagashite iru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "searching for",
+            "pt-BR": "procurando",
+            "es": "buscando"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "光",
+          "reading": "ひかり",
+          "romaji": "hikari",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "light",
+            "pt-BR": "luz",
+            "es": "luz"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "きっと",
+          "reading": "きっと",
+          "romaji": "kitto",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "surely",
+            "pt-BR": "certamente",
+            "es": "seguramente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "そこ",
+          "reading": "そこ",
+          "romaji": "soko",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "there",
+            "pt-BR": "lá",
+            "es": "allí"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "at",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ある",
+          "reading": "ある",
+          "romaji": "aru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "exists",
+            "pt-BR": "existe",
+            "es": "existe"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "さ",
+          "reading": "さ",
+          "romaji": "sa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "If you seek it, the light you're searching for is surely right there",
+        "pt-BR": "Se você buscar, a luz que está procurando certamente está ali",
+        "es": "Si la buscas, la luz que estás buscando seguramente está justo ahí"
+      },
+      "literal_meaning": {
+        "en": "seek if, searching light (topic) surely there at exists"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "道",
+      "reading": "みち",
+      "romaji": "michi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "road; path; way",
+        "pt-BR": "caminho; estrada",
+        "es": "camino; calle"
+      },
+      "example_from_song": "道に刻む 迷いなき足跡",
+      "additional_examples": [
+        "道を歩く",
+        "自分の道を行く"
+      ]
+    },
+    {
+      "surface": "刻む",
+      "reading": "きざむ",
+      "romaji": "kizamu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to carve; to engrave; to etch",
+        "pt-BR": "esculpir; gravar; entalhar",
+        "es": "tallar; grabar; esculpir"
+      },
+      "example_from_song": "道に刻む 迷いなき足跡",
+      "additional_examples": [
+        "記憶に刻む",
+        "名前を刻む"
+      ]
+    },
+    {
+      "surface": "足跡",
+      "reading": "あしあと",
+      "romaji": "ashiato",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "footprint; footstep; trace",
+        "pt-BR": "pegada; rastro",
+        "es": "huella; pisada; rastro"
+      },
+      "example_from_song": "道に刻む 迷いなき足跡",
+      "additional_examples": [
+        "雪の上の足跡",
+        "人生の足跡"
+      ]
+    },
+    {
+      "surface": "全て",
+      "reading": "すべて",
+      "romaji": "subete",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "all; everything; the whole",
+        "pt-BR": "tudo; todos",
+        "es": "todo; la totalidad"
+      },
+      "example_from_song": "その一歩から 全てが始まって",
+      "additional_examples": [
+        "全てを失う",
+        "全てが順調だ"
+      ]
+    },
+    {
+      "surface": "始まる",
+      "reading": "はじまる",
+      "romaji": "hajimaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to begin; to start",
+        "pt-BR": "começar; iniciar-se",
+        "es": "empezar; comenzar"
+      },
+      "example_from_song": "その一歩から 全てが始まって",
+      "additional_examples": [
+        "授業が始まる",
+        "新しい生活が始まる"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "命令形 (meireikei - imperative)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: The imperative form creates direct commands. For godan verbs (-u verbs), change the final vowel to -e. For ichidan verbs (-ru verbs), replace る with ろ.\n\nExample from this song: 目覚めろ (mezamero) = 'wake up!' — from 目覚める (mezameru, 'to awaken'), an ichidan verb → drop る, add ろ. Also: 燃やせ (moyase) = 'set ablaze!' — from 燃やす (moyasu, 'to burn'), a godan verb → す becomes せ\n\nMore examples:\n• 立つ (tatsu, 'to stand') → 立て (tate, 'stand up!')\n• 見る (miru, 'to see') → 見ろ (miro, 'look!')\n• 来る (kuru, 'to come') → 来い (koi, 'come!') — irregular\n\nNote: This form is very strong and direct, common in anime, songs, and sports cheering. Irregular verbs: する (suru) → しろ (shiro), 来る (kuru) → 来い (koi)."
+      },
+      "conjugation_path": "目覚める (mezameru, 'to awaken') → 目覚めろ (mezamero, 'wake up!') / 燃やす (moyasu, 'to burn') → 燃やせ (moyase, 'set ablaze!')"
+    },
+    {
+      "name": "〜ても (temo - even if)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add ても (temo) after a verb's te-form to express 'even if' or 'even though.' The result doesn't change regardless of the condition stated.\n\nExample from this song: 焦がれても (kogarete mo) = 'even if I yearn' — from 焦がれる (kogareru, 'to yearn for') → 焦がれて (kogarete) + も (mo)\n\nMore examples:\n• 雨が降っても行く (ame ga futte mo iku, 'I'll go even if it rains') — from 降る (furu, 'to rain')\n• 失敗しても大丈夫 (shippai shite mo daijoubu, 'even if you fail, it's OK') — from 失敗する (shippai suru, 'to fail')\n• 高くても買う (takakute mo kau, 'I'll buy it even if it's expensive') — i-adjective form\n\nNote: For verbs → te-form + も. For i-adjectives → change い to くても. For na-adjectives/nouns → でも."
+      },
+      "conjugation_path": "焦がれる (kogareru, 'to yearn') → 焦がれて (kogarete) → 焦がれても (kogarete mo, 'even if yearning')"
+    },
+    {
+      "name": "〜のは〜だ (no wa ~ da - emphasis)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: This cleft sentence structure emphasizes one part of the sentence. Verb + のは (no wa) turns the action into a topic, and だ (da) identifies it. Pattern: 'The thing that does X is Y.'\n\nExample from this song: 僕を強くするのは仲間の絆 (boku o tsuyoku suru no wa nakama no kizuna) = 'what makes me strong is the bond with my companions' — the のは highlights 'the thing that makes me strong'\n\nMore examples:\n• 好きなのは音楽だ (suki na no wa ongaku da, 'what I like is music') — emphasizing the object\n• 大切なのは気持ちだ (taisetsu na no wa kimochi da, 'what's important is feelings') — emphasizing importance\n• 教えてくれたのは先生だ (oshiete kureta no wa sensei da, 'the one who taught me was the teacher') — emphasizing the person\n\nNote: の nominalizes the verb clause (turns it into a noun phrase). This structure is used when you want to say 'the one who / the thing that / what...'"
+      },
+      "conjugation_path": "僕を強くする (boku o tsuyoku suru, 'makes me strong') + のは (no wa) + 仲間の絆 (nakama no kizuna, 'bond with companions')"
+    },
+    {
+      "name": "意志形 〜よう (volitional form)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: The volitional form expresses intention ('let's do') or suggestion. For godan verbs, change the final -u to -ou. For ichidan verbs, replace る with よう.\n\nExample from this song: つなごう (tsunagou) = 'let's connect (hands)' — from つなぐ (tsunagu, 'to connect') — godan verb, ぐ (gu) → ごう (gou)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べよう (tabeyou, 'let's eat')\n• 行く (iku, 'to go') → 行こう (ikou, 'let's go')\n• する (suru, 'to do') → しよう (shiyou, 'let's do it') — irregular\n\nNote: For godan verbs, the vowel shift is: u→ou, ku→kou, su→sou, tsu→tou, nu→nou, bu→bou, mu→mou, ru→rou, gu→gou. Irregular: する → しよう, 来る (kuru) → 来よう (koyou)."
+      },
+      "conjugation_path": "つなぐ (tsunagu, 'to connect') → つなごう (tsunagou, 'let's connect')"
+    },
+    {
+      "name": "〜ば (ba conditional)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: The ば (ba) conditional means 'if' or 'when.' For godan verbs, change the final -u vowel to -e and add ば. For ichidan verbs, drop る and add れば.\n\nExample from this song: 来れば (kureba) = 'if/when it comes' — from 来る (kuru, 'to come') — irregular: く → くれ + ば\n\nMore examples:\n• 行く (iku, 'to go') → 行けば (ikeba, 'if you go')\n• 食べる (taberu, 'to eat') → 食べれば (tabereba, 'if you eat')\n• 安い (yasui, 'cheap') → 安ければ (yasukereba, 'if it's cheap') — i-adjective: い → ければ\n\nNote: The ば conditional often implies a general truth or natural consequence: 'if X happens, then Y naturally follows.' Irregular: する → すれば (sureba), 来る → 来れば (kureba)."
+      },
+      "conjugation_path": "来る (kuru, 'to come') → 来れば (kureba, 'if/when it comes')"
+    },
+    {
+      "name": "〜なら (nara conditional)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: なら (nara) means 'if it is the case that.' It's used when the condition is based on new information or a hypothetical situation. Just add なら after a plain form verb, noun, or adjective.\n\nExample from this song: 求めるなら (motomeru nara) = 'if you seek (it)' — from 求める (motomeru, 'to seek')\n\nMore examples:\n• 暇なら来て (hima nara kite, 'if you're free, come over') — from 暇 (hima, 'free time')\n• 行くなら早く (iku nara hayaku, 'if you're going, go early') — from 行く (iku, 'to go')\n• 学生なら安い (gakusei nara yasui, 'if you're a student, it's cheap') — noun + なら\n\nNote: なら is often used to give advice or make suggestions based on what someone just said. It differs from ば (ba) in that なら focuses on the situation/topic rather than a cause-and-effect relationship."
+      },
+      "conjugation_path": "求める (motomeru, 'to seek') + なら (nara, 'if') → 求めるなら (motomeru nara, 'if you seek')"
+    }
+  ]
+}

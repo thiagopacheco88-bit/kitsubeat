@@ -1,0 +1,1285 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 5602,
+      "end_time_ms": 18294,
+      "tokens": [
+        {
+          "surface": "ここ",
+          "reading": "ここ",
+          "romaji": "koko",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "here",
+            "pt-BR": "aqui",
+            "es": "aquí"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ある",
+          "reading": "ある",
+          "romaji": "aru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to exist",
+            "pt-BR": "existir",
+            "es": "existir"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "is (explanatory)",
+            "pt-BR": "é (explicativo)",
+            "es": "es (explicativo)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "今まで",
+          "reading": "いままで",
+          "romaji": "ima made",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "until now"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "選んだ",
+          "reading": "えらんだ",
+          "romaji": "eranda",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "chose",
+            "pt-BR": "escolheu",
+            "es": "eligió"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "道",
+          "reading": "みち",
+          "romaji": "michi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "path; road"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "答え",
+          "reading": "こたえ",
+          "romaji": "kotae",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "answer",
+            "pt-BR": "resposta",
+            "es": "respuesta"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "達",
+          "reading": "たち",
+          "romaji": "tachi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "plural (answers)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "よ",
+          "reading": "よ",
+          "romaji": "yo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "What's here are the answers to the paths you've chosen until now.",
+        "pt-BR": "O que esta aqui sao as respostas dos caminhos que voce escolheu ate agora.",
+        "es": "Lo que esta aqui son las respuestas de los caminos que elegiste hasta ahora."
+      },
+      "literal_meaning": {
+        "en": "here + in + exist + is + topic / you + subject + until-now + chose + path + of + answers + emphasis"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 18294,
+      "end_time_ms": 25720,
+      "tokens": [
+        {
+          "surface": "ほら",
+          "reading": "ほら",
+          "romaji": "hora",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "look; see",
+            "pt-BR": "olhe; veja",
+            "es": "mira; ve"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "自信",
+          "reading": "じしん",
+          "romaji": "jishin",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "confidence"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "もって",
+          "reading": "もって",
+          "romaji": "motte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "having; with"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "進めば",
+          "reading": "すすめば",
+          "romaji": "susumeba",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "if you advance"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "いい",
+          "reading": "いい",
+          "romaji": "ii",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "good; fine",
+            "pt-BR": "bom; bem",
+            "es": "bueno; bien"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "とても",
+          "reading": "とても",
+          "romaji": "totemo",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "very"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "自然",
+          "reading": "しぜん",
+          "romaji": "shizen",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "natural"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "な",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "adjectival copula",
+            "pt-BR": "cópula adjetival",
+            "es": "cópula adjetival"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "it is",
+            "pt-BR": "é",
+            "es": "es"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Look — just have confidence and move forward. It's so natural.",
+        "pt-BR": "Olha — so tenha confianca e siga em frente. E tao natural.",
+        "es": "Mira — solo ten confianza y avanza. Es tan natural."
+      },
+      "literal_meaning": {
+        "en": "look + confidence + having + if-advance + good / very + natural + it-is"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 25720,
+      "end_time_ms": 34448,
+      "tokens": [
+        {
+          "surface": "雨上がり",
+          "reading": "あめあがり",
+          "romaji": "ameagari",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "after the rain"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "アスファルト",
+          "reading": "あすふぁると",
+          "romaji": "asufaruto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "asphalt"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "on",
+            "pt-BR": "sobre",
+            "es": "sobre"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "虹",
+          "reading": "にじ",
+          "romaji": "niji",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "rainbow",
+            "pt-BR": "arco-íris",
+            "es": "arcoíris"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "架かる",
+          "reading": "かかる",
+          "romaji": "kakaru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to span; to bridge"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ように",
+          "reading": "ように",
+          "romaji": "yō ni",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "just like"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Like a rainbow spanning the asphalt after the rain.",
+        "pt-BR": "Como um arco-iris se estendendo sobre o asfalto depois da chuva.",
+        "es": "Como un arcoiris extendiendose sobre el asfalto despues de la lluvia."
+      },
+      "literal_meaning": {
+        "en": "after-rain + of + asphalt + on + rainbow + subject + spans + just-like"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 34448,
+      "end_time_ms": 45167,
+      "tokens": [
+        {
+          "surface": "Lonely",
+          "reading": "Lonely",
+          "romaji": "Lonely",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "Lonely",
+            "pt-BR": "Lonely",
+            "es": "Lonely"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "風",
+          "reading": "かぜ",
+          "romaji": "kaze",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "風",
+            "pt-BR": "風",
+            "es": "風"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "が",
+            "pt-BR": "が",
+            "es": "が"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "吹い",
+          "reading": "ふい",
+          "romaji": "fui",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "吹い",
+            "pt-BR": "吹い",
+            "es": "吹い"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "て",
+            "pt-BR": "て",
+            "es": "て"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) Lonely 風が吹いて",
+        "pt-BR": "(auto-coverage) Lonely 風が吹いて",
+        "es": "(auto-coverage) Lonely 風が吹いて"
+      },
+      "literal_meaning": {
+        "en": "Lonely + 風 + が + 吹い + て"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 45167,
+      "end_time_ms": 55875,
+      "tokens": [
+        {
+          "surface": "For You",
+          "reading": "For You",
+          "romaji": "For You",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 55875,
+      "end_time_ms": 62127,
+      "tokens": [
+        {
+          "surface": "きっと",
+          "reading": "きっと",
+          "romaji": "kitto",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "surely",
+            "pt-BR": "certamente",
+            "es": "seguramente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "いつ",
+          "reading": "いつ",
+          "romaji": "itsu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "when",
+            "pt-BR": "quando",
+            "es": "cuando"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "日",
+          "reading": "ひ",
+          "romaji": "hi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "day",
+            "pt-BR": "dia",
+            "es": "día"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "か",
+          "reading": "か",
+          "romaji": "ka",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "question",
+            "pt-BR": "pergunta",
+            "es": "pregunta"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "this",
+            "pt-BR": "isto",
+            "es": "esto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "空",
+          "reading": "そら",
+          "romaji": "sora",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sky",
+            "pt-BR": "céu",
+            "es": "cielo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "飛べる",
+          "reading": "とべる",
+          "romaji": "toberu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can fly"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "はず",
+          "reading": "はず",
+          "romaji": "hazu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "should be; supposed to",
+            "pt-BR": "deveria ser",
+            "es": "debería ser"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "だから",
+          "reading": "だから",
+          "romaji": "dakara",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "because; so"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "For you — surely someday you should be able to fly across this sky.",
+        "pt-BR": "Para voce — com certeza algum dia voce deveria ser capaz de voar por este ceu.",
+        "es": "Para ti — seguramente algun dia deberias poder volar por este cielo."
+      },
+      "literal_meaning": {
+        "en": "surely + you + topic + when + of + day + question + this + sky + object + can-fly + should + because"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 62127,
+      "end_time_ms": 65068,
+      "tokens": [
+        {
+          "surface": "何度",
+          "reading": "なんど",
+          "romaji": "nando",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "how many times",
+            "pt-BR": "quantas vezes",
+            "es": "cuántas veces"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "つまずいた",
+          "reading": "つまずいた",
+          "romaji": "tsumazuita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "stumbled"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "としても",
+          "reading": "としても",
+          "romaji": "toshitemo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even if",
+            "pt-BR": "mesmo se",
+            "es": "aunque"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "No matter how many times you stumble.",
+        "pt-BR": "Nao importa quantas vezes voce tropece.",
+        "es": "Sin importar cuantas veces tropieces."
+      },
+      "literal_meaning": {
+        "en": "how-many-times + stumbled + even-if"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 65068,
+      "end_time_ms": 65928,
+      "tokens": [
+        {
+          "surface": "For You",
+          "reading": "For You",
+          "romaji": "For You",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 65928,
+      "end_time_ms": 71009,
+      "tokens": [
+        {
+          "surface": "大切",
+          "reading": "たいせつ",
+          "romaji": "taisetsu",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "important; precious",
+            "pt-BR": "importante; precioso",
+            "es": "importante; precioso"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "な",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "adjectival copula",
+            "pt-BR": "cópula adjetival",
+            "es": "cópula adjetival"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "事",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing",
+            "pt-BR": "coisa",
+            "es": "cosa"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "1つ",
+          "reading": "ひとつ",
+          "romaji": "hitotsu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "one",
+            "pt-BR": "um",
+            "es": "uno"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "夢見る",
+          "reading": "ゆめみる",
+          "romaji": "yumemiru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to dream",
+            "pt-BR": "sonhar",
+            "es": "soñar"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "事",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing",
+            "pt-BR": "coisa",
+            "es": "cosa"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart",
+            "pt-BR": "coração",
+            "es": "corazón"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "だけ",
+          "reading": "だけ",
+          "romaji": "dake",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "only",
+            "pt-BR": "apenas",
+            "es": "solo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "閉ざさないで",
+          "reading": "とざさないで",
+          "romaji": "tozasanaide",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "don't close off"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "いて",
+          "reading": "いて",
+          "romaji": "ite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "keep (state)"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "The important thing is just one — to dream. Just don't close off your heart.",
+        "pt-BR": "O importante e so uma coisa — sonhar. So nao feche seu coracao.",
+        "es": "Lo importante es solo una cosa — sonar. Solo no cierres tu corazon."
+      },
+      "literal_meaning": {
+        "en": "important + thing + topic + one / dreaming + thing / heart + only + topic + don't-close + keep"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "ある",
+      "reading": "ある",
+      "romaji": "aru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to exist (inanimate); to have",
+        "pt-BR": "existir (inanimado); haver",
+        "es": "existir (inanimado); haber"
+      },
+      "example_from_song": "ここにあるのは",
+      "additional_examples": [
+        "机の上に本がある",
+        "時間がある"
+      ]
+    },
+    {
+      "surface": "今",
+      "reading": "いま",
+      "romaji": "ima",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "now; the present moment",
+        "pt-BR": "agora; momento presente",
+        "es": "ahora; el momento actual"
+      },
+      "example_from_song": "君が今まで選んだ道の",
+      "additional_examples": [
+        "今何時ですか",
+        "今から行く"
+      ]
+    },
+    {
+      "surface": "選ぶ",
+      "reading": "えらぶ",
+      "romaji": "erabu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to choose; to select",
+        "pt-BR": "escolher; selecionar",
+        "es": "elegir; escoger"
+      },
+      "example_from_song": "君が今まで選んだ道の",
+      "additional_examples": [
+        "好きな色を選ぶ",
+        "道を選ぶ"
+      ]
+    },
+    {
+      "surface": "道",
+      "reading": "みち",
+      "romaji": "michi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "road; path; way",
+        "pt-BR": "caminho; estrada",
+        "es": "camino; carretera"
+      },
+      "example_from_song": "君が今まで選んだ道の",
+      "additional_examples": [
+        "長い道",
+        "道を歩く"
+      ]
+    },
+    {
+      "surface": "答え",
+      "reading": "こたえ",
+      "romaji": "kotae",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "answer; response",
+        "pt-BR": "resposta",
+        "es": "respuesta"
+      },
+      "example_from_song": "答え達よ",
+      "additional_examples": [
+        "正しい答え",
+        "答えを出す"
+      ]
+    },
+    {
+      "surface": "自信",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "self-confidence",
+        "pt-BR": "autoconfiança",
+        "es": "autoconfianza"
+      },
+      "example_from_song": "ほら自信もって進めばいい",
+      "additional_examples": [
+        "自信がある",
+        "自信を持つ"
+      ]
+    },
+    {
+      "surface": "持つ",
+      "reading": "もつ",
+      "romaji": "motsu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to hold; to have; to carry",
+        "pt-BR": "segurar; ter; carregar",
+        "es": "sostener; tener; llevar"
+      },
+      "example_from_song": "ほら自信もって進めばいい",
+      "additional_examples": [
+        "かばんを持つ",
+        "夢を持つ"
+      ]
+    },
+    {
+      "surface": "進む",
+      "reading": "すすむ",
+      "romaji": "susumu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to advance; to move forward",
+        "pt-BR": "avançar; seguir em frente",
+        "es": "avanzar; seguir adelante"
+      },
+      "example_from_song": "ほら自信もって進めばいい",
+      "additional_examples": [
+        "前へ進む",
+        "計画が進む"
+      ]
+    },
+    {
+      "surface": "とても",
+      "reading": "とても",
+      "romaji": "totemo",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "very; extremely",
+        "pt-BR": "muito; extremamente",
+        "es": "muy; extremadamente"
+      },
+      "example_from_song": "とても自然なの",
+      "additional_examples": [
+        "とても嬉しい",
+        "とても美味しい"
+      ]
+    },
+    {
+      "surface": "自然",
+      "reading": "しぜん",
+      "romaji": "shizen",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "nature; natural",
+        "pt-BR": "natureza; natural",
+        "es": "naturaleza; natural"
+      },
+      "example_from_song": "とても自然なの",
+      "additional_examples": [
+        "自然が好き",
+        "自然な笑顔"
+      ]
+    },
+    {
+      "surface": "雨上がり",
+      "reading": "あめあがり",
+      "romaji": "ameagari",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "after the rain",
+        "pt-BR": "depois da chuva",
+        "es": "después de la lluvia"
+      },
+      "example_from_song": "雨上がりのアスファルトに",
+      "additional_examples": [
+        "雨上がりの空",
+        "雨上がりに散歩する"
+      ]
+    },
+    {
+      "surface": "アスファルト",
+      "reading": "あすふぁると",
+      "romaji": "asufaruto",
+      "part_of_speech": "noun",
+      "jlpt_level": "unknown",
+      "meaning": {
+        "en": "asphalt",
+        "pt-BR": "asfalto",
+        "es": "asfalto"
+      },
+      "example_from_song": "雨上がりのアスファルトに",
+      "additional_examples": [
+        "アスファルトの道",
+        "熱いアスファルト"
+      ]
+    },
+    {
+      "surface": "虹",
+      "reading": "にじ",
+      "romaji": "niji",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "rainbow",
+        "pt-BR": "arco-íris",
+        "es": "arcoíris"
+      },
+      "example_from_song": "虹が架かるように",
+      "additional_examples": [
+        "虹が出る",
+        "七色の虹"
+      ]
+    },
+    {
+      "surface": "架かる",
+      "reading": "かかる",
+      "romaji": "kakaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to be built across; to span (a bridge, rainbow)",
+        "pt-BR": "estar estendido sobre; atravessar (ponte, arco-íris)",
+        "es": "estar tendido sobre; cruzar (puente, arcoíris)"
+      },
+      "example_from_song": "虹が架かるように",
+      "additional_examples": [
+        "橋が架かる",
+        "空に虹が架かる"
+      ]
+    },
+    {
+      "surface": "風",
+      "reading": "かぜ",
+      "romaji": "kaze",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "wind; breeze",
+        "pt-BR": "vento; brisa",
+        "es": "viento; brisa"
+      },
+      "example_from_song": "Lonely 風が吹いて",
+      "additional_examples": [
+        "強い風",
+        "風が気持ちいい"
+      ]
+    },
+    {
+      "surface": "吹く",
+      "reading": "ふく",
+      "romaji": "fuku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to blow (of wind)",
+        "pt-BR": "soprar (vento)",
+        "es": "soplar (viento)"
+      },
+      "example_from_song": "Lonely 風が吹いて",
+      "additional_examples": [
+        "風が吹く",
+        "口笛を吹く"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜ば いい (if you do... it's fine)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Combine the ば-conditional with いい (ii, 'good'). This gives soft advice — 'you should just do X' or 'it would be good if you did X'.\n\nExample from this song: 進めばいい (susumeba ii) = 'just move forward and it'll be fine' — from 進む (susumu, 'to advance') → 進めば (susumeba, ば-conditional) + いい (ii, 'good')\n\nMore examples:\n• 聞く (kiku, 'to ask') → 聞けばいい (kikeba ii, 'you should just ask')\n• 休む (yasumu, 'to rest') → 休めばいい (yasumeba ii, 'you should just rest')\n• やる (yaru, 'to do') → やればいい (yareba ii, 'you should just do it')\n\nNote: This is gentle advice, not a strong command. It's like saying 'just do X, it'll work out'. The tone can range from encouraging to slightly dismissive depending on context. どうすればいい？ (dou sureba ii?, 'What should I do?') is a very common question."
+      },
+      "conjugation_path": "進む (susumu, 'to advance') → 進めば (susumeba, conditional) + いい (ii, 'good') → 進めばいい (susumeba ii, 'just move forward')"
+    },
+    {
+      "name": "〜はず (should be)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Place はず (hazu) after a verb (dictionary or past form), adjective, or noun + の. It expresses expectation — 'should be' or 'is supposed to'. It indicates confidence that something is true.\n\nExample from this song: 飛べるはず (toberu hazu) = 'should be able to fly' — from 飛べる (toberu, 'can fly') + はず (hazu, 'should')\n\nMore examples:\n• 来る (kuru, 'to come') → 来るはず (kuru hazu, 'should come')\n• 安い (yasui, 'cheap') → 安いはず (yasui hazu, 'should be cheap')\n• 学生 (gakusei, 'student') → 学生のはず (gakusei no hazu, 'should be a student')\n\nNote: はず expresses the speaker's confident expectation based on logic or information. はずがない (hazu ga nai) = 'there's no way' (strong denial). そんなはずはない (sonna hazu wa nai, 'that can't be right')."
+      },
+      "conjugation_path": "飛べる (toberu, 'can fly') + はず (hazu, 'should') → 飛べるはず (toberu hazu, 'should be able to fly')"
+    },
+    {
+      "name": "〜ないでいて (keep not doing)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Take the ない-form, add で (de), then いて (ite, te-form of いる). This requests someone to maintain a negative state — 'keep not doing X' or 'stay in the state of not having done X'.\n\nExample from this song: 閉ざさないでいて (tozasanaide ite) = 'keep it from closing / stay open' — from 閉ざす (tozasu, 'to close off') → 閉ざさない (tozasanai, negative) + でいて (de ite, 'keep being')\n\nMore examples:\n• 忘れる (wasureru, 'to forget') → 忘れないでいて (wasurenaide ite, 'keep not forgetting / don't forget')\n• 変わる (kawaru, 'to change') → 変わらないでいて (kawaranaide ite, 'keep not changing / stay the same')\n• 諦める (akirameru, 'to give up') → 諦めないでいて (akiramenaide ite, 'keep not giving up')\n\nNote: This is more specific than just ないで (naide, 'don't'). The いて adds 'stay in that state' — it's a request for ongoing non-action, not just a one-time prohibition."
+      },
+      "conjugation_path": "閉ざす (tozasu, 'to close off') → 閉ざさない (tozasanai, negative) + でいて (de ite, 'keep being') → 閉ざさないでいて (tozasanaide ite, 'keep it from closing')"
+    },
+    {
+      "name": "〜合う (mutual action)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Take the verb masu-stem and add 合う (au, 'to meet/match'). This creates a compound verb expressing mutual or reciprocal action — 'do X to/with each other'.\n\nExample from this song: 与え合う (atae au) = 'give to each other' — from 与える (ataeru, 'to give') → 与え (atae, masu-stem) + 合う (au). Also 信じ合う (shinji au) = 'believe in each other'.\n\nMore examples:\n• 助ける (tasukeru, 'to help') → 助け合う (tasuke au, 'help each other')\n• 愛する (aisuru, 'to love') → 愛し合う (aishi au, 'love each other')\n• 話す (hanasu, 'to talk') → 話し合う (hanashi au, 'discuss together')\n\nNote: 合う as an auxiliary always implies reciprocity or mutuality. It's a beautiful and very Japanese concept — emphasizing togetherness and shared action."
+      },
+      "conjugation_path": "与える (ataeru, 'to give') → 与え (atae, masu-stem) + 合う (au, 'each other') → 与え合う (atae au, 'give to each other')"
+    },
+    {
+      "name": "〜としても (even if)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Add としても (to shitemo) after a verb to express a strong concessive — 'even if' or 'even assuming that'. It's more emphatic than simple ても.\n\nExample from this song: つまずいたとしても (tsumazuita to shitemo) = 'even if you stumble' — from つまずいた (tsumazuita, 'stumbled') + としても (to shitemo, 'even if')\n\nMore examples:\n• 失敗する (shippai suru, 'to fail') → 失敗したとしても (shippai shita to shitemo, 'even if I fail')\n• 嫌だ (iya da, 'dislike') → 嫌だとしても (iya da to shitemo, 'even if I hate it')\n• できない (dekinai, 'can't') → できないとしても (dekinai to shitemo, 'even if I can't')\n\nNote: としても is more hypothetical and emphatic than ても. It often introduces a scenario the speaker acknowledges but pushes past. 仮に (kari ni, 'supposing') often precedes it for extra emphasis."
+      },
+      "conjugation_path": "つまずく (tsumazuku, 'to stumble') → つまずいた (tsumazuita, past) + としても (to shitemo, 'even if') → つまずいたとしても (tsumazuita to shitemo, 'even if you stumble')"
+    },
+    {
+      "name": "〜ように (just like)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Place ように (you ni) after a verb to create a simile — 'just like' or 'as if'. It compares an action or state to another.\n\nExample from this song: 虹が架かるように (niji ga kakaru you ni) = 'just like a rainbow spans (the sky)' — from 虹が架かる (niji ga kakaru, 'a rainbow spans') + ように (you ni, 'just like')\n\nMore examples:\n• 鳥が飛ぶ (tori ga tobu, 'a bird flies') → 鳥が飛ぶように (tori ga tobu you ni, 'just like a bird flies')\n• 水が流れる (mizu ga nagareru, 'water flows') → 水が流れるように (mizu ga nagareru you ni, 'just like water flows')\n• 風のように (kaze no you ni, 'like the wind')\n\nNote: ように has multiple uses: simile ('like'), purpose ('so that'), and wish ('I hope'). Context determines meaning. With ますように at the end of a sentence, it becomes a prayer or wish."
+      },
+      "conjugation_path": "虹が架かる (niji ga kakaru, 'a rainbow spans') + ように (you ni, 'just like') → 虹が架かるように (niji ga kakaru you ni, 'just like a rainbow spans')"
+    }
+  ]
+}

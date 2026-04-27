@@ -1,0 +1,1224 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 9110,
+      "end_time_ms": 14931,
+      "tokens": [
+        {
+          "surface": "踏み込む",
+          "reading": "ふみこむ",
+          "romaji": "fumikomu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to step into; to charge"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "ぜ",
+          "reading": "ぜ",
+          "romaji": "ze",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis (masculine)",
+            "pt-BR": "ênfase (masculino)",
+            "es": "énfasis (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "アクセル",
+          "reading": "アクセル",
+          "romaji": "akuseru",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "accelerator"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "駆け引き",
+          "reading": "かけひき",
+          "romaji": "kakehiki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "tactics; bargaining"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "無い",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "there is none"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "さ",
+          "reading": "さ",
+          "romaji": "sa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "そうだよ",
+          "reading": "そうだよ",
+          "romaji": "soudayo",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that's right"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Hit the accelerator! There's no room for tactics - that's right!",
+        "pt-BR": "Pise no acelerador! Nao ha espaco para taticas - e isso ai!",
+        "es": "¡Pisa el acelerador! No hay lugar para tacticas - ¡asi es!"
+      },
+      "literal_meaning": {
+        "en": "step-into + emphasis + accelerator / tactics + topic + none + emphasis + that's-right"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 14931,
+      "end_time_ms": 22653,
+      "tokens": [
+        {
+          "surface": "夜",
+          "reading": "よる",
+          "romaji": "yoru",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "night",
+            "pt-BR": "noite",
+            "es": "noche"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ぬける",
+          "reading": "ぬける",
+          "romaji": "nukeru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to break through"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ねじ込む",
+          "reading": "ねじこむ",
+          "romaji": "nejikomu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to force in; to drive in"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "さ",
+          "reading": "さ",
+          "romaji": "sa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "最後",
+          "reading": "さいご",
+          "romaji": "saigo",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "the end; last"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "at",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Break through the night! Force it in at the very end!",
+        "pt-BR": "Atravesse a noite! Force ate o final!",
+        "es": "¡Atraviesa la noche! ¡Fuerzalo al final!"
+      },
+      "literal_meaning": {
+        "en": "night + object + break-through / force-in + emphasis + end + at"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 22653,
+      "end_time_ms": 25384,
+      "tokens": [
+        {
+          "surface": "差し引き",
+          "reading": "さしひき",
+          "romaji": "sashihiki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "差し引き",
+            "pt-BR": "差し引き",
+            "es": "差し引き"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ゼロ",
+          "reading": "ぜろ",
+          "romaji": "zero",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "ゼロ",
+            "pt-BR": "ゼロ",
+            "es": "ゼロ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "さ",
+          "reading": "さ",
+          "romaji": "sa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "さ",
+            "pt-BR": "さ",
+            "es": "さ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "、",
+          "reading": "、",
+          "romaji": ",",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "、",
+            "pt-BR": "、",
+            "es": "、"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "そう",
+          "reading": "そう",
+          "romaji": "sō",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "そう",
+            "pt-BR": "そう",
+            "es": "そう"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "だ",
+          "reading": "だ",
+          "romaji": "da",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "だ",
+            "pt-BR": "だ",
+            "es": "だ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "よ",
+          "reading": "よ",
+          "romaji": "yo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "よ",
+            "pt-BR": "よ",
+            "es": "よ"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 差し引きゼロさ、そうだよ",
+        "pt-BR": "(auto-coverage) 差し引きゼロさ、そうだよ",
+        "es": "(auto-coverage) 差し引きゼロさ、そうだよ"
+      },
+      "literal_meaning": {
+        "en": "差し引き + ゼロ + さ + 、 + そう + だ + よ"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 25384,
+      "end_time_ms": 26934,
+      "tokens": [
+        {
+          "surface": "日々",
+          "reading": "ひび",
+          "romaji": "hibi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "日々",
+            "pt-BR": "日々",
+            "es": "日々"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "を",
+            "pt-BR": "を",
+            "es": "を"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "削る",
+          "reading": "けずる",
+          "romaji": "kezuru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "削る",
+            "pt-BR": "削る",
+            "es": "削る"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 日々を削る",
+        "pt-BR": "(auto-coverage) 日々を削る",
+        "es": "(auto-coverage) 日々を削る"
+      },
+      "literal_meaning": {
+        "en": "日々 + を + 削る"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 26934,
+      "end_time_ms": 48567,
+      "tokens": [
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart",
+            "pt-BR": "coração",
+            "es": "corazón"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "そっと",
+          "reading": "そっと",
+          "romaji": "sotto",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "gently; quietly"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "開いて",
+          "reading": "ひらいて",
+          "romaji": "hiraite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "opening",
+            "pt-BR": "abertura",
+            "es": "apertura"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ギュっと",
+          "reading": "ぎゅっと",
+          "romaji": "gyutto",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "tightly",
+            "pt-BR": "firmemente",
+            "es": "firmemente"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "引き寄せたら",
+          "reading": "ひきよせたら",
+          "romaji": "hikiyosetara",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "if you pull close"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "届く",
+          "reading": "とどく",
+          "romaji": "todoku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to reach; to arrive",
+            "pt-BR": "alcançar; chegar",
+            "es": "alcanzar; llegar"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "よ",
+          "reading": "よ",
+          "romaji": "yo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "きっと",
+          "reading": "きっと",
+          "romaji": "kitto",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "surely",
+            "pt-BR": "certamente",
+            "es": "seguramente"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Gently open your heart, and if you pull it tight - it'll surely reach you",
+        "pt-BR": "Abra seu coracao gentilmente, e se puxar com forca - com certeza vai alcancar",
+        "es": "Abre tu corazon suavemente, y si lo jalas fuerte - seguramente llegara"
+      },
+      "literal_meaning": {
+        "en": "heart + object + gently + opening / tightly + if-pull-close / reach + emphasis + surely"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 48567,
+      "end_time_ms": 69148,
+      "tokens": [
+        {
+          "surface": "生き急いで",
+          "reading": "いきいそいで",
+          "romaji": "ikiisogide",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "rushing through life"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "搾り取って",
+          "reading": "しぼりとって",
+          "romaji": "shiborit otte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "squeezing out"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "縺れる",
+          "reading": "もつれる",
+          "romaji": "motsureru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to get tangled"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "足",
+          "reading": "あし",
+          "romaji": "ashi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "legs; feet"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "だけど",
+          "reading": "だけど",
+          "romaji": "dakedo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "but",
+            "pt-BR": "mas",
+            "es": "pero"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "前",
+          "reading": "まえ",
+          "romaji": "mae",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "before; in front"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "より",
+          "reading": "より",
+          "romaji": "yori",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "than; more than"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ずっと",
+          "reading": "ずっと",
+          "romaji": "zutto",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "much more; by far"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "そう",
+          "reading": "そう",
+          "romaji": "sou",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "yes; that's right",
+            "pt-BR": "sim; isso mesmo",
+            "es": "sí; así es"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "遠く",
+          "reading": "とおく",
+          "romaji": "tooku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "far away",
+            "pt-BR": "longe",
+            "es": "lejos"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "へ",
+          "reading": "へ",
+          "romaji": "e",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward",
+            "pt-BR": "em direção a",
+            "es": "hacia"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Rushing through life, squeezing everything out - tangled legs, but much farther than before",
+        "pt-BR": "Correndo pela vida, espremendo tudo - pernas embaracadas, mas muito mais longe do que antes",
+        "es": "Corriendo por la vida, exprimiendo todo - piernas enredadas, pero mucho mas lejos que antes"
+      },
+      "literal_meaning": {
+        "en": "rushing-life + squeezing-out / tangling + legs + but + before + than / much + so + far + toward"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 69148,
+      "end_time_ms": 75451,
+      "tokens": [
+        {
+          "surface": "奪い取って",
+          "reading": "うばいとって",
+          "romaji": "ubaitotte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "snatching away"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "掴んだって",
+          "reading": "つかんだって",
+          "romaji": "tsukandatte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "even if I grab"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "じゃないなら",
+          "reading": "じゃないなら",
+          "romaji": "janainara",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "if it's not you"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "意味",
+          "reading": "いみ",
+          "romaji": "imi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "meaning",
+            "pt-BR": "significado",
+            "es": "significado"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "無い",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "there is no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "のさ",
+          "reading": "のさ",
+          "romaji": "nosa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "explanatory (masculine)"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Even if I snatch and grab it all - if it's not you, it's meaningless",
+        "pt-BR": "Mesmo que eu arranque e agarre tudo - se nao for voce, nao tem sentido",
+        "es": "Aunque arrebate y agarre todo - si no eres tu, no tiene sentido"
+      },
+      "literal_meaning": {
+        "en": "snatching + even-if-grab / you + if-not / meaning + topic + none + explanatory"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 75451,
+      "end_time_ms": 77192,
+      "tokens": [
+        {
+          "surface": "だから",
+          "reading": "だから",
+          "romaji": "dakara",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "だから",
+            "pt-BR": "だから",
+            "es": "だから"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "、",
+          "reading": "、",
+          "romaji": ",",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "、",
+            "pt-BR": "、",
+            "es": "、"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "嗚呼",
+          "reading": "ああ",
+          "romaji": "ā",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "嗚呼",
+            "pt-BR": "嗚呼",
+            "es": "嗚呼"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "、",
+          "reading": "、",
+          "romaji": ",",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "、",
+            "pt-BR": "、",
+            "es": "、"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "遥か",
+          "reading": "はるか",
+          "romaji": "haruka",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "遥か",
+            "pt-BR": "遥か",
+            "es": "遥か"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "彼方",
+          "reading": "かなた",
+          "romaji": "kanata",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "彼方",
+            "pt-BR": "彼方",
+            "es": "彼方"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) だから、嗚呼、遥か彼方",
+        "pt-BR": "(auto-coverage) だから、嗚呼、遥か彼方",
+        "es": "(auto-coverage) だから、嗚呼、遥か彼方"
+      },
+      "literal_meaning": {
+        "en": "だから + 、 + 嗚呼 + 、 + 遥か + 彼方"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "踏み込む",
+      "reading": "ふみこむ",
+      "romaji": "fumikomu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to step into; to step on (the accelerator); to delve into",
+        "pt-BR": "pisar (no acelerador); adentrar; aprofundar-se",
+        "es": "pisar (el acelerador); adentrarse; profundizar"
+      },
+      "example_from_song": "踏み込むぜアクセル",
+      "additional_examples": [
+        "アクセルを踏み込む",
+        "問題に踏み込む"
+      ]
+    },
+    {
+      "surface": "アクセル",
+      "reading": "アクセル",
+      "romaji": "akuseru",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "accelerator; gas pedal",
+        "pt-BR": "acelerador",
+        "es": "acelerador"
+      },
+      "example_from_song": "踏み込むぜアクセル",
+      "additional_examples": [
+        "アクセルを踏む",
+        "アクセル全開で走る"
+      ]
+    },
+    {
+      "surface": "駆け引き",
+      "reading": "かけひき",
+      "romaji": "kakehiki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "tactics; bargaining; maneuvering",
+        "pt-BR": "tática; barganha; jogo de cintura",
+        "es": "táctica; regateo; maniobra"
+      },
+      "example_from_song": "駆け引きは無いさ、そうだよ",
+      "additional_examples": [
+        "政治の駆け引き",
+        "恋の駆け引き"
+      ]
+    },
+    {
+      "surface": "無い",
+      "reading": "ない",
+      "romaji": "nai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "not existing; not having; no",
+        "pt-BR": "não existir; não ter",
+        "es": "no existir; no tener"
+      },
+      "example_from_song": "駆け引きは無いさ、そうだよ",
+      "additional_examples": [
+        "お金が無い",
+        "時間が無い"
+      ]
+    },
+    {
+      "surface": "そう",
+      "reading": "そう",
+      "romaji": "sou",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "so; that way; like that",
+        "pt-BR": "assim; desse jeito",
+        "es": "así; de esa manera"
+      },
+      "example_from_song": "駆け引きは無いさ、そうだよ",
+      "additional_examples": [
+        "そうですね",
+        "そう思う"
+      ]
+    },
+    {
+      "surface": "夜",
+      "reading": "よる",
+      "romaji": "yoru",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "night; evening",
+        "pt-BR": "noite",
+        "es": "noche"
+      },
+      "example_from_song": "夜をぬける",
+      "additional_examples": [
+        "夜が更ける",
+        "静かな夜"
+      ]
+    },
+    {
+      "surface": "ぬける",
+      "reading": "ぬける",
+      "romaji": "nukeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to pass through; to escape; to slip out",
+        "pt-BR": "atravessar; escapar; sair por",
+        "es": "atravesar; escapar; salir por"
+      },
+      "example_from_song": "夜をぬける",
+      "additional_examples": [
+        "トンネルをぬける",
+        "森をぬける"
+      ]
+    },
+    {
+      "surface": "ねじ込む",
+      "reading": "ねじこむ",
+      "romaji": "nejikomu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to screw in; to force in; to thrust in",
+        "pt-BR": "enroscar; forçar para dentro; empurrar à força",
+        "es": "atornillar; meter a la fuerza; introducir"
+      },
+      "example_from_song": "ねじ込むさ最後に",
+      "additional_examples": [
+        "ネジをねじ込む",
+        "スケジュールにねじ込む"
+      ]
+    },
+    {
+      "surface": "最後",
+      "reading": "さいご",
+      "romaji": "saigo",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "last; end; final",
+        "pt-BR": "último; fim; final",
+        "es": "último; fin; final"
+      },
+      "example_from_song": "ねじ込むさ最後に",
+      "additional_examples": [
+        "最後まで頑張る",
+        "最後の一つ"
+      ]
+    },
+    {
+      "surface": "差し引き",
+      "reading": "さしひき",
+      "romaji": "sashihiki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "balance; net amount; deduction",
+        "pt-BR": "saldo; balanço; dedução",
+        "es": "saldo; balance; deducción"
+      },
+      "example_from_song": "差し引きゼロさ、そうだよ",
+      "additional_examples": [
+        "差し引きゼロ",
+        "税金を差し引きする"
+      ]
+    },
+    {
+      "surface": "日々",
+      "reading": "ひび",
+      "romaji": "hibi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "days; daily life",
+        "pt-BR": "dias; dia a dia",
+        "es": "días; el día a día"
+      },
+      "example_from_song": "日々を削る",
+      "additional_examples": [
+        "日々の生活",
+        "忙しい日々を送る"
+      ]
+    },
+    {
+      "surface": "削る",
+      "reading": "けずる",
+      "romaji": "kezuru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to shave off; to cut down; to reduce",
+        "pt-BR": "raspar; reduzir; cortar",
+        "es": "raspar; reducir; recortar"
+      },
+      "example_from_song": "日々を削る",
+      "additional_examples": [
+        "鉛筆を削る",
+        "予算を削る"
+      ]
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "heart; mind; spirit",
+        "pt-BR": "coração; mente; espírito",
+        "es": "corazón; mente; espíritu"
+      },
+      "example_from_song": "心をそっと開いて",
+      "additional_examples": [
+        "心が痛む",
+        "心を込める"
+      ]
+    },
+    {
+      "surface": "そっと",
+      "reading": "そっと",
+      "romaji": "sotto",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "softly; gently; quietly",
+        "pt-BR": "suavemente; gentilmente; de leve",
+        "es": "suavemente; con cuidado; sigilosamente"
+      },
+      "example_from_song": "心をそっと開いて",
+      "additional_examples": [
+        "そっとドアを閉める",
+        "そっと近づく"
+      ]
+    },
+    {
+      "surface": "開く",
+      "reading": "ひらく",
+      "romaji": "hiraku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to open; to unfold",
+        "pt-BR": "abrir; desdobrar",
+        "es": "abrir; desplegar"
+      },
+      "example_from_song": "心をそっと開いて",
+      "additional_examples": [
+        "本を開く",
+        "心を開く"
+      ]
+    },
+    {
+      "surface": "ギュ",
+      "reading": "ギュ",
+      "romaji": "gyu",
+      "part_of_speech": "adverb",
+      "jlpt_level": "unknown",
+      "meaning": {
+        "en": "tightly; with a squeeze (onomatopoeia)",
+        "pt-BR": "apertado; com força (onomatopeia)",
+        "es": "fuertemente; con un apretón (onomatopeya)"
+      },
+      "example_from_song": "ギュっと引き寄せたら",
+      "additional_examples": [
+        "ギュっと抱きしめる",
+        "ギュっと握る"
+      ]
+    },
+    {
+      "surface": "引き寄せる",
+      "reading": "ひきよせる",
+      "romaji": "hikiyoseru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to draw near; to pull close",
+        "pt-BR": "puxar para perto; atrair",
+        "es": "acercar; atraer hacia sí"
+      },
+      "example_from_song": "ギュっと引き寄せたら",
+      "additional_examples": [
+        "椅子を引き寄せる",
+        "運命を引き寄せる"
+      ]
+    },
+    {
+      "surface": "届く",
+      "reading": "とどく",
+      "romaji": "todoku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to reach; to arrive; to be delivered",
+        "pt-BR": "alcançar; chegar; ser entregue",
+        "es": "alcanzar; llegar; ser entregado"
+      },
+      "example_from_song": "届くよきっと伝うよもっと",
+      "additional_examples": [
+        "手紙が届く",
+        "声が届く"
+      ]
+    },
+    {
+      "surface": "きっと",
+      "reading": "きっと",
+      "romaji": "kitto",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "surely; certainly; without fail",
+        "pt-BR": "certamente; com certeza; sem dúvida",
+        "es": "seguramente; sin duda; con certeza"
+      },
+      "example_from_song": "届くよきっと伝うよもっと",
+      "additional_examples": [
+        "きっと成功する",
+        "きっと来るよ"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜ぜ (masculine emphasis)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add ぜ (ze) at the end of a sentence for emphatic, masculine assertion. It expresses determination, excitement, or confidence. Think of it as a punchy 'I tell ya!' or 'let's do this!'\n\nExample from this song: The song uses ぜ throughout to convey high energy and determination — a very common particle in rock and punk songs.\n\nMore examples:\n• 行く (iku, 'to go') → 行くぜ (iku ze, 'I'm going!')\n• やる (yaru, 'to do') → やるぜ (yaru ze, 'I'll do it!')\n• いい (ii, 'good') → いいぜ (ii ze, 'It's good, man!')\n\nNote: ぜ is masculine casual speech. The feminine equivalents would be わ (wa) or の (no). In anime and songs, ぜ is extremely common for energetic male characters. It's stronger than よ (yo) but not as rough as ぞ (zo)."
+      },
+      "conjugation_path": "行く (iku, 'to go') + ぜ (ze, emphasis) → 行くぜ (iku ze, 'I'm going!')"
+    },
+    {
+      "name": "〜たら (conditional)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add たら (tara) after the past tense form (た-form) of a verb to create a conditional — 'if/when X happens'.\n\nExample from this song: 引き寄せたら (hikiyosetara) = 'if you pull it close' — from 引き寄せる (hikiyoseru, 'to pull close') → 引き寄せた (hikiyoseta, past) + ら (ra) = 引き寄せたら (hikiyosetara)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べたら (tabetara, 'if you eat')\n• 会う (au, 'to meet') → 会ったら (attara, 'if you meet')\n• 暑い (atsui, 'hot') → 暑かったら (atsukattara, 'if it's hot')\n\nNote: たら is the most versatile conditional in Japanese. It works with verbs, adjectives, and nouns. For nouns/な-adjectives: だったら (dattara). It's especially natural for one-time or future events."
+      },
+      "conjugation_path": "引き寄せる (hikiyoseru, 'to pull close') → 引き寄せた (hikiyoseta, past) + ら (ra) → 引き寄せたら (hikiyosetara, 'if you pull it close')"
+    },
+    {
+      "name": "〜より (comparison)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Place より (yori) after the thing being compared to express 'more than X' or 'rather than X'. The pattern is: A より B が [adjective] = 'B is more [adj] than A'.\n\nExample from this song: The song uses より to express preferences and comparisons — choosing one path over another.\n\nMore examples:\n• 昨日 (kinou, 'yesterday') → 昨日より元気 (kinou yori genki, 'healthier than yesterday')\n• 誰 (dare, 'anyone') → 誰よりも (dare yori mo, 'more than anyone')\n• 言葉 (kotoba, 'words') → 言葉より行動 (kotoba yori koudou, 'actions over words')\n\nNote: より can also mean 'from' in formal writing: 東京より (Toukyou yori, 'from Tokyo'). Adding も after より intensifies the comparison: 誰よりも強い (dare yori mo tsuyoi, 'stronger than anyone')."
+      },
+      "conjugation_path": "昨日 (kinou, 'yesterday') + より (yori, 'than') → 昨日より (kinou yori, 'more than yesterday')"
+    },
+    {
+      "name": "〜だって (even if)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Add だって (datte) after a noun, pronoun, or phrase to mean 'even' or 'even if'. It can also mean 'because' at the start of a sentence.\n\nExample from this song: The song uses だって to express 'even if' — showing that regardless of circumstances, the resolve remains unchanged.\n\nMore examples:\n• 僕 (boku, 'I') → 僕だって (boku datte, 'even I')\n• 何 (nani, 'what') → 何だって (nan datte, 'anything at all')\n• 子供 (kodomo, 'child') → 子供だって (kodomo datte, 'even a child')\n\nNote: だって has three uses: 1) 'even' after nouns (僕だって, 'even I'), 2) 'because' at the start (だって寒いもん, datte samui mon, 'because it's cold!'), 3) 'even if' after verbs in past tense (言ったって, ittatte, 'even if you say')."
+      },
+      "conjugation_path": "僕 (boku, 'I') + だって (datte, 'even') → 僕だって (boku datte, 'even I')"
+    },
+    {
+      "name": "〜のさ (explanatory + masculine emphasis)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add のさ (no sa) at the end of a sentence to explain something with a casual, confident tone. の (no) provides explanation, さ (sa) adds masculine assertion.\n\nExample from this song: The song uses のさ to assert its philosophy with rock-band confidence — 'that's just how it is, man'.\n\nMore examples:\n• そう (sou, 'so') → そうなのさ (sou na no sa, 'that's just the way it is')\n• 強い (tsuyoi, 'strong') → 強いのさ (tsuyoi no sa, 'I'm strong, you know')\n• 知ってる (shitteru, 'I know') → 知ってるのさ (shitteru no sa, 'I know, you see')\n\nNote: のさ is softer than んだぜ but still masculine and assertive. Common in song lyrics for declaring truths or personal philosophies. The feminine equivalent is のよ (no yo)."
+      },
+      "conjugation_path": "そう (sou, 'so') + なのさ (na no sa, 'it's that') → そうなのさ (sou na no sa, 'that's just how it is')"
+    },
+    {
+      "name": "〜っと (onomatopoeia emphasis)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: The っと (tto) ending is added to adverbs and mimetic words (onomatopoeia) to emphasize the manner or feeling of an action. The small っ adds a sharp, crisp quality.\n\nExample from this song: The song uses words like そっと (sotto, 'gently/quietly') and ギュッと (gyutto, 'tightly/squeezing') — mimetic adverbs with っと that vividly describe how actions are performed.\n\nMore examples:\n• じっと (jitto, 'still/staring intently')\n• ぐっと (gutto, 'with force / holding back emotions')\n• パッと (patto, 'suddenly/brightly')\n• ふわっと (fuwatto, 'softly/floatily')\n\nNote: Japanese has a rich system of mimetic words (擬態語, gitaigo). The っと pattern makes them feel more immediate and vivid. These words are essential for natural-sounding Japanese and are very common in everyday speech."
+      },
+      "conjugation_path": "そっと (sotto, 'gently') / ギュッと (gyutto, 'tightly') / じっと (jitto, 'intently')"
+    }
+  ]
+}

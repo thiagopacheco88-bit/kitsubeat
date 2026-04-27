@@ -1,0 +1,22 @@
+## heroes-brian-the-sun (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 211 | 211 | 0 | PASS |
+| 2 | 15344 | 15344 | 0 | PASS |
+| 3 | 23721 | 23721 | 0 | PASS |
+| 4 | 33169 | 33169 | 0 | PASS |
+| 5 | 41688 | 41688 | 0 | PASS |
+| 6 | 53531 | 53531 | 0 | PASS |
+| 7 | 68218 | 68218 | 0 | PASS |
+| 8 | 78237 | 78227 | +10 | PASS |
+| 9 | 82550 | 82550 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for heroes-brian-the-sun.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| heroes-brian-the-sun | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

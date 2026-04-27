@@ -1,0 +1,17 @@
+## rocks-hound-dog (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 17580 | 17580 | 0 | PASS |
+| 2 | 31459 | 30968 | +491 | PASS |
+| 3 | 44189 | 43228 | +961 | FAIL (mid-word drift: "の") |
+| 4 | 57014 | 57014 | 0 | PASS |
+
+VERDICT: 1 verse(s) fail; spot-check FAILS for rocks-hound-dog.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| rocks-hound-dog | FAIL |
+
+Overall verdict: FAIL (tolerance: ±500ms)

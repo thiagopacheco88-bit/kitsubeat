@@ -1,0 +1,1039 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 580,
+      "end_time_ms": 9237,
+      "tokens": [
+        {
+          "surface": "You're my friend ああ あの日の夢 今でも まだ 忘れてないんでしょ",
+          "reading": "You're my friend ああ あの日の夢 今でも まだ 忘れてないんでしょ",
+          "romaji": "You're my friend ああ あの日の夢 今でも まだ 忘れてないんでしょ",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 9237,
+      "end_time_ms": 15511,
+      "tokens": [
+        {
+          "surface": "You're my dream ああ 始まったばっか君の one longest way",
+          "reading": "You're my dream ああ 始まったばっか君の one longest way",
+          "romaji": "You're my dream ああ 始まったばっか君の one longest way",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 15511,
+      "end_time_ms": 17653,
+      "tokens": [
+        {
+          "surface": "Oh",
+          "reading": "Oh",
+          "romaji": "Oh",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "Oh",
+            "pt-BR": "Oh",
+            "es": "Oh"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "今",
+          "reading": "いま",
+          "romaji": "ima",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "今",
+            "pt-BR": "今",
+            "es": "今"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "旅立つ",
+          "reading": "たびだつ",
+          "romaji": "tabidatsu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "旅立つ",
+            "pt-BR": "旅立つ",
+            "es": "旅立つ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "よ",
+          "reading": "よ",
+          "romaji": "yo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "よ",
+            "pt-BR": "よ",
+            "es": "よ"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) Oh 今 旅立つよ",
+        "pt-BR": "(auto-coverage) Oh 今 旅立つよ",
+        "es": "(auto-coverage) Oh 今 旅立つよ"
+      },
+      "literal_meaning": {
+        "en": "Oh + 今 + 旅立つ + よ"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 17653,
+      "end_time_ms": 24929,
+      "tokens": [
+        {
+          "surface": "Everyday",
+          "reading": "Everyday",
+          "romaji": "Everyday",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "Everyday",
+            "pt-BR": "Everyday",
+            "es": "Everyday"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "この",
+            "pt-BR": "この",
+            "es": "この"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "先",
+          "reading": "さき",
+          "romaji": "saki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "先",
+            "pt-BR": "先",
+            "es": "先"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "も",
+            "pt-BR": "も",
+            "es": "も"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "shining",
+          "reading": "shining",
+          "romaji": "shining",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "shining",
+            "pt-BR": "shining",
+            "es": "shining"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "day",
+          "reading": "day",
+          "romaji": "day",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "day",
+            "pt-BR": "day",
+            "es": "day"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) Everyday この先もshining day",
+        "pt-BR": "(auto-coverage) Everyday この先もshining day",
+        "es": "(auto-coverage) Everyday この先もshining day"
+      },
+      "literal_meaning": {
+        "en": "Everyday + この + 先 + も + shining + day"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 24929,
+      "end_time_ms": 33686,
+      "tokens": [
+        {
+          "surface": "変わら",
+          "reading": "かわら",
+          "romaji": "kawara",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "変わら",
+            "pt-BR": "変わら",
+            "es": "変わら"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ず",
+          "reading": "ず",
+          "romaji": "zu",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "ず",
+            "pt-BR": "ず",
+            "es": "ず"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "singin",
+          "reading": "singin",
+          "romaji": "singin",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "singin",
+            "pt-BR": "singin",
+            "es": "singin"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "'",
+          "reading": "'",
+          "romaji": "'",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "'",
+            "pt-BR": "'",
+            "es": "'"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "光る",
+          "reading": "ひかる",
+          "romaji": "hikaru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "光る",
+            "pt-BR": "光る",
+            "es": "光る"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "朝",
+          "reading": "あさ",
+          "romaji": "asa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "朝",
+            "pt-BR": "朝",
+            "es": "朝"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "の",
+            "pt-BR": "の",
+            "es": "の"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "smile",
+          "reading": "smile",
+          "romaji": "smile",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "smile",
+            "pt-BR": "smile",
+            "es": "smile"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 変わらずsingin' 光る朝のsmile",
+        "pt-BR": "(auto-coverage) 変わらずsingin' 光る朝のsmile",
+        "es": "(auto-coverage) 変わらずsingin' 光る朝のsmile"
+      },
+      "literal_meaning": {
+        "en": "変わら + ず + singin + ' + 光る + 朝 + の + smile"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 33686,
+      "end_time_ms": 48180,
+      "tokens": [
+        {
+          "surface": "Oh I'll go the distance",
+          "reading": "Oh I'll go the distance",
+          "romaji": "Oh I'll go the distance",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 48180,
+      "end_time_ms": 60847,
+      "tokens": [
+        {
+          "surface": "ああ",
+          "reading": "ああ",
+          "romaji": "ā",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "ah",
+            "pt-BR": "ah",
+            "es": "ah"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "あの",
+          "reading": "あの",
+          "romaji": "ano",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "日",
+          "reading": "ひ",
+          "romaji": "hi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "day",
+            "pt-BR": "dia",
+            "es": "día"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "夢",
+          "reading": "ゆめ",
+          "romaji": "yume",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "dream",
+            "pt-BR": "sonho",
+            "es": "sueño"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "今でも",
+          "reading": "いまでも",
+          "romaji": "ima demo",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "even now",
+            "pt-BR": "mesmo agora",
+            "es": "aún ahora"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "まだ",
+          "reading": "まだ",
+          "romaji": "mada",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "still",
+            "pt-BR": "ainda",
+            "es": "aún"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "忘れてない",
+          "reading": "わすれてない",
+          "romaji": "wasurete nai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "haven't forgotten"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ん",
+          "reading": "ん",
+          "romaji": "n",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "explanatory",
+            "pt-BR": "explicativo",
+            "es": "explicativo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "でしょ",
+          "reading": "でしょ",
+          "romaji": "desho",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "right?",
+            "pt-BR": "certo?",
+            "es": "¿verdad?"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "You're my friend — ah, that day's dream, even now you still haven't forgotten, right?",
+        "pt-BR": "Voce e meu amigo — ah, o sonho daquele dia, ate agora voce ainda nao esqueceu, certo?",
+        "es": "Eres mi amigo — ah, el sueno de aquel dia, aun ahora no lo has olvidado, verdad?"
+      },
+      "literal_meaning": {
+        "en": "ah + that + day + of + dream + even-now + still + haven't-forgotten + explanatory + right?"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 60847,
+      "end_time_ms": 69190,
+      "tokens": [
+        {
+          "surface": "ああ",
+          "reading": "ああ",
+          "romaji": "ā",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "ah",
+            "pt-BR": "ah",
+            "es": "ah"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "始まった",
+          "reading": "はじまった",
+          "romaji": "hajimatta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "has begun",
+            "pt-BR": "começou",
+            "es": "ha comenzado"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ばっか",
+          "reading": "ばっか",
+          "romaji": "bakka",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "just (started)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "今",
+          "reading": "いま",
+          "romaji": "ima",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "now",
+            "pt-BR": "agora",
+            "es": "ahora"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "旅立つ",
+          "reading": "たびだつ",
+          "romaji": "tabidatsu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to set off on a journey"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "よ",
+          "reading": "よ",
+          "romaji": "yo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "You're my dream — ah, it just started, your one longest way. Now, setting off on the journey!",
+        "pt-BR": "Voce e meu sonho — ah, apenas começou, seu caminho mais longo. Agora, partindo na jornada!",
+        "es": "Eres mi sueno — ah, apenas comenzo, tu camino mas largo. Ahora, partiendo en el viaje!"
+      },
+      "literal_meaning": {
+        "en": "ah + just-started + you + of / now + set-off-on-journey + emphasis"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 69190,
+      "end_time_ms": 79974,
+      "tokens": [
+        {
+          "surface": "あの",
+          "reading": "あの",
+          "romaji": "ano",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "日",
+          "reading": "ひ",
+          "romaji": "hi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "day",
+            "pt-BR": "dia",
+            "es": "día"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "事",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing; event"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "今でも",
+          "reading": "いまでも",
+          "romaji": "ima demo",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "even now",
+            "pt-BR": "mesmo agora",
+            "es": "aún ahora"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "まだ",
+          "reading": "まだ",
+          "romaji": "mada",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "still",
+            "pt-BR": "ainda",
+            "es": "aún"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "覚えてる",
+          "reading": "おぼえてる",
+          "romaji": "oboeteru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "remember",
+            "pt-BR": "lembrar",
+            "es": "recordar"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "から",
+          "reading": "から",
+          "romaji": "kara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "because",
+            "pt-BR": "porque",
+            "es": "porque"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Thank you my friend — ah, that day's events, I still remember even now.",
+        "pt-BR": "Obrigado meu amigo — ah, os acontecimentos daquele dia, eu ainda lembro ate agora.",
+        "es": "Gracias mi amigo — ah, los eventos de aquel dia, aun los recuerdo."
+      },
+      "literal_meaning": {
+        "en": "that + day + of + thing + even-now + still + remember + because"
+      }
+    },
+    {
+      "verse_number": 10,
+      "start_time_ms": 79974,
+      "end_time_ms": 89431,
+      "tokens": [
+        {
+          "surface": "もう",
+          "reading": "もう",
+          "romaji": "mō",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "already; no longer",
+            "pt-BR": "já; não mais",
+            "es": "ya; ya no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "動き出した",
+          "reading": "うごきだした",
+          "romaji": "ugokidashita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "began to move"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "明日",
+          "reading": "あした",
+          "romaji": "ashita",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "tomorrow",
+            "pt-BR": "amanhã",
+            "es": "mañana"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "へ",
+          "reading": "へ",
+          "romaji": "e",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward",
+            "pt-BR": "em direção a",
+            "es": "hacia"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "消せ",
+          "reading": "けせ",
+          "romaji": "kese",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can erase (potential)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "やしない",
+          "reading": "やしない",
+          "romaji": "yashinai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can't possibly"
+          },
+          "jlpt_level": "N2"
+        }
+      ],
+      "translations": {
+        "en": "Tomorrow has already begun moving — there's no erasing this flame of heart. I'll go the distance.",
+        "pt-BR": "O amanha ja começou a se mover — nao da para apagar esta chama do coracao. Vou cobrir a distancia.",
+        "es": "El manana ya comenzo a moverse — no se puede borrar esta llama del corazon. Recorrere la distancia."
+      },
+      "literal_meaning": {
+        "en": "already + began-to-move + tomorrow + toward / erase + can't-possibly"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "夢",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "dream",
+        "pt-BR": "sonho",
+        "es": "sueño"
+      },
+      "example_from_song": "You're my friend ああ あの日の夢 今でも まだ 忘れてないんでしょ",
+      "additional_examples": [
+        "夢を見る",
+        "大きな夢を持つ"
+      ]
+    },
+    {
+      "surface": "今",
+      "reading": "いま",
+      "romaji": "ima",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "now; the present",
+        "pt-BR": "agora; o presente",
+        "es": "ahora; el presente"
+      },
+      "example_from_song": "You're my friend ああ あの日の夢 今でも まだ 忘れてないんでしょ",
+      "additional_examples": [
+        "今行きます",
+        "今は忙しい"
+      ]
+    },
+    {
+      "surface": "まだ",
+      "reading": "まだ",
+      "romaji": "mada",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "still; not yet",
+        "pt-BR": "ainda; ainda não",
+        "es": "aún; todavía no"
+      },
+      "example_from_song": "You're my friend ああ あの日の夢 今でも まだ 忘れてないんでしょ",
+      "additional_examples": [
+        "まだ子どもだ",
+        "まだ終わっていない"
+      ]
+    },
+    {
+      "surface": "忘れる",
+      "reading": "わすれる",
+      "romaji": "wasureru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to forget",
+        "pt-BR": "esquecer",
+        "es": "olvidar"
+      },
+      "example_from_song": "You're my friend ああ あの日の夢 今でも まだ 忘れてないんでしょ",
+      "additional_examples": [
+        "約束を忘れる",
+        "名前を忘れてしまった"
+      ]
+    },
+    {
+      "surface": "始まる",
+      "reading": "はじまる",
+      "romaji": "hajimaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to begin; to start",
+        "pt-BR": "começar; iniciar-se",
+        "es": "empezar; comenzar"
+      },
+      "example_from_song": "You're my dream ああ 始まったばっか君の one longest way",
+      "additional_examples": [
+        "授業が始まる",
+        "新しい生活が始まる"
+      ]
+    },
+    {
+      "surface": "旅立つ",
+      "reading": "たびだつ",
+      "romaji": "tabidatsu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to set off on a journey; to depart",
+        "pt-BR": "partir em viagem; pôr-se a caminho",
+        "es": "partir de viaje; emprender el viaje"
+      },
+      "example_from_song": "Oh 今 旅立つよ",
+      "additional_examples": [
+        "明日旅立つ",
+        "新天地へ旅立つ"
+      ]
+    },
+    {
+      "surface": "先",
+      "reading": "さき",
+      "romaji": "saki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "ahead; future; tip",
+        "pt-BR": "adiante; futuro; ponta",
+        "es": "adelante; futuro; punta"
+      },
+      "example_from_song": "Everyday この先もshining day",
+      "additional_examples": [
+        "この先の道",
+        "先のことを考える"
+      ]
+    },
+    {
+      "surface": "変わる",
+      "reading": "かわる",
+      "romaji": "kawaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to change; to be transformed",
+        "pt-BR": "mudar; transformar-se",
+        "es": "cambiar; transformarse"
+      },
+      "example_from_song": "変わらずsingin' 光る朝のsmile",
+      "additional_examples": [
+        "季節が変わる",
+        "気持ちが変わる"
+      ]
+    },
+    {
+      "surface": "光る",
+      "reading": "ひかる",
+      "romaji": "hikaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to shine; to glitter",
+        "pt-BR": "brilhar; reluzir",
+        "es": "brillar; resplandecer"
+      },
+      "example_from_song": "変わらずsingin' 光る朝のsmile",
+      "additional_examples": [
+        "星が光る",
+        "目が光る"
+      ]
+    },
+    {
+      "surface": "朝",
+      "reading": "あさ",
+      "romaji": "asa",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "morning",
+        "pt-BR": "manhã",
+        "es": "mañana"
+      },
+      "example_from_song": "変わらずsingin' 光る朝のsmile",
+      "additional_examples": [
+        "朝ごはん",
+        "明日の朝"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜んでしょ (right?)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Combine the explanatory ん (n) with でしょ (desho, seeking confirmation). This creates a casual way to seek agreement — 'right?' or 'isn't it?'. It's the casual form of のでしょう (no deshou).\n\nExample from this song: 忘れてないんでしょ (wasuretenainddesho) = 'you haven't forgotten, right?' — from 忘れてない (wasuretenai, 'haven't forgotten') + んでしょ (ndesho, 'right?')\n\nMore examples:\n• 知っている (shitteiru, 'know') → 知ってるんでしょ (shitterundesho, 'you know, right?')\n• 好き (suki, 'like') → 好きなんでしょ (suki nandesho, 'you like it, right?')\n• 行きたい (ikitai, 'want to go') → 行きたいんでしょ (ikitaindesho, 'you want to go, right?')\n\nNote: んでしょ is softer than でしょ alone and adds emotional depth. It's very common in anime dialogue when a character confronts another about their true feelings."
+      },
+      "conjugation_path": "忘れてない (wasuretenai, 'haven't forgotten') + んでしょ (ndesho, 'right?') → 忘れてないんでしょ (wasuretenaindesho, 'you haven't forgotten, right?')"
+    },
+    {
+      "name": "〜ばっか / ばかり (just)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Place ばかり (bakari) or its casual form ばっか (bakka) after a past tense verb to mean 'just did' or after a noun to mean 'only/nothing but'. It indicates exclusivity or recency.\n\nExample from this song: 始まったばっか (hajimatta bakka) = 'just started' — from 始まった (hajimatta, 'started') + ばっか (bakka, 'just')\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べたばかり (tabeta bakari, 'just ate')\n• 文句 (monku, 'complaints') → 文句ばかり言う (monku bakari iu, 'do nothing but complain')\n• 来た (kita, 'came') → 来たばっかり (kita bakkari, 'just arrived')\n\nNote: た + ばかり = 'just did' (recency). ばかり with nouns = 'only/nothing but'. ばっか/ばっかり are casual contractions. 遊んでばかりいる (asonde bakari iru, 'do nothing but play')."
+      },
+      "conjugation_path": "始まる (hajimaru, 'to start') → 始まった (hajimatta, past) → 始まったばっか (hajimatta bakka, 'just started')"
+    },
+    {
+      "name": "〜きれない (can't completely)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Take the verb masu-stem and add きれない (kirenai). This means 'can't do X completely' — the action can't be finished or fully accomplished.\n\nExample from this song: 隠しきれない (kakushi kirenai) = 'can't fully hide' — from 隠す (kakusu, 'to hide') → 隠し (kakushi, masu-stem) + きれない (kirenai)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べきれない (tabe kirenai, 'can't eat it all')\n• 数える (kazoeru, 'to count') → 数えきれない (kazoe kirenai, 'too many to count')\n• 伝える (tsutaeru, 'to convey') → 伝えきれない (tsutae kirenai, 'can't fully express')\n\nNote: The positive きる (kiru) means 'to do completely': 走りきる (hashiri kiru, 'run the whole distance'). Negative きれない means the completion is impossible."
+      },
+      "conjugation_path": "隠す (kakusu, 'to hide') → 隠し (kakushi, masu-stem) + きれない (kirenai, 'can't completely') → 隠しきれない (kakushi kirenai, 'can't fully hide')"
+    },
+    {
+      "name": "〜出す (begin to)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Take the verb masu-stem and add 出す (dasu, 'to put out'). As an auxiliary, it means 'to suddenly begin doing'. It emphasizes the abruptness of the start.\n\nExample from this song: 動き出す (ugoki dasu) = 'begin to move' — from 動く (ugoku, 'to move') → 動き (ugoki, masu-stem) + 出す (dasu)\n\nMore examples:\n• 走る (hashiru, 'to run') → 走り出す (hashiri dasu, 'suddenly start running')\n• 降る (furu, 'to fall — rain') → 降り出す (furi dasu, 'suddenly start raining')\n• 泣く (naku, 'to cry') → 泣き出す (naki dasu, 'burst into tears')\n\nNote: Compare with はじめる (hajimeru, 'begin to') which is a gradual, expected start. 出す implies suddenness and often surprise. 急に笑い出した (kyuu ni warai dashita, 'suddenly burst out laughing')."
+      },
+      "conjugation_path": "動く (ugoku, 'to move') → 動き (ugoki, masu-stem) + 出す (dasu, 'to begin') → 動き出す (ugoki dasu, 'begin to move')"
+    },
+    {
+      "name": "Japanese-English code-switching",
+      "jlpt_reference": "N/A",
+      "explanation": {
+        "en": "How it works: Code-switching means mixing two languages within a song or conversation. Many J-rock and J-pop songs blend Japanese and English lyrics freely, using English for emphasis, coolness, or to highlight key phrases.\n\nExample from this song: The song mixes Japanese lyrics with English words and phrases, a common technique in J-rock. English words are often used for song titles, hooks, and emotional peaks.\n\nMore examples of anime songs with code-switching:\n• FLOW - GO!!! (Naruto) — mixes English shouts with Japanese verses\n• LiSA - Crossing Field — includes English phrases\n• UVERworld - D-technoLife (Bleach) — English choruses\n\nNote: When English appears in Japanese songs, it's often written in katakana: ディスタンス (disutansu, 'distance'). Learning to recognize these katakana English words helps with reading and listening."
+      },
+      "conjugation_path": "N/A — code-switching is a sociolinguistic phenomenon, not a grammar conjugation"
+    }
+  ]
+}

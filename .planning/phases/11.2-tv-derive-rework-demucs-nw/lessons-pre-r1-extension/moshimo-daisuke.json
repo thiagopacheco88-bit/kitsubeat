@@ -1,0 +1,1523 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 908,
+      "end_time_ms": 13558,
+      "tokens": [
+        {
+          "surface": "いつまでも",
+          "reading": "いつまでも",
+          "romaji": "itsumademo",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "forever; endlessly"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "追いかけている",
+          "reading": "おいかけている",
+          "romaji": "oikaketeiru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "chasing",
+            "pt-BR": "perseguindo",
+            "es": "persiguiendo"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "あなた",
+          "reading": "あなた",
+          "romaji": "anata",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "残像",
+          "reading": "ざんぞう",
+          "romaji": "zanzou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "afterimage",
+            "pt-BR": "imagem residual",
+            "es": "imagen residual"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "I keep chasing your afterimage forever.",
+        "pt-BR": "Continuo perseguindo sua imagem residual para sempre.",
+        "es": "Sigo persiguiendo tu imagen residual para siempre."
+      },
+      "literal_meaning": {
+        "en": "forever + chasing / you + of + afterimage + object"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 13558,
+      "end_time_ms": 25808,
+      "tokens": [
+        {
+          "surface": "夢",
+          "reading": "ゆめ",
+          "romaji": "yume",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "dream",
+            "pt-BR": "sonho",
+            "es": "sueño"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "みる",
+          "reading": "みる",
+          "romaji": "miru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to see (in a dream)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "横顔",
+          "reading": "よこがお",
+          "romaji": "yokogao",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "profile; side face"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "あの頃",
+          "reading": "あのころ",
+          "romaji": "ano koro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "those days; back then"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "まま",
+          "reading": "まま",
+          "romaji": "mama",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "as it is; unchanged",
+            "pt-BR": "como está; inalterado",
+            "es": "tal como está; sin cambios"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "で",
+          "reading": "で",
+          "romaji": "de",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in state of",
+            "pt-BR": "em estado de",
+            "es": "en estado de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "背",
+          "reading": "せ",
+          "romaji": "se",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "height; back"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "高い",
+          "reading": "たかい",
+          "romaji": "takai",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "tall"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "草並み",
+          "reading": "くさなみ",
+          "romaji": "kusanami",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "waves of grass"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "into",
+            "pt-BR": "para dentro",
+            "es": "hacia dentro"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "走り去って",
+          "reading": "はしりさって",
+          "romaji": "hashirisatte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "ran off"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "消えた",
+          "reading": "きえた",
+          "romaji": "kieta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "disappeared"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "The profile I see in dreams is unchanged from those days. You ran off into the tall waves of grass and vanished.",
+        "pt-BR": "O perfil que vejo em sonhos e igual aqueles dias. Voce correu pela grama alta e desapareceu.",
+        "es": "El perfil que veo en suenos es igual a aquellos dias. Corriste entre la hierba alta y desapareciste."
+      },
+      "literal_meaning": {
+        "en": "dream + in + see + profile + topic + those-days + of + unchanged / tall + grass-waves + into + ran-off + disappeared"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 25808,
+      "end_time_ms": 30377,
+      "tokens": [
+        {
+          "surface": "思い出す",
+          "reading": "おもいだす",
+          "romaji": "omoidasu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "思い出す",
+            "pt-BR": "思い出す",
+            "es": "思い出す"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "記憶",
+          "reading": "きおく",
+          "romaji": "kioku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "記憶",
+            "pt-BR": "記憶",
+            "es": "記憶"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "を",
+            "pt-BR": "を",
+            "es": "を"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "かきわけ",
+          "reading": "かきわけ",
+          "romaji": "kakiwake",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "かきわけ",
+            "pt-BR": "かきわけ",
+            "es": "かきわけ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "後",
+          "reading": "ご",
+          "romaji": "nochi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "後",
+            "pt-BR": "後",
+            "es": "後"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "追う",
+          "reading": "おう",
+          "romaji": "ou",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "追う",
+            "pt-BR": "追う",
+            "es": "追う"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ぼく",
+          "reading": "ぼく",
+          "romaji": "boku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "ぼく",
+            "pt-BR": "ぼく",
+            "es": "ぼく"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "は",
+            "pt-BR": "は",
+            "es": "は"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 思い出す記憶をかきわけ後追うぼくは",
+        "pt-BR": "(auto-coverage) 思い出す記憶をかきわけ後追うぼくは",
+        "es": "(auto-coverage) 思い出す記憶をかきわけ後追うぼくは"
+      },
+      "literal_meaning": {
+        "en": "思い出す + 記憶 + を + かきわけ + 後 + 追う + ぼく + は"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 30377,
+      "end_time_ms": 36046,
+      "tokens": [
+        {
+          "surface": "もどかしく",
+          "reading": "もどかしく",
+          "romaji": "modokashiku",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "もどかしく",
+            "pt-BR": "もどかしく",
+            "es": "もどかしく"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "も",
+            "pt-BR": "も",
+            "es": "も"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "息",
+          "reading": "いき",
+          "romaji": "iki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "息",
+            "pt-BR": "息",
+            "es": "息"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "を",
+            "pt-BR": "を",
+            "es": "を"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "切らし",
+          "reading": "きらし",
+          "romaji": "kirashi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "切らし",
+            "pt-BR": "切らし",
+            "es": "切らし"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "て",
+            "pt-BR": "て",
+            "es": "て"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "最後",
+          "reading": "さいご",
+          "romaji": "saigo",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "最後",
+            "pt-BR": "最後",
+            "es": "最後"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "は",
+            "pt-BR": "は",
+            "es": "は"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "届か",
+          "reading": "とどか",
+          "romaji": "todokeka",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "届か",
+            "pt-BR": "届か",
+            "es": "届か"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ず",
+          "reading": "ず",
+          "romaji": "zu",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "ず",
+            "pt-BR": "ず",
+            "es": "ず"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "に",
+            "pt-BR": "に",
+            "es": "に"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) もどかしくも息を切らして最後は届かずに",
+        "pt-BR": "(auto-coverage) もどかしくも息を切らして最後は届かずに",
+        "es": "(auto-coverage) もどかしくも息を切らして最後は届かずに"
+      },
+      "literal_meaning": {
+        "en": "もどかしく + も + 息 + を + 切らし + て + 最後 + は + 届か + ず + に"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 36046,
+      "end_time_ms": 49483,
+      "tokens": [
+        {
+          "surface": "遠く",
+          "reading": "とおく",
+          "romaji": "tooku",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "far away",
+            "pt-BR": "longe",
+            "es": "lejos"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "何年前",
+          "reading": "なんねんまえ",
+          "romaji": "nannen mae",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "how many years ago"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "こと",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing; matter",
+            "pt-BR": "coisa; assunto",
+            "es": "cosa; asunto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "でしょう",
+          "reading": "でしょう",
+          "romaji": "deshou",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "I wonder",
+            "pt-BR": "eu me pergunto",
+            "es": "me pregunto"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "二度と",
+          "reading": "にどと",
+          "romaji": "nido to",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "never again",
+            "pt-BR": "nunca mais",
+            "es": "nunca más"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "戻れない",
+          "reading": "もどれない",
+          "romaji": "modorenai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can't return"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "あの",
+          "reading": "あの",
+          "romaji": "ano",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "場所",
+          "reading": "ばしょ",
+          "romaji": "basho",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "place",
+            "pt-BR": "lugar",
+            "es": "lugar"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "at",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "置いてきてしまった",
+          "reading": "おいてきてしまった",
+          "romaji": "oitekite shimatta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "left behind"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ぼく",
+          "reading": "ぼく",
+          "romaji": "boku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "I (male)",
+            "pt-BR": "eu (masculino)",
+            "es": "yo (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart",
+            "pt-BR": "coração",
+            "es": "corazón"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "さ",
+          "reading": "さ",
+          "romaji": "sa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "casual emphasis",
+            "pt-BR": "ênfase casual",
+            "es": "énfasis casual"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "So far away... how many years ago was it? At that place I can never return to, I left my heart behind.",
+        "pt-BR": "Tao longe... quantos anos atras foi? Naquele lugar ao qual nunca posso voltar, deixei meu coracao para tras.",
+        "es": "Tan lejos... cuantos anos atras fue? En aquel lugar al que nunca puedo volver, deje mi corazon atras."
+      },
+      "literal_meaning": {
+        "en": "far / how-many-years-ago + of + thing + I-wonder / never-again + can't-return + that + place + at / left-behind + I + of + heart + emphasis"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 49483,
+      "end_time_ms": 63523,
+      "tokens": [
+        {
+          "surface": "もしも",
+          "reading": "もしも",
+          "romaji": "moshimo",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "if; what if"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "夢",
+          "reading": "ゆめ",
+          "romaji": "yume",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "dream",
+            "pt-BR": "sonho",
+            "es": "sueño"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ならば",
+          "reading": "ならば",
+          "romaji": "naraba",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "if it is"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "取り戻せない",
+          "reading": "とりもどせない",
+          "romaji": "torimonosenai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can't take back"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "のなら",
+          "reading": "のなら",
+          "romaji": "no nara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "if (it's that)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "this",
+            "pt-BR": "isto",
+            "es": "esto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "気持ち",
+          "reading": "きもち",
+          "romaji": "kimochi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "feelings",
+            "pt-BR": "sentimentos",
+            "es": "sentimientos"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "どうして",
+          "reading": "どうして",
+          "romaji": "doushite",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "how; why"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "伝えれば",
+          "reading": "つたえれば",
+          "romaji": "tsutaereba",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "if I convey"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "いい",
+          "reading": "いい",
+          "romaji": "ii",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "good",
+            "pt-BR": "bom",
+            "es": "bueno"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "question",
+            "pt-BR": "pergunta",
+            "es": "pregunta"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "If it's a dream and I can't take it back, then how should I convey these feelings?",
+        "pt-BR": "Se e um sonho e nao posso recupera-lo, entao como devo transmitir esses sentimentos?",
+        "es": "Si es un sueno y no puedo recuperarlo, entonces como deberia transmitir estos sentimientos?"
+      },
+      "literal_meaning": {
+        "en": "if + dream + if-is + can't-take-back + if / this + feelings + topic + how + if-convey + good + question"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "追いかける",
+      "reading": "おいかける",
+      "romaji": "oikakeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to chase; to run after; to pursue",
+        "pt-BR": "perseguir; correr atrás",
+        "es": "perseguir; ir tras"
+      },
+      "example_from_song": "いつまでも追いかけている",
+      "additional_examples": [
+        "犯人を追いかける",
+        "夢を追いかける"
+      ]
+    },
+    {
+      "surface": "残像",
+      "reading": "ざんぞう",
+      "romaji": "zanzou",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "afterimage; lingering image",
+        "pt-BR": "imagem residual; imagem persistente",
+        "es": "imagen residual; imagen persistente"
+      },
+      "example_from_song": "あなたの残像を",
+      "additional_examples": [
+        "目に残像が残る",
+        "光の残像"
+      ]
+    },
+    {
+      "surface": "夢",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "dream",
+        "pt-BR": "sonho",
+        "es": "sueño"
+      },
+      "example_from_song": "夢にみる横顔はあの頃のままで",
+      "additional_examples": [
+        "夢を見る",
+        "夢を叶える"
+      ]
+    },
+    {
+      "surface": "みる",
+      "reading": "みる",
+      "romaji": "miru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to see; to look at; to watch",
+        "pt-BR": "ver; olhar; assistir",
+        "es": "ver; mirar"
+      },
+      "example_from_song": "夢にみる横顔はあの頃のままで",
+      "additional_examples": [
+        "映画をみる",
+        "空をみる"
+      ]
+    },
+    {
+      "surface": "横顔",
+      "reading": "よこがお",
+      "romaji": "yokogao",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "profile; face seen from the side",
+        "pt-BR": "perfil; rosto de lado",
+        "es": "perfil; cara de lado"
+      },
+      "example_from_song": "夢にみる横顔はあの頃のままで",
+      "additional_examples": [
+        "彼女の横顔",
+        "横顔が美しい"
+      ]
+    },
+    {
+      "surface": "背",
+      "reading": "せ",
+      "romaji": "se",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "back; height; stature",
+        "pt-BR": "costas; altura; estatura",
+        "es": "espalda; altura; estatura"
+      },
+      "example_from_song": "背の高い草並みに走り去って消えた",
+      "additional_examples": [
+        "背が高い",
+        "背を向ける"
+      ]
+    },
+    {
+      "surface": "高い",
+      "reading": "たかい",
+      "romaji": "takai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "tall; high; expensive",
+        "pt-BR": "alto; caro",
+        "es": "alto; caro"
+      },
+      "example_from_song": "背の高い草並みに走り去って消えた",
+      "additional_examples": [
+        "背が高い人",
+        "高い山"
+      ]
+    },
+    {
+      "surface": "草",
+      "reading": "くさ",
+      "romaji": "kusa",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "grass; weeds",
+        "pt-BR": "grama; erva",
+        "es": "hierba; césped"
+      },
+      "example_from_song": "背の高い草並みに走り去って消えた",
+      "additional_examples": [
+        "草を抜く",
+        "青い草"
+      ]
+    },
+    {
+      "surface": "走り去る",
+      "reading": "はしりさる",
+      "romaji": "hashirisaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to run away; to run off",
+        "pt-BR": "sair correndo; fugir correndo",
+        "es": "alejarse corriendo; salir corriendo"
+      },
+      "example_from_song": "背の高い草並みに走り去って消えた",
+      "additional_examples": [
+        "犬が走り去った",
+        "車が走り去る"
+      ]
+    },
+    {
+      "surface": "消える",
+      "reading": "きえる",
+      "romaji": "kieru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to disappear; to vanish; to go out",
+        "pt-BR": "desaparecer; sumir; apagar-se",
+        "es": "desaparecer; esfumarse; apagarse"
+      },
+      "example_from_song": "背の高い草並みに走り去って消えた",
+      "additional_examples": [
+        "火が消える",
+        "姿が消える"
+      ]
+    },
+    {
+      "surface": "思い出す",
+      "reading": "おもいだす",
+      "romaji": "omoidasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to remember; to recall; to recollect",
+        "pt-BR": "lembrar; recordar",
+        "es": "recordar; acordarse"
+      },
+      "example_from_song": "思い出す記憶をかきわけ後追うぼくは",
+      "additional_examples": [
+        "昔を思い出す",
+        "名前を思い出せない"
+      ]
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "memory; recollection",
+        "pt-BR": "memória; lembrança",
+        "es": "memoria; recuerdo"
+      },
+      "example_from_song": "思い出す記憶をかきわけ後追うぼくは",
+      "additional_examples": [
+        "記憶に残る",
+        "子どもの頃の記憶"
+      ]
+    },
+    {
+      "surface": "かきわける",
+      "reading": "かきわける",
+      "romaji": "kakiwakeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to push aside; to part (through a crowd or foliage)",
+        "pt-BR": "afastar; abrir caminho empurrando",
+        "es": "apartar; abrirse paso"
+      },
+      "example_from_song": "思い出す記憶をかきわけ後追うぼくは",
+      "additional_examples": [
+        "人混みをかきわける",
+        "草をかきわけて進む"
+      ]
+    },
+    {
+      "surface": "追う",
+      "reading": "おう",
+      "romaji": "ou",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to chase; to pursue; to follow",
+        "pt-BR": "perseguir; seguir",
+        "es": "perseguir; seguir"
+      },
+      "example_from_song": "思い出す記憶をかきわけ後追うぼくは",
+      "additional_examples": [
+        "夢を追う",
+        "犯人を追う"
+      ]
+    },
+    {
+      "surface": "もどかしい",
+      "reading": "もどかしい",
+      "romaji": "modokashii",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "frustrating; irritating; impatient",
+        "pt-BR": "frustrante; impaciente",
+        "es": "frustrante; impaciente"
+      },
+      "example_from_song": "もどかしくも息を切らして最後は届かずに",
+      "additional_examples": [
+        "言葉が出ずもどかしい",
+        "もどかしい思い"
+      ]
+    },
+    {
+      "surface": "息",
+      "reading": "いき",
+      "romaji": "iki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "breath; breathing",
+        "pt-BR": "respiração; fôlego",
+        "es": "aliento; respiración"
+      },
+      "example_from_song": "もどかしくも息を切らして最後は届かずに",
+      "additional_examples": [
+        "息をする",
+        "息が止まる"
+      ]
+    },
+    {
+      "surface": "切らす",
+      "reading": "きらす",
+      "romaji": "kirasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to run out of; to be out of breath",
+        "pt-BR": "ficar sem; ficar sem fôlego",
+        "es": "quedarse sin; quedarse sin aliento"
+      },
+      "example_from_song": "もどかしくも息を切らして最後は届かずに",
+      "additional_examples": [
+        "息を切らして走る",
+        "砂糖を切らす"
+      ]
+    },
+    {
+      "surface": "最後",
+      "reading": "さいご",
+      "romaji": "saigo",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "end; last; final",
+        "pt-BR": "fim; último; final",
+        "es": "fin; último; final"
+      },
+      "example_from_song": "もどかしくも息を切らして最後は届かずに",
+      "additional_examples": [
+        "最後の日",
+        "最後まで頑張る"
+      ]
+    },
+    {
+      "surface": "届く",
+      "reading": "とどく",
+      "romaji": "todoku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to reach; to arrive; to be delivered",
+        "pt-BR": "alcançar; chegar; ser entregue",
+        "es": "alcanzar; llegar; ser entregado"
+      },
+      "example_from_song": "もどかしくも息を切らして最後は届かずに",
+      "additional_examples": [
+        "手紙が届く",
+        "声が届く"
+      ]
+    },
+    {
+      "surface": "遠く",
+      "reading": "とおく",
+      "romaji": "tooku",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "far away; at a distance",
+        "pt-BR": "longe; à distância",
+        "es": "lejos; a lo lejos"
+      },
+      "example_from_song": "遠く",
+      "additional_examples": [
+        "遠くに見える",
+        "遠くへ行く"
+      ]
+    },
+    {
+      "surface": "前",
+      "reading": "まえ",
+      "romaji": "mae",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "before; in front; ago",
+        "pt-BR": "antes; à frente; atrás (no tempo)",
+        "es": "antes; delante; hace (tiempo)"
+      },
+      "example_from_song": "何年前のことでしょう",
+      "additional_examples": [
+        "三年前",
+        "家の前"
+      ]
+    },
+    {
+      "surface": "二度と",
+      "reading": "にどと",
+      "romaji": "nidoto",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "never again (with negative)",
+        "pt-BR": "nunca mais (com negativo)",
+        "es": "nunca más (con negativo)"
+      },
+      "example_from_song": "二度と戻れないあの場所に",
+      "additional_examples": [
+        "二度と行かない",
+        "二度と会えない"
+      ]
+    },
+    {
+      "surface": "戻る",
+      "reading": "もどる",
+      "romaji": "modoru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to return; to go back",
+        "pt-BR": "voltar; retornar",
+        "es": "volver; regresar"
+      },
+      "example_from_song": "二度と戻れないあの場所に",
+      "additional_examples": [
+        "家に戻る",
+        "元の場所に戻る"
+      ]
+    },
+    {
+      "surface": "場所",
+      "reading": "ばしょ",
+      "romaji": "basho",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "place; location; spot",
+        "pt-BR": "lugar; local",
+        "es": "lugar; sitio"
+      },
+      "example_from_song": "二度と戻れないあの場所に",
+      "additional_examples": [
+        "静かな場所",
+        "待ち合わせの場所"
+      ]
+    },
+    {
+      "surface": "置く",
+      "reading": "おく",
+      "romaji": "oku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to put; to place; to leave behind",
+        "pt-BR": "colocar; pôr; deixar",
+        "es": "poner; colocar; dejar"
+      },
+      "example_from_song": "置いてきてしまったぼくの心さ",
+      "additional_examples": [
+        "本を机に置く",
+        "荷物を置いてくる"
+      ]
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "heart; mind; spirit",
+        "pt-BR": "coração; mente; espírito",
+        "es": "corazón; mente; espíritu"
+      },
+      "example_from_song": "置いてきてしまったぼくの心さ",
+      "additional_examples": [
+        "優しい心",
+        "心を込める"
+      ]
+    },
+    {
+      "surface": "もしも",
+      "reading": "もしも",
+      "romaji": "moshimo",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "if; in case; supposing (emphatic)",
+        "pt-BR": "se; caso; supondo que",
+        "es": "si; en caso de; suponiendo que"
+      },
+      "example_from_song": "もしも夢ならば取り戻せないのなら",
+      "additional_examples": [
+        "もしも雨が降ったら",
+        "もしものときのために"
+      ]
+    },
+    {
+      "surface": "取り戻す",
+      "reading": "とりもどす",
+      "romaji": "torimodosu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to take back; to regain; to recover",
+        "pt-BR": "recuperar; reaver",
+        "es": "recuperar; recobrar"
+      },
+      "example_from_song": "もしも夢ならば取り戻せないのなら",
+      "additional_examples": [
+        "時間を取り戻す",
+        "元気を取り戻す"
+      ]
+    },
+    {
+      "surface": "気持ち",
+      "reading": "きもち",
+      "romaji": "kimochi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "feeling; mood; sensation",
+        "pt-BR": "sentimento; humor; sensação",
+        "es": "sentimiento; ánimo; sensación"
+      },
+      "example_from_song": "この気持ちはどうして伝えればいいの？",
+      "additional_examples": [
+        "気持ちがいい",
+        "素直な気持ち"
+      ]
+    },
+    {
+      "surface": "どうして",
+      "reading": "どうして",
+      "romaji": "doushite",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "why; how; for what reason",
+        "pt-BR": "por quê; como",
+        "es": "por qué; cómo"
+      },
+      "example_from_song": "この気持ちはどうして伝えればいいの？",
+      "additional_examples": [
+        "どうして泣いているの",
+        "どうしてわからないの"
+      ]
+    },
+    {
+      "surface": "伝える",
+      "reading": "つたえる",
+      "romaji": "tsutaeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to convey; to tell; to communicate",
+        "pt-BR": "transmitir; comunicar; contar",
+        "es": "transmitir; comunicar; contar"
+      },
+      "example_from_song": "この気持ちはどうして伝えればいいの？",
+      "additional_examples": [
+        "気持ちを伝える",
+        "伝言を伝える"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜まま (mama: as it is; unchanged)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: まま (mama) expresses a state that remains unchanged. Attach it after の (no) with nouns, or after the plain form of verbs/adjectives, to mean 'as it is' or 'remaining in that state.'\n\nExample from this song: あの頃のまま (ano koro no mama) = 'unchanged from those days' — the side profile in dreams remains exactly as it was back then\n\nMore examples:\n• ドアを開けたまま (doa o aketa mama, 'with the door left open') — from 開ける (akeru, 'to open')\n• このままでいい (kono mama de ii, 'it's fine as it is') — expressing contentment\n• 靴のまま入る (kutsu no mama hairu, 'enter with shoes on') — state unchanged\n\nNote: まま after a past-tense verb means something was left in that state. After の, it describes maintaining a noun's condition. It often implies the state was unexpected or noteworthy."
+      },
+      "conjugation_path": "あの頃 (ano koro, 'those days') + の (no) + まま (mama, 'as is') + で (de) → あの頃のままで (ano koro no mama de, 'unchanged from those days')"
+    },
+    {
+      "name": "〜てしまう (te shimau: end up doing; regrettably)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Attach しまう (shimau) to a verb's te-form to express completion with regret, or that something happened unintentionally. 'Ended up doing' or 'regrettably did.'\n\nExample from this song: 置いてきてしまった (oite kite shimatta) = 'ended up leaving behind' — from 置いてくる (oite kuru, 'to leave behind and come back') → 置いてきて (oite kite) + しまった (shimatta)\n\nMore examples:\n• 忘れてしまった (wasurete shimatta, 'unfortunately forgot') — from 忘れる (wasureru, 'to forget')\n• 食べてしまった (tabete shimatta, 'ended up eating it all') — from 食べる (taberu, 'to eat')\n• なくしてしまった (nakushite shimatta, 'lost it accidentally') — from なくす (nakusu, 'to lose')\n\nNote: Casual contractions: てしまう → ちゃう (chau), てしまった → ちゃった (chatta). Also でしまう → じゃう (jau)."
+      },
+      "conjugation_path": "置いてくる (oite kuru, 'to leave behind') → 置いてきて (oite kite) → 置いてきてしまった (oite kite shimatta, 'ended up leaving behind')"
+    },
+    {
+      "name": "〜のなら (no nara: if it's the case that)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: のなら (no nara) combines the explanatory の (no) with the conditional なら (nara) to mean 'if it's the case that.' It adds an explanatory nuance to the condition.\n\nExample from this song: 取り戻せないのなら (torimodosenai no nara) = 'if it's the case that I can't get it back' — from 取り戻す (tomodosu, 'to get back') → 取り戻せない (torimodosenai, 'can't get back') + のなら\n\nMore examples:\n• 行くのなら早く (iku no nara hayaku, 'if you're going, go early') — from 行く (iku, 'to go')\n• 本当のなら信じる (hontou no nara shinjiru, 'if it's true, I'll believe it')\n• 会えるのなら会いたい (aeru no nara aitai, 'if I could meet you, I'd want to') — from 会える (aeru, 'can meet')\n\nNote: のなら is slightly more emphatic than just なら. It implies the speaker is responding to or considering a specific situation or piece of information."
+      },
+      "conjugation_path": "取り戻せない (torimodosenai, 'can't get back') + のなら (no nara, 'if it's the case that') → 取り戻せないのなら (torimodosenai no nara, 'if I can't get it back')"
+    },
+    {
+      "name": "〜ながらも (nagara mo: even while)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: ながらも (nagara mo) adds も (mo, 'even') to ながら (nagara, 'while') to express doing two contradictory or contrasting things simultaneously. It emphasizes the contrast between them.\n\nExample from this song: 明け暮れながらも (akekure nagara mo) = 'even while spending days (in that state)' — from 明け暮れる (akekureru, 'to spend one's days')\n\nMore examples:\n• 知りながらも黙っていた (shiri nagara mo damatte ita, 'kept quiet even while knowing') — from 知る (shiru, 'to know')\n• 小さいながらも頑張る (chiisai nagara mo ganbaru, 'try hard despite being small')\n• 泣きながらも笑った (naki nagara mo waratta, 'smiled even while crying') — from 泣く (naku, 'to cry')\n\nNote: Plain ながら means 'while doing X.' Adding も creates a concessive meaning: 'even while/despite X.' This highlights that the two actions seem contradictory."
+      },
+      "conjugation_path": "明け暮れる (akekureru, 'to spend one's days') → 明け暮れ (akekure) + ながらも (nagara mo, 'even while') → 明け暮れながらも (akekure nagara mo, 'even while spending days')"
+    },
+    {
+      "name": "〜ておく (te oku: to do in advance; to leave as is)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Attach おく (oku) to a verb's te-form to express doing something in preparation for the future, or deliberately leaving something in a certain state.\n\nExample from this song: 焼き付けておこう (yakitsukete okou) = 'let me burn it into (my memory) for safekeeping' — from 焼き付ける (yakitsukeru, 'to burn/imprint') → 焼き付けて (yakitsukete) + おこう (okou, volitional of oku)\n\nMore examples:\n• 買っておく (katte oku, 'buy in advance') — from 買う (kau, 'to buy')\n• 窓を開けておいて (mado o akete oite, 'leave the window open') — from 開ける (akeru, 'to open')\n• 調べておいた (shirabete oita, 'researched in advance') — from 調べる (shiraberu, 'to investigate')\n\nNote: In casual speech, ておく contracts to とく (toku): 買っとく (kattoku, 'buy in advance'). The volitional form ておこう means 'let me do X in advance.'"
+      },
+      "conjugation_path": "焼き付ける (yakitsukeru, 'to imprint') → 焼き付けて (yakitsukete) → 焼き付けておこう (yakitsukete okou, 'let me imprint it for keeps')"
+    },
+    {
+      "name": "〜ちゃいけない (cha ikenai: must not)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: ちゃいけない (cha ikenai) is the casual form of てはいけない (te wa ikenai), meaning 'must not' or 'it's not OK to.' It expresses prohibition.\n\nExample from this song: 忘れちゃいけない (wasureccha ikenai) = 'must not forget' — from 忘れる (wasureru, 'to forget') → 忘れては (wasurete wa) → casual: 忘れちゃ (wasureccha) + いけない (ikenai)\n\nMore examples:\n• 食べちゃいけない (tabeccha ikenai, 'must not eat') — from 食べる (taberu, 'to eat')\n• 言っちゃいけない (iccha ikenai, 'must not say') — from 言う (iu, 'to say')\n• 泣いちゃダメ (naiccha dame, 'you mustn't cry') — from 泣く (naku, 'to cry') — ダメ is another way to say 'not allowed'\n\nNote: The contraction pattern: ては → ちゃ, では → じゃ. So 飲んではいけない (nonde wa ikenai) → 飲んじゃいけない (nonjya ikenai, 'must not drink')."
+      },
+      "conjugation_path": "忘れる (wasureru, 'to forget') → 忘れては (wasurete wa) → 忘れちゃ (wasureccha, casual) + いけない (ikenai, 'must not') → 忘れちゃいけない (wasureccha ikenai, 'must not forget')"
+    }
+  ]
+}

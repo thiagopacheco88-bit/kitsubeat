@@ -1,0 +1,1626 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "advanced",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 13404,
+      "end_time_ms": 23650,
+      "tokens": [
+        {
+          "surface": "何度",
+          "reading": "なんど",
+          "romaji": "nando",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "how many times",
+            "pt-BR": "quantas vezes",
+            "es": "cuántas veces"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "叩き付けられて",
+          "reading": "たたきつけられて",
+          "romaji": "tatakitsukerarete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "beaten down (passive)"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "あきらめ",
+          "reading": "あきらめ",
+          "romaji": "akirame",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "give up"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "られる",
+          "reading": "られる",
+          "romaji": "rareru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can (potential)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "わけ",
+          "reading": "わけ",
+          "romaji": "wake",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "reason",
+            "pt-BR": "razão",
+            "es": "razón"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "など",
+          "reading": "など",
+          "romaji": "nado",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "such as; etc."
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "なく",
+          "reading": "なく",
+          "romaji": "naku",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "without",
+            "pt-BR": "sem",
+            "es": "sin"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "原点",
+          "reading": "げんてん",
+          "romaji": "genten",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "origin; starting point"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "回帰",
+          "reading": "かいき",
+          "romaji": "kaiki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "return; regression"
+          },
+          "jlpt_level": "N1"
+        }
+      ],
+      "translations": {
+        "en": "No matter how many times I'm beaten down, there's no reason to give up — back to the starting point",
+        "pt-BR": "Nao importa quantas vezes eu seja derrubado, nao ha razao para desistir — de volta ao ponto de partida",
+        "es": "No importa cuantas veces me derriben, no hay razon para rendirse — de vuelta al punto de partida"
+      },
+      "literal_meaning": {
+        "en": "how-many-times + beaten-down(passive) + even / give-up + can + reason + such-as + topic + without / origin + return"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 23650,
+      "end_time_ms": 28273,
+      "tokens": [
+        {
+          "surface": "現実",
+          "reading": "げんじつ",
+          "romaji": "genjitsu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "reality",
+            "pt-BR": "realidade",
+            "es": "realidad"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "with",
+            "pt-BR": "com",
+            "es": "con"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "バイバイ",
+          "reading": "ばいばい",
+          "romaji": "baibai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "bye-bye"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "して",
+          "reading": "して",
+          "romaji": "shite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "doing",
+            "pt-BR": "fazendo",
+            "es": "haciendo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "昔",
+          "reading": "むかし",
+          "romaji": "mukashi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "the past; long ago"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "みたい",
+          "reading": "みたい",
+          "romaji": "mitai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "like; similar to",
+            "pt-BR": "como; semelhante a",
+            "es": "como; similar a"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "like",
+            "pt-BR": "como",
+            "es": "como"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ワイワイ",
+          "reading": "わいわい",
+          "romaji": "waiwai",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "noisily; excitedly"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "したい",
+          "reading": "したい",
+          "romaji": "shitai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "want to do",
+            "pt-BR": "querer fazer",
+            "es": "querer hacer"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "けれど",
+          "reading": "けれど",
+          "romaji": "keredo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "but",
+            "pt-BR": "mas",
+            "es": "pero"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "I want to say bye-bye to reality and have fun like the old days, but...",
+        "pt-BR": "Quero dar tchau para a realidade e me divertir como antigamente, mas...",
+        "es": "Quiero decir adios a la realidad y divertirme como antes, pero..."
+      },
+      "literal_meaning": {
+        "en": "reality + with + topic + bye-bye + doing / past + like + noisily + want-to-do + but"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 28273,
+      "end_time_ms": 32673,
+      "tokens": [
+        {
+          "surface": "そう",
+          "reading": "そう",
+          "romaji": "sou",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "so",
+            "pt-BR": "assim",
+            "es": "así"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "行かない",
+          "reading": "いかない",
+          "romaji": "ikanai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "won't go",
+            "pt-BR": "não vai",
+            "es": "no ir"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "なら",
+          "reading": "なら",
+          "romaji": "nara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "if",
+            "pt-BR": "se",
+            "es": "si"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "切り開いて",
+          "reading": "きりひらいて",
+          "romaji": "kirihiraite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to cut open (te-form)",
+            "pt-BR": "abrir caminho",
+            "es": "abrir camino"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "みりゃ",
+          "reading": "みりゃ",
+          "romaji": "mirya",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "try (conditional)",
+            "pt-BR": "tentar",
+            "es": "intentar"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "いい",
+          "reading": "いい",
+          "romaji": "ii",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "good",
+            "pt-BR": "bom",
+            "es": "bueno"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "If it won't work that way, just cut a new path.",
+        "pt-BR": "Se não der certo assim, abra um caminho novo.",
+        "es": "Si no funciona así, abre un camino nuevo."
+      },
+      "literal_meaning": {
+        "en": "so + even + won't-go + if + cut-open + try + good"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 32673,
+      "end_time_ms": 43939,
+      "tokens": [
+        {
+          "surface": "残り",
+          "reading": "のこり",
+          "romaji": "nokori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "remaining",
+            "pt-BR": "restante",
+            "es": "restante"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "わずか",
+          "reading": "わずか",
+          "romaji": "wazuka",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "only a little"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "possessive",
+            "pt-BR": "possessivo",
+            "es": "posesivo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "正気",
+          "reading": "しょうき",
+          "romaji": "shouki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sanity"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "取り戻して",
+          "reading": "とりもどして",
+          "romaji": "torimodoshite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "regaining"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "目の前",
+          "reading": "めのまえ",
+          "romaji": "me no mae",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "in front of (one's) eyes"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "possessive",
+            "pt-BR": "possessivo",
+            "es": "posesivo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "扉",
+          "reading": "とびら",
+          "romaji": "tobira",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "door; gate",
+            "pt-BR": "porta; portão",
+            "es": "puerta; portón"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "こじ開けて",
+          "reading": "こじあけて",
+          "romaji": "kojiakete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "forcing open"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "みせる",
+          "reading": "みせる",
+          "romaji": "miseru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "will show (determination)"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Regaining what little sanity remains, I'll force open the door before my eyes",
+        "pt-BR": "Recuperando a pouca sanidade que resta, vou forcar a abertura da porta diante dos meus olhos",
+        "es": "Recuperando la poca cordura que queda, forzare la puerta ante mis ojos"
+      },
+      "literal_meaning": {
+        "en": "remaining + only-a-little + possessive + sanity + regaining / eyes-before + possessive + door + forcing-open + will-show"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 43939,
+      "end_time_ms": 44399,
+      "tokens": [
+        {
+          "surface": "いつ",
+          "reading": "いつ",
+          "romaji": "itsu",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "when",
+            "pt-BR": "quando",
+            "es": "cuándo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "でも",
+          "reading": "でも",
+          "romaji": "demo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "anytime",
+            "pt-BR": "sempre",
+            "es": "siempre"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "そう",
+          "reading": "そう",
+          "romaji": "sou",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "so",
+            "pt-BR": "assim",
+            "es": "así"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "な",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "na-adj",
+            "pt-BR": "na",
+            "es": "na"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ん",
+          "reading": "ん",
+          "romaji": "n",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "explanatory",
+            "pt-BR": "explicativo",
+            "es": "explicativo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "だ",
+          "reading": "だ",
+          "romaji": "da",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "be",
+            "pt-BR": "ser",
+            "es": "ser"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "It's always like that.",
+        "pt-BR": "É sempre assim.",
+        "es": "Siempre es así."
+      },
+      "literal_meaning": {
+        "en": "when + even + so + na + explanatory + be"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 44399,
+      "end_time_ms": 48202,
+      "tokens": [
+        {
+          "surface": "忘れ",
+          "reading": "わすれ",
+          "romaji": "wasure",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "forget (stem)",
+            "pt-BR": "esquecer",
+            "es": "olvidar"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "がち",
+          "reading": "がち",
+          "romaji": "gachi",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "prone to",
+            "pt-BR": "propenso a",
+            "es": "propenso a"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "な",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "na-adj",
+            "pt-BR": "na",
+            "es": "na"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "事",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing",
+            "pt-BR": "coisa",
+            "es": "cosa"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subj",
+            "pt-BR": "sujeito",
+            "es": "sujeto"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "The things one tends to forget,",
+        "pt-BR": "As coisas que costumamos esquecer,",
+        "es": "Las cosas que solemos olvidar,"
+      },
+      "literal_meaning": {
+        "en": "forget + prone-to + na + thing + subj"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 48202,
+      "end_time_ms": 55200,
+      "tokens": [
+        {
+          "surface": "何",
+          "reading": "なに",
+          "romaji": "nani",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "what",
+            "pt-BR": "o que",
+            "es": "qué"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "より",
+          "reading": "より",
+          "romaji": "yori",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "than",
+            "pt-BR": "que",
+            "es": "que"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "大切",
+          "reading": "たいせつ",
+          "romaji": "taisetsu",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "precious",
+            "pt-BR": "precioso",
+            "es": "precioso"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "な",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "na-adj",
+            "pt-BR": "na",
+            "es": "na"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "事",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing",
+            "pt-BR": "coisa",
+            "es": "cosa"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "だって",
+          "reading": "だって",
+          "romaji": "datte",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even; but",
+            "pt-BR": "até mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "— even what matters most of all.",
+        "pt-BR": "— até mesmo o mais importante de tudo.",
+        "es": "— incluso lo más importante de todo."
+      },
+      "literal_meaning": {
+        "en": "what + than + even + precious + na + thing + even"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 55200,
+      "end_time_ms": 70320,
+      "tokens": [
+        {
+          "surface": "何",
+          "reading": "なに",
+          "romaji": "nani",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "what",
+            "pt-BR": "o quê",
+            "es": "qué"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "待ち受けて",
+          "reading": "まちうけて",
+          "romaji": "machiukete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "lying in wait"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "いよう",
+          "reading": "いよう",
+          "romaji": "iyou",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "may be (volitional)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even if",
+            "pt-BR": "mesmo se",
+            "es": "aunque"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "かまわない",
+          "reading": "かまわない",
+          "romaji": "kamawanai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "don't mind; don't care"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "雨",
+          "reading": "あめ",
+          "romaji": "ame",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "rain",
+            "pt-BR": "chuva",
+            "es": "lluvia"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "to",
+            "pt-BR": "para",
+            "es": "para"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "負けず",
+          "reading": "まけず",
+          "romaji": "makezu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "not losing to"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "闇",
+          "reading": "やみ",
+          "romaji": "yami",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "darkness",
+            "pt-BR": "escuridão",
+            "es": "oscuridad"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "照らす",
+          "reading": "てらす",
+          "romaji": "terasu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to illuminate",
+            "pt-BR": "iluminar",
+            "es": "iluminar"
+          },
+          "jlpt_level": "N2"
+        }
+      ],
+      "translations": {
+        "en": "I don't care what awaits me. Without losing to the rain, I'll illuminate the darkness",
+        "pt-BR": "Nao me importo com o que me espera. Sem perder para a chuva, iluminarei a escuridao",
+        "es": "No me importa lo que me espere. Sin perder ante la lluvia, iluminare la oscuridad"
+      },
+      "literal_meaning": {
+        "en": "what + subject + lying-in-wait + may-be + even-if + don't-care / rain + to + even + not-losing + darkness + object + illuminate"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 70320,
+      "end_time_ms": 80625,
+      "tokens": [
+        {
+          "surface": "何人",
+          "reading": "なんぴと",
+          "romaji": "nanbito",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "no one"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "たりとも",
+          "reading": "たりとも",
+          "romaji": "taritomo",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not even one"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "止める",
+          "reading": "とめる",
+          "romaji": "tomeru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to stop",
+            "pt-BR": "parar",
+            "es": "parar"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "事",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing; act"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "できない",
+          "reading": "できない",
+          "romaji": "dekinai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "cannot",
+            "pt-BR": "não pode",
+            "es": "no puede"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "よ",
+          "reading": "よ",
+          "romaji": "yo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis",
+            "pt-BR": "ênfase",
+            "es": "énfasis"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "No one can stop it!",
+        "pt-BR": "Ninguem pode parar isso!",
+        "es": "Nadie puede detenerlo!"
+      },
+      "literal_meaning": {
+        "en": "no-one + not-even + stop + thing + topic + cannot + emphasis"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "叩き付ける",
+      "reading": "たたきつける",
+      "romaji": "tatakitsukeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to throw violently against; to slam down",
+        "pt-BR": "arremessar com força; atirar violentamente",
+        "es": "arrojar con fuerza; estampar"
+      },
+      "example_from_song": "何度叩き付けられても",
+      "additional_examples": [
+        "ボールを地面に叩き付ける",
+        "怒りをドアに叩き付ける"
+      ]
+    },
+    {
+      "surface": "あきらめる",
+      "reading": "あきらめる",
+      "romaji": "akirameru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to give up; to abandon (hope)",
+        "pt-BR": "desistir; renunciar",
+        "es": "rendirse; darse por vencido"
+      },
+      "example_from_song": "あきらめられるわけなどはなく原点回帰",
+      "additional_examples": [
+        "夢をあきらめない",
+        "簡単にあきらめる"
+      ]
+    },
+    {
+      "surface": "原点",
+      "reading": "げんてん",
+      "romaji": "genten",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "origin; starting point",
+        "pt-BR": "origem; ponto de partida",
+        "es": "origen; punto de partida"
+      },
+      "example_from_song": "あきらめられるわけなどはなく原点回帰",
+      "additional_examples": [
+        "原点に戻る",
+        "人生の原点"
+      ]
+    },
+    {
+      "surface": "回帰",
+      "reading": "かいき",
+      "romaji": "kaiki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "return; recurrence; regression",
+        "pt-BR": "retorno; recorrência",
+        "es": "retorno; regreso"
+      },
+      "example_from_song": "あきらめられるわけなどはなく原点回帰",
+      "additional_examples": [
+        "原点回帰を果たす",
+        "自然への回帰"
+      ]
+    },
+    {
+      "surface": "現実",
+      "reading": "げんじつ",
+      "romaji": "genjitsu",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "reality; actuality",
+        "pt-BR": "realidade",
+        "es": "realidad"
+      },
+      "example_from_song": "現実とはバイバイして",
+      "additional_examples": [
+        "現実を受け入れる",
+        "厳しい現実"
+      ]
+    },
+    {
+      "surface": "バイバイ",
+      "reading": "ばいばい",
+      "romaji": "baibai",
+      "part_of_speech": "expression",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "bye-bye; goodbye (casual)",
+        "pt-BR": "tchau; até logo (informal)",
+        "es": "adiós; chao (informal)"
+      },
+      "example_from_song": "現実とはバイバイして",
+      "additional_examples": [
+        "友達にバイバイする",
+        "バイバイと手を振る"
+      ]
+    },
+    {
+      "surface": "する",
+      "reading": "する",
+      "romaji": "suru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to do; to make",
+        "pt-BR": "fazer",
+        "es": "hacer"
+      },
+      "example_from_song": "現実とはバイバイして",
+      "additional_examples": [
+        "宿題をする",
+        "電話をする"
+      ]
+    },
+    {
+      "surface": "昔",
+      "reading": "むかし",
+      "romaji": "mukashi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "long ago; the old days",
+        "pt-BR": "antigamente; no passado",
+        "es": "antiguamente; hace tiempo"
+      },
+      "example_from_song": "昔みたいにワイワイしたいけれど",
+      "additional_examples": [
+        "昔の話",
+        "昔からの友達"
+      ]
+    },
+    {
+      "surface": "ワイワイ",
+      "reading": "わいわい",
+      "romaji": "waiwai",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "noisily; boisterously (chatting in a crowd)",
+        "pt-BR": "ruidosamente; animadamente (em grupo)",
+        "es": "ruidosamente; alborotadamente (en grupo)"
+      },
+      "example_from_song": "昔みたいにワイワイしたいけれど",
+      "additional_examples": [
+        "皆でワイワイ騒ぐ",
+        "子どもたちがワイワイ遊ぶ"
+      ]
+    },
+    {
+      "surface": "そう",
+      "reading": "そう",
+      "romaji": "sou",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "so; that way; like that",
+        "pt-BR": "assim; desse jeito",
+        "es": "así; de esa manera"
+      },
+      "example_from_song": "そうも行かないなら切り開いてみりゃいい",
+      "additional_examples": [
+        "そう思う",
+        "そうですね"
+      ]
+    },
+    {
+      "surface": "行く",
+      "reading": "いく",
+      "romaji": "iku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to go; to proceed",
+        "pt-BR": "ir",
+        "es": "ir"
+      },
+      "example_from_song": "そうも行かないなら切り開いてみりゃいい",
+      "additional_examples": [
+        "学校に行く",
+        "一緒に行こう"
+      ]
+    },
+    {
+      "surface": "切り開く",
+      "reading": "きりひらく",
+      "romaji": "kirihiraku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to carve out; to pioneer; to cut one's way through",
+        "pt-BR": "abrir caminho; desbravar",
+        "es": "abrir camino; abrirse paso"
+      },
+      "example_from_song": "そうも行かないなら切り開いてみりゃいい",
+      "additional_examples": [
+        "道を切り開く",
+        "未来を切り開く"
+      ]
+    },
+    {
+      "surface": "残り",
+      "reading": "のこり",
+      "romaji": "nokori",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "remainder; what's left",
+        "pt-BR": "restante; o que sobra",
+        "es": "resto; lo que queda"
+      },
+      "example_from_song": "残りわずかの正気取り戻して",
+      "additional_examples": [
+        "残りの時間",
+        "残り物"
+      ]
+    },
+    {
+      "surface": "わずか",
+      "reading": "わずか",
+      "romaji": "wazuka",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "only; just a little; slight",
+        "pt-BR": "apenas; pouquíssimo",
+        "es": "apenas; escaso"
+      },
+      "example_from_song": "残りわずかの正気取り戻して",
+      "additional_examples": [
+        "わずかな時間",
+        "わずか一分で終わる"
+      ]
+    },
+    {
+      "surface": "正気",
+      "reading": "しょうき",
+      "romaji": "shouki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "sanity; consciousness; one's senses",
+        "pt-BR": "sanidade; juízo",
+        "es": "cordura; sensatez"
+      },
+      "example_from_song": "残りわずかの正気取り戻して",
+      "additional_examples": [
+        "正気を失う",
+        "正気に戻る"
+      ]
+    },
+    {
+      "surface": "取り戻す",
+      "reading": "とりもどす",
+      "romaji": "torimodosu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to take back; to regain; to recover",
+        "pt-BR": "recuperar; reaver",
+        "es": "recuperar; recobrar"
+      },
+      "example_from_song": "残りわずかの正気取り戻して",
+      "additional_examples": [
+        "自信を取り戻す",
+        "落ち着きを取り戻す"
+      ]
+    },
+    {
+      "surface": "目",
+      "reading": "め",
+      "romaji": "me",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "eye",
+        "pt-BR": "olho",
+        "es": "ojo"
+      },
+      "example_from_song": "目の前の扉こじ開けてみせる",
+      "additional_examples": [
+        "目を閉じる",
+        "目が大きい"
+      ]
+    },
+    {
+      "surface": "前",
+      "reading": "まえ",
+      "romaji": "mae",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "front; before",
+        "pt-BR": "frente; antes",
+        "es": "frente; antes"
+      },
+      "example_from_song": "目の前の扉こじ開けてみせる",
+      "additional_examples": [
+        "駅の前",
+        "三日前"
+      ]
+    },
+    {
+      "surface": "扉",
+      "reading": "とびら",
+      "romaji": "tobira",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "door; gate",
+        "pt-BR": "porta; portal",
+        "es": "puerta; portal"
+      },
+      "example_from_song": "目の前の扉こじ開けてみせる",
+      "additional_examples": [
+        "扉を開く",
+        "心の扉"
+      ]
+    },
+    {
+      "surface": "こじ開ける",
+      "reading": "こじあける",
+      "romaji": "kojiakeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to pry open; to force open",
+        "pt-BR": "forçar abertura; arrombar",
+        "es": "forzar la apertura; abrir a la fuerza"
+      },
+      "example_from_song": "目の前の扉こじ開けてみせる",
+      "additional_examples": [
+        "金庫をこじ開ける",
+        "窓をこじ開ける"
+      ]
+    },
+    {
+      "surface": "忘れる",
+      "reading": "わすれる",
+      "romaji": "wasureru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to forget",
+        "pt-BR": "esquecer",
+        "es": "olvidar"
+      },
+      "example_from_song": "忘れがちな事が",
+      "additional_examples": [
+        "名前を忘れる",
+        "約束を忘れない"
+      ]
+    },
+    {
+      "surface": "大切",
+      "reading": "たいせつ",
+      "romaji": "taisetsu",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "important; precious; valuable",
+        "pt-BR": "importante; precioso",
+        "es": "importante; valioso"
+      },
+      "example_from_song": "何よりも大切な事だって",
+      "additional_examples": [
+        "大切な人",
+        "命を大切にする"
+      ]
+    },
+    {
+      "surface": "待ち受ける",
+      "reading": "まちうける",
+      "romaji": "machiukeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to await; to lie in wait for",
+        "pt-BR": "aguardar; estar à espreita",
+        "es": "aguardar; estar al acecho"
+      },
+      "example_from_song": "何が待ち受けていようとかまわない",
+      "additional_examples": [
+        "未来が待ち受ける",
+        "困難が待ち受けている"
+      ]
+    },
+    {
+      "surface": "かまう",
+      "reading": "かまう",
+      "romaji": "kamau",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to mind; to care about",
+        "pt-BR": "importar-se; ligar para",
+        "es": "importarle; prestar atención"
+      },
+      "example_from_song": "何が待ち受けていようとかまわない",
+      "additional_examples": [
+        "かまわないよ",
+        "人の事をかまう"
+      ]
+    },
+    {
+      "surface": "雨",
+      "reading": "あめ",
+      "romaji": "ame",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "rain",
+        "pt-BR": "chuva",
+        "es": "lluvia"
+      },
+      "example_from_song": "雨にも負けず闇を照らす",
+      "additional_examples": [
+        "雨が降る",
+        "大雨"
+      ]
+    },
+    {
+      "surface": "負ける",
+      "reading": "まける",
+      "romaji": "makeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to lose; to be defeated",
+        "pt-BR": "perder; ser derrotado",
+        "es": "perder; ser derrotado"
+      },
+      "example_from_song": "雨にも負けず闇を照らす",
+      "additional_examples": [
+        "試合に負ける",
+        "誘惑に負ける"
+      ]
+    },
+    {
+      "surface": "闇",
+      "reading": "やみ",
+      "romaji": "yami",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "darkness; the dark",
+        "pt-BR": "escuridão; trevas",
+        "es": "oscuridad; tinieblas"
+      },
+      "example_from_song": "雨にも負けず闇を照らす",
+      "additional_examples": [
+        "闇の中",
+        "心の闇"
+      ]
+    },
+    {
+      "surface": "照らす",
+      "reading": "てらす",
+      "romaji": "terasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to shine on; to illuminate",
+        "pt-BR": "iluminar; alumiar",
+        "es": "iluminar; alumbrar"
+      },
+      "example_from_song": "雨にも負けず闇を照らす",
+      "additional_examples": [
+        "月が道を照らす",
+        "ライトで照らす"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜ても (te mo) — even if / even though",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb て-form (te-form) + も (mo) means \"even if ~\" or \"even though ~.\" It expresses that the outcome will not change regardless of the condition. For い-adjectives (i-adjectives): drop い (i), add くても (kutemo). For nouns/な-adjectives: でも (demo).\n\nExample from this song:\n叩き付けられても (tatakitsukerarete mo) — \"even if beaten down\"\nNo matter how many times the singer is knocked down, they refuse to give up.\n\nMore examples:\n• 雨が降っても行く (ame ga futte mo iku) — \"even if it rains, I'll go\"\n• どんなに辛くても諦めない (donna ni tsurakutemo akiramenai) — \"no matter how painful, I won't give up\"\n• 嫌われても構わない (kirawarete mo kamawanai) — \"I don't care even if I'm hated\""
+      },
+      "conjugation_path": "叩き付けられる (tatakitsukerareru, \"to be beaten down\") → 叩き付けられて (tatakitsukerarete, te-form) + も (mo) → 叩き付けられても (tatakitsukerarete mo, \"even if beaten down\")"
+    },
+    {
+      "name": "〜わけがない (wake ga nai) — there's no way / impossible",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb plain form + わけがない (wake ga nai) means \"there's no reason that ~\" or \"it can't possibly be that ~.\" It is a strong denial of possibility. わけ (wake) means \"reason/logic,\" so わけがない (wake ga nai) literally means \"there is no logic for ~.\" Often softened with など (nado): わけなどはない (wake nado wa nai).\n\nExample from this song:\nあきらめられるわけなどはなく (akiramerareru wake nado wa naku) — \"there's no reason I could give up\"\nThe singer emphatically states that giving up is logically impossible.\n\nMore examples:\n• そんなことあるわけがない (sonna koto aru wake ga nai) — \"there's no way that's true\"\n• 忘れるわけがない (wasureru wake ga nai) — \"there's no way I'd forget\"\n• 彼が犯人のわけがない (kare ga hannin no wake ga nai) — \"there's no way he's the culprit\""
+      },
+      "conjugation_path": "あきらめられる (akiramerareru, \"can give up\") + わけ (wake, \"reason\") + など (nado, \"such as\") + は (wa) + ない (nai) → あきらめられるわけなどはない (akiramerareru wake nado wa nai, \"there's no way I could give up\")"
+    },
+    {
+      "name": "〜ようと (you to) — no matter what / regardless",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb volitional form + と (to) or とも (tomo) means \"no matter what ~\" or \"regardless of ~.\" It expresses that whatever may happen, the result will be the same. The volitional form sets up the hypothetical, and と (to) dismisses its relevance. This is a formal, determined expression.\n\nExample from this song:\n待ち受けていようと (machiukete iyou to) — \"no matter what awaits\"\nWhatever challenges may lie ahead, the singer faces them undeterred.\n\nMore examples:\n• 何があろうと (nani ga arou to) — \"no matter what happens\"\n• 誰が反対しようと (dare ga hantai shiyou to) — \"no matter who opposes\"\n• どんな困難が来ようとも (donna konnan ga koyou tomo) — \"no matter what difficulty comes\""
+      },
+      "conjugation_path": "待ち受けている (machiukete iru, \"is awaiting\") → 待ち受けていよう (machiukete iyou, volitional) + と (to) → 待ち受けていようと (machiukete iyou to, \"no matter what awaits\")"
+    },
+    {
+      "name": "〜ば (ba) — conditional (if)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe 〜ば (ba) conditional means \"if ~.\" For godan verbs: change -u to -e + ば: ある (aru) → あれば (areba). For ichidan verbs: drop る + れば: 食べる (taberu) → 食べれば (tabereba). For い-adjectives: drop い + ければ. This conditional focuses on the condition being the key factor for the result.\n\nExample from this song:\nあれば (areba) — \"if there is\"\nIf a certain thing exists, everything else follows from it.\n\nMore examples:\n• 時間があれば行く (jikan ga areba iku) — \"if I have time, I'll go\"\n• 安ければ買う (yasukereba kau) — \"if it's cheap, I'll buy it\"\n• 頑張れば夢は叶う (ganbareba yume wa kanau) — \"if you try hard, dreams come true\""
+      },
+      "conjugation_path": "ある (aru, \"to exist\") → あれば (areba, conditional, \"if there is\")"
+    },
+    {
+      "name": "〜続ける (tsuzukeru) — to keep doing",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb ます-stem (masu-stem) + 続ける (tsuzukeru) means \"to continue doing ~\" or \"to keep doing ~.\" It emphasizes unbroken persistence. 続ける (tsuzukeru) conjugates as an ichidan verb: 続けた (tsuzuketa, past), 続けている (tsuzukete iru, is continuing).\n\nExample from this song:\n廻り続ける (mawari tsuzukeru) — \"keep spinning\"\nThe world keeps spinning — an image of perpetual motion and resilience.\n\nMore examples:\n• 歌い続ける (utai tsuzukeru) — \"keep singing\"\n• 走り続けた (hashiri tsuzuketa) — \"kept running\"\n• 信じ続けよう (shinji tsuzukeyou) — \"let's keep believing\""
+      },
+      "conjugation_path": "廻る (mawaru, \"to spin\") → 廻り (mawari, masu-stem) + 続ける (tsuzukeru) → 廻り続ける (mawari tsuzukeru, \"keep spinning\")"
+    },
+    {
+      "name": "〜にも負けず (ni mo makezu) — without losing to / undaunted by",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works:\nThe pattern Noun + にも (ni mo) + 負けず (makezu) means \"without losing to ~\" or \"undaunted by ~.\" 負ける (makeru) means \"to lose,\" and 負けず (makezu) is its classical negative form (ず = without). This expression is famous from Miyazawa Kenji's poem \"Ame ni mo Makezu\" (\"Not losing to the rain\"). It conveys endurance and resilience.\n\nExample from this song:\n雨にも負けず (ame ni mo makezu) — \"not losing to the rain\"\nA declaration of perseverance against all natural forces and hardships.\n\nMore examples:\n• 風にも負けず (kaze ni mo makezu) — \"not losing to the wind\"\n• 困難にも負けず前に進む (konnan ni mo makezu mae ni susumu) — \"moving forward without losing to difficulties\"\n• 病気にも負けず頑張った (byouki ni mo makezu ganbatta) — \"persevered without losing to illness\""
+      },
+      "conjugation_path": "雨 (ame, \"rain\") + に (ni) + も (mo, \"even\") + 負けず (makezu, \"without losing\") → 雨にも負けず (ame ni mo makezu, \"not losing to the rain\")"
+    }
+  ]
+}

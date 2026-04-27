@@ -1,0 +1,28 @@
+## scenario-saboten (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 1099 | 1099 | 0 | PASS |
+| 2 | 5723 | 5723 | 0 | PASS |
+| 3 | 13615 | 13615 | 0 | PASS |
+| 4 | 22328 | 22328 | 0 | PASS |
+| 5 | 26833 | 26713 | +120 | PASS |
+| 6 | 31107 | 30817 | +290 | PASS |
+| 7 | 36612 | 36612 | 0 | PASS |
+| 8 | 41523 | 41523 | 0 | PASS |
+| 9 | 45184 | 44764 | +420 | PASS |
+| 10 | 50565 | 50505 | +60 | PASS |
+| 11 | 56466 | 56466 | 0 | PASS |
+| 12 | 61467 | 61467 | 0 | PASS |
+| 13 | 65170 | 64149 | +1021 | FAIL (mid-word drift: "何") |
+| 14 | 72335 | 72315 | +20 | PASS |
+| 15 | 79460 | 79460 | 0 | PASS |
+
+VERDICT: 1 verse(s) fail; spot-check FAILS for scenario-saboten.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| scenario-saboten | FAIL |
+
+Overall verdict: FAIL (tolerance: ±500ms)

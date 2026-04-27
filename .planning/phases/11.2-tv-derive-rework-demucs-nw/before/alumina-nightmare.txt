@@ -1,0 +1,22 @@
+## alumina-nightmare (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 668 | 668 | 0 | PASS |
+| 2 | 2130 | 2130 | 0 | PASS |
+| 3 | 4573 | 4573 | 0 | PASS |
+| 4 | 14093 | 14093 | 0 | PASS |
+| 5 | 25904 | 25814 | +90 | PASS |
+| 6 | 30318 | 30318 | 0 | PASS |
+| 7 | 39416 | 39416 | 0 | PASS |
+| 8 | 48903 | 48873 | +30 | PASS |
+| 9 | 49954 | 49954 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for alumina-nightmare.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| alumina-nightmare | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

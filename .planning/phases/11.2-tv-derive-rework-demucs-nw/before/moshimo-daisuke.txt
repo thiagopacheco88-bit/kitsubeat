@@ -1,0 +1,19 @@
+## moshimo-daisuke (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 908 | 908 | 0 | PASS |
+| 2 | 13558 | 13558 | 0 | PASS |
+| 3 | 25808 | 25627 | +181 | PASS |
+| 4 | 30377 | 30377 | 0 | PASS |
+| 5 | 36046 | 36046 | 0 | PASS |
+| 6 | 49483 | 49483 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for moshimo-daisuke.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| moshimo-daisuke | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

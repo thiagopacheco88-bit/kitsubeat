@@ -1,0 +1,2099 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 10814,
+      "end_time_ms": 15447,
+      "tokens": [
+        {
+          "surface": "Tōku",
+          "reading": "とおく",
+          "romaji": "tooku",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "far away (romaji)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "de",
+          "reading": "で",
+          "romaji": "de",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "at; in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "kikoeru",
+          "reading": "きこえる",
+          "romaji": "kikoeru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to hear; audible"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "koe",
+          "reading": "こえ",
+          "romaji": "koe",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "voice",
+            "pt-BR": "voz",
+            "es": "voz"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "wo",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "hinto",
+          "reading": "ひんと",
+          "romaji": "hinto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "hint"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ni",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "as",
+            "pt-BR": "como",
+            "es": "como"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Using the voice heard from far away as a hint.",
+        "pt-BR": "Usando a voz ouvida de longe como uma dica.",
+        "es": "Usando la voz escuchada desde lejos como una pista."
+      },
+      "literal_meaning": {
+        "en": "far + at + audible + voice + object + hint + as"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 15447,
+      "end_time_ms": 23062,
+      "tokens": [
+        {
+          "surface": "Hitori",
+          "reading": "ひとり",
+          "romaji": "hitori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "one person"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "mata",
+          "reading": "また",
+          "romaji": "mata",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "again",
+            "pt-BR": "de novo",
+            "es": "otra vez"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "hitori",
+          "reading": "ひとり",
+          "romaji": "hitori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "one person"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "tachiagaru",
+          "reading": "たちあがる",
+          "romaji": "tachiagaru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to stand up"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "dōshi",
+          "reading": "どうし",
+          "romaji": "doushi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "comrades"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "One by one, comrades stand up.",
+        "pt-BR": "Um por um, os companheiros se levantam.",
+        "es": "Uno por uno, los companeros se levantan."
+      },
+      "literal_meaning": {
+        "en": "one-person + again + one-person + stand-up + comrades"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 23062,
+      "end_time_ms": 30317,
+      "tokens": [
+        {
+          "surface": "Kurikaesu",
+          "reading": "くりかえす",
+          "romaji": "kurikaesu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to repeat",
+            "pt-BR": "repetir",
+            "es": "repetir"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "dake",
+          "reading": "だけ",
+          "romaji": "dake",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "only",
+            "pt-BR": "apenas",
+            "es": "solo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "no",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "fudan",
+          "reading": "ふだん",
+          "romaji": "fudan",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "everyday; usual"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "dōri",
+          "reading": "どおり",
+          "romaji": "doori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "as usual"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "Kutsugaesu",
+          "reading": "くつがえす",
+          "romaji": "kutsugaesu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to overturn"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "junbi",
+          "reading": "じゅんび",
+          "romaji": "junbi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "preparation"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ī",
+          "reading": "いい",
+          "romaji": "ii",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "good",
+            "pt-BR": "bom",
+            "es": "bueno"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ze",
+          "reading": "ぜ",
+          "romaji": "ze",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis (masculine)",
+            "pt-BR": "ênfase (masculino)",
+            "es": "énfasis (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "are",
+          "reading": "あーる",
+          "romaji": "are",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "you",
+          "reading": "ゆー",
+          "romaji": "you",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ready",
+          "reading": "れでぃ",
+          "romaji": "ready",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Just the same old routine of repeating — ready to overturn it all, are you ready?",
+        "pt-BR": "Apenas a mesma rotina se repetindo — prontos para virar tudo, voces estao prontos?",
+        "es": "Solo la misma rutina de siempre repitiendose — listos para cambiarlo todo, estan listos?"
+      },
+      "literal_meaning": {
+        "en": "repeat + only + of + everyday + as-usual / overturn + preparation + good + emphasis + are you ready"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 30317,
+      "end_time_ms": 30947,
+      "tokens": [
+        {
+          "surface": "Karada",
+          "reading": "からだ",
+          "romaji": "karada",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "body",
+            "pt-BR": "corpo",
+            "es": "cuerpo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "naka",
+          "reading": "なか",
+          "romaji": "naka",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "inside",
+            "pt-BR": "dentro",
+            "es": "dentro"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "furuwasu",
+          "reading": "ふるわす",
+          "romaji": "furuwasu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to shake; to vibrate"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "shindō",
+          "reading": "しんどう",
+          "romaji": "shindou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "vibration; tremor"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "ni",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "to",
+            "pt-BR": "para",
+            "es": "para"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "To the vibration shaking through the body.",
+        "pt-BR": "Para a vibracao que sacode o corpo.",
+        "es": "Hacia la vibracion que sacude el cuerpo."
+      },
+      "literal_meaning": {
+        "en": "body + inside + shake + vibration + to"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 30947,
+      "end_time_ms": 31408,
+      "tokens": [
+        {
+          "surface": "Hageshikūchi naraseyostomping",
+          "reading": "Hageshikūchi naraseyostomping",
+          "romaji": "Hageshikūchi naraseyostomping",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 31408,
+      "end_time_ms": 32178,
+      "tokens": [
+        {
+          "surface": "Taezu tsuki ugokasu call me",
+          "reading": "Taezu tsuki ugokasu call me",
+          "romaji": "Taezu tsuki ugokasu call me",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 32178,
+      "end_time_ms": 33719,
+      "tokens": [
+        {
+          "surface": "Kawarazu yuruganu tsukamu story come on!",
+          "reading": "Kawarazu yuruganu tsukamu story come on!",
+          "romaji": "Kawarazu yuruganu tsukamu story come on!",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 33719,
+      "end_time_ms": 34930,
+      "tokens": [
+        {
+          "surface": "Everybody",
+          "reading": "Everybody",
+          "romaji": "Everybody",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "stand",
+          "reading": "stand",
+          "romaji": "stand",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "up",
+          "reading": "up",
+          "romaji": "up",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "Agero",
+          "reading": "あげろ",
+          "romaji": "agero",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "raise it! (imperative)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "kyō",
+          "reading": "きょう",
+          "romaji": "kyou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "today",
+            "pt-BR": "hoje",
+            "es": "hoy"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ichiban",
+          "reading": "いちばん",
+          "romaji": "ichiban",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "number one; the best"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "no",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "jikan",
+          "reading": "じかん",
+          "romaji": "jikan",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "time",
+            "pt-BR": "tempo",
+            "es": "tiempo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "da",
+          "reading": "だ",
+          "romaji": "da",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "copula",
+            "pt-BR": "cópula",
+            "es": "cópula"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Everybody, stand up! Raise it up — today's the best time!",
+        "pt-BR": "Pessoal, levantem! Ergam — hoje e a melhor hora!",
+        "es": "Todos, levantense! Levanten — hoy es el mejor momento!"
+      },
+      "literal_meaning": {
+        "en": "Everybody stand up / raise-it + today + number-one + of + time + is"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 34930,
+      "end_time_ms": 37742,
+      "tokens": [
+        {
+          "surface": "Me",
+          "reading": "め",
+          "romaji": "me",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "eye",
+            "pt-BR": "olho",
+            "es": "ojo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ni",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "to",
+            "pt-BR": "para",
+            "es": "para"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "mo",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "tomaranu",
+          "reading": "とまらぬ",
+          "romaji": "tomaranu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unstoppable (archaic neg.)"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "supīdo",
+          "reading": "すぴーど",
+          "romaji": "supiido",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "speed",
+            "pt-BR": "velocidade",
+            "es": "velocidad"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "hantā",
+          "reading": "はんたー",
+          "romaji": "hantaa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "hunter"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "Daremo",
+          "reading": "だれも",
+          "romaji": "daremo",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "everyone",
+            "pt-BR": "todos",
+            "es": "todos"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ga",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "mina",
+          "reading": "みな",
+          "romaji": "mina",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "everyone; all"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "toriko",
+          "reading": "とりこ",
+          "romaji": "toriko",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "captive; captivated"
+          },
+          "jlpt_level": "N1"
+        }
+      ],
+      "translations": {
+        "en": "Speed hunter so fast the eye can't follow! Everyone is captivated!",
+        "pt-BR": "Cacador de velocidade que os olhos nao conseguem acompanhar! Todos estao cativados!",
+        "es": "Cazador de velocidad que los ojos no pueden seguir! Todos estan cautivados!"
+      },
+      "literal_meaning": {
+        "en": "eye + to + even + unstoppable + speed + hunter / everyone + subject + all + captivated"
+      }
+    },
+    {
+      "verse_number": 10,
+      "start_time_ms": 37742,
+      "end_time_ms": 41733,
+      "tokens": [
+        {
+          "surface": "Everybody",
+          "reading": "Everybody",
+          "romaji": "Everybody",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "hands",
+          "reading": "hands",
+          "romaji": "hands",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "up",
+          "reading": "up",
+          "romaji": "up",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "Matashita",
+          "reading": "またした",
+          "romaji": "matashita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "kept you waiting"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "na",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "right?",
+            "pt-BR": "certo?",
+            "es": "¿verdad?"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "heros",
+          "reading": "ひーろーず",
+          "romaji": "hiirozu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heroes"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "come",
+          "reading": "come",
+          "romaji": "come",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "back",
+          "reading": "back",
+          "romaji": "back",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Everybody, hands up! Sorry to keep you waiting — the heroes come back!",
+        "pt-BR": "Pessoal, maos pra cima! Desculpa a demora — os herois voltaram!",
+        "es": "Todos, manos arriba! Perdon por la espera — los heroes han vuelto!"
+      },
+      "literal_meaning": {
+        "en": "Everybody hands up / kept-you-waiting + right + heroes come back"
+      }
+    },
+    {
+      "verse_number": 11,
+      "start_time_ms": 41733,
+      "end_time_ms": 45415,
+      "tokens": [
+        {
+          "surface": "Zujō",
+          "reading": "ずじょう",
+          "romaji": "zujou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "above one's head"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "kazoeyubi",
+          "reading": "かぞえゆび",
+          "romaji": "kazoeyubi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "counting fingers"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "oru",
+          "reading": "おる",
+          "romaji": "oru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to fold (down)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "countdown",
+          "reading": "countdown",
+          "romaji": "countdown",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "countdown"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "Iku",
+          "reading": "いく",
+          "romaji": "iku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to go; let's go"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ze",
+          "reading": "ぜ",
+          "romaji": "ze",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis (masculine)",
+            "pt-BR": "ênfase (masculino)",
+            "es": "énfasis (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "three",
+          "reading": "three",
+          "romaji": "three",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "two",
+          "reading": "two",
+          "romaji": "two",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "one",
+          "reading": "one",
+          "romaji": "one",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "make",
+          "reading": "make",
+          "romaji": "make",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "some",
+          "reading": "some",
+          "romaji": "some",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "noise",
+          "reading": "noise",
+          "romaji": "noise",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Overhead, folding down counting fingers — countdown! Let's go, three, two, one, make some noise!",
+        "pt-BR": "Acima, dobrando os dedos contando — contagem regressiva! Vamos la, tres, dois, um, facam barulho!",
+        "es": "Arriba, doblando los dedos contando — cuenta regresiva! Vamos, tres, dos, uno, hagan ruido!"
+      },
+      "literal_meaning": {
+        "en": "above-head + counting-fingers + fold + countdown / go + emphasis + three two one make some noise"
+      }
+    },
+    {
+      "verse_number": 12,
+      "start_time_ms": 45415,
+      "end_time_ms": 50187,
+      "tokens": [
+        {
+          "surface": "Yo",
+          "reading": "よ",
+          "romaji": "yo",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "hey (hip-hop interjection)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "mō",
+          "reading": "もう",
+          "romaji": "mou",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "already",
+            "pt-BR": "já",
+            "es": "ya"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "tashō",
+          "reading": "たしょう",
+          "romaji": "tashou",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "somewhat; a little"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "no",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "risuku",
+          "reading": "りすく",
+          "romaji": "risuku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "risk",
+            "pt-BR": "risco",
+            "es": "riesgo"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "wa",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "kakugo",
+          "reading": "かくご",
+          "romaji": "kakugo",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "resolution; readiness"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "desho",
+          "reading": "でしょ",
+          "romaji": "desho",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "right?",
+            "pt-BR": "certo?",
+            "es": "¿verdad?"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Yo, you're already prepared for some risk, right?",
+        "pt-BR": "Ei, voce ja esta preparado para algum risco, ne?",
+        "es": "Oye, ya estas preparado para algo de riesgo, verdad?"
+      },
+      "literal_meaning": {
+        "en": "yo + already + somewhat + of + risk + topic + readiness + right"
+      }
+    },
+    {
+      "verse_number": 13,
+      "start_time_ms": 50187,
+      "end_time_ms": 57450,
+      "tokens": [
+        {
+          "surface": "Nareai janai ze kamihitoe no sesshon",
+          "reading": "Nareai janai ze kamihitoe no sesshon",
+          "romaji": "Nareai janai ze kamihitoe no sesshon",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 14,
+      "start_time_ms": 57450,
+      "end_time_ms": 63382,
+      "tokens": [
+        {
+          "surface": "Tachinobogereba ima ijō kurushimi tomonau",
+          "reading": "Tachinobogereba ima ijō kurushimi tomonau",
+          "romaji": "Tachinobogereba ima ijō kurushimi tomonau",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 15,
+      "start_time_ms": 63382,
+      "end_time_ms": 68884,
+      "tokens": [
+        {
+          "surface": "Soredemo",
+          "reading": "それでも",
+          "romaji": "soredemo",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "even so",
+            "pt-BR": "mesmo assim",
+            "es": "aun así"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "saigo",
+          "reading": "さいご",
+          "romaji": "saigo",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "the end; last"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "wa",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "kitto",
+          "reading": "きっと",
+          "romaji": "kitto",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "surely",
+            "pt-BR": "certamente",
+            "es": "seguramente"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "warau",
+          "reading": "わらう",
+          "romaji": "warau",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to laugh; to smile"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "Subete",
+          "reading": "すべて",
+          "romaji": "subete",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "everything",
+            "pt-BR": "tudo",
+            "es": "todo"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "sarau",
+          "reading": "さらう",
+          "romaji": "sarau",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to sweep away"
+          },
+          "jlpt_level": "N2"
+        }
+      ],
+      "translations": {
+        "en": "Even so, in the end we'll surely laugh. Sweeping everything away with cheers and triumph.",
+        "pt-BR": "Mesmo assim, no final com certeza vamos rir. Varrendo tudo com aplausos e triunfo.",
+        "es": "Aun asi, al final seguramente reiremos. Arrasando con todo con vitores y triunfo."
+      },
+      "literal_meaning": {
+        "en": "even-so + end + topic + surely + laugh / everything + sweep-away"
+      }
+    },
+    {
+      "verse_number": 16,
+      "start_time_ms": 68884,
+      "end_time_ms": 73987,
+      "tokens": [
+        {
+          "surface": "Everybody",
+          "reading": "Everybody",
+          "romaji": "Everybody",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "stand",
+          "reading": "stand",
+          "romaji": "stand",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "up",
+          "reading": "up",
+          "romaji": "up",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "Agero",
+          "reading": "あげろ",
+          "romaji": "agero",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "raise it! (imperative)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "kyō",
+          "reading": "きょう",
+          "romaji": "kyou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "today",
+            "pt-BR": "hoje",
+            "es": "hoy"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ichiban",
+          "reading": "いちばん",
+          "romaji": "ichiban",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "number one; the best"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "no",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "jikan",
+          "reading": "じかん",
+          "romaji": "jikan",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "time",
+            "pt-BR": "tempo",
+            "es": "tiempo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "da",
+          "reading": "だ",
+          "romaji": "da",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "copula",
+            "pt-BR": "cópula",
+            "es": "cópula"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Everybody, stand up! Raise it up — today's the best time!",
+        "pt-BR": "Pessoal, levantem! Ergam — hoje e a melhor hora!",
+        "es": "Todos, levantense! Levanten — hoy es el mejor momento!"
+      },
+      "literal_meaning": {
+        "en": "Everybody stand up / raise-it + today + number-one + of + time + is"
+      }
+    },
+    {
+      "verse_number": 17,
+      "start_time_ms": 73987,
+      "end_time_ms": 77939,
+      "tokens": [
+        {
+          "surface": "Me",
+          "reading": "め",
+          "romaji": "me",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "eye",
+            "pt-BR": "olho",
+            "es": "ojo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ni",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "to",
+            "pt-BR": "para",
+            "es": "para"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "mo",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "tomaranu",
+          "reading": "とまらぬ",
+          "romaji": "tomaranu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unstoppable (archaic neg.)"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "supīdo",
+          "reading": "すぴーど",
+          "romaji": "supiido",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "speed",
+            "pt-BR": "velocidade",
+            "es": "velocidad"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "hantā",
+          "reading": "はんたー",
+          "romaji": "hantaa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "hunter"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "Daremo",
+          "reading": "だれも",
+          "romaji": "daremo",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "everyone",
+            "pt-BR": "todos",
+            "es": "todos"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ga",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "mina",
+          "reading": "みな",
+          "romaji": "mina",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "everyone; all"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "toriko",
+          "reading": "とりこ",
+          "romaji": "toriko",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "captive; captivated"
+          },
+          "jlpt_level": "N1"
+        }
+      ],
+      "translations": {
+        "en": "Speed hunter so fast the eye can't follow! Everyone is captivated!",
+        "pt-BR": "Cacador de velocidade que os olhos nao conseguem acompanhar! Todos estao cativados!",
+        "es": "Cazador de velocidad que los ojos no pueden seguir! Todos estan cautivados!"
+      },
+      "literal_meaning": {
+        "en": "eye + to + even + unstoppable + speed + hunter / everyone + subject + all + captivated"
+      }
+    },
+    {
+      "verse_number": 18,
+      "start_time_ms": 77939,
+      "end_time_ms": 83313,
+      "tokens": [
+        {
+          "surface": "Everybody",
+          "reading": "Everybody",
+          "romaji": "Everybody",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "hands",
+          "reading": "hands",
+          "romaji": "hands",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "up",
+          "reading": "up",
+          "romaji": "up",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "Matashita",
+          "reading": "またした",
+          "romaji": "matashita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "kept you waiting"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "na",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "right?",
+            "pt-BR": "certo?",
+            "es": "¿verdad?"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "heros",
+          "reading": "ひーろーず",
+          "romaji": "hiirozu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heroes"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "come",
+          "reading": "come",
+          "romaji": "come",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "back",
+          "reading": "back",
+          "romaji": "back",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Everybody, hands up! Sorry to keep you waiting — the heroes come back!",
+        "pt-BR": "Pessoal, maos pra cima! Desculpa a demora — os herois voltaram!",
+        "es": "Todos, manos arriba! Perdon por la espera — los heroes han vuelto!"
+      },
+      "literal_meaning": {
+        "en": "Everybody hands up / kept-you-waiting + right + heroes come back"
+      }
+    },
+    {
+      "verse_number": 19,
+      "start_time_ms": 83313,
+      "end_time_ms": 89996,
+      "tokens": [
+        {
+          "surface": "Zujō",
+          "reading": "ずじょう",
+          "romaji": "zujou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "above one's head"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "kazoeyubi",
+          "reading": "かぞえゆび",
+          "romaji": "kazoeyubi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "counting fingers"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "oru",
+          "reading": "おる",
+          "romaji": "oru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to fold (down)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "countdown",
+          "reading": "countdown",
+          "romaji": "countdown",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "countdown"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "Iku",
+          "reading": "いく",
+          "romaji": "iku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to go; let's go"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ze",
+          "reading": "ぜ",
+          "romaji": "ze",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "emphasis (masculine)",
+            "pt-BR": "ênfase (masculino)",
+            "es": "énfasis (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "three",
+          "reading": "three",
+          "romaji": "three",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "two",
+          "reading": "two",
+          "romaji": "two",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "one",
+          "reading": "one",
+          "romaji": "one",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "make",
+          "reading": "make",
+          "romaji": "make",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "some",
+          "reading": "some",
+          "romaji": "some",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "noise",
+          "reading": "noise",
+          "romaji": "noise",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "(English)",
+            "pt-BR": "(inglês)",
+            "es": "(inglés)"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Overhead, folding down counting fingers — countdown! Let's go, three, two, one, make some noise!",
+        "pt-BR": "Acima, dobrando os dedos contando — contagem regressiva! Vamos la, tres, dois, um, facam barulho!",
+        "es": "Arriba, doblando los dedos contando — cuenta regresiva! Vamos, tres, dos, uno, hagan ruido!"
+      },
+      "literal_meaning": {
+        "en": "above-head + counting-fingers + fold + countdown / go + emphasis + three two one make some noise"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "声 (koe)",
+      "reading": "こえ",
+      "romaji": "koe",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "voice",
+        "pt-BR": "voz",
+        "es": "voz"
+      },
+      "example_from_song": "Tōku de kikoeru koe wo hinto ni",
+      "additional_examples": [
+        "声を出す (to speak up)",
+        "大きい声 (loud voice)"
+      ]
+    },
+    {
+      "surface": "一人 (hitori)",
+      "reading": "ひとり",
+      "romaji": "hitori",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "one person; alone"
+      },
+      "example_from_song": "Hitori mata hitori tachiagaru dōshi",
+      "additional_examples": [
+        "一人で行く (to go alone)",
+        "一人暮らし (living alone)"
+      ]
+    },
+    {
+      "surface": "準備 (junbi)",
+      "reading": "じゅんび",
+      "romaji": "junbi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "preparation"
+      },
+      "example_from_song": "Kutsugaesu junbi ī ze",
+      "additional_examples": [
+        "準備する (to prepare)",
+        "準備ができた (preparations are done)"
+      ]
+    },
+    {
+      "surface": "体 (karada)",
+      "reading": "からだ",
+      "romaji": "karada",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "body",
+        "pt-BR": "corpo",
+        "es": "cuerpo"
+      },
+      "example_from_song": "Karada naka furuwasu shindō ni",
+      "additional_examples": [
+        "体を動かす (to move the body)",
+        "体が丈夫 (healthy body)"
+      ]
+    },
+    {
+      "surface": "今日 (kyō)",
+      "reading": "きょう",
+      "romaji": "kyou",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "today",
+        "pt-BR": "hoje",
+        "es": "hoy"
+      },
+      "example_from_song": "Agerokyō ichiban no jikan da",
+      "additional_examples": [
+        "今日は何曜日 (what day is today)",
+        "今日の天気 (today's weather)"
+      ]
+    },
+    {
+      "surface": "覚悟 (kakugo)",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "resolution; readiness"
+      },
+      "example_from_song": "risuku wa kakugo desho",
+      "additional_examples": [
+        "覚悟を決める (to make up one's mind)",
+        "覚悟ができている (to be prepared)"
+      ]
+    },
+    {
+      "surface": "最後 (saigo)",
+      "reading": "さいご",
+      "romaji": "saigo",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "last; end; final"
+      },
+      "example_from_song": "saigo wa kitto warau",
+      "additional_examples": [
+        "最後まで (until the end)",
+        "最後の一人 (the last person)"
+      ]
+    },
+    {
+      "surface": "全て (subete)",
+      "reading": "すべて",
+      "romaji": "subete",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "everything; all",
+        "pt-BR": "tudo; todos",
+        "es": "todo; todos"
+      },
+      "example_from_song": "Subete sarau",
+      "additional_examples": [
+        "全てを失う (to lose everything)",
+        "全ての人 (all people)"
+      ]
+    },
+    {
+      "surface": "立ち上がる (tachiagaru)",
+      "reading": "たちあがる",
+      "romaji": "tachiagaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to stand up; to rise"
+      },
+      "example_from_song": "hitori tachiagaru dōshi",
+      "additional_examples": [
+        "椅子から立ち上がる (to stand up from a chair)",
+        "困難に立ち上がる (to rise against difficulty)"
+      ]
+    },
+    {
+      "surface": "繰り返す (kurikaesu)",
+      "reading": "くりかえす",
+      "romaji": "kurikaesu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to repeat",
+        "pt-BR": "repetir",
+        "es": "repetir"
+      },
+      "example_from_song": "Kurikaesu dake no fudan dōri",
+      "additional_examples": [
+        "同じことを繰り返す (to repeat the same thing)",
+        "歴史は繰り返す (history repeats)"
+      ]
+    },
+    {
+      "surface": "笑う (warau)",
+      "reading": "わらう",
+      "romaji": "warau",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to laugh; to smile"
+      },
+      "example_from_song": "saigo wa kitto warau",
+      "additional_examples": [
+        "楽しく笑う (to laugh happily)",
+        "笑顔 (smiling face)"
+      ]
+    },
+    {
+      "surface": "聞こえる (kikoeru)",
+      "reading": "きこえる",
+      "romaji": "kikoeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to be audible; to hear"
+      },
+      "example_from_song": "Tōku de kikoeru koe",
+      "additional_examples": [
+        "音が聞こえる (a sound can be heard)",
+        "声が聞こえない (can't hear the voice)"
+      ]
+    },
+    {
+      "surface": "一番 (ichiban)",
+      "reading": "いちばん",
+      "romaji": "ichiban",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "number one; the best"
+      },
+      "example_from_song": "kyō ichiban no jikan da",
+      "additional_examples": [
+        "一番好き (favorite)",
+        "一番高い (the tallest)"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜だって (datte: even if)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Add だって (datte) or って (tte) after the past tense of a verb to express 'even if'. After nouns, だって means 'even [noun]'.\n\nExample from this song: 転んだって (korondatte) = 'even if you fall down' — from 転ぶ (korobu, 'to fall') → 転んだ (koronda, past) + って (tte, 'even if')\n\nMore examples:\n• 失敗する (shippai suru, 'to fail') → 失敗したって (shippai shitatte, 'even if you fail')\n• 泣く (naku, 'to cry') → 泣いたって (naitatte, 'even if you cry')\n• 何 (nani, 'what') → 何だって (nan datte, 'anything/no matter what')\n\nNote: たって is the casual version of ても (temo). Both mean 'even if': 転んでも = 転んだって. たって/だって is more colloquial and common in hip-hop lyrics like this song."
+      },
+      "conjugation_path": "転ぶ (korobu, 'to fall') → 転んだ (koronda, past) + って (tte, 'even if') → 転んだって (korondatte, 'even if you fall')"
+    },
+    {
+      "name": "〜ぜ (ze: masculine emphasis)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add ぜ (ze) at the end of a sentence for strong masculine assertion. It conveys confidence, excitement, and determination. Very common in hip-hop and shonen anime.\n\nExample from this song: いいぜ (ii ze) = 'It's good!' / 行くぜ (iku ze) = 'Let's go!' — ぜ turns statements into confident declarations.\n\nMore examples:\n• やる (yaru, 'to do') → やるぜ (yaru ze, 'I'll do it, yeah!')\n• 負けない (makenai, 'won't lose') → 負けないぜ (makenai ze, 'I won't lose!')\n• 最高 (saikou, 'the best') → 最高だぜ (saikou da ze, 'It's the best!')\n\nNote: ぜ is strongly masculine and casual. Using it in formal settings would be inappropriate. In this hip-hop track, it perfectly matches the high-energy, confident tone. Strength ranking: ぞ (strongest) > ぜ > よ (mildest)."
+      },
+      "conjugation_path": "いい (ii, 'good') + ぜ (ze, emphasis) → いいぜ (ii ze, 'It's good!') / 行く (iku, 'to go') + ぜ (ze) → 行くぜ (iku ze, 'Let's go!')"
+    },
+    {
+      "name": "〜となる (to naru: to become)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Use noun + と (to) + なる (naru, 'to become') to express transformation — something becomes something else. と marks what it transforms into.\n\nExample from this song: 勇気となる (yuuki to naru) = 'becomes courage' — from 勇気 (yuuki, 'courage') + と (to, 'into') + なる (naru, 'to become')\n\nMore examples:\n• 力 (chikara, 'strength') → 力となる (chikara to naru, 'becomes strength')\n• 光 (hikari, 'light') → 光となる (hikari to naru, 'becomes light')\n• 問題 (mondai, 'problem') → 問題となる (mondai to naru, 'becomes a problem')\n\nNote: となる is slightly more formal/literary than になる (ni naru). Both mean 'become', but となる often implies a more significant or dramatic transformation. In songs and literature, となる adds weight."
+      },
+      "conjugation_path": "勇気 (yuuki, 'courage') + と (to, 'into') + なる (naru, 'to become') → 勇気となる (yuuki to naru, 'becomes courage')"
+    },
+    {
+      "name": "〜でしょ (desho: right?; isn't it?)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add でしょ (desho) at the end of a statement to seek confirmation or express assumption — 'right?' or 'isn't it?'. It's the casual form of でしょう (deshou).\n\nExample from this song: 覚悟でしょ (kakugo desho) = 'you're prepared, right?' — from 覚悟 (kakugo, 'readiness/resolve') + でしょ (desho, 'right?')\n\nMore examples:\n• 分かる (wakaru, 'to understand') → 分かるでしょ (wakaru desho, 'you understand, right?')\n• 寒い (samui, 'cold') → 寒いでしょ (samui desho, 'it's cold, right?')\n• 本当 (hontou, 'true') → 本当でしょ (hontou desho, 'it's true, right?')\n\nNote: With rising intonation, でしょ seeks confirmation. With falling intonation, it asserts 'I told you so'. でしょう (long form) is more polite; でしょ (short) is casual."
+      },
+      "conjugation_path": "覚悟 (kakugo, 'resolve') + でしょ (desho, 'right?') → 覚悟でしょ (kakugo desho, 'you're prepared, right?')"
+    },
+    {
+      "name": "命令形 (imperative form)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Change the verb ending to create a direct command. For -ru verbs (ichidan), replace る with ろ. For -u verbs (godan), change the final syllable to its え-row equivalent.\n\nExample from this song: 上げろ (agero) = 'Raise it!' — from 上げる (ageru, 'to raise') → replace る with ろ = 上げろ (agero)\n\nMore examples:\n• 立つ (tatsu, 'to stand') → 立て (tate, 'Stand up!')\n• 見る (miru, 'to look') → 見ろ (miro, 'Look!')\n• 来る (kuru, 'to come') → 来い (koi, 'Come!') — irregular\n\nNote: In this hip-hop track, the imperative carries rallying energy — 'raise your voice!' 'stand up!' Ichidan: る→ろ. Godan: final syllable → え-row. Irregulars: する→しろ (shiro), 来る→来い (koi)."
+      },
+      "conjugation_path": "上げる (ageru, 'to raise') → 上げろ (agero, 'Raise it!')"
+    },
+    {
+      "name": "〜だけ (dake: only; just)",
+      "jlpt_reference": "JLPT N5",
+      "explanation": {
+        "en": "How it works: Add だけ (dake) after a noun, verb, or number to restrict meaning to 'only' or 'just'. It limits the scope to exactly what's mentioned.\n\nExample from this song: 繰り返すだけの (kurikaesu dake no) = 'just/only repeating' — from 繰り返す (kurikaesu, 'to repeat') + だけ (dake, 'only') + の (no, connecting)\n\nMore examples:\n• 一つ (hitotsu, 'one') → 一つだけ (hitotsu dake, 'just one')\n• 見る (miru, 'to see') → 見るだけ (miru dake, 'just looking')\n• 少し (sukoshi, 'a little') → 少しだけ (sukoshi dake, 'just a little')\n\nNote: だけ is neutral — it simply limits. Compare with しか (shika) + negative, which implies disappointment: 一つだけある (hitotsu dake aru, 'there's just one') vs. 一つしかない (hitotsu shika nai, 'there's only one [unfortunately]')."
+      },
+      "conjugation_path": "繰り返す (kurikaesu, 'to repeat') + だけ (dake, 'only') + の (no) → 繰り返すだけの (kurikaesu dake no, 'just repeating')"
+    }
+  ]
+}

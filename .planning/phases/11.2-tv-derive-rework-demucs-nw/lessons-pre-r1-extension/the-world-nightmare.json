@@ -1,0 +1,795 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "advanced",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 2163,
+      "end_time_ms": 7140,
+      "tokens": [
+        {
+          "surface": "広がる",
+          "reading": "ひろがる",
+          "romaji": "hirogaru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to spread"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "闇",
+          "reading": "やみ",
+          "romaji": "yami",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "darkness",
+            "pt-BR": "escuridão",
+            "es": "oscuridad"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "中",
+          "reading": "なか",
+          "romaji": "naka",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "inside",
+            "pt-BR": "dentro",
+            "es": "dentro"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "交わし",
+          "reading": "かわし",
+          "romaji": "kawashi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to exchange"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "合った",
+          "reading": "あった",
+          "romaji": "atta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "together (mutual action)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "革命",
+          "reading": "かくめい",
+          "romaji": "kakumei",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "revolution",
+            "pt-BR": "revolução",
+            "es": "revolución"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "契り",
+          "reading": "ちぎり",
+          "romaji": "chigiri",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "oath; vow",
+            "pt-BR": "juramento; voto",
+            "es": "juramento; voto"
+          },
+          "jlpt_level": "N1"
+        }
+      ],
+      "translations": {
+        "en": "In the spreading darkness, we exchanged a revolutionary oath",
+        "pt-BR": "Na escuridao que se espalha, trocamos um juramento revolucionario",
+        "es": "En la oscuridad que se extiende, intercambiamos un juramento revolucionario"
+      },
+      "literal_meaning": {
+        "en": "spreading darkness's inside / exchanged-together / revolution's oath"
+      },
+      "cultural_context": {
+        "en": "Directly references Light Yagami's messianic delusion in Death Note - the 'revolutionary oath' mirrors his pact with the Death Note to create a new world"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 7140,
+      "end_time_ms": 20823,
+      "tokens": [
+        {
+          "surface": "誰",
+          "reading": "だれ",
+          "romaji": "dare",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "who; anyone"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "by (agent)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "also; even",
+            "pt-BR": "também; mesmo",
+            "es": "también; incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "邪魔",
+          "reading": "じゃま",
+          "romaji": "jama",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "hindrance; obstacle"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "させる",
+          "reading": "させる",
+          "romaji": "saseru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to let/make do"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ワケにはいかない",
+          "reading": "わけにはいかない",
+          "romaji": "wake ni wa ikanai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "cannot allow; must not"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "から",
+          "reading": "から",
+          "romaji": "kara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "because",
+            "pt-BR": "porque",
+            "es": "porque"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Because I can't let anyone get in the way",
+        "pt-BR": "Porque nao posso deixar ninguem atrapalhar",
+        "es": "Porque no puedo dejar que nadie interfiera"
+      },
+      "literal_meaning": {
+        "en": "anyone-by-even / hindrance / let-do / cannot-allow / because"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 20823,
+      "end_time_ms": 41728,
+      "tokens": [
+        {
+          "surface": "誰もが",
+          "reading": "だれもが",
+          "romaji": "dare mo ga",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "everyone",
+            "pt-BR": "todos",
+            "es": "todos"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "望んだ",
+          "reading": "のぞんだ",
+          "romaji": "nozonda",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "wished for"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "終幕",
+          "reading": "しゅうまく",
+          "romaji": "shuumaku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "final act; curtain fall"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "The final act that everyone wished for...",
+        "pt-BR": "O ato final que todos desejaram...",
+        "es": "El acto final que todos deseaban..."
+      },
+      "literal_meaning": {
+        "en": "everyone (subj) / wished-for / final-act (obj)"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 41728,
+      "end_time_ms": 57757,
+      "tokens": [
+        {
+          "surface": "広がる",
+          "reading": "ひろがる",
+          "romaji": "hirogaru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to spread"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "闇",
+          "reading": "やみ",
+          "romaji": "yami",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "darkness",
+            "pt-BR": "escuridão",
+            "es": "oscuridad"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "中",
+          "reading": "なか",
+          "romaji": "naka",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "inside",
+            "pt-BR": "dentro",
+            "es": "dentro"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "交わし",
+          "reading": "かわし",
+          "romaji": "kawashi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to exchange"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "合った",
+          "reading": "あった",
+          "romaji": "atta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "together (mutual action)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "革命",
+          "reading": "かくめい",
+          "romaji": "kakumei",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "revolution",
+            "pt-BR": "revolução",
+            "es": "revolución"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "契り",
+          "reading": "ちぎり",
+          "romaji": "chigiri",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "oath; vow",
+            "pt-BR": "juramento; voto",
+            "es": "juramento; voto"
+          },
+          "jlpt_level": "N1"
+        }
+      ],
+      "translations": {
+        "en": "In the spreading darkness, we exchanged a revolutionary oath",
+        "pt-BR": "Na escuridao que se espalha, trocamos um juramento revolucionario",
+        "es": "En la oscuridad que se extiende, intercambiamos un juramento revolucionario"
+      },
+      "literal_meaning": {
+        "en": "spreading darkness's inside / exchanged-together / revolution's oath"
+      },
+      "cultural_context": {
+        "en": "Directly references Light Yagami's messianic delusion in Death Note - the 'revolutionary oath' mirrors his pact with the Death Note to create a new world"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 57757,
+      "end_time_ms": 63008,
+      "tokens": [
+        {
+          "surface": "いつか",
+          "reading": "いつか",
+          "romaji": "itsuka",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "someday",
+            "pt-BR": "algum dia",
+            "es": "algún día"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "僕",
+          "reading": "ぼく",
+          "romaji": "boku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "I (masculine)",
+            "pt-BR": "eu (masculino)",
+            "es": "yo (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "見せて",
+          "reading": "みせて",
+          "romaji": "misete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "show (te-form)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "あげる",
+          "reading": "あげる",
+          "romaji": "ageru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to give (do for someone)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "光り輝く",
+          "reading": "ひかりかがやく",
+          "romaji": "hikari kagayaku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to shine brilliantly"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "世界",
+          "reading": "せかい",
+          "romaji": "sekai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "world",
+            "pt-BR": "mundo",
+            "es": "mundo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Someday I will show you a brilliantly shining world",
+        "pt-BR": "Um dia eu vou te mostrar um mundo brilhantemente resplandecente",
+        "es": "Algun dia te mostrare un mundo brillantemente resplandeciente"
+      },
+      "literal_meaning": {
+        "en": "someday / I (subj) / show-and / give / shining-brilliantly / world (obj)"
+      },
+      "cultural_context": {
+        "en": "The title 'the WORLD' and the final line about showing a shining world directly mirror Light's god complex - his desire to remake the world through the Death Note"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "広がる",
+      "reading": "ひろがる",
+      "romaji": "hirogaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to spread; to extend; to stretch out",
+        "pt-BR": "espalhar-se; estender-se; alastrar-se",
+        "es": "extenderse; expandirse; propagarse"
+      },
+      "example_from_song": "広がる闇の中 交わし合った 革命の契り",
+      "additional_examples": [
+        "噂が広がる",
+        "目の前に海が広がる"
+      ]
+    },
+    {
+      "surface": "闇",
+      "reading": "やみ",
+      "romaji": "yami",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "darkness; the dark",
+        "pt-BR": "escuridão; trevas",
+        "es": "oscuridad; tinieblas"
+      },
+      "example_from_song": "広がる闇の中 交わし合った 革命の契り",
+      "additional_examples": [
+        "闇の中を歩く",
+        "心の闇"
+      ]
+    },
+    {
+      "surface": "交わす",
+      "reading": "かわす",
+      "romaji": "kawasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to exchange (words, glances, promises)",
+        "pt-BR": "trocar (palavras, olhares, promessas)",
+        "es": "intercambiar (palabras, miradas, promesas)"
+      },
+      "example_from_song": "広がる闇の中 交わし合った 革命の契り",
+      "additional_examples": [
+        "挨拶を交わす",
+        "約束を交わす"
+      ]
+    },
+    {
+      "surface": "革命",
+      "reading": "かくめい",
+      "romaji": "kakumei",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "revolution",
+        "pt-BR": "revolução",
+        "es": "revolución"
+      },
+      "example_from_song": "広がる闇の中 交わし合った 革命の契り",
+      "additional_examples": [
+        "産業革命",
+        "革命を起こす"
+      ]
+    },
+    {
+      "surface": "契り",
+      "reading": "ちぎり",
+      "romaji": "chigiri",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "pledge; vow; bond (literary)",
+        "pt-BR": "juramento; voto; promessa (literário)",
+        "es": "juramento; voto; promesa (literario)"
+      },
+      "example_from_song": "広がる闇の中 交わし合った 革命の契り",
+      "additional_examples": [
+        "固い契り",
+        "永遠の契り"
+      ]
+    },
+    {
+      "surface": "邪魔",
+      "reading": "じゃま",
+      "romaji": "jama",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "hindrance; obstacle; nuisance",
+        "pt-BR": "estorvo; obstáculo; incômodo",
+        "es": "estorbo; obstáculo; molestia"
+      },
+      "example_from_song": "誰にも邪魔させるワケにはいかないから",
+      "additional_examples": [
+        "邪魔をするな",
+        "お邪魔します"
+      ]
+    },
+    {
+      "surface": "する",
+      "reading": "する",
+      "romaji": "suru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to do; to make",
+        "pt-BR": "fazer",
+        "es": "hacer"
+      },
+      "example_from_song": "誰にも邪魔させるワケにはいかないから",
+      "additional_examples": [
+        "勉強をする",
+        "買い物をする"
+      ]
+    },
+    {
+      "surface": "ワケ",
+      "reading": "わけ",
+      "romaji": "wake",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "reason; circumstance; meaning",
+        "pt-BR": "razão; motivo; circunstância",
+        "es": "razón; motivo; circunstancia"
+      },
+      "example_from_song": "誰にも邪魔させるワケにはいかないから",
+      "additional_examples": [
+        "そういうわけだ",
+        "わけがわからない"
+      ]
+    },
+    {
+      "surface": "いく",
+      "reading": "いく",
+      "romaji": "iku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to go; to proceed",
+        "pt-BR": "ir; seguir",
+        "es": "ir; proceder"
+      },
+      "example_from_song": "誰にも邪魔させるワケにはいかないから",
+      "additional_examples": [
+        "学校へいく",
+        "うまくいく"
+      ]
+    },
+    {
+      "surface": "望む",
+      "reading": "のぞむ",
+      "romaji": "nozomu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to wish for; to hope for; to desire",
+        "pt-BR": "desejar; esperar; almejar",
+        "es": "desear; esperar; anhelar"
+      },
+      "example_from_song": "誰もが望んだ「終幕」を...",
+      "additional_examples": [
+        "平和を望む",
+        "成功を望む"
+      ]
+    },
+    {
+      "surface": "終幕",
+      "reading": "しゅうまく",
+      "romaji": "shuumaku",
+      "part_of_speech": "noun",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "final act; curtain-fall; ending (of a play)",
+        "pt-BR": "ato final; queda do pano; desfecho",
+        "es": "acto final; caída del telón; desenlace"
+      },
+      "example_from_song": "誰もが望んだ「終幕」を...",
+      "additional_examples": [
+        "物語の終幕",
+        "終幕を迎える"
+      ]
+    },
+    {
+      "surface": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "world",
+        "pt-BR": "mundo",
+        "es": "mundo"
+      },
+      "example_from_song": "光り輝く世界を",
+      "additional_examples": [
+        "広い世界",
+        "世界中を旅する"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜故に (yue ni - because of)",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "A literary and formal way to say \"because of\" or \"due to.\" It sounds much more elegant than the everyday から (kara) or ので (node). You will mostly find it in written Japanese, poetry, and song lyrics.\n\nHow it works:\nAttach 故に (yue ni) after a verb in past tense, a noun, or a na-adjective + な. It marks the reason or cause for what follows.\n\nExample from this song:\n愛した故に芽生えた悪の花 (aishita yue ni mebaeta aku no hana, \"Because I loved, a flower of evil bloomed\")\n\nMore examples:\n- 若さ故に (wakasa yue ni, \"because of youth\")\n- 知らなかった故に (shiranakatta yue ni, \"because I did not know\")\n- 彼女が好きだった故に (kanojo ga suki datta yue ni, \"because I liked her\")"
+      },
+      "conjugation_path": "愛する (aisuru) → 愛した (aishita) → 愛した故に (aishita yue ni)"
+    },
+    {
+      "name": "〜であろう (de arou - probably is/will be)",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "A formal way to express conjecture or probability, similar to \"will probably be\" or \"is likely.\" This is the volitional form of である (de aru), which is the formal equivalent of だ (da). You will encounter it in literature, formal speeches, and dramatic lyrics.\n\nHow it works:\nPlace であろう (de arou) after a noun or na-adjective stem. It replaces だろう (darou) in formal/literary registers.\n\nExample from this song:\nこれから先訪れるであろう全てを (korekara saki otozureru de arou subete o, \"Everything that will likely come from here on\")\n\nMore examples:\n- 困難であろう (konnan de arou, \"it will probably be difficult\")\n- 彼は天才であろう (kare wa tensai de arou, \"he is probably a genius\")\n- 正しいであろう判断 (tadashii de arou handan, \"a judgment that is probably correct\")"
+      },
+      "conjugation_path": "である (de aru) → であろう (de arou, volitional conjecture)"
+    },
+    {
+      "name": "〜ワケにはいかない (wake ni wa ikanai - cannot do)",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "Expresses that something \"cannot be done\" due to social, moral, or situational reasons. It is stronger than できない (dekinai, \"cannot\") because it implies the speaker feels a moral or social obligation not to do something.\n\nHow it works:\nAttach ワケにはいかない (wake ni wa ikanai) after the dictionary form of a verb. The verb describes the action that is unacceptable.\n\nExample from this song:\n誰にも邪魔させるワケにはいかないから (dare ni mo jama saseru wake ni wa ikanai kara, \"Because I cannot allow anyone to get in the way\")\n\nMore examples:\n- ここで諦めるワケにはいかない (koko de akirameru wake ni wa ikanai, \"I cannot give up here\")\n- 嘘をつくワケにはいかない (uso o tsuku wake ni wa ikanai, \"I cannot tell a lie\")\n- 友達を裏切るワケにはいかない (tomodachi o uragiru wake ni wa ikanai, \"I cannot betray my friend\")"
+      },
+      "conjugation_path": "邪魔する (jama suru) → 邪魔させる (jama saseru, causative) + ワケにはいかない (wake ni wa ikanai)"
+    },
+    {
+      "name": "〜させる (saseru - causative form)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "The causative form expresses \"make someone do\" or \"let someone do\" something. It is one of the key verb conjugations in Japanese.\n\nHow it works:\nFor ichidan (ru-) verbs: drop る (ru) and add させる (saseru).\nFor godan (u-) verbs: change the last vowel to the あ (a) column and add せる (seru).\n\nExample from this song:\n誰にも邪魔させるワケにはいかない (dare ni mo jama saseru wake ni wa ikanai, \"I cannot let anyone interfere\")\n\nMore examples:\n- 子供を遊ばせる (kodomo o asobaseru, \"to let the child play\")\n- 食べさせる (tabesaseru, \"to make/let someone eat\")\n- 先生が学生に本を読ませた (sensei ga gakusei ni hon o yomaseta, \"The teacher made the students read a book\")"
+      },
+      "conjugation_path": "邪魔する (jama suru) → 邪魔させる (jama saseru, causative)"
+    },
+    {
+      "name": "〜てあげる (te ageru - do for someone)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "Expresses doing something as a favor for someone else. It adds a \"giving\" nuance to the action, meaning \"I will do [this] for you.\"\n\nHow it works:\nTake the て-form (te-form) of a verb and add あげる (ageru). The subject does the action for the benefit of another person.\n\nExample from this song:\nいつか僕が見せてあげる光り輝く世界を (itsuka boku ga misete ageru hikari kagayaku sekai o, \"Someday I will show you a brilliantly shining world\")\n\nMore examples:\n- 教えてあげる (oshiete ageru, \"I will teach you\")\n- 手伝ってあげた (tetsudatte ageta, \"I helped them out\")\n- 作ってあげよう (tsukutte ageyou, \"Let me make it for you\")"
+      },
+      "conjugation_path": "見せる (miseru) → 見せて (misete) → 見せてあげる (misete ageru)"
+    },
+    {
+      "name": "〜合う (au - mutual/reciprocal action)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "When attached to a verb stem, 合う (au) indicates that two or more people do an action to/for each other. It turns a one-way action into a mutual, reciprocal one.\n\nHow it works:\nTake the masu-stem of a verb (remove ます) and add 合う (au). This creates a compound verb meaning \"do X together/to each other.\"\n\nExample from this song:\n交わし合った革命の契り (kawashi atta kakumei no chigiri, \"The revolutionary oath we exchanged together\")\n\nMore examples:\n- 助け合う (tasuke au, \"to help each other\")\n- 話し合う (hanashi au, \"to discuss together\")\n- 愛し合う (aishi au, \"to love each other\")"
+      },
+      "conjugation_path": "交わす (kawasu) → 交わし (kawashi, masu-stem) + 合う (au) → 交わし合う (kawashi au)"
+    }
+  ]
+}

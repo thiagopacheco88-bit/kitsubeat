@@ -1,0 +1,1540 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 1114,
+      "end_time_ms": 6998,
+      "tokens": [
+        {
+          "surface": "はばたいたら",
+          "reading": "はばたいたら",
+          "romaji": "habataitara",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "if I flap my wings"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "戻らない",
+          "reading": "もどらない",
+          "romaji": "modoranai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "won't return"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "quotation",
+            "pt-BR": "citação",
+            "es": "cita"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "言って",
+          "reading": "いって",
+          "romaji": "itte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "saying"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Saying 'if I spread my wings, I won't come back,'",
+        "pt-BR": "Dizendo 'se eu bater minhas asas, nao voltarei,'",
+        "es": "Diciendo 'si bato mis alas, no volvere,'"
+      },
+      "literal_meaning": {
+        "en": "if-flap-wings + won't-return + quotation + saying"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 6998,
+      "end_time_ms": 12881,
+      "tokens": [
+        {
+          "surface": "目指した",
+          "reading": "めざした",
+          "romaji": "mezashita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "aimed for",
+            "pt-BR": "mirou em",
+            "es": "apuntó a"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "nominalizer",
+            "pt-BR": "nominalizador",
+            "es": "nominalizador"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "蒼い",
+          "reading": "あおい",
+          "romaji": "aoi",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "blue",
+            "pt-BR": "azul",
+            "es": "azul"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "蒼い",
+          "reading": "あおい",
+          "romaji": "aoi",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "blue",
+            "pt-BR": "azul",
+            "es": "azul"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "あの",
+          "reading": "あの",
+          "romaji": "ano",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "空",
+          "reading": "そら",
+          "romaji": "sora",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sky",
+            "pt-BR": "céu",
+            "es": "cielo"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "what I aimed for was that blue, blue sky.",
+        "pt-BR": "o que eu almejava era aquele ceu azul, azul.",
+        "es": "lo que apuntaba era aquel cielo azul, azul."
+      },
+      "literal_meaning": {
+        "en": "aimed-for + nominalizer + topic + blue + blue + that + sky"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 12881,
+      "end_time_ms": 23161,
+      "tokens": [
+        {
+          "surface": "悲しみ",
+          "reading": "かなしみ",
+          "romaji": "kanashimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sadness",
+            "pt-BR": "tristeza",
+            "es": "tristeza"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "まだ",
+          "reading": "まだ",
+          "romaji": "mada",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "still; not yet",
+            "pt-BR": "ainda; ainda não",
+            "es": "aún; todavía no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "覚えられず",
+          "reading": "おぼえられず",
+          "romaji": "oboerarazu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unable to remember (literary neg.)"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "Unable to yet grasp what 'sadness' is,",
+        "pt-BR": "Ainda incapaz de entender o que e 'tristeza',",
+        "es": "Aun incapaz de comprender que es la 'tristeza',"
+      },
+      "literal_meaning": {
+        "en": "sadness + topic + not-yet + unable-to-remember"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 23161,
+      "end_time_ms": 26302,
+      "tokens": [
+        {
+          "surface": "切なさ",
+          "reading": "せつなさ",
+          "romaji": "setsunasa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "bittersweet pain"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "今",
+          "reading": "いま",
+          "romaji": "ima",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "now",
+            "pt-BR": "agora",
+            "es": "ahora"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "つかみ",
+          "reading": "つかみ",
+          "romaji": "tsukami",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "grasping"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "はじめた",
+          "reading": "はじめた",
+          "romaji": "hajimeta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "began"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "I've just begun to grasp 'bittersweet pain.'",
+        "pt-BR": "Eu acabei de comecar a entender a 'dor agridoce.'",
+        "es": "Acabo de empezar a comprender el 'dolor agridulce.'"
+      },
+      "literal_meaning": {
+        "en": "bittersweet-pain + topic + now + grasping + began"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 26302,
+      "end_time_ms": 29663,
+      "tokens": [
+        {
+          "surface": "あなた",
+          "reading": "あなた",
+          "romaji": "anata",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "へ",
+          "reading": "へ",
+          "romaji": "e",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward",
+            "pt-BR": "em direção a",
+            "es": "hacia"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward (emphatic)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "抱く",
+          "reading": "いだく",
+          "romaji": "idaku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to hold; to embrace"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "this",
+            "pt-BR": "isto",
+            "es": "esto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "感情",
+          "reading": "かんじょう",
+          "romaji": "kanjou",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "emotion",
+            "pt-BR": "emoção",
+            "es": "emoción"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "also",
+            "pt-BR": "também",
+            "es": "también"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Even these feelings I hold toward you,",
+        "pt-BR": "Ate esses sentimentos que tenho por voce,",
+        "es": "Incluso estos sentimientos que tengo hacia ti,"
+      },
+      "literal_meaning": {
+        "en": "you + toward + holding + this + emotion + also"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 29663,
+      "end_time_ms": 32645,
+      "tokens": [
+        {
+          "surface": "今",
+          "reading": "いま",
+          "romaji": "ima",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "now",
+            "pt-BR": "agora",
+            "es": "ahora"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "言葉",
+          "reading": "ことば",
+          "romaji": "kotoba",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "words",
+            "pt-BR": "palavras",
+            "es": "palabras"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "into",
+            "pt-BR": "para dentro",
+            "es": "hacia dentro"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "変わって",
+          "reading": "かわって",
+          "romaji": "kawatte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "changing"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "いく",
+          "reading": "いく",
+          "romaji": "iku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "going (gradual change)"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "are now turning into words.",
+        "pt-BR": "estao agora se transformando em palavras.",
+        "es": "se estan convirtiendo ahora en palabras."
+      },
+      "literal_meaning": {
+        "en": "now + words + into + changing + going"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 32645,
+      "end_time_ms": 35806,
+      "tokens": [
+        {
+          "surface": "未知",
+          "reading": "みち",
+          "romaji": "michi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "unknown"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "なる",
+          "reading": "なる",
+          "romaji": "naru",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "becoming (literary)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "世界",
+          "reading": "せかい",
+          "romaji": "sekai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "world",
+            "pt-BR": "mundo",
+            "es": "mundo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "From the dream of an unknown world,",
+        "pt-BR": "Do sonho de um mundo desconhecido,",
+        "es": "Del sueno de un mundo desconocido,"
+      },
+      "literal_meaning": {
+        "en": "unknown + becoming + world + of"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 35806,
+      "end_time_ms": 38967,
+      "tokens": [
+        {
+          "surface": "ゆめ",
+          "reading": "ゆめ",
+          "romaji": "yume",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "dream",
+            "pt-BR": "sonho",
+            "es": "sueño"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "から",
+          "reading": "から",
+          "romaji": "kara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "from",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "目覚めて",
+          "reading": "めざめて",
+          "romaji": "mezamete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "awakening"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "awakening from a dream,",
+        "pt-BR": "despertando de um sonho,",
+        "es": "despertando de un sueno,"
+      },
+      "literal_meaning": {
+        "en": "dream + from + awakening"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 38967,
+      "end_time_ms": 43869,
+      "tokens": [
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "these"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "羽根",
+          "reading": "はね",
+          "romaji": "hane",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "wings; feathers",
+            "pt-BR": "asas; penas",
+            "es": "alas; plumas"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "広げ",
+          "reading": "ひろげ",
+          "romaji": "hiroge",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "spreading"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "飛び立つ",
+          "reading": "とびたつ",
+          "romaji": "tobitatsu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to take flight",
+            "pt-BR": "levantar voo",
+            "es": "alzar vuelo"
+          },
+          "jlpt_level": "N2"
+        }
+      ],
+      "translations": {
+        "en": "I spread these wings and take flight.",
+        "pt-BR": "Eu abro essas asas e levanto voo.",
+        "es": "Extiendo estas alas y emprendo el vuelo."
+      },
+      "literal_meaning": {
+        "en": "these + wings + object + spreading + take-flight"
+      }
+    },
+    {
+      "verse_number": 10,
+      "start_time_ms": 43869,
+      "end_time_ms": 51193,
+      "tokens": [
+        {
+          "surface": "はばたいたら",
+          "reading": "はばたいたら",
+          "romaji": "habataitara",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "if I flap my wings"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "戻らない",
+          "reading": "もどらない",
+          "romaji": "modoranai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "won't return"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "quotation",
+            "pt-BR": "citação",
+            "es": "cita"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "言って",
+          "reading": "いって",
+          "romaji": "itte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "saying"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Saying 'if I spread my wings, I won't come back,'",
+        "pt-BR": "Dizendo 'se eu bater minhas asas, nao voltarei,'",
+        "es": "Diciendo 'si bato mis alas, no volvere,'"
+      },
+      "literal_meaning": {
+        "en": "if-flap-wings + won't-return + quotation + saying"
+      }
+    },
+    {
+      "verse_number": 11,
+      "start_time_ms": 51193,
+      "end_time_ms": 57608,
+      "tokens": [
+        {
+          "surface": "目指した",
+          "reading": "めざした",
+          "romaji": "mezashita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "aimed for",
+            "pt-BR": "mirou em",
+            "es": "apuntó a"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "nominalizer",
+            "pt-BR": "nominalizador",
+            "es": "nominalizador"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "白い",
+          "reading": "しろい",
+          "romaji": "shiroi",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "white",
+            "pt-BR": "branco",
+            "es": "blanco"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "白い",
+          "reading": "しろい",
+          "romaji": "shiroi",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "white",
+            "pt-BR": "branco",
+            "es": "blanco"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "あの",
+          "reading": "あの",
+          "romaji": "ano",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "雲",
+          "reading": "くも",
+          "romaji": "kumo",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "cloud",
+            "pt-BR": "nuvem",
+            "es": "nube"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "What I aimed for was that white, white cloud.",
+        "pt-BR": "O que eu almejava era aquela nuvem branca, branca.",
+        "es": "Lo que apuntaba era aquella nube blanca, blanca."
+      },
+      "literal_meaning": {
+        "en": "aimed-for + nominalizer + topic + white + white + that + cloud"
+      }
+    },
+    {
+      "verse_number": 12,
+      "start_time_ms": 57608,
+      "end_time_ms": 64523,
+      "tokens": [
+        {
+          "surface": "突き抜けたら",
+          "reading": "つきぬけたら",
+          "romaji": "tsukinuketara",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "if I break through"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "みつかる",
+          "reading": "みつかる",
+          "romaji": "mitsukaru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to be found",
+            "pt-BR": "ser encontrado",
+            "es": "ser encontrado"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "quotation",
+            "pt-BR": "citação",
+            "es": "cita"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "知って",
+          "reading": "しって",
+          "romaji": "shitte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "knowing",
+            "pt-BR": "sabendo",
+            "es": "sabiendo"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Knowing that if I break through, I'll find it,",
+        "pt-BR": "Sabendo que se eu romper, vou encontrar,",
+        "es": "Sabiendo que si atravieso, lo encontrare,"
+      },
+      "literal_meaning": {
+        "en": "if-break-through + be-found + quotation + knowing"
+      }
+    },
+    {
+      "verse_number": 13,
+      "start_time_ms": 64523,
+      "end_time_ms": 71528,
+      "tokens": [
+        {
+          "surface": "振り切る",
+          "reading": "ふりきる",
+          "romaji": "furikiru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to shake off; to push through"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "ほど",
+          "reading": "ほど",
+          "romaji": "hodo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "to the extent",
+            "pt-BR": "até o ponto",
+            "es": "hasta el punto"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "蒼い",
+          "reading": "あおい",
+          "romaji": "aoi",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "blue",
+            "pt-BR": "azul",
+            "es": "azul"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "蒼い",
+          "reading": "あおい",
+          "romaji": "aoi",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "blue",
+            "pt-BR": "azul",
+            "es": "azul"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "あの",
+          "reading": "あの",
+          "romaji": "ano",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "空",
+          "reading": "そら",
+          "romaji": "sora",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sky",
+            "pt-BR": "céu",
+            "es": "cielo"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "the more I push through, the bluer that sky becomes.",
+        "pt-BR": "quanto mais eu avanço, mais azul aquele ceu se torna.",
+        "es": "cuanto mas avanzo, mas azul se vuelve aquel cielo."
+      },
+      "literal_meaning": {
+        "en": "shake-off + to-the-extent + blue + blue + that + sky"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "はばたく",
+      "reading": "はばたく",
+      "romaji": "habataku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to flap wings",
+        "pt-BR": "bater as asas",
+        "es": "batir las alas"
+      },
+      "example_from_song": "はばたいたら 戻らないと言って",
+      "additional_examples": [
+        "鳥がはばたいて飛び立った",
+        "大きくはばたく"
+      ]
+    },
+    {
+      "surface": "戻る",
+      "reading": "もどる",
+      "romaji": "modoru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to return; to go back",
+        "pt-BR": "voltar; retornar",
+        "es": "volver; regresar"
+      },
+      "example_from_song": "はばたいたら 戻らないと言って",
+      "additional_examples": [
+        "家に戻る",
+        "元の場所に戻る"
+      ]
+    },
+    {
+      "surface": "言う",
+      "reading": "いう",
+      "romaji": "iu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to say; to tell",
+        "pt-BR": "dizer; falar",
+        "es": "decir; hablar"
+      },
+      "example_from_song": "はばたいたら 戻らないと言って",
+      "additional_examples": [
+        "名前を言う",
+        "さようならと言う"
+      ]
+    },
+    {
+      "surface": "目指す",
+      "reading": "めざす",
+      "romaji": "mezasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to aim for; to set one's sights on",
+        "pt-BR": "almejar; visar",
+        "es": "aspirar a; apuntar a"
+      },
+      "example_from_song": "目指したのは 蒼い 蒼い あの空",
+      "additional_examples": [
+        "一位を目指す",
+        "頂上を目指して登る"
+      ]
+    },
+    {
+      "surface": "蒼い",
+      "reading": "あおい",
+      "romaji": "aoi",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "deep blue; pale (poetic variant of 青い)",
+        "pt-BR": "azul-escuro; pálido (variante poética de 青い)",
+        "es": "azul profundo; pálido (variante poética de 青い)"
+      },
+      "example_from_song": "目指したのは 蒼い 蒼い あの空",
+      "additional_examples": [
+        "蒼い海",
+        "蒼ざめた顔"
+      ]
+    },
+    {
+      "surface": "空",
+      "reading": "そら",
+      "romaji": "sora",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "sky",
+        "pt-BR": "céu",
+        "es": "cielo"
+      },
+      "example_from_song": "目指したのは 蒼い 蒼い あの空",
+      "additional_examples": [
+        "青い空",
+        "空を見上げる"
+      ]
+    },
+    {
+      "surface": "悲しみ",
+      "reading": "かなしみ",
+      "romaji": "kanashimi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "sadness; sorrow",
+        "pt-BR": "tristeza; mágoa",
+        "es": "tristeza; pesar"
+      },
+      "example_from_song": "'悲しみ'はまだ覚えられず",
+      "additional_examples": [
+        "深い悲しみ",
+        "悲しみを乗り越える"
+      ]
+    },
+    {
+      "surface": "まだ",
+      "reading": "まだ",
+      "romaji": "mada",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "still; not yet",
+        "pt-BR": "ainda; ainda não",
+        "es": "aún; todavía no"
+      },
+      "example_from_song": "'悲しみ'はまだ覚えられず",
+      "additional_examples": [
+        "まだ子どもだ",
+        "まだ終わっていない"
+      ]
+    },
+    {
+      "surface": "覚える",
+      "reading": "おぼえる",
+      "romaji": "oboeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to remember; to learn by heart",
+        "pt-BR": "lembrar; memorizar",
+        "es": "recordar; memorizar"
+      },
+      "example_from_song": "'悲しみ'はまだ覚えられず",
+      "additional_examples": [
+        "漢字を覚える",
+        "顔を覚えている"
+      ]
+    },
+    {
+      "surface": "切ない",
+      "reading": "せつない",
+      "romaji": "setsunai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "painful; heart-wrenching; bittersweet",
+        "pt-BR": "doloroso; agridoce",
+        "es": "doloroso; agridulce"
+      },
+      "example_from_song": "'切なさ'は今つかみはじめた",
+      "additional_examples": [
+        "切ない思い",
+        "切なくて涙が出る"
+      ]
+    },
+    {
+      "surface": "つかむ",
+      "reading": "つかむ",
+      "romaji": "tsukamu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to grasp; to grab; to catch",
+        "pt-BR": "agarrar; pegar",
+        "es": "agarrar; coger"
+      },
+      "example_from_song": "'切なさ'は今つかみはじめた",
+      "additional_examples": [
+        "ロープをつかむ",
+        "チャンスをつかむ"
+      ]
+    },
+    {
+      "surface": "抱く",
+      "reading": "いだく",
+      "romaji": "idaku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to hold; to embrace; to harbor (feelings)",
+        "pt-BR": "abraçar; nutrir (sentimentos)",
+        "es": "abrazar; albergar (sentimientos)"
+      },
+      "example_from_song": "あなたへと抱く この感情も",
+      "additional_examples": [
+        "夢を抱く",
+        "不安を抱く"
+      ]
+    },
+    {
+      "surface": "感情",
+      "reading": "かんじょう",
+      "romaji": "kanjou",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "emotion; feeling",
+        "pt-BR": "emoção; sentimento",
+        "es": "emoción; sentimiento"
+      },
+      "example_from_song": "あなたへと抱く この感情も",
+      "additional_examples": [
+        "感情を抑える",
+        "複雑な感情"
+      ]
+    },
+    {
+      "surface": "言葉",
+      "reading": "ことば",
+      "romaji": "kotoba",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "word; language",
+        "pt-BR": "palavra; língua",
+        "es": "palabra; idioma"
+      },
+      "example_from_song": "今'言葉'に変わっていく",
+      "additional_examples": [
+        "優しい言葉",
+        "日本の言葉"
+      ]
+    },
+    {
+      "surface": "変わる",
+      "reading": "かわる",
+      "romaji": "kawaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to change; to be transformed",
+        "pt-BR": "mudar; transformar-se",
+        "es": "cambiar; transformarse"
+      },
+      "example_from_song": "今'言葉'に変わっていく",
+      "additional_examples": [
+        "季節が変わる",
+        "顔色が変わる"
+      ]
+    },
+    {
+      "surface": "未知",
+      "reading": "みち",
+      "romaji": "michi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "unknown; uncharted",
+        "pt-BR": "desconhecido; inexplorado",
+        "es": "desconocido; inexplorado"
+      },
+      "example_from_song": "未知なる世界の",
+      "additional_examples": [
+        "未知の世界",
+        "未知の領域"
+      ]
+    },
+    {
+      "surface": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "world",
+        "pt-BR": "mundo",
+        "es": "mundo"
+      },
+      "example_from_song": "未知なる世界の",
+      "additional_examples": [
+        "広い世界",
+        "世界中を旅する"
+      ]
+    },
+    {
+      "surface": "ゆめ",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "dream",
+        "pt-BR": "sonho",
+        "es": "sueño"
+      },
+      "example_from_song": "ゆめから目覚めて",
+      "additional_examples": [
+        "夢を見る",
+        "夢を叶える"
+      ]
+    },
+    {
+      "surface": "目覚める",
+      "reading": "めざめる",
+      "romaji": "mezameru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to wake up; to awaken",
+        "pt-BR": "acordar; despertar",
+        "es": "despertar"
+      },
+      "example_from_song": "ゆめから目覚めて",
+      "additional_examples": [
+        "朝早く目覚める",
+        "意識が目覚める"
+      ]
+    },
+    {
+      "surface": "羽根",
+      "reading": "はね",
+      "romaji": "hane",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "wings; feathers",
+        "pt-BR": "asas; penas",
+        "es": "alas; plumas"
+      },
+      "example_from_song": "この羽根を広げ 飛び立つ",
+      "additional_examples": [
+        "鳥の羽根",
+        "白い羽根"
+      ]
+    },
+    {
+      "surface": "広げる",
+      "reading": "ひろげる",
+      "romaji": "hirogeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to spread; to open up; to expand",
+        "pt-BR": "espalhar; abrir; expandir",
+        "es": "extender; abrir; expandir"
+      },
+      "example_from_song": "この羽根を広げ 飛び立つ",
+      "additional_examples": [
+        "地図を広げる",
+        "翼を広げる"
+      ]
+    },
+    {
+      "surface": "飛び立つ",
+      "reading": "とびたつ",
+      "romaji": "tobitatsu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to take flight; to fly away",
+        "pt-BR": "levantar voo; alçar voo",
+        "es": "alzar el vuelo; echar a volar"
+      },
+      "example_from_song": "この羽根を広げ 飛び立つ",
+      "additional_examples": [
+        "鳥が飛び立つ",
+        "新しい世界へ飛び立つ"
+      ]
+    },
+    {
+      "surface": "白い",
+      "reading": "しろい",
+      "romaji": "shiroi",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "white",
+        "pt-BR": "branco",
+        "es": "blanco"
+      },
+      "example_from_song": "目指したのは 白い 白い あの雲",
+      "additional_examples": [
+        "白い雪",
+        "白いシャツ"
+      ]
+    },
+    {
+      "surface": "雲",
+      "reading": "くも",
+      "romaji": "kumo",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "cloud",
+        "pt-BR": "nuvem",
+        "es": "nube"
+      },
+      "example_from_song": "目指したのは 白い 白い あの雲",
+      "additional_examples": [
+        "白い雲",
+        "雲が流れる"
+      ]
+    },
+    {
+      "surface": "突き抜ける",
+      "reading": "つきぬける",
+      "romaji": "tsukinukeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to break through; to pierce through",
+        "pt-BR": "atravessar; romper",
+        "es": "atravesar; traspasar"
+      },
+      "example_from_song": "突き抜けたら みつかると知って",
+      "additional_examples": [
+        "雲を突き抜ける",
+        "壁を突き抜ける"
+      ]
+    },
+    {
+      "surface": "みつかる",
+      "reading": "みつかる",
+      "romaji": "mitsukaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to be found; to be discovered",
+        "pt-BR": "ser encontrado; ser descoberto",
+        "es": "ser encontrado; ser descubierto"
+      },
+      "example_from_song": "突き抜けたら みつかると知って",
+      "additional_examples": [
+        "鍵がみつかった",
+        "答えがみつかる"
+      ]
+    },
+    {
+      "surface": "知る",
+      "reading": "しる",
+      "romaji": "shiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to know; to find out",
+        "pt-BR": "saber; descobrir",
+        "es": "saber; conocer"
+      },
+      "example_from_song": "突き抜けたら みつかると知って",
+      "additional_examples": [
+        "名前を知る",
+        "真実を知る"
+      ]
+    },
+    {
+      "surface": "振り切る",
+      "reading": "ふりきる",
+      "romaji": "furikiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to shake off; to break away from",
+        "pt-BR": "sacudir; desvencilhar-se",
+        "es": "sacudirse; zafarse"
+      },
+      "example_from_song": "振り切るほど 蒼い 蒼い あの空",
+      "additional_examples": [
+        "追手を振り切る",
+        "迷いを振り切る"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜たら conditional",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Take the past tense (た-form) of a verb and add ら (ra). This creates a conditional meaning 'if' or 'when'. It's the most versatile conditional in Japanese.\n\nExample from this song: はばたいたら (habataitara) = 'if I spread my wings' — from はばたく (habataku, 'to flap wings') → はばたいた (habataita, past) + ら (ra)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べたら (tabetara, 'if/when I eat')\n• 行く (iku, 'to go') → 行ったら (ittara, 'if/when I go')\n• 安い (yasui, 'cheap') → 安かったら (yasukattara, 'if it's cheap')\n\nNote: たら is the most conversational conditional. It works for hypothetical, real, and one-time conditions. It also implies a time sequence — 'when X happens, then Y'. Compare: ば (more hypothetical), と (natural/automatic result), なら (topic-based)."
+      },
+      "conjugation_path": "はばたく (habataku, 'to flap wings') → はばたいた (habataita, past) → はばたいたら (habataitara, 'if I spread my wings')"
+    },
+    {
+      "name": "〜のは...だ (emphasis/focus)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Wrap a clause with のは...だ to emphasize or focus on a specific element. のは nominalizes the clause ('the one who...', 'the thing that...'), and だ concludes. This is like English cleft sentences: 'It is X that...'.\n\nExample from this song: The lyrics use this pattern to focus attention on what truly matters in the speaker's journey.\n\nMore examples:\n• 教えてくれたのは先生だ (oshiete kureta no wa sensei da, 'it was the teacher who taught me')\n• 一番大切なのは友達だ (ichiban taisetsu na no wa tomodachi da, 'what's most important is friends')\n• 泣いたのは嬉しかったからだ (naita no wa ureshikatta kara da, 'the reason I cried is because I was happy')\n\nNote: This is a focus/emphasis construction, not just a statement. It draws attention to the specific element between のは and だ."
+      },
+      "conjugation_path": "[clause] + のは (no wa, nominalizer + topic) ... だ (da, 'it is') = emphasis pattern"
+    },
+    {
+      "name": "〜ず literary negative",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "How it works: Replace the negative ない (nai) ending with ず (zu). This is the classical negative conjunctive form, meaning 'without doing' or 'not doing'. It's equivalent to modern ないで (naide).\n\nExample from this song: 覚えられず (oboerarazu) = 'unable to remember' — from 覚えられる (oboerareru, 'can remember') → 覚えられない (oboerarenai) → 覚えられず (oboerarazu, literary negative)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べず (tabezu, 'without eating')\n• 知る (shiru, 'to know') → 知らず (shirazu, 'without knowing')\n• 言う (iu, 'to say') → 言わず (iwazu, 'without saying')\n\nNote: ず is the conjunctive form (connects to the next clause). ぬ is the attributive form (modifies nouns). Both are classical negatives. する becomes せず (sezu). You'll encounter ず frequently in anime lyrics and proverbs."
+      },
+      "conjugation_path": "覚えられる (oboerareru, 'can remember') → 覚えられない (oboerarenai, modern negative) → 覚えられず (oboerarazu, 'unable to remember')"
+    },
+    {
+      "name": "〜はじめる (begin to)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Take the verb masu-stem and add はじめる (hajimeru, 'to begin'). This creates a compound verb meaning 'to begin doing something'.\n\nExample from this song: つかみはじめた (tsukami hajimeta) = 'began to grasp' — from つかむ (tsukamu, 'to grasp') → つかみ (tsukami, masu-stem) + はじめた (hajimeta, past of hajimeru)\n\nMore examples:\n• 降る (furu, 'to fall') → 降りはじめる (furi hajimeru, 'begin to fall — rain starting')\n• 読む (yomu, 'to read') → 読みはじめる (yomi hajimeru, 'begin to read')\n• 分かる (wakaru, 'to understand') → 分かりはじめる (wakari hajimeru, 'begin to understand')\n\nNote: Compare with 〜だす (dasu), which also means 'begin to' but implies a more sudden or unexpected start. はじめる is a gradual, intentional beginning."
+      },
+      "conjugation_path": "つかむ (tsukamu, 'to grasp') → つかみ (tsukami, masu-stem) + はじめる (hajimeru, 'to begin') → つかみはじめた (tsukami hajimeta, 'began to grasp')"
+    },
+    {
+      "name": "〜ていく (gradual change/departure)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Take the て-form (te-form) and add いく (iku, 'to go'). This expresses a gradual change moving away from the present or an action continuing into the future.\n\nExample from this song: 変わっていく (kawatte iku) = 'keep changing (going forward)' — from 変わる (kawaru, 'to change') → 変わって (kawatte, te-form) + いく (iku)\n\nMore examples:\n• 消える (kieru, 'to disappear') → 消えていく (kiete iku, 'gradually disappear')\n• 強くなる (tsuyoku naru, 'to become strong') → 強くなっていく (tsuyoku natte iku, 'keep getting stronger')\n• 忘れる (wasureru, 'to forget') → 忘れていく (wasurete iku, 'gradually forget')\n\nNote: 〜ていく (moving away/forward) vs. 〜てくる (approaching/building up). Think of it as direction: いく = away from now, くる = toward now."
+      },
+      "conjugation_path": "変わる (kawaru, 'to change') → 変わって (kawatte, te-form) → 変わっていく (kawatte iku, 'keep changing')"
+    },
+    {
+      "name": "〜ほど (to the extent that)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Place ほど (hodo) after a verb or noun to indicate degree — 'to the extent that' or 'the more... the more...'. It shows how much of something there is.\n\nExample from this song: The lyrics use ほど to express the intensity of feelings and experiences.\n\nMore examples:\n• 死ぬ (shinu, 'to die') → 死ぬほど疲れた (shinu hodo tsukareta, 'tired enough to die — exhausted')\n• 泣く (naku, 'to cry') → 泣くほど嬉しい (naku hodo ureshii, 'so happy I could cry')\n• 食べる (taberu) + ほど → 食べれば食べるほど (tabereba taberu hodo, 'the more you eat, the more...')\n\nNote: The pattern [verb-ば] [same verb-dictionary] + ほど means 'the more you do, the more...'. This is very common: 知れば知るほど (shireba shiru hodo, 'the more you know, the more...')."
+      },
+      "conjugation_path": "[verb/noun] + ほど (hodo, 'to the extent that')"
+    },
+    {
+      "name": "〜ことは...ない (never/won't)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Place ことは (koto wa) after a verb's dictionary form and follow with ない (nai). This creates a firm statement: 'I will never do X' or 'there is no doing X'.\n\nExample from this song: The lyrics use this pattern to express a firm resolve — there's something the speaker absolutely won't do.\n\nMore examples:\n• 諦める (akirameru, 'to give up') → 諦めることはない (akirameru koto wa nai, 'there's no giving up / I won't give up')\n• 後悔する (koukai suru, 'to regret') → 後悔することはない (koukai suru koto wa nai, 'there's nothing to regret')\n• 忘れる (wasureru, 'to forget') → 忘れることはない (wasureru koto wa nai, 'I'll never forget')\n\nNote: This sounds more reflective and decisive than simply using ない. It turns the action into an abstract concept (こと = 'the act of') and negates it entirely."
+      },
+      "conjugation_path": "[verb dictionary form] + ことはない (koto wa nai, 'there is no doing X / will never X')"
+    }
+  ]
+}

@@ -1,0 +1,1479 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 10617,
+      "end_time_ms": 20403,
+      "tokens": [
+        {
+          "surface": "くそったれ",
+          "reading": "くそったれ",
+          "romaji": "kusottare",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "damn; crappy"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "な",
+          "reading": "な",
+          "romaji": "na",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "attributive",
+            "pt-BR": "atributivo",
+            "es": "atributivo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ニュース",
+          "reading": "にゅーす",
+          "romaji": "nyuusu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "news"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "通りすぎて",
+          "reading": "とおりすぎて",
+          "romaji": "toorisugite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "passed by"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "言葉",
+          "reading": "ことば",
+          "romaji": "kotoba",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "words",
+            "pt-BR": "palavras",
+            "es": "palabras"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "無くす",
+          "reading": "なくす",
+          "romaji": "nakusu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to lose",
+            "pt-BR": "perder",
+            "es": "perder"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Crappy news passes by and you lose your words",
+        "pt-BR": "Noticias miseraveis passam e voce perde as palavras",
+        "es": "Las noticias miserables pasan y pierdes las palabras"
+      },
+      "literal_meaning": {
+        "en": "crappy + news + subject + passed-by / you + topic + words + object + lose"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 20403,
+      "end_time_ms": 27827,
+      "tokens": [
+        {
+          "surface": "僕",
+          "reading": "ぼく",
+          "romaji": "boku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "I (male)",
+            "pt-BR": "eu (masculino)",
+            "es": "yo (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "possessive",
+            "pt-BR": "possessivo",
+            "es": "posesivo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "声",
+          "reading": "こえ",
+          "romaji": "koe",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "voice",
+            "pt-BR": "voz",
+            "es": "voz"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "じゃ",
+          "reading": "じゃ",
+          "romaji": "ja",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "with (casual)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "まるで",
+          "reading": "まるで",
+          "romaji": "marude",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "completely; as if"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "小さすぎて",
+          "reading": "ちいさすぎて",
+          "romaji": "chiisasugite",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "too small"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "返事",
+          "reading": "へんじ",
+          "romaji": "henji",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "reply"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even; also",
+            "pt-BR": "mesmo; também",
+            "es": "incluso; también"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "しない",
+          "reading": "しない",
+          "romaji": "shinai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "don't do"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "My voice is far too small, you don't even reply",
+        "pt-BR": "Minha voz e pequena demais, voce nem responde",
+        "es": "Mi voz es demasiado pequena, ni siquiera respondes"
+      },
+      "literal_meaning": {
+        "en": "I + possessive + voice + with + completely + too-small / you + topic + reply + even + don't-do"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 27827,
+      "end_time_ms": 35494,
+      "tokens": [
+        {
+          "surface": "君",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "泣いてる",
+          "reading": "ないてる",
+          "romaji": "naiteru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "crying",
+            "pt-BR": "chorando",
+            "es": "llorando"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ひとり",
+          "reading": "ひとり",
+          "romaji": "hitori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "alone",
+            "pt-BR": "sozinho",
+            "es": "solo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "で",
+          "reading": "で",
+          "romaji": "de",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "by (means)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "泣いてる",
+          "reading": "ないてる",
+          "romaji": "naiteru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "crying",
+            "pt-BR": "chorando",
+            "es": "llorando"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "僕",
+          "reading": "ぼく",
+          "romaji": "boku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "I",
+            "pt-BR": "eu",
+            "es": "yo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "どうする",
+          "reading": "どうする",
+          "romaji": "dou suru",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "what to do"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "You're crying, crying alone. What should I do?",
+        "pt-BR": "Voce esta chorando, chorando sozinho. O que eu devo fazer?",
+        "es": "Estas llorando, llorando solo. Que deberia hacer?"
+      },
+      "literal_meaning": {
+        "en": "you + subject + crying / alone + by + crying / I + topic + what-to-do"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 35494,
+      "end_time_ms": 38377,
+      "tokens": [
+        {
+          "surface": "僕",
+          "reading": "ぼく",
+          "romaji": "boku",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "僕",
+            "pt-BR": "僕",
+            "es": "僕"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "も",
+            "pt-BR": "も",
+            "es": "も"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "泣い",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "泣い",
+            "pt-BR": "泣い",
+            "es": "泣い"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "てる",
+          "reading": "てる",
+          "romaji": "teru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "てる",
+            "pt-BR": "てる",
+            "es": "てる"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "の",
+            "pt-BR": "の",
+            "es": "の"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "さ",
+          "reading": "さ",
+          "romaji": "sa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "さ",
+            "pt-BR": "さ",
+            "es": "さ"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 僕も泣いてるのさ",
+        "pt-BR": "(auto-coverage) 僕も泣いてるのさ",
+        "es": "(auto-coverage) 僕も泣いてるのさ"
+      },
+      "literal_meaning": {
+        "en": "僕 + も + 泣い + てる + の + さ"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 38377,
+      "end_time_ms": 39538,
+      "tokens": [
+        {
+          "surface": "夜",
+          "reading": "よる",
+          "romaji": "yoru",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "night",
+            "pt-BR": "noite",
+            "es": "noche"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "at",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ひとりぼっち",
+          "reading": "ひとりぼっち",
+          "romaji": "hitoribocchi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "all alone"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "possessive",
+            "pt-BR": "possessivo",
+            "es": "posesivo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "オレ",
+          "reading": "おれ",
+          "romaji": "ore",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "I (rough male)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "possessive",
+            "pt-BR": "possessivo",
+            "es": "posesivo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "さけび",
+          "reading": "さけび",
+          "romaji": "sakebi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "scream; cry"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "on",
+            "pt-BR": "sobre",
+            "es": "sobre"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "のせて",
+          "reading": "のせて",
+          "romaji": "nosete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "carried on; loaded onto"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "Carried on my lonely scream in the night",
+        "pt-BR": "Levado no meu grito solitario na noite",
+        "es": "Llevado en mi grito solitario en la noche"
+      },
+      "literal_meaning": {
+        "en": "night + at + all-alone + possessive + I + possessive + scream + on + carried"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 39538,
+      "end_time_ms": 47906,
+      "tokens": [
+        {
+          "surface": "ふざけ",
+          "reading": "ふざけ",
+          "romaji": "fuzake",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "ふざけ",
+            "pt-BR": "ふざけ",
+            "es": "ふざけ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "た",
+          "reading": "た",
+          "romaji": "ta",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "た",
+            "pt-BR": "た",
+            "es": "た"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "世界",
+          "reading": "せかい",
+          "romaji": "sekai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "世界",
+            "pt-BR": "世界",
+            "es": "世界"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "と",
+            "pt-BR": "と",
+            "es": "と"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "わるい",
+          "reading": "わるい",
+          "romaji": "warui",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "わるい",
+            "pt-BR": "わるい",
+            "es": "わるい"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "やつ",
+          "reading": "やつ",
+          "romaji": "yatsu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "やつ",
+            "pt-BR": "やつ",
+            "es": "やつ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ら",
+          "reading": "ら",
+          "romaji": "ra",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "ら",
+            "pt-BR": "ら",
+            "es": "ら"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "を",
+            "pt-BR": "を",
+            "es": "を"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "けちら",
+          "reading": "けちら",
+          "romaji": "kechira",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "けちら",
+            "pt-BR": "けちら",
+            "es": "けちら"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "し",
+          "reading": "し",
+          "romaji": "shi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "し",
+            "pt-BR": "し",
+            "es": "し"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "て",
+            "pt-BR": "て",
+            "es": "て"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "く",
+          "reading": "く",
+          "romaji": "ku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "く",
+            "pt-BR": "く",
+            "es": "く"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "Yeah",
+          "reading": "Yeah",
+          "romaji": "Yeah",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "Yeah",
+            "pt-BR": "Yeah",
+            "es": "Yeah"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) ふざけた世界とわるいやつらをけちらしてくYeah",
+        "pt-BR": "(auto-coverage) ふざけた世界とわるいやつらをけちらしてくYeah",
+        "es": "(auto-coverage) ふざけた世界とわるいやつらをけちらしてくYeah"
+      },
+      "literal_meaning": {
+        "en": "ふざけ + た + 世界 + と + わるい + やつ + ら + を + けちら + し + て + く + Yeah"
+      }
+    },
+    {
+      "verse_number": 7,
+      "start_time_ms": 47906,
+      "end_time_ms": 61106,
+      "tokens": [
+        {
+          "surface": "夜",
+          "reading": "よる",
+          "romaji": "yoru",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "夜",
+            "pt-BR": "夜",
+            "es": "夜"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "に",
+            "pt-BR": "に",
+            "es": "に"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "泣い",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "泣い",
+            "pt-BR": "泣い",
+            "es": "泣い"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "てる",
+          "reading": "てる",
+          "romaji": "teru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "てる",
+            "pt-BR": "てる",
+            "es": "てる"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 夜に泣いてる",
+        "pt-BR": "(auto-coverage) 夜に泣いてる",
+        "es": "(auto-coverage) 夜に泣いてる"
+      },
+      "literal_meaning": {
+        "en": "夜 + に + 泣い + てる"
+      }
+    },
+    {
+      "verse_number": 8,
+      "start_time_ms": 61106,
+      "end_time_ms": 66559,
+      "tokens": [
+        {
+          "surface": "ざわめく時代をオレのスピードでぶっとばしてくYeah",
+          "reading": "ざわめく時代をオレのスピードでぶっとばしてくYeah",
+          "romaji": "ざわめく時代をオレのスピードでぶっとばしてくYeah",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 9,
+      "start_time_ms": 66559,
+      "end_time_ms": 70582,
+      "tokens": [
+        {
+          "surface": "さんざめく夜もオレのスピードでぶっとばしてくYeah",
+          "reading": "さんざめく夜もオレのスピードでぶっとばしてくYeah",
+          "romaji": "さんざめく夜もオレのスピードでぶっとばしてくYeah",
+          "grammar": "other",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "(untranslated lyric line)"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(untranslated)",
+        "pt-BR": "(não traduzido)",
+        "es": "(no traducido)"
+      },
+      "literal_meaning": {
+        "en": "(placeholder — re-generate lesson for full tokens/translation)"
+      }
+    },
+    {
+      "verse_number": 10,
+      "start_time_ms": 70582,
+      "end_time_ms": 75744,
+      "tokens": [
+        {
+          "surface": "傾く",
+          "reading": "かたむく",
+          "romaji": "katamuku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "傾く",
+            "pt-BR": "傾く",
+            "es": "傾く"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "世界",
+          "reading": "せかい",
+          "romaji": "sekai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "世界",
+            "pt-BR": "世界",
+            "es": "世界"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "も",
+            "pt-BR": "も",
+            "es": "も"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "わるい",
+          "reading": "わるい",
+          "romaji": "warui",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "わるい",
+            "pt-BR": "わるい",
+            "es": "わるい"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "やつ",
+          "reading": "やつ",
+          "romaji": "yatsu",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "やつ",
+            "pt-BR": "やつ",
+            "es": "やつ"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "ら",
+          "reading": "ら",
+          "romaji": "ra",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "ら",
+            "pt-BR": "ら",
+            "es": "ら"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "も",
+            "pt-BR": "も",
+            "es": "も"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "けちら",
+          "reading": "けちら",
+          "romaji": "kechira",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "けちら",
+            "pt-BR": "けちら",
+            "es": "けちら"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "し",
+          "reading": "し",
+          "romaji": "shi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "し",
+            "pt-BR": "し",
+            "es": "し"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "て",
+            "pt-BR": "て",
+            "es": "て"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "く",
+          "reading": "く",
+          "romaji": "ku",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "く",
+            "pt-BR": "く",
+            "es": "く"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "Yeah",
+          "reading": "Yeah",
+          "romaji": "Yeah",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "Yeah",
+            "pt-BR": "Yeah",
+            "es": "Yeah"
+          },
+          "jlpt_level": "unknown"
+        }
+      ],
+      "translations": {
+        "en": "(auto-coverage) 傾く世界もわるいやつらもけちらしてくYeah",
+        "pt-BR": "(auto-coverage) 傾く世界もわるいやつらもけちらしてくYeah",
+        "es": "(auto-coverage) 傾く世界もわるいやつらもけちらしてくYeah"
+      },
+      "literal_meaning": {
+        "en": "傾く + 世界 + も + わるい + やつ + ら + も + けちら + し + て + く + Yeah"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "ニュース",
+      "reading": "ニュース",
+      "romaji": "nyūsu",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "news",
+        "pt-BR": "notícia; notícias",
+        "es": "noticia; noticias"
+      },
+      "example_from_song": "くそったれなニュースが通りすぎて 君は言葉を無くす",
+      "additional_examples": [
+        "テレビのニュースを見る",
+        "悪いニュースが届いた"
+      ]
+    },
+    {
+      "surface": "通る",
+      "reading": "とおる",
+      "romaji": "tōru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to pass; to go by; to go through",
+        "pt-BR": "passar; atravessar",
+        "es": "pasar; atravesar"
+      },
+      "example_from_song": "くそったれなニュースが通りすぎて 君は言葉を無くす",
+      "additional_examples": [
+        "車が道を通る",
+        "風が通る"
+      ]
+    },
+    {
+      "surface": "言葉",
+      "reading": "ことば",
+      "romaji": "kotoba",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "word; language",
+        "pt-BR": "palavra; língua",
+        "es": "palabra; idioma"
+      },
+      "example_from_song": "くそったれなニュースが通りすぎて 君は言葉を無くす",
+      "additional_examples": [
+        "優しい言葉",
+        "言葉を失う"
+      ]
+    },
+    {
+      "surface": "無くす",
+      "reading": "なくす",
+      "romaji": "nakusu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to lose; to get rid of",
+        "pt-BR": "perder; livrar-se de",
+        "es": "perder; deshacerse de"
+      },
+      "example_from_song": "くそったれなニュースが通りすぎて 君は言葉を無くす",
+      "additional_examples": [
+        "財布を無くす",
+        "自信を無くす"
+      ]
+    },
+    {
+      "surface": "声",
+      "reading": "こえ",
+      "romaji": "koe",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "voice",
+        "pt-BR": "voz",
+        "es": "voz"
+      },
+      "example_from_song": "僕の声じゃまるで小さすぎて 君は返事もしない",
+      "additional_examples": [
+        "大きな声で話す",
+        "声が聞こえる"
+      ]
+    },
+    {
+      "surface": "まるで",
+      "reading": "まるで",
+      "romaji": "marude",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "as if; just like; completely",
+        "pt-BR": "como se; exatamente como",
+        "es": "como si; igual que; completamente"
+      },
+      "example_from_song": "僕の声じゃまるで小さすぎて 君は返事もしない",
+      "additional_examples": [
+        "まるで夢のようだ",
+        "まるで子どもみたい"
+      ]
+    },
+    {
+      "surface": "小さい",
+      "reading": "ちいさい",
+      "romaji": "chīsai",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "small; little",
+        "pt-BR": "pequeno",
+        "es": "pequeño"
+      },
+      "example_from_song": "僕の声じゃまるで小さすぎて 君は返事もしない",
+      "additional_examples": [
+        "小さい犬",
+        "声が小さい"
+      ]
+    },
+    {
+      "surface": "返事",
+      "reading": "へんじ",
+      "romaji": "henji",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "reply; response; answer",
+        "pt-BR": "resposta",
+        "es": "respuesta; contestación"
+      },
+      "example_from_song": "僕の声じゃまるで小さすぎて 君は返事もしない",
+      "additional_examples": [
+        "返事をする",
+        "手紙の返事"
+      ]
+    },
+    {
+      "surface": "する",
+      "reading": "する",
+      "romaji": "suru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to do; to make",
+        "pt-BR": "fazer",
+        "es": "hacer"
+      },
+      "example_from_song": "僕の声じゃまるで小さすぎて 君は返事もしない",
+      "additional_examples": [
+        "宿題をする",
+        "電話をする"
+      ]
+    },
+    {
+      "surface": "泣く",
+      "reading": "なく",
+      "romaji": "naku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to cry; to weep",
+        "pt-BR": "chorar",
+        "es": "llorar"
+      },
+      "example_from_song": "君が泣いてる",
+      "additional_examples": [
+        "赤ちゃんが泣く",
+        "泣きたい気分"
+      ]
+    },
+    {
+      "surface": "ひとり",
+      "reading": "ひとり",
+      "romaji": "hitori",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "one person; alone; by oneself",
+        "pt-BR": "uma pessoa; sozinho",
+        "es": "una persona; solo"
+      },
+      "example_from_song": "ひとりで泣いてる",
+      "additional_examples": [
+        "ひとりで行く",
+        "ひとり暮らし"
+      ]
+    },
+    {
+      "surface": "どう",
+      "reading": "どう",
+      "romaji": "dō",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "how; in what way",
+        "pt-BR": "como; de que jeito",
+        "es": "cómo; de qué manera"
+      },
+      "example_from_song": "僕はどうする?",
+      "additional_examples": [
+        "どう思う?",
+        "どうすればいい?"
+      ]
+    },
+    {
+      "surface": "夜",
+      "reading": "よる",
+      "romaji": "yoru",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "night; evening",
+        "pt-BR": "noite",
+        "es": "noche"
+      },
+      "example_from_song": "「夜にひとりぼっちのオレのさけびにのせて」",
+      "additional_examples": [
+        "夜になる",
+        "静かな夜"
+      ]
+    },
+    {
+      "surface": "さけぶ",
+      "reading": "さけぶ",
+      "romaji": "sakebu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to shout; to scream; to cry out",
+        "pt-BR": "gritar; berrar",
+        "es": "gritar; chillar"
+      },
+      "example_from_song": "「夜にひとりぼっちのオレのさけびにのせて」",
+      "additional_examples": [
+        "大声でさけぶ",
+        "助けをさけぶ"
+      ]
+    },
+    {
+      "surface": "のせる",
+      "reading": "のせる",
+      "romaji": "noseru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to place on; to put on; to set to (music)",
+        "pt-BR": "colocar sobre; pôr em cima; embalar (em música)",
+        "es": "colocar sobre; poner encima; acompañar (con música)"
+      },
+      "example_from_song": "「夜にひとりぼっちのオレのさけびにのせて」",
+      "additional_examples": [
+        "棚に本をのせる",
+        "メロディーに言葉をのせる"
+      ]
+    },
+    {
+      "surface": "ふざける",
+      "reading": "ふざける",
+      "romaji": "fuzakeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to joke; to mess around; to fool around",
+        "pt-BR": "brincar; gracejar; fazer bobagem",
+        "es": "bromear; hacer el tonto; jugar"
+      },
+      "example_from_song": "ふざけた世界とわるいやつらをけちらしてくYeah",
+      "additional_examples": [
+        "子どもがふざける",
+        "ふざけるな!"
+      ]
+    },
+    {
+      "surface": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "world",
+        "pt-BR": "mundo",
+        "es": "mundo"
+      },
+      "example_from_song": "ふざけた世界とわるいやつらをけちらしてくYeah",
+      "additional_examples": [
+        "広い世界",
+        "世界中を旅する"
+      ]
+    },
+    {
+      "surface": "悪い",
+      "reading": "わるい",
+      "romaji": "warui",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "bad; evil; wrong",
+        "pt-BR": "ruim; mau; errado",
+        "es": "malo; malvado; incorrecto"
+      },
+      "example_from_song": "ふざけた世界とわるいやつらをけちらしてくYeah",
+      "additional_examples": [
+        "悪い人",
+        "天気が悪い"
+      ]
+    },
+    {
+      "surface": "蹴散らす",
+      "reading": "けちらす",
+      "romaji": "kechirasu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to kick around; to scatter; to rout",
+        "pt-BR": "dispersar a chutes; espalhar; debandar",
+        "es": "dispersar a patadas; desbandar; arrollar"
+      },
+      "example_from_song": "ふざけた世界とわるいやつらをけちらしてくYeah",
+      "additional_examples": [
+        "敵を蹴散らす",
+        "落ち葉を蹴散らす"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜すぎる (sugiru) — too much",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb ます-stem (masu-stem) / Adjective stem + すぎる (sugiru) means \"too much ~\" or \"excessively ~.\" For い-adjectives (i-adjectives): drop い (i) + すぎる: 高い (takai) → 高すぎる (taka sugiru, \"too expensive\"). For な-adjectives (na-adjectives): stem + すぎる. すぎる (sugiru) itself conjugates as an ichidan verb.\n\nExample from this song:\n小さすぎて (chiisa sugite) — \"too small (so...)\"\nSomething is excessively small, leading to a consequence expressed in the next clause.\n\nMore examples:\n• 食べすぎた (tabe sugita) — \"ate too much\"\n• この映画は長すぎる (kono eiga wa naga sugiru) — \"this movie is too long\"\n• 静かすぎて怖い (shizuka sugite kowai) — \"it's so quiet it's scary\""
+      },
+      "conjugation_path": "小さい (chiisai, \"small\") → 小さ (chiisa, stem) + すぎる (sugiru, \"too much\") → 小さすぎて (chiisa sugite, te-form, \"too small, so...\")"
+    },
+    {
+      "name": "〜ている / 〜てる (te iru / teru) — progressive / state",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb て-form (te-form) + いる (iru) expresses ongoing action or resulting state. In casual speech, the い (i) drops: ている (te iru) → てる (teru). This casual contraction is extremely common in everyday spoken Japanese, songs, and informal writing.\n\nExample from this song:\n泣いてる (naiteru) — \"is crying\" (casual)\nThe casual form captures the immediacy and rawness of the emotion.\n\nMore examples:\n• 何してる？ (nani shiteru?) — \"what are you doing?\" (casual)\n• もう知ってる (mou shitteru) — \"I already know\" (casual)\n• ずっと待ってた (zutto matteta) — \"had been waiting all along\" (casual past)"
+      },
+      "conjugation_path": "泣く (naku, \"to cry\") → 泣いて (naite, te-form) → 泣いている (naite iru, progressive) → 泣いてる (naiteru, casual, \"is crying\")"
+    },
+    {
+      "name": "〜てく (teku) — going on doing (casual)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nてく (teku) is the casual contraction of ていく (te iku), which means an action continues or progresses into the future — moving away from the present. The い (i) is dropped for casual flow. This is extremely common in songs and casual speech.\n\nExample from this song:\nぶっとばしてく (buttobashiteku) — \"blasting away\" / \"keeps knocking out\"\nThe action will keep going forward with relentless energy.\n\nMore examples:\n• 変わってく (kawatteku) — \"keeps changing\"\n• 消えてく (kieteku) — \"fading away\"\n• 走ってく (hashitteku) — \"running off\""
+      },
+      "conjugation_path": "ぶっとばす (buttobasu, \"to blast/knock out\") → ぶっとばして (buttobashite, te-form) + いく (iku) → ぶっとばしていく (buttobashite iku) → ぶっとばしてく (buttobashiteku, casual, \"keeps blasting away\")"
+    },
+    {
+      "name": "何も〜ない (nani mo ... nai) — nothing / not anything",
+      "jlpt_reference": "JLPT N5",
+      "explanation": {
+        "en": "How it works:\nThe pattern 何も (nani mo) + negative verb means \"nothing\" or \"not anything.\" This is part of a broader pattern where question words + も (mo) + negative = total negation: 誰も〜ない (dare mo ... nai, \"nobody\"), どこも〜ない (doko mo ... nai, \"nowhere\"), いつも〜ない (itsu mo ... nai, \"never\"). This is one of the first patterns beginners learn.\n\nExample from this song:\n何もない (nani mo nai) — \"there is nothing\"\nA stark declaration of emptiness.\n\nMore examples:\n• 何も食べていない (nani mo tabete inai) — \"I haven't eaten anything\"\n• 何も心配しないで (nani mo shinpai shinaide) — \"don't worry about anything\"\n• 誰も来なかった (dare mo konakatta) — \"nobody came\""
+      },
+      "conjugation_path": "何 (nani, \"what\") + も (mo) + ない (nai, negative) → 何もない (nani mo nai, \"there is nothing\")"
+    },
+    {
+      "name": "〜けれど / 〜けど (keredo / kedo) — but / although",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nけれど (keredo) or its casual form けど (kedo) means \"but\" or \"although.\" It connects two contrasting clauses. The full form けれども (keredomo) is the most formal, けれど (keredo) is standard, and けど (kedo) is casual. It is one of the most common conjunctions in Japanese.\n\nExample from this song:\n無いけれど (nai keredo) — \"there isn't, but...\"\nDespite something being absent, there is still a contrasting reality.\n\nMore examples:\n• 高いけど美味しい (takai kedo oishii) — \"it's expensive but delicious\"\n• 行きたいけど時間がない (ikitai kedo jikan ga nai) — \"I want to go but don't have time\"\n• 分かってるけど (wakatteru kedo) — \"I understand, but...\" (trailing off)"
+      },
+      "conjugation_path": "無い (nai, \"there isn't\") + けれど (keredo, \"but\") → 無いけれど (nai keredo, \"there isn't, but...\")"
+    }
+  ]
+}

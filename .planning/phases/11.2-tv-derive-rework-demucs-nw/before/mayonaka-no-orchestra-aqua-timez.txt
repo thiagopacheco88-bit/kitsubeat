@@ -1,0 +1,19 @@
+## mayonaka-no-orchestra-aqua-timez (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 708 | 708 | 0 | PASS |
+| 2 | 10939 | 10939 | 0 | PASS |
+| 3 | 26837 | 26407 | +430 | PASS |
+| 4 | 36854 | 36854 | 0 | PASS |
+| 5 | 40827 | 40827 | 0 | PASS |
+| 6 | 48921 | 48741 | +180 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for mayonaka-no-orchestra-aqua-timez.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| mayonaka-no-orchestra-aqua-timez | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

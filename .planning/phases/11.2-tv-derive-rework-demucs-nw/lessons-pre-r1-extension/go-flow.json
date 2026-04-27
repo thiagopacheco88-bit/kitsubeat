@@ -1,0 +1,280 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 7971,
+      "end_time_ms": 11333,
+      "tokens": [
+        {
+          "surface": "We are fighting dreamers",
+          "reading": "We are fighting dreamers",
+          "romaji": "We are fighting dreamers",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "We are fighting dreamers"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "高み",
+          "reading": "たかみ",
+          "romaji": "takami",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heights; high place"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "目指し",
+          "reading": "めざし",
+          "romaji": "mezashi",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "aiming for",
+            "pt-BR": "mirando em",
+            "es": "apuntando a"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "te-form connector",
+            "pt-BR": "conector forma-te",
+            "es": "conector forma-te"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "We are fighting dreamers, aiming for the heights",
+        "pt-BR": "Somos sonhadores guerreiros, mirando as alturas",
+        "es": "Somos soñadores luchadores, apuntando a las alturas"
+      },
+      "literal_meaning": {
+        "en": "We are fighting dreamers + heights + object + aiming-for + te-connector"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 11333,
+      "end_time_ms": 12474,
+      "tokens": [
+        {
+          "surface": "Fighting dreamers",
+          "reading": "Fighting dreamers",
+          "romaji": "Fighting dreamers",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "fighting dreamers",
+            "pt-BR": "lutadores sonhadores",
+            "es": "luchadores soñadores"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "なりふり",
+          "reading": "なりふり",
+          "romaji": "narifuri",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "appearance; manner"
+          },
+          "jlpt_level": "N1"
+        },
+        {
+          "surface": "構わ",
+          "reading": "かまわ",
+          "romaji": "kamawa",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to mind; to care"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ず",
+          "reading": "ず",
+          "romaji": "zu",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "without (classical negative)"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "Fighting dreamers, regardless of appearances",
+        "pt-BR": "Sonhadores guerreiros, sem se importar com aparencias",
+        "es": "Soñadores luchadores, sin importar las apariencias"
+      },
+      "literal_meaning": {
+        "en": "Fighting dreamers + appearance + care + without"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 12474,
+      "end_time_ms": 16257,
+      "tokens": [
+        {
+          "surface": "Fighting dreamers",
+          "reading": "Fighting dreamers",
+          "romaji": "Fighting dreamers",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "fighting dreamers",
+            "pt-BR": "lutadores sonhadores",
+            "es": "luchadores soñadores"
+          },
+          "jlpt_level": "unknown"
+        },
+        {
+          "surface": "信じる",
+          "reading": "しんじる",
+          "romaji": "shinjiru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to believe",
+            "pt-BR": "acreditar",
+            "es": "creer"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "まま",
+          "reading": "まま",
+          "romaji": "mama",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "as it is; unchanged",
+            "pt-BR": "como está; inalterado",
+            "es": "tal como está; sin cambios"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in the manner of"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Fighting dreamers, just as we believe",
+        "pt-BR": "Sonhadores guerreiros, assim como acreditamos",
+        "es": "Soñadores luchadores, tal como creemos"
+      },
+      "literal_meaning": {
+        "en": "Fighting dreamers + believe + as + unchanged + in"
+      }
+    }
+  ],
+  "vocabulary": [],
+  "grammar_points": [
+    {
+      "name": "〜て form (te-form connection)",
+      "jlpt_reference": "JLPT N5",
+      "explanation": {
+        "en": "How it works: The て-form (te-form) is one of the most essential Japanese conjugations. It connects actions in sequence, shows means/method, and links to auxiliary verbs. For godan verbs, the ending changes based on the final consonant.\n\nExample from this song: 目指して (mezashite) = 'aiming for (and...)' — from 目指す (mezasu, 'to aim for') → 目指して (mezashite, te-form)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べて (tabete)\n• 行く (iku, 'to go') → 行って (itte)\n• 読む (yomu, 'to read') → 読んで (yonde)\n\nNote: Te-form rules for godan verbs: す→して, く→いて, ぐ→いで, む/ぶ/ぬ→んで, つ/る/う→って. Exception: 行く → 行って (not 行いて). For ichidan verbs, just replace る with て. Mastering the te-form unlocks many grammar patterns."
+      },
+      "conjugation_path": "目指す (mezasu, 'to aim for') → 目指して (mezashite, te-form, 'aiming for')"
+    },
+    {
+      "name": "〜ず (classical negative)",
+      "jlpt_reference": "JLPT N2",
+      "explanation": {
+        "en": "How it works: Replace the negative ない (nai) with ず (zu). This is the classical/literary negative conjunctive form, meaning 'without doing'. It's equivalent to modern ないで (naide).\n\nExample from this song: 構わず (kamawazu) = 'without caring' — from 構う (kamau, 'to care/mind') → 構わない (kamawanai, negative) → 構わず (kamawazu)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べず (tabezu, 'without eating')\n• 言う (iu, 'to say') → 言わず (iwazu, 'without saying')\n• する (suru, 'to do') → せず (sezu, 'without doing')\n\nNote: する → せず (not しず) is an irregular form to memorize. ず is common in written Japanese, formal speech, proverbs, and anime lyrics. 振り向かず進む (furimukazu susumu, 'advance without looking back')."
+      },
+      "conjugation_path": "構う (kamau, 'to care') → 構わない (kamawanai, negative) → 構わず (kamawazu, 'without caring')"
+    },
+    {
+      "name": "〜がままに (as one pleases)",
+      "jlpt_reference": "JLPT N1",
+      "explanation": {
+        "en": "How it works: Place がままに (ga mama ni) after the dictionary form of a verb to express 'as one pleases' or 'according to'. It suggests following something naturally without resistance.\n\nExample from this song: 信じるがままに (shinjiru ga mama ni) = 'as one believes / following what you believe' — from 信じる (shinjiru, 'to believe') + がままに (ga mama ni, 'as one pleases')\n\nMore examples:\n• 思う (omou, 'to think') → 思うがままに (omou ga mama ni, 'as one thinks/wishes')\n• 感じる (kanjiru, 'to feel') → 感じるがままに (kanjiru ga mama ni, 'as one feels')\n• 流れる (nagareru, 'to flow') → 流れるがままに (nagareru ga mama ni, 'as it flows')\n\nNote: This is a literary/formal expression. It conveys a philosophical acceptance — acting according to one's nature or instinct. 心のままに (kokoro no mama ni, 'as your heart wishes') is a related simpler pattern."
+      },
+      "conjugation_path": "信じる (shinjiru, 'to believe') + がままに (ga mama ni, 'as one pleases') → 信じるがままに (shinjiru ga mama ni, 'following what you believe')"
+    },
+    {
+      "name": "〜なんて (dismissive emphasis)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Place なんて (nante) after a noun or phrase to add a dismissive or emphatic tone — 'things like' or 'something trivial like'. It shows the speaker's attitude toward what precedes it.\n\nExample from this song: The lyrics use なんて to dismiss obstacles or conventional thinking, reinforcing the song's rebellious spirit.\n\nMore examples:\n• 常識 (joushiki, 'common sense') → 常識なんて (joushiki nante, 'things like common sense — who needs it')\n• 限界 (genkai, 'limit') → 限界なんてない (genkai nante nai, 'there's no such thing as limits')\n• 失敗 (shippai, 'failure') → 失敗なんて怖くない (shippai nante kowakunai, 'I'm not afraid of something like failure')\n\nNote: なんて can express dismissal, surprise, or defiance depending on context. In songs about freedom and determination (like GO!!!), it usually expresses defiance against limitations."
+      },
+      "conjugation_path": "[noun/phrase] + なんて (nante, 'things like — dismissive') = dismissive emphasis"
+    },
+    {
+      "name": "命令形 (imperative form)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: For godan verbs, change the final -u to -e. For ichidan verbs, replace る with ろ. This creates a direct, forceful command. An alternative masculine form uses ろ for godan verbs too in some dialects.\n\nExample from this song: 見極めろ (mikiwamero) = 'Discern!' — from 見極める (mikiwameru, 'to discern') → 見極めろ (mikiwamero). Also 切り開け (kirihirake) = 'Carve open!' — from 切り開く (kirihiraku) → 切り開け\n\nMore examples:\n• 行く (iku, 'to go') → 行け (ike, 'Go!')\n• 起きる (okiru, 'to wake up') → 起きろ (okiro, 'Wake up!')\n• する (suru, 'to do') → しろ (shiro, 'Do it!')\n\nNote: The imperative is the quintessential anime battle-cry form. FLOW's GO!!! is full of these commands, creating an infectious energy. 走れ (hashire, 'Run!') and 行け (ike, 'Go!') are among the most iconic anime imperatives."
+      },
+      "conjugation_path": "見極める (mikiwameru, 'to discern') → 見極めろ (mikiwamero, 'Discern!') / 切り開く (kirihiraku, 'to carve open') → 切り開け (kirihirake, 'Carve open!')"
+    },
+    {
+      "name": "〜だろう (conjecture/confirmation seeking)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works: Add だろう (darou) after a verb, adjective, or noun to express conjecture — 'probably' or 'I think'. With rising intonation, it seeks confirmation — 'right?'\n\nExample from this song: The lyrics use だろう to both speculate and challenge — 'you know that, right?' or 'it's probably true, isn't it?'\n\nMore examples:\n• 雨が降る (ame ga furu, 'it'll rain') → 雨が降るだろう (ame ga furu darou, 'it'll probably rain')\n• 大丈夫 (daijoubu, 'OK') → 大丈夫だろう (daijoubu darou, 'it'll probably be fine')\n• 知っている (shitteiru, 'know') → 知ってるだろう (shitteru darou, 'you know, right?')\n\nNote: だろう is casual. でしょう (deshou) is the polite form. In anime, だろう with assertive tone = 'right?!' (challenging). With soft tone = 'probably' (speculation). でしょう with rising tone = 'isn't it?' (seeking agreement)."
+      },
+      "conjugation_path": "[verb/adjective/noun] + だろう (darou, 'probably / right?')"
+    },
+    {
+      "name": "〜てくぜ (gonna do it - masculine)",
+      "jlpt_reference": "JLPT N3",
+      "explanation": {
+        "en": "How it works: Combine the て-form + いく (iku, 'to go') + ぜ (ze, masculine emphasis particle). This creates an energetic, masculine declaration — 'I'm gonna keep doing it!' The いく often contracts away.\n\nExample from this song: The song uses this pattern to express determined forward momentum with a rough, energetic masculine tone.\n\nMore examples:\n• 行く (iku, 'to go') → 行ってくぜ (ittekuze, 'I'm heading out!')\n• やる (yaru, 'to do') → やってくぜ (yattekuze, 'I'm gonna do it!')\n• 走る (hashiru, 'to run') → 走ってくぜ (hashittekuze, 'I'm gonna run!')\n\nNote: ぜ (ze) is a rough masculine sentence-ending particle that adds energy and assertion. It's less aggressive than ぞ (zo). Common in shonen anime and J-rock. Think Naruto saying 行くってばよ (ikuttebayo) — similarly energetic but different particle."
+      },
+      "conjugation_path": "[te-form] + いく (iku, 'to go') + ぜ (ze, masculine emphasis) → てくぜ (tekuze, 'gonna do it!')"
+    }
+  ]
+}

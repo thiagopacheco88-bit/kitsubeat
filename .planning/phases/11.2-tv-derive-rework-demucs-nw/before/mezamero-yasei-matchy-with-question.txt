@@ -1,0 +1,18 @@
+## mezamero-yasei-matchy-with-question (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 15176 | 15176 | 0 | PASS |
+| 2 | 39530 | 38916 | +614 | FAIL (mid-word drift: "僕") |
+| 3 | 51999 | 51949 | +50 | PASS |
+| 4 | 63480 | 63480 | 0 | PASS |
+| 5 | 69345 | 69345 | 0 | PASS |
+
+VERDICT: 1 verse(s) fail; spot-check FAILS for mezamero-yasei-matchy-with-question.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| mezamero-yasei-matchy-with-question | FAIL |
+
+Overall verdict: FAIL (tolerance: ±500ms)

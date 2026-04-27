@@ -1,0 +1,794 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 17580,
+      "end_time_ms": 31459,
+      "tokens": [
+        {
+          "surface": "追われる",
+          "reading": "おわれる",
+          "romaji": "owareru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to be chased"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ように",
+          "reading": "ように",
+          "romaji": "youni",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "as if",
+            "pt-BR": "como se",
+            "es": "como si"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "急いで",
+          "reading": "いそいで",
+          "romaji": "isoide",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "hurrying"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "いる",
+          "reading": "いる",
+          "romaji": "iru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "am (doing)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "乾いた",
+          "reading": "かわいた",
+          "romaji": "kawaita",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "dried; parched"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "胸",
+          "reading": "むね",
+          "romaji": "mune",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "chest; heart",
+            "pt-BR": "peito; coração",
+            "es": "pecho; corazón"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "かりたてる",
+          "reading": "かりたてる",
+          "romaji": "karitateru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to drive; to urge on"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "のさ",
+          "reading": "のさ",
+          "romaji": "nosa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "it's that (masculine)"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "I'm hurrying as if being chased. It's my parched heart that drives me on.",
+        "pt-BR": "Estou me apressando como se estivesse sendo perseguido. E meu coracao ressecado que me impulsiona.",
+        "es": "Me apresuro como si me persiguieran. Es mi corazon reseco el que me impulsa."
+      },
+      "literal_meaning": {
+        "en": "chased + as-if + hurrying + am / dried + chest + subject + drives-on + it-is"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 31459,
+      "end_time_ms": 44189,
+      "tokens": [
+        {
+          "surface": "誰",
+          "reading": "だれ",
+          "romaji": "dare",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "who",
+            "pt-BR": "quem",
+            "es": "quién"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "for",
+            "pt-BR": "para",
+            "es": "para"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ため",
+          "reading": "ため",
+          "romaji": "tame",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "sake"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "でなく",
+          "reading": "でなく",
+          "romaji": "denaku",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not for"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "誰",
+          "reading": "だれ",
+          "romaji": "dare",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "who",
+            "pt-BR": "quem",
+            "es": "quién"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "もの",
+          "reading": "もの",
+          "romaji": "mono",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "possession; belonging"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "でなく",
+          "reading": "でなく",
+          "romaji": "denaku",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not belonging to"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "俺たち",
+          "reading": "おれたち",
+          "romaji": "oretachi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "we (masculine)",
+            "pt-BR": "nós (masculino)",
+            "es": "nosotros (masculino)"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "いま",
+          "reading": "いま",
+          "romaji": "ima",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "now; this moment"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Not for anyone's sake, not belonging to anyone — our 'now' is...",
+        "pt-BR": "Nao pelo bem de ninguem, nao pertencendo a ninguem — o nosso 'agora' e...",
+        "es": "No por el bien de nadie, no perteneciendo a nadie — nuestro 'ahora' es..."
+      },
+      "literal_meaning": {
+        "en": "who + sake + not-for / who + belonging + not-belonging / we + of + now + subject"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 44189,
+      "end_time_ms": 57014,
+      "tokens": [
+        {
+          "surface": "痛み",
+          "reading": "いたみ",
+          "romaji": "itami",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "pain",
+            "pt-BR": "dor",
+            "es": "dolor"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ほどき",
+          "reading": "ほどき",
+          "romaji": "hodoki",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unraveling"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "心",
+          "reading": "こころ",
+          "romaji": "kokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "heart",
+            "pt-BR": "coração",
+            "es": "corazón"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ほどき",
+          "reading": "ほどき",
+          "romaji": "hodoki",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unraveling"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "影",
+          "reading": "かげ",
+          "romaji": "kage",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "shadow",
+            "pt-BR": "sombra",
+            "es": "sombra"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ほどき",
+          "reading": "ほどき",
+          "romaji": "hodoki",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "unraveling"
+          },
+          "jlpt_level": "N2"
+        }
+      ],
+      "translations": {
+        "en": "Unraveling pain, unraveling the heart, unraveling shadows.",
+        "pt-BR": "Desatando a dor, desatando o coracao, desatando as sombras.",
+        "es": "Deshaciendo el dolor, deshaciendo el corazon, deshaciendo las sombras."
+      },
+      "literal_meaning": {
+        "en": "pain + unraveling + heart + unraveling + shadow + object + unraveling"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 57014,
+      "end_time_ms": 62516,
+      "tokens": [
+        {
+          "surface": "息",
+          "reading": "いき",
+          "romaji": "iki",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "breath",
+            "pt-BR": "respiração",
+            "es": "respiración"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "つめて",
+          "reading": "つめて",
+          "romaji": "tsumete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "holding (breath)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "走りぬけろ",
+          "reading": "はしりぬけろ",
+          "romaji": "hashirinukero",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "run through! (imperative)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "闇",
+          "reading": "やみ",
+          "romaji": "yami",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "darkness",
+            "pt-BR": "escuridão",
+            "es": "oscuridad"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "o",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "裂いて",
+          "reading": "さいて",
+          "romaji": "saite",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "tearing through"
+          },
+          "jlpt_level": "N2"
+        }
+      ],
+      "translations": {
+        "en": "Hold your breath and run through — tear through the darkness!",
+        "pt-BR": "Segure a respiracao e corra — rasgue a escuridao!",
+        "es": "Aguanta la respiracion y corre — desgarra la oscuridad!"
+      },
+      "literal_meaning": {
+        "en": "breath + object + hold + run-through! / darkness + object + tearing"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "追う",
+      "reading": "おう",
+      "romaji": "ou",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to chase; to pursue; to drive (someone)",
+        "pt-BR": "perseguir; correr atrás; apressar",
+        "es": "perseguir; correr tras; apremiar"
+      },
+      "example_from_song": "追われるように 急いでいる",
+      "additional_examples": [
+        "夢を追う",
+        "犯人を追う"
+      ]
+    },
+    {
+      "surface": "急ぐ",
+      "reading": "いそぐ",
+      "romaji": "isogu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to hurry; to rush",
+        "pt-BR": "apressar-se; ter pressa",
+        "es": "apresurarse; darse prisa"
+      },
+      "example_from_song": "追われるように 急いでいる",
+      "additional_examples": [
+        "家に急ぐ",
+        "急いでください"
+      ]
+    },
+    {
+      "surface": "乾く",
+      "reading": "かわく",
+      "romaji": "kawaku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to dry; to become dry; to parch",
+        "pt-BR": "secar; ressecar",
+        "es": "secarse; resecarse"
+      },
+      "example_from_song": "乾いた胸が かりたてるのさ",
+      "additional_examples": [
+        "洗濯物が乾く",
+        "喉が乾く"
+      ]
+    },
+    {
+      "surface": "胸",
+      "reading": "むね",
+      "romaji": "mune",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "chest; breast; heart",
+        "pt-BR": "peito; coração",
+        "es": "pecho; corazón"
+      },
+      "example_from_song": "乾いた胸が かりたてるのさ",
+      "additional_examples": [
+        "胸が痛む",
+        "胸に手を当てる"
+      ]
+    },
+    {
+      "surface": "駆り立てる",
+      "reading": "かりたてる",
+      "romaji": "karitateru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N1",
+      "meaning": {
+        "en": "to drive; to spur on; to urge onward",
+        "pt-BR": "impelir; instigar; incitar",
+        "es": "impulsar; instar; espolear"
+      },
+      "example_from_song": "乾いた胸が かりたてるのさ",
+      "additional_examples": [
+        "不安に駆り立てられる",
+        "好奇心が彼を駆り立てた"
+      ]
+    },
+    {
+      "surface": "痛み",
+      "reading": "いたみ",
+      "romaji": "itami",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "pain; ache; grief",
+        "pt-BR": "dor; sofrimento",
+        "es": "dolor; sufrimiento"
+      },
+      "example_from_song": "痛みほどき 心ほどき 影をほどき",
+      "additional_examples": [
+        "胸の痛み",
+        "痛みを感じる"
+      ]
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "heart; mind; spirit",
+        "pt-BR": "coração; mente; espírito",
+        "es": "corazón; mente; espíritu"
+      },
+      "example_from_song": "痛みほどき 心ほどき 影をほどき",
+      "additional_examples": [
+        "優しい心",
+        "心を開く"
+      ]
+    },
+    {
+      "surface": "影",
+      "reading": "かげ",
+      "romaji": "kage",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "shadow; silhouette",
+        "pt-BR": "sombra; silhueta",
+        "es": "sombra; silueta"
+      },
+      "example_from_song": "痛みほどき 心ほどき 影をほどき",
+      "additional_examples": [
+        "影が伸びる",
+        "人の影"
+      ]
+    },
+    {
+      "surface": "ほどく",
+      "reading": "ほどく",
+      "romaji": "hodoku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to undo; to untie; to loosen",
+        "pt-BR": "desatar; desfazer; soltar",
+        "es": "desatar; deshacer; aflojar"
+      },
+      "example_from_song": "痛みほどき 心ほどき 影をほどき",
+      "additional_examples": [
+        "紐をほどく",
+        "誤解をほどく"
+      ]
+    },
+    {
+      "surface": "息",
+      "reading": "いき",
+      "romaji": "iki",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "breath; breathing",
+        "pt-BR": "respiração; fôlego",
+        "es": "aliento; respiración"
+      },
+      "example_from_song": "息をつめて 走りぬけろ 闇を裂いて",
+      "additional_examples": [
+        "息をする",
+        "息が切れる"
+      ]
+    },
+    {
+      "surface": "詰める",
+      "reading": "つめる",
+      "romaji": "tsumeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to stuff; to pack; to hold (one's breath)",
+        "pt-BR": "encher; empacotar; prender (a respiração)",
+        "es": "llenar; empacar; contener (la respiración)"
+      },
+      "example_from_song": "息をつめて 走りぬけろ 闇を裂いて",
+      "additional_examples": [
+        "息を詰める",
+        "箱に詰める"
+      ]
+    },
+    {
+      "surface": "走る",
+      "reading": "はしる",
+      "romaji": "hashiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to run",
+        "pt-BR": "correr",
+        "es": "correr"
+      },
+      "example_from_song": "息をつめて 走りぬけろ 闇を裂いて",
+      "additional_examples": [
+        "速く走る",
+        "駅まで走る"
+      ]
+    },
+    {
+      "surface": "抜ける",
+      "reading": "ぬける",
+      "romaji": "nukeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to come out; to pass through; to escape",
+        "pt-BR": "sair; atravessar; escapar",
+        "es": "salir; atravesar; escapar"
+      },
+      "example_from_song": "息をつめて 走りぬけろ 闇を裂いて",
+      "additional_examples": [
+        "トンネルを抜ける",
+        "髪が抜ける"
+      ]
+    },
+    {
+      "surface": "闇",
+      "reading": "やみ",
+      "romaji": "yami",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "darkness; the dark",
+        "pt-BR": "escuridão; trevas",
+        "es": "oscuridad; tinieblas"
+      },
+      "example_from_song": "息をつめて 走りぬけろ 闇を裂いて",
+      "additional_examples": [
+        "闇に包まれる",
+        "闇夜"
+      ]
+    },
+    {
+      "surface": "裂く",
+      "reading": "さく",
+      "romaji": "saku",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to tear; to rip; to split",
+        "pt-BR": "rasgar; despedaçar; dividir",
+        "es": "rasgar; desgarrar; partir"
+      },
+      "example_from_song": "息をつめて 走りぬけろ 闇を裂いて",
+      "additional_examples": [
+        "紙を裂く",
+        "仲を裂く"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜ように (you ni) — as if / in such a way",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Noun + のように (no you ni) or Verb + ように (you ni) means \"as if ~\" or \"in such a way that ~.\" It creates comparisons (similes) or expresses purpose. When it follows a noun, you need の (no) before ように (you ni). It modifies the verb that comes after it.\n\nExample from this song:\nThe singer uses this pattern to compare their actions and feelings to vivid images — running like the wind, shining like a star.\n\nMore examples:\n• 風のように走る (kaze no you ni hashiru) — \"run like the wind\"\n• 夢を見ているように (yume o mite iru you ni) — \"as if dreaming\"\n• 死ぬように眠った (shinu you ni nemutta) — \"slept as if dead\""
+      },
+      "conjugation_path": "Noun + の (no) + ように (you ni) → \"like ~\" / Verb plain + ように (you ni) → \"as if ~\""
+    },
+    {
+      "name": "〜ながら (nagara) — while doing / despite",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb ます-stem (masu-stem) + ながら (nagara) has two meanings: (1) doing two actions simultaneously — \"while doing ~,\" and (2) expressing contradiction — \"despite ~\" or \"although ~.\" The second meaning is more formal. Both meanings are very common in everyday Japanese.\n\nExample from this song:\nThe singer describes doing things simultaneously — experiencing pain while still pushing forward.\n\nMore examples:\n• 音楽を聴きながら勉強する (ongaku o kiki nagara benkyou suru) — \"study while listening to music\"\n• 歩きながら話す (aruki nagara hanasu) — \"talk while walking\"\n• 知っていながら黙っていた (shitte i nagara damatte ita) — \"stayed silent despite knowing\" (contradiction)"
+      },
+      "conjugation_path": "Verb ます-stem (masu-stem) + ながら (nagara) → \"while doing ~\""
+    },
+    {
+      "name": "〜てゆく (te yuku) — progressive movement away (literary)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb て-form (te-form) + ゆく (yuku) is the literary and poetic version of ていく (te iku). It expresses gradual change, fading, or movement away from the current moment. ゆく (yuku) is the classical form of 行く (iku, \"to go\"). Because it sounds more elegant and emotional, it appears frequently in songs, poems, and novels.\n\nExample from this song:\n失ってゆく (ushinatte yuku) — \"gradually losing\"\nThings are slipping away one by one over time.\n\nMore examples:\n• 消えてゆく (kiete yuku) — \"fading away\"\n• 過ぎてゆく時間 (sugite yuku jikan) — \"time passing by\"\n• 離れてゆく (hanarete yuku) — \"drifting apart\""
+      },
+      "conjugation_path": "失う (ushinau, \"to lose\") → 失って (ushinatte, te-form) → 失ってゆく (ushinatte yuku, \"gradually losing\")"
+    },
+    {
+      "name": "〜てきた (te kita) — have been doing (up to now)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nThe pattern Verb て-form (te-form) + きた (kita) expresses an action that has been continuing from the past up to the present moment. It conveys accumulated experience or ongoing change. きた (kita) is the past tense of くる (kuru, \"to come\"), so think of it as the action \"coming\" toward the present.\n\nExample from this song:\n裏切ってきた (uragitte kita) — \"have been betraying\"\nA pattern of betrayal that has continued over time up to now.\n\nMore examples:\n• ずっと頑張ってきた (zutto ganbatte kita) — \"have been working hard all along\"\n• 日本語を勉強してきた (nihongo o benkyou shite kita) — \"have been studying Japanese\"\n• たくさんの人に出会ってきた (takusan no hito ni deatte kita) — \"have met many people (over time)\""
+      },
+      "conjugation_path": "裏切る (uragiru, \"to betray\") → 裏切って (uragitte, te-form) → 裏切ってきた (uragitte kita, \"have been betraying\")"
+    },
+    {
+      "name": "命令形 〜ろ (ro) — imperative for ru-verbs",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "How it works:\nFor ichidan (ru-verb) verbs, the imperative (command form) is made by dropping る (ru) and adding ろ (ro). For godan (u-verb) compound verbs like 走り抜ける (hashiri nukeru, \"to run through\"), the same rule applies to the final verb. This form is direct and forceful — a battle cry or rallying command.\n\nExample from this song:\n走り抜けろ (hashiri nukero) — \"run through it!\" / \"break through!\"\nA raw command to push through every obstacle.\n\nMore examples:\n• 食べろ (tabero) — \"eat!\" (blunt command)\n• 起きろ (okiro) — \"wake up!\"\n• 逃げろ (nigero) — \"run away!\" / \"flee!\""
+      },
+      "conjugation_path": "走り抜ける (hashiri nukeru, \"to run through\") → 走り抜けろ (hashiri nukero, imperative, \"run through it!\")"
+    },
+    {
+      "name": "〜も〜も (mo ... mo) — both ... and ...",
+      "jlpt_reference": "JLPT N5",
+      "explanation": {
+        "en": "How it works:\nThe pattern X + も (mo) + Y + も (mo) means \"both X and Y\" or \"X as well as Y.\" It emphasizes that multiple things share the same quality or are included equally. It can also be used with negatives to mean \"neither X nor Y\" when followed by a negative verb.\n\nExample from this song:\nThe singer lists multiple things that are equally important or equally lost, using も...も to give them equal weight.\n\nMore examples:\n• 日本語も英語も話せる (nihongo mo eigo mo hanaseru) — \"can speak both Japanese and English\"\n• 時間もお金もない (jikan mo okane mo nai) — \"have neither time nor money\"\n• 父も母も元気です (chichi mo haha mo genki desu) — \"both my father and mother are well\""
+      },
+      "conjugation_path": "X + も (mo) + Y + も (mo) → \"both X and Y\""
+    }
+  ]
+}

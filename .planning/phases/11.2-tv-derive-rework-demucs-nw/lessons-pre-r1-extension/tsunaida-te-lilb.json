@@ -1,0 +1,1835 @@
+{
+  "jlpt_level": "N3",
+  "difficulty_tier": "intermediate",
+  "verses": [
+    {
+      "verse_number": 1,
+      "start_time_ms": 6200,
+      "end_time_ms": 17181,
+      "tokens": [
+        {
+          "surface": "巡り",
+          "reading": "めぐり",
+          "romaji": "meguri",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "going around"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "巡って",
+          "reading": "めぐって",
+          "romaji": "megutte",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "circling around"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even if",
+            "pt-BR": "mesmo se",
+            "es": "aunque"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "また",
+          "reading": "また",
+          "romaji": "mata",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "again",
+            "pt-BR": "de novo",
+            "es": "otra vez"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ここ",
+          "reading": "ここ",
+          "romaji": "koko",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "here",
+            "pt-BR": "aqui",
+            "es": "aquí"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "で",
+          "reading": "で",
+          "romaji": "de",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "at; in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "逢い",
+          "reading": "あい",
+          "romaji": "ai",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to meet",
+            "pt-BR": "encontrar",
+            "es": "encontrar"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "たい",
+          "reading": "たい",
+          "romaji": "tai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "want to",
+            "pt-BR": "querer",
+            "es": "querer"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "はぐれ",
+          "reading": "はぐれ",
+          "romaji": "hagure",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to get separated"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "ない",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not",
+            "pt-BR": "não",
+            "es": "no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ように",
+          "reading": "ように",
+          "romaji": "youni",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "so that",
+            "pt-BR": "para que",
+            "es": "para que"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "この",
+          "reading": "この",
+          "romaji": "kono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "this",
+            "pt-BR": "isto",
+            "es": "esto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "手",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "hand",
+            "pt-BR": "mão",
+            "es": "mano"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "つなぐ",
+          "reading": "つなぐ",
+          "romaji": "tsunagu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to hold; to connect"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "んだ",
+          "reading": "んだ",
+          "romaji": "nda",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "explanatory",
+            "pt-BR": "explicativo",
+            "es": "explicativo"
+          },
+          "jlpt_level": "N4"
+        }
+      ],
+      "translations": {
+        "en": "Even as time goes round and round, I want to meet you here again. So we don't get separated, I'll hold this hand.",
+        "pt-BR": "Mesmo que o tempo gire e gire, quero te encontrar aqui de novo. Para nao nos separarmos, vou segurar esta mao.",
+        "es": "Aunque el tiempo de vueltas y vueltas, quiero encontrarte aqui de nuevo. Para no separarnos, sujetare esta mano."
+      },
+      "literal_meaning": {
+        "en": "go-around + go-around + even-if + again + here + at + meet + want-to / get-separated + not + so-that + this + hand + object + hold + explanatory"
+      }
+    },
+    {
+      "verse_number": 2,
+      "start_time_ms": 17181,
+      "end_time_ms": 23892,
+      "tokens": [
+        {
+          "surface": "朝日",
+          "reading": "あさひ",
+          "romaji": "asahi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "morning sun"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "昇る",
+          "reading": "のぼる",
+          "romaji": "noboru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to rise"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "まで",
+          "reading": "まで",
+          "romaji": "made",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "until",
+            "pt-BR": "até",
+            "es": "hasta"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "語り合った",
+          "reading": "かたりあった",
+          "romaji": "katariatta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "talked together"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ね",
+          "reading": "ね",
+          "romaji": "ne",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "right?",
+            "pt-BR": "certo?",
+            "es": "¿verdad?"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "夕陽",
+          "reading": "ゆうひ",
+          "romaji": "yuuhi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "evening sun; sunset"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "沈む",
+          "reading": "しずむ",
+          "romaji": "shizumu",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to sink; to set"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "まで",
+          "reading": "まで",
+          "romaji": "made",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "until",
+            "pt-BR": "até",
+            "es": "hasta"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "つないだ",
+          "reading": "つないだ",
+          "romaji": "tsunaida",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "held (hands)"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "手",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "hand",
+            "pt-BR": "mão",
+            "es": "mano"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "We talked together until the morning sun rose, right? Our hands stayed connected until the evening sun set.",
+        "pt-BR": "Conversamos juntos ate o sol da manha nascer, ne? Nossas maos ficaram unidas ate o sol da tarde se por.",
+        "es": "Hablamos juntos hasta que salio el sol de la manana, verdad? Nuestras manos permanecieron unidas hasta que se puso el sol."
+      },
+      "literal_meaning": {
+        "en": "morning-sun + subject + rise + until + talked-together + right / evening-sun + subject + sink + until + held + hand"
+      }
+    },
+    {
+      "verse_number": 3,
+      "start_time_ms": 23892,
+      "end_time_ms": 29354,
+      "tokens": [
+        {
+          "surface": "こう",
+          "reading": "こう",
+          "romaji": "kou",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "like this",
+            "pt-BR": "assim",
+            "es": "así"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "やっ",
+          "reading": "やっ",
+          "romaji": "ya",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to do (te-form stem)",
+            "pt-BR": "fazer",
+            "es": "hacer"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "て",
+          "reading": "て",
+          "romaji": "te",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "te-form",
+            "pt-BR": "forma-te",
+            "es": "forma-te"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "明日",
+          "reading": "あした",
+          "romaji": "ashita",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "tomorrow",
+            "pt-BR": "amanhã",
+            "es": "mañana"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "also",
+            "pt-BR": "também",
+            "es": "también"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "明後日",
+          "reading": "あさって",
+          "romaji": "asatte",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "day after tomorrow",
+            "pt-BR": "depois de amanhã",
+            "es": "pasado mañana"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "also",
+            "pt-BR": "também",
+            "es": "también"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "共に",
+          "reading": "ともに",
+          "romaji": "tomoni",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "together",
+            "pt-BR": "juntos",
+            "es": "juntos"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "歩もう",
+          "reading": "あゆもう",
+          "romaji": "ayumou",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "let's walk",
+            "pt-BR": "vamos caminhar",
+            "es": "caminemos"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "光",
+          "reading": "ひかり",
+          "romaji": "hikari",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "light",
+            "pt-BR": "luz",
+            "es": "luz"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "と",
+          "reading": "と",
+          "romaji": "to",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "and",
+            "pt-BR": "e",
+            "es": "y"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "影",
+          "reading": "かげ",
+          "romaji": "kage",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "shadow",
+            "pt-BR": "sombra",
+            "es": "sombra"
+          },
+          "jlpt_level": "N3"
+        }
+      ],
+      "translations": {
+        "en": "Tomorrow and the day after, let's walk together — light and shadow.",
+        "pt-BR": "Amanhã e depois de amanhã, vamos caminhar juntos — luz e sombra.",
+        "es": "Mañana y pasado mañana, caminemos juntos — luz y sombra."
+      },
+      "literal_meaning": {
+        "en": "like-this + do + te + tomorrow + also + day-after + also + together + let's-walk + light + and + shadow"
+      }
+    },
+    {
+      "verse_number": 4,
+      "start_time_ms": 29354,
+      "end_time_ms": 32875,
+      "tokens": [
+        {
+          "surface": "キミ",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "その",
+          "reading": "その",
+          "romaji": "sono",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "that",
+            "pt-BR": "aquilo",
+            "es": "eso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "胸",
+          "reading": "むね",
+          "romaji": "mune",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "chest; heart",
+            "pt-BR": "peito; coração",
+            "es": "pecho; corazón"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "何",
+          "reading": "なに",
+          "romaji": "nani",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "what",
+            "pt-BR": "o quê",
+            "es": "qué"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "を",
+          "reading": "を",
+          "romaji": "wo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "object marker",
+            "pt-BR": "marcador de objeto",
+            "es": "marcador de objeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "抱え",
+          "reading": "かかえ",
+          "romaji": "kakae",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to hold; carry",
+            "pt-BR": "segurar; carregar",
+            "es": "sostener; llevar"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "寂しげ",
+          "reading": "さびしげ",
+          "romaji": "sabishige",
+          "grammar": "adjective",
+          "grammar_color": "green",
+          "meaning": {
+            "en": "seeming lonely"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in a manner",
+            "pt-BR": "de uma maneira",
+            "es": "de una manera"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "見つめる",
+          "reading": "みつめる",
+          "romaji": "mitsumeru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to gaze at"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "街",
+          "reading": "まち",
+          "romaji": "machi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "town; city",
+            "pt-BR": "cidade",
+            "es": "ciudad"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "の",
+          "reading": "の",
+          "romaji": "no",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "of",
+            "pt-BR": "de",
+            "es": "de"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "中",
+          "reading": "なか",
+          "romaji": "naka",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "inside; middle"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "で",
+          "reading": "で",
+          "romaji": "de",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "in",
+            "pt-BR": "em",
+            "es": "en"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "What were you holding in your heart? Gazing with a lonely look in the city...",
+        "pt-BR": "O que voce carregava no peito? Olhando com ar solitario no meio da cidade...",
+        "es": "Que llevabas en tu corazon? Mirando con aire solitario en medio de la ciudad..."
+      },
+      "literal_meaning": {
+        "en": "you + topic + that + chest + in + what + object + carry / lonely-seeming + manner + gaze + town + of + inside + in"
+      }
+    },
+    {
+      "verse_number": 5,
+      "start_time_ms": 32875,
+      "end_time_ms": 52758,
+      "tokens": [
+        {
+          "surface": "温もり",
+          "reading": "ぬくもり",
+          "romaji": "nukumori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "warmth",
+            "pt-BR": "calor",
+            "es": "calidez"
+          },
+          "jlpt_level": "N2"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ひとり",
+          "reading": "ひとり",
+          "romaji": "hitori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "alone",
+            "pt-BR": "sozinho",
+            "es": "solo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "じゃ",
+          "reading": "じゃ",
+          "romaji": "ja",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "contraction of では"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "見つから",
+          "reading": "みつから",
+          "romaji": "mitsukara",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to be found",
+            "pt-BR": "ser encontrado",
+            "es": "ser encontrado"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "なくて",
+          "reading": "なくて",
+          "romaji": "nakute",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not (and)"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "愛",
+          "reading": "あい",
+          "romaji": "ai",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "love",
+            "pt-BR": "amor",
+            "es": "amor"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "が",
+          "reading": "が",
+          "romaji": "ga",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "subject marker",
+            "pt-BR": "marcador de sujeito",
+            "es": "marcador de sujeto"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "こんなに",
+          "reading": "こんなに",
+          "romaji": "konnani",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "this much",
+            "pt-BR": "tanto assim",
+            "es": "tanto así"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "強さ",
+          "reading": "つよさ",
+          "romaji": "tsuyosa",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "strength",
+            "pt-BR": "força",
+            "es": "fuerza"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "into",
+            "pt-BR": "para dentro",
+            "es": "hacia dentro"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "なる",
+          "reading": "なる",
+          "romaji": "naru",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to become",
+            "pt-BR": "tornar-se",
+            "es": "convertirse"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "こと",
+          "reading": "こと",
+          "romaji": "koto",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "thing; fact",
+            "pt-BR": "coisa; fato",
+            "es": "cosa; hecho"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "知った",
+          "reading": "しった",
+          "romaji": "shitta",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "learned; found out"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "んだ",
+          "reading": "んだ",
+          "romaji": "nda",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "explanatory",
+            "pt-BR": "explicativo",
+            "es": "explicativo"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "キミ",
+          "reading": "きみ",
+          "romaji": "kimi",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "you",
+            "pt-BR": "você",
+            "es": "tú"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "に",
+          "reading": "に",
+          "romaji": "ni",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "with",
+            "pt-BR": "com",
+            "es": "con"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "出逢えて",
+          "reading": "であえて",
+          "romaji": "deaete",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "being able to meet"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "はじめて",
+          "reading": "はじめて",
+          "romaji": "hajimete",
+          "grammar": "adverb",
+          "grammar_color": "orange",
+          "meaning": {
+            "en": "for the first time",
+            "pt-BR": "pela primeira vez",
+            "es": "por primera vez"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "Warmth can't be found alone. I learned for the first time, meeting you, that love can become this much strength.",
+        "pt-BR": "O calor nao pode ser encontrado sozinho. Aprendi pela primeira vez, ao te encontrar, que o amor pode se tornar tanta forca.",
+        "es": "La calidez no se encuentra estando solo. Aprendi por primera vez, al encontrarte, que el amor puede convertirse en tanta fuerza."
+      },
+      "literal_meaning": {
+        "en": "warmth + topic + alone + not-found / love + subject + this-much + strength + into + become + fact / learned + you + with + meeting + first-time"
+      }
+    },
+    {
+      "verse_number": 6,
+      "start_time_ms": 52758,
+      "end_time_ms": 68601,
+      "tokens": [
+        {
+          "surface": "一人",
+          "reading": "ひとり",
+          "romaji": "hitori",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "alone",
+            "pt-BR": "sozinho",
+            "es": "solo"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "じゃ",
+          "reading": "じゃ",
+          "romaji": "ja",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "contraction of では"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "眠れ",
+          "reading": "ねむれ",
+          "romaji": "nemure",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can sleep"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "ない",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not",
+            "pt-BR": "não",
+            "es": "no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "夢",
+          "reading": "ゆめ",
+          "romaji": "yume",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "dream",
+            "pt-BR": "sonho",
+            "es": "sueño"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "は",
+          "reading": "は",
+          "romaji": "wa",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "topic marker",
+            "pt-BR": "marcador de tópico",
+            "es": "marcador de tema"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "見れ",
+          "reading": "みれ",
+          "romaji": "mire",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "can see"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ない",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not",
+            "pt-BR": "não",
+            "es": "no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "から",
+          "reading": "から",
+          "romaji": "kara",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "because",
+            "pt-BR": "porque",
+            "es": "porque"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "どんな",
+          "reading": "どんな",
+          "romaji": "donna",
+          "grammar": "other",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "any; whatever"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "不安",
+          "reading": "ふあん",
+          "romaji": "fuan",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "anxiety",
+            "pt-BR": "ansiedade",
+            "es": "ansiedad"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "も",
+          "reading": "も",
+          "romaji": "mo",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "even",
+            "pt-BR": "mesmo",
+            "es": "incluso"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "届か",
+          "reading": "とどか",
+          "romaji": "todoka",
+          "grammar": "verb",
+          "grammar_color": "red",
+          "meaning": {
+            "en": "to reach",
+            "pt-BR": "alcançar",
+            "es": "alcanzar"
+          },
+          "jlpt_level": "N3"
+        },
+        {
+          "surface": "ない",
+          "reading": "ない",
+          "romaji": "nai",
+          "grammar": "expression",
+          "grammar_color": "none",
+          "meaning": {
+            "en": "not",
+            "pt-BR": "não",
+            "es": "no"
+          },
+          "jlpt_level": "N5"
+        },
+        {
+          "surface": "ところ",
+          "reading": "ところ",
+          "romaji": "tokoro",
+          "grammar": "noun",
+          "grammar_color": "blue",
+          "meaning": {
+            "en": "place",
+            "pt-BR": "lugar",
+            "es": "lugar"
+          },
+          "jlpt_level": "N4"
+        },
+        {
+          "surface": "へ",
+          "reading": "へ",
+          "romaji": "e",
+          "grammar": "particle",
+          "grammar_color": "grey",
+          "meaning": {
+            "en": "toward",
+            "pt-BR": "em direção a",
+            "es": "hacia"
+          },
+          "jlpt_level": "N5"
+        }
+      ],
+      "translations": {
+        "en": "I can't sleep alone, I can't dream, so let's go to a place where no anxiety can reach.",
+        "pt-BR": "Nao consigo dormir sozinho, nao consigo sonhar, entao vamos para um lugar onde nenhuma ansiedade alcance.",
+        "es": "No puedo dormir solo, no puedo sonar, asi que vayamos a un lugar donde ninguna ansiedad pueda alcanzar."
+      },
+      "literal_meaning": {
+        "en": "alone + can't-sleep / dream + topic + can't-see + because / any + anxiety + even + reach + not + place + toward"
+      }
+    }
+  ],
+  "vocabulary": [
+    {
+      "surface": "巡り",
+      "reading": "めぐり",
+      "romaji": "meguri",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "circulation; going around; pilgrimage",
+        "pt-BR": "circulação; giro; peregrinação",
+        "es": "circulación; recorrido; peregrinación"
+      },
+      "example_from_song": "巡り巡ってもまたここで逢いたい",
+      "additional_examples": [
+        "季節の巡り",
+        "お寺巡り"
+      ]
+    },
+    {
+      "surface": "巡る",
+      "reading": "めぐる",
+      "romaji": "meguru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to go around; to circle; to tour",
+        "pt-BR": "girar em torno; percorrer; dar a volta",
+        "es": "girar; recorrer; dar vueltas"
+      },
+      "example_from_song": "巡り巡ってもまたここで逢いたい",
+      "additional_examples": [
+        "世界を巡る",
+        "季節が巡る"
+      ]
+    },
+    {
+      "surface": "逢う",
+      "reading": "あう",
+      "romaji": "au",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to meet; to encounter (often romantic/emotional, variant of 会う)",
+        "pt-BR": "encontrar-se; reencontrar (variante emotiva de 会う)",
+        "es": "encontrarse; reunirse (variante emotiva de 会う)"
+      },
+      "example_from_song": "巡り巡ってもまたここで逢いたい",
+      "additional_examples": [
+        "運命の人に逢う",
+        "また逢う日まで"
+      ]
+    },
+    {
+      "surface": "はぐれる",
+      "reading": "はぐれる",
+      "romaji": "hagureru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to stray from; to lose sight of (a companion)",
+        "pt-BR": "perder-se de; desgarrar-se",
+        "es": "perderse de; separarse de"
+      },
+      "example_from_song": "はぐれないようにこの手をつなぐんだ",
+      "additional_examples": [
+        "友達とはぐれる",
+        "群れからはぐれる"
+      ]
+    },
+    {
+      "surface": "手",
+      "reading": "て",
+      "romaji": "te",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "hand",
+        "pt-BR": "mão",
+        "es": "mano"
+      },
+      "example_from_song": "はぐれないようにこの手をつなぐんだ",
+      "additional_examples": [
+        "手を洗う",
+        "手を握る"
+      ]
+    },
+    {
+      "surface": "つなぐ",
+      "reading": "つなぐ",
+      "romaji": "tsunagu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to tie; to connect; to join (hands)",
+        "pt-BR": "amarrar; conectar; dar as mãos",
+        "es": "atar; conectar; unir (las manos)"
+      },
+      "example_from_song": "はぐれないようにこの手をつなぐんだ",
+      "additional_examples": [
+        "手をつなぐ",
+        "電話をつなぐ"
+      ]
+    },
+    {
+      "surface": "朝日",
+      "reading": "あさひ",
+      "romaji": "asahi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "morning sun; rising sun",
+        "pt-BR": "sol da manhã; sol nascente",
+        "es": "sol de la mañana; sol naciente"
+      },
+      "example_from_song": "朝日が昇るまで語り合ったね",
+      "additional_examples": [
+        "朝日が昇る",
+        "朝日を浴びる"
+      ]
+    },
+    {
+      "surface": "昇る",
+      "reading": "のぼる",
+      "romaji": "noboru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to rise (of the sun, moon); to ascend",
+        "pt-BR": "nascer (sol); subir; elevar-se",
+        "es": "salir (el sol); subir; ascender"
+      },
+      "example_from_song": "朝日が昇るまで語り合ったね",
+      "additional_examples": [
+        "太陽が昇る",
+        "月が昇る"
+      ]
+    },
+    {
+      "surface": "語り合う",
+      "reading": "かたりあう",
+      "romaji": "katariau",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to talk together; to converse with each other",
+        "pt-BR": "conversar juntos; trocar ideias",
+        "es": "conversar; platicar juntos"
+      },
+      "example_from_song": "朝日が昇るまで語り合ったね",
+      "additional_examples": [
+        "夜通し語り合う",
+        "夢を語り合う"
+      ]
+    },
+    {
+      "surface": "夕陽",
+      "reading": "ゆうひ",
+      "romaji": "yūhi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "evening sun; setting sun",
+        "pt-BR": "sol poente; pôr do sol",
+        "es": "sol de la tarde; sol poniente"
+      },
+      "example_from_song": "夕陽が沈むまでつないだ手",
+      "additional_examples": [
+        "夕陽が沈む",
+        "赤い夕陽"
+      ]
+    },
+    {
+      "surface": "沈む",
+      "reading": "しずむ",
+      "romaji": "shizumu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to sink; to set (of the sun)",
+        "pt-BR": "afundar; pôr-se (sol)",
+        "es": "hundirse; ponerse (el sol)"
+      },
+      "example_from_song": "夕陽が沈むまでつないだ手",
+      "additional_examples": [
+        "船が沈む",
+        "気持ちが沈む"
+      ]
+    },
+    {
+      "surface": "こう",
+      "reading": "こう",
+      "romaji": "kō",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "in this way; like this",
+        "pt-BR": "assim; desta forma",
+        "es": "así; de esta manera"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "こうやる",
+        "こう思う"
+      ]
+    },
+    {
+      "surface": "やる",
+      "reading": "やる",
+      "romaji": "yaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to do; to perform",
+        "pt-BR": "fazer; realizar",
+        "es": "hacer; realizar"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "宿題をやる",
+        "やってみる"
+      ]
+    },
+    {
+      "surface": "明日",
+      "reading": "あした",
+      "romaji": "ashita",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "tomorrow",
+        "pt-BR": "amanhã",
+        "es": "mañana"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "明日会おう",
+        "明日の予定"
+      ]
+    },
+    {
+      "surface": "明後日",
+      "reading": "あさって",
+      "romaji": "asatte",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "the day after tomorrow",
+        "pt-BR": "depois de amanhã",
+        "es": "pasado mañana"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "明後日の会議",
+        "明後日まで待つ"
+      ]
+    },
+    {
+      "surface": "共に",
+      "reading": "ともに",
+      "romaji": "tomoni",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "together with; along with",
+        "pt-BR": "juntos; junto com",
+        "es": "junto con; juntos"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "共に歩む",
+        "家族と共に暮らす"
+      ]
+    },
+    {
+      "surface": "歩む",
+      "reading": "あゆむ",
+      "romaji": "ayumu",
+      "part_of_speech": "verb",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "to walk; to go forward (often figurative)",
+        "pt-BR": "caminhar; avançar (figurativo)",
+        "es": "caminar; avanzar (figurado)"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "人生を歩む",
+        "共に歩む"
+      ]
+    },
+    {
+      "surface": "光",
+      "reading": "ひかり",
+      "romaji": "hikari",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "light; ray; beam",
+        "pt-BR": "luz; raio",
+        "es": "luz; rayo"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "光が差す",
+        "希望の光"
+      ]
+    },
+    {
+      "surface": "影",
+      "reading": "かげ",
+      "romaji": "kage",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "shadow; silhouette",
+        "pt-BR": "sombra; silhueta",
+        "es": "sombra; silueta"
+      },
+      "example_from_song": "こうやって明日も明後日も共に歩もう光と影",
+      "additional_examples": [
+        "影ができる",
+        "影を落とす"
+      ]
+    },
+    {
+      "surface": "胸",
+      "reading": "むね",
+      "romaji": "mune",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "chest; breast; heart",
+        "pt-BR": "peito; coração",
+        "es": "pecho; corazón"
+      },
+      "example_from_song": "キミはその胸に何を抱え",
+      "additional_examples": [
+        "胸が痛い",
+        "胸がドキドキする"
+      ]
+    },
+    {
+      "surface": "抱える",
+      "reading": "かかえる",
+      "romaji": "kakaeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to hold in one's arms; to carry; to bear (burden)",
+        "pt-BR": "carregar nos braços; abraçar; sustentar (carga)",
+        "es": "llevar en brazos; cargar; soportar (carga)"
+      },
+      "example_from_song": "キミはその胸に何を抱え",
+      "additional_examples": [
+        "荷物を抱える",
+        "不安を抱える"
+      ]
+    },
+    {
+      "surface": "寂しげ",
+      "reading": "さびしげ",
+      "romaji": "sabishige",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "looking lonely; seeming sad",
+        "pt-BR": "com ar solitário; com aparência triste",
+        "es": "con aire solitario; de aspecto triste"
+      },
+      "example_from_song": "寂しげに見つめる街の中で",
+      "additional_examples": [
+        "寂しげな表情",
+        "寂しげに笑う"
+      ]
+    },
+    {
+      "surface": "見つめる",
+      "reading": "みつめる",
+      "romaji": "mitsumeru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to stare at; to gaze at",
+        "pt-BR": "olhar fixamente; contemplar",
+        "es": "mirar fijamente; contemplar"
+      },
+      "example_from_song": "寂しげに見つめる街の中で",
+      "additional_examples": [
+        "目を見つめる",
+        "じっと見つめる"
+      ]
+    },
+    {
+      "surface": "街",
+      "reading": "まち",
+      "romaji": "machi",
+      "part_of_speech": "noun",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "town; city streets; downtown",
+        "pt-BR": "cidade; rua urbana; centro",
+        "es": "ciudad; calle urbana; centro"
+      },
+      "example_from_song": "寂しげに見つめる街の中で",
+      "additional_examples": [
+        "街を歩く",
+        "賑やかな街"
+      ]
+    },
+    {
+      "surface": "温もり",
+      "reading": "ぬくもり",
+      "romaji": "nukumori",
+      "part_of_speech": "noun",
+      "jlpt_level": "N2",
+      "meaning": {
+        "en": "warmth (often emotional or bodily)",
+        "pt-BR": "calor; aconchego (emocional ou corporal)",
+        "es": "calidez; calor (emocional o corporal)"
+      },
+      "example_from_song": "温もりはひとりじゃ見つからなくて",
+      "additional_examples": [
+        "手の温もり",
+        "人の温もり"
+      ]
+    },
+    {
+      "surface": "ひとり",
+      "reading": "ひとり",
+      "romaji": "hitori",
+      "part_of_speech": "noun",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "one person; alone; by oneself",
+        "pt-BR": "uma pessoa; sozinho",
+        "es": "una persona; solo"
+      },
+      "example_from_song": "温もりはひとりじゃ見つからなくて",
+      "additional_examples": [
+        "ひとりで行く",
+        "ひとりぼっち"
+      ]
+    },
+    {
+      "surface": "見つかる",
+      "reading": "みつかる",
+      "romaji": "mitsukaru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "to be found; to be discovered",
+        "pt-BR": "ser encontrado; ser descoberto",
+        "es": "ser encontrado; ser descubierto"
+      },
+      "example_from_song": "温もりはひとりじゃ見つからなくて",
+      "additional_examples": [
+        "鍵が見つかった",
+        "答えが見つかる"
+      ]
+    },
+    {
+      "surface": "愛",
+      "reading": "あい",
+      "romaji": "ai",
+      "part_of_speech": "noun",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "love; affection",
+        "pt-BR": "amor; afeto",
+        "es": "amor; afecto"
+      },
+      "example_from_song": "愛がこんなに強さになること",
+      "additional_examples": [
+        "愛を込める",
+        "深い愛"
+      ]
+    },
+    {
+      "surface": "こんなに",
+      "reading": "こんなに",
+      "romaji": "konnani",
+      "part_of_speech": "adverb",
+      "jlpt_level": "N4",
+      "meaning": {
+        "en": "so; to this extent; this much",
+        "pt-BR": "tanto assim; a este ponto",
+        "es": "tanto; a este punto"
+      },
+      "example_from_song": "愛がこんなに強さになること",
+      "additional_examples": [
+        "こんなに大きい",
+        "こんなに嬉しい"
+      ]
+    },
+    {
+      "surface": "強い",
+      "reading": "つよい",
+      "romaji": "tsuyoi",
+      "part_of_speech": "adjective",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "strong; powerful",
+        "pt-BR": "forte; poderoso",
+        "es": "fuerte; poderoso"
+      },
+      "example_from_song": "愛がこんなに強さになること",
+      "additional_examples": [
+        "強い人",
+        "風が強い"
+      ]
+    },
+    {
+      "surface": "なる",
+      "reading": "なる",
+      "romaji": "naru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to become; to turn into",
+        "pt-BR": "tornar-se; virar",
+        "es": "llegar a ser; convertirse en"
+      },
+      "example_from_song": "愛がこんなに強さになること",
+      "additional_examples": [
+        "大人になる",
+        "好きになる"
+      ]
+    },
+    {
+      "surface": "知る",
+      "reading": "しる",
+      "romaji": "shiru",
+      "part_of_speech": "verb",
+      "jlpt_level": "N5",
+      "meaning": {
+        "en": "to know; to find out",
+        "pt-BR": "saber; descobrir",
+        "es": "saber; conocer"
+      },
+      "example_from_song": "知ったんだキミに出逢えてはじめて",
+      "additional_examples": [
+        "名前を知る",
+        "真実を知る"
+      ]
+    },
+    {
+      "surface": "出逢う",
+      "reading": "であう",
+      "romaji": "deau",
+      "part_of_speech": "verb",
+      "jlpt_level": "N3",
+      "meaning": {
+        "en": "to meet (often fatefully); to encounter (variant of 出会う)",
+        "pt-BR": "encontrar (por destino); deparar-se com (variante de 出会う)",
+        "es": "encontrarse (por destino); toparse con (variante de 出会う)"
+      },
+      "example_from_song": "知ったんだキミに出逢えてはじめて",
+      "additional_examples": [
+        "運命の人に出逢う",
+        "素敵な音楽に出逢う"
+      ]
+    }
+  ],
+  "grammar_points": [
+    {
+      "name": "〜ても (temo - even if)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "Expresses \"even if\" or \"even though.\" The speaker acknowledges a condition but says the result stays the same regardless.\n\nHow it works:\nTake the て-form (te-form) of a verb and add も (mo). It means \"even if [verb happens].\"\n\nExample from this song:\n巡り巡っても (meguri megutte mo, \"Even if time goes round and round\")\n\nMore examples:\n- 雨が降っても行く (ame ga futte mo iku, \"I'll go even if it rains\")\n- 高くても買う (takakute mo kau, \"I'll buy it even if it's expensive\")\n- 何回失敗しても諦めない (nankai shippai shite mo akiramenai, \"Even if I fail many times, I won't give up\")"
+      },
+      "conjugation_path": "巡る (meguru) → 巡って (megutte, te-form) → 巡っても (megutte mo, \"even if it goes around\")"
+    },
+    {
+      "name": "〜ように (you ni - so that)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "Expresses purpose or a wish: \"so that [something happens]\" or \"in order to.\" It is used when the desired outcome is not directly under the speaker's control.\n\nHow it works:\nPlace ように (you ni) after the dictionary form (positive) or ない-form (negative) of a verb.\n\nExample from this song:\nはぐれないように (hagurenai you ni, \"So that we don't get separated\")\n\nMore examples:\n- 忘れないようにメモする (wasurenai you ni memo suru, \"I'll take notes so I don't forget\")\n- 聞こえるように大きい声で話す (kikoeru you ni ookii koe de hanasu, \"Speak loudly so it can be heard\")\n- 遅れないように早く出る (okurenai you ni hayaku deru, \"Leave early so as not to be late\")"
+      }
+    },
+    {
+      "name": "〜んだ (nda - explanatory)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "Adds an explanatory or emphatic tone to a statement. It signals that the speaker is giving a reason, making a strong declaration, or emphasizing their resolve.\n\nHow it works:\nAttach んだ (nda) after the plain form of a verb, adjective, or noun + な. In casual speech, it often sounds like \"It's that...\" or adds conviction.\n\nExample from this song:\nこの手をつなぐんだ (kono te o tsunagu nda, \"I WILL hold this hand\" - emphatic resolve)\n\nMore examples:\n- 行くんだ (iku nda, \"I'm going! / The thing is, I'm going\")\n- 好きなんだ (suki na nda, \"The truth is, I like you\")\n- どうして泣いてるんだ (doushite naiteru nda, \"Why are you crying?\")"
+      },
+      "conjugation_path": "つなぐ (tsunagu) + んだ (nda) → つなぐんだ (tsunagu nda, \"I will hold [hands] - emphatic\")"
+    },
+    {
+      "name": "〜ながら (nagara - while)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "Expresses doing two actions at the same time: \"while doing [X], also doing [Y].\" The main action comes at the end of the sentence.\n\nHow it works:\nTake the masu-stem of a verb and add ながら (nagara). The secondary (background) action gets ながら, and the main action follows.\n\nExample from this song:\nつなぎ直しながら (tsunaginaoshi nagara, \"While reconnecting hands\")\n\nMore examples:\n- 音楽を聴きながら勉強する (ongaku o kiki nagara benkyou suru, \"Study while listening to music\")\n- 歩きながら話す (aruki nagara hanasu, \"Talk while walking\")\n- コーヒーを飲みながら新聞を読む (koohii o nomi nagara shinbun o yomu, \"Read the newspaper while drinking coffee\")"
+      },
+      "conjugation_path": "つなぎ直す (tsunaginaosu) → つなぎ直し (tsunaginaoshi, masu-stem) + ながら (nagara) → つなぎ直しながら (tsunaginaoshi nagara)"
+    },
+    {
+      "name": "〜なら (nara - if/conditional)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "A conditional meaning \"if.\" It is used when the speaker takes a hypothetical situation as a premise and then states what would follow.\n\nHow it works:\nAttach なら (nara) after the plain past form of a verb or the dictionary form. It sets up a condition.\n\nExample from this song:\n描いたなら (egaita nara, \"If you've envisioned [a dream]\")\n\nMore examples:\n- 暇なら映画を見よう (hima nara eiga o miyou, \"If you're free, let's watch a movie\")\n- 日本に行くなら京都がおすすめ (nihon ni iku nara kyouto ga osusume, \"If you go to Japan, I recommend Kyoto\")\n- 分かったなら早くやって (wakatta nara hayaku yatte, \"If you understood, do it quickly\")"
+      }
+    },
+    {
+      "name": "〜続ける (tsuzukeru - to keep doing)",
+      "jlpt_reference": "JLPT N4",
+      "explanation": {
+        "en": "An auxiliary verb meaning \"to continue doing.\" Attached to the masu-stem of another verb, it expresses an ongoing, sustained action.\n\nHow it works:\nTake the masu-stem of a verb and add 続ける (tsuzukeru).\n\nExample from this song:\n照らし続けよう (terashi tsuzukeyou, \"Let's keep illuminating\")\n\nMore examples:\n- 走り続ける (hashiri tsuzukeru, \"to keep running\")\n- 信じ続ける (shinji tsuzukeru, \"to keep believing\")\n- 練習し続ければ上手になる (renshuu shi tsuzukereba jouzu ni naru, \"If you keep practicing, you'll get good\")"
+      },
+      "conjugation_path": "照らす (terasu) → 照らし (terashi, masu-stem) + 続ける (tsuzukeru) → 照らし続けよう (terashi tsuzukeyou, \"let's keep shining\")"
+    }
+  ]
+}
