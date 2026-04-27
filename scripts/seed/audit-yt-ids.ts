@@ -6,6 +6,14 @@
  * duplicate group, exits 0 + stdout "OK: N rows checked, 0 duplicates"
  * on clean run.
  *
+ * Scope: `songs.language = 'ja'` only. The catalog query in
+ * `getAllSongs()` (src/lib/db/queries.ts) filters to ja, so non-ja songs
+ * are never user-visible — duplicate yt_ids among them don't degrade the
+ * product. The audit gate matches that user-facing scope so an English
+ * cover sharing a yt_id with another English cover doesn't fail every
+ * batch run. To audit all rows regardless of language (e.g. before culling
+ * non-ja rows), use `inspect-song-rows.ts` or query manually.
+ *
  * Usage:
  *   npx tsx scripts/seed/audit-yt-ids.ts
  */
@@ -17,7 +25,7 @@ import { writeFileSync } from "fs";
 import { resolve } from "path";
 import { getDb } from "../../src/lib/db/index.js";
 import { songs, songVersions } from "../../src/lib/db/schema.js";
-import { eq, isNotNull } from "drizzle-orm";
+import { and, eq, isNotNull } from "drizzle-orm";
 
 async function main() {
   const db = getDb();
@@ -29,7 +37,7 @@ async function main() {
     })
     .from(songVersions)
     .innerJoin(songs, eq(songs.id, songVersions.song_id))
-    .where(isNotNull(songVersions.youtube_id));
+    .where(and(isNotNull(songVersions.youtube_id), eq(songs.language, "ja")));
 
   // Group by youtube_id; only flag groups whose distinct slugs > 1
   const byYtId = new Map<string, { slugs: Set<string>; versionTypes: string[] }>();
