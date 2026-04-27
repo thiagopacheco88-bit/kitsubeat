@@ -135,32 +135,42 @@ describe("snapVerseOnsetToWordBoundary", () => {
     expect(snapVerseOnsetToWordBoundary(300, wxWords)).toBe(300);
   });
 
-  it("snaps onset inside a long word to next word start (long-word case)", () => {
-    // Mimics sign-flow: word 'a' spans 12336-23660ms (11324ms long word covering instrumental)
+  it("snaps onset inside a long word: scans past tiny words, returns first word after silence gap", () => {
+    // Mimics sign-flow: word 'a' spans 12336-23660ms (11324ms); after it:
+    //   "r" (23660-23720ms), "t" (23720-23740ms) are tiny English fragments,
+    //   then a 2593ms silence gap → "忘" starts at 26333ms.
+    // findNextStructuralBoundaryMs scans from 23660ms:
+    //   gap before "r" = 0ms, gap before "t" = 0ms, gap before "忘" = 26333-23740 = 2593ms ≥ 2000ms
+    //   → returns 26333ms
     const wxWords = [
       mkWord("心", 10.0, 12.336),
       mkWord("a",  12.336, 23.660),   // 11324ms — instrumental break absorbed into one word
-      mkWord("r",  23.660, 23.720),
-      mkWord("忘", 26.333, 27.174),
+      mkWord("r",  23.660, 23.720),   // tiny English fragment
+      mkWord("t",  23.720, 23.740),   // tiny English fragment
+      mkWord("忘", 26.333, 27.174),   // first word after 2593ms silence gap
     ];
-    // onset = 19525ms is inside the long "a" word
+    // onset = 19525ms is inside the long "a" word → trigger Pass 1
     const result = snapVerseOnsetToWordBoundary(19525, wxWords);
-    // Should snap to next non-trivial word: "r" at 23660ms
-    expect(result).toBe(23660);
-  });
-
-  it("snaps onset inside a long word — skips empty next-word, lands on substantive word", () => {
-    const wxWords = [
-      mkWord("a", 12.336, 23.660),    // long word
-      mkWord("",  23.660, 23.670),    // empty/whitespace word — should be skipped
-      mkWord("忘", 26.333, 27.174),   // substantive
-    ];
-    const result = snapVerseOnsetToWordBoundary(19000, wxWords);
-    // Should skip empty word, land on 忘 at 26333ms
+    // structural boundary: next word after the silence gap = 忘 at 26333ms
     expect(result).toBe(26333);
   });
 
-  it("snaps onset in a long silence gap to the word after the gap", () => {
+  it("snaps onset inside a long word — when no silence gap, returns first word at/after word end", () => {
+    // 'だ' word spans 35523-37184ms (1661ms > 1400ms default threshold); 'に' immediately follows
+    // findNextStructuralBoundaryMs(37184) scans from 37184ms:
+    //   all consecutive words with tiny gaps → no gap ≥ 2000ms → fallback = 37184ms
+    const wxWords = [
+      mkWord("だ", 35.523, 37.184),   // 1661ms long word (> 1400ms default threshold)
+      mkWord("地", 37.184, 37.425),   // immediately follows (gap=0ms)
+      mkWord("に", 37.425, 37.745),
+    ];
+    const result = snapVerseOnsetToWordBoundary(36354, wxWords);
+    // No silence gap after 'だ' → fallback = first word at/after 37184ms = 'に' at...
+    // wait: firstWordAfterFrom = first word with wStartMs >= 37184ms = 地 at 37184ms
+    expect(result).toBe(37184);
+  });
+
+  it("snaps onset in a long silence gap to the word after the gap (Pass 2)", () => {
     // Mimics sign-flow: silence gap from 23740ms to 26333ms (2593ms > 2000ms threshold)
     const wxWords = [
       mkWord("t", 23.720, 23.740),    // word ending at 23740ms
@@ -177,7 +187,7 @@ describe("snapVerseOnsetToWordBoundary", () => {
       mkWord("た", 20.0, 20.5),
       mkWord("か", 21.0, 21.5),       // 500ms gap between words (< 2000ms threshold)
     ];
-    // onset = 20.7s falls in the short 500ms gap
+    // onset = 20.7s falls in the short 500ms gap (< 2000ms)
     expect(snapVerseOnsetToWordBoundary(20700, wxWords)).toBe(20700);
   });
 
@@ -189,11 +199,42 @@ describe("snapVerseOnsetToWordBoundary", () => {
     expect(snapVerseOnsetToWordBoundary(12000, wxWords)).toBe(12000);
   });
 
+  it("uso-sid V7 pattern: word spanning 1481ms (just above 1400ms threshold) triggers snap", () => {
+    // 'の' spans 71158-72639ms (1481ms > 1400ms threshold); onset 71679ms is inside
+    // findNextStructuralBoundaryMs(72639): 空(72639ms) immediately follows, no 2s gap
+    // → fallback = 72639ms (空 word start)
+    const wxWords = [
+      mkWord("の", 71.158, 72.639),   // 1481ms — just over 1400ms threshold
+      mkWord("空", 72.639, 73.199),   // immediately follows
+    ];
+    const result = snapVerseOnsetToWordBoundary(71679, wxWords);
+    // onset 71679 is inside 'の' (71158-72639ms, 1481ms ≥ 1400ms) → snap to 72639ms
+    expect(result).toBe(72639);
+  });
+
+  it("uso-sid pattern: onset inside long word that immediately precedes real content (no silence gap)", () => {
+    // 'た' spans 20695-25839ms (5144ms); '無' starts at 25839ms = wEndMs.
+    // findNextStructuralBoundaryMs(25839):
+    //   無 starts at 25839ms >= 25839 → firstWordAfterFrom=25839, gap=0ms → continue
+    //   理 starts at 26219ms, gap=26219-25839=380ms < 2000ms → continue
+    //   → no gap found → fallback = 25839ms
+    const wxWords = [
+      mkWord("た", 20.695, 25.839),   // 5144ms — instrumental break absorbed into 'た'
+      mkWord("無", 25.839, 26.219),   // immediately follows
+      mkWord("理", 26.219, 26.739),
+    ];
+    const result = snapVerseOnsetToWordBoundary(23267, wxWords);
+    // onset 23267ms is inside 'た' → snap to first available = 無 at 25839ms
+    expect(result).toBe(25839);
+  });
+
   it("computeVerseTimes with wxWords snaps verse onsets at instrumental breaks", () => {
-    // Simplified version of the sign-flow scenario:
+    // Simplified sign-flow scenario:
     // verse 1 raw span ends at 12000ms, verse 2 raw start at 26000ms
     // gap-midpoint = (12000 + 26000) / 2 = 19000ms
-    // 19000ms falls inside the long "a" word (12336-23660ms) → should snap to 23660ms
+    // 19000ms falls inside the long "a" word (12336-23660ms)
+    // After "a" ends at 23660ms, "忘" starts at 26000ms → gap = 26000-23660 = 2340ms ≥ 2000ms
+    // → structural boundary at 26000ms
     const rawSpans = [
       { verseNumber: 1, startMs: 1000, endMs: 12000 },
       { verseNumber: 2, startMs: 26000, endMs: 30000 },
@@ -201,13 +242,12 @@ describe("snapVerseOnsetToWordBoundary", () => {
     const wxWords = [
       mkWord("心", 0.5, 1.0),
       mkWord("a", 12.336, 23.660),   // long instrumental word
-      mkWord("忘", 26.0, 27.0),
+      mkWord("忘", 26.0, 27.0),      // silence gap = 26000-23660 = 2340ms ≥ 2000ms threshold
     ];
     const result = computeVerseTimes(rawSpans, 500, wxWords);
-    // verse 2 startMs should be snapped from 19000ms to 23660ms (or next word)
+    // verse 2 startMs should be snapped from 19000ms (gap-midpoint) to 26000ms (structural boundary)
     const v2 = result.find((v) => v.verseNumber === 2);
     expect(v2).toBeDefined();
-    // 19000ms is inside long "a" word, next word is 忘 at 26000ms (26.0s → 26000ms)
     expect(v2!.startMs).toBe(26000);
   });
 });

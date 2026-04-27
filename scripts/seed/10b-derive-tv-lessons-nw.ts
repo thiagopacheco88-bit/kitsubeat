@@ -232,25 +232,67 @@ export interface DetectedVerse {
  *
  * Exported for unit testing.
  */
+/**
+ * Find the start time (ms) of the next "structural boundary" in the WhisperX word
+ * list after position `afterMs`. A structural boundary is the start of a word that
+ * comes after any silence gap >= `longGapThresholdMs` OR after the end of the run
+ * of short words following a long-span word.
+ *
+ * Used internally by snapVerseOnsetToWordBoundary to resolve both the "inside long
+ * word" and "inside long silence gap" cases to the same snap target.
+ */
+/**
+ * Walk forward from `fromMs` through the WhisperX words, tracking the running
+ * gap between consecutive words. Return the start time of the first word that
+ * begins after a silence gap >= `longGapThresholdMs`.
+ *
+ * If no such gap is found, return the start of the first word at or after
+ * `fromMs` (the immediate next available word boundary).
+ */
+function findNextStructuralBoundaryMs(
+  wxWords: WhisperWord[],
+  fromMs: number,
+  longGapThresholdMs: number
+): number {
+  let prevEndMs = fromMs;
+  let firstWordAfterFrom: number | null = null;
+
+  for (const w of wxWords) {
+    const wStartMs = Math.round(w.start * 1000);
+    if (wStartMs < fromMs) continue; // skip words entirely before the anchor
+
+    if (firstWordAfterFrom === null) firstWordAfterFrom = wStartMs;
+
+    const gapMs = wStartMs - prevEndMs;
+    if (gapMs >= longGapThresholdMs) {
+      return wStartMs; // structural boundary: large silence before this word
+    }
+    prevEndMs = Math.round(w.end * 1000);
+  }
+  // No structural boundary found — return first available word boundary
+  return firstWordAfterFrom ?? fromMs;
+}
+
 export function snapVerseOnsetToWordBoundary(
   onsetMs: number,
   wxWords: WhisperWord[],
-  longSpanThresholdMs = 1500,
+  longSpanThresholdMs = 1400,
   longGapThresholdMs = 2000
 ): number {
-  // Pass 1: snap if onset falls strictly inside a long word span
+  // Pass 1: snap if onset falls strictly inside a long word span.
+  // Snap to the next structural boundary AFTER the long word ends, so that
+  // both "onset inside the long word" and "onset just past the long word but
+  // in a subsequent silence gap" resolve to the same snap target.
   for (let wi = 0; wi < wxWords.length; wi++) {
     const w = wxWords[wi];
     const wStartMs = Math.round(w.start * 1000);
     const wEndMs = Math.round(w.end * 1000);
     const wSpanMs = wEndMs - wStartMs;
     if (wSpanMs >= longSpanThresholdMs && onsetMs > wStartMs && onsetMs < wEndMs) {
-      // Find next word with non-trivial content
-      const nextWord = wxWords.slice(wi + 1).find((nw) => nw.word.trim().length > 0);
-      return nextWord ? Math.round(nextWord.start * 1000) : wEndMs;
+      return findNextStructuralBoundaryMs(wxWords, wEndMs, longGapThresholdMs);
     }
   }
-  // Pass 2: snap if onset falls in a long silence gap between words
+  // Pass 2: snap if onset falls in a long silence gap between words.
   for (let wi = 0; wi < wxWords.length - 1; wi++) {
     const gapStartMs = Math.round(wxWords[wi].end * 1000);
     const gapEndMs = Math.round(wxWords[wi + 1].start * 1000);

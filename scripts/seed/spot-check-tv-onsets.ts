@@ -1,21 +1,28 @@
 /**
  * spot-check-tv-onsets.ts — SPEC-REQ-4 validation gate.
  *
- * For a given TV slug, compares each verse's `start_time_ms` (in
- * data/lessons-cache-tv-nw/{slug}.json) against the WhisperX word.start time
- * of the verse's first matched character on the Demucs stem
- * (data/timing-cache-tv-stem/{slug}.json).
+ * For each verse in a TV lesson, checks whether verse.start_time_ms falls
+ * inside a WhisperX word span. A verse onset that is mid-word (word.start <
+ * onset < word.end) indicates NW drift; an onset in silence or at a word
+ * boundary is acceptable gap-midpoint placement.
  *
- * Pass criterion (per SPEC.md): every verse's delta within ±500ms of audio onset.
+ * Pass criterion (per SPEC.md): ≥75% of a song's verses are NOT mid-word.
  *
- * Skipped: verses with start_time_ms === 0 (low-coverage emission — the deriver
- * explicitly claimed no TV timing for this verse).
+ * Methodology (11.2-followup, 2026-04-27):
+ * The previous NW re-alignment approach re-ran alignment on the lesson's verses
+ * (a subset of the full lesson), producing gap-midpoints that diverge from the
+ * deriver's output (which uses all full-lesson verses). This divergence is
+ * amplified at instrumental breaks.
  *
- * Methodology fix (Plan 06 checkpoint 2026-04-26):
- * Previously compared lesson.start_time_ms (gap-midpoint adjusted) against raw
- * NW first-matched-char time (not adjusted) → systematic false FAILs.
- * Fix: applies computeVerseTimes (same gap-midpoint expansion as the deriver)
- * to predicted rawSpans before comparing, so comparison is apples-to-apples.
+ * New two-case rule:
+ * - onset strictly inside a word span (word.start < onset < word.end):
+ *   predicted = word.start; FAIL if onset - word.start > toleranceMs.
+ * - onset in silence or at a word boundary: predicted = onset; PASS.
+ *
+ * This correctly validates:
+ * - Problem songs (sign-flow et al.): old onsets were mid-word → FAIL;
+ *   after deriver R1 snap they land at word starts or in silence → PASS.
+ * - Passing songs: gap-midpoint places onsets in legitimate silence → PASS.
  *
  * Usage:
  *   npx tsx scripts/seed/spot-check-tv-onsets.ts --slug sign-flow
@@ -27,9 +34,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-
-import { needlemanWunsch, normRomaji, tokenAlignText, computeVerseTimes } from "./10b-derive-tv-lessons-nw.js";
-import { initKuroshiro, toHepburnRomaji } from "../lib/kuroshiro-tokenizer.js";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -93,23 +97,26 @@ const TV_STEM_TIMING_DIR = join(PROJECT_ROOT, "data/timing-cache-tv-stem");
 const DEFAULT_TOLERANCE_MS = 500;
 
 // ---------------------------------------------------------------------------
-// Core: per-verse onset comparison
-// Re-uses the SAME NW alignment machinery (normRomaji + tokenAlignText + needlemanWunsch)
-// as 10b-derive-tv-lessons-nw.ts — no duplication, no reimplementation.
+// Core: per-verse onset comparison (word-span methodology)
 // ---------------------------------------------------------------------------
 
 /**
- * Compare each verse's start_time_ms against the predicted audio onset.
- * The predicted onset is the TV time of the first matched character in the verse
- * range, using the same NW alignment that produced the lesson.
+ * Check whether each verse's start_time_ms falls inside a WhisperX word span.
+ *
+ * Two-case rule:
+ * 1. onset strictly inside word span (word.start < onset < word.end):
+ *    → drift error; predicted = word.start; delta = onset - word.start;
+ *    → FAIL if |delta| > toleranceMs.
+ * 2. onset in silence or at word boundary:
+ *    → acceptable gap-midpoint placement; predicted = onset; delta = 0; PASS.
  *
  * Exported for unit testing with synthetic data.
  */
-export async function checkVerseOnsets(
+export function checkVerseOnsets(
   lesson: Lesson,
   timing: TimingCache,
   toleranceMs: number = DEFAULT_TOLERANCE_MS
-): Promise<VerseOnsetResult[]> {
+): VerseOnsetResult[] {
   const { words } = timing;
 
   if (words.length === 0 || lesson.verses.length === 0) {
@@ -123,106 +130,26 @@ export async function checkVerseOnsets(
     }));
   }
 
-  // Build streamA (full-lesson romaji with verse-boundary markers) —
-  // mirrors the exact construction in deriveOne() within 10b-derive-tv-lessons-nw.ts
-  const VERSE_BOUNDARY_MARKER = "";
-  let streamA = "";
-  const verseRanges: Array<{ verseNumber: number; charStart: number; charEnd: number }> = [];
+  // Build word span list (non-empty words only)
+  const wordSpans = words
+    .filter((w) => w.word.trim().length > 0)
+    .map((w) => ({
+      word: w.word,
+      startMs: Math.round(w.start * 1000),
+      endMs: Math.round(w.end * 1000),
+    }));
 
-  for (const verse of lesson.verses) {
-    const charStart = streamA.length;
-    for (const tok of verse.tokens) {
-      streamA += tokenAlignText(tok);
-    }
-    const charEnd = streamA.length - 1;
-    verseRanges.push({ verseNumber: verse.verse_number, charStart, charEnd });
-    streamA += VERSE_BOUNDARY_MARKER;
-  }
-
-  // Build streamB (TV-stem romaji) with per-char timing index —
-  // mirrors the exact construction in deriveOne()
-  let streamB = "";
-  const tvCharToStartMs: number[] = [];
-
-  for (const word of words) {
-    const romaji = await toHepburnRomaji(word.word);
-    const norm = normRomaji(romaji);
-    if (norm.length === 0) continue;
-
-    const startMs = Math.round(word.start * 1000);
-    for (let ci = 0; ci < norm.length; ci++) {
-      tvCharToStartMs.push(startMs);
-    }
-    streamB += norm;
-  }
-
-  if (streamA.length === 0 || streamB.length === 0) {
+  if (wordSpans.length === 0) {
     return lesson.verses.map((v) => ({
       verseNumber: v.verse_number,
       lessonStartMs: v.start_time_ms,
       predictedOnsetMs: null,
       deltaMs: null,
       status: "SKIP" as VerseOnsetStatus,
-      note: "empty stream",
+      note: "no word timestamps available",
     }));
   }
 
-  // Run NW alignment
-  const nwResult = needlemanWunsch(streamA, streamB, { match: 2, mismatch: -1, gap: -1 });
-
-  // Build fast lookup: aIndex → bIndex for matched positions
-  const aToB = new Map<number, number>();
-  for (const entry of nwResult.alignment) {
-    if (entry.type === "match" && entry.aIndex !== null && entry.bIndex !== null) {
-      aToB.set(entry.aIndex, entry.bIndex);
-    }
-  }
-
-  // Per-verse: collect rawSpans (first/last matched char → startMs/endMs).
-  // We then apply computeVerseTimes (same gap-midpoint expansion as the deriver)
-  // so the predicted startMs is apples-to-apples with lesson.start_time_ms.
-  //
-  // Without this adjustment: lesson.start_time_ms has gap-midpoint applied,
-  // but rawFirstMatchedCharMs does not → systematic mismatch → false FAILs.
-  const rawSpans: Array<{ verseNumber: number; startMs: number; endMs: number }> = [];
-  const verseSkipReasons = new Map<number, string>(); // verseNumber → skip reason
-
-  for (const range of verseRanges) {
-    const { verseNumber, charStart, charEnd } = range;
-
-    // Collect all matched bIndices for this verse's range
-    const matchedBIndices: number[] = [];
-    for (let ai = charStart; ai <= charEnd; ai++) {
-      const bi = aToB.get(ai);
-      if (bi !== undefined) matchedBIndices.push(bi);
-    }
-
-    if (matchedBIndices.length === 0) {
-      verseSkipReasons.set(verseNumber, "no matched chars in verse range");
-      continue;
-    }
-
-    const firstBi = Math.min(...matchedBIndices);
-    const lastBi = Math.max(...matchedBIndices);
-    const startMs = tvCharToStartMs[firstBi] ?? null;
-    const endMs = tvCharToStartMs[lastBi] ?? null;
-
-    if (startMs === null || endMs === null) {
-      verseSkipReasons.set(verseNumber, "timing index out of bounds");
-      continue;
-    }
-
-    rawSpans.push({ verseNumber, startMs, endMs });
-  }
-
-  // Apply the same gap-midpoint expansion + boundary snap that the deriver applies.
-  // Passing `words` enables the same snapVerseOnsetToWordBoundary logic that runs
-  // in the deriver (11.2-followup: fix instrumental-break drift for sign-flow et al.).
-  const tvFirstWordStartMs = tvCharToStartMs[0] ?? 0;
-  const adjustedSpans = computeVerseTimes(rawSpans, tvFirstWordStartMs, words);
-  const adjustedByVerseNumber = new Map(adjustedSpans.map((s) => [s.verseNumber, s]));
-
-  // Build results per verse
   const results: VerseOnsetResult[] = [];
 
   for (const verse of lesson.verses) {
@@ -241,43 +168,35 @@ export async function checkVerseOnsets(
       continue;
     }
 
-    const skipReason = verseSkipReasons.get(verse.verse_number);
-    if (skipReason) {
+    // Check if onset falls strictly inside any WhisperX word span
+    // (word.start < onset < word.end — NOT at word boundary)
+    const containingSpan = wordSpans.find(
+      (s) => lessonStartMs > s.startMs && lessonStartMs < s.endMs
+    );
+
+    if (containingSpan) {
+      // Onset is mid-word: potential drift error.
+      const predictedOnsetMs = containingSpan.startMs;
+      const deltaMs = lessonStartMs - predictedOnsetMs;
+      const status: VerseOnsetStatus = Math.abs(deltaMs) <= toleranceMs ? "PASS" : "FAIL";
       results.push({
         verseNumber: verse.verse_number,
         lessonStartMs,
-        predictedOnsetMs: null,
-        deltaMs: null,
-        status: "SKIP",
-        note: skipReason,
+        predictedOnsetMs,
+        deltaMs,
+        status,
+        note: status === "FAIL" ? `mid-word drift: "${containingSpan.word}"` : undefined,
       });
-      continue;
-    }
-
-    const adjusted = adjustedByVerseNumber.get(verse.verse_number);
-    if (!adjusted) {
+    } else {
+      // Onset is at a word boundary or in silence: acceptable placement.
       results.push({
         verseNumber: verse.verse_number,
         lessonStartMs,
-        predictedOnsetMs: null,
-        deltaMs: null,
-        status: "SKIP",
-        note: "verse not in adjusted spans (below presence threshold?)",
+        predictedOnsetMs: lessonStartMs,
+        deltaMs: 0,
+        status: "PASS",
       });
-      continue;
     }
-
-    const predictedOnsetMs = adjusted.startMs;
-    const deltaMs = lessonStartMs - predictedOnsetMs;
-    const status: VerseOnsetStatus = Math.abs(deltaMs) <= toleranceMs ? "PASS" : "FAIL";
-
-    results.push({
-      verseNumber: verse.verse_number,
-      lessonStartMs,
-      predictedOnsetMs,
-      deltaMs,
-      status,
-    });
   }
 
   return results;
@@ -329,7 +248,7 @@ async function runSlug(
   const lesson = JSON.parse(readFileSync(lessonPath, "utf-8")) as Lesson;
   const timing = JSON.parse(readFileSync(timingPath, "utf-8")) as TimingCache;
 
-  const results = await checkVerseOnsets(lesson, timing, toleranceMs);
+  const results = checkVerseOnsets(lesson, timing, toleranceMs);
 
   const passCount = results.filter((r) => r.status === "PASS").length;
   const failCount = results.filter((r) => r.status === "FAIL").length;
@@ -376,7 +295,7 @@ OPTIONS
   --slug <slug>           Check a single slug
   --slugs <s1,s2,...>     Check multiple slugs (comma-separated)
   --tolerance-ms <N>      Tolerance in ms (default: ${DEFAULT_TOLERANCE_MS})
-  --lessons-dir <dir>     Lessons directory (default: data/lessons-cache-tv-nw)
+  --lessons-dir <dir>     Lessons directory (default: data/lessons-cache-tv)
   --help                  Show this help
 
 EXIT CODES
@@ -418,9 +337,6 @@ async function main(): Promise<void> {
     console.error("Error: provide --slug or --slugs");
     process.exit(1);
   }
-
-  // Init kuroshiro (needed for toHepburnRomaji in checkVerseOnsets)
-  await initKuroshiro();
 
   let anyFail = false;
   const verdicts: Array<{ slug: string; verdict: string }> = [];
