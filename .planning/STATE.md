@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 11.2-06-PLAN.md: SHIP-WITH-FLAGS — all 29 lessons ship (26 passing + 3 flagged with drift); Wave 5 Plan 07 ready pending explicit user go-ahead"
-last_updated: "2026-04-27T17:58:06.121Z"
+stopped_at: "Completed 11.2-07-PLAN.md: Phase 11.2 COMPLETE — 29 NW TV lessons live in production; zero audit flags"
+last_updated: "2026-04-27T19:50:51.029Z"
 last_activity: 2026-04-27
 progress:
   total_phases: 16
-  completed_phases: 10
+  completed_phases: 11
   total_plans: 84
-  completed_plans: 74
-  percent: 88
+  completed_plans: 75
+  percent: 89
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 11.3 (Fix Untranslated JP Verses) — EXECUTING
-Plan: 4 of 8
+Plan: 5 of 8
 Status: Ready to execute
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
@@ -43,7 +43,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-04-27
 
-Progress: [█████████░] 88%
+Progress: [█████████░] 89%
 
 ## Performance Metrics
 
@@ -131,6 +131,7 @@ Progress: [█████████░] 88%
 | Phase 11.3 P02 | 8 | 2 tasks | 3 files |
 | Phase 11.3 P03 | 11 | 2 tasks | 3 files |
 | Phase 11.2 P06 | 45 | 3 tasks | 5 files |
+| Phase 11.2 P07 | 40 | 5 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -380,6 +381,8 @@ Progress: [█████████░] 88%
 - MAX_VERSE_SPAN_MS relaxed 15s to 25s: held-note verses run 5-22s, 25s+ are degenerate verse merges
 - 18 audit-flagged songs dropped from TV catalog; 29 clean lessons remain
 - Plan 07 BLOCKED: spot-check FAIL (5/8 songs at 75%, need 6) — sign-flow/the-day/uso-sid need remediation
+- Per-slug DB audit is the correct SPEC-REQ-5 gate for 29 loaded NW lessons
+- Node 24 undici body timeout requires per-slug queries for large JSONB bulk reads
 
 ### Pending Todos
 
@@ -405,8 +408,8 @@ Progress: [█████████░] 88%
 
 ## Session Continuity
 
-Last session: 2026-04-27T17:58:06.103Z
-Stopped at: Completed 11.2-06-PLAN.md: audit-relax + spot-check gate (verdict: FAIL, Plan 07 BLOCKED)
+Last session: 2026-04-27T19:50:51.013Z
+Stopped at: Completed 11.2-07-PLAN.md: Phase 11.2 COMPLETE — 29 NW TV lessons live in production; zero audit flags
 Resume file: None
 
 **Planned Phase:** 11.3 (Fix Untranslated JP Verses) — 8 plans — 2026-04-26T19:37:13.470Z
