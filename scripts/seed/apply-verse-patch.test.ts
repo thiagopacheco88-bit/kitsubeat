@@ -249,4 +249,75 @@ describe("apply-verse-patch", () => {
     ]);
     expect(verses.map((v) => v.verse_number)).toEqual([1, 2, 3, 4, 5]);
   });
+
+  // Test 6: Translation-aware replace idempotency (regression for commit 1a77cc6).
+  // Phase 11.3 inline-drafting fixes verses where tokens are already correct but
+  // translations are stub `(untranslated)` / `(auto-coverage)` placeholders. The
+  // surface-only patchSig pre-fix would skip these as "already applied"; the
+  // patchSigWithTr post-fix must apply them because translations.en differs.
+  //
+  // Setup: lesson verse has surface "B" but stub translation "(untranslated)".
+  // Patch: replace verse 2 with surface "B" (same!) but real translation "real EN".
+  // Expectation: replace fires, cache gets "real EN".
+  it("replace mode applies when token surfaces match but translations.en differs (1a77cc6 regression)", () => {
+    // Override default fixture: verse 2 has surface "B" but a stub translation.
+    const stubVerse = makeVerse(2, "B");
+    stubVerse.translations = {
+      en: "(untranslated)",
+      "pt-BR": "(untranslated)",
+      es: "(untranslated)",
+    };
+    writeLesson([makeVerse(1, "A"), stubVerse, makeVerse(3, "C"), makeVerse(4, "D")]);
+
+    // Patch: same surface "B", but real translation. patchSig (surface-only)
+    // would have collided; patchSigWithTr must distinguish.
+    const realVerse = makeVerse(0, "B");
+    realVerse.translations = { en: "real EN", "pt-BR": "real PT", es: "real ES" };
+    writePatch([{ replace_verse_number: 2, verse: realVerse }]);
+
+    const result = applyPatch(SLUG);
+
+    expect(result.skipped).toBe(0); // Replace must NOT be filtered as already-applied.
+    const verses = readLessonVerses();
+    expect(verses[1].translations.en).toBe("real EN");
+    expect(verses[1].translations["pt-BR"]).toBe("real PT");
+    expect(verses[1].translations.es).toBe("real ES");
+  });
+
+  // Test 7: Cache-side timing preservation on replace (regression for commit 1a77cc6).
+  // Phase 11.3's inline drafter has no audio data, so it emits start_time_ms=0
+  // and end_time_ms=0. The pre-fix code spread the patch verse wholesale, blowing
+  // away the cache's real timing. The post-fix code keeps the existing verse's
+  // timing when the patch field is 0 (falsy), and lets non-zero patch values win.
+  //
+  // Verse 2 in the default fixture has start_time_ms=2000 / end_time_ms=2500 (per
+  // makeVerse). After replace with patch timing=0/0, those cache values must remain.
+  // After a second replace with patch timing=9999/12345, the patch values win.
+  it("preserves cache-side timing when replace patch supplies start/end_time_ms=0", () => {
+    // First: replace with timing=0/0. Cache timing must be preserved.
+    const replZero = makeVerse(0, "B");
+    replZero.translations = { en: "z", "pt-BR": "z", es: "z" };
+    replZero.start_time_ms = 0;
+    replZero.end_time_ms = 0;
+    writePatch([{ replace_verse_number: 2, verse: replZero }]);
+
+    applyPatch(SLUG);
+    let verses = readLessonVerses();
+    expect(verses[1].start_time_ms).toBe(2000); // Cache value preserved (was 2*1000).
+    expect(verses[1].end_time_ms).toBe(2500);
+    expect(verses[1].translations.en).toBe("z"); // Body still replaced.
+
+    // Second: re-write the lesson and patch with NON-zero timing — patch must win.
+    writeLesson([makeVerse(1, "A"), makeVerse(2, "B"), makeVerse(3, "C"), makeVerse(4, "D")]);
+    const replWithTiming = makeVerse(0, "B");
+    replWithTiming.translations = { en: "y", "pt-BR": "y", es: "y" };
+    replWithTiming.start_time_ms = 9999;
+    replWithTiming.end_time_ms = 12345;
+    writePatch([{ replace_verse_number: 2, verse: replWithTiming }]);
+
+    applyPatch(SLUG);
+    verses = readLessonVerses();
+    expect(verses[1].start_time_ms).toBe(9999); // Patch wins when non-zero.
+    expect(verses[1].end_time_ms).toBe(12345);
+  });
 });
