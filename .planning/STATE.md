@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 11.3-03-PLAN.md: apply-verse-patch.ts replace-mode + entry-point guard"
-last_updated: "2026-04-26T21:31:27.982Z"
-last_activity: 2026-04-26
+stopped_at: "Completed 11.2-06-PLAN.md: audit-relax + spot-check gate (verdict: FAIL, Plan 07 BLOCKED)"
+last_updated: "2026-04-27T17:58:06.121Z"
+last_activity: 2026-04-27
 progress:
   total_phases: 16
   completed_phases: 10
   total_plans: 84
-  completed_plans: 73
-  percent: 87
+  completed_plans: 74
+  percent: 88
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 11.3 (Fix Untranslated JP Verses) — EXECUTING
-Plan: 3 of 8
+Plan: 4 of 8
 Status: Ready to execute
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
@@ -41,9 +41,9 @@ Plan 10-07 complete — Phase 10 premium-gate UI finalization + Phase 10 end-to-
 
 Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUpsellModal (100 LOC) full-screen upsell with per-family copy (listening/10 vs advanced_drill/3), ESC/backdrop close, data-testid + data-family hooks. ExerciseTab gets third mode card "Advanced Drills" (always rendered — CONTEXT-locked); click handler fires `getAdvancedDrillAccess(userId, songVersionId)` server action (Promise.all of 2 checkExerciseAccess + isPremium); on quota exhaustion sets upsell state → modal renders → session does NOT start. buildQuestions gains optional `typeFilter: ExerciseType[]`; Advanced Drills passes `["grammar_conjugation","listening_drill","sentence_order"]`; per-vocab loop + sentence_order loop + grammar-point loop all honor the allowlist. saveSessionResults extended for ex5/ex6/ex7 via GREATEST(COALESCE) — mastery never regresses. recordVocabAnswer stamps user_exercise_song_counters on first answer for song_quota-gated types + server-side re-check; if non-premium user over limit, DELETEs the overshoot row and throws QuotaExhaustedError (RESEARCH Pitfall 6: one answer of slippage possible under cross-device race — documented in upsell past-tense copy). recordAdvancedDrillAttempt action for empty-vocabItemId callers (sentence_order / synthetic grammar_conjugation). saveSessionResults end-of-session safety-net stamps counter for every family present in answer batch (ON CONFLICT DO NOTHING across all 3 paths — no inflation). Phase 08.1-07 test.fixme REMOVED from regression-premium-gate.spec.ts; replaced with live QuotaExhaustedError assertion (seeds 10 listening counter rows, invokes recordVocabAnswer on 11th song, asserts throw + refund). New advanced-drill-quota.spec.ts (4 E2E: 11th-listening upsell, 4th-advanced upsell, independent counters via direct gate check, premium bypass with cleanup). UI regression contract preserved (0 `EXERCISE_FEATURE_FLAGS` imports in src/app or src/stores — confirmed by grep). 263 unit tests green (no regressions). Two Rule-3 auto-fixes (typeFilter TS narrowing → extracted typed const; saveSessionResults end-of-session safety-net needed because sentence_order + synthetic-vocab grammar_conjugation bypass recordVocabAnswer). Commits 0cc9dcd (Task 1 — UI + upsell), 4af194a (Task 2 — saveSessionResults + counter-increment + re-check), fcbb3ce (Task 3 — test.fixme unfix + quota E2E).
 
-Last activity: 2026-04-26
+Last activity: 2026-04-27
 
-Progress: [█████████░] 87%
+Progress: [█████████░] 88%
 
 ## Performance Metrics
 
@@ -130,6 +130,7 @@ Progress: [█████████░] 87%
 | Phase 11.1 P03 | 3 | 1 tasks | 1 files |
 | Phase 11.3 P02 | 8 | 2 tasks | 3 files |
 | Phase 11.3 P03 | 11 | 2 tasks | 3 files |
+| Phase 11.2 P06 | 45 | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -375,6 +376,10 @@ Progress: [█████████░] 87%
 - Replace idempotency by signature-scan-on-build (not per-iteration verse_number match) — handles slot-rename when mixed apply+append shifts the replaced row's verse_number
 - ESM entry-point guard wraps the entire CLI block (not just the error-exit branch) — lets apply-verse-patch.ts double as both CLI and Vitest-importable library
 - vitest.config.ts include glob extended to scripts/**/*.{test,spec}.ts — opens future seed-script test fixtures without further config edits
+- DENSITY_FLOOR relaxed 0.08 to 0.03: empirical lower bound for real sparse anime TV cuts
+- MAX_VERSE_SPAN_MS relaxed 15s to 25s: held-note verses run 5-22s, 25s+ are degenerate verse merges
+- 18 audit-flagged songs dropped from TV catalog; 29 clean lessons remain
+- Plan 07 BLOCKED: spot-check FAIL (5/8 songs at 75%, need 6) — sign-flow/the-day/uso-sid need remediation
 
 ### Pending Todos
 
@@ -400,8 +405,8 @@ Progress: [█████████░] 87%
 
 ## Session Continuity
 
-Last session: 2026-04-26T21:31:27.969Z
-Stopped at: Completed 11.3-03-PLAN.md: apply-verse-patch.ts replace-mode + entry-point guard
+Last session: 2026-04-27T17:58:06.103Z
+Stopped at: Completed 11.2-06-PLAN.md: audit-relax + spot-check gate (verdict: FAIL, Plan 07 BLOCKED)
 Resume file: None
 
 **Planned Phase:** 11.3 (Fix Untranslated JP Verses) — 8 plans — 2026-04-26T19:37:13.470Z
