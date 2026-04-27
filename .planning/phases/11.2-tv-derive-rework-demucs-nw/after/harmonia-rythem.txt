@@ -1,0 +1,24 @@
+## harmonia-rythem (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 1943 | 1943 | 0 | PASS |
+| 2 | 3304 | 3304 | 0 | PASS |
+| 3 | 14990 | 14990 | 0 | PASS |
+| 4 | 23755 | 23755 | 0 | PASS |
+| 5 | 38783 | 38663 | +120 | PASS |
+| 6 | 42366 | 42366 | 0 | PASS |
+| 7 | 46348 | 46348 | 0 | PASS |
+| 8 | 48110 | 48110 | 0 | PASS |
+| 9 | 60801 | 60361 | +440 | PASS |
+| 10 | 64703 | 64703 | 0 | PASS |
+| 11 | 72849 | 72409 | +440 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for harmonia-rythem.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| harmonia-rythem | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

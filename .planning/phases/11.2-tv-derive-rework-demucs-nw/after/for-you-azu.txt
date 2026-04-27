@@ -1,0 +1,22 @@
+## for-you-azu (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 5602 | 5602 | 0 | PASS |
+| 2 | 18294 | 18294 | 0 | PASS |
+| 3 | 25720 | 25720 | 0 | PASS |
+| 4 | 34448 | 34448 | 0 | PASS |
+| 5 | 45963 | 45963 | 0 | PASS |
+| 6 | 55875 | 55405 | +470 | PASS |
+| 7 | 62127 | 62127 | 0 | PASS |
+| 8 | 65068 | 65068 | 0 | PASS |
+| 9 | 65928 | 65928 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for for-you-azu.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| for-you-azu | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

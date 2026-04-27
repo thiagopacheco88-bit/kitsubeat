@@ -1,0 +1,21 @@
+## guren-does (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 11377 | 11377 | 0 | PASS |
+| 2 | 16441 | 16441 | 0 | PASS |
+| 3 | 22445 | 22445 | 0 | PASS |
+| 4 | 38538 | 38538 | 0 | PASS |
+| 5 | 43579 | 43579 | 0 | PASS |
+| 6 | 53561 | 53561 | 0 | PASS |
+| 7 | 68965 | 68965 | 0 | PASS |
+| 8 | 74717 | 74707 | +10 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for guren-does.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| guren-does | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

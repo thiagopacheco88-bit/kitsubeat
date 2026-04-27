@@ -1,0 +1,22 @@
+## spinning-world-diana-garnet (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 13404 | 13404 | 0 | PASS |
+| 2 | 23650 | 23650 | 0 | PASS |
+| 3 | 28273 | 28273 | 0 | PASS |
+| 4 | 34230 | 34230 | 0 | PASS |
+| 5 | 43939 | 43939 | 0 | PASS |
+| 6 | 44399 | 44399 | 0 | PASS |
+| 7 | 48202 | 48202 | 0 | PASS |
+| 8 | 55200 | 55200 | 0 | PASS |
+| 9 | 70320 | 70239 | +81 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for spinning-world-diana-garnet.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| spinning-world-diana-garnet | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

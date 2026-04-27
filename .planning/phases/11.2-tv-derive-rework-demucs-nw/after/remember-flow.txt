@@ -1,0 +1,17 @@
+## remember-flow (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 1435 | 1435 | 0 | PASS |
+| 2 | 23173 | 23173 | 0 | PASS |
+| 3 | 47130 | 47130 | 0 | PASS |
+| 4 | 57462 | 57202 | +260 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for remember-flow.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| remember-flow | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

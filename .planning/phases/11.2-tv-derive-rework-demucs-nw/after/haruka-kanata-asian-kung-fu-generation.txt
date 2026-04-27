@@ -1,0 +1,21 @@
+## haruka-kanata-asian-kung-fu-generation (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 9110 | 9110 | 0 | PASS |
+| 2 | 14931 | 14531 | +400 | PASS |
+| 3 | 22653 | 22653 | 0 | PASS |
+| 4 | 25384 | 25253 | +131 | PASS |
+| 5 | 26934 | 26934 | 0 | PASS |
+| 6 | 57983 | 57983 | 0 | PASS |
+| 7 | 69148 | 69148 | 0 | PASS |
+| 8 | 75451 | 75451 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for haruka-kanata-asian-kung-fu-generation.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| haruka-kanata-asian-kung-fu-generation | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

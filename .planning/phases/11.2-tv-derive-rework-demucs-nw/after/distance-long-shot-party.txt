@@ -1,0 +1,23 @@
+## distance-long-shot-party (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 580 | 580 | 0 | PASS |
+| 2 | 9237 | 9167 | +70 | PASS |
+| 3 | 15511 | 15511 | 0 | PASS |
+| 4 | 17653 | 17653 | 0 | PASS |
+| 5 | 24929 | 24698 | +231 | PASS |
+| 6 | 33686 | 33664 | +22 | PASS |
+| 7 | 48180 | 47900 | +280 | PASS |
+| 8 | 60847 | 60347 | +500 | PASS |
+| 9 | 69190 | 69170 | +20 | PASS |
+| 10 | 79974 | 79974 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for distance-long-shot-party.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| distance-long-shot-party | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

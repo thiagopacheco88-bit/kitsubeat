@@ -1,0 +1,29 @@
+## place-to-try-totalfat (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 13343 | 13343 | 0 | PASS |
+| 2 | 16207 | 16026 | +181 | PASS |
+| 3 | 23875 | 23875 | 0 | PASS |
+| 4 | 24876 | 24876 | 0 | PASS |
+| 5 | 30156 | 30156 | 0 | PASS |
+| 6 | 32918 | 32918 | 0 | PASS |
+| 7 | 33909 | 33899 | +10 | PASS |
+| 8 | 35420 | 35420 | 0 | PASS |
+| 9 | 42145 | 42145 | 0 | PASS |
+| 10 | 42886 | 42886 | 0 | PASS |
+| 11 | 60561 | 60561 | 0 | PASS |
+| 12 | 61781 | 61781 | 0 | PASS |
+| 13 | 64943 | 64943 | 0 | PASS |
+| 14 | 70075 | 70065 | +10 | PASS |
+| 15 | 72586 | 72586 | 0 | PASS |
+| 16 | 75047 | 75047 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for place-to-try-totalfat.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| place-to-try-totalfat | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

@@ -1,0 +1,19 @@
+## mezamero-yasei-matchy-with-question (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 15176 | 15176 | 0 | PASS |
+| 2 | 22902 | 22902 | 0 | PASS |
+| 3 | 30948 | 30487 | +461 | PASS |
+| 4 | 48760 | 48286 | +474 | PASS |
+| 5 | 63350 | 63219 | +131 | PASS |
+| 6 | 67594 | 67523 | +71 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for mezamero-yasei-matchy-with-question.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| mezamero-yasei-matchy-with-question | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

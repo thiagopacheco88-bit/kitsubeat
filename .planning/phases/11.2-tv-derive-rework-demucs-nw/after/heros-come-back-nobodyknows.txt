@@ -1,0 +1,32 @@
+## heros-come-back-nobodyknows (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 10814 | 10814 | 0 | PASS |
+| 2 | 15447 | 15437 | +10 | PASS |
+| 3 | 23062 | 23062 | 0 | PASS |
+| 4 | 30317 | 30307 | +10 | PASS |
+| 5 | 30947 | 30947 | 0 | PASS |
+| 6 | 31408 | 31408 | 0 | PASS |
+| 7 | 32178 | 31908 | +270 | PASS |
+| 8 | 33719 | 33689 | +30 | PASS |
+| 9 | 34930 | 34930 | 0 | PASS |
+| 10 | 37742 | 37392 | +350 | PASS |
+| 11 | 41733 | 41733 | 0 | PASS |
+| 12 | 45415 | 45415 | 0 | PASS |
+| 13 | 50187 | 50057 | +130 | PASS |
+| 14 | 57450 | 57419 | +31 | PASS |
+| 15 | 63382 | 63201 | +181 | PASS |
+| 16 | 68884 | 68784 | +100 | PASS |
+| 17 | 73987 | 73987 | 0 | PASS |
+| 18 | 77939 | 77749 | +190 | PASS |
+| 19 | 83313 | 83233 | +80 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for heros-come-back-nobodyknows.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| heros-come-back-nobodyknows | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

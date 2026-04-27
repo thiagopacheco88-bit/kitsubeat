@@ -1,0 +1,33 @@
+## i-can-hear-dish (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 1417 | 1417 | 0 | PASS |
+| 2 | 10467 | 10467 | 0 | PASS |
+| 3 | 20939 | 20939 | 0 | PASS |
+| 4 | 21139 | 21139 | 0 | PASS |
+| 5 | 25885 | 25865 | +20 | PASS |
+| 6 | 31372 | 31372 | 0 | PASS |
+| 7 | 43665 | 43665 | 0 | PASS |
+| 8 | 43685 | 43685 | 0 | PASS |
+| 9 | 48691 | 48691 | 0 | PASS |
+| 10 | 51645 | 51635 | +10 | PASS |
+| 11 | 56331 | 56331 | 0 | PASS |
+| 12 | 58102 | 57962 | +140 | PASS |
+| 13 | 59513 | 59503 | +10 | PASS |
+| 14 | 62445 | 62365 | +80 | PASS |
+| 15 | 65748 | 65728 | +20 | PASS |
+| 16 | 69911 | 69911 | 0 | PASS |
+| 17 | 73433 | 73433 | 0 | PASS |
+| 18 | 75695 | 75575 | +120 | PASS |
+| 19 | 78317 | 78177 | +140 | PASS |
+| 20 | 80399 | 80399 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for i-can-hear-dish.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| i-can-hear-dish | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

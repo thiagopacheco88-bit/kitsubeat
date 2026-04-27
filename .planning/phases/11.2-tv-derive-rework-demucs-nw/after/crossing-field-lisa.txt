@@ -1,0 +1,20 @@
+## crossing-field-lisa (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 12530 | 12530 | 0 | PASS |
+| 2 | 24935 | 24935 | 0 | PASS |
+| 3 | 36126 | 36126 | 0 | PASS |
+| 4 | 53841 | 53581 | +260 | PASS |
+| 5 | 67669 | 67669 | 0 | PASS |
+| 6 | 73833 | 73823 | +10 | PASS |
+| 7 | 74844 | 74804 | +40 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for crossing-field-lisa.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| crossing-field-lisa | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

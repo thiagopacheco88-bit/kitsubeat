@@ -1,0 +1,19 @@
+## tsunaida-te-lilb (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 6200 | 6200 | 0 | PASS |
+| 2 | 17181 | 17181 | 0 | PASS |
+| 3 | 23892 | 23892 | 0 | PASS |
+| 4 | 29354 | 29354 | 0 | PASS |
+| 5 | 32875 | 32875 | 0 | PASS |
+| 6 | 52758 | 52227 | +531 | FAIL (mid-word drift: "こ") |
+
+VERDICT: 1 verse(s) fail; spot-check FAILS for tsunaida-te-lilb.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| tsunaida-te-lilb | FAIL |
+
+Overall verdict: FAIL (tolerance: ±500ms)

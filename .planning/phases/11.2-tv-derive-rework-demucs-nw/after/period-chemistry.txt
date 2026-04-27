@@ -1,0 +1,16 @@
+## period-chemistry (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 17235 | 17235 | 0 | PASS |
+| 2 | 28230 | 28230 | 0 | PASS |
+| 3 | 45510 | 45510 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for period-chemistry.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| period-chemistry | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

@@ -1,0 +1,16 @@
+## go-flow (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 7971 | 7971 | 0 | PASS |
+| 2 | 11333 | 11313 | +20 | PASS |
+| 3 | 12474 | 12394 | +80 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for go-flow.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| go-flow | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

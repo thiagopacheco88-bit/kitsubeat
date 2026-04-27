@@ -1,0 +1,23 @@
+## speed-analogfish (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 10617 | 10617 | 0 | PASS |
+| 2 | 20403 | 20403 | 0 | PASS |
+| 3 | 27827 | 27827 | 0 | PASS |
+| 4 | 35494 | 35494 | 0 | PASS |
+| 5 | 38377 | 38377 | 0 | PASS |
+| 6 | 39538 | 39518 | +20 | PASS |
+| 7 | 55733 | 55733 | 0 | PASS |
+| 8 | 65239 | 65239 | 0 | PASS |
+| 9 | 66559 | 66559 | 0 | PASS |
+| 10 | 74584 | 74584 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for speed-analogfish.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| speed-analogfish | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

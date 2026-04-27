@@ -1,0 +1,18 @@
+## the-world-nightmare (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 2163 | 2163 | 0 | PASS |
+| 2 | 7140 | 6790 | +350 | PASS |
+| 3 | 25768 | 25768 | 0 | PASS |
+| 4 | 51385 | 51385 | 0 | PASS |
+| 5 | 57757 | 57747 | +10 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for the-world-nightmare.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| the-world-nightmare | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)

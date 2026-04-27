@@ -1,0 +1,17 @@
+## rocks-hound-dog (N3)
+
+| Verse | lesson.start_time_ms | predicted_onset_ms | delta_ms | status |
+|-------|----------------------|--------------------|----------|--------|
+| 1 | 17580 | 17580 | 0 | PASS |
+| 2 | 37165 | 37165 | 0 | PASS |
+| 3 | 57014 | 57014 | 0 | PASS |
+| 4 | 64811 | 64811 | 0 | PASS |
+
+VERDICT: All verses pass; spot-check PASSES for rocks-hound-dog.
+
+## Summary
+| Slug | Verdict |
+|------|---------|
+| rocks-hound-dog | PASS |
+
+Overall verdict: PASS (tolerance: ±500ms)
