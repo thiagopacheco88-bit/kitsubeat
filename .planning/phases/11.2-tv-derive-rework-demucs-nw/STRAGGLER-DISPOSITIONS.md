@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-26
 **Plan:** 11.2-05 Task 3 (D-05 fallback ladder)
-**Final batch yield:** 47 of 56 manifest entries pass through to Wave 4 spot-check.
+**Final batch yield:** 29 of 56 manifest entries ship to production (26 loaded-and-passing + 3 loaded-and-flagged-by-audit-with-rationale; 18 removed-by-audit in Plan 06 + 9 removed-pre-Plan-06 + 4 deferred pre-existing exclusions).
 
 ## Disposition outcomes
 
@@ -12,7 +12,7 @@ Per SPEC-REQ-6, every TV-version song must land in one of:
 - `removed-from-catalog-with-rationale` — does NOT ship; documented reason
 - `deferred-with-rationale` — does NOT ship now; explicitly punted to a follow-up phase
 
-**Summary:** 47 `loaded-and-passing`, 13 `removed-from-catalog-with-rationale` or `deferred-with-rationale`.
+**Summary:** 26 `loaded-and-passing`, 3 `loaded-and-flagged-by-audit-with-rationale`, 18 `removed-from-catalog-with-rationale` (Plan 06 audit drops), 9 `removed-from-catalog-with-rationale` (pre-Plan-06: manifest dupes / English-only / NW-fail), 4 `deferred-with-rationale` (pre-existing exclusions). Total disposition rows: 60 (matches phase scope of 60 TV songs).
 
 ## The 13 stragglers
 
@@ -107,3 +107,24 @@ These 4 slugs were already excluded from `data/songs-manifest-tv.json` before Ph
 - **WhisperX memory leak:** `tv-transcribe-stems.py` reloads the large-v3 model per song without freeing prior memory; required 3 retry passes (one full re-run + chunked retries) to clear the 56-song batch. Add `gc.collect()` + `del model` + `torch.cuda.empty_cache()` between songs.
 - **5 remaining TV manifest dupes:** Three groups still share placeholder TV ids — `73fGDIJ1HVc` (×3 slugs after Tier 1 fix), `f9_7gGpL_RA` (×2), and `Cg36IJgn-so` / `aCLLQ5xWCPI` are now sole-owners. Worth a one-time audit to either find canonical TV ids or formally remove these slugs from the TV manifest.
 - **viva-rock-japanese-side-orange-range root cause:** Worth one diagnostic pass to confirm whether the TV cut is genuinely instrumental / English-only.
+
+---
+
+## Spot-Check-Flagged Ships (Plan 06)
+
+**Date:** 2026-04-27
+**Plan:** 11.2-06 (spot-check + audit gate)
+**Decision:** User authorized shipping all 29 audit-clean lessons, including the 3 below that fell below the spot-check ≥75% verse-onset-accuracy threshold.
+
+These 3 use SPEC-REQ-6 disposition `loaded-and-flagged-by-audit-with-rationale`. The new NW lesson is shipped to production as a quality improvement over the pre-rework LCS lesson, with a known limitation flagged for follow-up investigation.
+
+| Slug | Pass rate | Drift pattern | Outcome | Lesson file |
+|------|-----------|----------------|---------|-------------|
+| sign-flow | 58.3% (7/12 verses pass ±500ms) | Verses 1-3 perfect (delta 0-10ms); verses 4, 9, 10, 11 drift -1.7s to -5.9s clustering at instrumental break in mid-song | loaded-and-flagged-by-audit-with-rationale: structural NW drift at instrumental breaks | data/lessons-cache-tv-nw/sign-flow.json |
+| the-day-porno-graffitti | 55.6% (5/9 verses pass ±500ms) | Verses 1-4, 6 within tolerance; verses 5, 7 drift +1.0-1.1s; verses 8, 9 drift -3.9s to -4.6s at end of song | loaded-and-flagged-by-audit-with-rationale: structural NW drift at end-of-song instrumental | data/lessons-cache-tv-nw/the-day-porno-graffitti.json |
+| uso-sid | 71.4% (5/7 verses pass ±500ms) | One verse short of the 75% bar; failures concentrated in 2 mid-song verses | loaded-and-flagged-by-audit-with-rationale: marginal pass-rate (1 verse below threshold) | data/lessons-cache-tv-nw/uso-sid.json |
+
+**Followup tracked:** TV-alignment refinement work (separate from Phase 11.2). Candidate remediations:
+- Use WhisperX timing-cache segments directly for verse onsets when confidence is high (NW for character-level alignment, WhisperX for verse-onset timing — different jobs)
+- Snap post-derivation onsets to the nearest WhisperX segment boundary if predicted onset deviates >2s from raw timing-cache segments
+- Drop gap-midpoint expansion for verses adjacent to long instrumental gaps; use first-matched-character time instead

@@ -1,5 +1,15 @@
 # Phase 11.2 Plan 06 — Spot-Check Report
 
+## Final Verdict (User Override 2026-04-27)
+
+User authorized shipping all 8 spot-checked songs (and all 29 audit-clean lessons in `data/lessons-cache-tv-nw/`) despite 3 songs falling below the original ≥75% spot-check pass rate criterion. The 3 below-threshold songs (sign-flow, the-day-porno-graffitti, uso-sid) are all popular catalog entries whose NEW NW lesson is a meaningful quality improvement over the pre-rework LCS lesson — even with structural NW drift at instrumental breaks.
+
+**Verdict:** SHIP-WITH-FLAGS. Plan 07 unblocked. Per-song dispositions recorded in STRAGGLER-DISPOSITIONS.md "Spot-Check-Flagged Ships (Plan 06)".
+
+**Followup investigation:** TV alignment refinement (out of Phase 11.2 scope). See dispositions doc for candidate remediations.
+
+---
+
 **Date:** 2026-04-26
 **Tolerance:** ±500ms per verse onset
 **Catalog size at time of check:** 29 lessons (47 derived; 18 removed by audit-relax gate)
@@ -224,30 +234,16 @@ These are expected NW limitations — not deriver regressions. The ±500ms stric
 
 ---
 
-## Final Verdict
+## Audit + Spot-Check Summary
 
 - Audit (`--from-disk`, 29 lessons): **PASS** (0 flags)
-- Spot-check (≥75% verse onset criterion, 8 songs): **FAIL** (5 of 8 meet ≥75%; need ≥6)
+- Spot-check (≥75% verse onset criterion, 8 songs): 5 of 8 meet ≥75% (sign-flow, the-day-porno-graffitti, uso-sid below threshold)
 
-**Overall: FAIL**
+**Overall: SHIP-WITH-FLAGS** (user override 2026-04-27 — see Final Verdict section at top)
 
-Rollout (Plan 07) is **BLOCKED** per the plan's acceptance criterion (≥6 of 8 songs at ≥75%).
-
-### What is needed to unblock Plan 07
-
-Three songs fall below the 75% threshold:
-1. **sign-flow** (58.3%): 5 verses fail, including verse 4 (-5892ms) — needs per-verse NW tuning or manual segment anchor
-2. **the-day-porno-graffitti** (55.6%): 4 verses fail — verses 8+9 in the outro/bridge region (-3.9s to -4.6s)
-3. **uso-sid** (71.4%): 2 verses fail — verses 3 and 5 with moderate drift (+2572ms, +1560ms)
-
-Options:
-- **A: Re-derive** failing songs with adjusted NW scoring or manual segment anchors
-- **B: User decision**: Accept the current quality with the understanding that outlier verses exist (i.e., relax the acceptance criterion to ≥4 of 8, or accept 71% as passing)
-- **C: Drop the 3 failing songs** from the TV catalog and proceed with 26 songs
-
-This verdict is documented per SPEC-REQ-4 contract: "if any song fails, it is re-derived (parameter tuning, manual segment anchor, or other plan-phase remedy) and re-checked rather than skipped or auto-promoted" — or explicitly dropped with rationale.
+All 29 lessons ship. Plan 07 unblocked. See STRAGGLER-DISPOSITIONS.md "Spot-Check-Flagged Ships (Plan 06)" for per-song disposition rationale.
 
 ==================================
-Phase 11.2 Plan 06 verdict: FAIL
-Plan 07 rollout: BLOCKED
+Phase 11.2 Plan 06 verdict: SHIP-WITH-FLAGS
+Plan 07 rollout: UNBLOCKED (pending explicit user go-ahead)
 ==================================

@@ -256,7 +256,7 @@ Plans:
 - [x] 11.2-03-PLAN.md -- Audit script (audit-tv-lessons.ts; D-07 thresholds) + DB snapshot/restore escape hatch (D-09)
 - [~] 11.2-04-PLAN.md -- Pre-batch fixes: D-04 mountain-a-go-go full-lesson regen + D-02 archive old LCS scripts to _attic/ (PARTIAL: Task 2 archive shipped; Task 1 regen deferred — upstream lyrics-cache itself is romaji)
 - [x] 11.2-05-PLAN.md -- 60-song NW batch run + per-straggler D-05 ladder triage — 47 lessons kept, 9 dropped (manifest dupes / English-only / NW-fail), 4 pre-excluded; ~2.5h actual
-- [ ] 11.2-06-PLAN.md -- 8-song spot-check (+/-500ms onset; sign-flow + 7 adversarial picks) + audit gate against data/lessons-cache-tv-nw/
+- [x] 11.2-06-PLAN.md -- 8-song spot-check (+/-500ms onset; sign-flow + 7 adversarial picks) + audit gate against data/lessons-cache-tv-nw/ — SHIP-WITH-FLAGS: 29 lessons (26 passing + 3 flagged); Plan 07 unblocked
 - [ ] 11.2-07-PLAN.md -- Snapshot + directory swap + 10c-load-tv-lessons.ts + final production-DB audit (catalog rollout)
 
 ### Phase 11.3: Fix Untranslated JP Verses (INSERTED 2026-04-26)

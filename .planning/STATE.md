@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 11.2-06-PLAN.md: audit-relax + spot-check gate (verdict: FAIL, Plan 07 BLOCKED)"
+stopped_at: "Completed 11.2-06-PLAN.md: SHIP-WITH-FLAGS — all 29 lessons ship (26 passing + 3 flagged with drift); Wave 5 Plan 07 ready pending explicit user go-ahead"
 last_updated: "2026-04-27T17:58:06.121Z"
 last_activity: 2026-04-27
 progress:
