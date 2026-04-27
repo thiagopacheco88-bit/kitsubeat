@@ -34,7 +34,7 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, "../../");
 const FULL_LESSON_DIR = join(PROJECT_ROOT, "data/lessons-cache");
 const TV_STEM_TIMING_DIR = join(PROJECT_ROOT, "data/timing-cache-tv-stem");
-const OUT_DIR = join(PROJECT_ROOT, "data/lessons-cache-tv-nw"); // PARALLEL DIR per D-08
+const OUT_DIR = join(PROJECT_ROOT, "data/lessons-cache-tv"); // Canonical post-D-08-swap (was data/lessons-cache-tv-nw)
 const TV_MANIFEST = join(PROJECT_ROOT, "data/songs-manifest-tv.json");
 
 const SCORE_MATCH = 2;
@@ -218,17 +218,70 @@ export interface DetectedVerse {
 }
 
 /**
+ * Snap a verse onset to the nearest WhisperX word boundary when the onset
+ * falls inside a "long" word span (instrumental break absorbed into one word)
+ * or inside a long silence gap between words.
+ *
+ * Fix for 11.2-followup: sign-flow / the-day-porno-graffitti / uso-sid drift
+ * at instrumental breaks (see .planning/todos/done/2026-04-27-tv-alignment-refinement.md).
+ *
+ * When NW gap-midpoint expansion places a verse onset INSIDE a long WhisperX
+ * word span (e.g. the 11-second "a" word in sign-flow that covers the
+ * instrumental break), or inside a long silence gap, the onset is wrong.
+ * Snapping to the next real word start corrects this.
+ *
+ * Exported for unit testing.
+ */
+export function snapVerseOnsetToWordBoundary(
+  onsetMs: number,
+  wxWords: WhisperWord[],
+  longSpanThresholdMs = 1500,
+  longGapThresholdMs = 2000
+): number {
+  // Pass 1: snap if onset falls strictly inside a long word span
+  for (let wi = 0; wi < wxWords.length; wi++) {
+    const w = wxWords[wi];
+    const wStartMs = Math.round(w.start * 1000);
+    const wEndMs = Math.round(w.end * 1000);
+    const wSpanMs = wEndMs - wStartMs;
+    if (wSpanMs >= longSpanThresholdMs && onsetMs > wStartMs && onsetMs < wEndMs) {
+      // Find next word with non-trivial content
+      const nextWord = wxWords.slice(wi + 1).find((nw) => nw.word.trim().length > 0);
+      return nextWord ? Math.round(nextWord.start * 1000) : wEndMs;
+    }
+  }
+  // Pass 2: snap if onset falls in a long silence gap between words
+  for (let wi = 0; wi < wxWords.length - 1; wi++) {
+    const gapStartMs = Math.round(wxWords[wi].end * 1000);
+    const gapEndMs = Math.round(wxWords[wi + 1].start * 1000);
+    const gapMs = gapEndMs - gapStartMs;
+    if (gapMs >= longGapThresholdMs && onsetMs > gapStartMs && onsetMs < gapEndMs) {
+      return gapEndMs; // snap to start of word after silence
+    }
+  }
+  return onsetMs; // no snap needed
+}
+
+/**
  * Apply gap-midpoint expansion to the raw NW spans.
  * Tightens inter-verse boundaries by averaging adjacent verse end/start.
  * The first verse's start clamps to the first TV word's start.
  * The last verse's end gets a +1s sustain buffer.
+ *
+ * Optional: pass wxWords to enable boundary-snap post-processing.
+ * When provided, verse onsets that land inside long WhisperX word spans
+ * (instrumental breaks absorbed into one long word) or long silence gaps
+ * are snapped to the nearest real word boundary.
+ * Both the deriver and the spot-check pass wxWords so predictions stay
+ * apples-to-apples with the stored lesson values.
  *
  * Exported so spot-check-tv-onsets.ts can apply the same adjustment and compare
  * apples-to-apples against lesson.start_time_ms (which was produced by this fn).
  */
 export function computeVerseTimes(
   rawSpans: Array<{ verseNumber: number; startMs: number; endMs: number }>,
-  tvFirstWordStartMs: number
+  tvFirstWordStartMs: number,
+  wxWords?: WhisperWord[]
 ): DetectedVerse[] {
   if (rawSpans.length === 0) return [];
 
@@ -245,6 +298,16 @@ export function computeVerseTimes(
     const gapMidMs = Math.round((sorted[i].endMs + sorted[i + 1].startMs) / 2);
     sorted[i].endMs = gapMidMs;
     sorted[i + 1].startMs = gapMidMs;
+  }
+
+  // Boundary snap (R1 — 11.2-followup): if wxWords provided, snap verse onsets
+  // that land inside long WhisperX word spans or long silence gaps.
+  // This fixes structural NW drift at instrumental breaks for sign-flow,
+  // the-day-porno-graffitti, and uso-sid.
+  if (wxWords && wxWords.length > 0) {
+    for (const verse of sorted) {
+      verse.startMs = snapVerseOnsetToWordBoundary(verse.startMs, wxWords);
+    }
   }
 
   // Sustain buffer on last verse
@@ -510,9 +573,11 @@ async function deriveOne(
       };
     }
 
-    // ── Step 7: Apply gap-midpoint expansion ──────────────────────────────────
+    // ── Step 7: Apply gap-midpoint expansion + boundary snap ─────────────────
+    // Pass timingData.words so computeVerseTimes can snap onsets that land in
+    // long WhisperX word spans (instrumental break drift fix — 11.2-followup).
     const tvFirstWordStartMs = tvCharToStartMs[0] ?? 0;
-    const detected = computeVerseTimes(rawSpans, tvFirstWordStartMs);
+    const detected = computeVerseTimes(rawSpans, tvFirstWordStartMs, timingData.words);
 
     // ── Step 8: Emit lesson ───────────────────────────────────────────────────
     const tvLesson = buildTvLesson(full, detected);
@@ -570,14 +635,15 @@ async function deriveOne(
 // Argument parsing
 // ─────────────────────────────────────────────────────────────────────────────
 
-function parseArgs(): { slug: string | null; all: boolean; force: boolean } {
-  const args = { slug: null as string | null, all: false, force: false };
+function parseArgs(): { slugs: string[]; all: boolean; force: boolean } {
+  const args = { slugs: [] as string[], all: false, force: false };
   for (let i = 2; i < process.argv.length; i++) {
     const a = process.argv[i];
-    if (a === "--slug") args.slug = process.argv[++i];
-    else if (a.startsWith("--slug=")) args.slug = a.slice("--slug=".length);
-    else if (a === "--all") args.all = true;
-    else if (a === "--force") args.force = true;
+    if (a === "--slug") { args.slugs.push(process.argv[++i]); }
+    else if (a.startsWith("--slug=")) { args.slugs.push(a.slice("--slug=".length)); }
+    else if (a === "--all") { args.all = true; }
+    else if (a === "--force") { args.force = true; }
+    else if (!a.startsWith("--")) { args.slugs.push(a); } // positional slug
   }
   return args;
 }
@@ -594,8 +660,8 @@ async function main(): Promise<void> {
 
   let slugs: string[];
 
-  if (args.slug) {
-    slugs = [args.slug];
+  if (args.slugs.length > 0) {
+    slugs = args.slugs;
   } else if (args.all) {
     if (!existsSync(TV_MANIFEST)) {
       console.error(`[error] TV manifest not found: ${TV_MANIFEST}`);
@@ -604,7 +670,7 @@ async function main(): Promise<void> {
     const manifest = JSON.parse(readFileSync(TV_MANIFEST, "utf-8")) as { slug: string }[];
     slugs = manifest.map((e) => e.slug);
   } else {
-    console.error("[error] Provide --slug <slug> or --all");
+    console.error("[error] Provide --slug <slug>, positional slugs, or --all");
     process.exit(1);
   }
 

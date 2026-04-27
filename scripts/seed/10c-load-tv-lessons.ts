@@ -26,18 +26,19 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, "../../");
 const TV_LESSONS_DIR = join(PROJECT_ROOT, "data/lessons-cache-tv");
 
-function parseArgs(): { slug: string | null } {
-  const out = { slug: null as string | null };
+function parseArgs(): { slugs: string[] } {
+  const out = { slugs: [] as string[] };
   for (let i = 2; i < process.argv.length; i++) {
     const a = process.argv[i];
-    if (a === "--slug") out.slug = process.argv[++i];
-    else if (a.startsWith("--slug=")) out.slug = a.slice("--slug=".length);
+    if (a === "--slug") { out.slugs.push(process.argv[++i]); }
+    else if (a.startsWith("--slug=")) { out.slugs.push(a.slice("--slug=".length)); }
+    else if (!a.startsWith("--")) { out.slugs.push(a); } // positional slug
   }
   return out;
 }
 
 async function main(): Promise<void> {
-  const { slug: onlySlug } = parseArgs();
+  const { slugs: onlySlugs } = parseArgs();
   const db = getDb();
 
   const rows = await db
@@ -50,7 +51,7 @@ async function main(): Promise<void> {
     .innerJoin(songs, eq(songs.id, songVersions.song_id))
     .where(eq(songVersions.version_type, "tv"));
 
-  const target = onlySlug ? rows.filter((r) => r.slug === onlySlug) : rows;
+  const target = onlySlugs.length > 0 ? rows.filter((r) => onlySlugs.includes(r.slug)) : rows;
   console.log(`=== 10c-load-tv-lessons: ${target.length} TV row(s) ===\n`);
 
   let loaded = 0;

@@ -88,7 +88,7 @@ interface TimingCache {
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, "../../");
-const DEFAULT_LESSONS_DIR = join(PROJECT_ROOT, "data/lessons-cache-tv-nw");
+const DEFAULT_LESSONS_DIR = join(PROJECT_ROOT, "data/lessons-cache-tv"); // Canonical post-D-08-swap
 const TV_STEM_TIMING_DIR = join(PROJECT_ROOT, "data/timing-cache-tv-stem");
 const DEFAULT_TOLERANCE_MS = 500;
 
@@ -215,10 +215,11 @@ export async function checkVerseOnsets(
     rawSpans.push({ verseNumber, startMs, endMs });
   }
 
-  // Apply the same gap-midpoint expansion that the deriver applies.
-  // This produces predicted startMs values comparable to lesson.start_time_ms.
+  // Apply the same gap-midpoint expansion + boundary snap that the deriver applies.
+  // Passing `words` enables the same snapVerseOnsetToWordBoundary logic that runs
+  // in the deriver (11.2-followup: fix instrumental-break drift for sign-flow et al.).
   const tvFirstWordStartMs = tvCharToStartMs[0] ?? 0;
-  const adjustedSpans = computeVerseTimes(rawSpans, tvFirstWordStartMs);
+  const adjustedSpans = computeVerseTimes(rawSpans, tvFirstWordStartMs, words);
   const adjustedByVerseNumber = new Map(adjustedSpans.map((s) => [s.verseNumber, s]));
 
   // Build results per verse

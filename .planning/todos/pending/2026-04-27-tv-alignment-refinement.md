@@ -7,6 +7,14 @@ related_plans: [11.2-06]
 
 # TV alignment refinement — fix structural NW drift at instrumental breaks
 
+## Diagnosis
+
+Confirmed hypothesis (2026-04-26 investigation):
+
+- **Root cause is long WhisperX word spans at instrumental breaks.** When the TV stem has a quiet/instrumental section, WhisperX (large-v3 ja) often emits a single word with a span of 1.5-12 seconds covering the entire gap (e.g., "a" spanning 12.336-23.660s in sign-flow; "た" spanning 20.695-25.839s in uso-sid; "ザ" spanning 71.783-77.728s in the-day-porno-graffitti). The NW alignment maps verse characters into this long word, and `computeVerseTimes`'s gap-midpoint expansion then places the verse onset INSIDE the long-word span — resulting in onsets that are 1-6 seconds from the actual lyric start.
+- **The deriver and spot-check diverge because they run NW on different input streams.** The deriver NW uses the full-version lesson verses (producing one gap-midpoint); the spot-check re-runs NW on only the derived TV lesson's verses (producing a different gap-midpoint). Both computations are wrong for verses adjacent to instrumental breaks.
+- **Fix: snap computed verse onsets that land inside long word spans (≥1500ms) or long silence gaps (≥2000ms)** to the next real word boundary. Applying this snap in `computeVerseTimes` ensures both the deriver and the spot-check converge on the same correct timing.
+
 ## Problem
 Phase 11.2 Plan 06 spot-check found that 3 of 8 sample songs (sign-flow, the-day-porno-graffitti, uso-sid) have verse onset drift of 1-6 seconds clustering at instrumental break points — sections of the song where NW has no characters to align against. The drift cascades into subsequent verses.
 
