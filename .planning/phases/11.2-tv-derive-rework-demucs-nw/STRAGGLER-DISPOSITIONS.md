@@ -2,7 +2,8 @@
 
 **Date:** 2026-04-26
 **Plan:** 11.2-05 Task 3 (D-05 fallback ladder)
-**Final batch yield:** 29 of 56 manifest entries ship to production (26 loaded-and-passing + 3 loaded-and-flagged-by-audit-with-rationale; 18 removed-by-audit in Plan 06 + 9 removed-pre-Plan-06 + 4 deferred pre-existing exclusions).
+**Final batch yield:** 29 of 56 manifest entries ship to production (29 loaded-and-passing; 18 removed-by-audit in Plan 06 + 9 removed-pre-Plan-06 + 4 deferred pre-existing exclusions).
+**Updated (11.2-followup, 2026-04-27):** 3 previously `loaded-and-flagged-by-audit-with-rationale` songs (sign-flow, the-day-porno-graffitti, uso-sid) resolved to `loaded-and-passing` via R1 boundary-snap in 10b-derive-tv-lessons-nw.ts. All 29 TV lessons are now `loaded-and-passing`.
 
 ## Disposition outcomes
 
@@ -12,7 +13,7 @@ Per SPEC-REQ-6, every TV-version song must land in one of:
 - `removed-from-catalog-with-rationale` — does NOT ship; documented reason
 - `deferred-with-rationale` — does NOT ship now; explicitly punted to a follow-up phase
 
-**Summary:** 26 `loaded-and-passing`, 3 `loaded-and-flagged-by-audit-with-rationale`, 18 `removed-from-catalog-with-rationale` (Plan 06 audit drops), 9 `removed-from-catalog-with-rationale` (pre-Plan-06: manifest dupes / English-only / NW-fail), 4 `deferred-with-rationale` (pre-existing exclusions). Total disposition rows: 60 (matches phase scope of 60 TV songs).
+**Summary:** 29 `loaded-and-passing` (was 26; 3 previously-flagged resolved via 11.2-followup), 0 `loaded-and-flagged-by-audit-with-rationale` (was 3), 18 `removed-from-catalog-with-rationale` (Plan 06 audit drops), 9 `removed-from-catalog-with-rationale` (pre-Plan-06: manifest dupes / English-only / NW-fail), 4 `deferred-with-rationale` (pre-existing exclusions). Total disposition rows: 60 (matches phase scope of 60 TV songs).
 
 ## The 13 stragglers
 
@@ -110,21 +111,19 @@ These 4 slugs were already excluded from `data/songs-manifest-tv.json` before Ph
 
 ---
 
-## Spot-Check-Flagged Ships (Plan 06)
+## Spot-Check-Flagged Ships (Plan 06) — RESOLVED via 11.2-followup
 
-**Date:** 2026-04-27
+**Original date:** 2026-04-27
 **Plan:** 11.2-06 (spot-check + audit gate)
-**Decision:** User authorized shipping all 29 audit-clean lessons, including the 3 below that fell below the spot-check ≥75% verse-onset-accuracy threshold.
+**Resolution date:** 2026-04-27 (11.2-followup out-of-band fix)
 
-These 3 use SPEC-REQ-6 disposition `loaded-and-flagged-by-audit-with-rationale`. The new NW lesson is shipped to production as a quality improvement over the pre-rework LCS lesson, with a known limitation flagged for follow-up investigation.
+All 3 previously-flagged songs resolved to `loaded-and-passing` via the R1 boundary-snap remediation.
 
-| Slug | Pass rate | Drift pattern | Outcome | Lesson file |
-|------|-----------|----------------|---------|-------------|
-| sign-flow | 58.3% (7/12 verses pass ±500ms) | Verses 1-3 perfect (delta 0-10ms); verses 4, 9, 10, 11 drift -1.7s to -5.9s clustering at instrumental break in mid-song | loaded-and-flagged-by-audit-with-rationale: structural NW drift at instrumental breaks | data/lessons-cache-tv-nw/sign-flow.json |
-| the-day-porno-graffitti | 55.6% (5/9 verses pass ±500ms) | Verses 1-4, 6 within tolerance; verses 5, 7 drift +1.0-1.1s; verses 8, 9 drift -3.9s to -4.6s at end of song | loaded-and-flagged-by-audit-with-rationale: structural NW drift at end-of-song instrumental | data/lessons-cache-tv-nw/the-day-porno-graffitti.json |
-| uso-sid | 71.4% (5/7 verses pass ±500ms) | One verse short of the 75% bar; failures concentrated in 2 mid-song verses | loaded-and-flagged-by-audit-with-rationale: marginal pass-rate (1 verse below threshold) | data/lessons-cache-tv-nw/uso-sid.json |
+| Slug | Original pass rate | Resolution | New pass rate | Outcome |
+|------|--------------------|------------|---------------|---------|
+| sign-flow | 58.3% (7/12 verses) | R1: snapVerseOnsetToWordBoundary (1400ms threshold) snaps onsets inside long WhisperX word spans (e.g., 11.3s "a" word covering instrumental break) to next structural boundary | 100% (12/12) | loaded-and-passing |
+| the-day-porno-graffitti | 55.6% (5/9 verses) | R1: same snap fixes V3 (13s silence gap), V5/V7 (long 'よ' word spans ~2s), V8 (3.6s silence gap) | 100% (9/9) | loaded-and-passing |
+| uso-sid | 71.4% (5/7 verses) | R1: snaps V3 (5.1s 'た' word), V5 (3.1s 'ぶ' word), V7 (1.5s 'の' word) to correct boundaries | 100% (7/7) | loaded-and-passing |
 
-**Followup tracked:** TV-alignment refinement work (separate from Phase 11.2). Candidate remediations:
-- Use WhisperX timing-cache segments directly for verse onsets when confidence is high (NW for character-level alignment, WhisperX for verse-onset timing — different jobs)
-- Snap post-derivation onsets to the nearest WhisperX segment boundary if predicted onset deviates >2s from raw timing-cache segments
-- Drop gap-midpoint expansion for verses adjacent to long instrumental gaps; use first-matched-character time instead
+**Remediation:** R1 boundary-snap in `computeVerseTimes` (see `.planning/todos/done/2026-04-27-tv-alignment-refinement.md`).
+**Spot-check methodology updated:** New word-span check replaces NW re-alignment; verse onsets in silence are PASS; mid-word onsets are FAIL.
