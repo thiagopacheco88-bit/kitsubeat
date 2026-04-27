@@ -1,238 +1,701 @@
 {
   "patches": [
     {
-      "after_original": 4,
+      "replace_verse_number": 3,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"賛歌","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"hymn of praise","pt-BR":"hino de louvor","es":"himno de alabanza"},"jlpt_level":"N1"},
-          {"surface":"愛","reading":"あい","romaji":"ai","grammar":"noun","grammar_color":"blue","meaning":{"en":"love","pt-BR":"amor","es":"amor"},"jlpt_level":"N4"},
-          {"surface":"逃げ","reading":"にげ","romaji":"nige","grammar":"verb","grammar_color":"red","meaning":{"en":"flee (stem)","pt-BR":"fugir","es":"huir"},"jlpt_level":"N4"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"不安","reading":"ふあん","romaji":"fuan","grammar":"noun","grammar_color":"blue","meaning":{"en":"anxiety","pt-BR":"ansiedade","es":"ansiedad"},"jlpt_level":"N3"},
-          {"surface":"か","reading":"か","romaji":"ka","grammar":"particle","grammar_color":"grey","meaning":{"en":"question marker","pt-BR":"marcador de pergunta","es":"marcador de pregunta"},"jlpt_level":"N5"}
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (na-adjective)", "pt-BR": "conveniente (adjetivo な)", "es": "conveniente (adjetivo な)" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (repetition)", "pt-BR": "conveniente (repetição)", "es": "conveniente (repetición)" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!; long live!", "pt-BR": "viva!; longa vida!", "es": "¡viva!; ¡larga vida!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (repetition)", "pt-BR": "conveniente (repetição)", "es": "conveniente (repetición)" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (repetition)", "pt-BR": "conveniente (repetição)", "es": "conveniente (repetición)" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s); humanity", "pt-BR": "humano(s); humanidade", "es": "humano(s); humanidad" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"HEYHEY! Human praise, love-flight, are humans anxious?","pt-BR":"HEYHEY! Hino humano, fuga do amor, humanos estão ansiosos?","es":"HEYHEY! Himno humano, huida del amor, ¿humanos ansiosos?"},
-        "literal_meaning":{"en":"human + hymn + love + flee + human + anxiety + Q"}
+        "translations": {
+          "en": "Long live convenience! Long live convenience! Long live convenience! Humans!",
+          "pt-BR": "Viva a conveniência! Viva a conveniência! Viva a conveniência! Humanos!",
+          "es": "¡Viva la conveniencia! ¡Viva la conveniencia! ¡Viva la conveniencia! ¡Humanos!"
+        },
+        "literal_meaning": { "en": "convenient×2 + hurrah! + convenient×2 + hurrah! + convenient×2 + hurrah! + humans" }
       }
     },
     {
-      "after_original": 4,
+      "replace_verse_number": 4,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the influence/umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"不安感","reading":"ふあんかん","romaji":"fuankan","grammar":"noun","grammar_color":"blue","meaning":{"en":"feeling of anxiety","pt-BR":"sentimento de ansiedade","es":"sentimiento de ansiedad"},"jlpt_level":"N2"}
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (na-adjective)", "pt-BR": "conveniente (adjetivo な)", "es": "conveniente (adjetivo な)" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (repetition)", "pt-BR": "conveniente (repetição)", "es": "conveniente (repetición)" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (repetition)", "pt-BR": "conveniente (repetição)", "es": "conveniente (repetición)" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (repetition)", "pt-BR": "conveniente (repetição)", "es": "conveniente (repetición)" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s); humanity", "pt-BR": "humano(s); humanidade", "es": "humano(s); humanidad" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"HEYHEY! Human under-umbrella, HEYHEY! Human anxiety feeling.","pt-BR":"HEYHEY! Humanos sob controle, HEYHEY! Sensação de ansiedade humana.","es":"HEYHEY! Humano bajo dominio, HEYHEY! Ansiedad humana."},
-        "literal_meaning":{"en":"human + under-umbrella + human + anxiety-feeling"}
+        "translations": {
+          "en": "Long live convenience! Long live convenience! Long live convenience! Humans!",
+          "pt-BR": "Viva a conveniência! Viva a conveniência! Viva a conveniência! Humanos!",
+          "es": "¡Viva la conveniencia! ¡Viva la conveniencia! ¡Viva la conveniencia! ¡Humanos!"
+        },
+        "literal_meaning": { "en": "convenient×2 + hurrah! + convenient×2 + hurrah! + convenient×2 + hurrah! + humans" }
       }
     },
     {
-      "after_original": 4,
+      "replace_verse_number": 5,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
-          {"surface":"己ら","reading":"おのれら","romaji":"onorera","grammar":"other","grammar_color":"none","meaning":{"en":"ourselves (rough)","pt-BR":"nós mesmos","es":"nosotros mismos"},"jlpt_level":"N1"},
-          {"surface":"永遠","reading":"えいえん","romaji":"eien","grammar":"noun","grammar_color":"blue","meaning":{"en":"eternity","pt-BR":"eternidade","es":"eternidad"},"jlpt_level":"N3"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"不安感","reading":"ふあんかん","romaji":"fuankan","grammar":"noun","grammar_color":"blue","meaning":{"en":"feeling of anxiety","pt-BR":"sentimento de ansiedade","es":"sentimiento de ansiedad"},"jlpt_level":"N2"}
+          { "surface": "ほら", "reading": "ほら", "romaji": "hora", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "Hey!; Look!", "pt-BR": "Ei!; Olhe!", "es": "¡Eh!; ¡Mira!" }, "jlpt_level": "N4" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling; crackling (mimetic)", "pt-BR": "formigando; estalando (mimético)", "es": "hormigueando; crepitando (mimético)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "are you going to make (us) angry? (causative + question)", "pt-BR": "vai (nos) deixar com raiva? (causativo + interrogação)", "es": "¿vas a hacer(nos) enfadar? (causativo + interrogación)" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(ponto de interrogação)", "es": "(signo de interrogación)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling; crackling (repetition)", "pt-BR": "formigando; estalando (repetição)", "es": "hormigueando; crepitando (repetición)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "are you going to make (us) angry?", "pt-BR": "vai (nos) deixar com raiva?", "es": "¿vas a hacer(nos) enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(ponto de interrogação)", "es": "(signo de interrogación)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling; crackling (third repetition)", "pt-BR": "formigando; estalando (terceira repetição)", "es": "hormigueando; crepitando (tercera repetición)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "are you going to make (us) angry?", "pt-BR": "vai (nos) deixar com raiva?", "es": "¿vas a hacer(nos) enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(ponto de interrogação)", "es": "(signo de interrogación)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s); humanity", "pt-BR": "humano(s); humanidade", "es": "humano(s); humanidad" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"HEYHEY! Human under-umbrella, we ourselves — eternal human anxiety.","pt-BR":"HEYHEY! Humano sob controle, nós mesmos — eterna ansiedade humana.","es":"HEYHEY! Humano bajo dominio, nosotros mismos — ansiedad humana eterna."},
-        "literal_meaning":{"en":"human + under-umbrella + ourselves + eternity + human + anxiety-feeling"}
+        "translations": {
+          "en": "Hey, gonna make us tingle with rage? Tingle with rage? Tingle with rage? Humans!",
+          "pt-BR": "Ei, vai nos fazer ferver de raiva? Ferver de raiva? Ferver de raiva? Humanos!",
+          "es": "¡Eh, vas a hacernos hervir de ira? ¿Hervir de ira? ¿Hervir de ira? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "hey + tingling + make-angry? + ? + tingling + make-angry? + ? + tingling + make-angry? + ? + humans" }
       }
     },
     {
-      "after_original": 4,
+      "replace_verse_number": 6,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"嗚呼","reading":"ああ","romaji":"aa","grammar":"other","grammar_color":"none","meaning":{"en":"ah; alas","pt-BR":"ah; ai","es":"ah; ay"},"jlpt_level":"N2"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"}
+          { "surface": "ほら", "reading": "ほら", "romaji": "hora", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "Hey!; Look!", "pt-BR": "Ei!; Olhe!", "es": "¡Eh!; ¡Mira!" }, "jlpt_level": "N4" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling; crackling (mimetic)", "pt-BR": "formigando; estalando (mimético)", "es": "hormigueando; crepitando (mimético)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "are you going to make (us) angry?", "pt-BR": "vai (nos) deixar com raiva?", "es": "¿vas a hacer(nos) enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling (repetition)", "pt-BR": "formigando (repetição)", "es": "hormigueando (repetición)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "are you going to make (us) angry?", "pt-BR": "vai (nos) deixar com raiva?", "es": "¿vas a hacer(nos) enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling (third repetition)", "pt-BR": "formigando (terceira repetição)", "es": "hormigueando (tercera repetición)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "are you going to make (us) angry?", "pt-BR": "vai (nos) deixar com raiva?", "es": "¿vas a hacer(nos) enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s); humanity", "pt-BR": "humano(s); humanidade", "es": "humano(s); humanidad" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"Ah, humans.","pt-BR":"Ah, humanos.","es":"Ay, humanos."},
-        "literal_meaning":{"en":"ah + human"}
+        "translations": {
+          "en": "Hey, gonna make us tingle with rage? Tingle with rage? Tingle with rage? Humans!",
+          "pt-BR": "Ei, vai nos fazer ferver de raiva? Ferver de raiva? Ferver de raiva? Humanos!",
+          "es": "¡Eh, vas a hacernos hervir de ira? ¿Hervir de ira? ¿Hervir de ira? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "hey + tingling + make-angry? + ? + tingling + make-angry? + ? + tingling + make-angry? + ? + humans" }
       }
     },
     {
-      "after_original": 4,
+      "replace_verse_number": 7,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"文明","reading":"ぶんめい","romaji":"bunmei","grammar":"noun","grammar_color":"blue","meaning":{"en":"civilization","pt-BR":"civilização","es":"civilización"},"jlpt_level":"N2"},
-          {"surface":"病ん","reading":"やん","romaji":"yan","grammar":"verb","grammar_color":"red","meaning":{"en":"to fall ill (te-form stem)","pt-BR":"adoecer","es":"enfermar"},"jlpt_level":"N2"},
-          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conector te","es":"conector te"},"jlpt_level":"N5"},
-          {"surface":"不安定","reading":"ふあんてい","romaji":"fuantei","grammar":"adjective","grammar_color":"green","meaning":{"en":"unstable","pt-BR":"instável","es":"inestable"},"jlpt_level":"N2"}
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English contraction)", "pt-BR": "What's (contração em inglês)", "es": "What's (contracción en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English; idiom 'what's up')", "pt-BR": "up (em inglês; idiom 'what's up')", "es": "up (en inglés; idiom 'what's up')" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety (coined: 不安 + 材)", "pt-BR": "fontes de ansiedade (cunhado: 不安 + 材)", "es": "fuentes de ansiedad (acuñado: 不安 + 材)" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of; lots of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "犯罪", "reading": "はんざい", "romaji": "hanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "crime", "pt-BR": "crime", "es": "crimen" }, "jlpt_level": "N3" },
+          { "surface": "消えない", "reading": "きえない", "romaji": "kienai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "won't disappear (negative of 消える)", "pt-BR": "não desaparece (negativo de 消える)", "es": "no desaparece (negativo de 消える)" }, "jlpt_level": "N4" },
+          { "surface": "永遠に", "reading": "えいえんに", "romaji": "eien ni", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "eternally; forever", "pt-BR": "eternamente; para sempre", "es": "eternamente; para siempre" }, "jlpt_level": "N3" }
         ],
-        "translations":{"en":"Civilization sickens, becomes unstable.","pt-BR":"A civilização adoece, fica instável.","es":"La civilización enferma y se vuelve inestable."},
-        "literal_meaning":{"en":"civilization + become-ill + te + unstable"}
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties; crime never fades, eternally",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades; o crime não some, eternamente",
+          "es": "WHAT'S UP — lleno de ansiedades; el crimen no se desvanece, eternamente"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + crime + won't-disappear + eternally" }
       }
     },
     {
-      "after_original": 4,
+      "replace_verse_number": 8,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"未来","reading":"みらい","romaji":"mirai","grammar":"noun","grammar_color":"blue","meaning":{"en":"future","pt-BR":"futuro","es":"futuro"},"jlpt_level":"N4"},
-          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"},
-          {"surface":"救われ","reading":"すくわれ","romaji":"sukuware","grammar":"verb","grammar_color":"red","meaning":{"en":"to be saved (passive stem)","pt-BR":"ser salvo","es":"ser salvado"},"jlpt_level":"N3"},
-          {"surface":"ん","reading":"ん","romaji":"n","grammar":"particle","grammar_color":"grey","meaning":{"en":"negative (colloquial)","pt-BR":"negativo (coloquial)","es":"negativo (coloquial)"},"jlpt_level":"N3"},
-          {"surface":"ホワイトハウス","reading":"ホワイトハウス","romaji":"howaito-hausu","grammar":"noun","grammar_color":"blue","meaning":{"en":"White House","pt-BR":"Casa Branca","es":"Casa Blanca"},"jlpt_level":"N1"}
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English contraction)", "pt-BR": "What's (contração em inglês)", "es": "What's (contracción en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "(", "reading": "(", "romaji": "(", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(open parenthesis)", "pt-BR": "(parêntese de abertura)", "es": "(paréntesis de apertura)" }, "jlpt_level": "unknown" },
+          { "surface": "恨み", "reading": "うらみ", "romaji": "urami", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "grudge; resentment", "pt-BR": "rancor; ressentimento", "es": "rencor; resentimiento" }, "jlpt_level": "N2" },
+          { "surface": "に", "reading": "に", "romaji": "ni", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "and (additive; 'grudges and traps')", "pt-BR": "e (aditivo)", "es": "y (aditivo)" }, "jlpt_level": "N5" },
+          { "surface": "罠", "reading": "わな", "romaji": "wana", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "trap; snare", "pt-BR": "armadilha; cilada", "es": "trampa; cepo" }, "jlpt_level": "N1" },
+          { "surface": "誰", "reading": "だれ", "romaji": "dare", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "who", "pt-BR": "quem", "es": "quién" }, "jlpt_level": "N5" },
+          { "surface": "ダウン", "reading": "ダウン", "romaji": "daun", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "down (English loanword: 'going down')", "pt-BR": "down (do inglês: 'cair')", "es": "down (del inglés: 'caer')" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": ")", "reading": ")", "romaji": ")", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(close parenthesis)", "pt-BR": "(parêntese de fechamento)", "es": "(paréntesis de cierre)" }, "jlpt_level": "unknown" }
         ],
-        "translations":{"en":"The future won't be saved by the White House.","pt-BR":"O futuro não será salvo pela Casa Branca.","es":"El futuro no será salvado por la Casa Blanca."},
-        "literal_meaning":{"en":"future + topic + be-saved + not + White-House"}
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties (grudges and traps — who's going down?)",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades (rancores e armadilhas — quem cai?)",
+          "es": "WHAT'S UP — lleno de ansiedades (rencores y trampas — ¿quién cae?)"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + ( + grudge + and + trap + who + down + ? + )" }
       }
     },
     {
-      "after_original": 4,
+      "replace_verse_number": 9,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"全世界","reading":"ぜんせかい","romaji":"zensekai","grammar":"noun","grammar_color":"blue","meaning":{"en":"the whole world","pt-BR":"o mundo todo","es":"el mundo entero"},"jlpt_level":"N2"},
-          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to; at","pt-BR":"para; em","es":"a; en"},"jlpt_level":"N5"}
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English contraction)", "pt-BR": "What's (contração em inglês)", "es": "What's (contracción en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "犯罪", "reading": "はんざい", "romaji": "hanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "crime", "pt-BR": "crime", "es": "crimen" }, "jlpt_level": "N3" },
+          { "surface": "消えない", "reading": "きえない", "romaji": "kienai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "won't disappear", "pt-BR": "não desaparece", "es": "no desaparece" }, "jlpt_level": "N4" },
+          { "surface": "永遠に", "reading": "えいえんに", "romaji": "eien ni", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "eternally", "pt-BR": "eternamente", "es": "eternamente" }, "jlpt_level": "N3" }
         ],
-        "translations":{"en":"WARNING!! to the whole world.","pt-BR":"ALERTA!! ao mundo inteiro.","es":"¡¡ADVERTENCIA!! al mundo entero."},
-        "literal_meaning":{"en":"whole-world + to + WARNING"}
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties; crime never fades, eternally",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades; o crime não some, eternamente",
+          "es": "WHAT'S UP — lleno de ansiedades; el crimen no se desvanece, eternamente"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + crime + won't-disappear + eternally" }
       }
     },
     {
-      "after_original": 4,
+      "replace_verse_number": 10,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"一切合切","reading":"いっさいがっさい","romaji":"issai-gassai","grammar":"noun","grammar_color":"blue","meaning":{"en":"each and every; the whole lot","pt-BR":"tudo sem exceção","es":"todo sin excepción"},"jlpt_level":"N1"},
-          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"a"},"jlpt_level":"N5"},
-          {"surface":"改革","reading":"かいかく","romaji":"kaikaku","grammar":"noun","grammar_color":"blue","meaning":{"en":"reform","pt-BR":"reforma","es":"reforma"},"jlpt_level":"N2"}
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English contraction)", "pt-BR": "What's (contração em inglês)", "es": "What's (contracción en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"Reform LIFE, every single thing.","pt-BR":"Reformar a VIDA inteira, sem exceção.","es":"Reformar la VIDA entera, sin excepción."},
-        "literal_meaning":{"en":"everything + to + reform + LIFE"}
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades",
+          "es": "WHAT'S UP — lleno de ansiedades"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of" }
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 11,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
-          {"surface":"己ら","reading":"おのれら","romaji":"onorera","grammar":"other","grammar_color":"none","meaning":{"en":"ourselves (rough)","pt-BR":"nós mesmos","es":"nosotros mismos"},"jlpt_level":"N1"},
-          {"surface":"永遠","reading":"えいえん","romaji":"eien","grammar":"noun","grammar_color":"blue","meaning":{"en":"eternity","pt-BR":"eternidade","es":"eternidad"},"jlpt_level":"N3"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"傘下","reading":"さんか","romaji":"sanka","grammar":"noun","grammar_color":"blue","meaning":{"en":"under the umbrella","pt-BR":"sob influência","es":"bajo influencia"},"jlpt_level":"N1"},
-          {"surface":"喚く","reading":"わめく","romaji":"wameku","grammar":"verb","grammar_color":"red","meaning":{"en":"to shout; to yell","pt-BR":"gritar","es":"gritar"},"jlpt_level":"N1"},
-          {"surface":"性","reading":"さが","romaji":"saga","grammar":"noun","grammar_color":"blue","meaning":{"en":"nature; disposition","pt-BR":"natureza","es":"naturaleza"},"jlpt_level":"N2"}
+          { "surface": "生きる", "reading": "いきる", "romaji": "ikiru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to live (attributive)", "pt-BR": "viver (atributivo)", "es": "vivir (atributivo)" }, "jlpt_level": "N4" },
+          { "surface": "意味", "reading": "いみ", "romaji": "imi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "meaning", "pt-BR": "sentido; significado", "es": "sentido; significado" }, "jlpt_level": "N5" },
+          { "surface": "つまらん", "reading": "つまらん", "romaji": "tsumaran", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "boring (rough male contraction of つまらない)", "pt-BR": "tedioso (contração rude/masculina de つまらない)", "es": "aburrido (contracción ruda/masculina de つまらない)" }, "jlpt_level": "N4" },
+          { "surface": "か", "reading": "か", "romaji": "ka", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "question particle", "pt-BR": "partícula interrogativa", "es": "partícula interrogativa" }, "jlpt_level": "N5" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "生きる", "reading": "いきる", "romaji": "ikiru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to live (repetition)", "pt-BR": "viver (repetição)", "es": "vivir (repetición)" }, "jlpt_level": "N4" },
+          { "surface": "意味", "reading": "いみ", "romaji": "imi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "meaning", "pt-BR": "sentido", "es": "sentido" }, "jlpt_level": "N5" },
+          { "surface": "つまらん", "reading": "つまらん", "romaji": "tsumaran", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "boring (rough)", "pt-BR": "tedioso", "es": "aburrido" }, "jlpt_level": "N4" },
+          { "surface": "か", "reading": "か", "romaji": "ka", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "question particle", "pt-BR": "partícula interrogativa", "es": "partícula interrogativa" }, "jlpt_level": "N5" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "生きる", "reading": "いきる", "romaji": "ikiru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to live (third repetition)", "pt-BR": "viver (terceira repetição)", "es": "vivir (tercera repetición)" }, "jlpt_level": "N4" },
+          { "surface": "意味", "reading": "いみ", "romaji": "imi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "meaning", "pt-BR": "sentido", "es": "sentido" }, "jlpt_level": "N5" },
+          { "surface": "つまらん", "reading": "つまらん", "romaji": "tsumaran", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "boring (rough)", "pt-BR": "tedioso", "es": "aburrido" }, "jlpt_level": "N4" },
+          { "surface": "か", "reading": "か", "romaji": "ka", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "question particle", "pt-BR": "partícula interrogativa", "es": "partícula interrogativa" }, "jlpt_level": "N5" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(question mark)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"HEYHEY! Human under-umbrella, we ourselves — eternal under-umbrella, shouting nature.","pt-BR":"HEYHEY! Humano sob controle, nós mesmos — eternamente sob controle, natureza que grita.","es":"HEYHEY! Humano bajo dominio, nosotros mismos — eternamente bajo dominio, naturaleza que grita."},
-        "literal_meaning":{"en":"human + under-umbrella + ourselves + eternity + human + under-umbrella + shout + nature"}
+        "translations": {
+          "en": "Is the meaning of life boring? Boring? Boring? Humans!",
+          "pt-BR": "O sentido da vida é tedioso? Tedioso? Tedioso? Humanos!",
+          "es": "¿El sentido de la vida es aburrido? ¿Aburrido? ¿Aburrido? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "live + meaning + boring + (?) + ? + (×3) + humans" }
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 12,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"偏見","reading":"へんけん","romaji":"henken","grammar":"noun","grammar_color":"blue","meaning":{"en":"prejudice","pt-BR":"preconceito","es":"prejuicio"},"jlpt_level":"N2"},
-          {"surface":"陰険","reading":"いんけん","romaji":"inken","grammar":"adjective","grammar_color":"green","meaning":{"en":"malicious; cunning","pt-BR":"malicioso","es":"malicioso"},"jlpt_level":"N1"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"糞","reading":"くそ","romaji":"kuso","grammar":"noun","grammar_color":"blue","meaning":{"en":"shit; damn","pt-BR":"merda","es":"mierda"},"jlpt_level":"N2"},
-          {"surface":"だ","reading":"だ","romaji":"da","grammar":"verb","grammar_color":"red","meaning":{"en":"to be (copula)","pt-BR":"ser","es":"ser"},"jlpt_level":"N5"},
-          {"surface":"動き","reading":"うごき","romaji":"ugoki","grammar":"noun","grammar_color":"blue","meaning":{"en":"movement","pt-BR":"movimento","es":"movimiento"},"jlpt_level":"N3"},
-          {"surface":"出せ","reading":"だせ","romaji":"dase","grammar":"verb","grammar_color":"red","meaning":{"en":"to start; put out (imperative)","pt-BR":"começar (imperativo)","es":"empezar (imperativo)"},"jlpt_level":"N4"},
-          {"surface":"俺","reading":"おれ","romaji":"ore","grammar":"noun","grammar_color":"blue","meaning":{"en":"I (rough masculine)","pt-BR":"eu (informal)","es":"yo (informal)"},"jlpt_level":"N4"}
+          { "surface": "生きる", "reading": "いきる", "romaji": "ikiru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to live (attributive)", "pt-BR": "viver (atributivo)", "es": "vivir (atributivo)" }, "jlpt_level": "N4" },
+          { "surface": "意味", "reading": "いみ", "romaji": "imi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "meaning", "pt-BR": "sentido", "es": "sentido" }, "jlpt_level": "N5" },
+          { "surface": "つまらん", "reading": "つまらん", "romaji": "tsumaran", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "boring (rough)", "pt-BR": "tedioso", "es": "aburrido" }, "jlpt_level": "N4" },
+          { "surface": "か", "reading": "か", "romaji": "ka", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "question particle", "pt-BR": "partícula interrogativa", "es": "partícula interrogativa" }, "jlpt_level": "N5" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "生きる", "reading": "いきる", "romaji": "ikiru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to live", "pt-BR": "viver", "es": "vivir" }, "jlpt_level": "N4" },
+          { "surface": "意味", "reading": "いみ", "romaji": "imi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "meaning", "pt-BR": "sentido", "es": "sentido" }, "jlpt_level": "N5" },
+          { "surface": "つまらん", "reading": "つまらん", "romaji": "tsumaran", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "boring", "pt-BR": "tedioso", "es": "aburrido" }, "jlpt_level": "N4" },
+          { "surface": "か", "reading": "か", "romaji": "ka", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "question particle", "pt-BR": "partícula interrogativa", "es": "partícula interrogativa" }, "jlpt_level": "N5" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "生きる", "reading": "いきる", "romaji": "ikiru", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to live", "pt-BR": "viver", "es": "vivir" }, "jlpt_level": "N4" },
+          { "surface": "意味", "reading": "いみ", "romaji": "imi", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "meaning", "pt-BR": "sentido", "es": "sentido" }, "jlpt_level": "N5" },
+          { "surface": "つまらん", "reading": "つまらん", "romaji": "tsumaran", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "boring", "pt-BR": "tedioso", "es": "aburrido" }, "jlpt_level": "N4" },
+          { "surface": "か", "reading": "か", "romaji": "ka", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "question particle", "pt-BR": "partícula interrogativa", "es": "partícula interrogativa" }, "jlpt_level": "N5" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"Prejudiced, cunning humans are shit — get moving, me, FIGHT!","pt-BR":"Humanos preconceituosos e dissimulados são merda — mova-se, eu, LUTE!","es":"Humanos prejuiciosos y astutos son mierda — ¡muévete, yo, LUCHA!"},
-        "literal_meaning":{"en":"prejudice + malicious + human + shit + be + movement + start + I"}
+        "translations": {
+          "en": "Is the meaning of life boring? Boring? Boring? Humans!",
+          "pt-BR": "O sentido da vida é tedioso? Tedioso? Tedioso? Humanos!",
+          "es": "¿El sentido de la vida es aburrido? ¿Aburrido? ¿Aburrido? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "live + meaning + boring + (?) + ? + (×3) + humans" }
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 13,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"的","reading":"てき","romaji":"teki","grammar":"other","grammar_color":"none","meaning":{"en":"-like (suffix)","pt-BR":"-esco","es":"-esco"},"jlpt_level":"N3"},
-          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adjective marker","pt-BR":"marcador de adj. na","es":"marcador de adj. na"},"jlpt_level":"N5"},
-          {"surface":"制裁","reading":"せいさい","romaji":"seisai","grammar":"noun","grammar_color":"blue","meaning":{"en":"sanction; punishment","pt-BR":"sanção","es":"sanción"},"jlpt_level":"N1"},
-          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
-          {"surface":"牙","reading":"きば","romaji":"kiba","grammar":"noun","grammar_color":"blue","meaning":{"en":"fang","pt-BR":"presa","es":"colmillo"},"jlpt_level":"N1"},
-          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"from","pt-BR":"de","es":"desde"},"jlpt_level":"N5"},
-          {"surface":"天敵","reading":"てんてき","romaji":"tenteki","grammar":"noun","grammar_color":"blue","meaning":{"en":"natural enemy","pt-BR":"inimigo natural","es":"enemigo natural"},"jlpt_level":"N1"},
-          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
-          {"surface":"存在","reading":"そんざい","romaji":"sonzai","grammar":"noun","grammar_color":"blue","meaning":{"en":"existence","pt-BR":"existência","es":"existencia"},"jlpt_level":"N3"},
-          {"surface":"を","reading":"を","romaji":"wo","grammar":"particle","grammar_color":"grey","meaning":{"en":"object marker","pt-BR":"marcador de objeto","es":"marcador de objeto"},"jlpt_level":"N5"},
-          {"surface":"断つ","reading":"たつ","romaji":"tatsu","grammar":"verb","grammar_color":"red","meaning":{"en":"to cut off","pt-BR":"cortar fora","es":"cortar"},"jlpt_level":"N2"}
+          { "surface": "ほら", "reading": "ほら", "romaji": "hora", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "Hey!; Look!", "pt-BR": "Ei!", "es": "¡Eh!" }, "jlpt_level": "N4" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling; crackling (mimetic)", "pt-BR": "formigando; estalando (mimético)", "es": "hormigueando; crepitando (mimético)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry? (causative + ?)", "pt-BR": "deixar com raiva? (causativo + ?)", "es": "¿hacer enfadar? (causativo + ?)" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"From S-ish fangs of sanction, sever the existence of the natural enemy.","pt-BR":"Das presas sádicas da sanção, corte a existência do inimigo natural.","es":"De los colmillos sádicos de la sanción, elimina la existencia del enemigo natural."},
-        "literal_meaning":{"en":"S-like + na + sanction + of + fang + from + natural-enemy + of + existence + obj + cut-off"}
+        "translations": {
+          "en": "Hey, gonna make us tingle with rage? Tingle with rage? Tingle with rage? Humans!",
+          "pt-BR": "Ei, vai nos fazer ferver de raiva? Ferver de raiva? Ferver de raiva? Humanos!",
+          "es": "¡Eh, vas a hacernos hervir de ira? ¿Hervir de ira? ¿Hervir de ira? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "hey + tingling + make-angry? + ? + tingling + make-angry? + ? + tingling + make-angry? + ? + humans" }
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 14,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"典型的","reading":"てんけいてき","romaji":"tenkeiteki","grammar":"adjective","grammar_color":"green","meaning":{"en":"typical","pt-BR":"típico","es":"típico"},"jlpt_level":"N2"},
-          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"na-adjective marker","pt-BR":"marcador de adj. na","es":"marcador de adj. na"},"jlpt_level":"N5"},
-          {"surface":"目先","reading":"めさき","romaji":"mesaki","grammar":"noun","grammar_color":"blue","meaning":{"en":"short-sighted; immediate","pt-BR":"imediato","es":"inmediato"},"jlpt_level":"N1"},
-          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
-          {"surface":"欲","reading":"よく","romaji":"yoku","grammar":"noun","grammar_color":"blue","meaning":{"en":"desire","pt-BR":"desejo","es":"deseo"},"jlpt_level":"N3"},
-          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"from","pt-BR":"de","es":"desde"},"jlpt_level":"N5"},
-          {"surface":"チェンジ","reading":"チェンジ","romaji":"chenji","grammar":"noun","grammar_color":"blue","meaning":{"en":"change","pt-BR":"mudança","es":"cambio"},"jlpt_level":"N3"},
-          {"surface":"でき","reading":"でき","romaji":"deki","grammar":"verb","grammar_color":"red","meaning":{"en":"to be able (stem)","pt-BR":"poder","es":"poder"},"jlpt_level":"N5"},
-          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"not","pt-BR":"não","es":"no"},"jlpt_level":"N5"},
-          {"surface":"国","reading":"くに","romaji":"kuni","grammar":"noun","grammar_color":"blue","meaning":{"en":"country","pt-BR":"país","es":"país"},"jlpt_level":"N5"}
+          { "surface": "ほら", "reading": "ほら", "romaji": "hora", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "Hey!; Look!", "pt-BR": "Ei!", "es": "¡Eh!" }, "jlpt_level": "N4" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling; crackling (mimetic)", "pt-BR": "formigando; estalando (mimético)", "es": "hormigueando; crepitando (mimético)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
         ],
-        "translations":{"en":"A typical country that can't change from short-sighted desire.","pt-BR":"Um país típico incapaz de mudar seu desejo imediato.","es":"Un país típico que no puede cambiar desde el deseo inmediato."},
-        "literal_meaning":{"en":"typical + na + short-sighted + of + desire + from + change + can + not + country"}
+        "translations": {
+          "en": "Hey, gonna make us tingle with rage? Tingle with rage? Tingle with rage? Humans!",
+          "pt-BR": "Ei, vai nos fazer ferver de raiva? Ferver de raiva? Ferver de raiva? Humanos!",
+          "es": "¡Eh, vas a hacernos hervir de ira? ¿Hervir de ira? ¿Hervir de ira? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "hey + tingling + make-angry? + ? + tingling + make-angry? + ? + tingling + make-angry? + ? + humans" }
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 15,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"マヌケ","reading":"マヌケ","romaji":"manuke","grammar":"noun","grammar_color":"blue","meaning":{"en":"fool","pt-BR":"idiota","es":"idiota"},"jlpt_level":"N1"},
-          {"surface":"ボケ","reading":"ボケ","romaji":"boke","grammar":"noun","grammar_color":"blue","meaning":{"en":"dazed fool","pt-BR":"tolo","es":"tonto"},"jlpt_level":"N2"},
-          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"of","pt-BR":"de","es":"de"},"jlpt_level":"N5"},
-          {"surface":"戦争論","reading":"せんそうろん","romaji":"sensouron","grammar":"noun","grammar_color":"blue","meaning":{"en":"war theory","pt-BR":"teoria da guerra","es":"teoría de la guerra"},"jlpt_level":"N1"},
-          {"surface":"誹謗","reading":"ひぼう","romaji":"hibou","grammar":"noun","grammar_color":"blue","meaning":{"en":"slander","pt-BR":"calúnia","es":"calumnia"},"jlpt_level":"N1"},
-          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"to","pt-BR":"para","es":"a"},"jlpt_level":"N5"},
-          {"surface":"けなそう","reading":"けなそう","romaji":"kenasou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's disparage","pt-BR":"vamos desdenhar","es":"menospreciemos"},"jlpt_level":"N1"}
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "犯罪", "reading": "はんざい", "romaji": "hanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "crime", "pt-BR": "crime", "es": "crimen" }, "jlpt_level": "N3" },
+          { "surface": "消えない", "reading": "きえない", "romaji": "kienai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "won't disappear", "pt-BR": "não desaparece", "es": "no desaparece" }, "jlpt_level": "N4" },
+          { "surface": "永遠に", "reading": "えいえんに", "romaji": "eien ni", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "eternally", "pt-BR": "eternamente", "es": "eternamente" }, "jlpt_level": "N3" }
         ],
-        "translations":{"en":"Let's slander the fools' idiotic war theory.","pt-BR":"Vamos desdenhar a teoria de guerra idiota dos tolos.","es":"Menospreciemos la teoría de guerra idiota de los tontos."},
-        "literal_meaning":{"en":"fool + dazed-fool + of + war-theory + slander + to + disparage"}
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties; crime never fades, eternally",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades; o crime não some, eternamente",
+          "es": "WHAT'S UP — lleno de ansiedades; el crimen no se desvanece, eternamente"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + crime + won't-disappear + eternally" }
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 16,
       "verse": {
         "start_time_ms": 0,
         "end_time_ms": 0,
         "tokens": [
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"嗚呼","reading":"ああ","romaji":"aa","grammar":"other","grammar_color":"none","meaning":{"en":"ah; alas","pt-BR":"ah; ai","es":"ah; ay"},"jlpt_level":"N2"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"},
-          {"surface":"人間","reading":"にんげん","romaji":"ningen","grammar":"noun","grammar_color":"blue","meaning":{"en":"human","pt-BR":"humano","es":"humano"},"jlpt_level":"N4"}
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "(", "reading": "(", "romaji": "(", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(open parenthesis)", "pt-BR": "(parêntese de abertura)", "es": "(paréntesis de apertura)" }, "jlpt_level": "unknown" },
+          { "surface": "恨み", "reading": "うらみ", "romaji": "urami", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "grudge; resentment", "pt-BR": "rancor; ressentimento", "es": "rencor; resentimiento" }, "jlpt_level": "N2" },
+          { "surface": "に", "reading": "に", "romaji": "ni", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "and (additive)", "pt-BR": "e (aditivo)", "es": "y (aditivo)" }, "jlpt_level": "N5" },
+          { "surface": "罠", "reading": "わな", "romaji": "wana", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "trap", "pt-BR": "armadilha", "es": "trampa" }, "jlpt_level": "N1" },
+          { "surface": "誰", "reading": "だれ", "romaji": "dare", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "who", "pt-BR": "quem", "es": "quién" }, "jlpt_level": "N5" },
+          { "surface": "ダウン", "reading": "ダウン", "romaji": "daun", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "down (English loanword)", "pt-BR": "down (do inglês)", "es": "down (del inglés)" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": ")", "reading": ")", "romaji": ")", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(close parenthesis)", "pt-BR": "(parêntese de fechamento)", "es": "(paréntesis de cierre)" }, "jlpt_level": "unknown" }
         ],
-        "translations":{"en":"HEYHEY! Human SUCKER! Ah, human... human FUCKER!","pt-BR":"HEYHEY! Humano OTÁRIO! Ah, humano... humano IDIOTA!","es":"HEYHEY! ¡Humano PERDEDOR! Ah, humano... ¡humano IDIOTA!"},
-        "literal_meaning":{"en":"human + ah + human + human"}
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties (grudges and traps — who's going down?)",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades (rancores e armadilhas — quem cai?)",
+          "es": "WHAT'S UP — lleno de ansiedades (rencores y trampas — ¿quién cae?)"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + ( + grudge + and + trap + who + down + ? + )" }
+      }
+    },
+    {
+      "replace_verse_number": 17,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "犯罪", "reading": "はんざい", "romaji": "hanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "crime", "pt-BR": "crime", "es": "crimen" }, "jlpt_level": "N3" },
+          { "surface": "消えない", "reading": "きえない", "romaji": "kienai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "won't disappear", "pt-BR": "não desaparece", "es": "no desaparece" }, "jlpt_level": "N4" },
+          { "surface": "永遠に", "reading": "えいえんに", "romaji": "eien ni", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "eternally", "pt-BR": "eternamente", "es": "eternamente" }, "jlpt_level": "N3" }
+        ],
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties; crime never fades, eternally",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades; o crime não some, eternamente",
+          "es": "WHAT'S UP — lleno de ansiedades; el crimen no se desvanece, eternamente"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + crime + won't-disappear + eternally" }
+      }
+    },
+    {
+      "replace_verse_number": 18,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades",
+          "es": "WHAT'S UP — lleno de ansiedades"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of" }
+      }
+    },
+    {
+      "replace_verse_number": 28,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "全世界", "reading": "ぜんせかい", "romaji": "zen sekai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "the whole world", "pt-BR": "o mundo inteiro", "es": "el mundo entero" }, "jlpt_level": "N3" },
+          { "surface": "に", "reading": "に", "romaji": "ni", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "to (target)", "pt-BR": "a; para (alvo)", "es": "a (objetivo)" }, "jlpt_level": "N5" },
+          { "surface": "WARNING", "reading": "WARNING", "romaji": "WARNING", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "warning (English)", "pt-BR": "WARNING / aviso (em inglês)", "es": "WARNING / aviso (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "!", "reading": "!", "romaji": "!", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(exclamation mark)", "pt-BR": "(!)", "es": "(!)" }, "jlpt_level": "unknown" },
+          { "surface": "!", "reading": "!", "romaji": "!", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(exclamation mark)", "pt-BR": "(!)", "es": "(!)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "WARNING!! to the whole world",
+          "pt-BR": "WARNING!! pro mundo inteiro",
+          "es": "WARNING!! al mundo entero"
+        },
+        "literal_meaning": { "en": "whole-world + to + WARNING + ! + !" }
+      }
+    },
+    {
+      "replace_verse_number": 29,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "一切合切", "reading": "いっさいがっさい", "romaji": "issai gassai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "absolutely everything; the whole lot", "pt-BR": "absolutamente tudo; o conjunto todo", "es": "absolutamente todo; el conjunto entero" }, "jlpt_level": "N1" },
+          { "surface": "に", "reading": "に", "romaji": "ni", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "to (target)", "pt-BR": "a; para (alvo)", "es": "a (objetivo)" }, "jlpt_level": "N5" },
+          { "surface": "改革", "reading": "かいかく", "romaji": "kaikaku", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "reform; reformation", "pt-BR": "reforma", "es": "reforma" }, "jlpt_level": "N2" },
+          { "surface": "LIFE", "reading": "LIFE", "romaji": "LIFE", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "life (English)", "pt-BR": "LIFE / vida (em inglês)", "es": "LIFE / vida (en inglés)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "Reform LIFE — to absolutely everything",
+          "pt-BR": "Reforme a LIFE — para absolutamente tudo",
+          "es": "Reforma la LIFE — a absolutamente todo"
+        },
+        "literal_meaning": { "en": "absolutely-everything + to + reform + LIFE" }
+      }
+    },
+    {
+      "replace_verse_number": 30,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient (na-adjective)", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "Long live convenience! Long live convenience! Long live convenience! Humans!",
+          "pt-BR": "Viva a conveniência! Viva a conveniência! Viva a conveniência! Humanos!",
+          "es": "¡Viva la conveniencia! ¡Viva la conveniencia! ¡Viva la conveniencia! ¡Humanos!"
+        },
+        "literal_meaning": { "en": "convenient×2 + hurrah! + (×3) + humans" }
+      }
+    },
+    {
+      "replace_verse_number": 31,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "便利", "reading": "べんり", "romaji": "benri", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "convenient", "pt-BR": "conveniente", "es": "conveniente" }, "jlpt_level": "N5" },
+          { "surface": "万歳", "reading": "ばんざい", "romaji": "banzai", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "hurrah!", "pt-BR": "viva!", "es": "¡viva!" }, "jlpt_level": "N3" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "Long live convenience! Long live convenience! Long live convenience! Humans!",
+          "pt-BR": "Viva a conveniência! Viva a conveniência! Viva a conveniência! Humanos!",
+          "es": "¡Viva la conveniencia! ¡Viva la conveniencia! ¡Viva la conveniencia! ¡Humanos!"
+        },
+        "literal_meaning": { "en": "convenient×2 + hurrah! + (×3) + humans" }
+      }
+    },
+    {
+      "replace_verse_number": 32,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "ほら", "reading": "ほら", "romaji": "hora", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "Hey!", "pt-BR": "Ei!", "es": "¡Eh!" }, "jlpt_level": "N4" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling (mimetic)", "pt-BR": "formigando (mimético)", "es": "hormigueando (mimético)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "Hey, gonna make us tingle with rage? Tingle with rage? Tingle with rage? Humans!",
+          "pt-BR": "Ei, vai nos fazer ferver de raiva? Ferver de raiva? Ferver de raiva? Humanos!",
+          "es": "¡Eh, vas a hacernos hervir de ira? ¿Hervir de ira? ¿Hervir de ira? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "hey + tingling + make-angry? + ? + (×3) + humans" }
+      }
+    },
+    {
+      "replace_verse_number": 33,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "ほら", "reading": "ほら", "romaji": "hora", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "Hey!", "pt-BR": "Ei!", "es": "¡Eh!" }, "jlpt_level": "N4" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling (mimetic)", "pt-BR": "formigando (mimético)", "es": "hormigueando (mimético)" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "ビリビリ", "reading": "びりびり", "romaji": "biribiri", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "tingling", "pt-BR": "formigando", "es": "hormigueando" }, "jlpt_level": "N1" },
+          { "surface": "怒らすか", "reading": "おこらすか", "romaji": "okorasu ka", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "make angry?", "pt-BR": "deixar com raiva?", "es": "¿hacer enfadar?" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "Hey, gonna make us tingle with rage? Tingle with rage? Tingle with rage? Humans!",
+          "pt-BR": "Ei, vai nos fazer ferver de raiva? Ferver de raiva? Ferver de raiva? Humanos!",
+          "es": "¡Eh, vas a hacernos hervir de ira? ¿Hervir de ira? ¿Hervir de ira? ¡Humanos!"
+        },
+        "literal_meaning": { "en": "hey + tingling + make-angry? + ? + (×3) + humans" }
+      }
+    },
+    {
+      "replace_verse_number": 34,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "犯罪", "reading": "はんざい", "romaji": "hanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "crime", "pt-BR": "crime", "es": "crimen" }, "jlpt_level": "N3" },
+          { "surface": "消えない", "reading": "きえない", "romaji": "kienai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "won't disappear", "pt-BR": "não desaparece", "es": "no desaparece" }, "jlpt_level": "N4" },
+          { "surface": "永遠に", "reading": "えいえんに", "romaji": "eien ni", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "eternally", "pt-BR": "eternamente", "es": "eternamente" }, "jlpt_level": "N3" }
+        ],
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties; crime never fades, eternally",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades; o crime não some, eternamente",
+          "es": "WHAT'S UP — lleno de ansiedades; el crimen no se desvanece, eternamente"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + crime + won't-disappear + eternally" }
+      }
+    },
+    {
+      "replace_verse_number": 35,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "(", "reading": "(", "romaji": "(", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(open parenthesis)", "pt-BR": "(parêntese de abertura)", "es": "(paréntesis de apertura)" }, "jlpt_level": "unknown" },
+          { "surface": "恨み", "reading": "うらみ", "romaji": "urami", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "grudge", "pt-BR": "rancor", "es": "rencor" }, "jlpt_level": "N2" },
+          { "surface": "に", "reading": "に", "romaji": "ni", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "and (additive)", "pt-BR": "e (aditivo)", "es": "y (aditivo)" }, "jlpt_level": "N5" },
+          { "surface": "罠", "reading": "わな", "romaji": "wana", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "trap", "pt-BR": "armadilha", "es": "trampa" }, "jlpt_level": "N1" },
+          { "surface": "誰", "reading": "だれ", "romaji": "dare", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "who", "pt-BR": "quem", "es": "quién" }, "jlpt_level": "N5" },
+          { "surface": "ダウン", "reading": "ダウン", "romaji": "daun", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "down (English loanword)", "pt-BR": "down (do inglês)", "es": "down (del inglés)" }, "jlpt_level": "N3" },
+          { "surface": "?", "reading": "?", "romaji": "?", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(?)", "pt-BR": "(?)", "es": "(?)" }, "jlpt_level": "unknown" },
+          { "surface": ")", "reading": ")", "romaji": ")", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(close parenthesis)", "pt-BR": "(parêntese de fechamento)", "es": "(paréntesis de cierre)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties (grudges and traps — who's going down?)",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades (rancores e armadilhas — quem cai?)",
+          "es": "WHAT'S UP — lleno de ansiedades (rencores y trampas — ¿quién cae?)"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + ( + grudge + and + trap + who + down + ? + )" }
+      }
+    },
+    {
+      "replace_verse_number": 36,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" },
+          { "surface": "犯罪", "reading": "はんざい", "romaji": "hanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "crime", "pt-BR": "crime", "es": "crimen" }, "jlpt_level": "N3" },
+          { "surface": "消えない", "reading": "きえない", "romaji": "kienai", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "won't disappear", "pt-BR": "não desaparece", "es": "no desaparece" }, "jlpt_level": "N4" },
+          { "surface": "永遠に", "reading": "えいえんに", "romaji": "eien ni", "grammar": "adverb", "grammar_color": "orange", "meaning": { "en": "eternally", "pt-BR": "eternamente", "es": "eternamente" }, "jlpt_level": "N3" }
+        ],
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties; crime never fades, eternally",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades; o crime não some, eternamente",
+          "es": "WHAT'S UP — lleno de ansiedades; el crimen no se desvanece, eternamente"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of + crime + won't-disappear + eternally" }
+      }
+    },
+    {
+      "replace_verse_number": 37,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "WHAT'S", "reading": "WHAT'S", "romaji": "WHAT'S", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "What's (English)", "pt-BR": "What's (em inglês)", "es": "What's (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "UP", "reading": "UP", "romaji": "UP", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "up (English)", "pt-BR": "up (em inglês)", "es": "up (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "不安材", "reading": "ふあんざい", "romaji": "fuanzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sources of anxiety", "pt-BR": "fontes de ansiedade", "es": "fuentes de ansiedad" }, "jlpt_level": "N1" },
+          { "surface": "いっぱい", "reading": "いっぱい", "romaji": "ippai", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "full of", "pt-BR": "cheio de", "es": "lleno de" }, "jlpt_level": "N4" }
+        ],
+        "translations": {
+          "en": "WHAT'S UP — full of anxieties",
+          "pt-BR": "WHAT'S UP — cheio de ansiedades",
+          "es": "WHAT'S UP — lleno de ansiedades"
+        },
+        "literal_meaning": { "en": "WHAT'S + UP + anxiety-sources + full-of" }
+      }
+    },
+    {
+      "replace_verse_number": 44,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "偏見", "reading": "へんけん", "romaji": "henken", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "prejudice; bias", "pt-BR": "preconceito; viés", "es": "prejuicio; sesgo" }, "jlpt_level": "N2" },
+          { "surface": "・", "reading": "・", "romaji": "·", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(middle dot — list separator)", "pt-BR": "(ponto central — separador de lista)", "es": "(punto central — separador de lista)" }, "jlpt_level": "unknown" },
+          { "surface": "陰険", "reading": "いんけん", "romaji": "inken", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "sinister; sneaky (na-adjective)", "pt-BR": "maquiavélico; ardiloso (adjetivo な)", "es": "siniestro; ladino (adjetivo な)" }, "jlpt_level": "N1" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" },
+          { "surface": "糞", "reading": "くそ", "romaji": "kuso", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "shit; crap (vulgar)", "pt-BR": "merda (vulgar)", "es": "mierda (vulgar)" }, "jlpt_level": "N1" },
+          { "surface": "だ", "reading": "だ", "romaji": "da", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "is (copula)", "pt-BR": "é (cópula)", "es": "es (cópula)" }, "jlpt_level": "N5" },
+          { "surface": "動き出せ", "reading": "うごきだせ", "romaji": "ugokidase", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "Get moving! (imperative of 動き出す)", "pt-BR": "Ponha-se em movimento! (imperativo de 動き出す)", "es": "¡A moverse! (imperativo de 動き出す)" }, "jlpt_level": "N2" },
+          { "surface": "俺", "reading": "おれ", "romaji": "ore", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "I / me (rough masculine)", "pt-BR": "eu (masculino rude)", "es": "yo (masculino rudo)" }, "jlpt_level": "N4" },
+          { "surface": "FIGHT", "reading": "FIGHT", "romaji": "FIGHT", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "FIGHT (English)", "pt-BR": "FIGHT / lutar (em inglês)", "es": "FIGHT / luchar (en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "!", "reading": "!", "romaji": "!", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(exclamation mark)", "pt-BR": "(!)", "es": "(!)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "Prejudiced and sinister — humans are crap! Get moving, me — FIGHT!",
+          "pt-BR": "Preconceituosos e maquiavélicos — humanos são merda! Ponha-se em movimento, eu — FIGHT!",
+          "es": "Prejuiciosos y siniestros — los humanos son una mierda! ¡A moverse, yo — FIGHT!"
+        },
+        "literal_meaning": { "en": "prejudice + · + sinister + human + crap + is + get-moving! + I + FIGHT + !" }
+      }
+    },
+    {
+      "replace_verse_number": 45,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "S的", "reading": "エスてき", "romaji": "esu-teki", "grammar": "adjective", "grammar_color": "green", "meaning": { "en": "sadistic (S-style; na-adjective)", "pt-BR": "sádico (estilo S; adjetivo な)", "es": "sádico (estilo S; adjetivo な)" }, "jlpt_level": "N1" },
+          { "surface": "な", "reading": "な", "romaji": "na", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "attributive marker", "pt-BR": "marcador atributivo", "es": "marcador atributivo" }, "jlpt_level": "N5" },
+          { "surface": "制裁", "reading": "せいさい", "romaji": "seisai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sanction; punishment", "pt-BR": "sanção; punição", "es": "sanción; castigo" }, "jlpt_level": "N1" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "of (modifier)", "pt-BR": "de (modificador)", "es": "de (modificador)" }, "jlpt_level": "N5" },
+          { "surface": "牙", "reading": "きば", "romaji": "kiba", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "fang; tusk", "pt-BR": "presa; canino", "es": "colmillo" }, "jlpt_level": "N1" },
+          { "surface": "から", "reading": "から", "romaji": "kara", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "from", "pt-BR": "de; a partir de", "es": "desde; a partir de" }, "jlpt_level": "N5" },
+          { "surface": "天敵", "reading": "てんてき", "romaji": "tenteki", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "natural enemy; arch-rival", "pt-BR": "inimigo natural; rival jurado", "es": "enemigo natural; rival jurado" }, "jlpt_level": "N1" },
+          { "surface": "の", "reading": "の", "romaji": "no", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "of (modifier)", "pt-BR": "de (modificador)", "es": "de (modificador)" }, "jlpt_level": "N5" },
+          { "surface": "存在", "reading": "そんざい", "romaji": "sonzai", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "existence", "pt-BR": "existência", "es": "existencia" }, "jlpt_level": "N3" },
+          { "surface": "を", "reading": "を", "romaji": "o", "grammar": "particle", "grammar_color": "grey", "meaning": { "en": "direct object marker", "pt-BR": "marcador de objeto direto", "es": "marcador de objeto directo" }, "jlpt_level": "N5" },
+          { "surface": "断つ", "reading": "たつ", "romaji": "tatsu", "grammar": "verb", "grammar_color": "red", "meaning": { "en": "to sever; to cut off", "pt-BR": "cortar; pôr fim a", "es": "cortar; poner fin a" }, "jlpt_level": "N2" }
+        ],
+        "translations": {
+          "en": "From the fangs of sadistic punishment — sever the existence of the natural predator",
+          "pt-BR": "Das presas da punição sádica — corte a existência do predador natural",
+          "es": "De los colmillos del castigo sádico — corta la existencia del depredador natural"
+        },
+        "literal_meaning": { "en": "S-style + (attributive) + punishment + (modifier) + fang + from + natural-enemy + (modifier) + existence + (object) + sever" }
+      }
+    },
+    {
+      "replace_verse_number": 58,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          { "surface": "HEYHEY", "reading": "HEYHEY", "romaji": "HEYHEY", "grammar": "expression", "grammar_color": "none", "meaning": { "en": "Hey hey (English shouted exclamation)", "pt-BR": "Ei ei (interjeição em inglês)", "es": "Ey ey (interjección en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "!", "reading": "!", "romaji": "!", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(exclamation mark)", "pt-BR": "(!)", "es": "(!)" }, "jlpt_level": "unknown" },
+          { "surface": "人間", "reading": "にんげん", "romaji": "ningen", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "human(s)", "pt-BR": "humano(s)", "es": "humano(s)" }, "jlpt_level": "N4" },
+          { "surface": "SUCKER", "reading": "SUCKER", "romaji": "SUCKER", "grammar": "noun", "grammar_color": "blue", "meaning": { "en": "sucker (English insult)", "pt-BR": "SUCKER / otário (insulto em inglês)", "es": "SUCKER / idiota (insulto en inglés)" }, "jlpt_level": "unknown" },
+          { "surface": "!", "reading": "!", "romaji": "!", "grammar": "other", "grammar_color": "none", "meaning": { "en": "(exclamation mark)", "pt-BR": "(!)", "es": "(!)" }, "jlpt_level": "unknown" }
+        ],
+        "translations": {
+          "en": "HEYHEY! Humans, you SUCKERS!",
+          "pt-BR": "HEYHEY! Humanos, seus SUCKERS!",
+          "es": "¡HEYHEY! ¡Humanos, SUCKERS!"
+        },
+        "literal_meaning": { "en": "HEYHEY + ! + humans + SUCKER + !" }
       }
     }
   ]
