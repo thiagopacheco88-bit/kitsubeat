@@ -291,6 +291,11 @@ Plans:
   6. `alt` text uses English meaning for accessibility
   7. `scripts/seed/13-curate-vocab-images.ts` produces a staging file of top 50 concrete vocab from `vocab_global`
   8. 50 images populated in DB with Unsplash CDN URLs (CC0 license)
+**Plans:** 3 plans
+Plans:
+- [ ] 11.4-01-PLAN.md — Schema migration 0014 + Drizzle column + VocabEntrySchema passthrough + Wave 0 test stubs (AC-1, AC-2)
+- [ ] 11.4-02-PLAN.md — page.tsx merge + Question type + LearnCard/FeedbackPanel <img> rendering + JSDOM tests (AC-3, AC-4, AC-5, AC-6)
+- [ ] 11.4-03-PLAN.md — 19-curate + 19b-load seed scripts + integration tests + 50-row operator curation + DB load (AC-7, AC-8)
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
