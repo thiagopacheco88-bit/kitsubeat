@@ -4,14 +4,14 @@ milestone: v1.0
 milestone_name: Core Learning Experience
 status: planning
 stopped_at: Phase 11.4 context gathered
-last_updated: "2026-04-28T19:46:33.028Z"
+last_updated: "2026-04-28T20:30:27.694Z"
 last_activity: 2026-04-27
 progress:
   total_phases: 17
   completed_phases: 12
-  total_plans: 84
+  total_plans: 91
   completed_plans: 81
-  percent: 96
+  percent: 89
 ---
 
 # Project State
@@ -414,4 +414,4 @@ Last session: --stopped-at
 Stopped at: Phase 11.4 context gathered
 Resume file: --resume-file
 
-**Planned Phase:** 11.3 (Fix Untranslated JP Verses) — 8 plans — 2026-04-26T19:37:13.470Z
+**Planned Phase:** 11.4 (visual-vocabulary-foundation) — 3 plans — 2026-04-28T20:30:27.677Z
