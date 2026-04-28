@@ -93,6 +93,10 @@ export interface VocabEntry {
   mnemonic?: Localizable;
   /** Phase 08.3: per-character kanji breakdown. Null for kana-only words. */
   kanji_breakdown?: KanjiBreakdown | null;
+  /** Phase 11.4: Unsplash CDN URL for the vocab. Populated at page load from vocabulary_items.image_url join. */
+  image_url?: string;
+  /** Phase 11.4: English meaning string, pre-resolved by page.tsx via localize(meaning, 'en'). Used for <img alt> per D-08. */
+  meaning_en?: string;
 }
 
 export interface GrammarPoint {
