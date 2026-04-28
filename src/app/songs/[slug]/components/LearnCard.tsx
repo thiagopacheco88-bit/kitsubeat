@@ -29,6 +29,8 @@ export default function LearnCard({
   onDismiss,
 }: LearnCardProps) {
   const [revealed, setRevealed] = useState(false);
+  // Phase 11.4: silent-fail flag — when the image 404s, collapse to no-image.
+  const [imageFailed, setImageFailed] = useState(false);
 
   // Voices load async in Chromium — re-check after "voiceschanged" fires so
   // the speaker icon appears once the voice list populates.
@@ -77,6 +79,29 @@ export default function LearnCard({
           </button>
         )}
       </div>
+
+      {/* Phase 11.4: optional Unsplash image. Inherits outer onClick={onDismiss} —
+          NO own onClick (Pitfall 4). Numeric width/height (224 = w-56) reserves
+          layout to prevent CLS. Silent collapse on fetch error per D-07. */}
+      {question.image_url && !imageFailed && (
+        <div className="mb-3 flex justify-center">
+          <img
+            src={question.image_url}
+            alt={question.meaning_en ?? meaningText}
+            width={224}
+            height={224}
+            loading="lazy"
+            onError={() => {
+              console.warn(
+                `[LearnCard] image failed: ${question.image_url} (${question.vocabItemId})`
+              );
+              setImageFailed(true);
+            }}
+            data-testid="learn-card-image"
+            className="aspect-square w-56 h-56 rounded-md object-cover"
+          />
+        </div>
+      )}
 
       {/* Surface (kanji) + furigana (reading) — Tier 1 style: kanji big, reading small above.
           Omit the <rt> when surface === reading (pure-kana words like すごい) — matches
