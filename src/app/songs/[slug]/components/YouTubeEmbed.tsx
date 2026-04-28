@@ -66,8 +66,15 @@ export default function YouTubeEmbed({
    */
   userId?: string | null;
 }) {
-  const { setCurrentTimeMs, setEmbedState, _registerApi, embedState } =
+  const { setCurrentTimeMs, setEmbedState, _registerApi, embedState, forceMount } =
     usePlayer();
+
+  // Phase 13 D-05/D-06: lazy-mount gate. On initial paint, render a skeleton
+  // placeholder. Once the placeholder enters viewport (or forceMount fires),
+  // flip shouldMount to true and run the existing player-init effect.
+  const [shouldMount, setShouldMount] = useState(false);
+  const placeholderRef = useRef<HTMLDivElement>(null);
+
   const hasShort = !!videoIdShort;
   const [version, setVersion] = useState<"short" | "full">(
     hasShort ? "short" : "full"
@@ -122,9 +129,56 @@ export default function YouTubeEmbed({
     }
   }, []);
 
+  // Phase 13 D-05/D-07: lazy-mount the iframe on viewport entry. Skip in
+  // test env (D-20) and short-circuit when Practice tab forced mount (D-08).
+  useEffect(() => {
+    if (shouldMount) return; // already mounted — observer not needed
+
+    // Test-env short-circuit (single-condition gate, D-20), with per-test
+    // override for the iframe-defer spec — when the spec sets
+    // ?disableTestForceMount=1, fall through to the real IO gate so we
+    // can actually exercise the IntersectionObserver path. The single-
+    // condition rule is preserved: outer `if` checks ONE env var; nested
+    // branching reads a runtime URL flag, not another env var.
+    if (process.env.NEXT_PUBLIC_APP_ENV === "test") {
+      const url = typeof window !== "undefined" ? new URL(window.location.href) : null;
+      const disabled = url?.searchParams.get("disableTestForceMount") === "1";
+      if (!disabled) {
+        setShouldMount(true);
+        return;
+      }
+      // else fall through to the IO setup below
+    }
+
+    // Force-mount path (D-08 — Practice tab opened)
+    if (forceMount) {
+      setShouldMount(true);
+      return;
+    }
+
+    const el = placeholderRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setShouldMount(true);
+            io.disconnect();
+            return;
+          }
+        }
+      },
+      { rootMargin: "200px" }, // D-07 LOCKED
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [shouldMount, forceMount]);
+
   useEffect(() => {
     // Reset UI state when the videoId or version changes — the user gets a
     // fresh "loading" indicator and a fresh 15s watchdog clock.
+    if (!shouldMount) return;
     setEmbedState("loading");
 
     // Fresh play-tracking session for this (re)init. On version toggle, the
@@ -335,7 +389,7 @@ export default function YouTubeEmbed({
       // reaching a destroyed YT.Player.
       _registerApi(null);
     };
-  }, [currentId, songVersionId, userId, startTracking, stopTracking, setEmbedState, _registerApi]);
+  }, [shouldMount, currentId, songVersionId, userId, startTracking, stopTracking, setEmbedState, _registerApi]);
 
   return (
     <div>
@@ -363,7 +417,17 @@ export default function YouTubeEmbed({
           </button>
         </div>
       )}
-      {embedState === "error" ? (
+      {!shouldMount ? (
+        // Phase 13 D-06: skeleton placeholder on first paint. aspect-video
+        // matches the iframe's final dimensions exactly — zero CLS on mount.
+        // data-yt-state="placeholder" is the Playwright selector hook for
+        // SPEC AC #4 (iframe absent on initial DOM).
+        <div
+          ref={placeholderRef}
+          data-yt-state="placeholder"
+          className="aspect-video w-full animate-pulse rounded-lg bg-zinc-800"
+        />
+      ) : embedState === "error" ? (
         // Fallback block. Replaces the iframe container entirely so the
         // browser does not retain a half-loaded iframe element. Copy is fixed
         // (no i18n keys yet — the surrounding player UI is also not localized).
