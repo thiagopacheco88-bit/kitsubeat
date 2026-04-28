@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: Phase 11.4 context gathered
-last_updated: "2026-04-28T20:33:39.578Z"
-last_activity: 2026-04-28 -- Phase 13 execution started
+stopped_at: Plan 11.4-01 complete (image_url column live)
+last_updated: "2026-04-28T20:55:22.284Z"
+last_activity: 2026-04-28
 progress:
   total_phases: 17
   completed_phases: 12
   total_plans: 91
-  completed_plans: 81
-  percent: 89
+  completed_plans: 83
+  percent: 91
 ---
 
 # Project State
@@ -21,13 +21,15 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-14)
 
 **Core value:** Users can watch an anime song and understand exactly what every word means — with furigana, translation, grammar breakdown, and vocabulary categorization synced to the music as it plays.
-**Current focus:** Phase 13 — performance-infrastructure
+**Current focus:** Phase 11.4 — visual-vocabulary-foundation
 
 ## Current Position
 
-Phase: 13 (performance-infrastructure) — EXECUTING
-Plan: 1 of 4
-Status: Executing Phase 13
+Phase: 11.4 (visual-vocabulary-foundation) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
+
+Plan 11.4-01 complete — Visual vocabulary foundation column landed end-to-end. `vocabularyItems.image_url` (nullable text) added to `src/lib/db/schema.ts` between `kanji_breakdown` and `created_at`; idempotent migration `drizzle/0014_vocab_image_url.sql` (`ADD COLUMN IF NOT EXISTS`) hand-written following the `0004_vocab_enrichment.sql` precedent (deferred D-01: `songs.popularity_rank` schema drift would have polluted any `db:generate`-emitted migration). `VocabEntrySchema` in `scripts/types/lesson.ts` gains optional `image_url: z.string().url().optional().describe("Phase 11.4: Unsplash CDN URL...")` after `kanji_breakdown` — passthrough only, generation prompt unchanged. Wave 0 test stubs landed: `tests/unit/vocab-entry-schema.test.ts` (3 cases — accept Unsplash URL, accept undefined, reject non-URL — all 3 green via `npx vitest run`); `tests/integration/seed-19b-load-vocab-images.test.ts` (4 cases gated on `TEST_DATABASE_URL` — AC-1 column exists/accepts text, AC-1 nullable, AC-8 URL regex accept canonical, AC-8 URL regex reject non-canonical; skip cleanly without env per Wave 0 design). Live migration applied via `tsx scripts/apply-migrations.ts` (Path A); column verified live via `scripts/debug/verify-image-url-column.ts` (column_name=image_url, data_type=text, is_nullable=YES, SELECT returns NULL on existing rows). Two deferred items surfaced (do NOT block 11.4-02 or 11.4-03): D-01 `songs.popularity_rank` schema drift (journal/snapshot incomplete since 0001), D-02 3 pre-existing failures in `tests/integration/regression-stale-lesson-data.test.ts` (Phase 08-01 single-gate + Phase 11 cross-song unrelated to image_url). Commits d7449e9 (schema), f469b4b (migration), 3221333 (Zod), 7f2d123 (unit test), dd59ade (integration test), plus finalization + summary commits.
 
 Plan 10-02 complete (prior) — PlayerContext imperative API (seekTo/play/pause/seekAndPlay with 400ms debounce + 50ms seek→play delay, isReady, embedState promoted). YouTubeEmbed.onReady registers the api via _registerApi. Raw YT player reference stays scoped to YouTubeEmbed closure — production bundle does not leak __kbPlayer (single-condition NEXT_PUBLIC_APP_ENV === 'test' gate intact). 10-test jsdom suite covers registration + debounce coalescing + trailing-edge pause→seek→50ms→play sequencing. Commits 1ae57fc, 65c4fad, cdacd21.
 
@@ -41,9 +43,9 @@ Plan 10-07 complete — Phase 10 premium-gate UI finalization + Phase 10 end-to-
 
 Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUpsellModal (100 LOC) full-screen upsell with per-family copy (listening/10 vs advanced_drill/3), ESC/backdrop close, data-testid + data-family hooks. ExerciseTab gets third mode card "Advanced Drills" (always rendered — CONTEXT-locked); click handler fires `getAdvancedDrillAccess(userId, songVersionId)` server action (Promise.all of 2 checkExerciseAccess + isPremium); on quota exhaustion sets upsell state → modal renders → session does NOT start. buildQuestions gains optional `typeFilter: ExerciseType[]`; Advanced Drills passes `["grammar_conjugation","listening_drill","sentence_order"]`; per-vocab loop + sentence_order loop + grammar-point loop all honor the allowlist. saveSessionResults extended for ex5/ex6/ex7 via GREATEST(COALESCE) — mastery never regresses. recordVocabAnswer stamps user_exercise_song_counters on first answer for song_quota-gated types + server-side re-check; if non-premium user over limit, DELETEs the overshoot row and throws QuotaExhaustedError (RESEARCH Pitfall 6: one answer of slippage possible under cross-device race — documented in upsell past-tense copy). recordAdvancedDrillAttempt action for empty-vocabItemId callers (sentence_order / synthetic grammar_conjugation). saveSessionResults end-of-session safety-net stamps counter for every family present in answer batch (ON CONFLICT DO NOTHING across all 3 paths — no inflation). Phase 08.1-07 test.fixme REMOVED from regression-premium-gate.spec.ts; replaced with live QuotaExhaustedError assertion (seeds 10 listening counter rows, invokes recordVocabAnswer on 11th song, asserts throw + refund). New advanced-drill-quota.spec.ts (4 E2E: 11th-listening upsell, 4th-advanced upsell, independent counters via direct gate check, premium bypass with cleanup). UI regression contract preserved (0 `EXERCISE_FEATURE_FLAGS` imports in src/app or src/stores — confirmed by grep). 263 unit tests green (no regressions). Two Rule-3 auto-fixes (typeFilter TS narrowing → extracted typed const; saveSessionResults end-of-session safety-net needed because sentence_order + synthetic-vocab grammar_conjugation bypass recordVocabAnswer). Commits 0cc9dcd (Task 1 — UI + upsell), 4af194a (Task 2 — saveSessionResults + counter-increment + re-check), fcbb3ce (Task 3 — test.fixme unfix + quota E2E).
 
-Last activity: 2026-04-28 -- Phase 13 execution started
+Last activity: 2026-04-28
 
-Progress: [█████████░] 89%
+Progress: [█████████░] 91%
 
 ## Performance Metrics
 
@@ -385,6 +387,10 @@ Progress: [█████████░] 89%
 - Plan 07 BLOCKED: spot-check FAIL (5/8 songs at 75%, need 6) — sign-flow/the-day/uso-sid need remediation
 - Per-slug DB audit is the correct SPEC-REQ-5 gate for 29 loaded NW lessons
 - Node 24 undici body timeout requires per-slug queries for large JSONB bulk reads
+- [Phase 11.4-01]: image_url stored as nullable text on vocabulary_items (D-01) — single column, full URL stored as-is
+- [Phase 11.4-01]: migration numbered 0014_vocab_image_url.sql (D-02) — corrects WORKLOG draft 0009; idempotent ADD COLUMN IF NOT EXISTS; hand-written following 0004 precedent because db:generate would pull in unrelated popularity_rank drift (deferred D-01)
+- [Phase 11.4-01]: VocabEntrySchema image_url passthrough is .optional() only, NOT .nullable() (D-03) — image_url has no semantic null state, absence = undefined; differs from kanji_breakdown which takes null for kana-only words
+- [Phase 11.4-01]: Wave 0 integration tests gated on TEST_DATABASE_URL (skip cleanly when unset) — same pattern as Phase 08.1-03 seed-05-insert-db-rollback.test.ts; URL regex /^https:\/\/images\.unsplash\.com\/.+/ codified inline (D-12)
 
 ### Pending Todos
 
@@ -411,7 +417,7 @@ Progress: [█████████░] 89%
 ## Session Continuity
 
 Last session: --stopped-at
-Stopped at: Phase 11.4 context gathered
+Stopped at: Plan 11.4-01 complete (image_url column live)
 Resume file: --resume-file
 
 **Planned Phase:** 13 (Performance Infrastructure) — 4 plans — 2026-04-28T20:31:01.000Z
