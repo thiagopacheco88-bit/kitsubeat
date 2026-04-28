@@ -42,6 +42,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 11.1: Add-Song Pipeline** - INSERTED 2026-04-19 - Durable CLI pipeline for adding new songs end-to-end (discovery → lyrics/timing → lesson → DB) with validation gates surfaced by the TV backfill. Decimal-shifted from "Phase 12" to free the slot for v3.0 gamification. Draft CONTEXT at [.planning/phases/11.1-add-song-pipeline/11.1-CONTEXT.md](phases/11.1-add-song-pipeline/11.1-CONTEXT.md)
 - [x] **Phase 11.2: TV-Derive Rework with Demucs + Needleman-Wunsch** - INSERTED 2026-04-26 - Catalog-wide repair of all 60 TV-version song lessons. Replace 10b's per-verse romaji LCS (which scatters matches and trips MAX_SPAN_RATIO even on clean Demucs-stem WhisperX input) with Needleman-Wunsch global alignment. Adds TV Demucs+WhisperX pipeline (yt-dlp → htdemucs → WhisperX large-v3 ja → NW vs full lesson → segment-anchored verse projection → 10c-load). Surfaced after sign-flow TV cut shipped broken on Vercel. Draft CONTEXT at [.planning/phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md](phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md) — Completed 2026-04-27
 - [x] **Phase 11.3: Fix Untranslated JP Verses** - INSERTED 2026-04-26 - Catalog-wide retranslation of 970 broken JP verses across 102 of 274 songs (likely a side effect of bec890c's lesson-prompt coverage rule causing the LLM to emit single-token "(untranslated lyric line)" stubs instead of tokenising/translating filler lines). Local-LLM (Ollama) drafts using whole-song context + neighbour-verse translations as anchors, inline review for high-difficulty verses, splice via existing verse-patch infrastructure. Draft CONTEXT at [.planning/phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md](phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md) (completed 2026-04-27)
+- [ ] **Phase 11.4: Visual Vocabulary Foundation** - INSERTED 2026-04-28 - Add `image_url` infrastructure to `vocabulary_items` and conditionally render images on LearnCard (first encounter) and FeedbackPanel (after answer) when present. Curate 50 Unsplash CC0 images for top-frequency concrete vocab as the validation set. Foundation only — full 1,409-word rollout deferred to v4.0.
 - ➡️ **Phase 12: Anime Scenes & Cultural Vocabulary** - **MOVED** to v4.0 as Phase 21 (deferred until after v3.0 launch)
 
 ### v3.0 Launch Readiness
@@ -276,6 +277,21 @@ Plans:
 - [x] 11.3-07-PLAN.md — Smoke: yellow-moon-akeboshi end-to-end + Vercel play-through (D-09, D-10, SPEC-REQ-5/6)
 - [x] 11.3-08-PLAN.md — Catalog rollout: remaining 5 slugs + final 6-slug --verify gate (SPEC-REQ-6, SPEC-REQ-7)
 
+### Phase 11.4: Visual Vocabulary Foundation (INSERTED 2026-04-28)
+
+**Goal:** Add `image_url` infrastructure to `vocabulary_items` and conditionally render images on LearnCard (first encounter) and FeedbackPanel (after answer) when present. Curate 50 Unsplash CC0 images for top-frequency concrete vocab as the validation set. Foundation only — full 1,409-word rollout deferred to v4.0.
+**Depends on:** Phase 8.3 (FeedbackPanel + mnemonic/kanji_breakdown surfaces), Phase 8.4 (LearnCard surface)
+**Estimated:** 4 hours
+**Success Criteria** (what must be TRUE):
+  1. `vocabulary_items` has nullable `image_url` text column; migration 0009 applied
+  2. `VocabEntrySchema` in `scripts/types/lesson.ts` accepts optional `image_url` passthrough
+  3. LearnCard renders `<img>` above word/reading when `image_url` is present; gracefully omits otherwise
+  4. FeedbackPanel "More" accordion renders image alongside mnemonic when present
+  5. Skeleton placeholder at fixed dimensions prevents layout shift
+  6. `alt` text uses English meaning for accessibility
+  7. `scripts/seed/13-curate-vocab-images.ts` produces a staging file of top 50 concrete vocab from `vocab_global`
+  8. 50 images populated in DB with Unsplash CDN URLs (CC0 license)
+
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
 **Depends on**: Phase 7
@@ -376,8 +392,13 @@ Plans:
 **Success Criteria**:
   1. Already-visited song lessons serve from cache on repeat visit (no cold DB hit)
   2. YouTube iframe deferred until in view; lesson panel renders independently of video load
-  3. Bundle size budget enforced in CI (song page JS <=200KB gzipped) — constrains Phase 14 UX polish from the start
-**Plans**: TBD
+  3. Bundle size budget enforced in CI (song page JS <=50KB gzipped on /songs/[slug]) — tightened from 200KB ROADMAP target to 50KB SPEC budget (~25% headroom over 2026-04-24 baseline of ~40KB)
+**Plans:** 4 plans
+Plans:
+- [ ] 13-01-PLAN.md — Lesson cache: remove force-dynamic from /songs/[slug], decouple KnownWordCount to client-fetch, instrumented Neon counter, integration test, revalidateTag hooks in seed scripts (R1)
+- [ ] 13-02-PLAN.md — Iframe defer: IntersectionObserver lazy-mount in YouTubeEmbed, skeleton placeholder, force-mount on Practice tab, e2e spec for defer + Listening Drill regression (R2)
+- [ ] 13-03-PLAN.md — Bundle CI: size-limit + @next/bundle-analyzer + .size-limit.cjs (50 KB gzipped on /songs/[slug]), pr-checks workflow extension with size-limit-action (R3)
+- [ ] 13-04-PLAN.md — Lighthouse baseline (informational, AC #11): pick-median-song script, mobile+desktop runs against home/catalog/song, 13-SUMMARY.md baseline table (depends on 01/02/03)
 
 ### Phase 14: UX Polish
 **Goal**: Visual identity is distinctive and consistent; mobile experience is first-class; microinteractions make the product feel crafted.
