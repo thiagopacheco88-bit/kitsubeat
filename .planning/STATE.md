@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
-status: ready_to_plan
-stopped_at: "Completed 11.2-07-PLAN.md: Phase 11.2 COMPLETE — 29 NW TV lessons live in production; zero audit flags"
-last_updated: "2026-04-27T19:50:51.029Z"
+status: planning
+stopped_at: Phase 13 context gathered
+last_updated: "2026-04-28T19:44:10.701Z"
 last_activity: 2026-04-27
 progress:
-  total_phases: 16
+  total_phases: 17
   completed_phases: 12
   total_plans: 84
-  completed_plans: 75
-  percent: 75
+  completed_plans: 81
+  percent: 96
 ---
 
 # Project State
@@ -144,6 +144,7 @@ Progress: [█████████░] 89%
 - Phase 08.4 inserted after Phase 8: Learn phase + session pacing for new vocabulary — presentation step before first exercise, skip_learning user preset, new-card cap per session (URGENT)
 - Phase 11.2 inserted after Phase 11.1 (2026-04-26): TV-Derive Rework with Demucs + Needleman-Wunsch — replace 10b's per-verse romaji LCS (fails MAX_SPAN_RATIO even on clean Demucs-stem input) with NW global alignment; add TV Demucs+WhisperX pipeline mirroring full-version A/B; re-derive all 60 TV lessons; surfaced after sign-flow TV cut shipped broken on Vercel
 - Phase 11.3 inserted after Phase 11.2 (2026-04-26): Fix Untranslated JP Verses — catalog-wide retranslation of 970 broken JP verse stubs across 102 of 274 songs (likely bec890c lesson-prompt coverage rule side effect); local-LLM (Ollama) drafts using whole-song + neighbour-verse context, inline review for low-confidence; extends apply-verse-patch.ts with replace_verse_number semantics
+- Phase 11.4 inserted after Phase 11.3 (2026-04-28): Visual Vocabulary Foundation (URGENT) — add nullable `image_url` to `vocabulary_items` (migration 0009), passthrough in `VocabEntrySchema`, conditional render on LearnCard + FeedbackPanel "More" accordion with skeleton placeholder; curate 50 Unsplash CC0 images for top-frequency concrete vocab as validation set; depends on Phase 8.3 (FeedbackPanel surface) + Phase 8.4 (LearnCard surface). Foundation only — full 1,409-word rollout deferred to v4.0.
 
 ### Decisions
 
@@ -409,8 +410,8 @@ Progress: [█████████░] 89%
 
 ## Session Continuity
 
-Last session: 2026-04-27T19:50:51.013Z
-Stopped at: Completed 11.2-07-PLAN.md: Phase 11.2 COMPLETE — 29 NW TV lessons live in production; zero audit flags
-Resume file: None
+Last session: --stopped-at
+Stopped at: Phase 13 context gathered
+Resume file: --resume-file
 
 **Planned Phase:** 11.3 (Fix Untranslated JP Verses) — 8 plans — 2026-04-26T19:37:13.470Z
