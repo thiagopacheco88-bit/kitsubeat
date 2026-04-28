@@ -439,6 +439,18 @@ for (const p of plans) {
         lesson: newLesson,
       })
       .where(eq(songVersions.id, p.song_version_id));
+    // Phase 13 D-02: invalidate the cached song page for this slug so the next
+    // /songs/[slug] request re-fetches the rewritten lesson body. Server-action
+    // import is dynamic (matches the existing lazy-DB-import pattern at line 328-332).
+    try {
+      const { revalidateSongCache } = await import("../../src/app/actions/cache.js");
+      await revalidateSongCache(p.slug);
+    } catch (err) {
+      process.stderr.write(
+        `\n[snap-full-onsets] revalidate failed for ${p.slug}: ${(err as Error).message}\n`
+      );
+      // Do not abort the batch — operator can run a manual revalidate later.
+    }
     applied++;
     process.stdout.write(`\r  ${applied}/${plans.length} applied`);
   } catch (err) {

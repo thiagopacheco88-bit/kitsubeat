@@ -421,6 +421,19 @@ async function main(): Promise<void> {
         timingData,
       });
 
+      // Phase 13 D-02: invalidate the cached song page for this slug so the next
+      // /songs/[slug] request re-fetches the updated lesson body. Dynamic import
+      // matches the lazy-DB-import pattern used elsewhere in seed scripts.
+      try {
+        const { revalidateSongCache } = await import("../../src/app/actions/cache.js");
+        await revalidateSongCache(song.slug);
+      } catch (revalErr) {
+        process.stderr.write(
+          `  [WARN] ${song.slug} — revalidate failed: ${(revalErr as Error).message}\n`
+        );
+        // Do not abort the batch — upsert succeeded; operator can revalidate manually.
+      }
+
       insertedCount++;
       process.stdout.write(`  [OK] ${song.slug} — upserted\n`);
     } catch (err) {

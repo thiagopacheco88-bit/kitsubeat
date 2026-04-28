@@ -2,16 +2,40 @@
 import { useEffect, useRef, useState } from "react";
 import { useExerciseSession } from "@/stores/exerciseSession";
 
-interface Props {
-  songId: string;
-  initial: { total: number; known: number; mastered: number; learning: number };
+interface Counts {
+  total: number;
+  known: number;
+  mastered: number;
+  learning: number;
 }
 
-export default function KnownWordCount({ songId, initial }: Props) {
-  const [counts, setCounts] = useState(initial);
+interface Props {
+  songId: string;
+}
+
+export default function KnownWordCount({ songId }: Props) {
+  const [counts, setCounts] = useState<Counts | null>(null);
   const questions = useExerciseSession((s) => s.questions);
   const currentIndex = useExerciseSession((s) => s.currentIndex);
   const lastFetchedKey = useRef<string>("");
+
+  // Mount-time fetch (Phase 13 D-03): KnownWordCount is now decoupled from the
+  // SSR path. It fetches its own data on mount and whenever songId changes.
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`/api/review/known-count?songId=${encodeURIComponent(songId)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (cancelled || !data) return;
+        setCounts(data);
+      })
+      .catch(() => {
+        /* leave counts as null; render skeleton */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [songId]);
 
   // Detect "session just finished": store has questions loaded AND currentIndex passed the last one.
   const justFinished =
@@ -38,6 +62,13 @@ export default function KnownWordCount({ songId, initial }: Props) {
       cancelled = true;
     };
   }, [justFinished, songId, questions.length, currentIndex]);
+
+  // Skeleton state while mount fetch is in-flight (Phase 13 D-03)
+  if (counts === null) {
+    return (
+      <span className="inline-flex h-6 w-32 animate-pulse rounded-full bg-gray-800/60" aria-hidden="true" />
+    );
+  }
 
   // Zero state per CONTEXT decision: "New to you" pill, not "0/12".
   if (counts.total === 0 || counts.known === 0) {

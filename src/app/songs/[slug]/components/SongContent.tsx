@@ -40,12 +40,10 @@ export default function SongContent({
   song,
   versions,
   songId,
-  initialKnown,
 }: {
   song: SongMeta;
   versions: VersionData[];
   songId: string;
-  initialKnown: { total: number; known: number; mastered: number; learning: number };
 }) {
   // TV version is usable if it has a lesson with verse timing — LyricsPanel
   // falls back to verse start_time_ms/end_time_ms when synced_lrc is absent.
@@ -101,7 +99,7 @@ export default function SongContent({
                 {song.difficulty_tier}
               </span>
             )}
-            <KnownWordCount songId={songId} initial={initialKnown} />
+            <KnownWordCount songId={songId} />
           </div>
         </div>
 
