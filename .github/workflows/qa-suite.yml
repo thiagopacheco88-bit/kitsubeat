@@ -44,6 +44,8 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      pull-requests: write   # Phase 13 D-11 — for size-limit-action PR comment
     env:
       TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
       # NEXT_PUBLIC_APP_ENV is unused on PR checks (no Playwright) but kept for
@@ -67,6 +69,18 @@ jobs:
 
       - name: Run PR suite (qa + unit + integration)
         run: npm run test:ci-pr
+
+      - name: Build (Phase 13 — for bundle measurement)
+        run: npm run build
+        env:
+          NEXT_PUBLIC_APP_ENV: production   # measure prod-build chunks, not test-build
+
+      - name: Bundle size check (Phase 13 — D-09/D-11/D-13/D-23 hard fail at 50 KB)
+        uses: andresz1/size-limit-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          skip_step: build       # already built above
+          package_manager: npm
 
   nightly-full:
     name: Nightly full suite (test:measure)
