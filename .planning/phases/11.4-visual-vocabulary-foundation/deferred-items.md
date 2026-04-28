@@ -26,3 +26,21 @@ Out of scope for Plan 11.4-01 (which only touches `vocabulary_items`). Resolving
 **Files:**
 - `src/lib/db/schema.ts:73` (`popularity_rank: integer("popularity_rank")`)
 - `drizzle/meta/_journal.json` (only entry: `0000_furry_zeigeist`; missing entries 0001-0013 indicate the journal has been incomplete since the project's first manual migration)
+
+---
+
+## D-02: Pre-existing failures in `tests/integration/regression-stale-lesson-data.test.ts`
+
+**Found during:** Plan 11.4-01 Task 5 (`npm run test:integration -- seed-19b-load-vocab-images`)
+
+**Issue:**
+Three failing tests in `tests/integration/regression-stale-lesson-data.test.ts` (one expecting `buildQuestions` to return `[]` for empty vocab; one single-gate-architecture invariant about `ExerciseTab.tsx` importing `EXERCISE_FEATURE_FLAGS`; one `[3/3]` whose detail was clipped). All three are unrelated to `image_url` / Phase 11.4 — they reference Phase 08-01 architectural decisions and Phase 11 cross-song vocabulary.
+
+**Why deferred:**
+Out of scope per the SCOPE BOUNDARY rule (Plan 11.4-01 only touches the `image_url` column path). Plan 11.4-01's own Wave 0 integration test (`seed-19b-load-vocab-images.test.ts`) skips cleanly when `TEST_DATABASE_URL` is unset (4 tests | 4 skipped) — exactly as designed.
+
+**Suggested next phase:** Triage during the next test-hygiene pass; the EXERCISE_FEATURE_FLAGS import in `ExerciseTab.tsx` may be a recent regression worth a fix-forward commit on its own.
+
+**Files:**
+- `tests/integration/regression-stale-lesson-data.test.ts` (3 of 10 tests failing)
+- `src/app/songs/[slug]/components/ExerciseTab.tsx` (single-gate violation per the failing test)
