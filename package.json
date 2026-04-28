@@ -43,7 +43,9 @@
     "seed:reward-slots": "tsx --tsconfig tsconfig.scripts.json scripts/seed/14-seed-reward-slots.ts",
     "seed:classify-themes": "tsx --tsconfig tsconfig.scripts.json scripts/seed/classify-song-themes.ts",
     "seed:apply-themes": "tsx --tsconfig tsconfig.scripts.json scripts/seed/apply-theme-classifications.ts",
-    "audit:starter-picks": "tsx --tsconfig tsconfig.scripts.json scripts/audit/verify-starter-picks.ts"
+    "audit:starter-picks": "tsx --tsconfig tsconfig.scripts.json scripts/audit/verify-starter-picks.ts",
+    "lighthouse:pick-target": "tsx --tsconfig tsconfig.scripts.json scripts/lighthouse-pick-target.ts",
+    "lighthouse:baseline": "tsx --tsconfig tsconfig.scripts.json scripts/lighthouse-baseline.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",
