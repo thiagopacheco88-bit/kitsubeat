@@ -179,6 +179,9 @@ export const vocabularyItems = pgTable("vocabulary_items", {
   mnemonic: jsonb("mnemonic"),
   kanji_breakdown: jsonb("kanji_breakdown"),
 
+  // Phase 11.4 enrichment field — nullable. Populated by scripts/seed/19b-load-vocab-images.ts.
+  image_url: text("image_url"),
+
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 }, (table) => [
   unique("vocabulary_items_form_reading_unique").on(table.dictionary_form, table.reading),
