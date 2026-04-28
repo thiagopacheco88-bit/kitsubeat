@@ -108,8 +108,10 @@ describe("FeedbackPanel image rendering (Phase 11.4)", () => {
       </PlayerProvider>
     );
     const img = screen.getByTestId("feedback-image");
-    // The mnemonic block contains the text "Memory tip" label (FeedbackPanel line ~154).
-    const mnemonicLabel = screen.getByText(/memory tip/i);
+    // The mnemonic block contains the literal label "Memory tip" (FeedbackPanel line ~154).
+    // Case-sensitive exact match disambiguates from the localized mnemonic body
+    // text which happens to share the same string in this fixture.
+    const mnemonicLabel = screen.getByText("Memory tip");
     // image must appear earlier in document order than the mnemonic label.
     const order = img.compareDocumentPosition(mnemonicLabel);
     expect(order & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
