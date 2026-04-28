@@ -136,19 +136,56 @@ function resolvePlayerOnset(
 }
 
 // ---------------------------------------------------------------------------
-// Word-span snap (same rule as spot-check-full-onsets)
+// Word-span snap — covers four cases:
+//   1. Inside a word span         → snap to word.start if delta > tolerance
+//   2. Before all words (silence) → snap to first word.start
+//   3. In silence between words   → snap forward to next word.start
+//   4. After all words (silence)  → keep original (suspect data; can't snap forward)
+//
+// The original implementation only handled case 1. Cases 2–3 caused songs
+// like passion-hikaru-utada (verses placed at 1s/22s while real vocals start
+// at 33s) to keep their broken LRC-derived onsets unchanged.
 // ---------------------------------------------------------------------------
 function snapOnset(onsetMs: number, words: WhisperWord[]): { snapped: number; needed: boolean } {
-  for (const w of words) {
-    if (!w.word || !w.word.trim()) continue;
+  const valid = words.filter((w) => w.word && w.word.trim());
+  if (valid.length === 0) return { snapped: onsetMs, needed: false };
+
+  const firstStart = Math.round(valid[0].start * 1000);
+  const lastEnd = Math.round(valid[valid.length - 1].end * 1000);
+
+  // Case 2: onset is before any vocals → snap forward to first word
+  if (onsetMs < firstStart) {
+    const delta = firstStart - onsetMs;
+    if (delta > TOLERANCE_MS) return { snapped: firstStart, needed: true };
+    return { snapped: onsetMs, needed: false };
+  }
+
+  // Case 4: onset is after the last word → keep (don't fabricate forward)
+  if (onsetMs > lastEnd) return { snapped: onsetMs, needed: false };
+
+  for (let i = 0; i < valid.length; i++) {
+    const w = valid[i];
     const sMs = Math.round(w.start * 1000);
     const eMs = Math.round(w.end * 1000);
+
+    // Case 1: onset inside this word
     if (onsetMs > sMs && onsetMs < eMs) {
       const delta = onsetMs - sMs;
       if (Math.abs(delta) > TOLERANCE_MS) return { snapped: sMs, needed: true };
       return { snapped: onsetMs, needed: false };
     }
+
+    // Case 3: onset in silence gap between this word and the next
+    if (i + 1 < valid.length) {
+      const nextStart = Math.round(valid[i + 1].start * 1000);
+      if (onsetMs >= eMs && onsetMs <= nextStart) {
+        const deltaForward = nextStart - onsetMs;
+        if (deltaForward > TOLERANCE_MS) return { snapped: nextStart, needed: true };
+        return { snapped: onsetMs, needed: false };
+      }
+    }
   }
+
   return { snapped: onsetMs, needed: false };
 }
 
@@ -211,7 +248,11 @@ function planSlug(
   for (const v of lesson.verses) {
     const playerOnset = playerOnsets.get(v.verse_number);
     if (playerOnset == null) {
-      // Player wouldn't render this verse — keep zero, will be ignored.
+      // Player wouldn't render this verse. Keep BOTH start and end at 0
+      // so the LyricsPanel union strategy (start>0 || end>0) skips it
+      // entirely. Previous behaviour (new_end_ms=5000) caused the player's
+      // reverse-iteration fallback to fire the last unresolvable verse at
+      // song start (observed: iris-eir-aoi verse 39 highlighted at 0:00).
       plan.push({
         verse_number: v.verse_number,
         old_start_ms: v.start_time_ms,
@@ -231,12 +272,35 @@ function planSlug(
     });
   }
 
-  // Fill end_time_ms = next verse's start. Last verse gets +LAST_VERSE_TAIL_MS.
+  // Monotonicity: if a snap collided two verses to the same onset (e.g. both
+  // were before the first vocal and snapped to the first word's start),
+  // bump later verses forward by MIN_VERSE_GAP_MS. Preserves order.
+  const MIN_VERSE_GAP_MS = 250;
+  for (let i = 1; i < plan.length; i++) {
+    if (plan[i].new_start_ms === 0) continue; // unresolvable, skip
+    if (plan[i - 1].new_start_ms === 0) continue; // prev unresolvable, no constraint
+    if (plan[i].new_start_ms <= plan[i - 1].new_start_ms) {
+      plan[i].new_start_ms = plan[i - 1].new_start_ms + MIN_VERSE_GAP_MS;
+    }
+  }
+
+  // Fill end_time_ms = next verse's start, capped at start + MAX_VERSE_DURATION_MS
+  // (15s — empirical max for legitimate full-version verses; covers held-note
+  // choruses but caps long instrumental gaps that would otherwise leave a
+  // verse highlight stretched across the gap). Last verse gets LAST_VERSE_TAIL_MS.
+  const MAX_VERSE_DURATION_MS = 15_000;
   for (let i = 0; i < plan.length; i++) {
+    const start = plan[i].new_start_ms;
+    if (start === 0) {
+      plan[i].new_end_ms = 0; // unresolvable verse — keep skipped
+      continue;
+    }
     if (i + 1 < plan.length) {
-      plan[i].new_end_ms = plan[i + 1].new_start_ms;
+      const nextStart = plan[i + 1].new_start_ms;
+      const naive = nextStart > 0 ? nextStart : start + LAST_VERSE_TAIL_MS;
+      plan[i].new_end_ms = Math.min(naive, start + MAX_VERSE_DURATION_MS);
     } else {
-      plan[i].new_end_ms = plan[i].new_start_ms + LAST_VERSE_TAIL_MS;
+      plan[i].new_end_ms = start + LAST_VERSE_TAIL_MS;
     }
   }
 

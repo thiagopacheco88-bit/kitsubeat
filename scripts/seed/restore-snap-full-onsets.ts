@@ -17,7 +17,14 @@ import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const SNAPSHOT_PATH = resolve(__dirname, "../../.planning/snap-full-onsets-snapshot.json");
+const DEFAULT_SNAPSHOT_PATH = resolve(__dirname, "../../.planning/snap-full-onsets-snapshot.json");
+
+const argsAll = process.argv.slice(2);
+const snapshotIdx = argsAll.indexOf("--snapshot");
+const SNAPSHOT_PATH =
+  snapshotIdx !== -1 && argsAll[snapshotIdx + 1] ? resolve(argsAll[snapshotIdx + 1]) : DEFAULT_SNAPSHOT_PATH;
+const slugIdx = argsAll.indexOf("--slug");
+const slugFilter = slugIdx !== -1 && argsAll[slugIdx + 1] ? argsAll[slugIdx + 1] : null;
 
 interface SnapshotRow {
   slug: string;
@@ -43,11 +50,18 @@ if (!existsSync(SNAPSHOT_PATH)) {
 }
 
 const snap = JSON.parse(readFileSync(SNAPSHOT_PATH, "utf-8")) as Snapshot;
-console.log(`Snapshot from ${snap.generated_at} — ${snap.rows.length} rows`);
+const rows = slugFilter ? snap.rows.filter((r) => r.slug === slugFilter) : snap.rows;
+console.log(`Snapshot: ${SNAPSHOT_PATH}`);
+console.log(`Generated: ${snap.generated_at} — ${snap.rows.length} rows total, restoring ${rows.length}${slugFilter ? ` (filter: ${slugFilter})` : ""}`);
+
+if (rows.length === 0) {
+  console.error(`No rows match filter: ${slugFilter}`);
+  process.exit(1);
+}
 
 if (!apply) {
   console.log("\nWould restore:");
-  for (const r of snap.rows) {
+  for (const r of rows) {
     console.log(`  ${r.slug}: lyrics_source=${r.snapshot.lyrics_source} offset=${r.snapshot.lyrics_offset_ms}ms`);
   }
   console.log("\n(dry-run — re-run with --apply)");
@@ -62,7 +76,7 @@ const db = getDb();
 let applied = 0;
 const failed: string[] = [];
 
-for (const r of snap.rows) {
+for (const r of rows) {
   try {
     await db
       .update(songVersions)
@@ -74,12 +88,12 @@ for (const r of snap.rows) {
       })
       .where(eq(songVersions.id, r.song_version_id));
     applied++;
-    process.stdout.write(`\r  ${applied}/${snap.rows.length} restored`);
+    process.stdout.write(`\r  ${applied}/${rows.length} restored`);
   } catch (err) {
     failed.push(`${r.slug}: ${(err as Error).message}`);
   }
 }
 console.log();
 if (failed.length) for (const f of failed) console.log(`  FAILED: ${f}`);
-console.log(`\nRestored ${applied}/${snap.rows.length}.`);
+console.log(`\nRestored ${applied}/${rows.length}.`);
 process.exit(failed.length ? 1 : 0);
