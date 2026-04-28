@@ -1,13 +1,10 @@
 import { notFound } from "next/navigation";
 import { inArray } from "drizzle-orm";
-import { getSongBySlug, getKnownWordCountForSong } from "@/lib/db/queries";
+import { getSongBySlug } from "@/lib/db/queries";
 import { db } from "@/lib/db";
 import { vocabularyItems } from "@/lib/db/schema";
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 import SongContent from "./components/SongContent";
-
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -53,10 +50,7 @@ export default async function SongPlayerPage({
           .where(inArray(vocabularyItems.id, Array.from(vocabIds)))
       : Promise.resolve([] as { id: string; mnemonic: unknown; kanji_breakdown: unknown }[]);
 
-  const [enrichRows, initialKnown] = await Promise.all([
-    enrichQuery,
-    getKnownWordCountForSong(PLACEHOLDER_USER_ID, song.id),
-  ]);
+  const enrichRows = await enrichQuery;
 
   // Single batch SELECT for enrichment fields — one extra DB round trip per page load
   const enrichMap = new Map<string, { mnemonic?: Localizable; kanji_breakdown?: KanjiBreakdown | null }>(
@@ -112,7 +106,6 @@ export default async function SongPlayerPage({
       }}
       versions={versions}
       songId={song.id}
-      initialKnown={initialKnown}
     />
   );
 }
