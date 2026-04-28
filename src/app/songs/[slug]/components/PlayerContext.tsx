@@ -90,6 +90,15 @@ interface PlayerState {
    * callbacks don't fire after the player has been destroyed.
    */
   _registerApi: (api: PlayerImperativeApi | null) => void;
+
+  // Phase 13 Plan 02 (D-08): additive force-mount surface. When forceMount is
+  // true, YouTubeEmbed bypasses the IntersectionObserver gate and mounts the
+  // iframe immediately. setForceMount(true) is called from SongContent when the
+  // user opens the Practice tab — keeps Listening Drill (EXER-06) working
+  // without manual scroll. Resets automatically on PlayerProvider remount
+  // (version toggle triggers key={activeType} remount, fresh useState(false)).
+  forceMount: boolean;
+  setForceMount: (v: boolean) => void;
 }
 
 const PlayerCtx = createContext<PlayerState | null>(null);
@@ -125,6 +134,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   // are empty — they dispatch through the current state closure).
   const apiRef = useRef<PlayerImperativeApi | null>(null);
   const [apiReady, setApiReady] = useState(false);
+
+  // Phase 13 D-08: force-mount flag. Default false → IO-gated initial state.
+  // setForceMount(true) dispatched from SongContent when Practice tab opens.
+  const [forceMount, setForceMount] = useState(false);
 
   // Debounce state for seekAndPlay. Held in refs (not state) — no UI should
   // rerender on timestamp bookkeeping.
@@ -236,6 +249,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         seekAndPlay,
         isReady,
         _registerApi,
+        forceMount,
+        setForceMount,
       }}
     >
       {children}
