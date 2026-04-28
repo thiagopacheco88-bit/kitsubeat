@@ -48,3 +48,12 @@ if (!process.env.TEST_DATABASE_URL && existsSync(envLocal)) {
 if (process.env.TEST_DATABASE_URL) {
   process.env.DATABASE_URL = process.env.TEST_DATABASE_URL;
 }
+
+// Phase 13 D-04 + D-20: the test-only Neon SELECT counter in src/lib/db/index.ts
+// is gated on NEXT_PUBLIC_APP_ENV === "test" (single-condition; no || NODE_ENV).
+// Vitest sets NODE_ENV=test on its own, but does NOT set NEXT_PUBLIC_APP_ENV —
+// CI sets it at qa-suite.yml:51, but local `npm run test:integration` runs need
+// it set here so the counter activates. Production builds never reach this file.
+if (!process.env.NEXT_PUBLIC_APP_ENV) {
+  process.env.NEXT_PUBLIC_APP_ENV = "test";
+}
