@@ -133,6 +133,13 @@ export const VocabEntrySchema = z.object({
     .describe(
       "Per-kanji character breakdown; null when surface is kana-only; undefined when field was not emitted by the model"
     ),
+  image_url: z
+    .string()
+    .url()
+    .optional()
+    .describe(
+      "Phase 11.4: Unsplash CDN URL for the vocab. Passthrough only — populated post-hoc on vocabulary_items, merged into the lesson at page render. Optional so existing lessons without enrichment still validate."
+    ),
 });
 
 export type VocabEntry = z.infer<typeof VocabEntrySchema>;
