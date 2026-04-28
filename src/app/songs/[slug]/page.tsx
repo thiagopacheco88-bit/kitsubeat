@@ -4,6 +4,7 @@ import { getSongBySlug } from "@/lib/db/queries";
 import { db } from "@/lib/db";
 import { vocabularyItems } from "@/lib/db/schema";
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
+import { localize } from "@/lib/types/lesson";
 import SongContent from "./components/SongContent";
 
 export async function generateMetadata({
@@ -45,20 +46,36 @@ export default async function SongPlayerPage({
             id: vocabularyItems.id,
             mnemonic: vocabularyItems.mnemonic,
             kanji_breakdown: vocabularyItems.kanji_breakdown,
+            image_url: vocabularyItems.image_url,
           })
           .from(vocabularyItems)
           .where(inArray(vocabularyItems.id, Array.from(vocabIds)))
-      : Promise.resolve([] as { id: string; mnemonic: unknown; kanji_breakdown: unknown }[]);
+      : Promise.resolve(
+          [] as {
+            id: string;
+            mnemonic: unknown;
+            kanji_breakdown: unknown;
+            image_url: string | null;
+          }[]
+        );
 
   const enrichRows = await enrichQuery;
 
   // Single batch SELECT for enrichment fields — one extra DB round trip per page load
-  const enrichMap = new Map<string, { mnemonic?: Localizable; kanji_breakdown?: KanjiBreakdown | null }>(
+  const enrichMap = new Map<
+    string,
+    {
+      mnemonic?: Localizable;
+      kanji_breakdown?: KanjiBreakdown | null;
+      image_url?: string;
+    }
+  >(
     enrichRows.map((r) => [
       r.id,
       {
         mnemonic: (r.mnemonic ?? undefined) as Localizable | undefined,
         kanji_breakdown: (r.kanji_breakdown ?? null) as KanjiBreakdown | null,
+        image_url: r.image_url ?? undefined,
       },
     ])
   );
@@ -78,6 +95,8 @@ export default async function SongPlayerPage({
             ...entry,
             mnemonic: extra.mnemonic ?? entry.mnemonic,
             kanji_breakdown: extra.kanji_breakdown ?? entry.kanji_breakdown,
+            image_url: extra.image_url ?? entry.image_url,
+            meaning_en: localize(entry.meaning as Localizable, "en"),
           };
         }),
       };

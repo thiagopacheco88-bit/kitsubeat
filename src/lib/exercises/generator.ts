@@ -70,6 +70,10 @@ export interface Question {
   mnemonic?: Localizable;
   /** Phase 08.3: per-character kanji breakdown for the target vocab (null for kana-only). */
   kanji_breakdown?: KanjiBreakdown | null;
+  /** Phase 11.4: Unsplash CDN URL for the target vocab; absent when no image curated. */
+  image_url?: string;
+  /** Phase 11.4: English meaning string, pre-resolved by page.tsx via localize(meaning, 'en'). Used for <img alt> per D-08. */
+  meaning_en?: string;
   /** For Fill-the-Lyric: the verse reference for audio seek */
   verseRef?: {
     verseNumber: number;
@@ -454,6 +458,8 @@ function makeQuestion(
     detailedExplanation: makeDetailedExplanation(vocab),
     mnemonic: vocab.mnemonic,
     kanji_breakdown: vocab.kanji_breakdown ?? null,
+    image_url: vocab.image_url,
+    meaning_en: vocab.meaning_en,
     verseRef,
     vocabInfo,
     distractorVocab,

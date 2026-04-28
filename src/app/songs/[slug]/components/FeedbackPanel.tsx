@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { Question } from "@/lib/exercises/generator";
 import { localize } from "@/lib/types/lesson";
 import { useExerciseSession } from "@/stores/exerciseSession";
@@ -27,6 +28,8 @@ export default function FeedbackPanel({
   const moreAccordionOpen = useExerciseSession((s) => s.moreAccordionOpen);
   const setMoreAccordionOpen = useExerciseSession((s) => s.setMoreAccordionOpen);
   const { translationLang } = usePlayer();
+  // Phase 11.4: silent-fail flag for the optional Unsplash image (D-07).
+  const [imageFailed, setImageFailed] = useState(false);
 
   // Wrong-answer explanation: what the user picked and why it's wrong
   const wrongChoiceNote =
@@ -45,7 +48,10 @@ export default function FeedbackPanel({
     question.kanji_breakdown.characters.length > 0;
 
   const hasMoreContent =
-    !!question.detailedExplanation || !!question.mnemonic || hasKanjiBreakdown;
+    !!question.detailedExplanation ||
+    !!question.mnemonic ||
+    hasKanjiBreakdown ||
+    !!question.image_url;
 
   return (
     <div
@@ -146,6 +152,28 @@ export default function FeedbackPanel({
       {/* Inline accordion body — persists across questions via Zustand */}
       {hasMoreContent && moreAccordionOpen && (
         <div className="mt-3 flex flex-col gap-3" data-testid="feedback-more-accordion">
+          {/* Phase 11.4: optional Unsplash image — first child of the accordion body
+              per D-04 (image precedes mnemonic). 112x112 numeric attrs prevent CLS;
+              silent collapse on fetch error per D-07. */}
+          {question.image_url && !imageFailed && (
+            <div className="flex justify-center">
+              <img
+                src={question.image_url}
+                alt={question.meaning_en ?? ""}
+                width={112}
+                height={112}
+                loading="lazy"
+                onError={() => {
+                  console.warn(
+                    `[FeedbackPanel] image failed: ${question.image_url} (${question.vocabItemId})`
+                  );
+                  setImageFailed(true);
+                }}
+                data-testid="feedback-image"
+                className="aspect-square w-28 h-28 rounded-md object-cover"
+              />
+            </div>
+          )}
           {question.detailedExplanation && (
             <p className="text-sm text-gray-400">{question.detailedExplanation}</p>
           )}
