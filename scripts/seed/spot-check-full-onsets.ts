@@ -76,6 +76,11 @@ interface Lesson {
   verses: Verse[];
 }
 
+interface SyncedLine {
+  startMs: number;
+  text: string;
+}
+
 interface WhisperWord {
   word: string;
   start: number;
@@ -187,13 +192,46 @@ export function checkVerseOnsets(
 }
 
 // ---------------------------------------------------------------------------
+// Player-path resolution — mirrors LyricsPanel.tsx union strategy:
+//   1. matched = buildVerseTiming(verses, syncedLrc) at runtime
+//   2. base = matched ∪ {verse.start_time_ms for verses NOT in matched}
+//   3. Each entry shifted by lyrics_offset_ms
+// We compute base.startMs + offsetMs PER VERSE to get the actual onset the
+// user experiences, then compare THAT against WhisperX (not the stale
+// verse.start_time_ms field, which the player ignores when LRC matched).
+// ---------------------------------------------------------------------------
+
+function resolvePlayerOnsets(
+  lesson: Lesson,
+  syncedLrc: SyncedLine[] | null,
+  offsetMs: number,
+  buildVerseTiming: (verses: Verse[], lrc: SyncedLine[]) => Map<number, { startMs: number; endMs: number }>
+): Map<number, { startMs: number; source: "lrc" | "lesson" | "none" }> {
+  const out = new Map<number, { startMs: number; source: "lrc" | "lesson" | "none" }>();
+  const matched = syncedLrc ? buildVerseTiming(lesson.verses, syncedLrc) : new Map();
+
+  for (const v of lesson.verses) {
+    const m = matched.get(v.verse_number);
+    if (m) {
+      out.set(v.verse_number, { startMs: Math.max(0, m.startMs + offsetMs), source: "lrc" });
+    } else if ((v.start_time_ms ?? 0) > 0) {
+      out.set(v.verse_number, { startMs: Math.max(0, v.start_time_ms + offsetMs), source: "lesson" });
+    } else {
+      out.set(v.verse_number, { startMs: 0, source: "none" });
+    }
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
 // Per-slug runner — DB lesson + stem timing (with raw fallback)
 // ---------------------------------------------------------------------------
 
 async function runSlug(
   slug: string,
   lesson: Lesson,
-  toleranceMs: number
+  toleranceMs: number,
+  playerCtx: { syncedLrc: SyncedLine[] | null; offsetMs: number; buildVerseTiming: (verses: Verse[], lrc: SyncedLine[]) => Map<number, { startMs: number; endMs: number }> } | null
 ): Promise<SongVerdict | null> {
   const stemPath = join(FULL_STEM_TIMING_DIR, `${slug}.json`);
   const rawPath = join(FULL_RAW_TIMING_DIR, `${slug}.json`);
@@ -232,7 +270,37 @@ async function runSlug(
   }
 
   const timing = JSON.parse(readFileSync(timingPath, "utf-8")) as TimingCache;
-  const results = checkVerseOnsets(lesson, timing, toleranceMs);
+
+  // Resolve the onset the player actually USES per verse (LRC-matched or
+  // verse.start_time_ms fallback, both shifted by lyrics_offset_ms). When
+  // playerCtx is null (legacy mode), we fall back to verse.start_time_ms
+  // unshifted — same as the original implementation.
+  let lessonForCheck: Lesson = lesson;
+  let onsetSources: Map<number, "lrc" | "lesson" | "none"> | null = null;
+  if (playerCtx) {
+    const resolved = resolvePlayerOnsets(
+      lesson,
+      playerCtx.syncedLrc,
+      playerCtx.offsetMs,
+      playerCtx.buildVerseTiming
+    );
+    onsetSources = new Map();
+    lessonForCheck = {
+      ...lesson,
+      verses: lesson.verses.map((v) => {
+        const r = resolved.get(v.verse_number);
+        onsetSources!.set(v.verse_number, r?.source ?? "none");
+        return r && r.source !== "none"
+          ? { ...v, start_time_ms: r.startMs }
+          : v;
+      }),
+    };
+  }
+
+  const results = checkVerseOnsets(lessonForCheck, timing, toleranceMs).map((r) => {
+    const src = onsetSources?.get(r.verseNumber);
+    return src ? { ...r, note: r.note ? `${r.note} [src=${src}]` : `src=${src}` } : r;
+  });
 
   const passCount = results.filter((r) => r.status === "PASS").length;
   const failCount = results.filter((r) => r.status === "FAIL").length;
@@ -280,6 +348,11 @@ OPTIONS
   --slugs <s1,s2,...>     Check multiple slugs (comma-separated)
   --all                   Audit every full-version row with timing-cache
   --tolerance-ms <N>      Tolerance in ms (default: ${DEFAULT_TOLERANCE_MS})
+  --player-path           Resolve onset via runtime player path (LRC matching
+                          + lyrics_offset_ms shift), not stale verse.start_time_ms.
+                          Use this to surface user-visible drift; without it the
+                          gate tests data the player ignores when synced_lrc is
+                          present.
   --json <path>           Write per-song verdict JSON report
   --verbose               Print per-verse table for every flagged song
   --help                  Show this help
@@ -303,6 +376,7 @@ async function main(): Promise<void> {
   let toleranceMs = DEFAULT_TOLERANCE_MS;
   let jsonOut: string | null = null;
   let verbose = false;
+  let playerPath = false;
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === "--slug" && args[i + 1]) {
@@ -321,6 +395,8 @@ async function main(): Promise<void> {
       i++;
     } else if (args[i] === "--verbose") {
       verbose = true;
+    } else if (args[i] === "--player-path") {
+      playerPath = true;
     }
   }
 
@@ -358,10 +434,15 @@ async function main(): Promise<void> {
     inArray(songs.slug, slugFilter)
   );
 
-  console.log(`[spot-check] querying DB for ${slugFilter.length} slugs ...`);
+  console.log(`[spot-check] querying DB for ${slugFilter.length} slugs ${playerPath ? "(player-path mode)" : ""}...`);
   const tStart = Date.now();
   const rows = await db
-    .select({ slug: songs.slug, lesson: songVersions.lesson })
+    .select({
+      slug: songs.slug,
+      lesson: songVersions.lesson,
+      synced_lrc: songVersions.synced_lrc,
+      lyrics_offset_ms: songVersions.lyrics_offset_ms,
+    })
     .from(songVersions)
     .innerJoin(songs, eq(songs.id, songVersions.song_id))
     .where(where);
@@ -372,12 +453,28 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
+  // If --player-path, lazy-load buildVerseTiming from src/lib so the
+  // resolution mirrors what LyricsPanel actually does at runtime.
+  const buildVerseTimingMod = playerPath
+    ? await import("../../src/lib/verse-timing.js")
+    : null;
+
   const verdicts: SongVerdict[] = [];
   let processed = 0;
   for (const r of rows) {
     if (!r.lesson) continue;
     const lesson = r.lesson as Lesson;
-    const v = await runSlug(r.slug, lesson, toleranceMs);
+    const ctx = playerPath && buildVerseTimingMod
+      ? {
+          syncedLrc: (r.synced_lrc as SyncedLine[] | null) ?? null,
+          offsetMs: r.lyrics_offset_ms ?? 0,
+          buildVerseTiming: buildVerseTimingMod.buildVerseTiming as (
+            verses: Verse[],
+            lrc: SyncedLine[]
+          ) => Map<number, { startMs: number; endMs: number }>,
+        }
+      : null;
+    const v = await runSlug(r.slug, lesson, toleranceMs, ctx);
     if (v) verdicts.push(v);
     processed++;
     if (processed % 25 === 0) console.log(`[spot-check] ${processed}/${rows.length} processed`);
