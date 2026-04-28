@@ -45,7 +45,7 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, "../../");
 const STEM_DIR = join(PROJECT_ROOT, "data/timing-cache-stem");
 const RAW_DIR = join(PROJECT_ROOT, "data/timing-cache");
-const SNAPSHOT_PATH = join(PROJECT_ROOT, ".planning/snap-full-onsets-snapshot.json");
+const DEFAULT_SNAPSHOT_PATH = join(PROJECT_ROOT, ".planning/snap-full-onsets-snapshot.json");
 const TOLERANCE_MS = 500;
 const LAST_VERSE_TAIL_MS = 5_000;
 
@@ -85,6 +85,11 @@ const slugFilter =
   slugIdx !== -1 && args[slugIdx + 1]
     ? args[slugIdx + 1].split(",").map((s) => s.trim()).filter(Boolean)
     : null;
+const snapshotIdx = args.indexOf("--snapshot");
+const SNAPSHOT_PATH =
+  snapshotIdx !== -1 && args[snapshotIdx + 1]
+    ? resolve(args[snapshotIdx + 1])
+    : DEFAULT_SNAPSHOT_PATH;
 
 // Default cohort: the 12 player-path FAIL slugs from
 // data/full-onset-report-playerpath.json. Keeping these explicit avoids
