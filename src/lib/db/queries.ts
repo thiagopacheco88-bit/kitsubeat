@@ -1,9 +1,11 @@
 import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import { eq, sql, asc, inArray } from "drizzle-orm";
 import { db } from "./index";
 import {
   songs,
   songVersions,
+  vocabularyItems,
   vocabGlobal,
   userSongProgress,
   users,
@@ -19,10 +21,20 @@ import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
 // ---------------------------------------------------------------------------
 
 /**
- * Get a single song by slug, including all its versions (tv, full).
- * Wrapped in React cache() so generateMetadata + the page body share one query per request.
+ * Phase 13 CR-01 fix: cross-request lesson cache.
+ *
+ * Layering (outer → inner):
+ *   1. React `cache()` — per-request memo. Dedupes `generateMetadata` +
+ *      `SongPlayerPage` within the same request. Not invalidatable.
+ *   2. `unstable_cache(...)` — cross-request data cache, keyed by slug, tagged
+ *      `song:${slug}`. `revalidateTag('song:${slug}')` (called by writers via
+ *      `src/app/actions/cache.ts`) invalidates this layer cleanly.
+ *
+ * The wrapper is built per-slug so the tag closes over the slug argument.
+ * `revalidate: false` means the cache is held until the tag is busted — D-02
+ * "tag-only on lesson edit, no TTL safety net".
  */
-export const getSongBySlug = cache(async (slug: string) => {
+async function fetchSongBySlugUncached(slug: string) {
   const rows = await db
     .select()
     .from(songs)
@@ -38,7 +50,58 @@ export const getSongBySlug = cache(async (slug: string) => {
     .where(eq(songVersions.song_id, song.id));
 
   return { ...song, versions };
+}
+
+export const getSongBySlug = cache(async (slug: string) => {
+  return unstable_cache(
+    () => fetchSongBySlugUncached(slug),
+    ["song-by-slug", slug],
+    { tags: [`song:${slug}`], revalidate: false },
+  )();
 });
+
+/**
+ * Phase 13 CR-01 fix: cache the per-song vocabulary enrichment SELECT under
+ * the same `song:${slug}` tag so writers only need to revalidate one tag per
+ * slug. Returns enrichment fields keyed by vocab_item_id; the page-level
+ * code merges them into each VocabEntry.
+ *
+ * Wrapped per-slug so the tag closes over the slug argument. The vocab-id list
+ * is part of the cache key so a lesson edit that adds/removes vocab busts the
+ * cache via the `song:${slug}` tag (the new vocab-id list will look like a
+ * different cache key on the next request anyway, but the tag is the
+ * authoritative invalidation handle).
+ */
+async function fetchVocabularyEnrichmentUncached(vocabIds: string[]) {
+  if (vocabIds.length === 0) {
+    return [] as Array<{
+      id: string;
+      mnemonic: unknown;
+      kanji_breakdown: unknown;
+      image_url: string | null;
+    }>;
+  }
+  return db
+    .select({
+      id: vocabularyItems.id,
+      mnemonic: vocabularyItems.mnemonic,
+      kanji_breakdown: vocabularyItems.kanji_breakdown,
+      image_url: vocabularyItems.image_url,
+    })
+    .from(vocabularyItems)
+    .where(inArray(vocabularyItems.id, vocabIds));
+}
+
+export const getVocabularyEnrichmentForSong = cache(
+  async (slug: string, vocabIds: string[]) => {
+    const sortedIds = [...vocabIds].sort();
+    return unstable_cache(
+      () => fetchVocabularyEnrichmentUncached(sortedIds),
+      ["vocab-enrichment-for-song", slug, sortedIds.join(",")],
+      { tags: [`song:${slug}`], revalidate: false },
+    )();
+  },
+);
 
 export type SongWithVersions = NonNullable<Awaited<ReturnType<typeof getSongBySlug>>>;
 

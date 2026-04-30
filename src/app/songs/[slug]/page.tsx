@@ -1,8 +1,5 @@
 import { notFound } from "next/navigation";
-import { inArray } from "drizzle-orm";
-import { getSongBySlug } from "@/lib/db/queries";
-import { db } from "@/lib/db";
-import { vocabularyItems } from "@/lib/db/schema";
+import { getSongBySlug, getVocabularyEnrichmentForSong } from "@/lib/db/queries";
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
 import SongContent from "./components/SongContent";
@@ -37,29 +34,13 @@ export default async function SongPlayerPage({
     }
   }
 
-  // Parallelize: enrichment batch SELECT + known-word count for the song.
-  // Known-count uses a placeholder userId until Phase 10 wires Clerk auth.
-  const enrichQuery =
-    vocabIds.size > 0
-      ? db
-          .select({
-            id: vocabularyItems.id,
-            mnemonic: vocabularyItems.mnemonic,
-            kanji_breakdown: vocabularyItems.kanji_breakdown,
-            image_url: vocabularyItems.image_url,
-          })
-          .from(vocabularyItems)
-          .where(inArray(vocabularyItems.id, Array.from(vocabIds)))
-      : Promise.resolve(
-          [] as {
-            id: string;
-            mnemonic: unknown;
-            kanji_breakdown: unknown;
-            image_url: string | null;
-          }[]
-        );
-
-  const enrichRows = await enrichQuery;
+  // Phase 13 CR-01 fix: enrichment SELECT is wrapped in unstable_cache and
+  // tagged with `song:${slug}` so it survives across requests and is busted in
+  // lockstep with the song body when revalidateSongCache(slug) is called.
+  const enrichRows = await getVocabularyEnrichmentForSong(
+    slug,
+    Array.from(vocabIds),
+  );
 
   // Single batch SELECT for enrichment fields — one extra DB round trip per page load
   const enrichMap = new Map<
