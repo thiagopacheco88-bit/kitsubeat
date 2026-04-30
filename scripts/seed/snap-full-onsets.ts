@@ -416,7 +416,16 @@ console.log(`\n[snap] applying ${plans.length} updates...`);
 let applied = 0;
 const failed: string[] = [];
 
-for (const p of plans) {
+for (let i = 0; i < plans.length; i++) {
+  const p = plans[i];
+  // Phase 13 WR-05 fix: log the slug at the START of each row's processing
+  // (newline-terminated, not \r-overwritten) so Ctrl-C during the apply loop
+  // leaves a stable record of how far the script got. The previous \r-based
+  // counter only updated AFTER success, so an operator interrupting mid-row
+  // had no way to know which slug was in flight at the moment of cancel.
+  process.stdout.write(
+    `[snap] (${i + 1}/${plans.length}) applying ${p.slug}...\n`
+  );
   try {
     const newLesson = {
       ...((p.snapshot.lesson as Lesson) ?? {}),
@@ -452,9 +461,14 @@ for (const p of plans) {
       // Do not abort the batch — operator can run a manual revalidate later.
     }
     applied++;
-    process.stdout.write(`\r  ${applied}/${plans.length} applied`);
+    process.stdout.write(
+      `[snap] (${i + 1}/${plans.length}) ${p.slug} OK (${applied} applied)\n`
+    );
   } catch (err) {
     failed.push(`${p.slug}: ${(err as Error).message}`);
+    process.stdout.write(
+      `[snap] (${i + 1}/${plans.length}) ${p.slug} FAILED: ${(err as Error).message}\n`
+    );
   }
 }
 console.log();
