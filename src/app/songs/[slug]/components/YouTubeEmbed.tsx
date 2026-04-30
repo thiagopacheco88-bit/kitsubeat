@@ -394,6 +394,13 @@ export default function YouTubeEmbed({
       // reaching a destroyed YT.Player.
       _registerApi(null);
     };
+    // Phase 13 WR-02: `embedState` is intentionally NOT a dependency — this
+    // effect OWNS the state (writes via setEmbedState / functional updaters
+    // inside the watchdog). Adding it would re-run init on every state
+    // transition, destroying and rebuilding the player each time onReady or
+    // onError fires. The functional setEmbedState((prev) => ...) at line ~373
+    // races safely against a "ready" landing in the same tick.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [shouldMount, currentId, songVersionId, userId, startTracking, stopTracking, setEmbedState, _registerApi]);
 
   return (
