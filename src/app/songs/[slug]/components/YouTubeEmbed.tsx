@@ -163,8 +163,13 @@ export default function YouTubeEmbed({
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setShouldMount(true);
+            // Phase 13 WR-03 fix: disconnect FIRST. If a late entry batch is
+            // queued, disconnecting before flipping shouldMount ensures the
+            // batch cannot fire setShouldMount(true) again on an already-
+            // mounted component. setState ordering after disconnect is safe
+            // because disconnect() is synchronous and idempotent.
             io.disconnect();
+            setShouldMount(true);
             return;
           }
         }
