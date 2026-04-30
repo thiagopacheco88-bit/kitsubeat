@@ -1,6 +1,6 @@
 # Phase 13: Performance Infrastructure — Summary
 
-**Status:** Plan 13-04 Task 2 pending — Performance baseline table awaits human Lighthouse run.
+**Status:** Complete — all 4 plans done. Performance baseline captured 2026-04-30.
 
 ---
 
@@ -26,15 +26,17 @@ jq extraction command per JSON file:
   jq -r '[(.categories.performance.score * 100), .audits["largest-contentful-paint"].numericValue, .audits["interactive"].numericValue] | @tsv' <file>.json
 -->
 
-Captured: **PENDING** — run `npm run lighthouse:pick-target && npm run lighthouse:baseline` against `npm run start` on http://localhost:7000.
+Captured: **2026-04-30** — Lighthouse 13.1.0 against `npm run start` (production build) on http://localhost:7000, headless Chrome, sequential runs.
 
-Median target song (D-17): **PENDING** — see `.planning/phases/13-performance-infrastructure/lighthouse-baseline/target-song.txt` after running pick-target.
+Median target song (D-17): **`ima-made-nando-mo-the-mass-missile`** (51,383 bytes, rank 165/329 by `octet_length(song_versions.lesson::text)`). See `.planning/phases/13-performance-infrastructure/lighthouse-baseline/target-song.txt`.
 
 | Route | Mobile Perf | Mobile LCP | Mobile TTI | Desktop Perf | Desktop LCP | Desktop TTI |
 |---|---:|---:|---:|---:|---:|---:|
-| / (home)         | PENDING/100 | PENDINGms | PENDINGms | PENDING/100 | PENDINGms | PENDINGms |
-| /songs (catalog) | PENDING/100 | PENDINGms | PENDINGms | PENDING/100 | PENDINGms | PENDINGms |
-| /songs/\<slug\>  | PENDING/100 | PENDINGms | PENDINGms | PENDING/100 | PENDINGms | PENDINGms |
+| / (home)         | 89/100 | 3437ms | 3550ms | 99/100 |  736ms |  739ms |
+| /songs (catalog) | 77/100 | 4373ms | 4423ms | 97/100 |  899ms |  901ms |
+| /songs/\<slug\>  | 85/100 | 3452ms | 3475ms | 87/100 | 1441ms | 1446ms |
+
+Secondary metrics (mobile / desktop): Accessibility 94–96 / 94–96, Best Practices 96–100 / 96–100, SEO 100 / 100. CLS ≤ 0.005 across all 6 runs (within Web Vitals "Good" band ≤ 0.1).
 
 Raw JSON: `.planning/phases/13-performance-infrastructure/lighthouse-baseline/{home,catalog,song}-{mobile,desktop}.json`
 
@@ -73,4 +75,4 @@ Raw JSON: `.planning/phases/13-performance-infrastructure/lighthouse-baseline/{h
 | AC #8 | CI fails if /songs/[slug] budget breached | Done (Plan 03) |
 | AC #9 | Bundle analyzer wired in next.config.ts | Done (Plan 03) |
 | AC #10 | pr-checks extended with Build + size-limit-action | Done (Plan 03) |
-| AC #11 | 13-SUMMARY.md Performance baseline table | Pending Task 2 |
+| AC #11 | 13-SUMMARY.md Performance baseline table | Done (Plan 04) |

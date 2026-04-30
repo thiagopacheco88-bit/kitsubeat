@@ -94,12 +94,14 @@ for (const r of RUNS) {
   const out = resolve(OUT_DIR, r.outFile);
   console.log(`\n[baseline] ${r.label}-${r.preset}: ${url} → ${r.outFile}`);
 
-  // D-15: --preset=mobile (Moto G4 4G) | --preset=desktop
+  // D-15: mobile is Lighthouse default (Moto G4 4G); desktop uses --preset=desktop.
+  // Lighthouse 13.x removed --preset=mobile — mobile is implicit, no flag.
   // --chrome-flags: --headless for non-interactive; --no-sandbox for CI/restricted envs.
+  const presetArg = r.preset === "desktop" ? ["--preset=desktop"] : [];
   const args = [
     "lighthouse",
     url,
-    `--preset=${r.preset}`,
+    ...presetArg,
     "--output=json",
     `--output-path=${out}`,
     "--chrome-flags=--headless --no-sandbox",
