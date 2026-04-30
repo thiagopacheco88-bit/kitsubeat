@@ -53,6 +53,18 @@ if (rows.length === 0) {
 const medianIndex = Math.floor(rows.length / 2);
 const median = rows[medianIndex];
 
+// Phase 13 WR-04 fix: defensive bounds check. The SELECT above can't return
+// holes today, but a future filter step (e.g. a WHERE that drops rows after
+// the median is computed) could make this access undefined. Failing with an
+// actionable error beats a "Cannot read properties of undefined (reading
+// 'slug')" stack trace.
+if (!median) {
+  console.error(
+    `[pick-target] Internal error: medianIndex ${medianIndex} out of bounds for ${rows.length} rows.`
+  );
+  process.exit(1);
+}
+
 const outDir = resolve(
   __dirname,
   "..",
