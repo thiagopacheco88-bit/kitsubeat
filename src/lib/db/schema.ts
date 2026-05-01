@@ -13,7 +13,9 @@ import {
   real,
   smallint,
   index,
+  primaryKey,
 } from "drizzle-orm/pg-core";
+import type { AnyPgColumn } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 
 /**
@@ -53,6 +55,16 @@ export const timingVerifiedEnum = pgEnum("timing_verified_status", [
 export const versionTypeEnum = pgEnum("version_type", ["tv", "full"]);
 
 /**
+ * Phase 11.5 enums — admin lyrics editor versioning, pipeline status, quality flags.
+ */
+export const lyricsVersionSourceEnum = pgEnum("lyrics_version_source",
+  ["auto", "ai-assist", "human", "regen"]);
+export const pipelineStatusEnum = pgEnum("pipeline_status",
+  ["idle", "rerun_in_progress", "rerun_failed"]);
+export const qualityStatusEnum = pgEnum("quality_status",
+  ["active", "flagged_wrong_song", "flagged_unfixable"]);
+
+/**
  * songs table — shared metadata for anime OP/ED songs.
  *
  * Version-specific data (lesson, lyrics, timing) lives in song_versions.
@@ -89,6 +101,10 @@ export const songs = pgTable("songs", {
 
   // Content schema versioning — increment when Lesson type changes
   content_schema_version: integer("content_schema_version").default(1).notNull(),
+
+  // Phase 11.5: quality flagging — admin can mark songs as wrong or unfixable
+  quality_status: qualityStatusEnum("quality_status").default("active").notNull(),
+  quality_notes: text("quality_notes"),
 
   // Timestamps
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
@@ -136,6 +152,14 @@ export const songVersions = pgTable("song_versions", {
   timing_data: jsonb("timing_data"),
   timing_verified: timingVerifiedEnum("timing_verified").default("auto").notNull(),
 
+  // Phase 11.5: versioned lyrics pointer + pipeline/quality columns
+  // active_lyrics_version_id FK is enforced by the DB; declared as plain uuid here
+  // to avoid a Drizzle forward-reference issue (lyricsVersions defined below).
+  active_lyrics_version_id: uuid("active_lyrics_version_id"),
+  pipeline_status: pipelineStatusEnum("pipeline_status").default("idle").notNull(),
+  pipeline_step: text("pipeline_step"),
+  pipeline_started_at: timestamp("pipeline_started_at", { withTimezone: true }),
+
   // Timestamps
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
@@ -145,6 +169,80 @@ export const songVersions = pgTable("song_versions", {
 
 export type Song = typeof songs.$inferSelect;
 export type SongVersion = typeof songVersions.$inferSelect;
+
+// =============================================================================
+// Phase 11.5: Admin Lyrics Editor — versioned lyrics, drafts, video history
+// =============================================================================
+
+/**
+ * lyrics_versions — indefinite-retention snapshot per published lyrics edit.
+ *
+ * source IN ('auto','ai-assist','human','regen'). The self-FK on parent_version_id
+ * powers gap-analysis CTEs: for each human row find its parent ai-assist row and diff.
+ *
+ * IMPORTANT: parent_version_id uses the `(): AnyPgColumn =>` annotation to prevent
+ * TypeScript's "referenced directly or indirectly in its own initializer" error.
+ */
+export const lyricsVersions = pgTable("lyrics_versions", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  song_version_id: uuid("song_version_id").notNull()
+    .references(() => songVersions.id),  // NO cascade — preserve history
+  version_number: integer("version_number").notNull(),
+  source: lyricsVersionSourceEnum("source").notNull(),
+  editor_id: text("editor_id"),
+  verses: jsonb("verses").notNull(),
+  // Self-FK requires AnyPgColumn return type annotation to avoid circular initializer error
+  parent_version_id: uuid("parent_version_id")
+    .references((): AnyPgColumn => lyricsVersions.id),
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => [
+  unique("lyrics_versions_song_version_id_version_number_unique")
+    .on(t.song_version_id, t.version_number),
+  index("lyrics_versions_song_version_id_created_at_idx")
+    .on(t.song_version_id, t.created_at.desc()),
+]);
+
+/**
+ * lyrics_drafts — single in-flight draft per (song_version, editor).
+ *
+ * base_version_id used for stale-publish detection (D-18).
+ * dirty_verse_numbers scopes Regenerate Lessons (D-07).
+ */
+export const lyricsDrafts = pgTable("lyrics_drafts", {
+  song_version_id: uuid("song_version_id").notNull()
+    .references(() => songVersions.id, { onDelete: "cascade" }),
+  editor_id: text("editor_id").notNull(),
+  base_version_id: uuid("base_version_id").notNull()
+    .references(() => lyricsVersions.id),
+  verses: jsonb("verses").notNull(),
+  dirty_verse_numbers: integer("dirty_verse_numbers").array().default([]).notNull(),
+  updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+}, (t) => [
+  primaryKey({ columns: [t.song_version_id, t.editor_id] }),
+]);
+
+/**
+ * song_video_history — audit log of YouTube video swaps for a song version.
+ *
+ * Allows admins to trace every video change and reason. ON DELETE CASCADE
+ * because history is meaningless without the parent song version.
+ */
+export const songVideoHistory = pgTable("song_video_history", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  song_version_id: uuid("song_version_id").notNull()
+    .references(() => songVersions.id, { onDelete: "cascade" }),
+  old_youtube_id: text("old_youtube_id"),
+  new_youtube_id: text("new_youtube_id").notNull(),
+  changed_at: timestamp("changed_at", { withTimezone: true }).defaultNow().notNull(),
+  changed_by: text("changed_by").notNull(),
+  reason: text("reason"),
+});
+
+export type LyricsVersion = typeof lyricsVersions.$inferSelect;
+export type LyricsVersionInsert = typeof lyricsVersions.$inferInsert;
+export type LyricsDraft = typeof lyricsDrafts.$inferSelect;
+export type LyricsDraftInsert = typeof lyricsDrafts.$inferInsert;
+export type SongVideoHistory = typeof songVideoHistory.$inferSelect;
 
 // =============================================================================
 // Phase 7: Data Foundation — vocabulary tracking and subscriptions
