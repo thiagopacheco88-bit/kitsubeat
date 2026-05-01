@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <ClerkProvider>
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -87,5 +89,6 @@ export default async function RootLayout({
         <main>{children}</main>
       </body>
     </html>
+    </ClerkProvider>
   );
 }
