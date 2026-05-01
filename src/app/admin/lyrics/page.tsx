@@ -81,6 +81,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
       lyrics_offset_ms: songVersions.lyrics_offset_ms,
       active_lyrics_version_id: songVersions.active_lyrics_version_id,
       pipeline_status: songVersions.pipeline_status,
+      pipeline_step: songVersions.pipeline_step,
       song_id: songs.id,
       slug: songs.slug,
       title: songs.title,
@@ -255,6 +256,8 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           vocabMap={vocabMap}
           songMeta={{ title: songVer.title, artist: songVer.artist, anime: songVer.anime }}
           initialDraftFromServer={initialDraftFromServer}
+          initialPipelineStatus={songVer.pipeline_status}
+          initialPipelineStep={songVer.pipeline_step}
         />
       </div>
     </div>

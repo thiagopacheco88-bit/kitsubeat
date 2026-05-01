@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AdminPlayerEmbed from "./AdminPlayerEmbed";
 import VerseRow from "./VerseRow";
 import SaveStatus from "./SaveStatus";
 import PublishButton from "./PublishButton";
+import SwapVideoModal from "./SwapVideoModal";
+import PipelineStatusPoller from "./PipelineStatusPoller";
 import { detectOverlap } from "@/lib/admin/timing-overlap";
 import { useAdminLyricsStore } from "@/lib/admin/lyrics-store";
 import { saveDraft } from "../actions/save-draft";
@@ -44,6 +46,9 @@ interface Props {
     dirtyVerseNumbers: number[];
     updatedAt: string;
   } | null;
+  /** Phase 11.5 D-10: pipeline status from RSC — avoids first-render flash in poller */
+  initialPipelineStatus?: "idle" | "rerun_in_progress" | "rerun_failed";
+  initialPipelineStep?: string | null;
 }
 
 const AUTOSAVE_DEBOUNCE_MS = 5000;
@@ -53,6 +58,11 @@ function localStorageKey(songVersionId: string, editorId: string) {
 }
 
 export default function VerseEditor(props: Props) {
+  // Phase 11.5 D-11: swap modal state
+  const [showSwap, setShowSwap] = useState(false);
+  // D-12: retry state — when set, SwapVideoModal opens in retry mode
+  const [retryStep, setRetryStep] = useState<string | null>(null);
+
   const verses = useAdminLyricsStore((s) => s.verses);
   const dirtyVerseNumbers = useAdminLyricsStore((s) => s.dirtyVerseNumbers);
   const init = useAdminLyricsStore((s) => s.init);
@@ -199,8 +209,25 @@ export default function VerseEditor(props: Props) {
             </span>
           )}
         </p>
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <SaveStatus />
+          {/* Phase 11.5 Plan 08: Swap video trigger */}
+          <button
+            type="button"
+            onClick={() => { setRetryStep(null); setShowSwap(true); }}
+            data-testid="open-swap-modal"
+            style={{
+              padding: "6px 14px",
+              fontSize: "12px",
+              border: "1px solid #e5e7eb",
+              borderRadius: "4px",
+              background: "#fff",
+              color: "#374151",
+              cursor: "pointer",
+            }}
+          >
+            Swap video
+          </button>
           <PublishButton slug={props.slug} />
         </div>
       </div>
@@ -283,6 +310,33 @@ export default function VerseEditor(props: Props) {
             </div>
           </div>
         ))
+      )}
+      {/* Phase 11.5 Plan 08: pipeline status poller (D-10/D-22) */}
+      <PipelineStatusPoller
+        songVersionId={props.songVersionId}
+        initialStatus={props.initialPipelineStatus ?? "idle"}
+        initialStep={props.initialPipelineStep ?? null}
+        onRetry={(failedStep) => {
+          // D-12: open swap modal in retry mode, pre-set to resume from failed step
+          setRetryStep(failedStep);
+          setShowSwap(true);
+        }}
+      />
+
+      {/* Phase 11.5 Plan 08: swap video modal */}
+      {showSwap && (
+        <SwapVideoModal
+          songVersionId={props.songVersionId}
+          slug={props.slug}
+          currentYoutubeId={props.youtubeId}
+          isRetry={retryStep !== null}
+          resumeFrom={retryStep}
+          onClose={() => setShowSwap(false)}
+          onStarted={() => {
+            // Poller will pick up the new status on next interval
+            // Plan 09 may also revalidate the catalog here
+          }}
+        />
       )}
     </AdminPlayerEmbed>
   );
