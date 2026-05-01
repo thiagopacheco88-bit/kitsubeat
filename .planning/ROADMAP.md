@@ -43,6 +43,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 11.2: TV-Derive Rework with Demucs + Needleman-Wunsch** - INSERTED 2026-04-26 - Catalog-wide repair of all 60 TV-version song lessons. Replace 10b's per-verse romaji LCS (which scatters matches and trips MAX_SPAN_RATIO even on clean Demucs-stem WhisperX input) with Needleman-Wunsch global alignment. Adds TV Demucs+WhisperX pipeline (yt-dlp → htdemucs → WhisperX large-v3 ja → NW vs full lesson → segment-anchored verse projection → 10c-load). Surfaced after sign-flow TV cut shipped broken on Vercel. Draft CONTEXT at [.planning/phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md](phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md) — Completed 2026-04-27
 - [x] **Phase 11.3: Fix Untranslated JP Verses** - INSERTED 2026-04-26 - Catalog-wide retranslation of 970 broken JP verses across 102 of 274 songs (likely a side effect of bec890c's lesson-prompt coverage rule causing the LLM to emit single-token "(untranslated lyric line)" stubs instead of tokenising/translating filler lines). Local-LLM (Ollama) drafts using whole-song context + neighbour-verse translations as anchors, inline review for high-difficulty verses, splice via existing verse-patch infrastructure. Draft CONTEXT at [.planning/phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md](phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md) (completed 2026-04-27)
 - [ ] **Phase 11.4: Visual Vocabulary Foundation** - INSERTED 2026-04-28 - Add `image_url` infrastructure to `vocabulary_items` and conditionally render images on LearnCard (first encounter) and FeedbackPanel (after answer) when present. Curate 50 Unsplash CC0 images for top-frequency concrete vocab as the validation set. Foundation only — full 1,409-word rollout deferred to v4.0.
+- [ ] **Phase 11.6: Beginner-Focused Practice Redesign** - INSERTED 2026-05-01 - Restructure practice into three parallel tracks (Vocabulary / Grammar / Kanji), strip furigana-teaching from Vocab+Grammar (romaji + translation focus), add Kanji track with ComfyUI-batched mnemonic images, split per-word progress into dual FSRS cards (romaji-meaning + kanji-kana), JLPT-ordered queue (N5→N1), lag-tested scheduling (no immediate-recall tests), romaji-typing exercise variant, 80% per-song unlock for Advanced Drills with three-ring UI, per-verse "domination" state with star badge + inline animation. Spec to be locked in 11.6-SPEC.md.
 - ➡️ **Phase 12: Anime Scenes & Cultural Vocabulary** - **MOVED** to v4.0 as Phase 21 (deferred until after v3.0 launch)
 
 ### v3.0 Launch Readiness
@@ -313,6 +314,12 @@ Plans:
 - [ ] 11.5-08-swap-video-PLAN.md — swap-video-pipeline.ts orchestrator + swap action (URL allowlist + spawn detached) + pipeline-status polling endpoint + SwapVideoModal + retry-from-failed-step (SPEC-19, 20, 21, D-9, 10, 11, 12)
 - [ ] 11.5-09-flag-broken-PLAN.md — public catalog filter (quality_status=active AND pipeline_status=idle) + /songs/[slug] 404 + flagSong/clearFlag actions + FlagControls UI (SPEC-22, D-13)
 - [ ] 11.5-10-regenerate-lessons-PLAN.md — regenerateLessons action looping AI fill per dirty verse + RegenerateLessonsModal + single regen snapshot via publishLyricsVersion (SPEC-23, D-7)
+
+### Phase 11.6: Beginner-Focused Practice Redesign (INSERTED 2026-05-01)
+
+**Goal:** [TBD — locked by 11.6-SPEC.md]
+**Depends on:** Phase 11.4 (Visual Vocabulary Foundation — `image_url` schema), Phase 11 (Cross-Song Vocabulary — FSRS infrastructure)
+**Plans:** TBD
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
