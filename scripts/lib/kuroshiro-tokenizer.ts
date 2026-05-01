@@ -40,17 +40,31 @@ export interface LyricsToken {
 let kuroshiroInstance: InstanceType<typeof Kuroshiro> | null = null;
 
 /**
+ * Options for initKuroshiro.
+ */
+export interface InitKuroshiroOptions {
+  /** Override dict path (required when imported from a Next.js bundled context where
+   * import.meta.url-relative resolution fails). Pass path.resolve(process.cwd(), "node_modules/@sglkc/kuromoji/dict").
+   */
+  dictPath?: string;
+}
+
+/**
  * Initialize kuroshiro with @sglkc/kuromoji analyzer.
  * Must be called once before tokenizeLyrics(). Subsequent calls are no-ops.
  *
  * Dict path points to @sglkc/kuromoji dict folder which is pre-bundled
  * and loads synchronously, avoiding Node 18+ async file issues.
+ *
+ * @param opts - Optional configuration. Provide dictPath when calling from a
+ * Next.js server action context to avoid import.meta.url-relative resolution
+ * failures (D-19 Pitfall 2).
  */
-export async function initKuroshiro(): Promise<void> {
+export async function initKuroshiro(opts: InitKuroshiroOptions = {}): Promise<void> {
   if (kuroshiroInstance !== null) return;
 
-  // Resolve dict path relative to project root
-  const dictPath = resolve(
+  // Resolve dict path: use provided dictPath or fall back to import.meta.url-relative
+  const dictPath = opts.dictPath ?? resolve(
     fileURLToPath(import.meta.url),
     "../../../node_modules/@sglkc/kuromoji/dict"
   );
