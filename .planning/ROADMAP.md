@@ -297,6 +297,13 @@ Plans:
 - [ ] 11.4-02-PLAN.md — page.tsx merge + Question type + LearnCard/FeedbackPanel <img> rendering + JSDOM tests (AC-3, AC-4, AC-5, AC-6)
 - [ ] 11.4-03-PLAN.md — 19-curate + 19b-load seed scripts + integration tests + 50-row operator curation + DB load (AC-7, AC-8)
 
+### Phase 11.5: Admin Lyrics Editor (INSERTED 2026-05-01)
+
+**Goal:** Admin-gated route where Thiago and his Japanese teacher can edit per-verse lyrics fields (furigana, romaji, translation, breakdown) with manual timing, AI fill-rest, verse insert/delete, draft+publish versioning preserved indefinitely, YouTube video swap that triggers full pipeline rerun, flag-as-broken states, and lesson regeneration. Versioned history powers gap analysis between auto-generated and human-corrected lyrics to identify pipeline weaknesses.
+**Depends on:** Phase 11.1 (add-song pipeline), Phase 11.2 (TV-derive), Phase 11.3 (untranslated verses)
+**Estimated:** TBD (set during planning)
+**Plans:** TBD
+
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
 **Depends on**: Phase 7
