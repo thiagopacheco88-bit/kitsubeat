@@ -44,7 +44,7 @@ export default defineConfig({
     timeout: 5_000,
   },
   use: {
-    baseURL: "http://localhost:7000",
+    baseURL: process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:7000",
     screenshot: "only-on-failure",
   },
   webServer: {
@@ -62,6 +62,18 @@ export default defineConfig({
     // This env var is benign in any other context — it only flips the test-only hooks.
     env: {
       NEXT_PUBLIC_APP_ENV: "test",
+      // Phase 11.5: Pass Clerk env vars through to dev server if set in caller's environment.
+      // Without these, /admin/* tests will hit the middleware and Clerk will throw.
+      // Set NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY + CLERK_SECRET_KEY in .env.local to enable admin e2e.
+      ...(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        ? { NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }
+        : {}),
+      ...(process.env.CLERK_SECRET_KEY
+        ? { CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY }
+        : {}),
+      ...(process.env.CLERK_ADMIN_EMAILS
+        ? { CLERK_ADMIN_EMAILS: process.env.CLERK_ADMIN_EMAILS }
+        : {}),
     },
   },
   projects: [{ name: "chromium", use: { browserName: "chromium" } }],
