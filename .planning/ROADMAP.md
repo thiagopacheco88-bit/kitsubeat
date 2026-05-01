@@ -48,7 +48,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 ### v3.0 Launch Readiness
 
 - [x] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginner→advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0 (completed 2026-04-19)
-- [ ] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate — measurement against pages about to be redesigned in Phase 14 would be wasted work.)
+- [x] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate — measurement against pages about to be redesigned in Phase 14 would be wasted work.) (completed 2026-05-01)
 - [ ] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface
 - [ ] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated
 - [ ] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook
@@ -398,12 +398,12 @@ Plans:
   1. Already-visited song lessons serve from cache on repeat visit (no cold DB hit)
   2. YouTube iframe deferred until in view; lesson panel renders independently of video load
   3. Bundle size budget enforced in CI (song page JS <=50KB gzipped on /songs/[slug]) — tightened from 200KB ROADMAP target to 50KB SPEC budget (~25% headroom over 2026-04-24 baseline of ~40KB)
-**Plans:** 4 plans
+**Plans:** 4/4 plans complete
 Plans:
-- [ ] 13-01-PLAN.md — Lesson cache: remove force-dynamic from /songs/[slug], decouple KnownWordCount to client-fetch, instrumented Neon counter, integration test, revalidateTag hooks in seed scripts (R1)
-- [ ] 13-02-PLAN.md — Iframe defer: IntersectionObserver lazy-mount in YouTubeEmbed, skeleton placeholder, force-mount on Practice tab, e2e spec for defer + Listening Drill regression (R2)
-- [ ] 13-03-PLAN.md — Bundle CI: size-limit + @next/bundle-analyzer + .size-limit.cjs (50 KB gzipped on /songs/[slug]), pr-checks workflow extension with size-limit-action (R3)
-- [ ] 13-04-PLAN.md — Lighthouse baseline (informational, AC #11): pick-median-song script, mobile+desktop runs against home/catalog/song, 13-SUMMARY.md baseline table (depends on 01/02/03)
+- [x] 13-01-PLAN.md — Lesson cache: remove force-dynamic from /songs/[slug], decouple KnownWordCount to client-fetch, instrumented Neon counter, integration test, revalidateTag hooks in seed scripts (R1)
+- [x] 13-02-PLAN.md — Iframe defer: IntersectionObserver lazy-mount in YouTubeEmbed, skeleton placeholder, force-mount on Practice tab, e2e spec for defer + Listening Drill regression (R2)
+- [x] 13-03-PLAN.md — Bundle CI: size-limit + @next/bundle-analyzer + .size-limit.cjs (50 KB gzipped on /songs/[slug]), pr-checks workflow extension with size-limit-action (R3)
+- [x] 13-04-PLAN.md — Lighthouse baseline (informational, AC #11): pick-median-song script, mobile+desktop runs against home/catalog/song, 13-SUMMARY.md baseline table (depends on 01/02/03)
 
 ### Phase 14: UX Polish
 **Goal**: Visual identity is distinctive and consistent; mobile experience is first-class; microinteractions make the product feel crafted.
