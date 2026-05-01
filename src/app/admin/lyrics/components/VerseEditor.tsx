@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import AdminPlayerEmbed from "./AdminPlayerEmbed";
 import VerseRow from "./VerseRow";
 import SaveStatus from "./SaveStatus";
+import PublishButton from "./PublishButton";
 import { detectOverlap } from "@/lib/admin/timing-overlap";
 import { useAdminLyricsStore } from "@/lib/admin/lyrics-store";
 import { saveDraft } from "../actions/save-draft";
@@ -198,7 +199,10 @@ export default function VerseEditor(props: Props) {
             </span>
           )}
         </p>
-        <SaveStatus />
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <SaveStatus />
+          <PublishButton slug={props.slug} />
+        </div>
       </div>
 
       <div
