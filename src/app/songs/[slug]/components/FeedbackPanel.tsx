@@ -50,8 +50,7 @@ export default function FeedbackPanel({
   const hasMoreContent =
     !!question.detailedExplanation ||
     !!question.mnemonic ||
-    hasKanjiBreakdown ||
-    !!question.image_url;
+    hasKanjiBreakdown;
 
   return (
     <div
@@ -75,6 +74,30 @@ export default function FeedbackPanel({
           {isCorrect ? "Correct!" : "Not quite"}
         </span>
       </div>
+
+      {/* Phase 11.4: optional Unsplash image — always visible when image_url present.
+          Originally inside the More accordion (D-04) but promoted to top-level on
+          UAT feedback to make it discoverable without an extra tap. 112x112 numeric
+          attrs prevent CLS; silent collapse on fetch error per D-07. */}
+      {question.image_url && !imageFailed && (
+        <div className="mb-3 flex justify-center">
+          <img
+            src={question.image_url}
+            alt={question.meaning_en ?? ""}
+            width={112}
+            height={112}
+            loading="lazy"
+            onError={() => {
+              console.warn(
+                `[FeedbackPanel] image failed: ${question.image_url} (${question.vocabItemId})`
+              );
+              setImageFailed(true);
+            }}
+            data-testid="feedback-image"
+            className="aspect-square w-28 h-28 rounded-md object-cover"
+          />
+        </div>
+      )}
 
       {/* Wrong answer: show correct answer first */}
       {!isCorrect && (
@@ -152,28 +175,6 @@ export default function FeedbackPanel({
       {/* Inline accordion body — persists across questions via Zustand */}
       {hasMoreContent && moreAccordionOpen && (
         <div className="mt-3 flex flex-col gap-3" data-testid="feedback-more-accordion">
-          {/* Phase 11.4: optional Unsplash image — first child of the accordion body
-              per D-04 (image precedes mnemonic). 112x112 numeric attrs prevent CLS;
-              silent collapse on fetch error per D-07. */}
-          {question.image_url && !imageFailed && (
-            <div className="flex justify-center">
-              <img
-                src={question.image_url}
-                alt={question.meaning_en ?? ""}
-                width={112}
-                height={112}
-                loading="lazy"
-                onError={() => {
-                  console.warn(
-                    `[FeedbackPanel] image failed: ${question.image_url} (${question.vocabItemId})`
-                  );
-                  setImageFailed(true);
-                }}
-                data-testid="feedback-image"
-                className="aspect-square w-28 h-28 rounded-md object-cover"
-              />
-            </div>
-          )}
           {question.detailedExplanation && (
             <p className="text-sm text-gray-400">{question.detailedExplanation}</p>
           )}

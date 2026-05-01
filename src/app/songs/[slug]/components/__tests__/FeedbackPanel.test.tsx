@@ -5,10 +5,11 @@
  * Phase 11.4 Plan 02 — FeedbackPanel image rendering tests.
  *
  * Covers:
- *   - AC-4 (image renders inside the More accordion body)
+ *   - AC-4 (image renders at top of FeedbackPanel — promoted out of the More
+ *     accordion on UAT feedback so it is always visible without an extra tap)
  *   - AC-5 (CLS-safe numeric width=112 / height=112)
  *   - AC-6 (loading="lazy" + alt = English meaning)
- *   - DOM ordering: image precedes mnemonic block in the accordion body
+ *   - DOM ordering: image precedes the More accordion / mnemonic block
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
@@ -48,7 +49,7 @@ describe("FeedbackPanel image rendering (Phase 11.4)", () => {
   });
   afterEach(() => cleanup());
 
-  it("renders <img> inside the More accordion with width=112 height=112 alt=meaning_en (AC-4, AC-5, AC-6)", () => {
+  it("renders <img> at top of FeedbackPanel with width=112 height=112 alt=meaning_en (AC-4, AC-5, AC-6)", () => {
     const q = makeQuestion({
       image_url: "https://images.unsplash.com/photo-2",
       meaning_en: "water",
@@ -70,8 +71,10 @@ describe("FeedbackPanel image rendering (Phase 11.4)", () => {
     expect(img.getAttribute("loading")).toBe("lazy");
     expect(img.getAttribute("alt")).toBe("water");
 
-    const accordion = screen.getByTestId("feedback-more-accordion");
-    expect(accordion.contains(img)).toBe(true);
+    // Image-only fixture: no mnemonic/explanation/kanji_breakdown ⇒ no More button
+    // or accordion should render. Image lives at top-level of the FeedbackPanel.
+    expect(screen.queryByTestId("feedback-more-accordion")).toBeNull();
+    expect(screen.queryByText("More")).toBeNull();
   });
 
   it("omits <img> when image_url is undefined (AC-4 inverse)", () => {
@@ -90,7 +93,7 @@ describe("FeedbackPanel image rendering (Phase 11.4)", () => {
     expect(screen.queryByTestId("feedback-image")).toBeNull();
   });
 
-  it("image appears BEFORE mnemonic block in DOM order (AC-4 ordering)", () => {
+  it("image appears BEFORE mnemonic block in DOM order — image is now top-level, mnemonic remains in accordion (AC-4 ordering)", () => {
     const q = makeQuestion({
       image_url: "https://images.unsplash.com/photo-3",
       meaning_en: "water",
