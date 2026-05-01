@@ -4,6 +4,10 @@ import { usePlayer } from "@/app/songs/[slug]/components/PlayerContext";
 import type { Verse, Token } from "@/lib/types/lesson";
 import type { OverlapWarning } from "@/lib/admin/timing-overlap";
 import { useState } from "react";
+import { useAdminLyricsStore } from "@/lib/admin/lyrics-store";
+import { aiFillVerse } from "../actions/ai-fill";
+import type { VerseFillResponse } from "@/lib/admin/verse-fill-zod";
+import type { SongMeta } from "./VerseEditor";
 
 /**
  * Per-vocab lookup shape — populated from vocabulary_items rows loaded by page.tsx.
@@ -30,6 +34,7 @@ interface Props {
   verse: Verse;
   vocabMap: VocabRowMap;
   warning: OverlapWarning | null;
+  songMeta: SongMeta;
   onChange: (patch: Partial<Verse>) => void;
   onDelete: () => void;
 }
@@ -59,6 +64,7 @@ export default function VerseRow({
   verse,
   vocabMap,
   warning,
+  songMeta,
   onChange,
   onDelete,
 }: Props) {
@@ -66,6 +72,17 @@ export default function VerseRow({
   const [expandedTokenIdx, setExpandedTokenIdx] = useState<number | null>(null);
   const [kanjiSavingId, setKanjiSavingId] = useState<string | null>(null);
   const [kanjiSaveError, setKanjiSaveError] = useState<string | null>(null);
+
+  // AI fill state (D-08: inline blocking spinner per verse)
+  const songVersionId = useAdminLyricsStore((s) => s.songVersionId);
+  const baseVersionId = useAdminLyricsStore((s) => s.baseVersionId);
+  const allDraftVerses = useAdminLyricsStore((s) => s.verses);
+  const dirtyVerseNumbers = useAdminLyricsStore((s) => s.dirtyVerseNumbers);
+  const isDirty = dirtyVerseNumbers.includes(verse.verse_number);
+
+  const [aiFillState, setAiFillState] = useState<"idle" | "loading" | "result" | "error">("idle");
+  const [aiSuggestion, setAiSuggestion] = useState<VerseFillResponse | null>(null);
+  const [aiError, setAiError] = useState<string | null>(null);
 
   // Per SPEC #7: per-language translation editing — collect available locales
   const translationLocales = Object.keys(verse.translations ?? { en: "" });
@@ -126,6 +143,55 @@ export default function VerseRow({
     } finally {
       setKanjiSavingId(null);
     }
+  }
+
+  async function handleAiFill() {
+    if (!songVersionId || !baseVersionId) return;
+    setAiFillState("loading");
+    setAiError(null);
+    try {
+      const fieldsToFill: import("@/lib/admin/verse-fill-prompt").FillableField[] = [];
+      fieldsToFill.push("translations", "literal_meaning", "cultural_context");
+      if (verse.tokens.some((t) => !t.romaji)) fieldsToFill.push("tokens");
+
+      const result = await aiFillVerse({
+        songVersionId,
+        songTitle: songMeta.title,
+        songArtist: songMeta.artist,
+        songAnime: songMeta.anime,
+        baseVersionId,
+        verseNumber: verse.verse_number,
+        draftVerses: allDraftVerses,
+        fieldsToFill,
+      });
+      if (result.ok) {
+        setAiSuggestion(result.verse);
+        setAiFillState("result");
+      } else {
+        setAiError(result.error);
+        setAiFillState("error");
+      }
+    } catch (err) {
+      setAiError(err instanceof Error ? err.message : "unknown");
+      setAiFillState("error");
+    }
+  }
+
+  function acceptSuggestion() {
+    if (!aiSuggestion) return;
+    const patch: Partial<Verse> = {};
+    if (aiSuggestion.translations) patch.translations = { ...verse.translations, ...aiSuggestion.translations };
+    if (aiSuggestion.literal_meaning !== undefined) patch.literal_meaning = aiSuggestion.literal_meaning;
+    if (aiSuggestion.cultural_context !== undefined) patch.cultural_context = aiSuggestion.cultural_context;
+    if (aiSuggestion.tokens) patch.tokens = aiSuggestion.tokens as unknown as Verse["tokens"];
+    onChange(patch);
+    setAiFillState("idle");
+    setAiSuggestion(null);
+  }
+
+  function rejectSuggestion() {
+    setAiFillState("idle");
+    setAiSuggestion(null);
   }
 
   return (
@@ -205,6 +271,26 @@ export default function VerseRow({
         <span style={{ color: palette.subdued, fontSize: "11px" }}>ms</span>
 
         <div style={{ flex: 1 }} />
+        {/* SPEC #10 + D-08: AI fill button — enabled only when verse is dirty */}
+        <button
+          type="button"
+          disabled={!isDirty || aiFillState === "loading" || !songVersionId || !baseVersionId}
+          onClick={() => void handleAiFill()}
+          data-testid={`ai-fill-${verse.verse_number}`}
+          aria-label={`AI fill remaining fields for verse ${verse.verse_number}`}
+          style={{
+            padding: "4px 10px",
+            fontSize: "12px",
+            border: "1px solid #6366f1",
+            borderRadius: "4px",
+            background: aiFillState === "loading" ? "#f3f4f6" : "#fff",
+            color: "#6366f1",
+            cursor: !isDirty || aiFillState === "loading" ? "not-allowed" : "pointer",
+            opacity: !isDirty || aiFillState === "loading" ? 0.5 : 1,
+          }}
+        >
+          {aiFillState === "loading" ? "AI filling..." : "AI fill"}
+        </button>
         <button
           type="button"
           onClick={onDelete}
@@ -413,6 +499,28 @@ export default function VerseRow({
       </div>
 
       {/* Kanji breakdown editor (expanded token only) — SPEC #9 + ISSUE-02 writable form */}
+      {/* SPEC #10 D-08: AI suggestion preview with accept/reject */}
+      {aiFillState === "result" && aiSuggestion && (
+        <div data-testid={`ai-suggestion-${verse.verse_number}`} style={{ marginTop: "8px", padding: "8px", border: "1px solid #6366f1", borderRadius: "4px", background: "#eef2ff" }}>
+          <p style={{ fontSize: "11px", color: "#1e40af", margin: "0 0 4px 0" }}>
+            AI suggestion (snapshot already saved for gap analysis):
+          </p>
+          <pre style={{ fontSize: "10px", margin: 0, maxHeight: "200px", overflow: "auto" }}>
+            {JSON.stringify(aiSuggestion, null, 2)}
+          </pre>
+          <div style={{ marginTop: "6px", display: "flex", gap: "6px" }}>
+            <button type="button" onClick={acceptSuggestion} data-testid={`ai-accept-${verse.verse_number}`} style={{ padding: "2px 8px", fontSize: "11px", color: "#fff", background: "#6366f1", border: "none", borderRadius: "4px", cursor: "pointer" }}>Accept</button>
+            <button type="button" onClick={rejectSuggestion} data-testid={`ai-reject-${verse.verse_number}`} style={{ padding: "2px 8px", fontSize: "11px", color: "#6b7280", background: "#fff", border: "1px solid #e5e7eb", borderRadius: "4px", cursor: "pointer" }}>Reject</button>
+          </div>
+        </div>
+      )}
+
+      {aiFillState === "error" && (
+        <p data-testid={`ai-error-${verse.verse_number}`} style={{ marginTop: "8px", fontSize: "11px", color: "#dc2626" }}>
+          AI fill failed: {aiError}
+        </p>
+      )}
+
       {expandedTokenIdx !== null &&
         (() => {
           const extToken = verse.tokens[expandedTokenIdx] as TokenWithVocab;

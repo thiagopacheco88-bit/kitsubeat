@@ -253,6 +253,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           baseVersionId={baseVersionId}
           baseVersionNumber={baseVersionNumber}
           vocabMap={vocabMap}
+          songMeta={{ title: songVer.title, artist: songVer.artist, anime: songVer.anime }}
           initialDraftFromServer={initialDraftFromServer}
         />
       </div>

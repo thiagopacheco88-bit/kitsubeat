@@ -18,6 +18,12 @@ interface VocabRowMap {
   };
 }
 
+export interface SongMeta {
+  title: string;
+  artist: string | null;
+  anime: string | null;
+}
+
 interface Props {
   songVersionId: string;
   editorId: string; // passed from RSC (Clerk currentUser.id)
@@ -29,6 +35,8 @@ interface Props {
   baseVersionId: string; // required for stale detect at publish (Plan 07)
   baseVersionNumber: number | null;
   vocabMap: VocabRowMap;
+  /** Song metadata for the AI fill prompt builder (D-06). */
+  songMeta: SongMeta;
   /** Server-first draft hydration (D-17). Null when no draft row exists yet. */
   initialDraftFromServer: {
     verses: Verse[];
@@ -232,6 +240,7 @@ export default function VerseEditor(props: Props) {
               verse={verse}
               vocabMap={props.vocabMap}
               warning={warningByVerseNumber.get(verse.verse_number) ?? null}
+              songMeta={props.songMeta}
               onChange={(patch) => updateVerse(verse.verse_number, patch)}
               onDelete={() => {
                 if (
