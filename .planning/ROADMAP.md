@@ -301,8 +301,18 @@ Plans:
 
 **Goal:** Admin-gated route where Thiago and his Japanese teacher can edit per-verse lyrics fields (furigana, romaji, translation, breakdown) with manual timing, AI fill-rest, verse insert/delete, draft+publish versioning preserved indefinitely, YouTube video swap that triggers full pipeline rerun, flag-as-broken states, and lesson regeneration. Versioned history powers gap analysis between auto-generated and human-corrected lyrics to identify pipeline weaknesses.
 **Depends on:** Phase 11.1 (add-song pipeline), Phase 11.2 (TV-derive), Phase 11.3 (untranslated verses)
-**Estimated:** TBD (set during planning)
-**Plans:** TBD
+**Plans:** 10 plans
+Plans:
+- [ ] 11.5-01-schema-migration-PLAN.md — drizzle/0015 migration: lyrics_versions + lyrics_drafts + song_video_history tables; pipeline_status + quality_status columns; backfill source=auto rows (SPEC-14, 16, 17, 19, 20, 22)
+- [ ] 11.5-02-clerk-admin-gate-PLAN.md — @clerk/nextjs install + src/middleware.ts + admin-allowlist.ts + require-admin.ts + ClerkProvider wrap + sensei README + Playwright e2e (SPEC-1)
+- [ ] 11.5-03-route-shell-PLAN.md — /admin/lyrics route shell + SongSearch (incl. flagged) + URL state preservation (SPEC-2, 3, 22)
+- [ ] 11.5-04-verse-editor-PLAN.md — VerseEditor + VerseRow + AdminPlayerEmbed + timing-overlap.ts + verse-renumber.ts (SPEC-4 to 9, 12, 13, 14)
+- [ ] 11.5-05-draft-store-PLAN.md — useAdminLyricsStore zustand + saveDraft action + 5s debounce + localStorage mirror + load handshake (SPEC-15, 18, D-16, 17, 21)
+- [ ] 11.5-06-ai-fill-PLAN.md — claude-cli.ts subprocess wrapper + verse-fill-prompt.ts + verse-fill-zod.ts + aiFillVerse action with ai-assist snapshot BEFORE return (SPEC-10, 11, D-5, 6, 8, 20)
+- [ ] 11.5-07-publish-flow-PLAN.md — publish-tx.ts atomic db.batch + publish action with kuromoji re-tokenize + StalePublishModal + revalidate (SPEC-15 to 18, D-15, 18, 19)
+- [ ] 11.5-08-swap-video-PLAN.md — swap-video-pipeline.ts orchestrator + swap action (URL allowlist + spawn detached) + pipeline-status polling endpoint + SwapVideoModal + retry-from-failed-step (SPEC-19, 20, 21, D-9, 10, 11, 12)
+- [ ] 11.5-09-flag-broken-PLAN.md — public catalog filter (quality_status=active AND pipeline_status=idle) + /songs/[slug] 404 + flagSong/clearFlag actions + FlagControls UI (SPEC-22, D-13)
+- [ ] 11.5-10-regenerate-lessons-PLAN.md — regenerateLessons action looping AI fill per dirty verse + RegenerateLessonsModal + single regen snapshot via publishLyricsVersion (SPEC-23, D-7)
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
