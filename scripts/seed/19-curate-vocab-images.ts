@@ -46,7 +46,16 @@ export async function runCurate(opts: { limit?: number } = {}): Promise<{ count:
   const db = getDb();
 
   // Pitfall 2 mitigation: refresh the materialized view (CONCURRENTLY-safe, <1s on current catalog).
-  await refreshVocabGlobal();
+  // Swallow refresh errors: pre-existing duplicate-row issues in vocab_global (catalog-level
+  // backlog item, not specific to 11.4) can fail both refresh modes. Curate falls back to
+  // whatever the view currently holds — slight staleness is acceptable for a validation set.
+  try {
+    await refreshVocabGlobal();
+  } catch (err) {
+    console.warn(
+      `[curate] vocab_global refresh failed — using existing view state. Backlog: investigate duplicates. (${(err as Error).message})`
+    );
+  }
 
   const rawRows = await db.execute(sql`
     SELECT
