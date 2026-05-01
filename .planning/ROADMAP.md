@@ -318,9 +318,22 @@ Plans:
 
 ### Phase 11.6: Beginner-Focused Practice Redesign (INSERTED 2026-05-01)
 
-**Goal:** [TBD — locked by 11.6-SPEC.md]
-**Depends on:** Phase 11.4 (Visual Vocabulary Foundation — `image_url` schema), Phase 11 (Cross-Song Vocabulary — FSRS infrastructure)
-**Plans:** TBD
+**Goal:** Restructure the song-page practice flow into three parallel beginner-focused tracks (Vocabulary, Grammar, Kanji) with romaji + translation as the teaching surface, ComfyUI-batched mnemonic images, dual FSRS cards per word, JLPT-ordered lag-tested scheduling, per-verse "dominated" state with inline animation, and Advanced Drills entry gated behind >=80% per-track progress.
+**Depends on:** Phase 11.4 (Visual Vocabulary Foundation -- image_url schema), Phase 11 (Cross-Song Vocabulary -- FSRS infrastructure)
+**Requirements:** SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7, SPEC-REQ-8, SPEC-REQ-9, SPEC-REQ-10, SPEC-REQ-11, SPEC-REQ-12, SPEC-REQ-13, SPEC-REQ-14, SPEC-REQ-15, SPEC-REQ-16, SPEC-REQ-17, SPEC-REQ-18 (locked in 11.6-SPEC.md)
+**Plans:** 11 plans (7 waves)
+Plans:
+- [ ] 11.6-01-PLAN.md -- Schema migration 0016 (DELETE+ALTER user_vocab_mastery card_kind enum, new user_verse_domination, denormalized track_pct columns) + Wave 0 integration test stubs (SPEC-REQ-4, 10, 13, 16)
+- [ ] 11.6-02-PLAN.md -- ComfyUI batch script + workflow JSON + .gitignore + npm script + GPU probe + --regenerate flag (SPEC-REQ-8, 9)
+- [ ] 11.6-03-PLAN.md -- Pure modules: kanji.ts (extract isKanji) + scheduler.ts (lag-test + JLPT sort) + Wave 0 unit tests (SPEC-REQ-3, 5, 6)
+- [ ] 11.6-04-PLAN.md -- generator.ts: vocab_typed type + trackKind/lengthMode params + scheduler integration + Advanced Drills 1:1:1 mix + Wave 0 tests (SPEC-REQ-3, 7, 12)
+- [ ] 11.6-05-PLAN.md -- recordVocabAnswer extension: cardKind branching + per-track-pct recompute + verse-domination atomic insert + versesDominatedNow return (SPEC-REQ-4, 10, 13, 15, 16)
+- [ ] 11.6-06-PLAN.md -- ExerciseTab four-card restructure + Short/Long toggle + SSR all-kana detection + tier.ts trackKind bypass + Wave 0 tests (SPEC-REQ-1, 2, 16)
+- [ ] 11.6-07-PLAN.md -- TrackProgressRings + Advanced Drills lock/unlock affordance + page.tsx track_pct threading + e2e test (SPEC-REQ-10, 11, 12)
+- [ ] 11.6-08-PLAN.md -- VerseStarIcon + VerseDominatedAnimation + SongHeader counter + lyrics star + SongCard %-dominated catalog line + queries.ts getDominatedVerses + globals.css keyframe (SPEC-REQ-14, 15)
+- [ ] 11.6-09-PLAN.md -- VocabTypedCard romaji-input + ExerciseSession dispatch + LearnCard trackKind-aware (SPEC-REQ-3, 7)
+- [ ] 11.6-10-PLAN.md -- /review queue dual-card extension + recordReviewAnswer cardKind + ReviewSession dispatch (SPEC-REQ-17)
+- [ ] 11.6-11-PLAN.md -- /vocabulary dashboard dual-progress display (GROUP BY card_kind + dual MasteryBadge + tier grouping by romaji_meaning) (SPEC-REQ-18)
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
