@@ -1,7 +1,14 @@
 import { notFound } from "next/navigation";
+import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
-import { songs, songVersions, lyricsVersions, vocabularyItems } from "@/lib/db/schema";
-import { eq, sql } from "drizzle-orm";
+import {
+  songs,
+  songVersions,
+  lyricsVersions,
+  lyricsDrafts,
+  vocabularyItems,
+} from "@/lib/db/schema";
+import { eq, and } from "drizzle-orm";
 import SongSearch from "./components/SongSearch";
 import VerseEditor from "./components/VerseEditor";
 import type { Verse } from "@/lib/types/lesson";
@@ -40,8 +47,9 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
               fontSize: "14px",
             }}
           >
-            Edit per-verse lyrics fields, swap YouTube videos, flag broken songs, regenerate lessons.
-            Versioned indefinitely — every published edit becomes a permanent snapshot.
+            Edit per-verse lyrics fields, swap YouTube videos, flag broken songs,
+            regenerate lessons. Versioned indefinitely — every published edit becomes
+            a permanent snapshot.
           </p>
         </div>
         <SongSearch initialSongVersionId={null} />
@@ -109,7 +117,65 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
     }
   }
 
-  // Step 3: collect vocab_item_ids from VocabEntry list in lesson (not Token, which lacks this field)
+  // If no lyrics_versions row, surface a notice — admin should re-run the backfill
+  if (!baseVersionId) {
+    return (
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
+        <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#111827", margin: 0 }}>
+          Admin Lyrics Editor
+        </h1>
+        <p style={{ color: "#dc2626", marginTop: "16px" }}>
+          No active lyrics version found for song version{" "}
+          <code>{songVersionId}</code>. Re-run the Plan 01 backfill migration or
+          manually create a lyrics_versions row before editing.
+        </p>
+      </div>
+    );
+  }
+
+  // Step 3: get the current admin's editor_id from Clerk session (server-side)
+  // editor_id is ALWAYS sourced server-side — client cannot forge it (DRAFT-T-03)
+  const user = await currentUser();
+  const editorId = user?.id ?? "anonymous";
+
+  // Step 4: load this admin's draft if it exists (server-first per D-17)
+  // Different admin → different editor_id → different row (T-11.5-07 per-editor isolation)
+  let initialDraftFromServer: {
+    verses: Verse[];
+    dirtyVerseNumbers: number[];
+    updatedAt: string;
+  } | null = null;
+
+  if (editorId !== "anonymous") {
+    const [draft] = await db
+      .select({
+        verses: lyricsDrafts.verses,
+        dirty_verse_numbers: lyricsDrafts.dirty_verse_numbers,
+        updated_at: lyricsDrafts.updated_at,
+      })
+      .from(lyricsDrafts)
+      .where(
+        and(
+          eq(lyricsDrafts.song_version_id, songVer.song_version_id),
+          eq(lyricsDrafts.editor_id, editorId)
+        )
+      )
+      .limit(1);
+
+    if (draft) {
+      initialDraftFromServer = {
+        verses: draft.verses as Verse[],
+        dirtyVerseNumbers: draft.dirty_verse_numbers ?? [],
+        updatedAt: draft.updated_at.toISOString(),
+      };
+      // Note: D-17 specifies "server first" — if draft exists on server, use it.
+      // (localStorage will be re-synced on first save.)
+      // If draft.base_version_id !== baseVersionId, the draft is stale (someone
+      // published while we were away); Plan 07 surfaces a reload modal for that case.
+    }
+  }
+
+  // Step 5: collect vocab_item_ids from VocabEntry list in lesson (not Token, which lacks this field).
   // For now, vocabMap is empty — Token type in lesson.ts doesn't carry vocab_item_id yet.
   // Plan 05/06 will extend the Token type and populate this map.
   const vocabMap: Record<
@@ -121,11 +187,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
       kanji_breakdown: unknown;
     }
   > = {};
-
-  // If vocabulary_items are needed in the future, the query template is:
-  // const vocabIds = new Set<string>(); ... db.select from vocabularyItems where id IN (...)
-  // Suppress unused import warning for vocabularyItems — kept for plan 05 extension.
-  void vocabularyItems;
+  void vocabularyItems; // suppress unused import — kept for Plan 05/06 extension
 
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
@@ -182,6 +244,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
 
         <VerseEditor
           songVersionId={songVer.song_version_id}
+          editorId={editorId}
           slug={songVer.slug}
           title={songVer.title}
           youtubeId={songVer.youtube_id}
@@ -190,6 +253,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           baseVersionId={baseVersionId}
           baseVersionNumber={baseVersionNumber}
           vocabMap={vocabMap}
+          initialDraftFromServer={initialDraftFromServer}
         />
       </div>
     </div>
