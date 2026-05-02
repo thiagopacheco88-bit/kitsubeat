@@ -190,3 +190,24 @@ export const JLPT_COLOR_CLASS: Record<string, string> = {
   N2: "bg-jlpt-n2",
   N1: "bg-jlpt-n1",
 };
+
+/**
+ * Phase 14 — Grammar category → token-class map keyed for the Badge primitive's
+ * grammar variant (paired with JLPT_COLOR_CLASS shape; bg-[var(--color-grammar-*)]
+ * idiom).
+ *
+ * NOTE: The legacy `GRAMMAR_COLOR_CLASS` (above, line 176) maps to `text-grammar-*`
+ * and is consumed by VocabularySection / VerseBlock / TokenSpan for inline text
+ * coloring. This `GRAMMAR_BG_COLOR_CLASS` is a parallel surface for the Badge
+ * primitive's `variant="grammar"` background tint. Token values defined in
+ * src/app/globals.css @theme block.
+ */
+export const GRAMMAR_BG_COLOR_CLASS: Record<string, string> = {
+  noun: "bg-[var(--color-grammar-noun)]",
+  verb: "bg-[var(--color-grammar-verb)]",
+  adjective: "bg-[var(--color-grammar-adjective)]",
+  adverb: "bg-[var(--color-grammar-adverb)]",
+  particle: "bg-[var(--color-grammar-particle)]",
+  expression: "bg-[var(--color-grammar-expression)]",
+  other: "bg-[var(--color-grammar-other)]",
+};
