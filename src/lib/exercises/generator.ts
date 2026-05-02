@@ -1062,18 +1062,34 @@ function buildQuestionsFromPool(input: BuildQuestionsPoolInput): Question[] {
     minIntroToTestGap: MIN_INTRO_TO_TEST_GAP,
   });
 
-  // Reorder questions to match the sequenced output
-  const questionByVocabId = new Map<string, Question>();
+  // Reorder questions to match the sequenced output.
+  //
+  // The per-vocab × per-type loop above can emit multiple Question objects
+  // for the same vocab (e.g., Vocab track emits both vocab_meaning and
+  // meaning_vocab per word). Each Question has a unique id. The scheduler
+  // emits up to 2 slots per new vocab (intro + test) — we fill those slots
+  // with DIFFERENT Question objects from the same vocab's queue so the
+  // intro slot and the test slot don't share the same question id (which
+  // would short-circuit React's `key={current.id}` and leak component state
+  // between slots, plus feel like a literal repeat).
+  const questionsByVocabId = new Map<string, Question[]>();
   for (const q of questions) {
-    if (q.vocabItemId) questionByVocabId.set(q.vocabItemId, q);
+    if (!q.vocabItemId) continue;
+    const arr = questionsByVocabId.get(q.vocabItemId) ?? [];
+    arr.push(q);
+    questionsByVocabId.set(q.vocabItemId, arr);
   }
 
   const reordered: Question[] = [];
+  const usedQuestionIds = new Set<string>();
   for (const seq of sequenced) {
-    if (seq.kind === "intro" || seq.kind === "test" || seq.kind === "review") {
-      const match = questionByVocabId.get(seq.item.vocabItemId);
-      if (match) reordered.push(match);
-    }
+    if (seq.kind !== "intro" && seq.kind !== "test" && seq.kind !== "review") continue;
+    const queue = questionsByVocabId.get(seq.item.vocabItemId);
+    if (!queue || queue.length === 0) continue; // queue exhausted — skip this slot
+    const q = queue.shift()!;
+    if (usedQuestionIds.has(q.id)) continue; // defensive: never push the same id twice
+    usedQuestionIds.add(q.id);
+    reordered.push(q);
   }
 
   // Fallback: if sequencer skipped items (e.g., vocabItemId mismatch), return shuffled
