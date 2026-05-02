@@ -23,10 +23,7 @@ import { describe, it, expect, beforeEach, afterAll } from "vitest";
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
-import { recordVocabAnswer } from "@/app/actions/exercises";
-// RED: getAdvancedDrillUnlock does not exist yet — will fail at compile time
-// @ts-expect-error getAdvancedDrillUnlock does not exist yet (RED)
-import { getAdvancedDrillUnlock } from "@/app/actions/exercises";
+import { recordVocabAnswer, getAdvancedDrillUnlock } from "@/app/actions/exercises";
 
 const HAS_TEST_DB = !!process.env.TEST_DATABASE_URL;
 const describeIfTestDb = HAS_TEST_DB ? describe : describe.skip;
@@ -147,7 +144,6 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
     async () => {
       // Answer 5/5 hiragana vocab correctly on romaji_meaning card (100% vocab track)
       for (const id of hiraganaVocabIds) {
-        // @ts-expect-error cardKind RED stub
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: id,
@@ -155,11 +151,11 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
           exerciseType: "vocab_meaning",
           correct: true,
           revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
       }
 
-      // RED: getAdvancedDrillUnlock doesn't exist yet
       const unlocked = await getAdvancedDrillUnlock(songVersionId, TEST_USER);
 
       // With all-kana song: vocab=100%, grammar≥80% (auto from fixture), kanji auto-passes
@@ -171,7 +167,6 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
     "(b) verse domination triggers for hiragana-only verse without any kanji answers required",
     async () => {
       // Verse 1 has only hiragana vocab (no kanji-bearing items) — dominate after 2 vocab correct answers
-      // @ts-expect-error cardKind RED stub
       await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: hiraganaVocabIds[0],
@@ -179,9 +174,9 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "romaji_meaning",
       });
-      // @ts-expect-error cardKind RED stub
       const result = await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: hiraganaVocabIds[1],
@@ -189,8 +184,9 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "romaji_meaning",
-      }) as unknown as { versesDominatedNow?: number[] };
+      });
 
       // Kanji auto-pass: verse 1 should be dominated after only vocab answers (no kanji required)
       expect(result.versesDominatedNow).toBeDefined();

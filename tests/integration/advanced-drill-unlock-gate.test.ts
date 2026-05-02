@@ -140,35 +140,39 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
     async () => {
       // Answer 8/10 vocab correctly
       for (let i = 0; i < 8; i++) {
-        // @ts-expect-error cardKind RED stub
+  
         await recordVocabAnswer({
           userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
       }
       for (let i = 8; i < 10; i++) {
-        // @ts-expect-error cardKind RED stub
+  
         await recordVocabAnswer({
           userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: false, revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
       }
 
       // Answer 5/6 kanji correctly
       for (let i = 0; i < 5; i++) {
-        // @ts-expect-error cardKind RED stub
+  
         await recordVocabAnswer({
           userId: TEST_USER, vocabItemId: kanjiVocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "kanji_kana",
         });
       }
-      // @ts-expect-error cardKind RED stub
+
       await recordVocabAnswer({
         userId: TEST_USER, vocabItemId: kanjiVocabIds[5], songVersionId,
         exerciseType: "vocab_meaning", correct: false, revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "kanji_kana",
       });
 
@@ -197,34 +201,38 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
 
       // First unlock (all tracks ≥ 80%)
       for (let i = 0; i < 8; i++) {
-        // @ts-expect-error cardKind RED stub
+  
         await recordVocabAnswer({
           userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
       }
       for (let i = 8; i < 10; i++) {
-        // @ts-expect-error cardKind RED stub
+  
         await recordVocabAnswer({
           userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: false, revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
       }
       for (let i = 0; i < 5; i++) {
-        // @ts-expect-error cardKind RED stub
+  
         await recordVocabAnswer({
           userId: TEST_USER, vocabItemId: kanjiVocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "kanji_kana",
         });
       }
       // Initial 5/6 correct = 83.33% → unlocked
-      // @ts-expect-error cardKind RED stub
+
       await recordVocabAnswer({
         userId: TEST_USER, vocabItemId: kanjiVocabIds[5], songVersionId,
         exerciseType: "vocab_meaning", correct: false, revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "kanji_kana",
       });
 
@@ -240,10 +248,11 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
 
       // Now answer an additional incorrect (kanji 5 — already answered wrong; kanji[4] wrong now)
       // This drops kanji pct from 5/6 to 4/6 = 66.67%
-      // @ts-expect-error cardKind RED stub
+
       await recordVocabAnswer({
         userId: TEST_USER, vocabItemId: kanjiVocabIds[4], songVersionId,
         exerciseType: "vocab_meaning", correct: false, revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "kanji_kana",
       });
 

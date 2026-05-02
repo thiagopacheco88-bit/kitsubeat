@@ -1,18 +1,14 @@
-// Phase 11.6 Wave 0 RED stub — implementation lands in 11.6-05 (recordVocabAnswer extension). DO NOT delete the failing assertions.
+// Phase 11.6 Plan 05 GREEN — implementation landed in 11.6-05 (recordVocabAnswer extension).
 /**
  * tests/integration/verse-domination-idempotent.test.ts
  *
  * SPEC-REQ-13: Per-verse domination state — tipping insert + ON CONFLICT no-op.
  * SPEC-REQ-15: Server returns `versesDominatedNow` flag on the tipping answer.
  *
- * RED: These tests will fail until:
- *   - drizzle/0017 migration is applied (user_verse_domination table exists)
- *   - recordVocabAnswer returns `versesDominatedNow: number[]` in its response
- *   - The verse-domination tipping logic is implemented in 11.6-05
- *
- * Failure modes expected at this stage:
- *   - Runtime error: "relation user_verse_domination does not exist"
- *   - OR assertion failure: response does not include versesDominatedNow
+ * GREEN after Plan 11.6-05:
+ *   - drizzle/0017 migration applied (user_verse_domination table exists)
+ *   - recordVocabAnswer accepts cardKind + returns versesDominatedNow: number[]
+ *   - The verse-domination tipping logic is implemented
  */
 
 import { describe, it, expect, beforeEach, afterAll } from "vitest";
@@ -71,7 +67,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
       // Per SPEC-REQ-13: verse dominated = every applicable item answered correctly ≥1 time
       // We answer only the vocab card (romaji_meaning) — not the grammar, not the kanji card
 
-      // @ts-expect-error cardKind RED stub
       await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
@@ -79,6 +74,7 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "romaji_meaning",
       });
 
@@ -98,8 +94,12 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
   it(
     "Test 2: tipping answer (all 3 items correct in verse 2) → versesDominatedNow includes 2 AND row exists in user_verse_domination",
     async () => {
-      // Answer all required items for verse 2
-      // @ts-expect-error cardKind RED stub
+      // Answer all required items for verse 2:
+      //   kanjiVocabId romaji_meaning (vocab track)
+      //   kanjiVocabId kanji_kana (kanji track — surface "飲む" has kanji)
+      // Grammar point in verse 2 does NOT block domination in Phase 11.6
+      // (no song_version_grammar_rules row for the lesson JSONB grammar point)
+
       const result1 = await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
@@ -107,10 +107,10 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "romaji_meaning",
       });
-      // Grammar answer (grammar items in verse 2)
-      // @ts-expect-error cardKind RED stub
+
       const result2 = await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
@@ -118,14 +118,16 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "kanji_kana",
       });
 
+      // Suppress unused var warning on result1
+      void result1;
+
       // The last correct answer that tips verse 2 should return versesDominatedNow
-      // RED: versesDominatedNow does not exist on RecordAnswerResult yet
-      const tippingResult = result2 as unknown as { versesDominatedNow?: number[] };
-      expect(tippingResult.versesDominatedNow).toBeDefined();
-      expect(tippingResult.versesDominatedNow).toContain(2);
+      expect(result2.versesDominatedNow).toBeDefined();
+      expect(result2.versesDominatedNow).toContain(2);
 
       // Verify DB row exists
       const rows = unwrap<{ dominated_at: string }>(
@@ -146,7 +148,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
     "Test 3: re-answering after verse is dominated → versesDominatedNow is empty AND dominated_at is unchanged",
     async () => {
       // First dominate the verse
-      // @ts-expect-error cardKind RED stub
       await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
@@ -154,9 +155,9 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "romaji_meaning",
       });
-      // @ts-expect-error cardKind RED stub
       await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
@@ -164,6 +165,7 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "kanji_kana",
       });
 
@@ -180,7 +182,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
       const firstDominatedAt = firstRows[0]?.dominated_at;
 
       // Now re-answer one of the items
-      // @ts-expect-error cardKind RED stub
       const reResult = await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
@@ -188,10 +189,11 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "romaji_meaning",
-      }) as unknown as { versesDominatedNow?: number[] };
+      });
 
-      // versesDominatedNow must be empty (not re-dominating)
+      // versesDominatedNow must be empty (not re-dominating — ON CONFLICT DO NOTHING)
       expect(reResult.versesDominatedNow ?? []).toHaveLength(0);
 
       // dominated_at must be unchanged

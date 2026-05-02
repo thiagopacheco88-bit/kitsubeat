@@ -124,7 +124,6 @@ describeIfTestDb(
         // Verse 1 has: hiraganaVocabId (romaji_meaning only) + kanjiVocabId (romaji_meaning + kanji_kana)
         // Answering only hiraganaVocabId romaji_meaning should NOT dominate verse 1
 
-        // @ts-expect-error cardKind does not exist on RecordAnswerInput yet (RED)
         const response = (await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
@@ -151,7 +150,6 @@ describeIfTestDb(
         // All three must be correct to dominate verse 1.
 
         // Step 1: answer hiraganaVocabId romaji_meaning correctly
-        // @ts-expect-error cardKind RED stub
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
@@ -164,7 +162,6 @@ describeIfTestDb(
         });
 
         // Step 2: answer kanjiVocabId romaji_meaning correctly
-        // @ts-expect-error cardKind RED stub
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
@@ -177,7 +174,6 @@ describeIfTestDb(
         });
 
         // Step 3: tipping answer — kanjiVocabId kanji_kana correctly (completes verse 1)
-        // @ts-expect-error cardKind RED stub
         const tippingResult = (await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
@@ -210,7 +206,6 @@ describeIfTestDb(
       "Test 3: revisit after verse 1 domination returns empty versesDominatedNow (ON CONFLICT DO NOTHING idempotency)",
       async () => {
         // First dominate verse 1
-        // @ts-expect-error cardKind RED stub
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
@@ -221,7 +216,6 @@ describeIfTestDb(
           responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
-        // @ts-expect-error cardKind RED stub
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
@@ -232,7 +226,6 @@ describeIfTestDb(
           responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
-        // @ts-expect-error cardKind RED stub
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
@@ -245,7 +238,6 @@ describeIfTestDb(
         });
 
         // Now revisit — re-answer the same vocab
-        // @ts-expect-error cardKind RED stub
         const revisitResult = (await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
@@ -267,7 +259,6 @@ describeIfTestDb(
       "Test 4: incorrect answer never tips verse domination",
       async () => {
         // Answer hiraganaVocabId correctly but kanjiVocabId incorrectly
-        // @ts-expect-error cardKind RED stub
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
@@ -279,7 +270,6 @@ describeIfTestDb(
           cardKind: "romaji_meaning",
         });
 
-        // @ts-expect-error cardKind RED stub
         const incorrectResult = (await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
@@ -368,8 +358,7 @@ describeIfTestDb(
         try {
           // Answer 4/5 vocab correctly → 80% vocab track → should unlock
           for (let i = 0; i < 4; i++) {
-            // @ts-expect-error cardKind RED stub
-            await recordVocabAnswer({
+                await recordVocabAnswer({
               userId: TEST_USER,
               vocabItemId: vocabIds[i],
               songVersionId: testSongVersionId,
@@ -384,8 +373,7 @@ describeIfTestDb(
           // 5th answer (tipping to 100% — already above 80%, but this is the final answer)
           // Since grammar=null→100% auto-pass, kanji=null→100% auto-pass,
           // and this brings vocab to 100%, unlock should fire.
-          // @ts-expect-error cardKind RED stub
-          const tippingResult = (await recordVocabAnswer({
+            const tippingResult = (await recordVocabAnswer({
             userId: TEST_USER,
             vocabItemId: vocabIds[4],
             songVersionId: testSongVersionId,
@@ -404,8 +392,7 @@ describeIfTestDb(
           expect(tippingResult.advancedDrillsUnlockedNow).toBe(true);
 
           // Re-answer after unlock — must be false (already unlocked, no transition)
-          // @ts-expect-error cardKind RED stub
-          const reResult = (await recordVocabAnswer({
+            const reResult = (await recordVocabAnswer({
             userId: TEST_USER,
             vocabItemId: vocabIds[0],
             songVersionId: testSongVersionId,
@@ -449,7 +436,6 @@ describeIfTestDb(
     it(
       "Test 6: trackPct return matches live user_song_progress row after answer",
       async () => {
-        // @ts-expect-error cardKind RED stub
         const response = (await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,

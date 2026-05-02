@@ -172,7 +172,7 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
     async () => {
       // Answer 8 of 10 vocab items correctly (romaji_meaning card)
       for (let i = 0; i < 8; i++) {
-        // @ts-expect-error cardKind RED stub
+
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: vocabIds[i],
@@ -180,12 +180,13 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
           exerciseType: "vocab_meaning",
           correct: true,
           revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
       }
       // Answer 2 vocab items incorrectly
       for (let i = 8; i < 10; i++) {
-        // @ts-expect-error cardKind RED stub
+
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: vocabIds[i],
@@ -193,13 +194,14 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
           exerciseType: "vocab_meaning",
           correct: false,
           revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "romaji_meaning",
         });
       }
 
       // Answer 5 of 6 kanji vocab items correctly (kanji_kana card)
       for (let i = 0; i < 5; i++) {
-        // @ts-expect-error cardKind RED stub
+
         await recordVocabAnswer({
           userId: TEST_USER,
           vocabItemId: kanjiVocabIds[i],
@@ -207,11 +209,12 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
           exerciseType: "vocab_meaning",
           correct: true,
           revealedReading: false,
+          responseTimeMs: 1000,
           cardKind: "kanji_kana",
         });
       }
       // 1 kanji incorrect
-      // @ts-expect-error cardKind RED stub
+
       await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: kanjiVocabIds[5],
@@ -219,6 +222,7 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
         exerciseType: "vocab_meaning",
         correct: false,
         revealedReading: false,
+        responseTimeMs: 1000,
         cardKind: "kanji_kana",
       });
 

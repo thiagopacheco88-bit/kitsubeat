@@ -88,6 +88,13 @@ interface ExerciseSessionState {
    * removed; hints on sentence_order are free).
    */
   sentenceOrderHintShown: Record<string, true>;
+  /**
+   * Phase 11.6: verses that just transitioned to dominated on the latest answer.
+   * Set by the FeedbackPanel after recordVocabAnswer response;
+   * cleared after animation fires. NOT persisted across reloads
+   * (the row in user_verse_domination is the source of truth for the badge).
+   */
+  versesDominatedNow: number[];
 }
 
 interface ExerciseSessionActions {
@@ -146,6 +153,15 @@ interface ExerciseSessionActions {
    * One-way — the revealedReading=true flag propagates via onAnswer meta.
    */
   showHint: (questionId: string) => void;
+  /**
+   * Phase 11.6: set the list of verses that just became dominated.
+   * Called by FeedbackPanel after receiving recordVocabAnswer response.
+   */
+  setVersesDominatedNow: (verses: number[]) => void;
+  /**
+   * Phase 11.6: clear the versesDominatedNow list after the animation fires.
+   */
+  clearVersesDominatedNow: () => void;
 }
 
 type ExerciseSessionStore = ExerciseSessionState & ExerciseSessionActions;
@@ -173,6 +189,8 @@ const initialState: ExerciseSessionState = {
   sentenceOrderPool: {},
   sentenceOrderAnswer: {},
   sentenceOrderHintShown: {},
+  // Phase 11.6 — transient verse domination slice (NOT persisted via partialize).
+  versesDominatedNow: [],
 };
 
 // ---------------------------------------------------------------------------
@@ -340,14 +358,21 @@ export const useExerciseSession = create<ExerciseSessionStore>()(
             [questionId]: true,
           },
         })),
+
+      // Phase 11.6 — verse domination transient slice.
+      setVersesDominatedNow: (verses) => set({ versesDominatedNow: verses }),
+      clearVersesDominatedNow: () => set({ versesDominatedNow: [] }),
     }),
     {
       name: "kitsubeat-exercise-session",
       storage: createJSONStorage(() => localStorage),
-      // _hasHydrated is runtime-only — never persist it
+      // _hasHydrated and versesDominatedNow are runtime-only — never persist them.
+      // versesDominatedNow is transient (Phase 11.6): the row in user_verse_domination
+      // is the source of truth; the animation slice must not survive a page reload.
       partialize: (state) => {
-        const { _hasHydrated, ...rest } = state;
+        const { _hasHydrated, versesDominatedNow, ...rest } = state;
         void _hasHydrated;
+        void versesDominatedNow;
         return rest;
       },
       onRehydrateStorage: () => (state) => {
