@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: Phase 14 context gathered
-last_updated: "2026-05-01T22:35:53.227Z"
-last_activity: 2026-05-01 -- Phase --phase execution started
+stopped_at: Plan 14-00 complete
+last_updated: "2026-05-02T06:17:07.236Z"
+last_activity: 2026-05-02
 progress:
   total_phases: 20
-  completed_phases: 14
+  completed_phases: 15
   total_plans: 122
-  completed_plans: 96
-  percent: 79
+  completed_plans: 100
+  percent: 82
 ---
 
 # Project State
@@ -25,9 +25,11 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 
 ## Current Position
 
-Phase: --phase (11.5) — EXECUTING
-Plan: 1 of --name
-Status: Executing Phase --phase
+Phase: 14 (ux-polish) — EXECUTING
+Plan: 2 of 10 (next: 14-01)
+Status: Ready to execute
+
+Plan 14-00 complete — Wave 0 scaffolding for Phase 14 UX Polish. D-19 zip triage executed (both `Kitsubeat Design.zip` byte-for-byte duplicates of imported home design — deleted; `14-DESIGN-DISPOSITION.md` records 1 FULL + 10 D-22 token-only treatment table closing SPEC AC #5). kitsubeat-tokens custom ESLint plugin landed (4 regexes: RAW_HEX, ARBITRARY_PX, PALETTE_UTILITIES, BARE_WHITE_BLACK; JSXAttribute + CallExpression visitors; 8-case RuleTester suite green). `eslint.config.mjs` migrated to ESLint 9 flat config — eslint-config-next 16 ships flat config natively, so the FlatCompat pattern from RESEARCH §1 was abandoned in favor of direct array spread (FlatCompat triggered circular-reference TypeError on v16's plugin shape). Belt-and-suspenders grep audit `scripts/audit/token-compliance.ts` ships with same 4 regexes + path-traversal + ReDoS protection (currently exit 1; ~904 violations on master pre-Wave-1 as expected). `scripts/audit/motion-catalog-completeness.ts` gates `docs/motion-catalog.md` (currently exit 1; flips green when Plan 14-04 lands the catalog). Migration 0016 (`drizzle/0016_user_theme_preference.sql`) hand-written + applied: `users.theme_preference` text NOT NULL DEFAULT 'system' with CHECK constraint enforcing ('system','light','dark') enum — verified live via `scripts/debug/verify-theme-preference-column.ts` (Phase 11.4 verify-image-url-column.ts pattern). `src/lib/db/schema.ts` users table gains `themePreference: text("theme_preference").notNull().default("system")` between hapticsEnabled and created_at (Phase 12 user-prefs convention). 5 Playwright spec shells (`mobile-parity`, `a11y` with RUN_A11Y env-gate, `theme-toggle`, `reduced-motion`, `dev-states`) + 7 Vitest test shells (`theme-persistence` with `describeIfTestDb` guard, 5 primitives `Button/Card/Badge/Modal/EmptyState`, `__dev/states/gate`) all discoverable: `npx playwright test --list` shows 31 entries, `npx vitest run` shows 6 passed + 42 todos + 1 db-skipped. Bundle baseline captured BEFORE deps land: `/songs/[slug]` = 10.04 kB gzipped (gate=50 kB; ~40 kB headroom for Wave 1+ primitives). All 8 npm deps installed (`@radix-ui/react-dialog@1.1.15`, `class-variance-authority@0.7.1`, `tailwind-merge@3.5.0`, `clsx@2.1.1`, `eslint@^9`, `eslint-config-next@16.2.4`, `@axe-core/playwright@4.11.3`, `@eslint/eslintrc`). `package.json` `scripts.lint` migrated `next lint` → `eslint .`. Three Rule 3 deviations: (1) removed invalid `export const runtime = "nodejs"` from 7 admin/lyrics actions (Phase 11.5 introduced these in commits 6df7850..4972b3a; Next.js disallows non-async exports in "use server" files — master HEAD was failing to build BEFORE Phase 14 work began); (2) `next.config.ts` `eslint.ignoreDuringBuilds = true` to keep build passing while Wave 1+ migrations land lint fixes (CONTEXT D-17 dual-layer enforcement keeps lint as a separate CI gate); (3) added `scripts/debug/verify-theme-preference-column.ts` verification helper outside plan files_modified (Phase 11.4 pattern). Six pre-existing test failures logged to `deferred-items.md` (D-PRE-01 regression-stale-lesson-data.test.ts × 3 from Phase 08-01/11; D-PRE-02 spot-check-tv-onsets.test.ts × 3 seed-script). Commits 204c0ff (Task 0 disposition + zip delete), 95bd743 (Rule 3 admin/lyrics fix), dcf9fe9 (Task 1 baseline + deps), a0272a8 (Task 2 RED RuleTester), 93699d4 (Task 2 GREEN plugin + flat config), 8ce0b84 (Task 3 audits), 54d8e8c (Rule 3 next.config.ts), 65ceffd (Task 4 migration 0016 + schema), 6c4aa2c (Task 5 Playwright shells), 234971f (Task 6 Vitest shells).
 
 Plan 11.4-01 complete — Visual vocabulary foundation column landed end-to-end. `vocabularyItems.image_url` (nullable text) added to `src/lib/db/schema.ts` between `kanji_breakdown` and `created_at`; idempotent migration `drizzle/0014_vocab_image_url.sql` (`ADD COLUMN IF NOT EXISTS`) hand-written following the `0004_vocab_enrichment.sql` precedent (deferred D-01: `songs.popularity_rank` schema drift would have polluted any `db:generate`-emitted migration). `VocabEntrySchema` in `scripts/types/lesson.ts` gains optional `image_url: z.string().url().optional().describe("Phase 11.4: Unsplash CDN URL...")` after `kanji_breakdown` — passthrough only, generation prompt unchanged. Wave 0 test stubs landed: `tests/unit/vocab-entry-schema.test.ts` (3 cases — accept Unsplash URL, accept undefined, reject non-URL — all 3 green via `npx vitest run`); `tests/integration/seed-19b-load-vocab-images.test.ts` (4 cases gated on `TEST_DATABASE_URL` — AC-1 column exists/accepts text, AC-1 nullable, AC-8 URL regex accept canonical, AC-8 URL regex reject non-canonical; skip cleanly without env per Wave 0 design). Live migration applied via `tsx scripts/apply-migrations.ts` (Path A); column verified live via `scripts/debug/verify-image-url-column.ts` (column_name=image_url, data_type=text, is_nullable=YES, SELECT returns NULL on existing rows). Two deferred items surfaced (do NOT block 11.4-02 or 11.4-03): D-01 `songs.popularity_rank` schema drift (journal/snapshot incomplete since 0001), D-02 3 pre-existing failures in `tests/integration/regression-stale-lesson-data.test.ts` (Phase 08-01 single-gate + Phase 11 cross-song unrelated to image_url). Commits d7449e9 (schema), f469b4b (migration), 3221333 (Zod), 7f2d123 (unit test), dd59ade (integration test), plus finalization + summary commits.
 
@@ -43,9 +45,9 @@ Plan 10-07 complete — Phase 10 premium-gate UI finalization + Phase 10 end-to-
 
 Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUpsellModal (100 LOC) full-screen upsell with per-family copy (listening/10 vs advanced_drill/3), ESC/backdrop close, data-testid + data-family hooks. ExerciseTab gets third mode card "Advanced Drills" (always rendered — CONTEXT-locked); click handler fires `getAdvancedDrillAccess(userId, songVersionId)` server action (Promise.all of 2 checkExerciseAccess + isPremium); on quota exhaustion sets upsell state → modal renders → session does NOT start. buildQuestions gains optional `typeFilter: ExerciseType[]`; Advanced Drills passes `["grammar_conjugation","listening_drill","sentence_order"]`; per-vocab loop + sentence_order loop + grammar-point loop all honor the allowlist. saveSessionResults extended for ex5/ex6/ex7 via GREATEST(COALESCE) — mastery never regresses. recordVocabAnswer stamps user_exercise_song_counters on first answer for song_quota-gated types + server-side re-check; if non-premium user over limit, DELETEs the overshoot row and throws QuotaExhaustedError (RESEARCH Pitfall 6: one answer of slippage possible under cross-device race — documented in upsell past-tense copy). recordAdvancedDrillAttempt action for empty-vocabItemId callers (sentence_order / synthetic grammar_conjugation). saveSessionResults end-of-session safety-net stamps counter for every family present in answer batch (ON CONFLICT DO NOTHING across all 3 paths — no inflation). Phase 08.1-07 test.fixme REMOVED from regression-premium-gate.spec.ts; replaced with live QuotaExhaustedError assertion (seeds 10 listening counter rows, invokes recordVocabAnswer on 11th song, asserts throw + refund). New advanced-drill-quota.spec.ts (4 E2E: 11th-listening upsell, 4th-advanced upsell, independent counters via direct gate check, premium bypass with cleanup). UI regression contract preserved (0 `EXERCISE_FEATURE_FLAGS` imports in src/app or src/stores — confirmed by grep). 263 unit tests green (no regressions). Two Rule-3 auto-fixes (typeFilter TS narrowing → extracted typed const; saveSessionResults end-of-session safety-net needed because sentence_order + synthetic-vocab grammar_conjugation bypass recordVocabAnswer). Commits 0cc9dcd (Task 1 — UI + upsell), 4af194a (Task 2 — saveSessionResults + counter-increment + re-check), fcbb3ce (Task 3 — test.fixme unfix + quota E2E).
 
-Last activity: 2026-05-01 -- Phase --phase execution started
+Last activity: 2026-05-02
 
-Progress: [█████████░] 91%
+Progress: [████████░░] 82%
 
 ## Performance Metrics
 
@@ -136,6 +138,7 @@ Progress: [█████████░] 91%
 | Phase 11.3 P03 | 11 | 2 tasks | 3 files |
 | Phase 11.2 P06 | 45 | 3 tasks | 5 files |
 | Phase 11.2 P07 | 40 | 5 tasks | 8 files |
+| Phase 14 P14-00 | 38 | 7 tasks | 22 files |
 
 ## Accumulated Context
 
@@ -392,6 +395,9 @@ Progress: [█████████░] 91%
 - [Phase 11.4-01]: migration numbered 0014_vocab_image_url.sql (D-02) — corrects WORKLOG draft 0009; idempotent ADD COLUMN IF NOT EXISTS; hand-written following 0004 precedent because db:generate would pull in unrelated popularity_rank drift (deferred D-01)
 - [Phase 11.4-01]: VocabEntrySchema image_url passthrough is .optional() only, NOT .nullable() (D-03) — image_url has no semantic null state, absence = undefined; differs from kanji_breakdown which takes null for kana-only words
 - [Phase 11.4-01]: Wave 0 integration tests gated on TEST_DATABASE_URL (skip cleanly when unset) — same pattern as Phase 08.1-03 seed-05-insert-db-rollback.test.ts; URL regex /^https:\/\/images\.unsplash\.com\/.+/ codified inline (D-12)
+- eslint-config-next 16 ships flat config natively — direct array spread, NOT FlatCompat (incompatible with v16 plugin shape)
+- Next.js build-time lint disabled (eslint.ignoreDuringBuilds) — lint runs as separate CI gate; allows pre-Wave-1 build to pass while migration window is open
+- Both Kitsubeat Design.zip files were byte-for-byte duplicates of imported home design — no fresh design output for 10 surfaces; Phase 14 ships 1 FULL + 10 D-22 token-only swap
 
 ### Pending Todos
 
@@ -417,8 +423,8 @@ Progress: [█████████░] 91%
 
 ## Session Continuity
 
-Last session: --stopped-at
-Stopped at: Phase 14 context gathered
-Resume file: --resume-file
+Last session: 2026-05-02T06:16:53.359Z
+Stopped at: Plan 14-00 complete
+Resume file: None
 
 **Planned Phase:** 11.6 (beginner-focused-practice-redesign) — 11 plans — 2026-05-01T22:35:53.218Z

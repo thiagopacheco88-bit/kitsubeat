@@ -458,7 +458,7 @@ Plans:
 **Research captured**: [.planning/phases/14-ux-polish/14-RESEARCH.md](phases/14-ux-polish/14-RESEARCH.md)
 **Plans:** 10 plans
 Plans:
-- [ ] 14-00-PLAN.md — Wave 0 scaffolding: ESLint flat config + custom kitsubeat-tokens plugin, audit scripts, Playwright spec shells, Vitest test shells, drizzle/0016 migration + DB column, bundle baseline (Wave 0)
+- [x] 14-00-PLAN.md — Wave 0 scaffolding: ESLint flat config + custom kitsubeat-tokens plugin, audit scripts, Playwright spec shells, Vitest test shells, drizzle/0016 migration + DB column, bundle baseline (Wave 0)
 - [ ] 14-01-PLAN.md — Tokens: expand globals.css @theme block (color/typography/spacing/radii/shadow/motion) + :root[data-theme=light] override + reduced-motion @media block (Wave 1)
 - [ ] 14-02-PLAN.md — Primitives: Button/Card/Badge/Modal/EmptyState/Skeleton in src/components/ui/ + GRAMMAR_COLOR_CLASS map + 5 unit-test fills (Wave 1)
 - [ ] 14-03-PLAN.md — Theme persistence: setThemePreference/getThemePreference server actions + RootLayout cookie read + inline no-flash script + ThemeToggle component + Profile Appearance radio + integration + E2E test fills (Wave 1)
