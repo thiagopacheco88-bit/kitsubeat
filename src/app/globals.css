@@ -98,6 +98,37 @@
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Light theme override per CONTEXT D-01 / D-03 / D-04.
+ * Only color + shadow tokens are overridden — typography, spacing, radii, motion are
+ * theme-independent. Per RESEARCH Pitfall 4, this MUST live in :root[data-theme="light"]
+ * (NOT a second @theme block — Tailwind v4 treats that as additive, not as an override).
+ *
+ * Color values verified WCAG AA in CONTEXT D-03; full axe verification lands in Wave 2+
+ * a11y.spec.ts. Shadow opacities are 30% higher than dark per D-04 (visibility on light bg). */
+:root[data-theme="light"] {
+  /* Color (CONTEXT D-03) */
+  --color-bg: #FAFAF9;
+  --color-bg-2: #F4F4F2;
+  --color-card: #FFFFFF;
+  --color-card-2: #FAFAF9;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.14);
+  --color-text: #18181B;
+  --color-text-muted: rgba(24, 24, 27, 0.62);
+  --color-text-dim: rgba(24, 24, 27, 0.45);
+  /* --color-accent stays #ef4444 — verified WCAG AA on light bg per D-03 */
+
+  /* Shadows — 30% higher opacity vs dark for visibility on light bg (CONTEXT D-04) */
+  --shadow-card-ring: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --shadow-card-ring-strong: inset 0 0 0 1px rgba(0, 0, 0, 0.14);
+  --shadow-hero-glow: inset 0 0 0 1px rgba(239, 68, 68, 0.42), 0 16px 40px rgba(239, 68, 68, 0.18);
+  --shadow-hero-inner: inset 0 0 80px rgba(239, 68, 68, 0.22);
+  --shadow-button-red: 0 8px 22px rgba(239, 68, 68, 0.55);
+  --shadow-cta-red: 0 8px 24px rgba(239, 68, 68, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.20);
+  --shadow-logo-glow: drop-shadow(0 0 14px rgba(239, 68, 68, 0.42));
+  --shadow-focus-ring: 0 0 0 2px rgba(239, 68, 68, 0.50);
+}
+
 /* Thin scrollbar for horizontal carousels */
 .scrollbar-thin {
   scrollbar-width: thin;
@@ -135,4 +166,19 @@
 }
 .level-pop {
   animation: level-pop 0.8s ease-out forwards;
+}
+
+/* CONTEXT D-13 — Global reduced-motion override. MUST be last in file.
+ * Suppresses every cataloged animation (verse-highlight, star-shine, level-pop,
+ * confetti, page-transition fade, hover lift, modal enter/exit, toast slide-in,
+ * skeleton shimmer). canvas-confetti is suppressed at fire sites via
+ * disableForReducedMotion: true (existing pattern at LevelUpTakeover.tsx:39,
+ * RowUnlockModal.tsx:14, StarDisplay.tsx:36 per Phase 13 RESEARCH). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+    scroll-behavior: auto !important;
+  }
 }
