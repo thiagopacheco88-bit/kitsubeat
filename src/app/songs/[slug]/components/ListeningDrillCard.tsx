@@ -7,6 +7,7 @@ import { useExerciseSession } from "@/stores/exerciseSession";
 import { recordVocabAnswer } from "@/app/actions/exercises";
 import { usePlayer } from "./PlayerContext";
 import FeedbackPanel from "./FeedbackPanel";
+import { Button } from "@/components/ui/Button";
 
 /**
  * Phase 10 Plan 04 — Fill-the-Lyric Listening Drill (Exercise 6, drives Star 3).
@@ -128,9 +129,9 @@ export default function ListeningDrillCard({
         data-question-id={question.id}
         data-question-type="listening_drill"
         data-yt-state="error"
-        className="rounded-lg border border-red-500/30 bg-red-500/10 p-6 text-center"
+        className="rounded-lg border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 p-6 text-center"
       >
-        <p className="text-sm font-medium text-red-200">
+        <p className="text-sm font-medium text-[var(--color-text)]">
           {LOCKED_FALLBACK_COPY}
         </p>
       </div>
@@ -166,15 +167,15 @@ export default function ListeningDrillCard({
 
   const getOptionStyle = (option: string): string => {
     if (chosen === null) {
-      return "border-gray-600 bg-gray-800 text-white hover:border-gray-400 hover:bg-gray-700";
+      return "border-[var(--color-border-strong)] bg-[var(--color-card-2)] text-[var(--color-text)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-card)]";
     }
     if (option === question.correctAnswer) {
-      return "border-green-500 bg-green-500/10 text-white";
+      return "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)] text-[var(--color-text)]";
     }
     if (option === chosen && !isCorrect) {
-      return "border-red-500 bg-red-500/10 text-white";
+      return "border-[var(--color-accent)] bg-[var(--color-accent)]/10 text-[var(--color-text)]";
     }
-    return "border-gray-700 bg-gray-800/50 text-gray-500";
+    return "border-[var(--color-border)] bg-[var(--color-card-2)]/50 text-[var(--color-text-dim)]";
   };
 
   // Render the verse text with the target token's surface AND its romaji
@@ -187,7 +188,7 @@ export default function ListeningDrillCard({
   // the blanked token (RESEARCH Pitfall 8).
   const renderBlankedVerse = () => {
     return (
-      <span className="flex flex-wrap gap-1 text-xl font-bold leading-snug text-white">
+      <span className="flex flex-wrap gap-1 text-xl font-bold leading-snug text-[var(--color-text)]">
         {verseTokens.map((t, idx) => {
           const blanked = t.surface === question.correctAnswer;
           return (
@@ -209,33 +210,34 @@ export default function ListeningDrillCard({
       data-question-type="listening_drill"
       className="flex flex-col gap-4"
     >
-      <p className="text-xs uppercase tracking-wider text-gray-500">
+      <p className="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
         listening drill
       </p>
 
-      <p className="text-sm text-gray-400">
+      <p className="text-sm text-[var(--color-text-muted)]">
         Listen to the verse and choose the missing word.
       </p>
 
       {/* Blanked verse display — target surface shown as _____ */}
-      <div className="rounded-lg border border-gray-700 bg-gray-900 p-4">
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
         {renderBlankedVerse()}
       </div>
 
       {/* Replay button — unlimited clicks, no FSRS penalty. Disabled until
           the PlayerContext API is registered so spam clicks don't throw. */}
       <div className="flex items-center gap-3">
-        <button
+        <Button
           type="button"
+          variant="secondary"
+          size="md"
           onClick={handleReplay}
           disabled={!isReady}
           aria-label="Replay verse"
-          className="rounded-lg border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:border-gray-400 hover:bg-gray-700 disabled:cursor-not-allowed disabled:border-gray-800 disabled:bg-gray-900 disabled:text-gray-500"
         >
           Replay
-        </button>
+        </Button>
         {embedState === "loading" && (
-          <span className="text-xs text-gray-500">Loading player…</span>
+          <span className="text-xs text-[var(--color-text-dim)]">Loading player…</span>
         )}
       </div>
 

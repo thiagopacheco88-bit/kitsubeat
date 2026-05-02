@@ -94,18 +94,18 @@ export default function QuestionCard({
   const getOptionStyle = (option: string): string => {
     if (chosen === null) {
       // idle state
-      return "border-gray-600 bg-gray-800 text-white hover:border-gray-400 hover:bg-gray-700";
+      return "border-[var(--color-border-strong)] bg-[var(--color-card-2)] text-[var(--color-text)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-card)]";
     }
     if (option === question.correctAnswer) {
-      // always highlight correct in green
-      return "border-green-500 bg-green-500/10 text-white";
+      // always highlight correct in green (JLPT N5 alpha tint)
+      return "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)] text-[var(--color-text)]";
     }
     if (option === chosen && !isCorrect) {
-      // user's wrong choice in red
-      return "border-red-500 bg-red-500/10 text-white";
+      // user's wrong choice in red (accent)
+      return "border-[var(--color-accent)] bg-[var(--color-accent)]/10 text-[var(--color-text)]";
     }
     // other non-selected options: dimmed
-    return "border-gray-700 bg-gray-800/50 text-gray-500";
+    return "border-[var(--color-border)] bg-[var(--color-card-2)]/50 text-[var(--color-text-dim)]";
   };
 
   // ---------------------------------------------------------------------------
@@ -137,7 +137,7 @@ export default function QuestionCard({
       case "fill_lyric":
         // Prompt is a meaning string or verse with blank — render raw
         return (
-          <span className="text-xl font-bold leading-snug text-white">
+          <span className="text-xl font-bold leading-snug text-[var(--color-text)]">
             {question.prompt}
           </span>
         );
@@ -188,12 +188,12 @@ export default function QuestionCard({
     // read it via window.__kbExerciseStore (gated on NEXT_PUBLIC_APP_ENV === 'test').
     <div data-question-id={question.id} data-question-type={question.type} className="flex flex-col gap-4">
       {/* Question type label */}
-      <p className="text-xs uppercase tracking-wider text-gray-500">
+      <p className="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
         {question.type.replace(/_/g, " ")}
       </p>
 
       {/* Question prompt */}
-      <div className="text-xl font-bold leading-snug text-white">
+      <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
         {renderPrompt()}
       </div>
 
@@ -202,7 +202,7 @@ export default function QuestionCard({
         <button
           type="button"
           onClick={() => markRevealed(question.id)}
-          className="self-start text-xs underline text-gray-400 hover:text-gray-200"
+          className="self-start text-xs underline text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
         >
           Reveal reading
         </button>

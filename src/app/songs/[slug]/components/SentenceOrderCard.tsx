@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Question } from "@/lib/exercises/generator";
 import { useExerciseSession } from "@/stores/exerciseSession";
+import { Button } from "@/components/ui/Button";
 
 /**
  * Phase 10 Plan 05 — Sentence Order card.
@@ -151,14 +152,19 @@ export default function SentenceOrderCard({
   // Shared token button styling helper.
   // In pre-submit state, both pool + answer tokens share a neutral style.
   // Post-submit, answer-row tokens switch to green/red based on correctness.
+  //
+  // Phase 14 Plan 14-05: green/red are semantic correctness signals; we map
+  // green → JLPT N5 alpha tint (already a green-12%/25% token pair in the
+  // design system) and red → --color-accent with alpha so the token system
+  // covers feedback colors without introducing new success/error tokens.
   // ---------------------------------------------------------------------------
   const tokenClassName = (slot: "pool" | "answer", isWrong?: boolean) => {
     if (slot === "answer" && submitted) {
       return isWrong
-        ? "border-red-500 bg-red-500/10 text-white"
-        : "border-green-500 bg-green-500/10 text-white";
+        ? "border-[var(--color-accent)] bg-[var(--color-accent)]/10 text-[var(--color-text)]"
+        : "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)] text-[var(--color-text)]";
     }
-    return "border-gray-600 bg-gray-800 text-white hover:border-gray-400 hover:bg-gray-700";
+    return "border-[var(--color-border-strong)] bg-[var(--color-card-2)] text-[var(--color-text)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-card)]";
   };
 
   return (
@@ -168,12 +174,12 @@ export default function SentenceOrderCard({
       className="flex flex-col gap-4"
     >
       {/* Question type label */}
-      <p className="text-xs uppercase tracking-wider text-gray-500">
+      <p className="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
         sentence order
       </p>
 
       {/* Prompt */}
-      <div className="text-lg font-semibold leading-snug text-white">
+      <div className="text-lg font-semibold leading-snug text-[var(--color-text)]">
         {question.prompt}
       </div>
 
@@ -183,7 +189,7 @@ export default function SentenceOrderCard({
       <div
         role="group"
         aria-label="Token display"
-        className="flex items-center gap-1 self-start rounded-md border border-gray-800 bg-gray-900/60 p-1 text-xs"
+        className="flex items-center gap-1 self-start rounded-md border border-[var(--color-border)] bg-[var(--color-card)]/60 p-1 text-xs"
       >
         {(
           [
@@ -200,8 +206,8 @@ export default function SentenceOrderCard({
             disabled={disabled}
             className={`rounded px-2 py-1 transition-colors ${
               tokenDisplay === opt.value
-                ? "bg-gray-700 text-white"
-                : "text-gray-400 hover:text-gray-200"
+                ? "bg-[var(--color-card-2)] text-[var(--color-text)]"
+                : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
             }`}
           >
             {opt.label}
@@ -212,10 +218,10 @@ export default function SentenceOrderCard({
       {/* Answer row — the tokens the user has tapped, in order */}
       <div
         aria-label="Your answer"
-        className="flex min-h-[60px] flex-wrap items-start gap-2 rounded-lg border border-dashed border-gray-700 bg-gray-900/40 p-3"
+        className="flex min-h-15 flex-wrap items-start gap-2 rounded-lg border border-dashed border-[var(--color-border)] bg-[var(--color-card)]/40 p-3"
       >
         {answerView.length === 0 && (
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-[var(--color-text-dim)]">
             Tap words below to build the verse
           </span>
         )}
@@ -239,7 +245,7 @@ export default function SentenceOrderCard({
       {/* Pool row — remaining tokens */}
       <div
         aria-label="Word pool"
-        className="flex flex-wrap items-start gap-2 rounded-lg border border-gray-800 bg-gray-900/20 p-3"
+        className="flex flex-wrap items-start gap-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]/20 p-3"
       >
         {poolView.map((token) => (
           <button
@@ -254,7 +260,7 @@ export default function SentenceOrderCard({
           </button>
         ))}
         {poolView.length === 0 && answerView.length > 0 && !submitted && (
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-[var(--color-text-dim)]">
             All words placed — ready to submit.
           </span>
         )}
@@ -268,12 +274,12 @@ export default function SentenceOrderCard({
               type="button"
               onClick={() => showHint(question.id)}
               disabled={disabled}
-              className="self-start text-xs underline text-gray-400 hover:text-gray-200"
+              className="self-start text-xs underline text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
             >
               Show hint
             </button>
           ) : (
-            <p className="self-start rounded-md border border-yellow-800/50 bg-yellow-900/20 px-3 py-2 text-xs text-yellow-200">
+            <p className="self-start rounded-md border border-[var(--color-jlpt-n3-ring)] bg-[var(--color-jlpt-n3-bg)] px-3 py-2 text-xs text-[var(--color-text)]">
               Hint: {question.translation}
             </p>
           )}
@@ -282,14 +288,16 @@ export default function SentenceOrderCard({
 
       {/* Submit button — enabled only when pool is empty */}
       {!submitted && (
-        <button
+        <Button
           type="button"
+          variant="primary"
+          size="md"
           onClick={handleSubmit}
           disabled={!canSubmit || disabled}
-          className="self-start rounded-lg border border-red-600 bg-red-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700 disabled:cursor-not-allowed disabled:border-gray-700 disabled:bg-gray-800 disabled:text-gray-500"
+          className="self-start"
         >
           Submit
-        </button>
+        </Button>
       )}
 
       {/* Feedback strip — all-or-nothing scoring + wrong-position visual in-row */}
@@ -299,19 +307,19 @@ export default function SentenceOrderCard({
           data-feedback={isCorrect ? "correct" : "wrong"}
           className={`mt-2 flex flex-col gap-3 rounded-lg border p-4 ${
             isCorrect
-              ? "border-green-500/30 bg-green-500/10"
-              : "border-red-500/30 bg-red-500/10"
+              ? "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)]"
+              : "border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10"
           }`}
         >
           <div className="flex items-center gap-2">
             {isCorrect ? (
-              <span className="text-lg text-green-400">&#10003;</span>
+              <span className="text-lg text-[var(--color-jlpt-n5)]">&#10003;</span>
             ) : (
-              <span className="text-lg text-red-400">&#10007;</span>
+              <span className="text-lg text-[var(--color-accent)]">&#10007;</span>
             )}
             <span
               className={`font-semibold ${
-                isCorrect ? "text-green-400" : "text-red-400"
+                isCorrect ? "text-[var(--color-jlpt-n5)]" : "text-[var(--color-accent)]"
               }`}
             >
               {isCorrect ? "Correct!" : "Not quite"}
@@ -319,14 +327,14 @@ export default function SentenceOrderCard({
           </div>
 
           {!isCorrect && (
-            <p className="text-sm text-gray-300">
-              <span className="font-medium text-green-400">Correct order:</span>{" "}
+            <p className="text-sm text-[var(--color-text-muted)]">
+              <span className="font-medium text-[var(--color-jlpt-n5)]">Correct order:</span>{" "}
               {question.correctAnswer}
             </p>
           )}
 
           {!isCorrect && wrongPositions.size > 0 && (
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-[var(--color-text-muted)]">
               {wrongPositions.size === 1
                 ? "1 word was in the wrong place."
                 : `${wrongPositions.size} words were in the wrong place.`}
@@ -334,16 +342,18 @@ export default function SentenceOrderCard({
           )}
 
           {question.explanation && (
-            <p className="text-xs text-gray-300">{question.explanation}</p>
+            <p className="text-xs text-[var(--color-text-muted)]">{question.explanation}</p>
           )}
 
-          <button
+          <Button
             type="button"
+            variant="secondary"
+            size="md"
             onClick={onContinue}
-            className="self-end rounded-md border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:border-gray-400 hover:bg-gray-700"
+            className="self-end"
           >
             Continue
-          </button>
+          </Button>
         </div>
       )}
     </div>

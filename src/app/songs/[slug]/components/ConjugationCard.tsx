@@ -102,15 +102,15 @@ export default function ConjugationCard({
 
   const getOptionStyle = (option: string): string => {
     if (chosen === null) {
-      return "border-gray-600 bg-gray-800 text-white hover:border-gray-400 hover:bg-gray-700";
+      return "border-[var(--color-border-strong)] bg-[var(--color-card-2)] text-[var(--color-text)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-card)]";
     }
     if (option === question.correctAnswer) {
-      return "border-green-500 bg-green-500/10 text-white";
+      return "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)] text-[var(--color-text)]";
     }
     if (option === chosen && !isCorrect) {
-      return "border-red-500 bg-red-500/10 text-white";
+      return "border-[var(--color-accent)] bg-[var(--color-accent)]/10 text-[var(--color-text)]";
     }
-    return "border-gray-700 bg-gray-800/50 text-gray-500";
+    return "border-[var(--color-border)] bg-[var(--color-card-2)]/50 text-[var(--color-text-dim)]";
   };
 
   return (
@@ -119,7 +119,7 @@ export default function ConjugationCard({
       data-question-type="grammar_conjugation"
       className="flex flex-col gap-4"
     >
-      <p className="text-xs uppercase tracking-wider text-gray-500">
+      <p className="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
         grammar conjugation
       </p>
 
@@ -127,12 +127,12 @@ export default function ConjugationCard({
       {question.conjugationBase ? (
         <p
           data-conjugation-base={question.conjugationBase}
-          className="text-sm text-gray-400"
+          className="text-sm text-[var(--color-text-muted)]"
         >
-          <span className="font-semibold text-gray-200">
+          <span className="font-semibold text-[var(--color-text)]">
             {question.conjugationBase}
           </span>{" "}
-          <span className="text-gray-500">→</span>
+          <span className="text-[var(--color-text-dim)]">→</span>
         </p>
       ) : null}
 
@@ -140,8 +140,8 @@ export default function ConjugationCard({
           fill_lyric's prompt rendering (classNames duplicated rather than
           extracted; the single line of shared style is lighter than adding a
           new helper component). */}
-      <div className="rounded-lg border border-gray-700 bg-gray-900 p-4">
-        <span className="text-xl font-bold leading-snug text-white">
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+        <span className="text-xl font-bold leading-snug text-[var(--color-text)]">
           {question.prompt}
         </span>
       </div>

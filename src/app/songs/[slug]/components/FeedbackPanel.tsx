@@ -8,6 +8,7 @@ import { usePlayer } from "./PlayerContext";
 import TierText from "./TierText";
 import MasteryDetailPopover from "./MasteryDetailPopover";
 import KanjiBreakdownSection from "./KanjiBreakdownSection";
+import { Button } from "@/components/ui/Button";
 
 interface FeedbackPanelProps {
   question: Question;
@@ -57,19 +58,19 @@ export default function FeedbackPanel({
       data-feedback={isCorrect ? "correct" : "wrong"}
       className={`mt-4 rounded-lg border p-4 ${
         isCorrect
-          ? "border-green-500/30 bg-green-500/10"
-          : "border-red-500/30 bg-red-500/10"
+          ? "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)]"
+          : "border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10"
       }`}
     >
       {/* Status icon + result */}
       <div className="mb-2 flex items-center gap-2">
         {isCorrect ? (
-          <span className="text-lg text-green-400">&#10003;</span>
+          <span className="text-lg text-[var(--color-jlpt-n5)]">&#10003;</span>
         ) : (
-          <span className="text-lg text-red-400">&#10007;</span>
+          <span className="text-lg text-[var(--color-accent)]">&#10007;</span>
         )}
         <span
-          className={`font-semibold ${isCorrect ? "text-green-400" : "text-red-400"}`}
+          className={`font-semibold ${isCorrect ? "text-[var(--color-jlpt-n5)]" : "text-[var(--color-accent)]"}`}
         >
           {isCorrect ? "Correct!" : "Not quite"}
         </span>
@@ -101,8 +102,8 @@ export default function FeedbackPanel({
 
       {/* Wrong answer: show correct answer first */}
       {!isCorrect && (
-        <p className="mb-1 text-sm text-gray-300">
-          <span className="font-medium text-green-400">Correct answer:</span>{" "}
+        <p className="mb-1 text-sm text-[var(--color-text-muted)]">
+          <span className="font-medium text-[var(--color-jlpt-n5)]">Correct answer:</span>{" "}
           {question.correctAnswer}
         </p>
       )}
@@ -110,13 +111,13 @@ export default function FeedbackPanel({
       {/* Wrong answer: explain why user's choice was wrong.
           If distractorVocab is available, wrap in a mastery popover. */}
       {wrongChoiceNote && (
-        <p className="mb-2 text-sm text-gray-400">
+        <p className="mb-2 text-sm text-[var(--color-text-muted)]">
           {wrongVocab?.vocab_item_id ? (
             <MasteryDetailPopover
               vocabItemId={wrongVocab.vocab_item_id}
               userId={userId}
               trigger={
-                <span className="text-red-400">
+                <span className="text-[var(--color-accent)]">
                   「{wrongVocab.surface}」
                 </span>
               }
@@ -129,7 +130,7 @@ export default function FeedbackPanel({
       )}
 
       {/* Vocab block — always Tier 1 (forceTier1), wrapped in mastery popover */}
-      <div className="mb-3 rounded-md bg-gray-900/60 p-3">
+      <div className="mb-3 rounded-md bg-[var(--color-card)]/60 p-3">
         <MasteryDetailPopover
           vocabItemId={question.vocabItemId}
           userId={userId}
@@ -143,7 +144,7 @@ export default function FeedbackPanel({
           }
         />
         {/* Meaning below the vocab surface block */}
-        <p className="mt-1 text-sm text-gray-400">
+        <p className="mt-1 text-sm text-[var(--color-text-muted)]">
           {typeof question.vocabInfo.surface !== "undefined"
             ? question.explanation
             : null}
@@ -151,21 +152,22 @@ export default function FeedbackPanel({
       </div>
 
       {/* Explanation */}
-      <p className="text-sm text-gray-300">{question.explanation}</p>
+      <p className="text-sm text-[var(--color-text-muted)]">{question.explanation}</p>
 
       {/* Action row */}
       <div className="mt-3 flex items-center gap-3">
-        <button
+        <Button
+          variant="primary"
+          size="sm"
           onClick={onContinue}
-          className="rounded-lg bg-red-600 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
         >
           Continue
-        </button>
+        </Button>
         {hasMoreContent && (
           <button
             onClick={() => setMoreAccordionOpen(!moreAccordionOpen)}
             aria-expanded={moreAccordionOpen}
-            className="text-sm text-gray-400 underline hover:text-gray-200"
+            className="text-sm text-[var(--color-text-muted)] underline hover:text-[var(--color-text)]"
           >
             {moreAccordionOpen ? "Hide details" : "More"}
           </button>
@@ -176,12 +178,12 @@ export default function FeedbackPanel({
       {hasMoreContent && moreAccordionOpen && (
         <div className="mt-3 flex flex-col gap-3" data-testid="feedback-more-accordion">
           {question.detailedExplanation && (
-            <p className="text-sm text-gray-400">{question.detailedExplanation}</p>
+            <p className="text-sm text-[var(--color-text-muted)]">{question.detailedExplanation}</p>
           )}
           {question.mnemonic && (
-            <div className="rounded-md border border-indigo-500/20 bg-indigo-900/20 p-3">
-              <p className="mb-1 text-xs uppercase tracking-wider text-indigo-400">Memory tip</p>
-              <p className="text-sm text-gray-300">{localize(question.mnemonic, translationLang)}</p>
+            <div className="rounded-md border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-3">
+              <p className="mb-1 text-xs uppercase tracking-wider" style={{ color: "var(--color-jlpt-n4)" }}>Memory tip</p>
+              <p className="text-sm text-[var(--color-text-muted)]">{localize(question.mnemonic, translationLang)}</p>
             </div>
           )}
           {hasKanjiBreakdown && question.kanji_breakdown && (

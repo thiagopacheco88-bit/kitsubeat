@@ -9,6 +9,7 @@ import { LevelUpTakeover } from "@/app/components/LevelUpTakeover";
 import type { Question } from "@/lib/exercises/generator";
 import type { AnswerRecord } from "@/stores/exerciseSession";
 import { xpWithinCurrentLevel } from "@/lib/gamification/level-curve";
+import { Button } from "@/components/ui/Button";
 
 interface SessionSummaryProps {
   questions: Question[];
@@ -160,12 +161,14 @@ export default function SessionSummary({
   }, []); // intentionally run once on mount
 
   // --- Accuracy color ---
+  // Phase 14 Plan 14-05: token-driven semantic colors —
+  // success=N5(green), warning=N3(amber), failure=accent(red).
   const accuracyColor =
     accuracyPct >= 80
-      ? "text-green-400"
+      ? "text-[var(--color-jlpt-n5)]"
       : accuracyPct >= 60
-        ? "text-yellow-400"
-        : "text-red-400";
+        ? "text-[var(--color-jlpt-n3)]"
+        : "text-[var(--color-accent)]";
 
   const newStarEarned = !saving && stars > previousStars;
   // Phase 10 Plan 07 — bonus badge transition: false → true unlock. Subtle
@@ -192,24 +195,24 @@ export default function SessionSummary({
         />
       )}
 
-      <h2 className="text-xl font-bold text-white">Session Complete!</h2>
+      <h2 className="text-xl font-bold text-[var(--color-text)]">Session Complete!</h2>
 
       {/* Accuracy display */}
       <div className="flex flex-col items-center gap-1">
         <span className={`text-6xl font-bold ${accuracyColor}`}>
           {accuracyPct}%
         </span>
-        <span className="text-sm text-gray-400">accuracy</span>
+        <span className="text-sm text-[var(--color-text-muted)]">accuracy</span>
       </div>
 
       {/* Stats row */}
-      <div className="flex items-center gap-8 text-sm text-gray-400">
+      <div className="flex items-center gap-8 text-sm text-[var(--color-text-muted)]">
         <div className="flex flex-col items-center gap-0.5">
-          <span className="text-xl font-semibold text-white">{correctCount}/{totalQuestions}</span>
+          <span className="text-xl font-semibold text-[var(--color-text)]">{correctCount}/{totalQuestions}</span>
           <span>correct</span>
         </div>
         <div className="flex flex-col items-center gap-0.5">
-          <span className="text-xl font-semibold text-white">{formatTime(totalTimeMs)}</span>
+          <span className="text-xl font-semibold text-[var(--color-text)]">{formatTime(totalTimeMs)}</span>
           <span>time</span>
         </div>
       </div>
@@ -222,43 +225,41 @@ export default function SessionSummary({
         const masteredPct = Math.round(pct(mastered));
         return (
           <div className="w-full max-w-xs flex flex-col gap-1.5 text-left">
-            <div className="flex items-baseline justify-between text-xs text-gray-400">
+            <div className="flex items-baseline justify-between text-xs text-[var(--color-text-muted)]">
               <span>Song mastery</span>
               <span>
-                <span className="font-semibold text-white">{masteredPct}%</span>
+                <span className="font-semibold text-[var(--color-text)]">{masteredPct}%</span>
                 {" "}mastered
               </span>
             </div>
-            <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-gray-800">
+            <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-[var(--color-card-2)]">
               {mastered > 0 && (
                 <div
-                  className="bg-green-500"
-                  style={{ width: `${pct(mastered)}%` }}
+                  style={{ width: `${pct(mastered)}%`, backgroundColor: "var(--color-jlpt-n5)" }}
                   aria-label={`${mastered} mastered`}
                 />
               )}
               {learning > 0 && (
                 <div
-                  className="bg-yellow-500"
-                  style={{ width: `${pct(learning)}%` }}
+                  style={{ width: `${pct(learning)}%`, backgroundColor: "var(--color-jlpt-n3)" }}
                   aria-label={`${learning} learning`}
                 />
               )}
             </div>
-            <div className="flex items-center justify-between text-xs text-gray-400">
+            <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
               <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-green-500" />
+                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "var(--color-jlpt-n5)" }} />
                 {mastered} mastered
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-yellow-500" />
+                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: "var(--color-jlpt-n3)" }} />
                 {learning} learning
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-gray-600" />
+                <span className="h-2 w-2 rounded-full bg-[var(--color-text-dim)]" />
                 {newCount} new
               </span>
-              <span className="text-gray-500">/ {total}</span>
+              <span className="text-[var(--color-text-dim)]">/ {total}</span>
             </div>
           </div>
         );
@@ -280,25 +281,25 @@ export default function SessionSummary({
             <button
               type="button"
               onClick={() => setWordsExpanded((v) => !v)}
-              className="flex w-full items-center justify-between rounded-lg border border-gray-700 bg-gray-900 px-3 py-2 text-sm text-gray-300 hover:bg-gray-800"
+              className="flex w-full items-center justify-between rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)]"
             >
               <span>Words reviewed ({uniqueWords.length})</span>
-              <span className="text-gray-500">{wordsExpanded ? "▲" : "▼"}</span>
+              <span className="text-[var(--color-text-dim)]">{wordsExpanded ? "▲" : "▼"}</span>
             </button>
             {wordsExpanded && (
-              <ul className="mt-1 rounded-lg border border-gray-700 bg-gray-900/80 px-3 py-2 text-sm text-gray-200 flex flex-col gap-1.5">
+              <ul className="mt-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]/80 px-3 py-2 text-sm text-[var(--color-text-muted)] flex flex-col gap-1.5">
                 {uniqueWords.map((q) => (
                   <li key={q.vocabItemId} className="flex items-center gap-2">
                     <MasteryDetailPopover
                       vocabItemId={q.vocabItemId}
                       userId={userId}
                       trigger={
-                        <span className="font-medium text-white">
+                        <span className="font-medium text-[var(--color-text)]">
                           {q.vocabInfo.surface}
                         </span>
                       }
                     />
-                    <span className="text-gray-500 text-xs">
+                    <span className="text-[var(--color-text-dim)] text-xs">
                       {q.vocabInfo.reading !== q.vocabInfo.surface
                         ? q.vocabInfo.reading
                         : ""}
@@ -316,7 +317,7 @@ export default function SessionSummary({
         <div className="flex flex-col items-center gap-2">
           <StarDisplay stars={stars} animate={newStarEarned} />
           {newStarEarned && (
-            <p className="text-sm font-semibold text-yellow-400 animate-pulse">
+            <p className="text-sm font-semibold animate-pulse" style={{ color: "var(--color-jlpt-n3)" }}>
               {masteredThisSession
                 ? "You earned 3 stars — song mastered!"
                 : `You earned Star ${stars}!`}
@@ -326,18 +327,18 @@ export default function SessionSummary({
               Deliberately plain text (no animation, no confetti) so the
               stars remain the primary signal. CONTEXT-locked. */}
           {bonusUnlocked && (
-            <p className="text-xs font-medium text-amber-300">
+            <p className="text-xs font-medium" style={{ color: "var(--color-jlpt-n3)" }}>
               Bonus mastery unlocked!
             </p>
           )}
         </div>
       )}
       {saving && (
-        <div className="h-8 w-24 animate-pulse rounded bg-gray-800" />
+        <div className="h-8 w-24 animate-pulse rounded bg-[var(--color-card-2)]" />
       )}
 
       {saveError && (
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-[var(--color-text-dim)]">
           Progress could not be saved this time.
         </p>
       )}
@@ -345,29 +346,29 @@ export default function SessionSummary({
       {/* Phase 12 Plan 04 — Gamification summary rows */}
       {!saving && xpGained > 0 && (
         <div
-          className="w-full max-w-xs flex flex-col gap-2 rounded-lg border border-gray-700 bg-gray-900/80 px-4 py-3"
+          className="w-full max-w-xs flex flex-col gap-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]/80 px-4 py-3"
           data-level-up={leveledUp ? currentLevel : ""}
         >
           {/* XP gained row */}
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-400">XP earned</span>
-            <span className="font-semibold text-yellow-400">+{xpGained} XP</span>
+            <span className="text-[var(--color-text-muted)]">XP earned</span>
+            <span className="font-semibold" style={{ color: "var(--color-jlpt-n3)" }}>+{xpGained} XP</span>
           </div>
           {milestoneXp > 0 && (
-            <p className="text-xs text-yellow-300">
+            <p className="text-xs" style={{ color: "var(--color-jlpt-n3)" }}>
               +{milestoneXp} streak milestone bonus!
             </p>
           )}
 
           {/* Streak flame */}
           <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-400">Streak</span>
-            <span className="font-semibold text-orange-400">
+            <span className="text-[var(--color-text-muted)]">Streak</span>
+            <span className="font-semibold" style={{ color: "var(--color-jlpt-n2)" }}>
               {"\uD83D\uDD25"} {streakCurrent} day{streakCurrent === 1 ? "" : "s"}
             </span>
           </div>
           {graceApplied && (
-            <p className="text-xs text-sky-300">
+            <p className="text-xs" style={{ color: "var(--color-jlpt-n4)" }}>
               Phew &mdash; your streak survived today 🎐
             </p>
           )}
@@ -378,16 +379,16 @@ export default function SessionSummary({
             const pct = xpToNext > 0 ? Math.round((xpInLevel / xpToNext) * 100) : 100;
             return (
               <div className="flex flex-col gap-1">
-                <div className="flex items-center justify-between text-xs text-gray-400">
+                <div className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
                   <span>Level {currentLevel}</span>
                   <span>
                     {xpInLevel} / {xpToNext} XP to Level {currentLevel + 1}
                   </span>
                 </div>
-                <div className="h-2 w-full overflow-hidden rounded-full bg-gray-800">
+                <div className="h-2 w-full overflow-hidden rounded-full bg-[var(--color-card-2)]">
                   <div
-                    className="h-full bg-indigo-500 transition-all"
-                    style={{ width: `${pct}%` }}
+                    className="h-full transition-all"
+                    style={{ width: `${pct}%`, backgroundColor: "var(--color-jlpt-n4)" }}
                     aria-label={`${pct}% progress to Level ${currentLevel + 1}`}
                   />
                 </div>
@@ -397,11 +398,11 @@ export default function SessionSummary({
 
           {/* Next reward slot preview — M4: render NOTHING if null */}
           {rewardSlotPreview !== null && (
-            <div className="mt-1 flex flex-col gap-0.5 border-t border-gray-700 pt-2">
-              <p className="text-xs text-gray-500">
+            <div className="mt-1 flex flex-col gap-0.5 border-t border-[var(--color-border)] pt-2">
+              <p className="text-xs text-[var(--color-text-dim)]">
                 Next reward at Level {rewardSlotPreview.level_threshold}
               </p>
-              <p className="text-xs font-medium text-gray-300">
+              <p className="text-xs font-medium text-[var(--color-text-muted)]">
                 {rewardSlotPreview.label}
               </p>
             </div>
@@ -411,30 +412,32 @@ export default function SessionSummary({
 
       {/* CTA buttons */}
       <div className="flex flex-col items-center gap-3 w-full max-w-xs">
-        <button
+        <Button
+          variant="primary"
+          size="md"
           onClick={onRetry}
-          className="w-full rounded-lg bg-red-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
+          className="w-full"
         >
           Practice Again
-        </button>
+        </Button>
         {/* Continue Path — shown when path advanced this session */}
         {pathAdvancedTo !== null && (
           <Link
             href="/path"
-            className="w-full rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-700 text-center"
+            className="w-full inline-flex h-11 min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-6 text-sm font-medium text-[var(--color-text)] shadow-[var(--shadow-button-red)] transition-colors hover:bg-[var(--color-accent)]/90 text-center"
           >
             Continue Path
           </Link>
         )}
         <Link
           href="/songs"
-          className="w-full rounded-lg border border-gray-600 bg-gray-800 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-gray-700 text-center"
+          className="w-full inline-flex h-11 min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-6 text-sm font-medium text-[var(--color-text)] transition-colors hover:border-[var(--color-border-strong)] text-center"
         >
           Try Another Song
         </Link>
         <Link
           href="/"
-          className="text-sm text-gray-500 transition-colors hover:text-gray-300"
+          className="text-sm text-[var(--color-text-dim)] transition-colors hover:text-[var(--color-text-muted)]"
         >
           Dashboard
         </Link>

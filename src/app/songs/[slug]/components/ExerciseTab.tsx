@@ -14,6 +14,7 @@ import { areAllGrammarRulesMasteredForSong } from "@/app/actions/grammarSession"
 import ExerciseSession from "./ExerciseSession";
 import AdvancedDrillsUpsellModal from "./AdvancedDrillsUpsellModal";
 import GrammarSessionRunner from "./GrammarSessionRunner";
+import { Button } from "@/components/ui/Button";
 
 interface ExerciseTabProps {
   lesson: Lesson;
@@ -94,9 +95,9 @@ export default function ExerciseTab({
   if (!_hasHydrated) {
     return (
       <div className="flex flex-col gap-4 py-8 animate-pulse">
-        <div className="h-5 w-1/3 rounded bg-gray-800" />
-        <div className="h-24 w-full rounded-lg bg-gray-800" />
-        <div className="h-24 w-full rounded-lg bg-gray-800" />
+        <div className="h-5 w-1/3 rounded bg-[var(--color-card-2)]" />
+        <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
+        <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
       </div>
     );
   }
@@ -109,10 +110,10 @@ export default function ExerciseTab({
   const sessionView = (
     <div className="py-4">
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-white">Practice</h2>
+        <h2 className="text-lg font-semibold text-[var(--color-text)]">Practice</h2>
         <button
           onClick={handleRetry}
-          className="text-xs text-gray-500 underline hover:text-gray-300"
+          className="text-xs text-[var(--color-text-dim)] underline hover:text-[var(--color-text-muted)]"
         >
           Return
         </button>
@@ -378,53 +379,57 @@ export default function ExerciseTab({
 
   return (
     <div className="py-4">
-      <h2 className="mb-6 text-lg font-semibold text-white">Practice</h2>
+      <h2 className="mb-6 text-lg font-semibold text-[var(--color-text)]">Practice</h2>
 
       {error && (
-        <p className="mb-4 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-2 text-sm text-red-400">
+        <p className="mb-4 rounded-lg border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-4 py-2 text-sm text-[var(--color-accent)]">
           {error}
         </p>
       )}
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {/* Quick Practice mode */}
-        <div className="flex flex-col gap-3 rounded-xl border border-gray-700 bg-gray-900 p-5">
+        <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-5">
           <div>
-            <h3 className="font-semibold text-white">Quick Practice</h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <h3 className="font-semibold text-[var(--color-text)]">Quick Practice</h3>
+            <p className="mt-1 text-sm text-[var(--color-text-muted)]">
               {shortCount} questions &middot; ~2 min
             </p>
           </div>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[var(--color-text-dim)]">
             A focused burst — perfect for a quick vocab refresh.
           </p>
-          <button
+          <Button
+            variant="primary"
+            size="md"
             onClick={() => handleStart("short")}
             disabled={loading}
-            className="mt-auto rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700 disabled:opacity-50"
+            className="mt-auto"
           >
             {loading ? "Loading..." : "Start"}
-          </button>
+          </Button>
         </div>
 
         {/* Full Lesson mode */}
-        <div className="flex flex-col gap-3 rounded-xl border border-gray-700 bg-gray-900 p-5">
+        <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-5">
           <div>
-            <h3 className="font-semibold text-white">Full Lesson</h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <h3 className="font-semibold text-[var(--color-text)]">Full Lesson</h3>
+            <p className="mt-1 text-sm text-[var(--color-text-muted)]">
               {fullCount} questions &middot; ~5–8 min
             </p>
           </div>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[var(--color-text-dim)]">
             All vocab across all 4 exercise types — the complete workout.
           </p>
-          <button
+          <Button
+            variant="secondary"
+            size="md"
             onClick={() => handleStart("full")}
             disabled={loading}
-            className="mt-auto rounded-lg border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-50"
+            className="mt-auto"
           >
             {loading ? "Loading..." : "Start"}
-          </button>
+          </Button>
         </div>
 
         {/*
@@ -434,25 +439,27 @@ export default function ExerciseTab({
          * GrammarSessionRunner on click; no buildQuestions path.
          */}
         {songHasGrammar && (
-          <div className="flex flex-col gap-3 rounded-xl border border-emerald-700/50 bg-gray-900 p-5">
+          <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
             <div>
-              <h3 className="font-semibold text-white">Grammar Session</h3>
-              <p className="mt-1 text-sm text-gray-400">
+              <h3 className="font-semibold text-[var(--color-text)]">Grammar Session</h3>
+              <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                 Per-rule drills · beginner → intermediate → advanced
               </p>
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-[var(--color-text-dim)]">
               Master each grammar point with level-adaptive drills. Unlocks the 3rd
               star when the song has grammar.
             </p>
-            <button
+            <Button
+              variant="secondary"
+              size="md"
               onClick={() => handleStart("grammar")}
               disabled={loading}
               data-testid="grammar-session-start"
-              className="mt-auto rounded-lg border border-emerald-500/50 bg-emerald-900/40 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-800/50 disabled:opacity-50"
+              className="mt-auto"
             >
               {loading ? "Loading..." : "Start"}
-            </button>
+            </Button>
           </div>
         )}
 
@@ -463,45 +470,47 @@ export default function ExerciseTab({
          * starts: click → getAdvancedDrillAccess server action → upsell modal
          * on quota exhaustion OR full session otherwise.
          */}
-        <div className="flex flex-col gap-3 rounded-xl border border-purple-700/50 bg-gray-900 p-5">
+        <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
           <div>
-            <h3 className="font-semibold text-white">Advanced Drills</h3>
-            <p className="mt-1 text-sm text-gray-400">
+            <h3 className="font-semibold text-[var(--color-text)]">Advanced Drills</h3>
+            <p className="mt-1 text-sm text-[var(--color-text-muted)]">
               Grammar · Listening · Sentence Order
             </p>
           </div>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[var(--color-text-dim)]">
             The 3-star workout — conjugation, listening, and sentence-reordering
             questions.
           </p>
-          <button
+          <Button
+            variant="secondary"
+            size="md"
             onClick={() => handleStart("advanced_drills")}
             disabled={loading}
             data-testid="advanced-drills-start"
-            className="mt-auto rounded-lg border border-purple-500/50 bg-purple-900/40 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-800/50 disabled:opacity-50"
+            className="mt-auto"
           >
             {loading ? "Loading..." : "Start"}
-          </button>
+          </Button>
         </div>
       </div>
 
-      <p className="mt-4 text-xs text-gray-600">
+      <p className="mt-4 text-xs text-[var(--color-text-dim)]">
         {vocabCount} vocabulary {vocabCount === 1 ? "item" : "items"} available
         in this lesson.
       </p>
 
       {/* Star criteria — guides learner to next achievement */}
-      <div className="mt-6 rounded-xl border border-gray-800 bg-gray-900/50 p-4">
-        <h3 className="mb-3 text-sm font-semibold text-white">
+      <div className="mt-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)]/50 p-4">
+        <h3 className="mb-3 text-sm font-semibold text-[var(--color-text)]">
           Star Mastery Criteria
         </h3>
-        <ul className="flex flex-col gap-2 text-sm text-gray-400">
+        <ul className="flex flex-col gap-2 text-sm text-[var(--color-text-muted)]">
           <li className="flex items-start gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="mt-0.5 h-4 w-4 shrink-0 text-yellow-400"
+              className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]"
             >
               <path
                 fillRule="evenodd"
@@ -510,7 +519,7 @@ export default function ExerciseTab({
               />
             </svg>
             <span>
-              <span className="text-white font-medium">Star 1:</span> Score 80%+
+              <span className="text-[var(--color-text)] font-medium">Star 1:</span> Score 80%+
               on vocabulary exercises (meaning, reading, recognition)
             </span>
           </li>
@@ -519,7 +528,7 @@ export default function ExerciseTab({
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="mt-0.5 h-4 w-4 shrink-0 text-yellow-400"
+              className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]"
             >
               <path
                 fillRule="evenodd"
@@ -528,7 +537,7 @@ export default function ExerciseTab({
               />
             </svg>
             <span>
-              <span className="text-white font-medium">Star 2:</span> Score 80%+
+              <span className="text-[var(--color-text)] font-medium">Star 2:</span> Score 80%+
               on Fill-the-Lyric exercises
             </span>
           </li>
@@ -537,7 +546,7 @@ export default function ExerciseTab({
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="mt-0.5 h-4 w-4 shrink-0 text-yellow-400"
+              className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]"
             >
               <path
                 fillRule="evenodd"
@@ -546,7 +555,7 @@ export default function ExerciseTab({
               />
             </svg>
             <span>
-              <span className="text-white font-medium">Star 3:</span> Score 80%+
+              <span className="text-[var(--color-text)] font-medium">Star 3:</span> Score 80%+
               {songHasGrammar
                 ? " on the Grammar Session"
                 : " on Listening Drill exercises"}

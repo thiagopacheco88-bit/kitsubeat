@@ -63,3 +63,22 @@ SCOPE BOUNDARY rule).
   cleanly under `npx tsc --noEmit` (zero new errors introduced).
 - **Owner:** Admin/lyrics WIP work stream owner. Will be resolved when that
   branch lands.
+
+## Plan 14-05 (Wave 2 — /songs/[slug] surface migration)
+
+### D-PRE-07 — `react-hooks/purity` rule firing on pre-existing `Date.now()` in useRef initializers
+- **Source:** Pre-existing — the same pattern (`useRef<number>(Date.now())`)
+  exists at SentenceOrderCard.tsx:59, ConjugationCard.tsx, QuestionCard.tsx,
+  ListeningDrillCard.tsx all from Phase 10. The rule fires from
+  `eslint-plugin-react-hooks` (React 19 purity additions).
+- **Phase 14 impact:** Plan 14-05 doesn't touch the offending lines. ESLint
+  output of `npm run lint` for these files now shows the purity error after
+  the kitsubeat-tokens errors clear (previously masked by 18+ token errors
+  per file). The kitsubeat-tokens rule was the Phase 14 merge gate; the
+  purity rule is unrelated.
+- **Fix shape (deferred):** Replace `useRef<number>(Date.now())` with
+  `useRef<number>(0)` + `if (!ref.current) ref.current = Date.now()` pattern,
+  OR move the `Date.now()` call into a `useEffect`/`useState` initializer
+  function (`useState(() => Date.now())`).
+- **Owner:** Phase 11 / Phase 12 maintainers — these are exercise-card
+  components from those phases, not Phase 14 design-system migrations.
