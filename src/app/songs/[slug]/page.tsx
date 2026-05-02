@@ -6,7 +6,7 @@ import { hasKanji } from "@/lib/exercises/kanji";
 import { db } from "@/lib/db/index";
 import { userSongProgress } from "@/lib/db/schema";
 import { eq, and, inArray } from "drizzle-orm";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 import SongContent from "./components/SongContent";
 
 export async function generateMetadata({
@@ -120,14 +120,13 @@ export default async function SongPlayerPage({
   // Phase 11.6 SPEC-REQ-10 + SPEC-REQ-11: SSR-load per-track progress percentages
   // from user_song_progress for all versions of this song.
   //
-  // Uses the same PLACEHOLDER_USER_ID as /api/review/known-count and the rest of
-  // the pre-auth flows — keeps SSR ring data, the "you know N/M words" badge,
-  // and recordVocabAnswer writes all keyed on the same user. Will switch to
-  // Clerk auth() when it lands on song pages.
+  // getCurrentUserId() returns Clerk's auth().userId when signed in, falls back
+  // to PLACEHOLDER_USER_ID for anonymous traffic — same helper used by every
+  // other reader/writer in the app so all metrics agree.
   //
   // Pitfall 6 mitigation: numeric(5,2) columns come back as strings from neon-http
   // driver — parseFloat() at this boundary before passing to client components.
-  const SONG_PAGE_USER_ID = PLACEHOLDER_USER_ID;
+  const SONG_PAGE_USER_ID = await getCurrentUserId();
   const versionIds = versions.map((v) => v.id);
 
   const progressRows = await db
@@ -195,6 +194,7 @@ export default async function SongPlayerPage({
       }}
       versions={versionsWithPcts}
       songId={song.id}
+      userId={SONG_PAGE_USER_ID}
     />
   );
 }

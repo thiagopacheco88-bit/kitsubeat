@@ -19,8 +19,10 @@
  *
  * Icons: inline SVG (not lucide-react — bundle budget per CONTEXT, no new deps).
  *
- * userId source: PLACEHOLDER_USER_ID from the existing app pattern. Once the app
- * migrates to real Clerk-derived userIds, swap to useUser().user?.id.
+ * userId source: passed in as a prop from the parent server component
+ * (resolves Clerk's auth().userId there); falls back to PLACEHOLDER_USER_ID
+ * when the prop is omitted so the cookie/SSR theme path still works without
+ * a session and so unit tests don't need a ClerkProvider wrapper.
  */
 import { useEffect, useState, useTransition } from "react";
 import { Button } from "./Button";
@@ -120,7 +122,12 @@ function MoonIcon({ className }: { className?: string }) {
   );
 }
 
-export function ThemeToggle() {
+interface ThemeToggleProps {
+  /** Resolved by the parent server component (Clerk auth().userId or placeholder) */
+  userId?: string;
+}
+
+export function ThemeToggle({ userId = PLACEHOLDER_USER_ID }: ThemeToggleProps = {}) {
   const [pref, setPref] = useState<ThemePref>("system");
   const [isPending, startTransition] = useTransition();
 
@@ -141,7 +148,7 @@ export function ThemeToggle() {
     // set it client-side) but defensive for SSR consistency on next request.
     startTransition(async () => {
       try {
-        await setThemePreference(PLACEHOLDER_USER_ID, next);
+        await setThemePreference(userId, next);
       } catch (e) {
         // Revert optimistic state on failure
         // eslint-disable-next-line no-console

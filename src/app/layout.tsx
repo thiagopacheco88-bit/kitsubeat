@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, SignInButton, UserButton } from "@clerk/nextjs";
+import { auth, currentUser } from "@clerk/nextjs/server";
 import { cookies } from "next/headers";
 import "./globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -37,6 +39,29 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const stored = cookieStore.get("kb_theme")?.value;
   const initialTheme: "light" | "dark" = stored === "light" ? "light" : "dark";
+
+  // Admin nav surface: same allowlist as src/middleware.ts so the link only
+  // appears for users who can actually reach /admin/*. Guarded so a Clerk
+  // outage doesn't 500 the root layout for everyone.
+  let isAdmin = false;
+  let isSignedIn = false;
+  let signedInUserId: string | undefined;
+  try {
+    const session = await auth();
+    isSignedIn = Boolean(session.userId);
+    signedInUserId = session.userId ?? undefined;
+    if (isSignedIn) {
+      const user = await currentUser();
+      const email =
+        user?.primaryEmailAddress?.emailAddress ??
+        user?.emailAddresses?.[0]?.emailAddress;
+      isAdmin = isAdminEmail(email, parseAdminEmails(process.env.CLERK_ADMIN_EMAILS));
+    }
+  } catch {
+    isAdmin = false;
+    isSignedIn = false;
+    signedInUserId = undefined;
+  }
 
   return (
     <ClerkProvider>
@@ -101,13 +126,35 @@ export default async function RootLayout({
                 Progress
               </Link>
               <GlobalLearnedCounter />
+              {isAdmin && (
+                <Link
+                  href="/admin/lyrics"
+                  className="whitespace-nowrap text-sm font-medium text-[var(--color-accent)] transition-colors hover:opacity-80"
+                  data-testid="nav-admin-lyrics"
+                >
+                  Admin
+                </Link>
+              )}
               <Link
                 href="/profile"
                 className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
               >
                 Profile
               </Link>
-              <ThemeToggle />
+              {isSignedIn ? (
+                <UserButton />
+              ) : (
+                <SignInButton mode="modal">
+                  <button
+                    type="button"
+                    className="whitespace-nowrap text-sm font-medium text-[var(--color-accent)] transition-colors hover:opacity-80"
+                    data-testid="nav-sign-in"
+                  >
+                    Sign in
+                  </button>
+                </SignInButton>
+              )}
+              <ThemeToggle userId={signedInUserId} />
             </div>
           </nav>
         </header>

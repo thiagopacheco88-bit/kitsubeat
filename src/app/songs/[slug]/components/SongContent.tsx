@@ -11,7 +11,6 @@ import VocabularySection from "./VocabularySection";
 import GrammarSection from "./GrammarSection";
 import SongLayout from "./SongLayout";
 import KnownWordCount from "./KnownWordCount";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
 // Lazy-load exercise tab — avoids bundling exercise code until Practice is clicked
 const ExerciseTab = lazy(() => import("./ExerciseTab"));
@@ -53,6 +52,7 @@ interface SongContentInnerProps {
   song: SongMeta;
   versions: VersionData[];
   songId: string;
+  userId: string;
   activeType: "tv" | "full";
   setActiveType: (t: "tv" | "full") => void;
   hasMultiple: boolean;
@@ -76,6 +76,7 @@ function SongContentInner({
   song,
   versions,
   songId,
+  userId,
   activeType,
   setActiveType,
   hasMultiple,
@@ -237,7 +238,7 @@ function SongContentInner({
               lesson={active.lesson}
               songVersionId={active.id}
               songSlug={song.slug}
-              userId={PLACEHOLDER_USER_ID}
+              userId={userId}
               hasKanjiBearingVocab={active.hasKanjiBearingVocab ?? true}
               trackPcts={active.trackPcts ?? { vocab: 0, grammar: 0, kanji: 0 }}
               advancedDrillsUnlocked={active.advancedDrillsUnlocked ?? false}
@@ -253,10 +254,13 @@ export default function SongContent({
   song,
   versions,
   songId,
+  userId,
 }: {
   song: SongMeta;
   versions: VersionData[];
   songId: string;
+  /** Resolved by getCurrentUserId() in page.tsx (Clerk userId or placeholder) */
+  userId: string;
 }) {
   // TV version is usable if it has a lesson with verse timing — LyricsPanel
   // falls back to verse start_time_ms/end_time_ms when synced_lrc is absent.
@@ -281,6 +285,7 @@ export default function SongContent({
         song={song}
         versions={versions}
         songId={songId}
+        userId={userId}
         activeType={activeType}
         setActiveType={setActiveType}
         hasMultiple={hasMultiple}

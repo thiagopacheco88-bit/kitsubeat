@@ -9,26 +9,31 @@
  * Per D-04: non-admin → redirect("/") with NO 401/403 (route existence is not disclosed).
  */
 
-import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { currentUser } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher, clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
 
-const isAdminRoute = createRouteMatcher(["/admin(.*)"]);
+const isAdminRoute = createRouteMatcher(["/admin(.*)", "/api/admin(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
   if (!isAdminRoute(req)) return; // pass-through for everything outside /admin/*
 
   const session = await auth();
   if (!session.userId) {
-    // Logged-out → redirect to / (no leaked 401)
-    return NextResponse.redirect(new URL("/", req.url));
+    // Logged-out → redirect to /sign-in with redirect_url back to the admin route.
+    // (Per D-04 we don't 401 — funneling through the generic sign-in flow doesn't reveal
+    // which route triggered the redirect.)
+    const signIn = new URL("/sign-in", req.url);
+    signIn.searchParams.set("redirect_url", req.url);
+    return NextResponse.redirect(signIn);
   }
 
-  const user = await currentUser();
+  // currentUser() is not allowed in middleware in Clerk 7.x — use the backend client.
+  const client = await clerkClient();
+  const user = await client.users.getUser(session.userId);
   const email =
-    user?.primaryEmailAddress?.emailAddress ??
-    user?.emailAddresses?.[0]?.emailAddress;
+    user.primaryEmailAddress?.emailAddress ??
+    user.emailAddresses?.[0]?.emailAddress;
   const allowlist = parseAdminEmails(process.env.CLERK_ADMIN_EMAILS);
 
   if (!isAdminEmail(email, allowlist)) {
@@ -39,7 +44,20 @@ export default clerkMiddleware(async (auth, req) => {
 });
 
 export const config = {
-  // Scope STRICTLY to /admin/* — do NOT use the Clerk catch-all matcher.
-  // RESEARCH §9 Pitfall 15: catch-all + missing Clerk env vars = Vercel public deploy breaks.
-  matcher: ["/admin/:path*"],
+  // Catch-all (excluding static assets) so clerkMiddleware() runs on every
+  // request — required for `currentUser()` to work in the root layout (e.g.
+  // for the admin nav link on the public home page).
+  //
+  // RESEARCH §9 Pitfall 15 mitigation: the middleware function ABOVE early-returns
+  // for non-admin routes BEFORE calling auth(), so missing Clerk env vars don't
+  // crash public-catalog requests — only /admin/* invokes Clerk APIs.
+  matcher: [
+    // Canonical Clerk v5 catch-all that skips static asset URLs (any path
+    // containing a "." extension) and Next internals. The middleware function
+    // above early-returns for non-admin routes, so public-catalog requests
+    // never invoke Clerk APIs even though clerkMiddleware() runs.
+    "/((?!.+\\.[\\w]+$|_next).*)",
+    "/",
+    "/(api|trpc)(.*)",
+  ],
 };

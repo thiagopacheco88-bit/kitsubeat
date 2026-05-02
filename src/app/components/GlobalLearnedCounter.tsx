@@ -17,19 +17,21 @@
  * link colors all read from `globals.css @theme` tokens; previous palette
  * utilities (Tailwind gray + red shades, bare white) replaced with var() refs.
  *
- * TODO(Phase 10 auth): replace PLACEHOLDER_USER_ID with Clerk auth().
+ * Resolves the current user via getCurrentUserId() — Clerk userId when signed in,
+ * placeholder otherwise. Same helper used by every other reader/writer.
  */
 
 import Link from "next/link";
 import { getGlobalLearnedCount } from "@/lib/db/queries";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 
 interface Props {
   variant?: "nav" | "profile";
 }
 
 export default async function GlobalLearnedCounter({ variant = "nav" }: Props) {
-  const count = await getGlobalLearnedCount(PLACEHOLDER_USER_ID);
+  const userId = await getCurrentUserId();
+  const count = await getGlobalLearnedCount(userId);
 
   if (variant === "profile") {
     return (

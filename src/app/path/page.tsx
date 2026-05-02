@@ -7,7 +7,7 @@ import { getNextRewardPreview } from "@/lib/gamification/reward-slots";
 import { db } from "@/lib/db";
 import { rewardSlotDefinitions } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 import { CosmeticsProvider } from "@/app/components/CosmeticsProvider";
 import { PathHud } from "./components/PathHud";
 import { PathMap } from "./components/PathMap";
@@ -15,7 +15,7 @@ import { StarterPick } from "./components/StarterPick";
 import type { RewardSlotDefinition } from "@/lib/types/reward-slots";
 
 export default async function PathPage() {
-  const userId = PLACEHOLDER_USER_ID;
+  const userId = await getCurrentUserId();
 
   // Parallel-fetch user state and songs
   const [state, songs] = await Promise.all([

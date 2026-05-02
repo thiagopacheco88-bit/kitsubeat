@@ -14,7 +14,7 @@
  */
 
 import { getKnownWordCountForSong } from "@/lib/db/queries";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 import { UUID_RE } from "@/lib/uuid";
 
 export const dynamic = "force-dynamic";
@@ -31,7 +31,8 @@ export async function GET(request: Request) {
   }
 
   try {
-    const data = await getKnownWordCountForSong(PLACEHOLDER_USER_ID, songId);
+    const userId = await getCurrentUserId();
+    const data = await getKnownWordCountForSong(userId, songId);
     return Response.json(data, {
       headers: { "Cache-Control": "private, no-store" },
     });

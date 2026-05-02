@@ -1,5 +1,5 @@
 import { getAllSongs } from "@/lib/db/queries";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 import SongGrid from "./components/SongGrid";
 
 export const dynamic = "force-dynamic";
@@ -13,7 +13,8 @@ export default async function SongsPage({
 }: {
   searchParams: Promise<{ search?: string }>;
 }) {
-  const songs = await getAllSongs(PLACEHOLDER_USER_ID);
+  const userId = await getCurrentUserId();
+  const songs = await getAllSongs(userId);
   const params = await searchParams;
 
   return (

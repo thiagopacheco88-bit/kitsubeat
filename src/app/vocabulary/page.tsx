@@ -9,7 +9,7 @@ import FilterControls from "./FilterControls";
 import { JlptGapSummary } from "./JlptGapSummary";
 import { EmptyState } from "@/components/ui/EmptyState";
 
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 
 // Free users get the top 20 rows ordered by state DESC, last_review DESC NULLS LAST
 // (Plan 01 default order). Preview cutoff is applied in-memory so we can show the
@@ -45,7 +45,7 @@ export default async function VocabularyPage({
   searchParams: Promise<{ tier?: string; song?: string; sort?: string }>;
 }) {
   const sp = await searchParams;
-  const userId = PLACEHOLDER_USER_ID;
+  const userId = await getCurrentUserId();
 
   const [premium, rows, sources] = await Promise.all([
     isPremium(userId),

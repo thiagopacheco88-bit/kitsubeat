@@ -16,10 +16,10 @@ export const dynamic = "force-dynamic";
 
 import { NextResponse } from "next/server";
 import { getNewCardBudget } from "@/lib/db/queries";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 
 export async function GET() {
-  const userId = PLACEHOLDER_USER_ID;
+  const userId = await getCurrentUserId();
   const budgetRemaining = await getNewCardBudget(userId);
 
   return NextResponse.json(

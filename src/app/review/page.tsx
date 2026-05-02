@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 import { sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { isPremium } from "@/app/actions/userPrefs";
-import { PLACEHOLDER_USER_ID, REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
+import { getCurrentUserId, REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
 import { getNewCardBudget } from "@/lib/db/queries";
 import ReviewLanding from "./ReviewLanding";
 
@@ -38,7 +38,7 @@ async function countDue(userId: string): Promise<number> {
 }
 
 export default async function ReviewPage() {
-  const userId = PLACEHOLDER_USER_ID;
+  const userId = await getCurrentUserId();
 
   const [premium, dueCount, newBudget] = await Promise.all([
     isPremium(userId),
@@ -52,6 +52,7 @@ export default async function ReviewPage() {
       dueCount={dueCount}
       newBudgetRemaining={newBudget}
       dailyCap={REVIEW_NEW_DAILY_CAP}
+      userId={userId}
     />
   );
 }

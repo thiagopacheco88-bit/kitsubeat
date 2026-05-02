@@ -41,7 +41,7 @@ type DbJlptLevel = "N5" | "N4" | "N3" | "N2" | "N1";
 import { db } from "@/lib/db";
 import { vocabularyItems } from "@/lib/db/schema";
 import { isPremium } from "@/app/actions/userPrefs";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { getCurrentUserId } from "@/lib/user-prefs";
 import { getDueReviewQueue, getNewCardBudget } from "@/lib/db/queries";
 import { buildReviewQueue, type ReviewQueueItem } from "@/lib/review/queue-builder";
 
@@ -69,7 +69,7 @@ export interface QueueResponse {
 }
 
 export async function GET() {
-  const userId = PLACEHOLDER_USER_ID;
+  const userId = await getCurrentUserId();
 
   // Premium gate — free users cannot access the review queue.
   const premium = await isPremium(userId);

@@ -1,7 +1,7 @@
 import { getUserPrefs, isPremium } from "@/app/actions/userPrefs";
 import {
   DEFAULT_NEW_CARD_CAP,
-  PLACEHOLDER_USER_ID,
+  getCurrentUserId,
   PREMIUM_NEW_CARD_CAP_CEILING,
 } from "@/lib/user-prefs";
 import ProfileForm from "./ProfileForm";
@@ -9,7 +9,7 @@ import { ProfileHud } from "./ProfileHud";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 
 export default async function ProfilePage() {
-  const userId = PLACEHOLDER_USER_ID;
+  const userId = await getCurrentUserId();
   const [prefs, premium] = await Promise.all([
     getUserPrefs(userId),
     isPremium(userId),

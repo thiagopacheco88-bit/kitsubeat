@@ -22,7 +22,6 @@ import dynamic from "next/dynamic";
 import UpsellModal from "./UpsellModal";
 import type { VocabRow, QueueResponse } from "@/app/api/review/queue/route";
 import { useReviewSession } from "@/stores/reviewSession";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 import { Button } from "@/components/ui/Button";
 
 // Lazy-load ReviewSession so it doesn't inflate the landing bundle
@@ -33,6 +32,8 @@ interface ReviewLandingProps {
   dueCount: number;
   newBudgetRemaining: number;
   dailyCap: number;
+  /** Resolved by getCurrentUserId() in review/page.tsx */
+  userId: string;
 }
 
 
@@ -41,6 +42,7 @@ export default function ReviewLanding({
   dueCount,
   newBudgetRemaining,
   dailyCap,
+  userId,
 }: ReviewLandingProps) {
   const [upsellOpen, setUpsellOpen] = useState(false);
   const [started, setStarted] = useState(false);
@@ -97,7 +99,7 @@ export default function ReviewLanding({
   if (started && isPremium) {
     return (
       <ReviewSession
-        userId={PLACEHOLDER_USER_ID}
+        userId={userId}
         vocabData={vocabData}
         jlptPools={jlptPools}
         onBack={() => {
