@@ -118,3 +118,59 @@ SCOPE BOUNDARY rule).
   + GrammarSection + PlayerControls. When all four ship, the
   mobile-parity.spec.ts `<=24` threshold can drop to `<=0` and the
   tap-target assertion can broaden from in-scope-only to whole-page.
+
+## Plan 14-07 (Wave 3 — /review + /vocabulary + /profile + cross-cutting modals)
+
+### D-PRE-09 — react-hooks v6+ purity errors in ProfileForm.tsx (cookie write + setState in effect)
+- **Source:** Plan 14-03 commit `5897f68` introduced both patterns:
+  - Line 54: `setThemePreferenceLocal(m[1] as ThemePref)` inside `useEffect`
+    (cookie-seed pattern)
+  - Line 66: `document.cookie = ...` assignment inside `handleThemeChange`
+    (optimistic UI pattern)
+- **Pre-existing baseline:** `git stash` + lint shows the same 2 errors EXIST
+  without Plan 14-07 changes. Previously masked behind 26 kitsubeat-tokens
+  errors; once tokens cleared (Plan 14-07 token migration), the react-hooks
+  v6+ purity rules became visible — same pattern as D-PRE-07 for
+  SentenceOrderCard.
+- **Phase 14 impact:** Zero on Plan 14-07's deliverables. The
+  kitsubeat-tokens rule is the Phase 14 merge gate; it reports **0 errors**
+  on ProfileForm. The react-hooks rules are unrelated to the token system.
+- **Fix shape (deferred):** Both patterns are actually safe in their context
+  (user-initiated callbacks, not effect bodies). Either:
+  1. Add `// eslint-disable-next-line react-hooks/immutability` and
+     `// eslint-disable-next-line react-hooks/set-state-in-effect` comments,
+     OR
+  2. Refactor `handleThemeChange` to use `useTransition` wrapper (the cookie
+     write becomes a side effect of a transition, not direct mutation).
+- **Owner:** Plan 14-03 maintainers / future Phase 16 lint-cleanup pass.
+
+### D-PRE-10 — Palette utilities in non-listed /review + /vocabulary + /profile files
+- **Source:** Files with palette utilities that are NOT in Plan 14-07's
+  `files_modified` list:
+  - `src/app/review/ReviewQuestionCard.tsx` (gray, green, red option styles)
+  - `src/app/review/ReviewFeedbackPanel.tsx` (green/red feedback colors,
+    gray text, indigo mnemonic panel)
+  - `src/app/vocabulary/VocabularyList.tsx` (gray text, gray-800 background
+    on rounded pills, gray border)
+  - `src/app/profile/ProfileHud.tsx` (gray border, orange-900 avatar bg,
+    progress-bar palette, gray text)
+- **Why not migrated:** NOT in plan frontmatter `files_modified` list. Per
+  scope-boundary rule, only the 11 listed files are in scope. These 4 files
+  are mentioned in the plan's `<read_first>` but not in `<files>`.
+- **Phase 14 impact:** None on Plan 14-07's measurable deliverables. The
+  kitsubeat-tokens audit (the merge gate) reports zero violations on the 11
+  in-scope files; the 4 out-of-scope files contribute their own violations
+  to the codebase-wide audit count, which Plan 14-09 will sweep.
+- **Fix shape (deferred):** Same surface-migration recipe as Plan 14-07
+  Tasks 1-3:
+  - bg-gray-* → bg-card / bg-surface tokens
+  - text-gray-* → text-text / text-text-muted tokens
+  - border-gray-* → border-border tokens
+  - bg-green-*/bg-red-* feedback → JLPT-N5 / accent alpha tints
+  - bg-indigo-* mnemonic panel → JLPT-N4 alpha (per Plan 14-05 mnemonic
+    pattern)
+  - bg-orange-900 avatar bg → consider new --color-avatar-bg token, OR
+    (D-22 token-only swap) bg-card-2 with subtle ring
+- **Owner:** Plan 14-09 (chrome cleanup) is the natural home — it already
+  covers VocabularySection / GrammarSection / PlayerControls so adding these
+  4 files fits the same scope.
