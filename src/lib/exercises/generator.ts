@@ -508,6 +508,10 @@ function makeQuestion(
     id: crypto.randomUUID(),
     type,
     vocabItemId: vocab.vocab_item_id!,
+    // Phase 11.6 — propagate JLPT for the lag-test scheduler's beginner-first sort.
+    // VocabEntry.jlpt_level is "N5"|...|"N1"|"unknown"; map "unknown" → null so
+    // it sorts last per scheduler.jlptKey.
+    jlpt_level: vocab.jlpt_level === "unknown" ? null : vocab.jlpt_level,
     prompt,
     correctAnswer,
     distractors,
@@ -608,6 +612,8 @@ function makeGrammarConjugationQuestion(
     // saveSessionResults must skip mastery writes when vocabItemId === "",
     // same sentinel used for sentence_order).
     vocabItemId: targetVocab.vocab_item_id ?? "",
+    // Phase 11.6 — propagate JLPT for the lag-test scheduler's beginner-first sort.
+    jlpt_level: targetVocab.jlpt_level === "unknown" ? null : targetVocab.jlpt_level,
     prompt,
     correctAnswer: opts.correct,
     distractors: opts.distractors,
