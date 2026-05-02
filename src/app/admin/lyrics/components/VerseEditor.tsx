@@ -7,6 +7,7 @@ import SaveStatus from "./SaveStatus";
 import PublishButton from "./PublishButton";
 import SwapVideoModal from "./SwapVideoModal";
 import PipelineStatusPoller from "./PipelineStatusPoller";
+import FlagControls from "./FlagControls";
 import { detectOverlap } from "@/lib/admin/timing-overlap";
 import { useAdminLyricsStore } from "@/lib/admin/lyrics-store";
 import { saveDraft } from "../actions/save-draft";
@@ -49,6 +50,10 @@ interface Props {
   /** Phase 11.5 D-10: pipeline status from RSC — avoids first-render flash in poller */
   initialPipelineStatus?: "idle" | "rerun_in_progress" | "rerun_failed";
   initialPipelineStep?: string | null;
+  /** Phase 11.5 Plan 09 SPEC #22: quality flag props for FlagControls */
+  songId?: string;
+  initialQualityStatus?: "active" | "flagged_wrong_song" | "flagged_unfixable";
+  initialQualityNotes?: string | null;
 }
 
 const AUTOSAVE_DEBOUNCE_MS = 5000;
@@ -334,8 +339,17 @@ export default function VerseEditor(props: Props) {
           onClose={() => setShowSwap(false)}
           onStarted={() => {
             // Poller will pick up the new status on next interval
-            // Plan 09 may also revalidate the catalog here
           }}
+        />
+      )}
+
+      {/* Phase 11.5 Plan 09 SPEC #22: quality flag controls */}
+      {props.songId && (
+        <FlagControls
+          songId={props.songId}
+          slug={props.slug}
+          initialStatus={props.initialQualityStatus ?? "active"}
+          initialNotes={props.initialQualityNotes ?? null}
         />
       )}
     </AdminPlayerEmbed>

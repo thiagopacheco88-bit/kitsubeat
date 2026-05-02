@@ -88,6 +88,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
       artist: songs.artist,
       anime: songs.anime,
       quality_status: songs.quality_status,
+      quality_notes: songs.quality_notes,
     })
     .from(songVersions)
     .innerJoin(songs, eq(songs.id, songVersions.song_id))
@@ -258,6 +259,9 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           initialDraftFromServer={initialDraftFromServer}
           initialPipelineStatus={songVer.pipeline_status}
           initialPipelineStep={songVer.pipeline_step}
+          songId={songVer.song_id}
+          initialQualityStatus={songVer.quality_status}
+          initialQualityNotes={songVer.quality_notes}
         />
       </div>
     </div>
