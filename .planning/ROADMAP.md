@@ -332,7 +332,7 @@ Plans:
 - [ ] 11.6-07-PLAN.md -- TrackProgressRings + Advanced Drills lock/unlock affordance + page.tsx track_pct threading + e2e test (SPEC-REQ-10, 11, 12)
 - [ ] 11.6-08-PLAN.md -- VerseStarIcon + VerseDominatedAnimation + SongHeader counter + lyrics star + SongCard %-dominated catalog line + queries.ts getDominatedVerses + globals.css keyframe (SPEC-REQ-14, 15)
 - [ ] 11.6-09-PLAN.md -- VocabTypedCard romaji-input + ExerciseSession dispatch + LearnCard trackKind-aware (SPEC-REQ-3, 7)
-- [ ] 11.6-10-PLAN.md -- /review queue dual-card extension + recordReviewAnswer cardKind + ReviewSession dispatch (SPEC-REQ-17)
+- [x] 11.6-10-PLAN.md -- /review queue dual-card extension + recordReviewAnswer cardKind + ReviewSession dispatch (SPEC-REQ-17)
 - [ ] 11.6-11-PLAN.md -- /vocabulary dashboard dual-progress display (GROUP BY card_kind + dual MasteryBadge + tier grouping by romaji_meaning) (SPEC-REQ-18)
 
 ### Phase 9: Kana Trainer
