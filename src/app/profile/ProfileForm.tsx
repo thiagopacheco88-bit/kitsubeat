@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { updateUserPrefs } from "@/app/actions/userPrefs";
+import { useState, useEffect } from "react";
+import { updateUserPrefs, setThemePreference } from "@/app/actions/userPrefs";
+
+type ThemePref = "system" | "light" | "dark";
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year (matches setThemePreference D-08)
 
 interface ProfileFormProps {
   userId: string;
@@ -36,6 +39,43 @@ export default function ProfileForm({
   const [soundEnabled, setSoundEnabled] = useState(initialSoundEnabled);
   const [hapticsEnabled, setHapticsEnabled] = useState(initialHapticsEnabled);
   const [state, setState] = useState<SaveState>({ kind: "idle" });
+
+  // Phase 14 D-10 — Appearance state. Seeded from kb_theme cookie on mount
+  // (the layout.tsx inline script + SSR cookie read have already settled the
+  // visual state; this just mirrors it into the form's local state).
+  const [themePreference, setThemePreferenceLocal] =
+    useState<ThemePref>("system");
+  useEffect(() => {
+    const m =
+      typeof document !== "undefined"
+        ? document.cookie.match(/kb_theme=(system|light|dark)/)
+        : null;
+    if (m) setThemePreferenceLocal(m[1] as ThemePref);
+  }, []);
+
+  const handleThemeChange = async (next: ThemePref) => {
+    // Optimistic UI: apply data-theme + cookie immediately
+    const resolved =
+      next === "system"
+        ? window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light"
+        : next;
+    document.documentElement.setAttribute("data-theme", resolved);
+    document.cookie = `kb_theme=${next}; max-age=${COOKIE_MAX_AGE}; path=/; samesite=lax`;
+    setThemePreferenceLocal(next);
+
+    // Server action — DB column write
+    if (userId) {
+      try {
+        await setThemePreference(userId, next);
+      } catch (err) {
+        // Non-fatal: the cookie write already kept things consistent client-side
+        // eslint-disable-next-line no-console
+        console.error("setThemePreference failed:", err);
+      }
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -175,6 +215,43 @@ export default function ProfileForm({
             </span>
           </span>
         </label>
+      </fieldset>
+
+      {/*
+        Phase 14 D-10 — Appearance theme picker (mirrors header ThemeToggle).
+        Per D-28: this is "Appearance" not "Avatar theme" (which is the
+        cosmetic slot from Phase 12). Writes via setThemePreference server
+        action — same as the header ThemeToggle — so DB + cookie stay in sync.
+      */}
+      <fieldset className="border-t border-gray-700 pt-4">
+        <legend className="mb-2 text-base font-semibold text-white">
+          Appearance
+        </legend>
+        <p className="mb-3 text-sm text-gray-400">
+          Choose the color theme for KitsuBeat.
+        </p>
+        <div
+          className="flex flex-col gap-2"
+          role="radiogroup"
+          aria-label="Theme preference"
+        >
+          {(["system", "light", "dark"] as const).map((opt) => (
+            <label
+              key={opt}
+              className="flex min-h-[44px] cursor-pointer items-center gap-2"
+            >
+              <input
+                type="radio"
+                name="themePreference"
+                value={opt}
+                checked={themePreference === opt}
+                onChange={() => handleThemeChange(opt)}
+                className="h-4 w-4"
+              />
+              <span className="text-sm capitalize text-white">{opt}</span>
+            </label>
+          ))}
+        </div>
       </fieldset>
 
       {/* Submit + status */}
