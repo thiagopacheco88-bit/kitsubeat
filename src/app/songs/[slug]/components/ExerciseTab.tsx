@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { Lesson, VocabEntry } from "@/lib/types/lesson";
 import type { TrackKind, LengthMode } from "@/lib/exercises/generator";
 import { buildQuestions } from "@/lib/exercises/generator";
@@ -124,6 +125,7 @@ export default function ExerciseTab({
   trackPcts = { vocab: 0, grammar: 0, kanji: 0 },
   advancedDrillsUnlocked = false,
 }: ExerciseTabProps) {
+  const router = useRouter();
   const store = useExerciseSession();
   const { _hasHydrated, startSession, clearSession } = store;
 
@@ -171,6 +173,9 @@ export default function ExerciseTab({
   const handleRetry = () => {
     clearSession();
     setTabState("config");
+    // Phase 11.6: refresh SSR so trackPcts (rings) and KnownWordCount reflect
+    // the answers just recorded by recordVocabAnswer.
+    router.refresh();
   };
 
   const sessionView = (

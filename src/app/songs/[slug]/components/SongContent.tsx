@@ -11,6 +11,7 @@ import VocabularySection from "./VocabularySection";
 import GrammarSection from "./GrammarSection";
 import SongLayout from "./SongLayout";
 import KnownWordCount from "./KnownWordCount";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
 // Lazy-load exercise tab — avoids bundling exercise code until Practice is clicked
 const ExerciseTab = lazy(() => import("./ExerciseTab"));
@@ -236,7 +237,7 @@ function SongContentInner({
               lesson={active.lesson}
               songVersionId={active.id}
               songSlug={song.slug}
-              userId="anonymous"
+              userId={PLACEHOLDER_USER_ID}
               hasKanjiBearingVocab={active.hasKanjiBearingVocab ?? true}
               trackPcts={active.trackPcts ?? { vocab: 0, grammar: 0, kanji: 0 }}
               advancedDrillsUnlocked={active.advancedDrillsUnlocked ?? false}
