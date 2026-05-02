@@ -21,7 +21,9 @@ import type { RewardSlotContent } from '../types/reward-slots';
  */
 export const COSMETIC_CATALOG = {
   avatar_border_kitsune_fire: {
-    css_class: 'ring-4 ring-orange-500',
+    // Phase 14 Plan 14-09: legacy orange palette -> --color-grammar-adverb
+    // (#f97316 — same value, semantic reuse of the brand-orange token).
+    css_class: 'ring-4 ring-[var(--color-grammar-adverb)]',
     label: 'Kitsune Fire',
   },
   color_theme_ember: {
@@ -29,7 +31,11 @@ export const COSMETIC_CATALOG = {
     label: 'Ember',
   },
   avatar_border_night_fox: {
-    css_class: 'ring-4 ring-indigo-400',
+    // Phase 14 Plan 14-09: legacy indigo palette -> --color-jlpt-n4 (#3b82f6).
+    // Semantic shift from indigo (~#818cf8) to JLPT-N4 blue (#3b82f6) — both
+    // read as "blue accent" against the dark night-fox theme; shade tradeoff
+    // accepted to keep the token surface tight (no new --color-cosmetic-* tokens).
+    css_class: 'ring-4 ring-[var(--color-jlpt-n4)]',
     label: 'Night Fox',
   },
   badge_scholar_fox: {

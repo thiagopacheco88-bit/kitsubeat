@@ -57,7 +57,7 @@ interface SongCardProps {
  *   - Outer Link → <CardLink variant="flat"> (Card primitive)
  *   - Inline JLPT badge → <Badge variant="jlpt" level=...>
  *   - Difficulty pill → <Badge variant="mono">
- *   - All palette utilities (bg-gray-*, text-gray-*, text-white) → token vars
+ *   - All palette utilities and bare achromatic colors -> token vars
  *
  * Phase 10 Plan 07 — derivations happen at render time from the accuracy
  * fields threaded through SongListItem (Task 2):
@@ -124,7 +124,7 @@ export default function SongCard({ song }: SongCardProps) {
               scanning the catalog. */}
           {showMasteryBanner && <SongMasteredBanner />}
           {opEd && (
-            <span className="absolute top-2 right-2 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-bold text-[var(--color-text)] backdrop-blur-sm">
+            <span className="absolute top-2 right-2 rounded bg-black/70 px-1.5 py-0.5 text-[length:var(--text-micro)] font-bold text-[var(--color-text)] backdrop-blur-sm">
               {opEd}
             </span>
           )}
@@ -167,7 +167,7 @@ export default function SongCard({ song }: SongCardProps) {
             <Badge variant="mono">{song.difficulty_tier}</Badge>
           )}
           {showLearnerCount && (
-            <span className="ml-auto text-[10px] text-[var(--color-text-dim)]">
+            <span className="ml-auto text-[length:var(--text-micro)] text-[var(--color-text-dim)]">
               {formatLearnerCount(learnerCount)} learners
             </span>
           )}

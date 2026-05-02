@@ -17,9 +17,9 @@ export default function BonusBadgeIcon({ className = "" }: { className?: string 
       aria-label="Bonus mastery"
       title="Bonus mastery: Grammar Conjugation + Sentence Order"
     >
-      {/* Sparkle / star-burst SVG — 16×16, muted purple (grammar-expression
+      {/* Sparkle / star-burst SVG — 16x16, muted purple (grammar-expression
           token = #8b5cf6) to distinguish from gold stars. Phase 14 Plan 14-06
-          token migration: text-violet-400 → text-[var(--color-grammar-expression)]. */}
+          token migration: legacy violet palette -> --color-grammar-expression. */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"

@@ -67,7 +67,7 @@ export default async function HomePage() {
           alt=""
           width={480}
           height={240}
-          className="w-[480px] h-auto"
+          style={{ width: 480, height: "auto" }}
           unoptimized
           aria-hidden
         />
@@ -214,8 +214,8 @@ function MediaCard({
               loading="lazy"
             />
             {/* Gradient overlay — fades from bg color (token) to transparent.
-                Phase 14 Plan 14-06: from-gray-900 → from-[var(--color-bg)] so the
-                gradient blends with the page background under the title strip. */}
+                Phase 14 Plan 14-06: legacy palette gradient -> from-[var(--color-bg)]
+                so the gradient blends with the page background under the title strip. */}
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent" />
           </>
         ) : (
