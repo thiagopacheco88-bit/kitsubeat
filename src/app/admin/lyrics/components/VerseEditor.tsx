@@ -8,6 +8,7 @@ import PublishButton from "./PublishButton";
 import SwapVideoModal from "./SwapVideoModal";
 import PipelineStatusPoller from "./PipelineStatusPoller";
 import FlagControls from "./FlagControls";
+import RegenerateLessonsModal from "./RegenerateLessonsModal";
 import { detectOverlap } from "@/lib/admin/timing-overlap";
 import { useAdminLyricsStore } from "@/lib/admin/lyrics-store";
 import { saveDraft } from "../actions/save-draft";
@@ -67,6 +68,8 @@ export default function VerseEditor(props: Props) {
   const [showSwap, setShowSwap] = useState(false);
   // D-12: retry state — when set, SwapVideoModal opens in retry mode
   const [retryStep, setRetryStep] = useState<string | null>(null);
+  // Phase 11.5 Plan 10 SPEC #23: regenerate lessons modal state
+  const [showRegen, setShowRegen] = useState(false);
 
   const verses = useAdminLyricsStore((s) => s.verses);
   const dirtyVerseNumbers = useAdminLyricsStore((s) => s.dirtyVerseNumbers);
@@ -233,6 +236,24 @@ export default function VerseEditor(props: Props) {
           >
             Swap video
           </button>
+          {/* Phase 11.5 Plan 10 SPEC #23: Regenerate Lessons trigger */}
+          <button
+            type="button"
+            onClick={() => setShowRegen(true)}
+            disabled={dirtyVerseNumbers.length === 0}
+            data-testid="open-regenerate-modal"
+            style={{
+              padding: "6px 14px",
+              fontSize: "12px",
+              border: "1px solid #e5e7eb",
+              borderRadius: "4px",
+              background: dirtyVerseNumbers.length === 0 ? "#f3f4f6" : "#fff",
+              color: dirtyVerseNumbers.length === 0 ? "#6b7280" : "#374151",
+              cursor: dirtyVerseNumbers.length === 0 ? "not-allowed" : "pointer",
+            }}
+          >
+            Regenerate ({dirtyVerseNumbers.length})
+          </button>
           <PublishButton slug={props.slug} />
         </div>
       </div>
@@ -350,6 +371,21 @@ export default function VerseEditor(props: Props) {
           slug={props.slug}
           initialStatus={props.initialQualityStatus ?? "active"}
           initialNotes={props.initialQualityNotes ?? null}
+        />
+      )}
+
+      {/* Phase 11.5 Plan 10 SPEC #23: regenerate lessons modal */}
+      {showRegen && (
+        <RegenerateLessonsModal
+          songVersionId={props.songVersionId}
+          slug={props.slug}
+          songTitle={props.title}
+          songArtist={props.songMeta.artist}
+          songAnime={props.songMeta.anime}
+          baseVersionId={props.baseVersionId}
+          verses={verses}
+          dirtyVerseNumbers={dirtyVerseNumbers}
+          onClose={() => setShowRegen(false)}
         />
       )}
     </AdminPlayerEmbed>
