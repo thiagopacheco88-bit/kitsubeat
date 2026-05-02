@@ -55,7 +55,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [x] **SCENE-01
 **: User can study iconic anime scenes/speeches (e.g., Pain's speech, AoT pre-battle speeches, One Piece narrator intros) with the same lesson structure as songs (tokens, vocabulary, grammar, translations)
 - [ ] **SCENE-02**: Anime scenes have embedded video clips (YouTube) with synced text display
-- [ ] **SCENE-03**: All 7 exercise types work on anime scene content identically to song content
+- [x] **SCENE-03
+**: All 7 exercise types work on anime scene content identically to song content
 - [ ] **SCENE-04**: Anime scenes appear in the catalog alongside songs with a "Scene" content type tag
 - [ ] **SCENE-05**: User's vocabulary mastery from scenes contributes to cross-song tracking (shared vocabulary identity)
 
@@ -64,7 +65,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [x] **CULT-01
 **: User can access a standalone "Anime Vocabulary" drill mode featuring vocabulary taught through anime cultural references (Naruto elements to weekdays, Pokemon names to vocabulary, character names to numbers)
 - [ ] **CULT-02**: Cultural vocabulary drills use the same exercise mechanics (multiple choice, star mastery) as song exercises
-- [ ] **CULT-03**: When a vocabulary word appears in song/scene exercises that has a known anime cultural reference, a contextual hint is shown (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
+- [x] **CULT-03
+**: When a vocabulary word appears in song/scene exercises that has a known anime cultural reference, a contextual hint is shown (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
 - [ ] **CULT-04**: Cultural vocabulary is organized by anime series/theme (Naruto elements, Pokemon creatures, Dragon Ball references, etc.)
 
 ### Freemium Architecture
@@ -80,7 +82,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 
 - [x] **DATA-01**: Grammar conjugation paths are audited and converted to structured format (parseable into question/answer pairs) for all songs with grammar data
 - [x] **DATA-02**: A normalized vocabulary identity table exists with UUIDs, enabling cross-song word matching by (surface, reading) composite key
-- [ ] **DATA-03**: Anime scene content is generated through the same Claude API pipeline as songs, with equivalent quality validation
+- [x] **DATA-03
+**: Anime scene content is generated through the same Claude API pipeline as songs, with equivalent quality validation
 
 ## v3.0 Requirements (Deferred)
 
