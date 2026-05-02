@@ -16,6 +16,19 @@
  * incremented in the kana subsystem — KanaSession deliberately does not.
  *
  * Owner: Phase 09 plan 06.
+ *
+ * Phase 14 Plan 14-08 migration notes:
+ * - All palette utilities replaced with token references; tokens auto-flip
+ *   across themes via :root[data-theme="light"] in globals.css. No `dark:`
+ *   Tailwind variants remain on this surface.
+ * - "New rows unlocked" amber call-out reuses --color-jlpt-n3 alpha tokens
+ *   (same semantic-color pattern as Plan 14-07's daily-cap toast and Plan
+ *   14-08's SignupNudge banner).
+ * - Per-character delta uses --color-jlpt-n5 (green ≈ gain), --color-jlpt-n1
+ *   (red ≈ loss), and --color-text-dim for zero-delta. Same JLPT-alpha
+ *   feedback recipe Plan 14-08 task 2 applied to KanaQuestionCard's MCQ
+ *   options.
+ * - Next session + Back to grid CTAs tokenized; primary uses --color-accent.
  */
 
 import Link from "next/link";
@@ -103,11 +116,15 @@ export function KanaSessionSummary({ snapshot }: Props) {
   if (!snapshot) {
     return (
       <div className="flex flex-col items-center gap-4 text-center">
-        <h2 className="text-xl font-semibold">No session data</h2>
-        <p className="text-sm text-zinc-500">Looks like you reloaded the summary directly.</p>
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">
+          No session data
+        </h2>
+        <p className="text-sm text-[var(--color-text-muted)]">
+          Looks like you reloaded the summary directly.
+        </p>
         <Link
           href="/kana"
-          className="rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+          className="rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
           Back to grid
         </Link>
@@ -128,18 +145,20 @@ export function KanaSessionSummary({ snapshot }: Props) {
   return (
     <div className="flex flex-col gap-6">
       <header className="text-center">
-        <h1 className="text-3xl font-bold">Session complete</h1>
-        <p className="mt-2 text-lg text-zinc-600 dark:text-zinc-300">
+        <h1 className="text-3xl font-bold text-[var(--color-text)]">
+          Session complete
+        </h1>
+        <p className="mt-2 text-lg text-[var(--color-text-muted)]">
           {correctCount} / {total} correct · {accuracyPct}%
         </p>
       </header>
 
       {snapshot.unlocked.length > 0 && (
-        <section className="rounded-lg border border-amber-300 bg-amber-50 p-4 dark:border-amber-700 dark:bg-amber-950">
-          <h2 className="text-base font-semibold text-amber-900 dark:text-amber-100">
+        <section className="rounded-[var(--radius-lg)] border border-[var(--color-jlpt-n3-ring)] bg-[var(--color-jlpt-n3-bg)] p-4">
+          <h2 className="text-base font-semibold text-[var(--color-jlpt-n3)]">
             New row{snapshot.unlocked.length > 1 ? "s" : ""} unlocked
           </h2>
-          <ul className="mt-2 list-disc pl-5 text-sm text-amber-900 dark:text-amber-100">
+          <ul className="mt-2 list-disc pl-5 text-sm text-[var(--color-jlpt-n3)]">
             {unlockLabels.map((l) => (
               <li key={l}>{l}</li>
             ))}
@@ -148,26 +167,35 @@ export function KanaSessionSummary({ snapshot }: Props) {
       )}
 
       <section>
-        <h2 className="mb-3 text-base font-semibold">Per-character changes</h2>
-        <ul className="divide-y divide-zinc-200 dark:divide-zinc-800 rounded-lg border border-zinc-200 dark:border-zinc-800">
+        <h2 className="mb-3 text-base font-semibold text-[var(--color-text)]">
+          Per-character changes
+        </h2>
+        <ul className="divide-y divide-[var(--color-border)] rounded-[var(--radius-lg)] border border-[var(--color-border)]">
           {charSummary.map((c) => {
             const delta = c.after - c.before;
             const sign = delta > 0 ? "+" : delta < 0 ? "" : "±";
             return (
-              <li key={`${c.script}:${c.kana}`} className="flex items-center justify-between px-3 py-2 text-sm">
+              <li
+                key={`${c.script}:${c.kana}`}
+                className="flex items-center justify-between px-3 py-2 text-sm"
+              >
                 <div className="flex items-center gap-2">
-                  <span className="text-xl">{c.kana}</span>
-                  <span className="text-xs text-zinc-400">({c.script === "hiragana" ? "hira" : "kata"})</span>
+                  <span className="text-xl text-[var(--color-text)]">
+                    {c.kana}
+                  </span>
+                  <span className="text-xs text-[var(--color-text-dim)]">
+                    ({c.script === "hiragana" ? "hira" : "kata"})
+                  </span>
                 </div>
-                <div className="text-xs text-zinc-500">
+                <div className="text-xs text-[var(--color-text-muted)]">
                   {c.before} → {c.after}{" "}
                   <span
                     className={
                       delta > 0
-                        ? "text-emerald-600"
+                        ? "text-[var(--color-jlpt-n5)]"
                         : delta < 0
-                          ? "text-rose-600"
-                          : "text-zinc-400"
+                          ? "text-[var(--color-jlpt-n1)]"
+                          : "text-[var(--color-text-dim)]"
                     }
                   >
                     ({sign}
@@ -183,15 +211,21 @@ export function KanaSessionSummary({ snapshot }: Props) {
 
       {weakest.length > 0 && (
         <section>
-          <h2 className="mb-3 text-base font-semibold">Watch list</h2>
+          <h2 className="mb-3 text-base font-semibold text-[var(--color-text)]">
+            Watch list
+          </h2>
           <ul className="flex flex-wrap gap-2">
             {weakest.map((w) => (
               <li
                 key={`${w.script}:${w.kana}`}
-                className="rounded-md border border-zinc-300 px-3 py-1 text-sm dark:border-zinc-700"
+                className="rounded-[var(--radius-md)] border border-[var(--color-border-strong)] px-3 py-1 text-sm"
               >
-                <span className="text-base">{w.kana}</span>
-                <span className="ml-2 text-xs text-zinc-500">{w.stars}★</span>
+                <span className="text-base text-[var(--color-text)]">
+                  {w.kana}
+                </span>
+                <span className="ml-2 text-xs text-[var(--color-text-muted)]">
+                  {w.stars}★
+                </span>
               </li>
             ))}
           </ul>
@@ -201,13 +235,13 @@ export function KanaSessionSummary({ snapshot }: Props) {
       <div className="flex flex-col gap-3 sm:flex-row">
         <Link
           href={`/kana/session?mode=${snapshot.mode}`}
-          className="flex-1 rounded-md bg-emerald-600 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-emerald-700"
+          className="flex-1 rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-3 text-center text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
           Next session
         </Link>
         <Link
           href="/kana"
-          className="flex-1 rounded-md border border-zinc-300 px-4 py-3 text-center text-sm font-semibold hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+          className="flex-1 rounded-[var(--radius-md)] border border-[var(--color-border-strong)] px-4 py-3 text-center text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-card-2)]"
         >
           Back to grid
         </Link>

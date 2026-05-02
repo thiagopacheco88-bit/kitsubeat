@@ -53,7 +53,7 @@ export default function KanaSessionSummaryPage() {
   if (snapshot === "loading") {
     return (
       <main className="mx-auto max-w-2xl p-6">
-        <div className="h-64 animate-pulse rounded bg-zinc-100 dark:bg-zinc-800" />
+        <div className="h-64 animate-pulse rounded bg-[var(--color-card-2)]" />
       </main>
     );
   }
