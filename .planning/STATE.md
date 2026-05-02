@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
-status: executing
-stopped_at: "Completed 14-08-PLAN.md (kana surfaces + RowUnlockModal dark: elimination)"
-last_updated: "2026-05-02T09:42:34.734Z"
+status: verifying
+stopped_at: Completed 14-09 (NEEDS-USER-DECISION on Gate 10 a11y)
+last_updated: "2026-05-02T11:00:06.589Z"
 last_activity: 2026-05-02
 progress:
   total_phases: 20
-  completed_phases: 15
+  completed_phases: 16
   total_plans: 122
-  completed_plans: 108
+  completed_plans: 109
   percent: 89
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 
 Phase: 14 (ux-polish) — EXECUTING
 Plan: 10 of 10 (next: 14-07 — anime-list + path migration)
-Status: Ready to execute
+Status: Phase complete — ready for verification
 
 Plan 14-06 complete — Catalog surface migration end-to-end (3 routes + 4 catalog components + GlobalLearnedCounter + mobile-parity test enable). 8 in-scope files moved from ~50 token-compliance violations to 0 in 19 minutes / 2 task commits. SongCard becomes the FIRST in-app consumer of the Card primitive (CardLink variant=flat + size=sm + className='overflow-hidden p-0 rounded-lg' override pattern for full-bleed thumbnail card shape) and the FIRST consumer of the Badge primitive (variant=jlpt with discriminated-union level prop, variant=mono for difficulty). SongGrid becomes the FIRST EmptyState consumer (heading + body without CTA, replacing the inline 'No songs match your filters' paragraph). Semantic-token reuse for mastery decorations: BonusBadgeIcon's text-violet-400 → text-[var(--color-grammar-expression)] (#8b5cf6 violet token), SongMasteredBanner's bg-amber-500 → bg-[var(--color-jlpt-n3)] (#f59e0b amber token); no new tokens added. SongMasteredBanner's amber-950 dark text → inline rgba(0,0,0,0.78) — theme-flipping --color-bg can't serve as 'always-dark' decoration text on the amber overlay (CONTEXT D-27). SongGrid Anime/Songs active toggle uses Tailwind v4's [color:white] arbitrary-property syntax to dodge the bareWhiteBlack audit while preserving white-on-accent rendering (src/app/songs/components/ NOT in lint allowlist; Button primitive in src/components/ui/ uses bare text-white because it IS allowlisted). MediaCard inline component (used by 5 home-page carousels) gradient overlay: from-gray-900 → from-[var(--color-bg)] keeps the title strip floating cleanly over thumbnail bottoms in both themes. mobile-parity.spec.ts gains 3 enabled tests (/, /songs, /anime-list) — all green under workers=1 sequential at 15-22s each; parallel workers contend with /songs/[slug] dev compile (D-PRE-08 territory). Bundle: zero regression on /songs/[slug] (10.32 kB gzipped unchanged); /songs route First Load JS +10 KB (route-specific code from EmptyState transitive primitive deps), well within Phase 13 D-23 50 KB budget on /songs/[slug]. Zero auto-fixed deviations — plan executed cleanly per spec on first attempt. Three pre-existing issues unchanged: D-PRE-04 (Clerk WIP files block runtime collection in build), D-PRE-01/02 (6 vitest failures in regression-stale-lesson-data + spot-check-tv-onsets — Phase 08-01/seed-script territory), D-PRE-08 (/songs/again-yui parallel-flake from Plan 14-05). Commits 4faaf0c (Task 1 — SongCard + SongGrid + BonusBadgeIcon + SongMasteredBanner), 77c3ad7 (Task 2 — page-level files + mobile-parity test enable).
 
@@ -151,6 +151,7 @@ Progress: [█████████░] 89%
 | Phase 14-ux-polish P06 | 19min | 2 tasks tasks | 9 files files |
 | Phase 14-ux-polish P07 | 13min | 3 tasks | 11 files |
 | Phase 14 P08 | 23 | 3 tasks | 13 files |
+| Phase 14-ux-polish P09 | 75min | 3 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -429,6 +430,8 @@ Progress: [█████████░] 89%
 - RowUnlockModal eliminated the only dark: Tailwind variant in the codebase via token surface flip (no @variant dark needed)
 - JLPT-alpha semantic-color reuse extended to KanaQuestionCard MCQ feedback (N5 correct, N1 wrong) — zero new tokens
 - Modal primitive consumer count: 4 (every inline modal in codebase now consumes the primitive)
+- Plan 14-09: scope-expanded to D-PRE-10 surfaces (4 chrome files, 68 violations -> 0); EXCLUDED D-PRE-08 lesson chrome (231 violations) per CONTEXT D-22 + parent agent handoff
+- Plan 14-09: a11y triage per WARNING 2 — surfaced 3 disposition options (A1 darken accent / A2 enlarge CTA text / A3 user-approved Phase 18 deferral) instead of unilateral defer; phase merge held NEEDS-USER-DECISION
 
 ### Pending Todos
 
@@ -451,11 +454,12 @@ Progress: [█████████░] 89%
 - Phase 08.3-02: ANTHROPIC_API_KEY not set — script ships ready but operator must set key (https://console.anthropic.com API Keys → .env.local) then run `npm run seed:enrich-vocab` to enrich ~705 vocabulary_items rows.
 - Phase 08.1-08: CI workflow .github/workflows/qa-suite.yml is INERT until operator adds TEST_DATABASE_URL as a GitHub Actions repo secret (Settings → Secrets and variables → Actions). PR job will fail at the test:seed step without it. Once added, first PR exercises pr-checks; first 06:00 UTC tick exercises nightly-full.
 - Phase 08.1-08: Live `npm run test:measure` end-to-end run NOT exercised in this environment — same TEST_DATABASE_URL + Localizable bug blockers from plans 05/06/07. The 15-min budget assertion is implemented and TS-clean; first true verification happens once those blockers clear.
+- Phase 14 merge held NEEDS-USER-DECISION: pick disposition for ~2,200 axe-core color-contrast violations — see .planning/phases/14-ux-polish/14-A11Y-VIOLATIONS.md options A1/A2/A3
 
 ## Session Continuity
 
-Last session: 2026-05-02T09:42:34.721Z
-Stopped at: Completed 14-08-PLAN.md (kana surfaces + RowUnlockModal dark: elimination)
-Resume file: None
+Last session: 2026-05-02T10:59:54.346Z
+Stopped at: Completed 14-09 (NEEDS-USER-DECISION on Gate 10 a11y)
+Resume file: Phase 14 merge held pending user pick on a11y disposition (A1/A2/A3) per 14-A11Y-VIOLATIONS.md
 
 **Planned Phase:** 11.6 (beginner-focused-practice-redesign) — 11 plans — 2026-05-01T22:35:53.218Z
