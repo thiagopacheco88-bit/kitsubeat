@@ -70,6 +70,15 @@ jobs:
       - name: Run PR suite (qa + unit + integration)
         run: npm run test:ci-pr
 
+      - name: Lint (Phase 14 — D-17 token-compliance ESLint rule)
+        run: npm run lint
+
+      - name: Token compliance grep audit (Phase 14 — D-17 belt-and-suspenders)
+        run: npx tsx scripts/audit/token-compliance.ts
+
+      - name: Motion catalog completeness (Phase 14 — req 6 / D-14)
+        run: npx tsx scripts/audit/motion-catalog-completeness.ts
+
       - name: Build (Phase 13 — for bundle measurement)
         run: npm run build
         env:
@@ -113,6 +122,12 @@ jobs:
 
       - name: Run full suite (measured + 15min budget assertion)
         run: npm run test:ci-nightly
+
+      - name: A11y suite (nightly only — RUN_A11Y env gate per D-WARNING-3)
+        if: github.event_name == 'schedule'
+        env:
+          RUN_A11Y: "1"
+        run: npm run test:e2e:a11y
 
       - name: Upload Playwright report on failure
         if: failure()
