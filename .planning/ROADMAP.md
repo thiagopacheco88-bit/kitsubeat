@@ -334,6 +334,8 @@ Plans:
 - [x] 11.6-09-PLAN.md -- VocabTypedCard romaji-input + ExerciseSession dispatch + LearnCard trackKind-aware (SPEC-REQ-3, 7)
 - [x] 11.6-10-PLAN.md -- /review queue dual-card extension + recordReviewAnswer cardKind + ReviewSession dispatch (SPEC-REQ-17)
 - [x] 11.6-11-PLAN.md -- /vocabulary dashboard dual-progress display (GROUP BY card_kind + dual MasteryBadge + tier grouping by romaji_meaning) (SPEC-REQ-18)
+- [ ] 11.6-12-PLAN.md -- GAP CLOSURE: scripts/seed/19c-fetch-vocab-images.ts (Unsplash API fetcher) + fetch-images npm script + UNSPLASH_ACCESS_KEY env doc + remove empty public/vocab-images/ (SPEC-REQ-8, 9)
+- [ ] 11.6-13-PLAN.md -- GAP CLOSURE (operator-driven): Unsplash app registration + overnight batch run + SQL acceptance verification (SPEC-REQ-8)
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
