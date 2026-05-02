@@ -1,8 +1,9 @@
 "use server";
 
+import { z } from "zod";
 import { eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db/index";
-import { userSongProgress, deriveStars, deriveBonusBadge, userVocabMastery, userExerciseLog, songVersionGrammarRules } from "@/lib/db/schema";
+import { userSongProgress, deriveStars, deriveBonusBadge, userVocabMastery, userExerciseLog, songVersionGrammarRules, userVerseDomination } from "@/lib/db/schema";
 import type { ExerciseType } from "@/lib/exercises/generator";
 import { ratingFor } from "@/lib/fsrs/rating";
 import { scheduleReview } from "@/lib/fsrs/scheduler";
@@ -457,6 +458,10 @@ export async function saveSessionResults(
         .values({
           user_id: userId,
           vocab_item_id: answer.vocabItemId!,
+          // Phase 11.6: card_kind is NOT NULL; saveSessionResults batch writes
+          // default to "romaji_meaning" (vocab/grammar session answers are romaji-track).
+          // kanji_kana cards are handled exclusively via recordVocabAnswer per-answer.
+          card_kind: "romaji_meaning",
           stability: next.stability,
           difficulty: next.difficulty,
           elapsed_days: next.elapsed_days,
@@ -470,7 +475,7 @@ export async function saveSessionResults(
           updated_at: sql`NOW()`,
         })
         .onConflictDoUpdate({
-          target: [userVocabMastery.user_id, userVocabMastery.vocab_item_id],
+          target: [userVocabMastery.user_id, userVocabMastery.vocab_item_id, userVocabMastery.card_kind],
           set: {
             stability: next.stability,
             difficulty: next.difficulty,
@@ -643,12 +648,24 @@ export async function saveSessionResults(
 // recordVocabAnswer
 // ---------------------------------------------------------------------------
 
+// Phase 11.6: Zod-validated card_kind enum.
+// Defense-in-depth Threat T-11.6-05-01: rejects any non-literal string at the
+// server-action boundary BEFORE any SQL touches the parameter.
+const CardKindSchema = z.enum(["romaji_meaning", "kanji_kana"]);
+type CardKind = z.infer<typeof CardKindSchema>;
+
 interface RecordAnswerInput {
   // TODO: replace with Clerk userId from auth()
   userId: string;
   vocabItemId: string;            // target word's UUID; NEVER pass distractor IDs
   songVersionId: string | null;   // null for kana-only exercises (Phase 9)
   exerciseType: ExerciseType;
+  /** Phase 11.6 NEW (D-01): which FSRS card is being exercised.
+   *  Zod-validated at boundary; typed in interface for TypeScript callers.
+   *  Optional for backward compat — defaults to "romaji_meaning" when absent,
+   *  so pre-Phase-11.6 callers (QuestionCard, review.ts, ConjugationCard, etc.)
+   *  continue working without code changes. */
+  cardKind?: CardKind;
   correct: boolean;
   revealedReading?: boolean;      // true if user tapped the reveal-reading hatch
   responseTimeMs: number;
@@ -660,6 +677,15 @@ interface RecordAnswerResult {
   reps: number;
   lapses: number;
   due: string;                    // ISO timestamp
+  // Phase 11.6: extended fields (SPEC R15, SPEC R10, D-03)
+  /** Verse numbers that just transitioned to dominated on THIS answer. Empty on revisits
+   *  (idempotent at SQL layer via ON CONFLICT DO NOTHING). */
+  versesDominatedNow: number[];
+  /** Per-track progress percentages after this answer. Null when songVersionId is null. */
+  trackPct: { vocab: number; grammar: number; kanji: number };
+  /** True only on the transition answer that sets advanced_drills_unlocked_at from NULL → non-NULL.
+   *  False if already unlocked or tracks not yet at 80%. */
+  advancedDrillsUnlockedNow: boolean;
 }
 
 /**
@@ -678,6 +704,10 @@ export async function recordVocabAnswer(
 ): Promise<RecordAnswerResult> {
   const { userId, vocabItemId, songVersionId, exerciseType, correct, revealedReading, responseTimeMs } = input;
 
+  // Phase 11.6: Zod-validate cardKind at server-action boundary (Threat T-11.6-05-01).
+  // Default to "romaji_meaning" for backward-compat with callers that pre-date Plan 11.6-05.
+  const cardKind: CardKind = CardKindSchema.parse(input.cardKind ?? "romaji_meaning");
+
   if (!vocabItemId) {
     throw new Error("recordVocabAnswer: vocabItemId must be a non-empty UUID");
   }
@@ -687,11 +717,13 @@ export async function recordVocabAnswer(
   // so we accept the (rare) window where the upsert succeeds but the log insert fails.
   const rating = ratingFor(exerciseType, correct, { revealedReading });
 
+  // Phase 11.6: Pre-fetch MUST filter by card_kind so FSRS scheduler computes
+  // the new state from THIS card's history, not a different card_kind's row.
   const existingRows = await db
     .select()
     .from(userVocabMastery)
     .where(
-      sql`${userVocabMastery.user_id} = ${userId} AND ${userVocabMastery.vocab_item_id} = ${vocabItemId}::uuid`
+      sql`${userVocabMastery.user_id} = ${userId} AND ${userVocabMastery.vocab_item_id} = ${vocabItemId}::uuid AND ${userVocabMastery.card_kind} = ${cardKind}`
     )
     .limit(1);
 
@@ -712,11 +744,14 @@ export async function recordVocabAnswer(
 
   const next = scheduleReview(prev, rating, prev?.intensity_preset ?? "normal");
 
+  // Phase 11.6: FSRS upsert now keys on (user_id, vocab_item_id, card_kind) — D-01.
+  // Replaces prior single (user_id, vocab_item_id) composite key.
   await db
     .insert(userVocabMastery)
     .values({
       user_id: userId,
       vocab_item_id: vocabItemId,
+      card_kind: cardKind,           // NEW (D-01)
       stability: next.stability,
       difficulty: next.difficulty,
       elapsed_days: next.elapsed_days,
@@ -730,7 +765,7 @@ export async function recordVocabAnswer(
       updated_at: sql`NOW()`,
     })
     .onConflictDoUpdate({
-      target: [userVocabMastery.user_id, userVocabMastery.vocab_item_id],
+      target: [userVocabMastery.user_id, userVocabMastery.vocab_item_id, userVocabMastery.card_kind],
       set: {
         stability: next.stability,
         difficulty: next.difficulty,
@@ -816,13 +851,271 @@ export async function recordVocabAnswer(
     }
   }
 
+  // -------------------------------------------------------------------------
+  // Phase 11.6: Per-track-pct recompute + verse domination (D-02, D-03)
+  //
+  // Runs only when songVersionId is set (song-context answers). Pure kana
+  // exercises (songVersionId=null) skip this block.
+  //
+  // Single CTE per RESEARCH Pitfall 8 — NOT 3 separate count queries.
+  // All three percentages computed in one round-trip, then persisted
+  // atomically to user_song_progress.
+  // -------------------------------------------------------------------------
+  let trackPct: RecordAnswerResult["trackPct"] = { vocab: 0, grammar: 0, kanji: 0 };
+  let advancedDrillsUnlockedNow = false;
+  let versesDominatedNow: number[] = [];
+
+  if (songVersionId) {
+    // 4a. Single CTE returning the three percentages (RESEARCH Pitfall 8: single query)
+    //
+    // Data source: lesson JSONB (no song_vocab relational table in this project).
+    //
+    // vocab_correct  = romaji_meaning cards with state >= 1 / total vocab items in song
+    // kanji_correct  = kanji_kana cards with state >= 1 / kanji-bearing vocab items in song
+    // grammar_correct = song_version_grammar_rules rows answered correctly / total rules
+    //                   (grammar_points in lesson JSONB are NOT counted here — only
+    //                    normalized rules in song_version_grammar_rules are tracked.
+    //                    If no rows exist for this song, grammar auto-passes: NULL → 100%)
+    //
+    // SPEC R16 (all-kana auto-pass): when kanji pool is empty (NULL from NULLIF),
+    // kanji track auto-passes (treated as 100%).
+    const pctResult = await db.execute<{
+      vocab: string | null;
+      grammar: string | null;
+      kanji: string | null;
+    }>(sql`
+      WITH song_vocab_items AS (
+        -- Extract all vocab items from the song's lesson JSONB vocabulary array
+        SELECT
+          (elem->>'vocab_item_id')::uuid AS vocab_item_id,
+          vi.surface
+        FROM song_versions sv,
+          jsonb_array_elements(sv.lesson->'vocabulary') AS elem
+          JOIN vocabulary_items vi ON vi.id = (elem->>'vocab_item_id')::uuid
+        WHERE sv.id = ${songVersionId}::uuid
+          AND elem->>'vocab_item_id' IS NOT NULL
+      ),
+      vocab_correct AS (
+        -- Vocab track: romaji_meaning cards with state >= 1
+        SELECT
+          COUNT(*) FILTER (WHERE m.state >= 1) AS c,
+          COUNT(*) AS t
+        FROM song_vocab_items si
+        LEFT JOIN user_vocab_mastery m
+          ON m.vocab_item_id = si.vocab_item_id
+          AND m.user_id = ${userId}
+          AND m.card_kind = 'romaji_meaning'
+      ),
+      kanji_pool AS (
+        -- Kanji track pool: only vocab items whose surface contains kanji codepoints
+        SELECT vocab_item_id
+        FROM song_vocab_items
+        WHERE surface ~ '[一-鿿㐀-䶿]'
+      ),
+      kanji_correct AS (
+        -- Kanji track: kanji_kana cards with state >= 1 (for kanji-bearing items only)
+        SELECT
+          COUNT(*) FILTER (WHERE m.state >= 1) AS c,
+          COUNT(*) AS t
+        FROM kanji_pool kp
+        LEFT JOIN user_vocab_mastery m
+          ON m.vocab_item_id = kp.vocab_item_id
+          AND m.user_id = ${userId}
+          AND m.card_kind = 'kanji_kana'
+      ),
+      grammar_correct AS (
+        -- Grammar track: song_version_grammar_rules rows vs user_exercise_log correct answers.
+        -- If song has no grammar rules in this table, returns (0, 0) → NULL → 100% auto-pass (SPEC R16).
+        SELECT
+          COUNT(DISTINCT log.id) FILTER (
+            WHERE log.exercise_type = 'grammar_conjugation' AND log.rating >= 3
+          ) AS c,
+          (SELECT COUNT(*) FROM song_version_grammar_rules WHERE song_version_id = ${songVersionId}::uuid) AS t
+        FROM user_exercise_log log
+        WHERE log.user_id = ${userId}
+          AND log.song_version_id = ${songVersionId}::uuid
+          AND log.exercise_type = 'grammar_conjugation'
+      )
+      SELECT
+        ROUND((vc.c::numeric / NULLIF(vc.t, 0) * 100), 2)::text AS vocab,
+        ROUND((gc.c::numeric / NULLIF(gc.t, 0) * 100), 2)::text AS grammar,
+        ROUND((kc.c::numeric / NULLIF(kc.t, 0) * 100), 2)::text AS kanji
+      FROM vocab_correct vc, grammar_correct gc, kanji_correct kc
+    `);
+
+    type PctRow = { vocab: string | null; grammar: string | null; kanji: string | null };
+    const pctRows: PctRow[] = Array.isArray(pctResult)
+      ? (pctResult as unknown as PctRow[])
+      : ((pctResult as unknown as { rows?: PctRow[] }).rows ?? []);
+    const pctRow = pctRows[0];
+
+    // SPEC R16: when pool is empty (NULLIF(0)=NULL → result is NULL), treat as 100%
+    // (auto-pass for all-kana songs, no-grammar songs).
+    const vocabPct = pctRow?.vocab != null ? parseFloat(pctRow.vocab) : 100;
+    const grammarPct = pctRow?.grammar != null ? parseFloat(pctRow.grammar) : 100;
+    const kanjiPct = pctRow?.kanji != null ? parseFloat(pctRow.kanji) : 100;
+    trackPct = { vocab: vocabPct, grammar: grammarPct, kanji: kanjiPct };
+
+    // 4b. Persist per-track pcts to user_song_progress (D-03).
+    // COALESCE on advanced_drills_unlocked_at: once set, it doesn't re-lock on regression
+    // unless all three tracks are still >= 80% (handled by the CASE expression).
+    // The SPEC (advanced-drill-unlock-gate.test.ts Test 2) says the column BECOMES NULL
+    // when any track regresses below 80%, so we use a live-recompute approach (NOT COALESCE).
+    await db.execute(sql`
+      INSERT INTO user_song_progress (user_id, song_version_id, vocab_track_pct, grammar_track_pct, kanji_track_pct, advanced_drills_unlocked_at)
+      VALUES (
+        ${userId}, ${songVersionId}::uuid,
+        ${vocabPct}, ${grammarPct}, ${kanjiPct},
+        CASE WHEN ${vocabPct} >= 80 AND ${grammarPct} >= 80 AND ${kanjiPct} >= 80 THEN NOW() ELSE NULL END
+      )
+      ON CONFLICT (user_id, song_version_id) DO UPDATE SET
+        vocab_track_pct = EXCLUDED.vocab_track_pct,
+        grammar_track_pct = EXCLUDED.grammar_track_pct,
+        kanji_track_pct = EXCLUDED.kanji_track_pct,
+        advanced_drills_unlocked_at = CASE
+          WHEN EXCLUDED.vocab_track_pct >= 80 AND EXCLUDED.grammar_track_pct >= 80 AND EXCLUDED.kanji_track_pct >= 80
+            THEN COALESCE(user_song_progress.advanced_drills_unlocked_at, NOW())
+          ELSE NULL
+        END
+    `);
+
+    // 4c. Detect transition: was this the answer that JUST set advanced_drills_unlocked_at?
+    // A "fresh" unlock is one where unlocked_at was set within the last 5 seconds.
+    const unlockedResult = await db.execute<{ unlocked_now: boolean }>(sql`
+      SELECT (
+        advanced_drills_unlocked_at IS NOT NULL
+        AND advanced_drills_unlocked_at >= NOW() - INTERVAL '5 seconds'
+      ) AS unlocked_now
+      FROM user_song_progress
+      WHERE user_id = ${userId} AND song_version_id = ${songVersionId}::uuid
+    `);
+    type UnlockedNowRow = { unlocked_now: boolean };
+    const unlockedRows: UnlockedNowRow[] = Array.isArray(unlockedResult)
+      ? (unlockedResult as unknown as UnlockedNowRow[])
+      : ((unlockedResult as unknown as { rows?: UnlockedNowRow[] }).rows ?? []);
+    const unlockedRow = unlockedRows[0];
+    advancedDrillsUnlockedNow = unlockedRow?.unlocked_now === true;
+
+    // 5. Verse-domination atomic insert (D-02 + RESEARCH Pitfall 3 idempotency).
+    // Only runs on correct answers — incorrect answers cannot dominate a verse.
+    if (correct) {
+      // Find which verse(s) this vocab item belongs to, then check if all required
+      // items in that verse are now answered.
+      //
+      // Data source: lesson JSONB verses array (no song_vocab relational table).
+      // A verse is dominated when:
+      //   - Every non-kanji vocab item in the verse has a romaji_meaning card with state >= 1
+      //   - Every kanji-bearing vocab item has BOTH romaji_meaning AND kanji_kana with state >= 1
+      // Grammar items (song_version_grammar_rules) are NOT required for verse domination
+      // in Phase 11.6 (grammar path is via its own exercise type and tracked separately).
+      const verseDomResult = await db.execute<{ verse_number: number }>(sql`
+        WITH this_verse AS (
+          -- Find the verse number(s) containing this vocab item
+          SELECT DISTINCT (verse_elem->>'verse_number')::int AS verse_number
+          FROM song_versions sv,
+            jsonb_array_elements(sv.lesson->'verses') AS verse_elem,
+            jsonb_array_elements(verse_elem->'tokens') AS tok
+          WHERE sv.id = ${songVersionId}::uuid
+            AND tok->>'type' = 'vocab'
+            AND (tok->>'vocab_item_id')::uuid = ${vocabItemId}::uuid
+        ),
+        verse_vocab AS (
+          -- All vocab items in the verse(s) containing this item, with their surface
+          SELECT DISTINCT
+            (tok->>'vocab_item_id')::uuid AS vocab_item_id,
+            vi.surface,
+            (verse_elem->>'verse_number')::int AS verse_number
+          FROM song_versions sv,
+            jsonb_array_elements(sv.lesson->'verses') AS verse_elem,
+            jsonb_array_elements(verse_elem->'tokens') AS tok
+            JOIN vocabulary_items vi ON vi.id = (tok->>'vocab_item_id')::uuid
+          WHERE sv.id = ${songVersionId}::uuid
+            AND tok->>'type' = 'vocab'
+            AND (verse_elem->>'verse_number')::int IN (SELECT verse_number FROM this_verse)
+        ),
+        verse_complete AS (
+          -- A verse is complete when every vocab item has the required mastery
+          SELECT tv.verse_number
+          FROM this_verse tv
+          WHERE
+            -- No vocab item is missing its romaji_meaning mastery
+            NOT EXISTS (
+              SELECT 1 FROM verse_vocab vv
+              WHERE vv.verse_number = tv.verse_number
+                AND NOT EXISTS (
+                  SELECT 1 FROM user_vocab_mastery m
+                  WHERE m.user_id = ${userId}
+                    AND m.vocab_item_id = vv.vocab_item_id
+                    AND m.card_kind = 'romaji_meaning'
+                    AND m.state >= 1
+                )
+            )
+            -- No kanji-bearing vocab item is missing its kanji_kana mastery
+            AND NOT EXISTS (
+              SELECT 1 FROM verse_vocab vv
+              WHERE vv.verse_number = tv.verse_number
+                AND vv.surface ~ '[一-鿿㐀-䶿]'
+                AND NOT EXISTS (
+                  SELECT 1 FROM user_vocab_mastery m
+                  WHERE m.user_id = ${userId}
+                    AND m.vocab_item_id = vv.vocab_item_id
+                    AND m.card_kind = 'kanji_kana'
+                    AND m.state >= 1
+                )
+            )
+        )
+        INSERT INTO user_verse_domination (user_id, song_version_id, verse_number)
+        SELECT ${userId}, ${songVersionId}::uuid, verse_number FROM verse_complete
+        ON CONFLICT (user_id, song_version_id, verse_number) DO NOTHING
+        RETURNING verse_number
+      `);
+      type VerseDomRow = { verse_number: number };
+      const verseDomRows: VerseDomRow[] = Array.isArray(verseDomResult)
+        ? (verseDomResult as unknown as VerseDomRow[])
+        : ((verseDomResult as unknown as { rows?: VerseDomRow[] }).rows ?? []);
+      versesDominatedNow = verseDomRows.map((r) => r.verse_number);
+    }
+  }
+
   return {
     newTier: tierFor(next.state),
     newState: next.state,
     reps: next.reps,
     lapses: next.lapses,
     due: next.due.toISOString(),
+    // Phase 11.6 extended fields (SPEC R15, SPEC R10, D-03)
+    versesDominatedNow,
+    trackPct,
+    advancedDrillsUnlockedNow,
   };
+}
+
+// ---------------------------------------------------------------------------
+// Phase 11.6 Plan 05 — getAdvancedDrillUnlock
+//
+// Read-only query: returns true when user_song_progress.advanced_drills_unlocked_at
+// IS NOT NULL for the given (songVersionId, userId) pair.
+//
+// Consumed by: all-kana-song.test.ts (validates all-kana auto-pass behavior).
+// May be consumed by ExerciseTab.tsx in a future plan to gate the Advanced Drills button.
+// ---------------------------------------------------------------------------
+
+export async function getAdvancedDrillUnlock(
+  songVersionId: string,
+  userId: string
+): Promise<boolean> {
+  if (!songVersionId || !userId) return false;
+  const rows = await db.execute<{ unlocked: boolean }>(sql`
+    SELECT (advanced_drills_unlocked_at IS NOT NULL) AS unlocked
+    FROM user_song_progress
+    WHERE user_id = ${userId} AND song_version_id = ${songVersionId}::uuid
+  `);
+  type UnlockedRow = { unlocked: boolean };
+  const resultRows: UnlockedRow[] = Array.isArray(rows)
+    ? (rows as unknown as UnlockedRow[])
+    : ((rows as unknown as { rows?: UnlockedRow[] }).rows ?? []);
+  const row = resultRows[0];
+  return row?.unlocked === true;
 }
 
 // ---------------------------------------------------------------------------

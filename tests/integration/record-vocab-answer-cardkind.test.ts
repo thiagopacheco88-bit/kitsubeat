@@ -62,8 +62,7 @@ describeIfTestDb("SPEC-REQ-4: dual FSRS cards per vocab item (cardKind branching
   it(
     "Test 1: recording romaji_meaning and kanji_kana answers for the same vocab creates 2 distinct rows with diverged FSRS state",
     async () => {
-      // RED: recordVocabAnswer does not yet accept cardKind — this call will fail
-      // with "cardKind is not a valid property" or runtime DB error until 11.6-05 lands.
+      // GREEN (11.6-05): cardKind is now part of RecordAnswerInput
       await recordVocabAnswer({
         userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
@@ -71,7 +70,7 @@ describeIfTestDb("SPEC-REQ-4: dual FSRS cards per vocab item (cardKind branching
         exerciseType: "vocab_meaning",
         correct: true,
         revealedReading: false,
-        // @ts-expect-error cardKind does not exist on RecordAnswerInput yet (RED)
+        responseTimeMs: 1000,
         cardKind: "romaji_meaning",
       });
 
@@ -82,7 +81,7 @@ describeIfTestDb("SPEC-REQ-4: dual FSRS cards per vocab item (cardKind branching
         exerciseType: "vocab_meaning",
         correct: false,
         revealedReading: false,
-        // @ts-expect-error cardKind does not exist on RecordAnswerInput yet (RED)
+        responseTimeMs: 1000,
         cardKind: "kanji_kana",
       });
 
