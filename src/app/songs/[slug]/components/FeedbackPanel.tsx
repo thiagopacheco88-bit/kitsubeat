@@ -9,6 +9,7 @@ import TierText from "./TierText";
 import MasteryDetailPopover from "./MasteryDetailPopover";
 import KanjiBreakdownSection from "./KanjiBreakdownSection";
 import { Button } from "@/components/ui/Button";
+import VerseDominatedAnimation from "./VerseDominatedAnimation";
 
 interface FeedbackPanelProps {
   question: Question;
@@ -62,6 +63,13 @@ export default function FeedbackPanel({
           : "border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10"
       }`}
     >
+      {/* Phase 11.6 D-15 — verse-domination animation overlay.
+          Subscribes to useExerciseSession.versesDominatedNow; fires once per
+          (user, verse) when the server marks a verse dominated on the latest
+          answer. Mounted at the top so the confetti origin sits at the
+          FeedbackPanel's vertical centre. */}
+      <VerseDominatedAnimation />
+
       {/* Status icon + result */}
       <div className="mb-2 flex items-center gap-2">
         {isCorrect ? (

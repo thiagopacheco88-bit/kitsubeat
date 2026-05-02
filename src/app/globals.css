@@ -186,6 +186,33 @@
   animation: level-pop 0.8s ease-out forwards;
 }
 
+/* Phase 11.6 D-15 — Verse-dominated text glow pulse.
+ * Used by VerseDominatedAnimation (and any future verse-line-pulse callers)
+ * to flash the verse text gold when an answer tips a verse to dominated.
+ * Pairs with canvas-confetti at the FeedbackPanel; see
+ * src/app/songs/[slug]/components/VerseDominatedAnimation.tsx.
+ *
+ * RESEARCH §Pattern 5 (Tailwind v4 keyframe in globals.css — no plugin
+ * required, project does not use tailwind.config). Reduced-motion fallback
+ * collapses the pulse to a static gold color so the celebration is not lost.
+ * The global @media (prefers-reduced-motion: reduce) at the bottom of this
+ * file ALSO neutralises animation-duration to 0 — that override + the local
+ * `animation: none` here are belt-and-suspenders. */
+@keyframes verse-dominated-pulse {
+  0%   { text-shadow: 0 0 0 rgba(251,191,36,0); }
+  50%  { text-shadow: 0 0 12px rgba(251,191,36,0.9); color: #FBBF24; }
+  100% { text-shadow: 0 0 0 rgba(251,191,36,0); }
+}
+.verse-dominated-pulse {
+  animation: verse-dominated-pulse 0.8s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .verse-dominated-pulse {
+    animation: none;
+    color: #FBBF24;
+  }
+}
+
 /* CONTEXT D-13 — Global reduced-motion override. MUST be last in file.
  * Suppresses every cataloged animation (verse-highlight, star-shine, level-pop,
  * confetti, page-transition fade, hover lift, modal enter/exit, toast slide-in,

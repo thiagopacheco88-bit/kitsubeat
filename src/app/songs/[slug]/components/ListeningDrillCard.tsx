@@ -70,6 +70,12 @@ export default function ListeningDrillCard({
     (s) => s.incrementListeningReplay
   );
   const setTier = useExerciseSession((s) => s.setTier);
+  // Phase 11.6 D-15: thread server-returned versesDominatedNow into the
+  // store so VerseDominatedAnimation (mounted in FeedbackPanel) fires the
+  // overlay + confetti when this listening_drill answer tips a verse.
+  const setVersesDominatedNow = useExerciseSession(
+    (s) => s.setVersesDominatedNow
+  );
 
   // Stable shuffle of options per question.id — 4 vocab surfaces (correct +
   // 3 distractors), matching fill_lyric's option pattern.
@@ -159,6 +165,12 @@ export default function ListeningDrillCard({
           responseTimeMs: timeMs,
         });
         setTier(question.vocabItemId, result.newTier);
+        // Phase 11.6 D-15: trigger verse-domination animation when this
+        // answer tips a verse. Server returns [] on revisit (Plan 11.6-05
+        // ON CONFLICT DO NOTHING) so this is fire-once per (user, verse).
+        if (result.versesDominatedNow.length > 0) {
+          setVersesDominatedNow(result.versesDominatedNow);
+        }
       } catch (err) {
         console.error("recordVocabAnswer failed (listening_drill):", err);
       }

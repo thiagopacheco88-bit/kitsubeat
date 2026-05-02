@@ -44,6 +44,12 @@ export default function QuestionCard({
   // Pull tier state from the session store
   const { tiers, revealedQuestionIds, markRevealed, setTier } =
     useExerciseSession();
+  // Phase 11.6 D-15: thread server-returned versesDominatedNow into the
+  // store so VerseDominatedAnimation (mounted in FeedbackPanel) fires the
+  // overlay + confetti when an answer here tips a verse to dominated.
+  const setVersesDominatedNow = useExerciseSession(
+    (s) => s.setVersesDominatedNow
+  );
 
   // Tier for this question's target vocab (default Tier 1 for cold-start)
   const targetTier: Tier = (tiers[question.vocabItemId] ?? 1) as Tier;
@@ -92,6 +98,13 @@ export default function QuestionCard({
         });
         // Optimistic mid-session tier update so re-encounters show new tier
         setTier(question.vocabItemId, result.newTier);
+        // Phase 11.6 D-15: trigger verse-domination animation when this
+        // answer tips one or more verses. Server returns [] on revisit
+        // (Plan 11.6-05 ON CONFLICT DO NOTHING) so this is fire-once per
+        // (user, verse) by construction.
+        if (result.versesDominatedNow.length > 0) {
+          setVersesDominatedNow(result.versesDominatedNow);
+        }
       } catch (err) {
         console.error("recordVocabAnswer failed:", err);
         // Non-fatal: UI still proceeds; mastery update missed for this attempt
