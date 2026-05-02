@@ -14,6 +14,7 @@ import {
   smallint,
   index,
   primaryKey,
+  numeric,
 } from "drizzle-orm/pg-core";
 import type { AnyPgColumn } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
@@ -63,6 +64,13 @@ export const pipelineStatusEnum = pgEnum("pipeline_status",
   ["idle", "rerun_in_progress", "rerun_failed"]);
 export const qualityStatusEnum = pgEnum("quality_status",
   ["active", "flagged_wrong_song", "flagged_unfixable"]);
+
+/**
+ * Phase 11.6 — dual FSRS cards per vocabulary item.
+ * romaji_meaning: Vocab track (user knows what this word means in romaji)
+ * kanji_kana: Kanji track (user can read / produce the kanji/kana form)
+ */
+export const cardKindEnum = pgEnum("card_kind", ["romaji_meaning", "kanji_kana"]);
 
 /**
  * songs table — shared metadata for anime OP/ED songs.
@@ -301,6 +309,10 @@ export const userVocabMastery = pgTable("user_vocab_mastery", {
   user_id: text("user_id").notNull(),
   vocab_item_id: uuid("vocab_item_id").notNull().references(() => vocabularyItems.id),
 
+  // Phase 11.6: dual FSRS cards per word — romaji_meaning | kanji_kana
+  // NOT NULL enforced at SQL layer; enum prevents invalid values.
+  card_kind: cardKindEnum("card_kind").notNull(),
+
   // FSRS scalar columns (Pattern 3 — required for indexed due-date queries)
   stability: real("stability"),       // null for new cards
   difficulty: real("difficulty"),     // null for new cards
@@ -318,12 +330,36 @@ export const userVocabMastery = pgTable("user_vocab_mastery", {
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 }, (table) => [
-  unique("user_vocab_mastery_user_vocab_unique").on(table.user_id, table.vocab_item_id),
+  // Phase 11.6: composite unique on (user_id, vocab_item_id, card_kind)
+  // Replaces prior (user_id, vocab_item_id) unique — migration 0017 drops the old constraint.
+  unique("user_vocab_mastery_user_vocab_kind_unique").on(table.user_id, table.vocab_item_id, table.card_kind),
   index("user_vocab_mastery_due_idx").on(table.due),
   index("user_vocab_mastery_user_due_idx").on(table.user_id, table.due),
 ]);
 
 export type UserVocabMastery = typeof userVocabMastery.$inferSelect;
+
+/**
+ * user_verse_domination table — Phase 11.6 per-verse mastery state.
+ *
+ * A row is inserted when the last required item in a verse (across all applicable
+ * tracks: vocab romaji_meaning, grammar, kanji_kana) is answered correctly at
+ * least once. Composite PK makes inserts idempotent (ON CONFLICT DO NOTHING pattern).
+ *
+ * Per SPEC-REQ-13: tracks with zero applicable items in a given verse auto-pass.
+ * dominated_at is set on the tipping answer and never updated (SPEC-REQ-13: idempotent).
+ */
+export const userVerseDomination = pgTable("user_verse_domination", {
+  user_id: text("user_id").notNull(),
+  song_version_id: uuid("song_version_id").notNull().references(() => songVersions.id, { onDelete: "cascade" }),
+  verse_number: integer("verse_number").notNull(),
+  dominated_at: timestamp("dominated_at", { withTimezone: true }).notNull().defaultNow(),
+}, (table) => [
+  primaryKey({ columns: [table.user_id, table.song_version_id, table.verse_number] }),
+  index("user_verse_domination_user_song_idx").on(table.user_id, table.song_version_id),
+]);
+
+export type UserVerseDomination = typeof userVerseDomination.$inferSelect;
 
 /**
  * user_exercise_log table — immutable record of every exercise attempt.
@@ -509,6 +545,16 @@ export const userSongProgress = pgTable("user_song_progress", {
   // that have at least one grammar rule. Updated by the "grammar" sessionType
   // branch in applyGamificationUpdate.
   grammar_best_accuracy: real("grammar_best_accuracy"),
+
+  // Phase 11.6: denormalized per-track progress percentages + advanced drills unlock gate.
+  // Computed server-side by recordVocabAnswer / saveSessionResults and written atomically.
+  // null = track has never been attempted / computed.
+  vocab_track_pct: numeric("vocab_track_pct", { precision: 5, scale: 2 }),
+  grammar_track_pct: numeric("grammar_track_pct", { precision: 5, scale: 2 }),
+  kanji_track_pct: numeric("kanji_track_pct", { precision: 5, scale: 2 }),
+  // Set on the answer that pushes all three tracks to ≥ 80%. Per SPEC-REQ-10:
+  // reverts to NULL if any track falls back below 80% (live-recompute).
+  advanced_drills_unlocked_at: timestamp("advanced_drills_unlocked_at", { withTimezone: true }),
 
   // Session counter
   sessions_completed: integer("sessions_completed").default(0).notNull(),
