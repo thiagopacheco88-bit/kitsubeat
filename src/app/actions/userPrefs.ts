@@ -163,3 +163,68 @@ export async function isPremium(userId: string): Promise<boolean> {
     .limit(1);
   return rows.length > 0;
 }
+
+/**
+ * Phase 14 — Theme preference reads/writes (CONTEXT D-08, D-09, D-11).
+ *
+ * Persistence model: DB column + kb_theme cookie. The cookie is the SSR source
+ * of truth on next request (layout.tsx reads it via next/headers cookies());
+ * the DB column survives session expiry and replicates across devices for
+ * authenticated users. localStorage is NOT used (cookie must be SSR-readable).
+ *
+ * Validation: server-side enum check + DB CHECK constraint (drizzle/0016).
+ *
+ * SECURITY (T-14-03-02): Three layers of defense against cookie tampering:
+ *   (a) inline script in layout.tsx has regex match constrained to enum
+ *   (b) this server action's VALID_THEMES check throws on invalid input
+ *   (c) DB CHECK constraint enforces enum at the data layer
+ */
+const VALID_THEMES = ["system", "light", "dark"] as const;
+export type ThemePreference = (typeof VALID_THEMES)[number];
+
+export async function setThemePreference(
+  userId: string,
+  value: ThemePreference
+): Promise<void> {
+  if (!userId) throw new Error("userId is required");
+  if (!VALID_THEMES.includes(value)) {
+    throw new Error(
+      `themePreference must be one of: ${VALID_THEMES.join(", ")}`
+    );
+  }
+
+  // DB write — upsert seeds row if absent. Mirrors updateUserPrefs idiom (lines 97-112).
+  await db
+    .insert(users)
+    .values({ id: userId, themePreference: value })
+    .onConflictDoUpdate({
+      target: users.id,
+      set: { themePreference: value, updated_at: new Date() },
+    });
+
+  // Cookie write — D-08 specifics: kb_theme, 1-year expiry, SameSite=Lax, NOT HttpOnly
+  // (client must read for instant toggle without server round-trip).
+  // Pitfall 2: cookies() is async in Next 15; await it.
+  // Dynamic import keeps next/headers out of the function's static dep graph so
+  // unit tests that import this file in jsdom don't crash on the missing module.
+  const { cookies } = await import("next/headers");
+  const c = await cookies();
+  c.set("kb_theme", value, {
+    maxAge: 60 * 60 * 24 * 365, // 1 year in seconds
+    sameSite: "lax",
+    httpOnly: false, // D-08 — client-readable for optimistic toggle
+    path: "/",
+  });
+}
+
+export async function getThemePreference(
+  userId: string
+): Promise<ThemePreference> {
+  if (!userId) return "system";
+  const rows = await db
+    .select({ themePreference: users.themePreference })
+    .from(users)
+    .where(eq(users.id, userId))
+    .limit(1);
+  return (rows[0]?.themePreference as ThemePreference) ?? "system";
+}
