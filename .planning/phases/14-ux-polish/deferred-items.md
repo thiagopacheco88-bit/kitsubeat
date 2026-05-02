@@ -144,7 +144,7 @@ SCOPE BOUNDARY rule).
      write becomes a side effect of a transition, not direct mutation).
 - **Owner:** Plan 14-03 maintainers / future Phase 16 lint-cleanup pass.
 
-### D-PRE-10 — Palette utilities in non-listed /review + /vocabulary + /profile files
+### D-PRE-10 — Palette utilities in non-listed /review + /vocabulary + /profile files [CLOSED IN PLAN 14-09]
 - **Source:** Files with palette utilities that are NOT in Plan 14-07's
   `files_modified` list:
   - `src/app/review/ReviewQuestionCard.tsx` (gray, green, red option styles)
@@ -174,3 +174,47 @@ SCOPE BOUNDARY rule).
 - **Owner:** Plan 14-09 (chrome cleanup) is the natural home — it already
   covers VocabularySection / GrammarSection / PlayerControls so adding these
   4 files fits the same scope.
+- **Closed:** 2026-05-02 in Plan 14-09 commit `ca08cd8`. ProfileHud,
+  VocabularyList, ReviewQuestionCard, ReviewFeedbackPanel migrated to
+  tokens; 68 violations → 0 in those 4 files.
+
+## Plan 14-09 (Wave 4 — /path + a11y suite + final gate)
+
+### D-PRE-11 — A11y `color-contrast` violations across 20 of 22 axe-core test cases [NEEDS-USER-DECISION]
+- **Source:** Plan 14-09 Task 2 filled the 22-case a11y suite (11 routes × 2
+  themes) with real assertions. The first nightly run surfaced ~2,200
+  individual node violations with `serious` impact.
+- **Dominant class:** Brand accent `#ef4444` fails WCAG AA contrast against
+  white (3.76:1) — every Button primary, every accent link in light theme.
+  Plus `text-text-muted` / `text-text-dim` rgba-alpha values fall below
+  4.5:1 on light theme cards. Plus `text-grammar-expression` (#8b5cf6) at
+  4.23:1 on white (one site — ProfileForm cap-help).
+- **Phase 14 impact:** **BLOCKING merge per WARNING 2.** Per plan A11y
+  Severity Policy: BOTH `serious` AND `critical` are blocking; no defer
+  escape clause. Phase 14 merge held pending user disposition.
+- **Disposition options** (full triage in `14-A11Y-VIOLATIONS.md`):
+  - **A1:** Darken `--color-accent` to clear AA on white (e.g., `#dc2626`
+    red-600 → 4.66:1). Brand identity shifts.
+  - **A2:** Bump every Button primary CTA text to `text-lg` + `font-bold`
+    to qualify as "large bold" per WCAG 1.4.3.
+  - **A3:** User-approved Phase 18 deferral with rationale + timestamp
+    recorded in `14-A11Y-VIOLATIONS.md` "User decisions log" section.
+- **Owner:** User must pick a disposition before Phase 14 merges.
+
+### D-PRE-12 — Lesson-chrome surfaces (`/songs/[slug]/components/*`) still on palette utilities
+- **Source:** ~16 files under `/songs/[slug]/components/` (excluding the
+  Plan 14-05 lesson-area exercise cards) carry 231 token-compliance
+  violations. Plan 14-05 explicitly scoped to exercise cards; the
+  surrounding chrome (VocabularySection, GrammarWriteCard, SongContent,
+  VerseBlock, MasteryDetailPopover, GrammarSessionRunner, GrammarSection,
+  YouTubeEmbed, PlayerControls, TokenPopup, KanjiBreakdownSection,
+  ExerciseSession, StarDisplay, TokenSpan, TierText) was deferred.
+- **Phase 14 impact:** None on Phase 14 in-scope deliverables. All 11
+  Phase 14 in-scope surfaces report 0 violations. The audit gate codebase-
+  wide is AMBER — accepted under CONTEXT D-22 ("merge is NOT blocked on
+  full design coverage; it IS blocked on full token coverage" — for
+  in-scope surfaces).
+- **Owner:** Yet-to-be-numbered "lesson chrome" plan. Pattern: Plans
+  14-05..14-08 surface-migration recipe (CardLink + Badge + tokens).
+  Estimated effort: 1 day. (D-PRE-08 is the same surface; D-PRE-12
+  formalises the violation count and migration scope.)
