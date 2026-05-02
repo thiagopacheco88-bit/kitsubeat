@@ -29,9 +29,9 @@ export default function KanaLandingPage() {
   if (!hasHydrated) {
     return (
       <main className="mx-auto max-w-5xl p-6 flex flex-col gap-6 animate-pulse">
-        <div className="h-8 w-48 rounded bg-zinc-200 dark:bg-zinc-800" />
-        <div className="h-12 w-full rounded bg-zinc-200 dark:bg-zinc-800" />
-        <div className="h-64 w-full rounded bg-zinc-200 dark:bg-zinc-800" />
+        <div className="h-8 w-48 rounded bg-[var(--color-card-2)]" />
+        <div className="h-12 w-full rounded bg-[var(--color-card-2)]" />
+        <div className="h-64 w-full rounded bg-[var(--color-card-2)]" />
       </main>
     );
   }
@@ -39,8 +39,10 @@ export default function KanaLandingPage() {
   return (
     <main className="mx-auto max-w-5xl p-6 flex flex-col gap-6">
       <header className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold">Kana Trainer</h1>
-        <p className="text-sm text-zinc-500">
+        <h1 className="text-3xl font-bold text-[var(--color-text)]">
+          Kana Trainer
+        </h1>
+        <p className="text-sm text-[var(--color-text-muted)]">
           Drill hiragana and katakana with row-by-row unlocking and
           per-character mastery.
         </p>
@@ -52,7 +54,7 @@ export default function KanaLandingPage() {
         <ModeToggle value={mode} onChange={setMode} />
         <Link
           href={`/kana/session?mode=${mode}`}
-          className="inline-flex items-center justify-center rounded-md bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="inline-flex items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/40"
         >
           Start session ({mode === "mixed" ? "20 mixed" : `20 ${mode}`})
         </Link>

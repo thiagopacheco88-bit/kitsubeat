@@ -14,6 +14,12 @@ export const KANA_SIGNUP_NUDGE_AFTER_SESSIONS = 3;
  * Returns `null` until the persisted store has hydrated to avoid a flash of
  * the banner on first paint for fresh visitors. No CTA is wired to /signup
  * yet — Phase 3 auth lands the destination; the banner alone is the nudge.
+ *
+ * Phase 14 Plan 14-08 migration notes: the amber call-out uses the JLPT-N3
+ * alpha tokens (--color-jlpt-n3-bg + --color-jlpt-n3-ring + --color-jlpt-n3),
+ * reusing the same semantic-color pattern Plan 14-07 applied to the daily-cap
+ * toast in ReviewSession. Same hue (#f59e0b ≈ amber-500) at 12%/25% alpha;
+ * one token surface, one semantic class for "warning / call-to-action".
  */
 export function SignupNudge() {
   const sessions = useKanaProgress((s) => s.sessionsCompleted);
@@ -21,7 +27,7 @@ export function SignupNudge() {
   if (!hasHydrated) return null;
   if (sessions < KANA_SIGNUP_NUDGE_AFTER_SESSIONS) return null;
   return (
-    <div className="rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-100">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-jlpt-n3-ring)] bg-[var(--color-jlpt-n3-bg)] p-4 text-sm text-[var(--color-jlpt-n3)]">
       <strong>Save your progress.</strong> Sign up to keep your kana mastery
       across devices.
     </div>

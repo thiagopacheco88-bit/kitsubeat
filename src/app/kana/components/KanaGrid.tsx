@@ -36,7 +36,7 @@ export function KanaGrid({ script }: Props) {
           const isUnlocked = unlocked.has(row.id);
           return (
             <div key={row.id} className={`${isUnlocked ? "" : "opacity-50"}`}>
-              <div className="text-xs uppercase text-zinc-400 mb-1">
+              <div className="text-xs uppercase text-[var(--color-text-dim)] mb-1">
                 {row.label}
               </div>
               <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 gap-2">

@@ -13,6 +13,13 @@ interface Props {
  * `KanaMode` is imported (not redefined) from `@/lib/kana/types` so that
  * plan 09-05 (session route) does not indirectly depend on this UI module.
  * Both plans live in wave 3 and must stay parallel-safe.
+ *
+ * Phase 14 Plan 14-08 migration notes: token-driven surfaces; the active
+ * pill uses --color-text (foreground) on --color-card (background-inverse-
+ * style by virtue of a strong border + accent ring). Inactive uses muted
+ * text + card-2 hover. Kept as bare <button> elements rather than the
+ * Button primitive — segmented role="tab" semantics conflict with the
+ * primitive's button-only api shape.
  */
 export function ModeToggle({ value, onChange }: Props) {
   const options: Array<{ id: KanaMode; label: string }> = [
@@ -24,7 +31,7 @@ export function ModeToggle({ value, onChange }: Props) {
     <div
       role="tablist"
       aria-label="Kana mode"
-      className="inline-flex rounded-lg border border-zinc-200 dark:border-zinc-700 p-1 gap-1"
+      className="inline-flex rounded-[var(--radius-lg)] border border-[var(--color-border)] p-1 gap-1"
     >
       {options.map((o) => {
         const active = o.id === value;
@@ -34,10 +41,10 @@ export function ModeToggle({ value, onChange }: Props) {
             role="tab"
             aria-selected={active}
             onClick={() => onChange(o.id)}
-            className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+            className={`px-4 py-3 text-sm font-medium rounded-[var(--radius-md)] transition-colors ${
               active
-                ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
-                : "text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
+                : "text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
             }`}
           >
             {o.label}
