@@ -28,7 +28,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 - [x] **STAR-02**: Star 1 is earned when vocab recognition exercises (Ex 1+2+3) are passed at >=80%
 - [x] **STAR-03**: Star 2 is earned when Fill-the-Lyric exercise (Ex 4) is passed at >=80%
 - [x] **STAR-04**: Star 3 is earned when Listening Drill exercise (Ex 6) is passed at >=80%
-- [ ] **STAR-05**: User sees per-song completion percentage on the song card and song page
+- [x] **STAR-05
+**: User sees per-song completion percentage on the song card and song page
 - [x] **STAR-06**: Sentence Order (Ex 7) and Grammar Conjugation (Ex 5) contribute to a bonus mastery badge, not gated on stars
 
 ### Kana Trainer
@@ -58,8 +59,10 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 **: Anime scenes have embedded video clips (YouTube) with synced text display
 - [x] **SCENE-03
 **: All 7 exercise types work on anime scene content identically to song content
-- [ ] **SCENE-04**: Anime scenes appear in the catalog alongside songs with a "Scene" content type tag
-- [ ] **SCENE-05**: User's vocabulary mastery from scenes contributes to cross-song tracking (shared vocabulary identity)
+- [x] **SCENE-04
+**: Anime scenes appear in the catalog alongside songs with a "Scene" content type tag
+- [x] **SCENE-05
+**: User's vocabulary mastery from scenes contributes to cross-song tracking (shared vocabulary identity)
 
 ### Anime Cultural Vocabulary
 
@@ -69,7 +72,8 @@ Requirements for milestone v2.0. Each maps to roadmap phases.
 **: Cultural vocabulary drills use the same exercise mechanics (multiple choice, star mastery) as song exercises
 - [x] **CULT-03
 **: When a vocabulary word appears in song/scene exercises that has a known anime cultural reference, a contextual hint is shown (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
-- [ ] **CULT-04**: Cultural vocabulary is organized by anime series/theme (Naruto elements, Pokemon creatures, Dragon Ball references, etc.)
+- [x] **CULT-04
+**: Cultural vocabulary is organized by anime series/theme (Naruto elements, Pokemon creatures, Dragon Ball references, etc.)
 
 ### Freemium Architecture
 
