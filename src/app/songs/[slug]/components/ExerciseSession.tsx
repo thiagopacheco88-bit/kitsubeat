@@ -348,6 +348,7 @@ export default function ExerciseSession({
               onContinue={handleContinue}
               userId={userId}
               songVersionId={songVersionId}
+              trackKind={trackKind}
             />
           );
         })()}

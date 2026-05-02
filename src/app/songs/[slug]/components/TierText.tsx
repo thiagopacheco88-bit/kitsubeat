@@ -69,6 +69,25 @@ export default function TierText({
   // Pure-kana edge case: surface === reading → no furigana to show
   const isPureKana = vocab.surface === vocab.reading;
 
+  // Phase 11.6 SPEC-REQ-2: For Vocab + Grammar tracks, INVERT the surface
+  // hierarchy — romaji is the primary teaching signal (large), kanji surface
+  // becomes a secondary cue (small). The Kanji track keeps the standard
+  // kanji-primary layout so the kanji surface stays the test target.
+  if (isTrackBypass) {
+    return (
+      <span className="inline-flex flex-col items-center leading-tight">
+        {/* Romaji — primary teaching signal */}
+        <span className="text-lg font-semibold text-[var(--color-text)]">
+          {vocab.romaji}
+        </span>
+        {/* Kanji surface — secondary cue, hidden for pure-kana to avoid duplicate */}
+        {!isPureKana && (
+          <span className="text-xs text-gray-400">{vocab.surface}</span>
+        )}
+      </span>
+    );
+  }
+
   return (
     <span className="inline-flex flex-col items-center leading-tight">
       {/* Surface (kanji / kana) — always shown */}
@@ -79,14 +98,9 @@ export default function TierText({
         <span className="text-xs text-gray-400">{vocab.reading}</span>
       )}
 
-      {/* Romaji — shown at Tier 1 only.
-          Phase 11.6 SPEC-REQ-2: When trackKind=vocab|grammar, romaji is the
-          primary teaching signal → font-semibold emphasis. Standard tier
-          rendering uses dimmer text-gray-500. */}
+      {/* Romaji — shown at Tier 1 only. */}
       {effectiveTier === 1 && (
-        <span className={isTrackBypass ? "text-sm font-semibold text-white" : "text-xs text-gray-500"}>
-          {vocab.romaji}
-        </span>
+        <span className="text-xs text-gray-500">{vocab.romaji}</span>
       )}
     </span>
   );

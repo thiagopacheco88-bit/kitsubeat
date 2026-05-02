@@ -61,10 +61,14 @@ const MIN_INTRO_TO_TEST_GAP = 3;
 // "victory lap" exercise that emits only after verse_domination=true and
 // renders the verse in romaji with translation visible). Until then, it
 // stays available only in advanced_drills.
+//
+// reading_match (kanji surface → pick romaji) is a kanji-recognition test
+// and belongs in the Kanji track, NOT the Vocab track. The Vocab track is
+// romaji ↔ meaning recognition only.
 const TRACK_TYPES: Record<TrackKind, ExerciseType[]> = {
-  vocab: ["vocab_meaning", "meaning_vocab", "reading_match"],
+  vocab: ["vocab_meaning", "meaning_vocab"],
   grammar: ["grammar_conjugation"],
-  kanji: ["vocab_typed"], // Kanji track uses romaji-typed only per SPEC R3
+  kanji: ["vocab_typed", "reading_match"],
   advanced_drills: [
     "vocab_meaning",
     "meaning_vocab",

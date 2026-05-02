@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useRef } from "react";
-import { shuffle, type Question, type VocabInfo } from "@/lib/exercises/generator";
+import { shuffle, type Question, type VocabInfo, type TrackKind } from "@/lib/exercises/generator";
 import { useExerciseSession } from "@/stores/exerciseSession";
 import { recordVocabAnswer } from "@/app/actions/exercises";
 import TierText from "./TierText";
@@ -18,6 +18,13 @@ interface QuestionCardProps {
   userId: string;
   /** Song version UUID — used for FSRS answer recording */
   songVersionId: string;
+  /**
+   * Phase 11.6 SPEC-REQ-2: Active track from ExerciseSession. When "vocab" or
+   * "grammar", TierText inverts surface hierarchy (romaji becomes the primary
+   * teaching signal, kanji becomes a secondary cue) and meaning_vocab options
+   * drop forceKanjiOnly so romaji shows on every option.
+   */
+  trackKind?: TrackKind;
 }
 
 
@@ -27,6 +34,7 @@ export default function QuestionCard({
   onContinue,
   userId,
   songVersionId,
+  trackKind,
 }: QuestionCardProps) {
   const [chosen, setChosen] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -115,12 +123,14 @@ export default function QuestionCard({
   const renderPrompt = () => {
     switch (question.type) {
       case "vocab_meaning":
-        // Show the target vocab at the user's tier (Tier 1 if revealed)
+        // Show the target vocab at the user's tier. trackKind=vocab|grammar
+        // bypasses tier reveal AND inverts surface hierarchy (romaji-primary).
         return (
           <TierText
             vocab={question.vocabInfo}
             tier={effectiveTier}
             mode="prompt"
+            trackKind={trackKind}
           />
         );
       case "reading_match":
@@ -158,23 +168,27 @@ export default function QuestionCard({
         return <span>{option}</span>;
       case "meaning_vocab":
       case "fill_lyric": {
-        // Options are vocab surfaces — use TierText with forceKanjiOnly so all
-        // options appear at the same crutch level (prevents furigana leak)
+        // Options are vocab surfaces. For non-vocab/grammar tracks, force
+        // kanji-only on all options to prevent furigana from leaking the answer.
+        // For vocab/grammar tracks (SPEC-REQ-2), thread trackKind so TierText
+        // inverts hierarchy (romaji-primary) — every option shows romaji
+        // uniformly so there's no leak vs. a kanji-only option.
         const isCorrectOption = option === question.correctAnswer;
         const vocabInfo: VocabInfo | undefined = isCorrectOption
           ? question.vocabInfo
           : question.distractorVocab?.[option];
 
         if (!vocabInfo) {
-          // Defensive fallback for legacy questions without distractorVocab
           return <span>{option}</span>;
         }
+        const isTrackBypass = trackKind === "vocab" || trackKind === "grammar";
         return (
           <TierText
             vocab={vocabInfo}
             tier={targetTier}
             mode="option"
-            forceKanjiOnly
+            trackKind={trackKind}
+            forceKanjiOnly={!isTrackBypass}
           />
         );
       }
