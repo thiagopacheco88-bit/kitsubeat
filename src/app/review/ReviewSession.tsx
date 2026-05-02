@@ -24,6 +24,7 @@ import type { VocabRow } from "@/app/api/review/queue/route";
 import type { Question } from "@/lib/exercises/generator";
 import type { ReviewQueueItem, ReviewQuestionType } from "@/lib/review/queue-builder";
 import type { Localizable } from "@/lib/types/lesson";
+import { Button } from "@/components/ui/Button";
 
 interface ReviewSessionProps {
   userId: string;
@@ -183,23 +184,25 @@ export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBac
 
     return (
       <div className="mx-auto max-w-lg px-4 py-12 text-center">
-        <h2 className="text-2xl font-bold text-white">Session Complete</h2>
-        <p className="mt-4 text-lg text-gray-300">
+        <h2 className="text-2xl font-bold text-[var(--color-text)]">Session Complete</h2>
+        <p className="mt-4 text-lg text-[var(--color-text-muted)]">
           {totalAnswered === 0
             ? "No cards were answered."
             : `${correctCount} / ${totalAnswered} correct`}
         </p>
         {capReachedToast && (
-          <p className="mt-2 text-sm text-yellow-400">
+          <p className="mt-2 text-sm text-[var(--color-jlpt-n3)]">
             Daily new-card limit was reached during this session.
           </p>
         )}
-        <button
+        <Button
+          variant="primary"
+          size="md"
           onClick={onBack}
-          className="mt-8 rounded-lg bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700"
+          className="mt-8"
         >
           Back to Review
-        </button>
+        </Button>
       </div>
     );
   }
@@ -208,10 +211,15 @@ export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBac
   if (!currentItem) {
     return (
       <div className="mx-auto max-w-lg px-4 py-12 text-center">
-        <p className="text-gray-400">No cards available.</p>
-        <button onClick={onBack} className="mt-4 text-sm text-red-400 underline">
+        <p className="text-[var(--color-text-muted)]">No cards available.</p>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={onBack}
+          className="mt-4 underline"
+        >
           Back
-        </button>
+        </Button>
       </div>
     );
   }
@@ -228,16 +236,19 @@ export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBac
   return (
     <div className="mx-auto max-w-lg px-4 py-8">
       {/* Progress */}
-      <div className="mb-4 flex items-center justify-between text-sm text-gray-400">
+      <div className="mb-4 flex items-center justify-between text-sm text-[var(--color-text-muted)]">
         <span>
           Card {currentIndex + 1} of {items.length}
           {currentItem.isNew && (
-            <span className="ml-2 rounded-full bg-blue-900/50 px-2 py-0.5 text-xs text-blue-300">
+            <span className="ml-2 rounded-[var(--radius-pill)] bg-[var(--color-jlpt-n4-bg)] ring-1 ring-[var(--color-jlpt-n4-ring)] px-2 py-0.5 text-xs text-[var(--color-jlpt-n4)]">
               New
             </span>
           )}
         </span>
-        <button onClick={onBack} className="text-xs text-gray-500 hover:text-gray-300 underline">
+        <button
+          onClick={onBack}
+          className="text-xs text-[var(--color-text-dim)] hover:text-[var(--color-text-muted)] underline"
+        >
           End session
         </button>
       </div>
@@ -247,7 +258,7 @@ export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBac
         <div
           role="status"
           aria-live="polite"
-          className="mb-4 rounded-lg border border-yellow-500/30 bg-yellow-500/10 p-3 text-sm text-yellow-300"
+          className="mb-4 rounded-[var(--radius-md)] border border-[var(--color-jlpt-n3-ring)] bg-[var(--color-jlpt-n3-bg)] p-3 text-sm text-[var(--color-jlpt-n3)]"
         >
           Daily new-card limit reached — continuing with review-only cards for today.
         </div>

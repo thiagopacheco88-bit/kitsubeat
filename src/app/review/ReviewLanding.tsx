@@ -23,6 +23,7 @@ import UpsellModal from "./UpsellModal";
 import type { VocabRow, QueueResponse } from "@/app/api/review/queue/route";
 import { useReviewSession } from "@/stores/reviewSession";
 import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { Button } from "@/components/ui/Button";
 
 // Lazy-load ReviewSession so it doesn't inflate the landing bundle
 const ReviewSession = dynamic(() => import("./ReviewSession"), { ssr: false });
@@ -110,19 +111,19 @@ export default function ReviewLanding({
 
   return (
     <div className="mx-auto max-w-lg px-4 py-12">
-      <h1 className="text-3xl font-bold text-white">Review</h1>
+      <h1 className="text-3xl font-bold text-[var(--color-text)]">Review</h1>
 
       {/* Card count summary */}
-      <div className="mt-6 rounded-xl border border-gray-700 bg-gray-900 p-6">
+      <div className="mt-6 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-400">Cards due</p>
-            <p className="text-4xl font-bold text-white">{dueCount}</p>
+            <p className="text-sm text-[var(--color-text-muted)]">Cards due</p>
+            <p className="text-4xl font-bold text-[var(--color-text)]">{dueCount}</p>
           </div>
           {isPremium && newBudgetRemaining > 0 && (
             <div className="text-right">
-              <p className="text-sm text-gray-400">New today</p>
-              <p className="text-4xl font-bold text-blue-400">
+              <p className="text-sm text-[var(--color-text-muted)]">New today</p>
+              <p className="text-4xl font-bold text-[var(--color-jlpt-n4)]">
                 up to {newBudgetRemaining}
               </p>
             </div>
@@ -130,7 +131,7 @@ export default function ReviewLanding({
         </div>
 
         {isPremium && (
-          <p className="mt-3 text-sm text-gray-500">
+          <p className="mt-3 text-sm text-[var(--color-text-dim)]">
             {newBudgetRemaining === 0
               ? "New-card quota reached for today. All due cards available."
               : `Daily new-card limit: ${dailyCap} per day`}
@@ -141,30 +142,32 @@ export default function ReviewLanding({
       {/* CTA */}
       <div className="mt-6">
         {isEmpty ? (
-          <div className="rounded-xl border border-gray-700 bg-gray-900/50 p-6 text-center">
-            <p className="text-gray-300">
+          <div className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)]/50 p-6 text-center">
+            <p className="text-[var(--color-text-muted)]">
               All caught up — come back tomorrow!
             </p>
           </div>
         ) : (
           <>
-            <button
+            <Button
               type="button"
+              variant="primary"
+              size="lg"
               onClick={handleStart}
               disabled={loading}
-              className="w-full rounded-xl bg-red-600 px-6 py-3 text-base font-semibold text-white hover:bg-red-500 disabled:opacity-60 transition-colors"
+              className="w-full"
             >
               {loading ? "Loading queue..." : "Start Review"}
-            </button>
+            </Button>
 
             {!isPremium && (
-              <p className="mt-3 text-center text-sm text-gray-500">
+              <p className="mt-3 text-center text-sm text-[var(--color-text-dim)]">
                 The cross-song review queue is a premium feature.
               </p>
             )}
 
             {loadError && (
-              <p className="mt-3 text-center text-sm text-red-400">{loadError}</p>
+              <p className="mt-3 text-center text-sm text-[var(--color-accent)]">{loadError}</p>
             )}
           </>
         )}
