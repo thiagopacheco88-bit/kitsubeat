@@ -79,4 +79,4 @@ Users can watch an anime song and understand exactly what every word means — w
 | AI-generated lyrics (not database-sourced) | Cheaper, more flexible, covers niche songs databases may miss | — Pending |
 
 ---
-*Last updated: 2026-04-14 after v2.0 milestone initialization*
+*Last updated: 2026-05-02 — Phase 14 (UX Polish) complete: tokenized design system, 6 UI primitives (Button/Card/Badge/Modal/EmptyState/Skeleton), theme persistence (light/dark/system), motion catalog, CI lint gate. Class A a11y blocker closed via A1 (--color-accent #ef4444 → #dc2626); Class B/C deferred to Phase 18 as D-PRE-11. Bundle delta on /songs/[slug]: +0.29 kB gzipped.*
