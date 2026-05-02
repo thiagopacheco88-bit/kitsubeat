@@ -16,8 +16,6 @@
  *   SWAP-T-04: changed_by sourced from server-side requireAdminUser() → admin.id.
  */
 
-export const runtime = "nodejs";
-
 import { spawn } from "node:child_process";
 import path from "node:path";
 import { db } from "@/lib/db";

@@ -14,8 +14,6 @@
  * - Single statement → no batch needed. Uses onConflictDoUpdate.
  */
 
-export const runtime = "nodejs"; // required for Clerk currentUser
-
 import { db } from "@/lib/db";
 import { lyricsDrafts } from "@/lib/db/schema";
 import { requireAdminUser } from "@/lib/admin/require-admin";

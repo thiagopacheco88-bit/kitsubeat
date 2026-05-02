@@ -11,8 +11,6 @@
  *   FLAG-T-03: Both revalidateSongCache + revalidatePath called on every flag/clear.
  */
 
-export const runtime = "nodejs";
-
 import { db } from "@/lib/db";
 import { songs } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";

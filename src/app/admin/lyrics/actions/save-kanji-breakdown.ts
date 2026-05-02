@@ -13,8 +13,6 @@
  * gate on that confirm — the gate is the client UX. Both layers exist defensively.
  */
 
-export const runtime = "nodejs";
-
 import { db } from "@/lib/db";
 import { sql, eq } from "drizzle-orm";
 import { vocabularyItems } from "@/lib/db/schema";

@@ -16,8 +16,6 @@
  * input draft verse is kept verbatim).
  */
 
-export const runtime = "nodejs";
-
 import { db } from "@/lib/db";
 import { sql } from "drizzle-orm";
 import { requireAdminUser } from "@/lib/admin/require-admin";

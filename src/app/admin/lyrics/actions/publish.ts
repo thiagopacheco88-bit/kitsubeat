@@ -21,8 +21,6 @@
  * re-tokenization runs on the concatenated surface string of all tokens in the verse.
  */
 
-export const runtime = "nodejs"; // required: kuromoji native bindings + spawn-free path
-
 import path from "node:path";
 import { db } from "@/lib/db";
 import { sql } from "drizzle-orm";
