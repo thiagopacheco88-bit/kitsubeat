@@ -44,6 +44,7 @@ import {
   existsSync,
 } from "fs";
 import { join } from "path";
+import { isKanji, kanjiSet } from "../../src/lib/exercises/kanji.js";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Thresholds — retightened 2026-04-24 after the 36-song calibration found
@@ -118,23 +119,8 @@ interface ValidationRow {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Kanji helpers
+// Kanji helpers — imported from src/lib/exercises/kanji.ts (single source of truth)
 // ─────────────────────────────────────────────────────────────────────────────
-
-function isKanji(ch: string): boolean {
-  const cp = ch.codePointAt(0) ?? 0;
-  return (
-    (cp >= 0x4e00 && cp <= 0x9fff) ||
-    (cp >= 0x3400 && cp <= 0x4dbf) ||
-    (cp >= 0x20000 && cp <= 0x2a6df)
-  );
-}
-
-function kanjiSet(text: string): Set<string> {
-  const s = new Set<string>();
-  for (const ch of text) if (isKanji(ch)) s.add(ch);
-  return s;
-}
 
 function coverage(target: Set<string>, source: Set<string>): number {
   if (target.size === 0) return 1;
