@@ -49,3 +49,17 @@ SCOPE BOUNDARY rule).
 - **Resolution:** Fixed inline as Rule 3 deviation in commit 95bd743 —
   required to capture bundle baseline (Plan 14-00 Task 1 prerequisite).
 - **Owner:** Resolved.
+
+## Plan 14-04 (Wave 1 — motion catalog + dev/states + dashboard cleanup + CI)
+
+### D-PRE-06 — pre-existing build error: `useRef` not imported in admin/lyrics/components/VerseRow.tsx
+- **Source:** Pre-existing dirty WIP from another work stream (admin/lyrics
+  in-flight refactor). Outside Phase 14 scope per parent agent prompt.
+- **Symptom:** `npm run build` reports `Type error: Cannot find name 'useRef'`
+  at src/app/admin/lyrics/components/VerseRow.tsx:91. Production build halts.
+- **Phase 14 impact:** None on the Plan 14-04 deliverables. Plan 14-04
+  verification gates (vitest gate test, motion-catalog audit, Playwright
+  dev-states + reduced-motion specs) all green; Plan 14-04 files compile
+  cleanly under `npx tsc --noEmit` (zero new errors introduced).
+- **Owner:** Admin/lyrics WIP work stream owner. Will be resolved when that
+  branch lands.
