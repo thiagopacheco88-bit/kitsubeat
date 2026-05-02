@@ -11,6 +11,7 @@ import VocabularySection from "./VocabularySection";
 import GrammarSection from "./GrammarSection";
 import SongLayout from "./SongLayout";
 import KnownWordCount from "./KnownWordCount";
+import VerseStarIcon from "./VerseStarIcon";
 
 // Lazy-load exercise tab — avoids bundling exercise code until Practice is clicked
 const ExerciseTab = lazy(() => import("./ExerciseTab"));
@@ -44,6 +45,18 @@ interface VersionData {
    * True when advanced_drills_unlocked_at IS NOT NULL in user_song_progress.
    */
   advancedDrillsUnlocked?: boolean;
+  /**
+   * Phase 11.6 SPEC-REQ-14: SSR-loaded list of verse numbers the current
+   * user has dominated on this version. Drives the gold star next to
+   * dominated verses (LyricsPanel → VerseBlock) and the header counter
+   * (X/Y verses). Empty array for unauthenticated / no-progress callers.
+   */
+  dominatedVerseNumbers?: number[];
+  /**
+   * Phase 11.6 SPEC-REQ-14: total verse count for this version (denominator
+   * of the X/Y counter). Sourced from lesson.verses.length at SSR.
+   */
+  totalVerses?: number;
 }
 
 type ContentTab = "vocabulary" | "grammar" | "practice";
@@ -133,6 +146,21 @@ function SongContentInner({
             </span>
           )}
           <KnownWordCount songId={songId} />
+          {/* Phase 11.6 D-16 — verses dominated counter. Sits in the header
+              row alongside JLPT badge / difficulty pill / KnownWordCount.
+              Hidden when totalVerses is 0 (defensive — should not happen on
+              a published song). The leading star icon visually anchors the
+              counter to the lyrics-view stars (same gold icon, deeper amber
+              text on the counter so the lyrics stars stay brightest). */}
+          {(active.totalVerses ?? 0) > 0 && (
+            <span
+              className="inline-flex items-center text-amber-500 text-sm"
+              data-testid="verses-counter"
+            >
+              <VerseStarIcon className="text-amber-500" />
+              {(active.dominatedVerseNumbers?.length ?? 0)}/{active.totalVerses} verses
+            </span>
+          )}
         </div>
       </div>
 
@@ -188,6 +216,7 @@ function SongContentInner({
             verses={active.lesson.verses}
             syncedLrc={active.synced_lrc}
             offsetMs={active.lyrics_offset_ms}
+            dominatedVerseNumbers={active.dominatedVerseNumbers ?? []}
           />
         }
       />

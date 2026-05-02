@@ -4,16 +4,24 @@ import type { Verse } from "@/lib/types/lesson";
 import { GRAMMAR_COLOR_CLASS, localize } from "@/lib/types/lesson";
 import { usePlayer } from "./PlayerContext";
 import TokenSpan from "./TokenSpan";
+import VerseStarIcon from "./VerseStarIcon";
 
 export default function VerseBlock({
   verse,
   isActive = false,
   startMs,
+  isDominated = false,
 }: {
   verse: Verse;
   isActive?: boolean;
   /** When provided, clicking the verse seeks the player here and plays. */
   startMs?: number;
+  /**
+   * Phase 11.6 SPEC-REQ-14: render the gold VerseStarIcon next to the verse
+   * number when the current user has dominated this verse. SSR-resolved by
+   * LyricsPanel from getDominatedVerses().
+   */
+  isDominated?: boolean;
 }) {
   const { translationLang, showRomaji, seekAndPlay } = usePlayer();
   const canSeek = typeof startMs === "number";
@@ -60,6 +68,9 @@ export default function VerseBlock({
       }`}
     >
       <div className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-wider text-gray-600">
+        {/* Phase 11.6 D-14: gold star next to dominated verses. Sits before
+            the "Verse N" label so it reads as a badge on the verse. */}
+        {isDominated && <VerseStarIcon />}
         <span>Verse {verse.verse_number}</span>
         {isFiller && (
           <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[9px] text-gray-500">

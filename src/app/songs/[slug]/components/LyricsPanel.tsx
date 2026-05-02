@@ -79,6 +79,7 @@ export default function LyricsPanel({
   verses,
   syncedLrc,
   offsetMs = 0,
+  dominatedVerseNumbers = [],
 }: {
   verses: Verse[];
   syncedLrc?: SyncedLine[] | null;
@@ -89,6 +90,12 @@ export default function LyricsPanel({
    * Positive = delay the highlight; negative = pull it earlier.
    */
   offsetMs?: number;
+  /**
+   * Phase 11.6 SPEC-REQ-14: list of verse numbers the user has dominated on
+   * this song version. Each VerseBlock checks membership and renders a gold
+   * star next to the verse number when present.
+   */
+  dominatedVerseNumbers?: number[];
 }) {
   const { currentTimeMs } = usePlayer();
   const verseRefs = useRef<Map<number, HTMLDivElement>>(new Map());
@@ -185,6 +192,7 @@ export default function LyricsPanel({
             verse={verse}
             isActive={activeVerse === verse.verse_number}
             startMs={verseTiming.get(verse.verse_number)?.startMs}
+            isDominated={dominatedVerseNumbers.includes(verse.verse_number)}
           />
         </div>
       ))}

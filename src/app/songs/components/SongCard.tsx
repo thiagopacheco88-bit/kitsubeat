@@ -103,6 +103,18 @@ export default function SongCard({ song }: SongCardProps) {
   const showMasteryBanner = showProgress && stars === 3;
   const showBonusBadge = showProgress && bonus;
 
+  // Phase 11.6 D-14 — verses-dominated percent. Numeric column comes back as
+  // a string from neon-http (Pitfall 6), so parseFloat at the boundary; null
+  // for unauthenticated callers OR for users with no domination on this song.
+  // Hidden when 0 — only shown once the user starts making progress (matches
+  // showProgress gate so anonymous catalog stays clean).
+  const versesDominatedPctNum =
+    song.verses_dominated_pct != null
+      ? parseFloat(song.verses_dominated_pct as unknown as string)
+      : null;
+  const showVersesDominatedPct =
+    showProgress && versesDominatedPctNum != null && versesDominatedPctNum > 0;
+
   return (
     <CardLink
       href={`/songs/${song.slug}`}
@@ -149,6 +161,17 @@ export default function SongCard({ song }: SongCardProps) {
             <StarDisplay stars={stars} animate={false} />
             {showBonusBadge && <BonusBadgeIcon />}
           </div>
+        )}
+        {/* Phase 11.6 D-14 — verses-dominated percent line.
+            Sits below the stars row, above artist/anime, so it reads as a
+            secondary mastery signal anchored to the primary stars row. */}
+        {showVersesDominatedPct && (
+          <p
+            className="mt-0.5 text-xs text-[var(--color-text-muted)]"
+            data-testid="verses-dominated-pct"
+          >
+            {Math.round(versesDominatedPctNum!)}% dominated
+          </p>
         )}
         <p className="mt-1 truncate text-xs text-[var(--color-text-muted)]">
           {song.artist}

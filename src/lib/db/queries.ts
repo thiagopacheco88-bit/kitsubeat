@@ -1,6 +1,6 @@
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
-import { eq, sql, asc, inArray } from "drizzle-orm";
+import { eq, sql, asc, inArray, and } from "drizzle-orm";
 import { db } from "./index";
 import {
   songs,
@@ -8,6 +8,7 @@ import {
   vocabularyItems,
   vocabGlobal,
   userSongProgress,
+  userVerseDomination,
   users,
   userCosmetics,
   rewardSlotDefinitions,
@@ -226,6 +227,45 @@ export async function getAllSongs(userId?: string | null) {
         FROM song_plays sp
         INNER JOIN song_versions sv ON sv.id = sp.song_version_id
         WHERE sv.song_id = songs.id
+      )`,
+      // Phase 11.6 SPEC-REQ-14 — verses dominated as a percent.
+      //
+      // Numerator: count of user_verse_domination rows for this user across
+      // the tv-preferred song_version. Denominator: jsonb_array_length of
+      // the lesson's verses array on the same version.
+      //
+      // Why lesson JSONB and NOT song_version_grammar_rules.verse_number — the
+      // grammar-rules table is song-level (no per-verse rows; verse_number is
+      // not a column there). The lesson.verses[] array is the canonical source
+      // of truth for "how many verses does this song have"; verse domination
+      // is computed against vocab + grammar + kanji items per verse upstream
+      // (Plan 11.6-05) and the denominator is just the verse count.
+      //
+      // Returns numeric (string per Pitfall 6 — neon-http boxes numeric as
+      // string). NULL for unauthenticated callers OR for songs where the
+      // user has zero dominated verses (downstream parseFloat handles NULL).
+      verses_dominated_pct: sql<string | null>`(
+        SELECT CASE
+          WHEN COALESCE(verse_total.cnt, 0) = 0 THEN NULL
+          ELSE ROUND(
+            (COALESCE(dom.cnt, 0)::numeric / verse_total.cnt::numeric) * 100,
+            0
+          )::text
+        END
+        FROM (
+          SELECT jsonb_array_length(sv.lesson -> 'verses') AS cnt, sv.id AS sv_id
+          FROM song_versions sv
+          WHERE sv.song_id = songs.id AND sv.lesson IS NOT NULL
+          ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+          LIMIT 1
+        ) AS verse_total
+        LEFT JOIN (
+          SELECT COUNT(*)::int AS cnt, uvd.song_version_id
+          FROM user_verse_domination uvd
+          WHERE uvd.user_id = ${userIdParam}
+          GROUP BY uvd.song_version_id
+        ) AS dom
+          ON dom.song_version_id = verse_total.sv_id
       )`,
     })
     .from(songs)
@@ -1126,3 +1166,37 @@ export async function getUserGamificationState(userId: string): Promise<Gamifica
     equipped_theme,
   };
 }
+
+// ---------------------------------------------------------------------------
+// Phase 11.6 SPEC-REQ-14 — verse-domination read helpers
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns the list of verse numbers a (user, song_version) pair has
+ * dominated. Used by the song page SSR to render the static gold star next
+ * to dominated verses in the lyrics view (D-14) and the X/Y verses counter
+ * in the header (D-16).
+ *
+ * Order is unspecified — the caller checks membership via array .includes
+ * (or builds a Set). Empty array for users with no domination rows on the
+ * version OR for the placeholder/anonymous user_id.
+ *
+ * Phase 11.6-05 owns the writer (recordVocabAnswer's INSERT ON CONFLICT DO
+ * NOTHING RETURNING). This reader is the SSR consumer.
+ */
+export async function getDominatedVerses(
+  userId: string,
+  songVersionId: string
+): Promise<number[]> {
+  const rows = await db
+    .select({ verse_number: userVerseDomination.verse_number })
+    .from(userVerseDomination)
+    .where(
+      and(
+        eq(userVerseDomination.user_id, userId),
+        eq(userVerseDomination.song_version_id, songVersionId)
+      )
+    );
+  return rows.map((r) => r.verse_number);
+}
+

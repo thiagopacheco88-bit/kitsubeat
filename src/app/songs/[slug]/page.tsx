@@ -1,5 +1,9 @@
 import { notFound } from "next/navigation";
-import { getSongBySlug, getVocabularyEnrichmentForSong } from "@/lib/db/queries";
+import {
+  getSongBySlug,
+  getVocabularyEnrichmentForSong,
+  getDominatedVerses,
+} from "@/lib/db/queries";
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
 import { hasKanji } from "@/lib/exercises/kanji";
@@ -165,11 +169,26 @@ export default async function SongPlayerPage({
     ])
   );
 
-  // Attach track pcts to each version
+  // Phase 11.6 SPEC-REQ-14 — dominated verses per song_version. One DB query
+  // per version is fine; song_versions per song is typically 1-2 (tv + full).
+  // The result feeds the lyrics-view star (LyricsPanel → VerseBlock) and the
+  // header X/Y verses counter. Empty array for the anonymous placeholder user
+  // OR for users who haven't dominated any verses yet.
+  const dominatedByVersion = new Map<string, number[]>(
+    await Promise.all(
+      versionIds.map(async (vid) => {
+        const arr = await getDominatedVerses(SONG_PAGE_USER_ID, vid);
+        return [vid, arr] as [string, number[]];
+      })
+    )
+  );
+
+  // Attach track pcts + dominated verse numbers to each version.
   const versionsWithPcts = versions.map((v) => {
     const progress = progressMap.get(v.id);
     // SPEC R16: all-kana songs auto-pass kanji (kanji: 100 for hasKanjiBearingVocab=false)
     const kanjiPct = progress?.kanji ?? (v.hasKanjiBearingVocab === false ? 100 : 0);
+    const dominatedVerseNumbers = dominatedByVersion.get(v.id) ?? [];
     return {
       ...v,
       trackPcts: {
@@ -178,6 +197,11 @@ export default async function SongPlayerPage({
         kanji: kanjiPct,
       },
       advancedDrillsUnlocked: progress?.advancedDrillsUnlocked ?? false,
+      // Phase 11.6 D-14: SSR-loaded dominated verse list. The lyrics view
+      // renders <VerseStarIcon /> for any verse whose number is in this
+      // array; the header counter renders "<dom>/<total> verses".
+      dominatedVerseNumbers,
+      totalVerses: v.lesson.verses.length,
     };
   });
 
