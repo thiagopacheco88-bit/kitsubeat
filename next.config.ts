@@ -3,6 +3,12 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // Phase 14 D-17: lint runs as a separate CI gate (`npm run lint`), not during build.
+  // Avoids build-time false-positives from kitsubeat-tokens/no-raw-tokens flagging
+  // pre-Wave-1 palette utilities that Wave 1+ migrations land fixes for.
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 // Phase 13 D-09: bundle analyzer for human investigation when budget fails.
