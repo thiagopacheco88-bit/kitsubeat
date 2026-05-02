@@ -10,6 +10,7 @@ import {
 } from "@/stores/exerciseSession";
 import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
 import ExerciseSession from "./ExerciseSession";
+import { TrackProgressRings } from "./TrackProgressRings";
 
 interface ExerciseTabProps {
   lesson: Lesson;
@@ -23,6 +24,17 @@ interface ExerciseTabProps {
    * (backwards-compatible — shows Kanji card for songs that pre-date this prop).
    */
   hasKanjiBearingVocab?: boolean;
+  /**
+   * Phase 11.6 SPEC-REQ-10 + SPEC-REQ-11: per-track progress percentages (0–100).
+   * Read from user_song_progress by page.tsx SSR. Defaults to all-zero for new users.
+   */
+  trackPcts?: { vocab: number; grammar: number; kanji: number };
+  /**
+   * Phase 11.6 SPEC-REQ-10: Advanced Drills unlock flag.
+   * True when advanced_drills_unlocked_at IS NOT NULL in user_song_progress.
+   * Derived from trackPcts >= 80 per track; stored in DB by recordVocabAnswer.
+   */
+  advancedDrillsUnlocked?: boolean;
 }
 
 type TabState = "config" | "session";
@@ -109,6 +121,8 @@ export default function ExerciseTab({
   songSlug,
   userId,
   hasKanjiBearingVocab = true,
+  trackPcts = { vocab: 0, grammar: 0, kanji: 0 },
+  advancedDrillsUnlocked = false,
 }: ExerciseTabProps) {
   const store = useExerciseSession();
   const { _hasHydrated, startSession, clearSession } = store;
@@ -366,29 +380,68 @@ export default function ExerciseTab({
         )}
       </div>
 
-      {/* Three-ring slot — Plan 11.6-07 implements TrackProgressRings here */}
-      {/* <TrackProgressRings vocab={...} grammar={...} kanji={...} /> */}
+      {/* Phase 11.6 SPEC-REQ-11: Three-ring progress visualization above Advanced Drills */}
+      <TrackProgressRings
+        vocab={trackPcts.vocab}
+        grammar={trackPcts.grammar}
+        kanji={trackPcts.kanji}
+        hasKanjiBearingVocab={hasKanjiBearingVocab}
+      />
 
-      {/* Advanced Drills card — Plan 11.6-07 wires 80%-per-track unlock gate */}
-      <div className="mt-4 flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
-        <div>
-          <h3 className="font-semibold text-[var(--color-text)]">Advanced Drills</h3>
-          <p className="mt-1 text-sm text-[var(--color-text-dim)]">
-            Mixed-track session — unlocked at 80% progress per track.
-          </p>
-        </div>
-        <p className="text-sm text-[var(--color-text-dim)]">
-          Grammar · Listening · Sentence Order — the 3-star workout.
-        </p>
-        <button
-          onClick={() => handleStart("advanced_drills", advancedLength)}
-          disabled={loading}
-          className="mt-auto rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--color-accent-hover)] disabled:opacity-50"
-          data-testid="advanced-drills-start"
-        >
-          {loading ? "Loading..." : "Start"}
-        </button>
-      </div>
+      {/* Phase 11.6 SPEC-REQ-10: Advanced Drills card with 80%-per-track lock gate */}
+      {(() => {
+        // Gate: all required rings must be ≥80%. Kanji clause auto-passes for all-kana songs.
+        const allRingsClosed =
+          trackPcts.vocab >= 80 &&
+          trackPcts.grammar >= 80 &&
+          (hasKanjiBearingVocab ? trackPcts.kanji >= 80 : true);
+        const drillsLocked = !allRingsClosed && !advancedDrillsUnlocked;
+
+        // Build tooltip message for locked state listing what's still needed
+        const missingMsg = drillsLocked
+          ? `Need ${[
+              trackPcts.vocab < 80 ? `Vocab ${Math.ceil(80 - trackPcts.vocab)}%` : null,
+              trackPcts.grammar < 80 ? `Grammar ${Math.ceil(80 - trackPcts.grammar)}%` : null,
+              hasKanjiBearingVocab && trackPcts.kanji < 80
+                ? `Kanji ${Math.ceil(80 - trackPcts.kanji)}%`
+                : null,
+            ]
+              .filter(Boolean)
+              .join(", ")} more to unlock`
+          : "";
+
+        return (
+          <div className="mt-4 flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
+            <div>
+              <h3 className="font-semibold text-[var(--color-text)]">Advanced Drills</h3>
+              <p className="mt-1 text-sm text-[var(--color-text-dim)]">
+                Mixed-track session — unlocked at 80% progress per track.
+              </p>
+            </div>
+            <p className="text-sm text-[var(--color-text-dim)]">
+              Grammar · Listening · Sentence Order — the 3-star workout.
+            </p>
+            <button
+              onClick={() => handleStart("advanced_drills", advancedLength)}
+              disabled={drillsLocked || loading}
+              title={drillsLocked ? missingMsg : "Start mixed-track session"}
+              aria-label={
+                drillsLocked
+                  ? `Advanced Drills locked: ${missingMsg}`
+                  : "Start Advanced Drills"
+              }
+              data-testid="advanced-drills-button"
+              className={`mt-auto rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+                drillsLocked
+                  ? "bg-gray-700 text-gray-400 cursor-not-allowed opacity-60"
+                  : "bg-gradient-to-r from-amber-500 to-amber-400 text-white hover:from-amber-600 hover:to-amber-500"
+              }`}
+            >
+              {loading ? "Loading..." : drillsLocked ? "Locked" : "Start"}
+            </button>
+          </div>
+        );
+      })()}
 
       <p className="mt-4 text-xs text-[var(--color-text-dim)]">
         {lesson.vocabulary.filter((v) => v.vocab_item_id).length} vocabulary{" "}

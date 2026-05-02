@@ -34,6 +34,16 @@ interface VersionData {
   lyrics_offset_ms: number;
   /** Phase 11.6 SPEC-REQ-16: computed at SSR; hides Kanji card on all-kana songs */
   hasKanjiBearingVocab?: boolean;
+  /**
+   * Phase 11.6 SPEC-REQ-11: per-track progress percentages (0–100) from
+   * user_song_progress. Loaded at SSR. Defaults to all-zero if not provided.
+   */
+  trackPcts?: { vocab: number; grammar: number; kanji: number };
+  /**
+   * Phase 11.6 SPEC-REQ-10: Advanced Drills unlock flag.
+   * True when advanced_drills_unlocked_at IS NOT NULL in user_song_progress.
+   */
+  advancedDrillsUnlocked?: boolean;
 }
 
 type ContentTab = "vocabulary" | "grammar" | "practice";
@@ -228,6 +238,8 @@ function SongContentInner({
               songSlug={song.slug}
               userId="anonymous"
               hasKanjiBearingVocab={active.hasKanjiBearingVocab ?? true}
+              trackPcts={active.trackPcts ?? { vocab: 0, grammar: 0, kanji: 0 }}
+              advancedDrillsUnlocked={active.advancedDrillsUnlocked ?? false}
             />
           </Suspense>
         )}
