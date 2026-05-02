@@ -55,8 +55,14 @@ const LENGTH_CAP: Record<LengthMode, number> = { short: 10, long: 25 };
 const MIN_INTRO_TO_TEST_GAP = 3;
 
 // SPEC R3: which exercise types are eligible per track
+//
+// fill_lyric is intentionally OMITTED from the Vocab track — it requires
+// per-verse vocabulary domination as a prerequisite (open: redesign as a
+// "victory lap" exercise that emits only after verse_domination=true and
+// renders the verse in romaji with translation visible). Until then, it
+// stays available only in advanced_drills.
 const TRACK_TYPES: Record<TrackKind, ExerciseType[]> = {
-  vocab: ["vocab_meaning", "meaning_vocab", "reading_match", "fill_lyric"],
+  vocab: ["vocab_meaning", "meaning_vocab", "reading_match"],
   grammar: ["grammar_conjugation"],
   kanji: ["vocab_typed"], // Kanji track uses romaji-typed only per SPEC R3
   advanced_drills: [
