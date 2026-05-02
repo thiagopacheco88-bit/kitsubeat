@@ -3,6 +3,9 @@ import { getSongBySlug, getVocabularyEnrichmentForSong } from "@/lib/db/queries"
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
 import { hasKanji } from "@/lib/exercises/kanji";
+import { db } from "@/lib/db/index";
+import { userSongProgress } from "@/lib/db/schema";
+import { eq, and, inArray } from "drizzle-orm";
 import SongContent from "./components/SongContent";
 
 export async function generateMetadata({
@@ -113,6 +116,69 @@ export default async function SongPlayerPage({
 
   if (versions.length === 0) notFound();
 
+  // Phase 11.6 SPEC-REQ-10 + SPEC-REQ-11: SSR-load per-track progress percentages
+  // from user_song_progress for all versions of this song.
+  //
+  // NOTE: userId is currently "anonymous" (hardcoded in SongContent.tsx) — this will
+  // switch to Clerk's auth() userId when auth lands on song pages (TODO).
+  //
+  // Pitfall 6 mitigation: numeric(5,2) columns come back as strings from neon-http
+  // driver — parseFloat() at this boundary before passing to client components.
+  const SONG_PAGE_USER_ID = "anonymous";
+  const versionIds = versions.map((v) => v.id);
+
+  const progressRows = await db
+    .select({
+      song_version_id: userSongProgress.song_version_id,
+      vocab_track_pct: userSongProgress.vocab_track_pct,
+      grammar_track_pct: userSongProgress.grammar_track_pct,
+      kanji_track_pct: userSongProgress.kanji_track_pct,
+      advanced_drills_unlocked_at: userSongProgress.advanced_drills_unlocked_at,
+    })
+    .from(userSongProgress)
+    .where(
+      and(
+        eq(userSongProgress.user_id, SONG_PAGE_USER_ID),
+        inArray(userSongProgress.song_version_id, versionIds)
+      )
+    )
+    .limit(versionIds.length);
+
+  // Build per-version pct map (keyed by song_version_id)
+  const progressMap = new Map(
+    progressRows.map((row) => [
+      row.song_version_id,
+      {
+        vocab: row.vocab_track_pct != null
+          ? parseFloat(row.vocab_track_pct as unknown as string)
+          : 0,
+        grammar: row.grammar_track_pct != null
+          ? parseFloat(row.grammar_track_pct as unknown as string)
+          : 0,
+        kanji: row.kanji_track_pct != null
+          ? parseFloat(row.kanji_track_pct as unknown as string)
+          : 0,
+        advancedDrillsUnlocked: row.advanced_drills_unlocked_at != null,
+      },
+    ])
+  );
+
+  // Attach track pcts to each version
+  const versionsWithPcts = versions.map((v) => {
+    const progress = progressMap.get(v.id);
+    // SPEC R16: all-kana songs auto-pass kanji (kanji: 100 for hasKanjiBearingVocab=false)
+    const kanjiPct = progress?.kanji ?? (v.hasKanjiBearingVocab === false ? 100 : 0);
+    return {
+      ...v,
+      trackPcts: {
+        vocab: progress?.vocab ?? 0,
+        grammar: progress?.grammar ?? 0,
+        kanji: kanjiPct,
+      },
+      advancedDrillsUnlocked: progress?.advancedDrillsUnlocked ?? false,
+    };
+  });
+
   return (
     <SongContent
       song={{
@@ -124,7 +190,7 @@ export default async function SongPlayerPage({
         jlpt_level: song.jlpt_level,
         difficulty_tier: song.difficulty_tier,
       }}
-      versions={versions}
+      versions={versionsWithPcts}
       songId={song.id}
     />
   );
