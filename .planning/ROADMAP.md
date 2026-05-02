@@ -51,7 +51,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginner→advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0 (completed 2026-04-19)
 - [x] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate — measurement against pages about to be redesigned in Phase 14 would be wasted work.)
  (completed 2026-05-01)
-- [ ] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface
+- [x] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface (completed 2026-05-02)
 - [ ] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated
 - [ ] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook
 - [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA — produces requirements checklist
@@ -456,18 +456,18 @@ Plans:
 **Context captured**: [.planning/phases/14-ux-polish/14-CONTEXT.md](phases/14-ux-polish/14-CONTEXT.md) (29 decisions D-01..D-29)
 **Spec captured**: [.planning/phases/14-ux-polish/14-SPEC.md](phases/14-ux-polish/14-SPEC.md) (9 requirements, 21 acceptance criteria)
 **Research captured**: [.planning/phases/14-ux-polish/14-RESEARCH.md](phases/14-ux-polish/14-RESEARCH.md)
-**Plans:** 10 plans
+**Plans:** 10/10 plans complete
 Plans:
 - [x] 14-00-PLAN.md — Wave 0 scaffolding: ESLint flat config + custom kitsubeat-tokens plugin, audit scripts, Playwright spec shells, Vitest test shells, drizzle/0016 migration + DB column, bundle baseline (Wave 0)
-- [ ] 14-01-PLAN.md — Tokens: expand globals.css @theme block (color/typography/spacing/radii/shadow/motion) + :root[data-theme=light] override + reduced-motion @media block (Wave 1)
-- [ ] 14-02-PLAN.md — Primitives: Button/Card/Badge/Modal/EmptyState/Skeleton in src/components/ui/ + GRAMMAR_COLOR_CLASS map + 5 unit-test fills (Wave 1)
-- [ ] 14-03-PLAN.md — Theme persistence: setThemePreference/getThemePreference server actions + RootLayout cookie read + inline no-flash script + ThemeToggle component + Profile Appearance radio + integration + E2E test fills (Wave 1)
-- [ ] 14-04-PLAN.md — Motion catalog (docs/motion-catalog.md, 12 entries) + /__dev/states route (24 cards) + delete /dashboard route + qa-suite.yml extension (lint + audit steps; a11y nightly-only) (Wave 1)
-- [ ] 14-05-PLAN.md — /songs/[slug] surface migration (~12 files, densest surface; AdvancedDrillsUpsellModal becomes Modal primitive consumer) (Wave 2)
-- [ ] 14-06-PLAN.md — Catalog tier: /, /songs, /anime-list (SongCard becomes CardLink + Badge primitive consumer) (Wave 2)
-- [ ] 14-07-PLAN.md — /review + /vocabulary + /profile surfaces + cross-cutting modals (LevelUpTakeover, components/UpsellModal) become Modal primitive consumers (Wave 3)
-- [ ] 14-08-PLAN.md — /kana x3 surfaces + RowUnlockModal rewrite (eliminates the only dark: variant in codebase) (Wave 3)
-- [ ] 14-09-PLAN.md — /path surface + a11y.spec.ts fill (22 cases) + final phase verification gate (Wave 4)
+- [x] 14-01-PLAN.md — Tokens: expand globals.css @theme block (color/typography/spacing/radii/shadow/motion) + :root[data-theme=light] override + reduced-motion @media block (Wave 1)
+- [x] 14-02-PLAN.md — Primitives: Button/Card/Badge/Modal/EmptyState/Skeleton in src/components/ui/ + GRAMMAR_COLOR_CLASS map + 5 unit-test fills (Wave 1)
+- [x] 14-03-PLAN.md — Theme persistence: setThemePreference/getThemePreference server actions + RootLayout cookie read + inline no-flash script + ThemeToggle component + Profile Appearance radio + integration + E2E test fills (Wave 1)
+- [x] 14-04-PLAN.md — Motion catalog (docs/motion-catalog.md, 12 entries) + /__dev/states route (24 cards) + delete /dashboard route + qa-suite.yml extension (lint + audit steps; a11y nightly-only) (Wave 1)
+- [x] 14-05-PLAN.md — /songs/[slug] surface migration (~12 files, densest surface; AdvancedDrillsUpsellModal becomes Modal primitive consumer) (Wave 2)
+- [x] 14-06-PLAN.md — Catalog tier: /, /songs, /anime-list (SongCard becomes CardLink + Badge primitive consumer) (Wave 2)
+- [x] 14-07-PLAN.md — /review + /vocabulary + /profile surfaces + cross-cutting modals (LevelUpTakeover, components/UpsellModal) become Modal primitive consumers (Wave 3)
+- [x] 14-08-PLAN.md — /kana x3 surfaces + RowUnlockModal rewrite (eliminates the only dark: variant in codebase) (Wave 3)
+- [x] 14-09-PLAN.md — /path surface + a11y.spec.ts fill (22 cases) + final phase verification gate (Wave 4)
 
 ### Phase 15: Analytics & Error Tracking
 **Goal**: Every meaningful user event captured in product analytics; every exception surfaces in Sentry with debugging context; funnel metrics are queryable before beta opens.

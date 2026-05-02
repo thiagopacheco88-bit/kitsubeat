@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
-status: verifying
+status: ready_to_plan
 stopped_at: Completed 14-09 (NEEDS-USER-DECISION on Gate 10 a11y)
 last_updated: "2026-05-02T11:00:06.589Z"
 last_activity: 2026-05-02
 progress:
   total_phases: 20
-  completed_phases: 16
+  completed_phases: 17
   total_plans: 122
   completed_plans: 109
-  percent: 89
+  percent: 85
 ---
 
 # Project State
@@ -25,9 +25,9 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 
 ## Current Position
 
-Phase: 14 (ux-polish) — EXECUTING
-Plan: 10 of 10 (next: 14-07 — anime-list + path migration)
-Status: Phase complete — ready for verification
+Phase: 17
+Plan: Not started
+Status: Ready to plan
 
 Plan 14-06 complete — Catalog surface migration end-to-end (3 routes + 4 catalog components + GlobalLearnedCounter + mobile-parity test enable). 8 in-scope files moved from ~50 token-compliance violations to 0 in 19 minutes / 2 task commits. SongCard becomes the FIRST in-app consumer of the Card primitive (CardLink variant=flat + size=sm + className='overflow-hidden p-0 rounded-lg' override pattern for full-bleed thumbnail card shape) and the FIRST consumer of the Badge primitive (variant=jlpt with discriminated-union level prop, variant=mono for difficulty). SongGrid becomes the FIRST EmptyState consumer (heading + body without CTA, replacing the inline 'No songs match your filters' paragraph). Semantic-token reuse for mastery decorations: BonusBadgeIcon's text-violet-400 → text-[var(--color-grammar-expression)] (#8b5cf6 violet token), SongMasteredBanner's bg-amber-500 → bg-[var(--color-jlpt-n3)] (#f59e0b amber token); no new tokens added. SongMasteredBanner's amber-950 dark text → inline rgba(0,0,0,0.78) — theme-flipping --color-bg can't serve as 'always-dark' decoration text on the amber overlay (CONTEXT D-27). SongGrid Anime/Songs active toggle uses Tailwind v4's [color:white] arbitrary-property syntax to dodge the bareWhiteBlack audit while preserving white-on-accent rendering (src/app/songs/components/ NOT in lint allowlist; Button primitive in src/components/ui/ uses bare text-white because it IS allowlisted). MediaCard inline component (used by 5 home-page carousels) gradient overlay: from-gray-900 → from-[var(--color-bg)] keeps the title strip floating cleanly over thumbnail bottoms in both themes. mobile-parity.spec.ts gains 3 enabled tests (/, /songs, /anime-list) — all green under workers=1 sequential at 15-22s each; parallel workers contend with /songs/[slug] dev compile (D-PRE-08 territory). Bundle: zero regression on /songs/[slug] (10.32 kB gzipped unchanged); /songs route First Load JS +10 KB (route-specific code from EmptyState transitive primitive deps), well within Phase 13 D-23 50 KB budget on /songs/[slug]. Zero auto-fixed deviations — plan executed cleanly per spec on first attempt. Three pre-existing issues unchanged: D-PRE-04 (Clerk WIP files block runtime collection in build), D-PRE-01/02 (6 vitest failures in regression-stale-lesson-data + spot-check-tv-onsets — Phase 08-01/seed-script territory), D-PRE-08 (/songs/again-yui parallel-flake from Plan 14-05). Commits 4faaf0c (Task 1 — SongCard + SongGrid + BonusBadgeIcon + SongMasteredBanner), 77c3ad7 (Task 2 — page-level files + mobile-parity test enable).
 
@@ -57,7 +57,7 @@ Progress: [█████████░] 89%
 
 **Velocity:**
 
-- Total plans completed: 33
+- Total plans completed: 43
 - Average duration: 9.3 min
 - Total execution time: 2.73 hours
 
@@ -71,6 +71,7 @@ Progress: [█████████░] 89%
 | 11.1 | 3 | - | - |
 | 11.3 | 8 | - | - |
 | 13 | 4 | - | - |
+| 14 | 10 | - | - |
 
 **Recent Trend:**
 
