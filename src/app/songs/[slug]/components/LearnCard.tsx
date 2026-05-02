@@ -49,11 +49,11 @@ export default function LearnCard({
     <div
       data-testid="learn-card"
       onClick={onDismiss}
-      className="rounded-lg border border-indigo-500/30 bg-indigo-900/10 p-4 cursor-pointer select-none"
+      className="rounded-lg border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-4 cursor-pointer select-none"
     >
       {/* Header row: "New word" label + optional speaker icon */}
       <div className="mb-3 flex items-center justify-between">
-        <span className="text-xs uppercase tracking-wider text-indigo-300">
+        <span className="text-xs uppercase tracking-wider" style={{ color: "var(--color-jlpt-n4)" }}>
           New word
         </span>
         {voiceReady && (
@@ -65,7 +65,7 @@ export default function LearnCard({
             }}
             aria-label="Play pronunciation"
             data-testid="learn-card-speaker"
-            className="rounded-full p-1.5 text-gray-300 hover:bg-gray-800 hover:text-white"
+            className="inline-flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
           >
             {/* Minimal speaker SVG — matches existing iconography (no external lib) */}
             <svg
@@ -108,13 +108,13 @@ export default function LearnCard({
           TierText's isPureKana handling and prevents the word from visually stacking on itself. */}
       <div className="mb-2">
         {question.vocabInfo.surface === question.vocabInfo.reading ? (
-          <span className="text-3xl font-semibold text-white">
+          <span className="text-3xl font-semibold text-[var(--color-text)]">
             {question.vocabInfo.surface}
           </span>
         ) : (
-          <ruby className="text-3xl font-semibold text-white">
+          <ruby className="text-3xl font-semibold text-[var(--color-text)]">
             {question.vocabInfo.surface}
-            <rt className="text-sm font-normal text-gray-400">
+            <rt className="text-sm font-normal text-[var(--color-text-muted)]">
               {question.vocabInfo.reading}
             </rt>
           </ruby>
@@ -122,14 +122,14 @@ export default function LearnCard({
       </div>
 
       {/* Romaji + POS + optional JLPT */}
-      <p className="mb-1 text-sm text-gray-400">
+      <p className="mb-1 text-sm text-[var(--color-text-muted)]">
         <span className="italic">{question.vocabInfo.romaji}</span>
-        <span className="mx-2 text-gray-600">&middot;</span>
+        <span className="mx-2 text-[var(--color-text-dim)]">&middot;</span>
         <span>{partOfSpeech}</span>
         {jlptLevel && (
           <>
-            <span className="mx-2 text-gray-600">&middot;</span>
-            <span className="text-xs uppercase tracking-wider text-gray-500">
+            <span className="mx-2 text-[var(--color-text-dim)]">&middot;</span>
+            <span className="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
               {jlptLevel}
             </span>
           </>
@@ -137,7 +137,7 @@ export default function LearnCard({
       </p>
 
       {/* Meaning */}
-      <p className="mb-3 text-base text-gray-200">{meaningText}</p>
+      <p className="mb-3 text-base text-[var(--color-text)]">{meaningText}</p>
 
       {/* Show more control — the ONE dedicated reveal. Never advances. */}
       {hasMoreContent && (
@@ -149,7 +149,8 @@ export default function LearnCard({
           }}
           aria-expanded={revealed}
           data-testid="learn-card-reveal"
-          className="text-sm text-indigo-300 underline hover:text-indigo-200"
+          className="text-sm underline hover:opacity-80"
+          style={{ color: "var(--color-jlpt-n4)" }}
         >
           {revealed ? "Hide details" : "Show more"}
         </button>
@@ -163,11 +164,11 @@ export default function LearnCard({
           className="mt-3 flex flex-col gap-3"
         >
           {hasMnemonic && question.mnemonic && (
-            <div className="rounded-md border border-indigo-500/20 bg-indigo-900/20 p-3">
-              <p className="mb-1 text-xs uppercase tracking-wider text-indigo-400">
+            <div className="rounded-md border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-3">
+              <p className="mb-1 text-xs uppercase tracking-wider" style={{ color: "var(--color-jlpt-n4)" }}>
                 Memory tip
               </p>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-[var(--color-text-muted)]">
                 {localize(question.mnemonic, lang)}
               </p>
             </div>
@@ -182,7 +183,7 @@ export default function LearnCard({
       )}
 
       {/* Footer hint — confirms the interaction model to users */}
-      <p className="mt-3 text-xs text-gray-500">Tap anywhere to continue</p>
+      <p className="mt-3 text-xs text-[var(--color-text-dim)]">Tap anywhere to continue</p>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useExerciseSession } from "@/stores/exerciseSession";
+import { Skeleton } from "@/components/ui/Skeleton";
 
 interface Counts {
   total: number;
@@ -98,24 +99,25 @@ export default function KnownWordCount({ songId }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [songId, justFinished, questions.length, currentIndex]);
 
-  // Skeleton state while mount fetch is in-flight (Phase 13 D-03)
+  // Skeleton state while mount fetch is in-flight (Phase 13 D-03).
+  // Phase 14 Plan 14-05: consume the <Skeleton> primitive (badge-row variant
+  // gives the right pill shape via --radius-pill) instead of inline div.
   if (counts === null) {
-    return (
-      <span className="inline-flex h-6 w-32 animate-pulse rounded-full bg-gray-800/60" aria-hidden="true" />
-    );
+    return <Skeleton variant="badge-row" className="w-32" />;
   }
 
   // Zero state per CONTEXT decision: "New to you" pill, not "0/12".
   if (counts.total === 0 || counts.known === 0) {
     return (
-      <span className="inline-flex items-center rounded-full border border-gray-700 bg-gray-800/60 px-3 py-1 text-xs font-medium text-gray-300">
+      <span className="inline-flex items-center rounded-full border border-[var(--color-border)] bg-[var(--color-card-2)]/60 px-3 py-1 text-xs font-medium text-[var(--color-text-muted)]">
         New to you
       </span>
     );
   }
   return (
     <span
-      className="inline-flex items-center rounded-full border border-green-700/40 bg-green-900/20 px-3 py-1 text-xs font-medium text-green-300"
+      className="inline-flex items-center rounded-full border border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)] px-3 py-1 text-xs font-medium"
+      style={{ color: "var(--color-jlpt-n5)" }}
       aria-label={`You know ${counts.known} of ${counts.total} words in this song`}
     >
       You know {counts.known}/{counts.total} words

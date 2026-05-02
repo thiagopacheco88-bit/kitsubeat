@@ -82,3 +82,39 @@ SCOPE BOUNDARY rule).
   function (`useState(() => Date.now())`).
 - **Owner:** Phase 11 / Phase 12 maintainers — these are exercise-card
   components from those phases, not Phase 14 design-system migrations.
+
+### D-PRE-08 — pre-existing sub-44 tap targets + ~24px horizontal overflow on /songs/[slug]
+- **Source:** Out-of-scope-for-Plan-14-05 components on the `/songs/[slug]`
+  page that pre-date Phase 14:
+  - **Header nav** (`src/app/components/header/*`): "Songs", "Kana",
+    "Progress", "0 words", "Profile" links rendered at 20px height.
+    Slated for Plan 14-09.
+  - **Version selector** (`SongContent.tsx`): "Anime Version" / "Full
+    Version" tabs at 32px height. Slated for a future cleanup plan
+    (Plan 14-05 only ships the lesson-area surface).
+  - **Tab strip** (`SongContent.tsx`): "vocabulary" / "grammar" / "practice"
+    tabs at 30px height. Same plan as version selector.
+  - **Vocabulary section** (`VocabularySection.tsx`): "By type" / "By JLPT"
+    + per-POS filter chips at 24px height. Same plan.
+  - **Grammar section** (`GrammarSection.tsx`): "Romaji ON" + per-card
+    chevron buttons at 20-24px height. Same plan.
+  - **Lyric controls** (`PlayerControls.tsx`): "Furigana ON" / "Romaji ON" +
+    "English" / "Portugues" / "Espanol" language pills at 24px height.
+    Same plan.
+- **Plan 14-05 impact:** The mobile-parity tap-target test scopes its
+  selectors to Plan 14-05's `files_modified` only via in-scope `data-testid`
+  wrappers (advanced-drills-start, grammar-session-start, learn-card-*, and
+  every `[data-question-id] button|a` inside the migrated exercise cards).
+  Out-of-scope buttons fail the spec but are not asserted in Plan 14-05.
+  The horizontal-scroll assertion is set to <=24px (currently ~23px) — a
+  lenient threshold that catches NEW regressions Plan 14-05 might introduce
+  while acknowledging the pre-existing overflow from `LyricsPanel` /
+  `SongLayout` lyrics column on narrow viewports.
+- **Fix shape (per future plan):** Apply `min-h-11 inline-flex items-center`
+  to every sub-44 button. Bump `px-2` → `px-3` to compensate for visual
+  density change. Or migrate to `<Button variant="secondary" size="sm">`.
+- **Owner:** 14-06 (catalog selector cleanup), 14-09 (header nav), and a
+  yet-to-be-numbered "lesson chrome" plan for SongContent + VocabularySection
+  + GrammarSection + PlayerControls. When all four ship, the
+  mobile-parity.spec.ts `<=24` threshold can drop to `<=0` and the
+  tap-target assertion can broaden from in-scope-only to whole-page.
