@@ -18,7 +18,9 @@ export default async function SongsPage({
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
-      <h1 className="mb-6 text-2xl font-bold text-white">Songs</h1>
+      <h1 className="mb-6 text-2xl font-bold text-[var(--color-text)]">
+        Songs
+      </h1>
       <SongGrid songs={songs} view="all" initialSearch={params.search ?? ""} />
     </div>
   );

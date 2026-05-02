@@ -27,9 +27,33 @@ test.describe("Phase 14 / mobile parity (390x844)", () => {
     expect(true).toBe(true);
   });
 
-  // Wave 2+ fills these with the real per-route assertions (per RESEARCH §4 spec body):
-  test.fixme("/ — no horizontal scroll", async () => {});
-  test.fixme("/songs — no horizontal scroll", async () => {});
+  // Plan 14-06 enables the 3 catalog routes (/, /songs, /anime-list).
+  // Each enabled test follows the same waitUntil:domcontentloaded + paint-cycle
+  // pattern as /songs/again-yui below — Tailwind v4 + React hydration need one
+  // paint to lay out before scrollWidth is reliable.
+  test("/ — no horizontal scroll", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForTimeout(500);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    // Plan 14-06: lenient threshold matches /songs/again-yui in Plan 14-05 to
+    // acknowledge the pre-existing global header / chrome overflow tracked in
+    // deferred-items D-PRE-08. Plan 14-06's catalog migrations don't introduce
+    // new overflow; this catches regressions while D-PRE-08 owns the path to <=0.
+    expect(overflow).toBeLessThanOrEqual(24);
+  });
+
+  test("/songs — no horizontal scroll", async ({ page }) => {
+    await page.goto("/songs", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForTimeout(500);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(24);
+  });
 
   test("/songs/again-yui — no horizontal scroll", async ({ page }) => {
     // The YouTube iframe + dev-server compile can hold "networkidle" past the
@@ -113,7 +137,16 @@ test.describe("Phase 14 / mobile parity (390x844)", () => {
     expect(failures, JSON.stringify(failures, null, 2)).toEqual([]);
   });
 
-  test.fixme("/anime-list — no horizontal scroll", async () => {});
+  test("/anime-list — no horizontal scroll", async ({ page }) => {
+    await page.goto("/anime-list", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForTimeout(500);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(24);
+  });
+
   test.fixme("/kana — no horizontal scroll", async () => {});
   test.fixme("/kana/session — no horizontal scroll", async () => {});
   test.fixme("/kana/session/summary — no horizontal scroll", async () => {});

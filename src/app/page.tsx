@@ -25,11 +25,11 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="py-20">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl">
             Learn Japanese through{" "}
-            <span className="text-red-500">anime songs</span>
+            <span className="text-[var(--color-accent)]">anime songs</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-gray-400">
+          <p className="mx-auto mt-4 max-w-xl text-[var(--color-text-muted)]">
             Understand every word in your favorite anime openings and endings
             with color-coded grammar, furigana, translations, and vocabulary
             breakdowns.
@@ -37,22 +37,22 @@ export default async function HomePage() {
           <div className="mt-8 flex items-center justify-center gap-3">
             <Link
               href="/anime-list"
-              className="inline-block rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-block rounded-lg border border-[var(--color-border-strong)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-card-2)]"
             >
               Browse by Anime
             </Link>
             <Link
               href="/songs"
-              className="inline-block rounded-lg border border-gray-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              className="inline-block rounded-lg border border-[var(--color-border-strong)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-card-2)]"
             >
               All Songs
             </Link>
           </div>
-          <p className="mt-5 text-sm text-gray-500">
+          <p className="mt-5 text-sm text-[var(--color-text-dim)]">
             New to Japanese?{" "}
             <Link
               href="/kana"
-              className="font-medium text-gray-300 underline-offset-4 transition-colors hover:text-white hover:underline"
+              className="font-medium text-[var(--color-text-muted)] underline-offset-4 transition-colors hover:text-[var(--color-text)] hover:underline"
             >
               Learn Hiragana &amp; Katakana &rarr;
             </Link>
@@ -162,10 +162,12 @@ function Carousel({
   return (
     <section className="pb-12">
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-white">{title}</h2>
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">
+          {title}
+        </h2>
         <Link
           href={viewAllHref}
-          className="text-sm text-gray-400 transition-colors hover:text-white"
+          className="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
         >
           View all &rarr;
         </Link>
@@ -199,10 +201,10 @@ function MediaCard({
   return (
     <Link
       href={href}
-      className="group relative shrink-0 snap-start overflow-hidden rounded-lg border border-gray-800 bg-gray-900 transition-colors hover:border-gray-600"
+      className="group relative shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] transition-colors hover:border-[var(--color-border-strong)]"
       style={{ width: "220px" }}
     >
-      <div className="relative aspect-video w-full overflow-hidden bg-gray-800">
+      <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-bg-2)]">
         {imageSrc ? (
           <>
             <img
@@ -211,17 +213,24 @@ function MediaCard({
               className="h-full w-full object-cover opacity-60 transition-all group-hover:opacity-80 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent" />
+            {/* Gradient overlay — fades from bg color (token) to transparent.
+                Phase 14 Plan 14-06: from-gray-900 → from-[var(--color-bg)] so the
+                gradient blends with the page background under the title strip. */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent" />
           </>
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-800 to-gray-950 text-3xl font-bold text-gray-700">
+          <div className="flex h-full w-full items-center justify-center bg-[var(--color-card-2)] text-3xl font-bold text-[var(--color-text-dim)]">
             ♪
           </div>
         )}
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-3">
-        <h3 className="truncate text-sm font-semibold text-white">{title}</h3>
-        <p className="truncate text-xs text-gray-400">{subtitle}</p>
+        <h3 className="truncate text-sm font-semibold text-[var(--color-text)]">
+          {title}
+        </h3>
+        <p className="truncate text-xs text-[var(--color-text-muted)]">
+          {subtitle}
+        </p>
       </div>
     </Link>
   );

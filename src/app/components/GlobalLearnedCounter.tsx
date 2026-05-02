@@ -13,6 +13,10 @@
  * The /vocabulary link is a forward reference to Plan 04's route. It will 404
  * until Plan 04 ships; both plans are in the same phase/commit cycle.
  *
+ * Phase 14 Plan 14-06 — token migration: card / border / muted text / accent
+ * link colors all read from `globals.css @theme` tokens; previous palette
+ * utilities (Tailwind gray + red shades, bare white) replaced with var() refs.
+ *
  * TODO(Phase 10 auth): replace PLACEHOLDER_USER_ID with Clerk auth().
  */
 
@@ -29,17 +33,21 @@ export default async function GlobalLearnedCounter({ variant = "nav" }: Props) {
 
   if (variant === "profile") {
     return (
-      <section className="rounded-xl border border-gray-700 bg-gray-900 p-6">
-        <h2 className="mb-1 text-sm uppercase tracking-wide text-gray-400">
+      <section className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6">
+        <h2 className="mb-1 text-sm uppercase tracking-wide text-[var(--color-text-muted)]">
           Words learned
         </h2>
         <div className="flex items-baseline gap-2">
-          <span className="text-4xl font-bold text-white">{count}</span>
-          <span className="text-sm text-gray-400">unique Japanese words</span>
+          <span className="text-4xl font-bold text-[var(--color-text)]">
+            {count}
+          </span>
+          <span className="text-sm text-[var(--color-text-muted)]">
+            unique Japanese words
+          </span>
         </div>
         <Link
           href="/vocabulary"
-          className="mt-4 inline-block text-sm text-red-400 hover:text-red-300"
+          className="mt-4 inline-block text-sm text-[var(--color-accent)] transition-colors hover:text-[var(--color-accent)]/80"
         >
           View vocabulary dashboard -&gt;
         </Link>
@@ -51,7 +59,7 @@ export default async function GlobalLearnedCounter({ variant = "nav" }: Props) {
   return (
     <Link
       href="/vocabulary"
-      className="whitespace-nowrap text-sm text-gray-400 transition-colors hover:text-white"
+      className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
       aria-label={`${count} unique Japanese words learned`}
     >
       {count} {count === 1 ? "word" : "words"}
