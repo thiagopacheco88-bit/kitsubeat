@@ -1040,12 +1040,21 @@ function buildQuestionsFromPool(input: BuildQuestionsPoolInput): Question[] {
   // -------------------------------------------------------------------------
   const lengthCap = lengthMode ? LENGTH_CAP[lengthMode] : Number.MAX_SAFE_INTEGER;
 
-  // Build SessionItem[] from emitted questions
-  const introsItems: SessionItem[] = questions.map((q) => ({
-    vocabItemId: q.vocabItemId,
-    jlptLevel: (q.jlpt_level ?? null) as SessionItem["jlptLevel"],
-    isNew: true,
-  }));
+  // Build SessionItem[] from emitted questions — ONE per unique vocab.
+  // The per-vocab × per-type loop emits multiple Questions per vocab; the
+  // scheduler must see each vocab once or it treats duplicates as separate
+  // intros and lands the same vocab in adjacent slots.
+  const seenIntroVocabIds = new Set<string>();
+  const introsItems: SessionItem[] = [];
+  for (const q of questions) {
+    if (!q.vocabItemId || seenIntroVocabIds.has(q.vocabItemId)) continue;
+    seenIntroVocabIds.add(q.vocabItemId);
+    introsItems.push({
+      vocabItemId: q.vocabItemId,
+      jlptLevel: (q.jlpt_level ?? null) as SessionItem["jlptLevel"],
+      isNew: true,
+    });
+  }
 
   const reviewsItems: SessionItem[] = dueReviews
     .filter((v) => v.vocab_item_id)
