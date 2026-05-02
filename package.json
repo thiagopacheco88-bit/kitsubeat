@@ -21,6 +21,7 @@
     "pipeline": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/run-pipeline.ts",
     "generate:lessons": "npx tsx --tsconfig tsconfig.scripts.json scripts/seed/03b-generate-content-sequential.ts",
     "seed:enrich-vocab": "tsx --tsconfig tsconfig.scripts.json scripts/seed/11-enrich-vocab.ts",
+    "fetch-images": "tsx --tsconfig tsconfig.scripts.json scripts/seed/19c-fetch-vocab-images.ts",
     "backfill:vocab": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-vocab-identity.ts",
     "audit:geo": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts",
     "audit:geo:replace": "tsx --tsconfig tsconfig.scripts.json scripts/backfill-geo-check.ts --replace",
