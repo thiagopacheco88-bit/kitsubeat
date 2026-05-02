@@ -1,4 +1,5 @@
 import { getJlptGapSummary, type JlptGapRow } from "@/lib/db/queries";
+import { Badge } from "@/components/ui/Badge";
 
 const ALL_TIERS: JlptGapRow["jlpt_level"][] = ["N5", "N4", "N3", "N2", "N1"];
 
@@ -7,10 +8,13 @@ export async function JlptGapSummary({ userId }: { userId: string }) {
 
   return (
     <section
-      className="rounded-xl border border-gray-700 bg-gray-900 p-4 mb-6"
+      className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 mb-6"
       aria-labelledby="jlpt-gap-heading"
     >
-      <h2 id="jlpt-gap-heading" className="text-lg font-semibold mb-3 text-white">
+      <h2
+        id="jlpt-gap-heading"
+        className="text-lg font-semibold mb-3 text-[var(--color-text)]"
+      >
         JLPT Mastery
       </h2>
       <ul className="space-y-3">
@@ -18,8 +22,12 @@ export async function JlptGapSummary({ userId }: { userId: string }) {
           const row = rows.find((r) => r.jlpt_level === tier);
           if (!row) {
             return (
-              <li key={tier} className="text-sm text-gray-500">
-                {tier}: catalog data not yet seeded
+              <li
+                key={tier}
+                className="flex items-center gap-2 text-sm text-[var(--color-text-dim)]"
+              >
+                <Badge variant="jlpt" level={tier} />
+                <span>catalog data not yet seeded</span>
               </li>
             );
           }
@@ -33,8 +41,8 @@ export async function JlptGapSummary({ userId }: { userId: string }) {
           return (
             <li key={tier} className="space-y-1">
               <div className="flex items-center justify-between text-sm">
-                <span className="font-semibold text-white">{tier}</span>
-                <span className="text-gray-300">
+                <Badge variant="jlpt" level={tier} />
+                <span className="text-[var(--color-text-muted)]">
                   {row.mastered_count} / {row.total_count} mastered
                 </span>
               </div>
@@ -42,9 +50,9 @@ export async function JlptGapSummary({ userId }: { userId: string }) {
                 value={pct}
                 max={100}
                 aria-label={`${tier} mastery: ${pct}%`}
-                className="w-full h-2 rounded-full overflow-hidden [&::-webkit-progress-bar]:bg-gray-700 [&::-webkit-progress-value]:bg-red-500 [&::-moz-progress-bar]:bg-red-500"
+                className="w-full h-2 rounded-[var(--radius-pill)] overflow-hidden [&::-webkit-progress-bar]:bg-[var(--color-card-2)] [&::-webkit-progress-value]:bg-[var(--color-accent)] [&::-moz-progress-bar]:bg-[var(--color-accent)]"
               />
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-[var(--color-text-muted)]">
                 {remaining > 0
                   ? `${remaining} to go to be ${tier} fluent`
                   : `${tier} fluent — all words mastered!`}

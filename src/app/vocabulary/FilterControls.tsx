@@ -1,6 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   initial: { tier?: string; song?: string; sort?: string };
@@ -28,7 +29,7 @@ export default function FilterControls({ initial, sources }: Props) {
       <select
         value={initial.tier ?? ""}
         onChange={(e) => updateParam("tier", e.target.value || undefined)}
-        className="rounded-md border border-gray-700 bg-gray-900 px-3 py-1.5 text-sm text-white"
+        className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-1.5 text-sm text-[var(--color-text)]"
         aria-label="Filter by tier"
       >
         <option value="">All tiers</option>
@@ -39,7 +40,7 @@ export default function FilterControls({ initial, sources }: Props) {
       <select
         value={initial.song ?? ""}
         onChange={(e) => updateParam("song", e.target.value || undefined)}
-        className="rounded-md border border-gray-700 bg-gray-900 px-3 py-1.5 text-sm text-white"
+        className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-1.5 text-sm text-[var(--color-text)]"
         aria-label="Filter by source song"
       >
         <option value="">All songs</option>
@@ -50,15 +51,16 @@ export default function FilterControls({ initial, sources }: Props) {
         ))}
       </select>
       {/* Binary toggle — button not dropdown, two states only */}
-      <button
+      <Button
         type="button"
+        variant="secondary"
+        size="sm"
         onClick={() =>
           updateParam("sort", initial.sort === "asc" ? undefined : "asc")
         }
-        className="rounded-md border border-gray-700 bg-gray-900 px-3 py-1.5 text-sm text-white hover:bg-gray-800"
       >
         Sort: {initial.sort === "asc" ? "Least mastered first" : "Most mastered first"}
-      </button>
+      </Button>
     </div>
   );
 }

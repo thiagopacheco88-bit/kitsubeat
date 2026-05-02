@@ -1,6 +1,5 @@
 export const dynamic = "force-dynamic";
 
-import Link from "next/link";
 import { sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { getVocabularyDashboard } from "@/lib/db/queries";
@@ -8,6 +7,7 @@ import { isPremium } from "@/app/actions/userPrefs";
 import VocabularyList from "./VocabularyList";
 import FilterControls from "./FilterControls";
 import { JlptGapSummary } from "./JlptGapSummary";
+import { EmptyState } from "@/components/ui/EmptyState";
 
 import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 
@@ -65,11 +65,11 @@ export default async function VocabularyPage({
   const hiddenCount = premium ? 0 : Math.max(0, rows.length - FREE_PREVIEW_LIMIT);
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 text-white">
+    <main className="mx-auto max-w-5xl px-4 py-8 text-[var(--color-text)]">
       <header className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold">Your vocabulary</h1>
-          <p className="mt-1 text-sm text-gray-400">
+          <p className="mt-1 text-sm text-[var(--color-text-muted)]">
             {rows.length} {rows.length === 1 ? "word" : "words"} with mastery
           </p>
         </div>
@@ -81,19 +81,13 @@ export default async function VocabularyPage({
       />
       <VocabularyList rows={displayed} />
       {!premium && hiddenCount > 0 && (
-        <div className="mt-8 rounded-xl border border-red-800/50 bg-red-950/30 p-6 text-center">
-          <p className="text-sm text-gray-300">
-            Showing the first {FREE_PREVIEW_LIMIT} of {rows.length} words.
-          </p>
-          <p className="mt-2 text-lg font-semibold text-white">
-            Upgrade to see {hiddenCount} more and unlock the cross-song review queue.
-          </p>
-          <Link
-            href="/profile"
-            className="mt-4 inline-block rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
-          >
-            Upgrade
-          </Link>
+        <div className="mt-8">
+          <EmptyState
+            heading={`Showing the first ${FREE_PREVIEW_LIMIT} of ${rows.length} words`}
+            body={`Upgrade to see ${hiddenCount} more and unlock the cross-song review queue.`}
+            ctaLabel="Upgrade"
+            ctaHref="/profile"
+          />
         </div>
       )}
     </main>

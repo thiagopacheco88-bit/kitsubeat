@@ -42,7 +42,7 @@ export default function SeenInExpander({ vocabItemId, initialCount }: Props) {
       <button
         type="button"
         onClick={toggle}
-        className="text-gray-400 hover:text-white"
+        className="text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
         aria-expanded={open}
       >
         {initialCount === 1 ? "Seen in 1 song" : `Seen in ${initialCount} songs`}{" "}
@@ -50,20 +50,20 @@ export default function SeenInExpander({ vocabItemId, initialCount }: Props) {
       </button>
       {open && (
         <ul className="mt-1 space-y-0.5 pl-3">
-          {loading && <li className="text-gray-500">Loading...</li>}
+          {loading && <li className="text-[var(--color-text-dim)]">Loading...</li>}
           {songs?.map((s) => (
             <li key={s.slug}>
               <Link
                 href={`/songs/${s.slug}`}
-                className="text-gray-300 hover:text-white"
+                className="text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
               >
                 {s.title}
               </Link>
-              <span className="ml-2 text-gray-500">{s.anime}</span>
+              <span className="ml-2 text-[var(--color-text-dim)]">{s.anime}</span>
             </li>
           ))}
           {songs && songs.length === 0 && (
-            <li className="text-gray-500">No other songs yet.</li>
+            <li className="text-[var(--color-text-dim)]">No other songs yet.</li>
           )}
         </ul>
       )}
