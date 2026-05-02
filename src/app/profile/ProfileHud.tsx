@@ -33,6 +33,7 @@ export async function ProfileHud({ userId }: { userId: string }) {
       <div className={`rounded-full p-1 ${borderClass} flex-shrink-0`}>
         <div
           className="w-16 h-16 rounded-full bg-[var(--color-card-2)] flex items-center justify-center text-2xl"
+          role="img"
           aria-label="Avatar"
         >
           {/* Kitsune SVG placeholder — replace with final asset in Plan 06 polish.

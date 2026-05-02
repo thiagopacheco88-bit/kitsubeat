@@ -41,6 +41,7 @@ export function PathHud({ state, nextReward }: PathHudProps) {
         <div className={`rounded-full p-1 ${borderClass} flex-shrink-0`}>
           <div
             className="w-14 h-14 rounded-full bg-[var(--color-card-2)] flex items-center justify-center text-2xl"
+            role="img"
             aria-label="Avatar"
           >
             <svg

@@ -41,6 +41,8 @@ export default function GlobalError({
           The error has been reported.
         </p>
         <pre
+          tabIndex={0}
+          aria-label="Error details"
           style={{
             whiteSpace: "pre-wrap",
             background: "#171717",
