@@ -32,6 +32,8 @@ interface VersionData {
   lesson: Lesson;
   synced_lrc: { startMs: number; text: string }[] | null;
   lyrics_offset_ms: number;
+  /** Phase 11.6 SPEC-REQ-16: computed at SSR; hides Kanji card on all-kana songs */
+  hasKanjiBearingVocab?: boolean;
 }
 
 type ContentTab = "vocabulary" | "grammar" | "practice";
@@ -225,6 +227,7 @@ function SongContentInner({
               songVersionId={active.id}
               songSlug={song.slug}
               userId="anonymous"
+              hasKanjiBearingVocab={active.hasKanjiBearingVocab ?? true}
             />
           </Suspense>
         )}

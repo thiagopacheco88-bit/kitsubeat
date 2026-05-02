@@ -13,13 +13,18 @@
  *   at Tier 1 for pronunciation help, but the furigana block is skipped.
  *
  * Leak-override matrix (CONTEXT-locked):
- *   forceKanjiOnly=true  → effectiveTier = 3 (surface only), beats stored tier
- *   forceTier1=true      → effectiveTier = 1 (full), beats stored tier
- *   Neither              → effectiveTier = tier prop
+ *   forceKanjiOnly=true           → effectiveTier = 3 (surface only), beats stored tier
+ *   forceTier1=true               → effectiveTier = 1 (full), beats stored tier
+ *   trackKind="vocab"|"grammar"   → effectiveTier = 1 (SPEC-REQ-2 tier bypass)
+ *   Neither                       → effectiveTier = tier prop
+ *
+ * Phase 11.6 SPEC-REQ-2: When trackKind is "vocab" or "grammar", tier-based reveal
+ * is disabled — TierText returns TIER_NEW (full display) regardless of the `tier` prop.
+ * This is the primary teach-romaji invariant for beginner-focused tracks.
  */
 
 import type { Tier } from "@/lib/fsrs/tier";
-import type { VocabInfo } from "@/lib/exercises/generator";
+import type { VocabInfo, TrackKind } from "@/lib/exercises/generator";
 
 export interface TierTextProps {
   vocab: VocabInfo;
@@ -33,6 +38,13 @@ export interface TierTextProps {
    * to prevent furigana from leaking the answer.
    */
   forceKanjiOnly?: boolean;
+  /**
+   * Phase 11.6 SPEC-REQ-2: Track kind from the active exercise session.
+   * When "vocab" or "grammar", tier-based reveal is bypassed — effectiveTier
+   * is forced to TIER_NEW (1) so romaji is always visible and emphasized.
+   * Omit (or pass "kanji"/"advanced_drills") for standard tier behavior.
+   */
+  trackKind?: TrackKind;
 }
 
 export default function TierText({
@@ -41,9 +53,18 @@ export default function TierText({
   mode: _mode,
   forceTier1 = false,
   forceKanjiOnly = false,
+  trackKind,
 }: TierTextProps) {
-  // Compute effective tier respecting leak-override precedence
-  const effectiveTier: Tier = forceTier1 ? 1 : forceKanjiOnly ? 3 : tier;
+  // Phase 11.6 SPEC-REQ-2: Vocab + Grammar tracks bypass tier-based reveal.
+  // This check is explicit (not delegated to tierFor) so TierText remains
+  // purely presentational and does NOT call tierFor at render time.
+  const isTrackBypass = trackKind === "vocab" || trackKind === "grammar";
+
+  // Compute effective tier respecting override precedence (highest first):
+  //   1. forceKanjiOnly → surface only (tier 3)
+  //   2. forceTier1 OR trackKind bypass → full display (tier 1)
+  //   3. tier prop → normal FSRS-driven behavior
+  const effectiveTier: Tier = forceKanjiOnly ? 3 : (forceTier1 || isTrackBypass) ? 1 : tier;
 
   // Pure-kana edge case: surface === reading → no furigana to show
   const isPureKana = vocab.surface === vocab.reading;
@@ -58,9 +79,14 @@ export default function TierText({
         <span className="text-xs text-gray-400">{vocab.reading}</span>
       )}
 
-      {/* Romaji — shown at Tier 1 only */}
+      {/* Romaji — shown at Tier 1 only.
+          Phase 11.6 SPEC-REQ-2: When trackKind=vocab|grammar, romaji is the
+          primary teaching signal → font-semibold emphasis. Standard tier
+          rendering uses dimmer text-gray-500. */}
       {effectiveTier === 1 && (
-        <span className="text-xs text-gray-500">{vocab.romaji}</span>
+        <span className={isTrackBypass ? "text-sm font-semibold text-white" : "text-xs text-gray-500"}>
+          {vocab.romaji}
+        </span>
       )}
     </span>
   );
