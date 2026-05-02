@@ -412,6 +412,8 @@ export const users = pgTable("users", {
   // Phase 12: Audio + haptics preferences (default ON per CONTEXT)
   soundEnabled: boolean("sound_enabled").notNull().default(true),
   hapticsEnabled: boolean("haptics_enabled").notNull().default(true),
+  // Phase 14: theme preference — 'system' | 'light' | 'dark' (DB CHECK enforces enum)
+  themePreference: text("theme_preference").notNull().default("system"),
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
