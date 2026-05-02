@@ -61,6 +61,7 @@ test-results/
 .vercel
 playwright-report/
 .claude/scheduled_tasks.lock
+.claude/worktrees/
 
 # clerk configuration (can include secrets)
 /.clerk/

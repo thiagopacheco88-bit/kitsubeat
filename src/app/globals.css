@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@source not "../../.planning";
+@source not "../../.claude";
+
 :root {
   --font-noto-jp: "Noto Sans JP", system-ui, sans-serif;
 }
