@@ -4,14 +4,14 @@ milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
 stopped_at: Phase 14.1 context gathered
-last_updated: "2026-05-02T22:15:04.977Z"
+last_updated: "2026-05-02T23:25:01.325Z"
 last_activity: 2026-05-02 -- Phase --phase execution started
 progress:
   total_phases: 22
   completed_phases: 16
-  total_plans: 124
+  total_plans: 137
   completed_plans: 120
-  percent: 97
+  percent: 88
 ---
 
 # Project State
@@ -465,4 +465,4 @@ Last session: --stopped-at
 Stopped at: Phase 14.1 context gathered
 Resume file: --resume-file
 
-**Planned Phase:** 11.6 (beginner-focused-practice-redesign) — 11 plans — 2026-05-01T22:35:53.218Z
+**Planned Phase:** 14.1 (redesign-path) — 13 plans — 2026-05-02T23:25:01.315Z
