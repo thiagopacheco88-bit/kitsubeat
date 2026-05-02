@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { updateUserPrefs, setThemePreference } from "@/app/actions/userPrefs";
+import { Button } from "@/components/ui/Button";
 
 type ThemePref = "system" | "light" | "dark";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year (matches setThemePreference D-08)
@@ -108,7 +109,7 @@ export default function ProfileForm({
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       {/* skip_learning toggle */}
-      <label className="flex cursor-pointer items-start gap-3">
+      <label className="flex min-h-11 cursor-pointer items-start gap-3">
         <input
           type="checkbox"
           checked={skipLearning}
@@ -116,13 +117,13 @@ export default function ProfileForm({
             setSkipLearning(e.target.checked);
             setState({ kind: "idle" });
           }}
-          className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-red-600"
+          className="mt-1 h-4 w-4 rounded border-[var(--color-border-strong)] bg-[var(--color-card-2)] accent-[var(--color-accent)]"
         />
         <span>
-          <span className="block font-medium text-white">
+          <span className="block font-medium text-[var(--color-text)]">
             Skip learn cards
           </span>
-          <span className="block text-sm text-gray-400">
+          <span className="block text-sm text-[var(--color-text-muted)]">
             Jump straight into exercises without a pre-question breakdown.
             The new-word cap still applies.
           </span>
@@ -133,11 +134,11 @@ export default function ProfileForm({
       <div>
         <label
           htmlFor="new-card-cap"
-          className="block font-medium text-white"
+          className="block font-medium text-[var(--color-text)]"
         >
           New words per session
         </label>
-        <p className="mb-2 text-sm text-gray-400">
+        <p className="mb-2 text-sm text-[var(--color-text-muted)]">
           How many brand-new words can enter a single session. Default{" "}
           {defaultCap}.
         </p>
@@ -155,15 +156,15 @@ export default function ProfileForm({
             setState({ kind: "idle" });
           }}
           aria-describedby="cap-help"
-          className="w-24 rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-white disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-24 rounded-[var(--radius-lg)] border border-[var(--color-border-strong)] bg-[var(--color-card-2)] px-3 py-2 text-[var(--color-text)] disabled:cursor-not-allowed disabled:opacity-60"
         />
         {!isPremium && (
-          <p id="cap-help" className="mt-2 text-xs text-indigo-400">
+          <p id="cap-help" className="mt-2 text-xs text-[var(--color-grammar-expression)]">
             Upgrade to premium to raise the cap (up to {maxCap}).
           </p>
         )}
         {isPremium && (
-          <p id="cap-help" className="mt-2 text-xs text-gray-500">
+          <p id="cap-help" className="mt-2 text-xs text-[var(--color-text-dim)]">
             Between 1 and {maxCap}.
           </p>
         )}
@@ -171,9 +172,9 @@ export default function ProfileForm({
 
       {/* Celebration effects — sound + haptics toggles */}
       <fieldset className="space-y-4">
-        <legend className="font-medium text-white">Celebration effects</legend>
+        <legend className="font-medium text-[var(--color-text)]">Celebration effects</legend>
 
-        <label className="flex cursor-pointer items-start gap-3">
+        <label className="flex min-h-11 cursor-pointer items-start gap-3">
           <input
             type="checkbox"
             checked={soundEnabled}
@@ -181,19 +182,19 @@ export default function ProfileForm({
               setSoundEnabled(e.target.checked);
               setState({ kind: "idle" });
             }}
-            className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-red-600"
+            className="mt-1 h-4 w-4 rounded border-[var(--color-border-strong)] bg-[var(--color-card-2)] accent-[var(--color-accent)]"
           />
           <span>
-            <span className="block font-medium text-white">
+            <span className="block font-medium text-[var(--color-text)]">
               Sound effects
             </span>
-            <span className="block text-sm text-gray-400">
+            <span className="block text-sm text-[var(--color-text-muted)]">
               Play a chime on level-up.
             </span>
           </span>
         </label>
 
-        <label className="flex cursor-pointer items-start gap-3">
+        <label className="flex min-h-11 cursor-pointer items-start gap-3">
           <input
             type="checkbox"
             checked={hapticsEnabled}
@@ -201,16 +202,16 @@ export default function ProfileForm({
               setHapticsEnabled(e.target.checked);
               setState({ kind: "idle" });
             }}
-            className="mt-1 h-4 w-4 rounded border-gray-600 bg-gray-800 text-red-600"
+            className="mt-1 h-4 w-4 rounded border-[var(--color-border-strong)] bg-[var(--color-card-2)] accent-[var(--color-accent)]"
           />
           <span>
-            <span className="block font-medium text-white">
+            <span className="block font-medium text-[var(--color-text)]">
               Haptic feedback
             </span>
-            <span className="block text-sm text-gray-400">
+            <span className="block text-sm text-[var(--color-text-muted)]">
               Vibrate on mobile on level-up.
             </span>
-            <span className="block text-xs text-gray-500 mt-0.5">
+            <span className="mt-0.5 block text-xs text-[var(--color-text-dim)]">
               No effect on iOS — Web Vibration API unsupported.
             </span>
           </span>
@@ -223,11 +224,11 @@ export default function ProfileForm({
         cosmetic slot from Phase 12). Writes via setThemePreference server
         action — same as the header ThemeToggle — so DB + cookie stay in sync.
       */}
-      <fieldset className="border-t border-gray-700 pt-4">
-        <legend className="mb-2 text-base font-semibold text-white">
+      <fieldset className="border-t border-[var(--color-border)] pt-4">
+        <legend className="mb-2 text-base font-semibold text-[var(--color-text)]">
           Appearance
         </legend>
-        <p className="mb-3 text-sm text-gray-400">
+        <p className="mb-3 text-sm text-[var(--color-text-muted)]">
           Choose the color theme for KitsuBeat.
         </p>
         <div
@@ -238,7 +239,7 @@ export default function ProfileForm({
           {(["system", "light", "dark"] as const).map((opt) => (
             <label
               key={opt}
-              className="flex min-h-[44px] cursor-pointer items-center gap-2"
+              className="flex min-h-11 cursor-pointer items-center gap-2"
             >
               <input
                 type="radio"
@@ -246,9 +247,9 @@ export default function ProfileForm({
                 value={opt}
                 checked={themePreference === opt}
                 onChange={() => handleThemeChange(opt)}
-                className="h-4 w-4"
+                className="h-4 w-4 accent-[var(--color-accent)]"
               />
-              <span className="text-sm capitalize text-white">{opt}</span>
+              <span className="text-sm capitalize text-[var(--color-text)]">{opt}</span>
             </label>
           ))}
         </div>
@@ -256,18 +257,19 @@ export default function ProfileForm({
 
       {/* Submit + status */}
       <div className="flex items-center gap-4">
-        <button
+        <Button
           type="submit"
+          variant="primary"
+          size="md"
           disabled={state.kind === "saving"}
-          className="rounded-lg bg-red-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700 disabled:opacity-50"
         >
           {state.kind === "saving" ? "Saving..." : "Save"}
-        </button>
+        </Button>
         {state.kind === "saved" && (
-          <span className="text-sm text-green-400">Saved.</span>
+          <span className="text-sm text-[var(--color-grammar-adjective)]">Saved.</span>
         )}
         {state.kind === "error" && (
-          <span className="text-sm text-red-400">{state.message}</span>
+          <span className="text-sm text-[var(--color-accent)]">{state.message}</span>
         )}
       </div>
     </form>

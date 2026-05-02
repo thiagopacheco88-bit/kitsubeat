@@ -16,13 +16,13 @@ export default async function ProfilePage() {
   ]);
 
   return (
-    <main className="mx-auto max-w-xl px-4 py-8 text-white">
+    <main className="mx-auto max-w-xl px-4 py-8 text-[var(--color-text)]">
       <h1 className="mb-6 text-2xl font-semibold">Profile</h1>
       <ProfileHud userId={userId} />
       <div className="mb-6">
         <GlobalLearnedCounter variant="profile" />
       </div>
-      <section className="rounded-xl border border-gray-700 bg-gray-900 p-6">
+      <section className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6">
         <h2 className="mb-4 text-lg font-semibold">Learning preferences</h2>
         <ProfileForm
           userId={userId}

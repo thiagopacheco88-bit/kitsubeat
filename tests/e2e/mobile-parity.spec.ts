@@ -151,8 +151,40 @@ test.describe("Phase 14 / mobile parity (390x844)", () => {
   test.fixme("/kana/session — no horizontal scroll", async () => {});
   test.fixme("/kana/session/summary — no horizontal scroll", async () => {});
   test.fixme("/path — no horizontal scroll", async () => {});
-  test.fixme("/vocabulary — no horizontal scroll", async () => {});
-  test.fixme("/review — no horizontal scroll", async () => {});
-  test.fixme("/profile — no horizontal scroll", async () => {});
+
+  // Plan 14-07 enables /vocabulary, /review, /profile (Wave 3 surface migrations).
+  // Same waitUntil:domcontentloaded + paint-cycle pattern as Plan 14-06's catalog
+  // tests. Lenient <=24px threshold inherited from D-PRE-08 (header/chrome
+  // overflow); Plan 14-07's surface migrations don't introduce new overflow.
+  test("/vocabulary — no horizontal scroll", async ({ page }) => {
+    await page.goto("/vocabulary", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForTimeout(500);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(24);
+  });
+
+  test("/review — no horizontal scroll", async ({ page }) => {
+    await page.goto("/review", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForTimeout(500);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(24);
+  });
+
+  test("/profile — no horizontal scroll", async ({ page }) => {
+    await page.goto("/profile", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForTimeout(500);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(24);
+  });
+
   test.fixme("tap targets >=44x44 across all routes", async () => {});
 });
