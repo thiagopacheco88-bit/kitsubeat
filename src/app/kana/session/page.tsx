@@ -17,7 +17,9 @@ export default function KanaSessionPage() {
   return (
     <main className="mx-auto max-w-2xl p-6 min-h-[80vh]">
       <Suspense
-        fallback={<div className="animate-pulse h-64 rounded bg-zinc-100" />}
+        fallback={
+          <div className="animate-pulse h-64 rounded bg-[var(--color-card-2)]" />
+        }
       >
         <SessionInner />
       </Suspense>

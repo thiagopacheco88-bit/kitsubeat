@@ -99,12 +99,14 @@ export function KanaSession({ mode }: Props) {
   }, [index, mode, answerLog, unlockedDuringSession]);
 
   if (!hasHydrated) {
-    return <div className="animate-pulse h-64 rounded bg-zinc-100" />;
+    return (
+      <div className="animate-pulse h-64 rounded bg-[var(--color-card-2)]" />
+    );
   }
 
   if (session.length === 0) {
     return (
-      <div className="text-center text-sm text-zinc-500">
+      <div className="text-center text-sm text-[var(--color-text-muted)]">
         No unlocked rows for this mode.{" "}
         <Link className="underline" href="/kana">
           Back to grid
@@ -120,13 +122,15 @@ export function KanaSession({ mode }: Props) {
   if (index >= SESSION_LENGTH) {
     return (
       <div className="flex flex-col items-center gap-4 text-center">
-        <h2 className="text-2xl font-bold">Session complete</h2>
-        <p className="text-sm text-zinc-500">
+        <h2 className="text-2xl font-bold text-[var(--color-text)]">
+          Session complete
+        </h2>
+        <p className="text-sm text-[var(--color-text-muted)]">
           Answered {answerLog.filter((a) => a.correct).length}/{SESSION_LENGTH}.
         </p>
         <Link
           href="/kana/session/summary"
-          className="rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white"
+          className="rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
           See summary
         </Link>
@@ -291,7 +295,7 @@ function SessionFrame({
 }) {
   return (
     <div className="flex flex-col gap-6">
-      <header className="flex items-center justify-between text-xs text-zinc-500">
+      <header className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
         <span>
           Question {Math.min(index + 1, total)} / {total}
         </span>
@@ -299,9 +303,9 @@ function SessionFrame({
           Quit
         </Link>
       </header>
-      <div className="h-1 w-full rounded bg-zinc-200">
+      <div className="h-1 w-full rounded bg-[var(--color-card-2)]">
         <div
-          className="h-1 rounded bg-emerald-500 transition-all"
+          className="h-1 rounded bg-[var(--color-accent)] transition-all"
           style={{ width: `${(index / total) * 100}%` }}
         />
       </div>

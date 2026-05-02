@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { hasJapaneseVoice, onVoicesChanged, speakJapanese } from "@/lib/tts";
 import { shuffle } from "@/lib/exercises/generator";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   kana: string; // glyph to render large
@@ -18,6 +19,19 @@ interface Props {
 const DEFAULT_AUTO_ADVANCE_CORRECT = 800;
 const DEFAULT_AUTO_ADVANCE_WRONG = 1500;
 
+/**
+ * 4-option MCQ for kana drilling.
+ *
+ * Phase 14 Plan 14-08 migration notes:
+ * - Default option border + text uses --color-border-strong + --color-text;
+ *   feedback states use JLPT-N5 alpha tokens (green ≈ correct) and JLPT-N1
+ *   alpha tokens (red ≈ wrong). Same semantic-color reuse pattern as Plan
+ *   14-07's daily-cap toast (JLPT-N3 amber) and review's "New" tag (JLPT-N4
+ *   blue) — keeps the token surface tight without a dedicated correct/wrong
+ *   color pair.
+ * - Continue CTA uses Button primitive variant=primary; speaker icon button
+ *   tokenized to muted hover; option count "1." labels muted.
+ */
 export function KanaQuestionCard({
   kana,
   correctRomaji,
@@ -89,25 +103,27 @@ export function KanaQuestionCard({
 
   const getOptionStyle = (option: string): string => {
     if (chosen === null) {
-      return "border-gray-600 text-white hover:bg-white/10";
+      return "border-[var(--color-border-strong)] text-[var(--color-text)] hover:bg-[var(--color-card-2)]";
     }
     if (option === correctRomaji)
-      return "border-emerald-500 bg-emerald-900 text-emerald-100";
+      return "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)] text-[var(--color-jlpt-n5)]";
     if (option === chosen)
-      return "border-rose-500 bg-rose-900 text-rose-100";
-    return "border-gray-800 text-gray-500";
+      return "border-[var(--color-jlpt-n1-ring)] bg-[var(--color-jlpt-n1-bg)] text-[var(--color-jlpt-n1)]";
+    return "border-[var(--color-border)] text-[var(--color-text-dim)]";
   };
 
   return (
     <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
       <div className="flex items-center gap-3">
-        <span className="text-7xl font-semibold leading-none">{kana}</span>
+        <span className="text-7xl font-semibold leading-none text-[var(--color-text)]">
+          {kana}
+        </span>
         {voiceReady && (
           <button
             type="button"
             aria-label={`Play pronunciation of ${kana}`}
             onClick={() => speakJapanese(kana)}
-            className="rounded-full p-2 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+            className="rounded-full p-2 text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
           >
             <span aria-hidden="true">🔊</span>
           </button>
@@ -122,22 +138,26 @@ export function KanaQuestionCard({
             onClick={() => handlePick(option)}
             disabled={chosen !== null}
             aria-label={`Option ${i + 1}: ${option}`}
-            className={`rounded-lg border px-4 py-3 text-center text-base font-medium transition-colors ${getOptionStyle(option)}`}
+            className={`rounded-[var(--radius-lg)] border px-4 py-3 text-center text-base font-medium transition-colors ${getOptionStyle(option)}`}
           >
-            <span className="mr-2 text-xs text-zinc-400">{i + 1}.</span>
+            <span className="mr-2 text-xs text-[var(--color-text-dim)]">
+              {i + 1}.
+            </span>
             {option}
           </button>
         ))}
       </div>
 
       {chosen !== null && (
-        <button
+        <Button
           type="button"
+          variant="secondary"
+          size="md"
           onClick={onContinue}
-          className="w-full rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white dark:bg-white dark:text-zinc-900"
+          className="w-full"
         >
           Continue (Space)
-        </button>
+        </Button>
       )}
     </div>
   );
