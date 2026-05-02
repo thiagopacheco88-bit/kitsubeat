@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack --port 7000",
+    "dev": "next dev --port 7000",
+    "dev:turbo": "next dev --turbopack --port 7000",
     "build": "next build",
     "size": "size-limit",
     "analyze": "ANALYZE=true next build",
@@ -46,8 +47,7 @@
     "seed:apply-themes": "tsx --tsconfig tsconfig.scripts.json scripts/seed/apply-theme-classifications.ts",
     "audit:starter-picks": "tsx --tsconfig tsconfig.scripts.json scripts/audit/verify-starter-picks.ts",
     "lighthouse:pick-target": "tsx --tsconfig tsconfig.scripts.json scripts/lighthouse-pick-target.ts",
-    "lighthouse:baseline": "tsx --tsconfig tsconfig.scripts.json scripts/lighthouse-baseline.ts",
-    "gen-image": "tsx --tsconfig tsconfig.scripts.json scripts/seed/20-comfyui-batch-images.ts"
+    "lighthouse:baseline": "tsx --tsconfig tsconfig.scripts.json scripts/lighthouse-baseline.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.82.0",

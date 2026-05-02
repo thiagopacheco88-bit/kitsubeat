@@ -65,6 +65,3 @@ playwright-report/
 
 # clerk configuration (can include secrets)
 /.clerk/
-
-# Phase 11.6: ComfyUI-generated mnemonic images (~140MB, regeneratable from scripts/seed/20-comfyui-batch-images.ts)
-public/vocab-images/

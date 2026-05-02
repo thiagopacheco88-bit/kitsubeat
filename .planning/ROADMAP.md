@@ -323,8 +323,8 @@ Plans:
 **Requirements:** SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7, SPEC-REQ-8, SPEC-REQ-9, SPEC-REQ-10, SPEC-REQ-11, SPEC-REQ-12, SPEC-REQ-13, SPEC-REQ-14, SPEC-REQ-15, SPEC-REQ-16, SPEC-REQ-17, SPEC-REQ-18 (locked in 11.6-SPEC.md)
 **Plans:** 11 plans (7 waves)
 Plans:
-- [ ] 11.6-01-PLAN.md -- Schema migration 0016 (DELETE+ALTER user_vocab_mastery card_kind enum, new user_verse_domination, denormalized track_pct columns) + Wave 0 integration test stubs (SPEC-REQ-4, 10, 13, 16)
-- [ ] 11.6-02-PLAN.md -- ComfyUI batch script + workflow JSON + .gitignore + npm script + GPU probe + --regenerate flag (SPEC-REQ-8, 9)
+- [ ] 11.6-01-PLAN.md -- Schema migration 0017 (DELETE+ALTER user_vocab_mastery card_kind enum, new user_verse_domination, denormalized track_pct columns) + Wave 0 integration test stubs (SPEC-REQ-4, 10, 13, 16) — number drifted from 0016 (now Phase 14 theme prefs)
+- [ ] 11.6-02-PLAN.md -- v2 (2026-05-02 SPEC pivot): scripts/seed/19c-fetch-vocab-images.ts (Unsplash API auto-search, free demo tier, idempotent per-row commit, dedup by meaning_en, rate-limit-aware) + revert of v1 ComfyUI artifacts (script + workflow JSON + .gitignore line + gen-image npm script + COMFYUI_* env vars) (SPEC-REQ-8, 9). v1 = ComfyUI batch (commits ff30935 + 1e32e42) — superseded.
 - [ ] 11.6-03-PLAN.md -- Pure modules: kanji.ts (extract isKanji) + scheduler.ts (lag-test + JLPT sort) + Wave 0 unit tests (SPEC-REQ-3, 5, 6)
 - [ ] 11.6-04-PLAN.md -- generator.ts: vocab_typed type + trackKind/lengthMode params + scheduler integration + Advanced Drills 1:1:1 mix + Wave 0 tests (SPEC-REQ-3, 7, 12)
 - [ ] 11.6-05-PLAN.md -- recordVocabAnswer extension: cardKind branching + per-track-pct recompute + verse-domination atomic insert + versesDominatedNow return (SPEC-REQ-4, 10, 13, 15, 16)

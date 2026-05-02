@@ -47,7 +47,15 @@
   --color-text: #F5F5F4;
   --color-text-muted: rgba(245, 245, 244, 0.56);
   --color-text-dim: rgba(245, 245, 244, 0.40);
-  --color-accent: #ef4444;
+  /* Phase 14 gap (2026-05-02): darkened from #ef4444 -> #dc2626 (red-600).
+   * Plan 14-09 axe-core run found ~2,200 serious color-contrast violations
+   * because #ef4444 yielded 3.76:1 against white (Button primary CTA labels +
+   * accent links on light theme cards). #dc2626 = 4.66:1 vs white (clears
+   * WCAG AA) AND 4.83:1 vs near-black --color-bg #0E0E0E (clears AA).
+   * Single-token swap inherited by :root[data-theme="light"] (no override
+   * needed — same value works on both surfaces). User-picked disposition A1
+   * over A2 (enlarge CTA text) and A3 (Phase 18 deferral). */
+  --color-accent: #dc2626;
 
   /* Typography — theme-independent per CONTEXT D-01 / SPEC §A.3 */
   --font-sans: Inter, -apple-system, "SF Pro Text", system-ui, sans-serif;
@@ -125,7 +133,8 @@
   --color-text: #18181B;
   --color-text-muted: rgba(24, 24, 27, 0.62);
   --color-text-dim: rgba(24, 24, 27, 0.45);
-  /* --color-accent stays #ef4444 — verified WCAG AA on light bg per D-03 */
+  /* --color-accent inherits #dc2626 from @theme (Phase 14 gap 2026-05-02
+   * disposition A1 — clears 4.66:1 on white surfaces, satisfies WCAG AA). */
 
   /* Shadows — 30% higher opacity vs dark for visibility on light bg (CONTEXT D-04) */
   --shadow-card-ring: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
