@@ -333,7 +333,7 @@ Plans:
 - [x] 11.6-08-PLAN.md -- VerseStarIcon + VerseDominatedAnimation + SongHeader counter + lyrics star + SongCard %-dominated catalog line + queries.ts getDominatedVerses + globals.css keyframe (SPEC-REQ-14, 15) — closed 2026-05-02 on partial visual-verify spot-check
 - [x] 11.6-09-PLAN.md -- VocabTypedCard romaji-input + ExerciseSession dispatch + LearnCard trackKind-aware (SPEC-REQ-3, 7)
 - [x] 11.6-10-PLAN.md -- /review queue dual-card extension + recordReviewAnswer cardKind + ReviewSession dispatch (SPEC-REQ-17)
-- [ ] 11.6-11-PLAN.md -- /vocabulary dashboard dual-progress display (GROUP BY card_kind + dual MasteryBadge + tier grouping by romaji_meaning) (SPEC-REQ-18)
+- [x] 11.6-11-PLAN.md -- /vocabulary dashboard dual-progress display (GROUP BY card_kind + dual MasteryBadge + tier grouping by romaji_meaning) (SPEC-REQ-18)
 
 ### Phase 9: Kana Trainer
 **Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
