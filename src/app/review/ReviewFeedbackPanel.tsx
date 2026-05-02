@@ -69,24 +69,29 @@ export default function ReviewFeedbackPanel({
   const hasMoreContent =
     !!question.detailedExplanation || !!question.mnemonic || hasKanjiBreakdown;
 
+  // Phase 14 Plan 14-09 (D-PRE-10): JLPT-alpha semantic-color reuse pattern
+  // (Plan 14-07/14-08 idiom): correct = jlpt-n5 alpha (green), wrong = accent
+  // alpha (red, == jlpt-n1). Mnemonic panel uses jlpt-n4 alpha (blue, info)
+  // matching Plan 14-05's mnemonic recipe. Continue CTA uses --color-accent
+  // matching Button variant=primary visual weight. No new tokens introduced.
   return (
     <div
       data-feedback={isCorrect ? "correct" : "wrong"}
-      className={`mt-4 rounded-lg border p-4 ${
+      className={`mt-4 rounded-[var(--radius-md)] border p-4 ${
         isCorrect
-          ? "border-green-500/30 bg-green-500/10"
-          : "border-red-500/30 bg-red-500/10"
+          ? "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)]"
+          : "border-[var(--color-jlpt-n1-ring)] bg-[var(--color-jlpt-n1-bg)]"
       }`}
     >
       {/* Status icon + result */}
       <div className="mb-2 flex items-center gap-2">
         {isCorrect ? (
-          <span className="text-lg text-green-400">&#10003;</span>
+          <span className="text-lg text-[var(--color-jlpt-n5)]">&#10003;</span>
         ) : (
-          <span className="text-lg text-red-400">&#10007;</span>
+          <span className="text-lg text-[var(--color-accent)]">&#10007;</span>
         )}
         <span
-          className={`font-semibold ${isCorrect ? "text-green-400" : "text-red-400"}`}
+          className={`font-semibold ${isCorrect ? "text-[var(--color-jlpt-n5)]" : "text-[var(--color-accent)]"}`}
         >
           {isCorrect ? "Correct!" : "Not quite"}
         </span>
@@ -94,21 +99,21 @@ export default function ReviewFeedbackPanel({
 
       {/* Wrong answer: show correct answer */}
       {!isCorrect && (
-        <p className="mb-1 text-sm text-gray-300">
-          <span className="font-medium text-green-400">Correct answer:</span>{" "}
+        <p className="mb-1 text-sm text-[var(--color-text-muted)]">
+          <span className="font-medium text-[var(--color-jlpt-n5)]">Correct answer:</span>{" "}
           {question.correctAnswer}
         </p>
       )}
 
       {/* Wrong answer: wrong-pick callout */}
       {wrongChoiceNote && (
-        <p className="mb-2 text-sm text-gray-400">
+        <p className="mb-2 text-sm text-[var(--color-text-muted)]">
           {wrongVocab?.vocab_item_id ? (
             <MasteryDetailPopover
               vocabItemId={wrongVocab.vocab_item_id}
               userId={userId}
               trigger={
-                <span className="text-red-400">
+                <span className="text-[var(--color-accent)]">
                   {wrongVocab.surface}
                 </span>
               }
@@ -121,7 +126,7 @@ export default function ReviewFeedbackPanel({
       )}
 
       {/* Vocab block — always Tier 1 (forceTier1), wrapped in mastery popover */}
-      <div className="mb-3 rounded-md bg-gray-900/60 p-3">
+      <div className="mb-3 rounded-[var(--radius-sm)] bg-[var(--color-card-2)] p-3">
         <MasteryDetailPopover
           vocabItemId={question.vocabItemId}
           userId={userId}
@@ -134,17 +139,17 @@ export default function ReviewFeedbackPanel({
             />
           }
         />
-        <p className="mt-1 text-sm text-gray-400">{question.explanation}</p>
+        <p className="mt-1 text-sm text-[var(--color-text-muted)]">{question.explanation}</p>
       </div>
 
       {/* Explanation */}
-      <p className="text-sm text-gray-300">{question.explanation}</p>
+      <p className="text-sm text-[var(--color-text-muted)]">{question.explanation}</p>
 
       {/* Action row */}
       <div className="mt-3 flex items-center gap-3">
         <button
           onClick={onContinue}
-          className="rounded-lg bg-red-600 px-4 py-1.5 text-sm font-medium text-white transition-colors hover:bg-red-700"
+          className="rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-1.5 text-sm font-medium [color:white] transition-colors hover:opacity-90"
         >
           Continue
         </button>
@@ -152,7 +157,7 @@ export default function ReviewFeedbackPanel({
           <button
             onClick={() => setMoreAccordionOpen(!moreAccordionOpen)}
             aria-expanded={moreAccordionOpen}
-            className="text-sm text-gray-400 underline hover:text-gray-200"
+            className="text-sm text-[var(--color-text-muted)] underline hover:text-[var(--color-text)]"
           >
             {moreAccordionOpen ? "Hide details" : "More"}
           </button>
@@ -163,12 +168,12 @@ export default function ReviewFeedbackPanel({
       {hasMoreContent && moreAccordionOpen && (
         <div className="mt-3 flex flex-col gap-3" data-testid="review-feedback-more-accordion">
           {question.detailedExplanation && (
-            <p className="text-sm text-gray-400">{question.detailedExplanation}</p>
+            <p className="text-sm text-[var(--color-text-muted)]">{question.detailedExplanation}</p>
           )}
           {question.mnemonic && (
-            <div className="rounded-md border border-indigo-500/20 bg-indigo-900/20 p-3">
-              <p className="mb-1 text-xs uppercase tracking-wider text-indigo-400">Memory tip</p>
-              <p className="text-sm text-gray-300">
+            <div className="rounded-[var(--radius-sm)] border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-3">
+              <p className="mb-1 text-xs uppercase tracking-wider text-[var(--color-jlpt-n4)]">Memory tip</p>
+              <p className="text-sm text-[var(--color-text-muted)]">
                 {localize(question.mnemonic, DEFAULT_LANG)}
               </p>
             </div>

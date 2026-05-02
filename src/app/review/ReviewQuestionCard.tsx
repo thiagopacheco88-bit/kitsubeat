@@ -112,17 +112,23 @@ export default function ReviewQuestionCard({
     })();
   };
 
+  // Phase 14 Plan 14-09 (D-PRE-10): MCQ feedback uses JLPT-alpha semantic-color
+  // reuse pattern from Plan 14-07 (review's daily-cap toast) and Plan 14-08
+  // (KanaQuestionCard MCQ): --color-jlpt-n5 alpha for correct (green), accent
+  // alpha for wrong (red, == --color-jlpt-n1). Default + disabled states use
+  // card-2 surface + border-strong + text-text-muted. No new --color-success
+  // /--color-error tokens introduced.
   const getOptionStyle = (option: string): string => {
     if (chosen === null) {
-      return "border-gray-600 bg-gray-800 text-white hover:border-gray-400 hover:bg-gray-700";
+      return "border-[var(--color-border-strong)] bg-[var(--color-card-2)] text-[var(--color-text)] hover:border-[var(--color-text-muted)] hover:bg-[var(--color-card)]";
     }
     if (option === question.correctAnswer) {
-      return "border-green-500 bg-green-500/10 text-white";
+      return "border-[var(--color-jlpt-n5)] bg-[var(--color-jlpt-n5-bg)] text-[var(--color-text)]";
     }
     if (option === chosen && !isCorrect) {
-      return "border-red-500 bg-red-500/10 text-white";
+      return "border-[var(--color-accent)] bg-[var(--color-jlpt-n1-bg)] text-[var(--color-text)]";
     }
-    return "border-gray-700 bg-gray-800/50 text-gray-500";
+    return "border-[var(--color-border)] bg-[var(--color-card-2)] text-[var(--color-text-dim)]";
   };
 
   const renderPrompt = () => {
@@ -146,7 +152,7 @@ export default function ReviewQuestionCard({
         );
       case "meaning_vocab":
         return (
-          <span className="text-xl font-bold leading-snug text-white">
+          <span className="text-xl font-bold leading-snug text-[var(--color-text)]">
             {question.prompt}
           </span>
         );
@@ -181,11 +187,11 @@ export default function ReviewQuestionCard({
 
   return (
     <div data-question-id={question.id} data-question-type={exerciseType} className="flex flex-col gap-4">
-      <p className="text-xs uppercase tracking-wider text-gray-500">
+      <p className="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
         {exerciseType.replace(/_/g, " ")}
       </p>
 
-      <div className="text-xl font-bold leading-snug text-white">
+      <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
         {renderPrompt()}
       </div>
 
@@ -195,7 +201,7 @@ export default function ReviewQuestionCard({
             key={option}
             onClick={() => handleSelect(option)}
             disabled={chosen !== null}
-            className={`rounded-lg border px-4 py-3 text-left text-sm font-medium transition-colors ${getOptionStyle(option)}`}
+            className={`rounded-[var(--radius-md)] border px-4 py-3 text-left text-sm font-medium transition-colors ${getOptionStyle(option)}`}
           >
             {renderOption(option)}
           </button>

@@ -32,31 +32,38 @@ interface VocabRowProps {
   row: DashboardRow;
 }
 
+// Phase 14 Plan 14-09 (D-PRE-10 chrome cleanup): all palette utilities -> token
+// vars. Card surface uses --color-card; rests of the type ramp uses
+// --color-text/--color-text-muted/--color-text-dim per SPEC §A.2 hierarchy.
+// Pills (POS + JLPT) use --color-card-2 fill, matching the catalog tile recipe
+// from Plan 14-06. The card-fill alpha (`/50` opacity modifier) is replaced
+// with a flat --color-card so the row reads against both light + dark themes
+// equivalently — the alpha was a dark-only effect that didn't translate.
 function VocabRow({ row }: VocabRowProps) {
   return (
-    <div className="flex items-start justify-between gap-4 rounded-lg border border-gray-800 bg-gray-900/50 px-4 py-3">
+    <div className="flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3">
       {/* Left: word identity */}
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-          <span className="text-lg font-semibold text-white">
+          <span className="text-lg font-semibold text-[var(--color-text)]">
             {row.dictionary_form}
           </span>
           {row.reading && row.reading !== row.dictionary_form && (
-            <span className="text-sm text-gray-400">{row.reading}</span>
+            <span className="text-sm text-[var(--color-text-muted)]">{row.reading}</span>
           )}
           {row.romaji && (
-            <span className="text-xs text-gray-600">{row.romaji}</span>
+            <span className="text-xs text-[var(--color-text-dim)]">{row.romaji}</span>
           )}
         </div>
-        <p className="mt-0.5 text-sm text-gray-300">{getMeaning(row.meaning)}</p>
+        <p className="mt-0.5 text-sm text-[var(--color-text-muted)]">{getMeaning(row.meaning)}</p>
         <div className="mt-1 flex flex-wrap gap-1.5">
           {row.part_of_speech && (
-            <span className="rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-400">
+            <span className="rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]">
               {row.part_of_speech}
             </span>
           )}
           {row.jlpt_level && (
-            <span className="rounded-full bg-gray-800 px-2 py-0.5 text-xs text-gray-400">
+            <span className="rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]">
               {row.jlpt_level}
             </span>
           )}
@@ -64,7 +71,7 @@ function VocabRow({ row }: VocabRowProps) {
       </div>
       {/* Right: review metadata + seen-in */}
       <div className="flex shrink-0 flex-col items-end gap-1 text-right">
-        <span className="text-xs text-gray-500">
+        <span className="text-xs text-[var(--color-text-dim)]">
           Due {formatDue(row.due)}
         </span>
         <SeenInExpander
@@ -85,9 +92,9 @@ function Bucket({ title, rows }: BucketProps) {
   if (rows.length === 0) return null;
   return (
     <section className="mb-8">
-      <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500">
+      <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-dim)]">
         {title}{" "}
-        <span className="ml-1 rounded-full bg-gray-800 px-1.5 py-0.5 text-xs font-normal text-gray-400">
+        <span className="ml-1 rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-1.5 py-0.5 text-xs font-normal text-[var(--color-text-muted)]">
           {rows.length}
         </span>
       </h2>
@@ -103,7 +110,7 @@ function Bucket({ title, rows }: BucketProps) {
 export default function VocabularyList({ rows }: Props) {
   if (rows.length === 0) {
     return (
-      <div className="mt-12 text-center text-gray-400">
+      <div className="mt-12 text-center text-[var(--color-text-muted)]">
         <p className="text-base">No vocabulary yet.</p>
         <p className="mt-1 text-sm">
           Complete a song&apos;s Practice tab to start tracking words.
