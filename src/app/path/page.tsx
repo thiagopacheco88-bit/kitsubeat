@@ -44,10 +44,10 @@ export default async function PathPage() {
     state.current_path_node_slug === null ? await getStarterSongs() : null;
 
   return (
-    <main className="min-h-screen bg-gray-950 text-white">
+    <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
       <CosmeticsProvider theme={state.equipped_theme}>
         <div className="mx-auto max-w-2xl px-4 py-8">
-          <h1 className="mb-6 text-2xl font-bold text-white">Your Learning Path</h1>
+          <h1 className="mb-6 text-2xl font-bold text-[var(--color-text)]">Your Learning Path</h1>
           <PathHud
             userId={userId}
             state={state}

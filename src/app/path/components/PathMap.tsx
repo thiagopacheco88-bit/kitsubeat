@@ -49,7 +49,12 @@ export function PathMap({ songs, currentNodeSlug }: PathMapProps) {
   for (const song of sorted) {
     const tier = song.difficulty_tier ?? "unknown";
 
-    // Insert tier divider chip on tier change
+    // Insert tier divider chip on tier change. The chip uses Badge variant=mono
+    // shape (font-mono uppercase tracking-wide muted text on card-2 bg) but is
+    // inlined here as a <span> because (a) it needs the flanking <hr> rules and
+    // (b) the variant does not need the Badge primitive's px-2 py-0.5 — the
+    // tier divider uses px-3 to give the label visual breathing room between
+    // the rules. Token recipe matches Badge variant=mono verbatim.
     if (tier !== lastTier) {
       elements.push(
         <div
@@ -57,11 +62,11 @@ export function PathMap({ songs, currentNodeSlug }: PathMapProps) {
           className="flex items-center gap-3 my-4"
           aria-label={`Tier: ${tierLabel(tier)}`}
         >
-          <div className="flex-1 border-t border-gray-700" />
-          <span className="rounded-full border border-gray-600 bg-gray-800 px-3 py-0.5 text-xs font-semibold text-gray-300 uppercase tracking-wide">
+          <div className="flex-1 border-t border-[var(--color-border)]" />
+          <span className="rounded-[var(--radius-pill)] border border-[var(--color-border-strong)] bg-[var(--color-card-2)] px-3 py-0.5 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">
             {tierLabel(tier)}
           </span>
-          <div className="flex-1 border-t border-gray-700" />
+          <div className="flex-1 border-t border-[var(--color-border)]" />
         </div>
       );
       lastTier = tier;

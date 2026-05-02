@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { setStarterSong } from "@/app/actions/gamification";
 import type { StarterSongRow } from "@/lib/gamification/starter-songs";
+import { Button } from "@/components/ui/Button";
 
 // Hardcoded vibe descriptors per slug — user-approved at Plan 03 decision checkpoint.
 const VIBE_MAP: Record<string, string> = {
@@ -26,6 +27,15 @@ interface StarterPickProps {
  *
  * No XP/level/streak HUD here — user hasn't earned anything yet.
  * Warm onboarding tone only.
+ *
+ * Migration note (Phase 14-09 D-22 token-only swap): all palette utilities
+ * (gray-700/-800/-900, blue-400, orange-600/-700) replaced with token vars.
+ * The "Start here" CTA migrates from inline orange button to <Button
+ * variant="primary"> primitive. The JLPT level pill migrates to
+ * --color-jlpt-n4 token (the blue band). Card hover-border (previously the
+ * orange palette utility) becomes hover:border-[var(--color-accent)] (red)
+ * matching the primitive Button accent — Plan 14-07 LevelUpTakeover
+ * orange-to-red precedent reused.
  */
 export function StarterPick({ candidates, userId }: StarterPickProps) {
   const router = useRouter();
@@ -45,18 +55,18 @@ export function StarterPick({ candidates, userId }: StarterPickProps) {
 
   return (
     <div
-      className="rounded-2xl border border-gray-700 bg-gray-900 p-6 text-center"
+      className="rounded-[var(--radius-3xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center"
       role="dialog"
       aria-label="Pick your starting song"
       data-testid="starter-pick-modal"
     >
       <div className="mb-2 text-3xl" aria-hidden="true">
-        {"\uD83E\uDD8A"}
+        {"🦊"}
       </div>
-      <h2 className="mb-1 text-xl font-bold text-white">
+      <h2 className="mb-1 text-xl font-bold text-[var(--color-text)]">
         Welcome to your Learning Path!
       </h2>
-      <p className="mb-6 text-sm text-gray-400">
+      <p className="mb-6 text-sm text-[var(--color-text-muted)]">
         Pick a song that feels right for you. You can always come back and
         explore the rest of the catalog.
       </p>
@@ -70,45 +80,51 @@ export function StarterPick({ candidates, userId }: StarterPickProps) {
           return (
             <div
               key={song.slug}
-              className={`flex flex-col gap-3 rounded-xl border p-4 text-left transition-opacity ${
+              className={`flex flex-col gap-3 rounded-[var(--radius-xl)] border p-4 text-left transition-opacity ${
                 isDisabled
-                  ? "border-gray-700 opacity-50"
-                  : "border-gray-600 bg-gray-800 hover:border-orange-500"
-              } sm:flex-1 sm:max-w-[200px]`}
+                  ? "border-[var(--color-border)] opacity-50"
+                  : "border-[var(--color-border-strong)] bg-[var(--color-card-2)] hover:border-[var(--color-accent)]"
+              } sm:flex-1 sm:max-w-[12.5rem]`}
             >
-              {/* Thumbnail */}
+              {/* Thumbnail. Empty fallback uses card-2 token. */}
               {song.thumbnail_url ? (
                 <img
                   src={song.thumbnail_url}
                   alt={`${song.title} thumbnail`}
-                  className="w-full aspect-video rounded-lg object-cover"
+                  className="w-full aspect-video rounded-[var(--radius-md)] object-cover"
                 />
               ) : (
-                <div className="w-full aspect-video rounded-lg bg-gray-700" />
+                <div className="w-full aspect-video rounded-[var(--radius-md)] bg-[var(--color-card-2)]" />
               )}
 
               <div className="flex-1">
-                <p className="font-semibold text-white text-sm leading-snug">
+                <p className="font-semibold text-[var(--color-text)] text-sm leading-snug">
                   {song.title}
                 </p>
-                <p className="text-xs text-gray-400 mt-0.5">{song.anime}</p>
+                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                  {song.anime}
+                </p>
                 {song.jlpt_level && (
-                  <p className="mt-1 text-xs text-blue-400 font-medium">
+                  <p className="mt-1 text-xs text-[var(--color-jlpt-n4)] font-medium">
                     {song.jlpt_level.toUpperCase()}
                   </p>
                 )}
-                <p className="mt-1 text-xs text-gray-500 italic">{vibe}</p>
+                <p className="mt-1 text-xs text-[var(--color-text-dim)] italic">
+                  {vibe}
+                </p>
               </div>
 
-              <button
+              <Button
                 type="button"
+                variant="primary"
+                size="md"
                 onClick={() => void handleSelect(song.slug)}
                 disabled={isDisabled || isSelecting}
-                className="mt-auto w-full rounded-lg bg-orange-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-700 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="mt-auto w-full"
                 data-testid={`starter-pick-${song.slug}`}
               >
                 {isSelecting ? "Setting up…" : "Start here"}
-              </button>
+              </Button>
             </div>
           );
         })}

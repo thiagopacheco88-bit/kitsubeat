@@ -183,7 +183,19 @@ test.describe("Phase 14 / mobile parity (390x844)", () => {
     expect(overflow).toBeLessThanOrEqual(24);
   });
 
-  test.fixme("/path — no horizontal scroll", async () => {});
+  // Plan 14-09 enables /path. Same waitUntil:domcontentloaded + paint-cycle
+  // pattern as Plans 14-05 through 14-08. Lenient <=24px overflow threshold
+  // inherited from D-PRE-08 (header/chrome overflow); Plan 14-09's /path
+  // surface migration doesn't introduce new overflow.
+  test("/path — no horizontal scroll", async ({ page }) => {
+    await page.goto("/path", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    await page.waitForTimeout(500);
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(24);
+  });
 
   // Plan 14-07 enables /vocabulary, /review, /profile (Wave 3 surface migrations).
   // Same waitUntil:domcontentloaded + paint-cycle pattern as Plan 14-06's catalog
