@@ -26,7 +26,8 @@ export default [
     ignores: [
       "src/components/ui/**",         // primitives may use raw values inside CVA maps (D-18)
       "src/app/admin/**",             // operator-facing per D-18
-      "src/app/__dev/**",             // dev catalog per D-18
+      "src/app/__dev/**",             // dev catalog per D-18 (decoded form, future-proof if folder is ever renamed)
+      "src/app/%5F%5Fdev/**",         // Plan 14-04 URL-encoded folder name (literal on-disk form); WR-01 fix mirrors token-compliance.ts allowlist
       "src/app/error.tsx",            // framework fallback per D-18
       "src/app/global-error.tsx",     // framework fallback per D-18
       ".next/**",
