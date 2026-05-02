@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { SongListItem } from "@/lib/db/queries";
+import { EmptyState } from "@/components/ui/EmptyState";
 import SongCard from "./SongCard";
 
 const JLPT_LEVELS = ["N5", "N4", "N3", "N2", "N1"] as const;
@@ -64,13 +65,13 @@ export default function SongGrid({
         Desktop: single row — search + filters left, toggle pushed right (order-last + ml-auto).
       */}
       <div className="mb-6 flex flex-wrap items-center gap-2">
-        <div className="order-first flex w-full overflow-hidden rounded border border-gray-700 sm:order-last sm:ml-auto sm:w-auto">
+        <div className="order-first flex w-full overflow-hidden rounded border border-[var(--color-border)] sm:order-last sm:ml-auto sm:w-auto">
           <Link
             href="/anime-list"
             className={`flex-1 px-3 py-1.5 text-center text-xs font-medium transition-colors sm:flex-none ${
               view === "by-anime"
-                ? "bg-red-600 text-white"
-                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                ? "bg-[var(--color-accent)] [color:white]"
+                : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
             }`}
           >
             Anime
@@ -79,8 +80,8 @@ export default function SongGrid({
             href="/songs"
             className={`flex-1 px-3 py-1.5 text-center text-xs font-medium transition-colors sm:flex-none ${
               view === "all"
-                ? "bg-red-600 text-white"
-                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                ? "bg-[var(--color-accent)] [color:white]"
+                : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
             }`}
           >
             Songs
@@ -92,7 +93,7 @@ export default function SongGrid({
           placeholder="Search songs, artists, anime…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="min-w-0 flex-1 rounded border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-white placeholder-gray-500 outline-none focus:border-gray-500 sm:max-w-xs"
+          className="min-w-0 flex-1 rounded border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-1.5 text-sm text-[var(--color-text)] placeholder-[var(--color-text-dim)] outline-none focus:border-[var(--color-border-strong)] sm:max-w-xs"
         />
 
         <div className="flex gap-1">
@@ -104,8 +105,8 @@ export default function SongGrid({
               }
               className={`rounded px-2 py-1 text-xs font-medium transition-colors ${
                 jlptFilter === level
-                  ? "bg-white text-gray-900"
-                  : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                  : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
               }`}
             >
               {level}
@@ -122,8 +123,8 @@ export default function SongGrid({
               }
               className={`rounded px-2 py-1 text-xs capitalize transition-colors ${
                 difficultyFilter === tier
-                  ? "bg-white text-gray-900"
-                  : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                  : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
               }`}
             >
               {tier}
@@ -132,7 +133,7 @@ export default function SongGrid({
         </div>
       </div>
 
-      <p className="mb-4 text-sm text-gray-500">
+      <p className="mb-4 text-sm text-[var(--color-text-dim)]">
         {filtered.length} song{filtered.length !== 1 ? "s" : ""}
         {view === "by-anime" && ` across ${groupedByAnime.length} anime`}
       </p>
@@ -142,9 +143,9 @@ export default function SongGrid({
         <div className="flex flex-col gap-8">
           {groupedByAnime.map(([anime, animeSongs]) => (
             <div key={anime}>
-              <h3 className="mb-3 flex items-baseline gap-2 text-lg font-semibold text-white">
+              <h3 className="mb-3 flex items-baseline gap-2 text-lg font-semibold text-[var(--color-text)]">
                 {anime}
-                <span className="text-sm font-normal text-gray-500">
+                <span className="text-sm font-normal text-[var(--color-text-dim)]">
                   {animeSongs.length} song{animeSongs.length !== 1 ? "s" : ""}
                 </span>
               </h3>
@@ -170,9 +171,11 @@ export default function SongGrid({
       )}
 
       {filtered.length === 0 && (
-        <p className="py-12 text-center text-gray-500">
-          No songs match your filters.
-        </p>
+        <EmptyState
+          heading="No songs match your filters"
+          body="Try clearing JLPT or difficulty filters, or searching for a different artist or anime."
+          className="my-12"
+        />
       )}
     </div>
   );

@@ -17,12 +17,14 @@ export default function BonusBadgeIcon({ className = "" }: { className?: string 
       aria-label="Bonus mastery"
       title="Bonus mastery: Grammar Conjugation + Sentence Order"
     >
-      {/* Sparkle / star-burst SVG — 16×16, muted purple to distinguish from gold stars */}
+      {/* Sparkle / star-burst SVG — 16×16, muted purple (grammar-expression
+          token = #8b5cf6) to distinguish from gold stars. Phase 14 Plan 14-06
+          token migration: text-violet-400 → text-[var(--color-grammar-expression)]. */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 16 16"
         fill="currentColor"
-        className="h-4 w-4 text-violet-400"
+        className="h-4 w-4 text-[var(--color-grammar-expression)]"
         aria-hidden="true"
       >
         {/* 4-point sparkle shape */}

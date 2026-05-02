@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { SongListItem } from "@/lib/db/queries";
 import { deriveStars, deriveBonusBadge } from "@/lib/db/schema";
-import { JLPT_COLOR_CLASS } from "@/lib/types/lesson";
+import { CardLink } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 import CircularProgress from "@/app/songs/[slug]/components/CircularProgress";
 import StarDisplay from "@/app/songs/[slug]/components/StarDisplay";
 import SongMasteredBanner from "./SongMasteredBanner";
@@ -53,6 +53,12 @@ interface SongCardProps {
 /**
  * SongCard — single catalog tile for a song.
  *
+ * Phase 14 Plan 14-06 — migrated to design tokens + primitives:
+ *   - Outer Link → <CardLink variant="flat"> (Card primitive)
+ *   - Inline JLPT badge → <Badge variant="jlpt" level=...>
+ *   - Difficulty pill → <Badge variant="mono">
+ *   - All palette utilities (bg-gray-*, text-gray-*, text-white) → token vars
+ *
  * Phase 10 Plan 07 — derivations happen at render time from the accuracy
  * fields threaded through SongListItem (Task 2):
  *   - `stars` = deriveStars({ ex1_2_3, ex4, ex6 })   [0 | 1 | 2 | 3]
@@ -98,12 +104,14 @@ export default function SongCard({ song }: SongCardProps) {
   const showBonusBadge = showProgress && bonus;
 
   return (
-    <Link
+    <CardLink
       href={`/songs/${song.slug}`}
-      className="group block overflow-hidden rounded-lg border border-gray-800 bg-gray-900 transition-colors hover:border-gray-600"
+      variant="flat"
+      size="sm"
+      className="overflow-hidden p-0 rounded-lg"
     >
       {thumbnail && (
-        <div className="relative aspect-video w-full overflow-hidden bg-gray-800">
+        <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-bg-2)]">
           <img
             src={thumbnail}
             alt={song.title}
@@ -116,7 +124,7 @@ export default function SongCard({ song }: SongCardProps) {
               scanning the catalog. */}
           {showMasteryBanner && <SongMasteredBanner />}
           {opEd && (
-            <span className="absolute top-2 right-2 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
+            <span className="absolute top-2 right-2 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-bold text-[var(--color-text)] backdrop-blur-sm">
               {opEd}
             </span>
           )}
@@ -129,7 +137,7 @@ export default function SongCard({ song }: SongCardProps) {
         </div>
       )}
       <div className="p-4">
-        <h3 className="truncate text-sm font-semibold text-white">
+        <h3 className="truncate text-sm font-semibold text-[var(--color-text)]">
           {song.title}
         </h3>
         {/* Stars below title — hidden when 0 stars and 0% progress.
@@ -142,28 +150,29 @@ export default function SongCard({ song }: SongCardProps) {
             {showBonusBadge && <BonusBadgeIcon />}
           </div>
         )}
-        <p className="mt-1 truncate text-xs text-gray-400">{song.artist}</p>
-        <p className="mt-0.5 truncate text-xs text-gray-500">{song.anime}</p>
+        <p className="mt-1 truncate text-xs text-[var(--color-text-muted)]">
+          {song.artist}
+        </p>
+        <p className="mt-0.5 truncate text-xs text-[var(--color-text-dim)]">
+          {song.anime}
+        </p>
         <div className="mt-3 flex items-center gap-2">
           {song.jlpt_level && (
-            <span
-              className={`rounded px-1.5 py-0.5 text-[10px] font-bold text-white ${JLPT_COLOR_CLASS[song.jlpt_level] ?? "bg-gray-600"}`}
-            >
-              {song.jlpt_level}
-            </span>
+            <Badge
+              variant="jlpt"
+              level={song.jlpt_level as "N5" | "N4" | "N3" | "N2" | "N1"}
+            />
           )}
           {song.difficulty_tier && (
-            <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[10px] text-gray-400">
-              {song.difficulty_tier}
-            </span>
+            <Badge variant="mono">{song.difficulty_tier}</Badge>
           )}
           {showLearnerCount && (
-            <span className="ml-auto text-[10px] text-gray-500">
+            <span className="ml-auto text-[10px] text-[var(--color-text-dim)]">
               {formatLearnerCount(learnerCount)} learners
             </span>
           )}
         </div>
       </div>
-    </Link>
+    </CardLink>
   );
 }
