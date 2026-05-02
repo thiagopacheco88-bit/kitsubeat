@@ -644,16 +644,25 @@ export async function getUserSongProgressBatch(
 /**
  * Dashboard row shape for getVocabularyDashboard.
  *
- * Tier → state mapping (LOCKED — Path B, phase-local 3-bucket split):
- *   tierFilter 3 (Mastered)  → m.state = 2
- *   tierFilter 2 (Known)     → m.state = 3
- *   tierFilter 1 (Learning)  → m.state = 1
+ * Phase 11.6 Plan 11: dual-card per word — romaji_meaning and kanji_kana tracked
+ * independently. The dashboard surfaces both indicators per word.
+ *
+ * Tier → romaji_state mapping (LOCKED — Path B, phase-local 3-bucket split):
+ *   tierFilter 3 (Mastered)  → romaji_state = 2
+ *   tierFilter 2 (Known)     → romaji_state = 3
+ *   tierFilter 1 (Learning)  → romaji_state = 1
+ *
+ * Tier grouping uses romaji_meaning (the foundational track per SPEC R18).
+ * kanji_state may diverge from romaji_state — this is expected and shown in the UI.
  *
  * DIVERGENCE NOTE: this mapping deliberately differs from src/lib/fsrs/tier.ts,
  * which collapses state=1 and state=3 into TIER_LEARNING (a 2-bucket post-new split).
  * The dashboard is the only surface where users distinguish "relearning" (state=3) from
  * "fresh learning" (state=1), so a richer 3-bucket split is warranted here.
  * tierFor() is NOT modified — the divergence is dashboard-local only.
+ *
+ * Backward-compat: `state` and `due` alias romaji_state/romaji_due so legacy code
+ * (e.g. SeenInExpander, tier buckets) continues to work without changes.
  */
 export interface DashboardRow {
   vocab_item_id: string;
@@ -663,7 +672,17 @@ export interface DashboardRow {
   meaning: unknown;
   part_of_speech: string;
   jlpt_level: string | null;
+  /** romaji_meaning FSRS state — drives tier grouping (SPEC R18). */
+  romaji_state: 0 | 1 | 2 | 3;
+  /** romaji_meaning due date. */
+  romaji_due: Date;
+  /** kanji_kana FSRS state — null if no kanji_kana card exists yet. */
+  kanji_state: 0 | 1 | 2 | 3 | null;
+  /** kanji_kana due date — null if no kanji_kana card exists yet. */
+  kanji_due: Date | null;
+  /** Alias for romaji_state — retained for backward compat (VocabularyList bucket split). */
   state: 0 | 1 | 2 | 3;
+  /** Alias for romaji_due — retained for backward compat. */
   due: Date;
   last_review: Date | null;
   reps: number;
@@ -772,22 +791,25 @@ export async function getSeenInSongsForVocab(
  *
  * Services: CROSS-04 (vocabulary dashboard)
  *
- * Tier → state mapping (LOCKED — Path B, phase-local 3-bucket split):
- *   tierFilter 3 (Mastered)  → AND m.state = 2
- *   tierFilter 2 (Known)     → AND m.state = 3
- *   tierFilter 1 (Learning)  → AND m.state = 1
- *   omitted                  → no extra state clause
+ * Phase 11.6 Plan 11 rewrite — GROUP BY vocab_item_id with CASE aggregation per
+ * card_kind. Each row now carries romaji_state/romaji_due (romaji_meaning card) and
+ * kanji_state/kanji_due (kanji_kana card, null if no mastery row exists yet).
  *
- * DIVERGENCE: This mapping diverges from src/lib/fsrs/tier.ts, which collapses
- * state=1 and state=3 to TIER_LEARNING. The dashboard alone uses this richer split.
- * tierFor() is unchanged — divergence is intentional and dashboard-local only.
+ * Tier → romaji_state mapping (LOCKED — Path B, phase-local 3-bucket split):
+ *   tierFilter 3 (Mastered)  → HAVING romaji_state = 2
+ *   tierFilter 2 (Known)     → HAVING romaji_state = 3
+ *   tierFilter 1 (Learning)  → HAVING romaji_state = 1
+ *   omitted                  → no HAVING clause
  *
- * Base WHERE excludes state=0 (New/unseen) — users should never see un-introduced
- * cards in the dashboard. This means tierFilter=0 / TIER_NEW is not representable here.
+ * DIVERGENCE: This mapping diverges from src/lib/fsrs/tier.ts (collapses 1+3 to
+ * TIER_LEARNING). The dashboard uses this richer split. tierFor() is unchanged.
  *
- * ORDER BY: state DESC, last_review DESC NULLS LAST — surfaces mastery wins first
- * (state=3 > state=2 > state=1 descending), then recency within each tier.
- * Claude discretion per RESEARCH.md §Open Questions #1.
+ * Base WHERE includes vocab items where the user has a romaji_meaning card with
+ * state IN (1,2,3). New (state=0) romaji cards are excluded — users should only see
+ * words they have actively started. Words without any romaji_meaning card are excluded.
+ *
+ * ORDER BY: romaji_due (the foundational track per SPEC R18) per sortDirection.
+ * Rows with no romaji due date land NULLS LAST.
  *
  * source_song_count: number of distinct songs the word appears in — used for
  * the expandable "Seen in N songs" chip.
@@ -806,14 +828,19 @@ export async function getVocabularyDashboard(
 ): Promise<DashboardRow[]> {
   const orderDir = opts.sortDirection === "asc" ? sql`ASC` : sql`DESC`;
 
-  // Phase-local tier → state mapping (Path B, 3-bucket split). See JSDoc above.
-  let tierClause = sql``;
-  if (opts.tierFilter === 3) tierClause = sql` AND m.state = 2`;
-  else if (opts.tierFilter === 2) tierClause = sql` AND m.state = 3`;
-  else if (opts.tierFilter === 1) tierClause = sql` AND m.state = 1`;
+  // Phase-local tier → romaji_state mapping (Path B, 3-bucket split). See JSDoc above.
+  // The HAVING clause filters on the aggregated romaji_meaning state.
+  let tierStateValue: number | null = null;
+  if (opts.tierFilter === 3) tierStateValue = 2;
+  else if (opts.tierFilter === 2) tierStateValue = 3;
+  else if (opts.tierFilter === 1) tierStateValue = 1;
+
+  const tierHaving = tierStateValue !== null
+    ? sql`HAVING MAX(CASE WHEN m.card_kind = 'romaji_meaning' THEN m.state END) = ${tierStateValue}`
+    : sql``;
 
   const sourceSongClause = opts.sourceSongId
-    ? sql` AND EXISTS (SELECT 1 FROM vocab_global vg2 WHERE vg2.vocab_item_id = m.vocab_item_id AND vg2.song_id = ${opts.sourceSongId}::uuid)`
+    ? sql`AND vi.id IN (SELECT vg2.vocab_item_id FROM vocab_global vg2 WHERE vg2.song_id = ${opts.sourceSongId}::uuid)`
     : sql``;
 
   const limitClause = opts.limit != null ? sql` LIMIT ${opts.limit}` : sql``;
@@ -826,36 +853,49 @@ export async function getVocabularyDashboard(
     meaning: unknown;
     part_of_speech: string;
     jlpt_level: string | null;
-    state: number;
-    due: string;
+    romaji_state: number | null;
+    romaji_due: string | null;
+    kanji_state: number | null;
+    kanji_due: string | null;
     last_review: string | null;
     reps: number;
     source_song_count: number;
   }>(sql`
     SELECT
-      m.vocab_item_id::text,
+      vi.id::text AS vocab_item_id,
       vi.dictionary_form,
       vi.reading,
       vi.romaji,
       vi.meaning,
       vi.part_of_speech,
       vi.jlpt_level::text,
-      m.state,
-      m.due,
-      m.last_review,
-      m.reps,
+      MAX(CASE WHEN m.card_kind = 'romaji_meaning' THEN m.state END)       AS romaji_state,
+      MAX(CASE WHEN m.card_kind = 'romaji_meaning' THEN m.due::text END)   AS romaji_due,
+      MAX(CASE WHEN m.card_kind = 'kanji_kana' THEN m.state END)           AS kanji_state,
+      MAX(CASE WHEN m.card_kind = 'kanji_kana' THEN m.due::text END)       AS kanji_due,
+      MAX(CASE WHEN m.card_kind = 'romaji_meaning' THEN m.last_review::text END) AS last_review,
+      COALESCE(MAX(CASE WHEN m.card_kind = 'romaji_meaning' THEN m.reps END), 0) AS reps,
       (
         SELECT COUNT(DISTINCT vg.song_id)::int
         FROM vocab_global vg
-        WHERE vg.vocab_item_id = m.vocab_item_id
+        WHERE vg.vocab_item_id = vi.id
       ) AS source_song_count
-    FROM user_vocab_mastery m
-    JOIN vocabulary_items vi ON vi.id = m.vocab_item_id
-    WHERE m.user_id = ${userId}
-      AND m.state IN (1, 2, 3)
-      ${tierClause}
-      ${sourceSongClause}
-    ORDER BY m.state ${orderDir}, m.last_review DESC NULLS LAST
+    FROM vocabulary_items vi
+    JOIN user_vocab_mastery m
+      ON m.vocab_item_id = vi.id
+      AND m.user_id = ${userId}
+    WHERE vi.id IN (
+      SELECT DISTINCT m2.vocab_item_id
+      FROM user_vocab_mastery m2
+      WHERE m2.user_id = ${userId}
+        AND m2.card_kind = 'romaji_meaning'
+        AND m2.state IN (1, 2, 3)
+    )
+    ${sourceSongClause}
+    GROUP BY vi.id, vi.dictionary_form, vi.reading, vi.romaji, vi.meaning,
+             vi.part_of_speech, vi.jlpt_level
+    ${tierHaving}
+    ORDER BY MAX(CASE WHEN m.card_kind = 'romaji_meaning' THEN m.due END) ${orderDir} NULLS LAST
     ${limitClause}
   `);
 
@@ -868,25 +908,36 @@ export async function getVocabularyDashboard(
     meaning: unknown;
     part_of_speech: string;
     jlpt_level: string | null;
-    state: number;
-    due: string;
+    romaji_state: number | null;
+    romaji_due: string | null;
+    kanji_state: number | null;
+    kanji_due: string | null;
     last_review: string | null;
     reps: number;
     source_song_count: number;
-  }>).map((row) => ({
-    vocab_item_id: row.vocab_item_id,
-    dictionary_form: row.dictionary_form,
-    reading: row.reading,
-    romaji: row.romaji,
-    meaning: row.meaning,
-    part_of_speech: row.part_of_speech,
-    jlpt_level: row.jlpt_level,
-    state: row.state as 0 | 1 | 2 | 3,
-    due: new Date(row.due),
-    last_review: row.last_review ? new Date(row.last_review) : null,
-    reps: Number(row.reps),
-    source_song_count: Number(row.source_song_count),
-  }));
+  }>).map((row) => {
+    const romajiState = (row.romaji_state ?? 1) as 0 | 1 | 2 | 3;
+    const romajiDue = row.romaji_due ? new Date(row.romaji_due) : new Date();
+    return {
+      vocab_item_id: row.vocab_item_id,
+      dictionary_form: row.dictionary_form,
+      reading: row.reading,
+      romaji: row.romaji,
+      meaning: row.meaning,
+      part_of_speech: row.part_of_speech,
+      jlpt_level: row.jlpt_level,
+      romaji_state: romajiState,
+      romaji_due: romajiDue,
+      kanji_state: row.kanji_state !== null ? (row.kanji_state as 0 | 1 | 2 | 3) : null,
+      kanji_due: row.kanji_due ? new Date(row.kanji_due) : null,
+      // Backward-compat aliases so existing VocabularyList bucket logic still works.
+      state: romajiState,
+      due: romajiDue,
+      last_review: row.last_review ? new Date(row.last_review) : null,
+      reps: Number(row.reps),
+      source_song_count: Number(row.source_song_count),
+    };
+  });
 }
 
 /**
