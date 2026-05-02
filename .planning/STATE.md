@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: Completed 14-03-PLAN.md
-last_updated: "2026-05-02T07:28:09.680Z"
+stopped_at: Completed 14-04-PLAN.md
+last_updated: "2026-05-02T07:48:05.265Z"
 last_activity: 2026-05-02
 progress:
   total_phases: 20
   completed_phases: 15
   total_plans: 122
-  completed_plans: 103
-  percent: 84
+  completed_plans: 104
+  percent: 85
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 14 (ux-polish) — EXECUTING
-Plan: 5 of 10 (next: 14-03 — theme persistence + zero-flash SSR + toggle UX)
+Plan: 6 of 10 (next: 14-03 — theme persistence + zero-flash SSR + toggle UX)
 Status: Ready to execute
 
 Plan 14-02 complete — 6 component primitives in src/components/ui/ (Button + Card + Badge + Modal + EmptyState + Skeleton, 519 lines total) built TDD-first with 39 unit tests all green. Button is a CVA-based primitive with 3 variants (primary|secondary|ghost) × 3 sizes (sm|md|lg); every size carries `min-h-[44px]` for SPEC AC #11 tap-target compliance. Card ships as two faces (Card renders <div>, CardLink renders Next.js <Link>) with 3 variants (flat|elevated|hero) × 3 sizes — the hero variant gets the --shadow-hero-glow recipe per SPEC §A.6. No Radix Slot asChild polymorphism per D-07 (deferred to Phase 18). Badge has 4 variants (jlpt|grammar|mono|accent) with discriminated-union props: variant=jlpt requires `level: N5..N1` and consumes the new --color-jlpt-N-bg/-ring 12%/25% alpha tokens added in Plan 14-01; variant=grammar requires `category: noun..other` and applies the 12%/25% tints inline via color-mix (Tailwind v4 has no color-mix arbitrary-value syntax). Badge re-exports JLPT_COLOR_CLASS / GRAMMAR_COLOR_CLASS for Wave 2+ migration grep audits. Modal wraps @radix-ui/react-dialog with 6 exports (Modal/ModalTrigger/ModalContent/ModalTitle/ModalDescription/ModalClose), `"use client"` directive, ModalContent's optional `forceMount` for nested-modal future-proofing, ModalTitle's `srOnly` escape hatch per Pitfall 5. EmptyState composes icon + heading + body + optional CTA in default + error variants (error gets accent-bordered shell + role=alert + primary-button retry CTA). Skeleton renders Tailwind `animate-pulse` in 4 variants (card|list-item|hero|badge-row) with role=status aria-live=polite — Plan 14-01's global prefers-reduced-motion override collapses the animation to instant rest state automatically (no JS guard needed). All 5 wave-0 unit-test shells filled in (no .todo markers remain). One Rule 3 deviation: GRAMMAR_COLOR_CLASS already existed at lesson.ts:176 with text-grammar-* shape consumed by 3 components (VocabularySection/VerseBlock/TokenSpan); plan said insert with bg-[var(...)] shape, which would have broken those callers. Fix: added GRAMMAR_BG_COLOR_CLASS as a parallel map preserving both surfaces. One informational deviation: `npm run build` blocked by unrelated dirty WIP (sign-in/sign-up untracked Clerk pages + middleware.ts modification triggered <Html> import error and Plan 14-00 D-PRE-04 PageNotFoundError flake); verification deferred to vitest (39 primitive tests pass) + tsc (TypeScript clean apart from pre-existing reduced-motion.spec.ts Playwright API mismatch). Zero raw hex / palette utilities in primitive code (29 var(--*) references across 6 files). Commits cd4f8bf (Task 1 RED — failing Button/Card/Badge tests), 3bdee99 (Task 1 GREEN — Button/Card/Badge primitives), 20725b4 (Task 1 — GRAMMAR_BG_COLOR_CLASS parallel map), 35f2e51 (Task 2 RED — failing Modal/EmptyState tests), 444a0db (Task 2 GREEN — Modal/EmptyState/Skeleton primitives).
@@ -49,7 +49,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-05-02
 
-Progress: [████████░░] 84%
+Progress: [█████████░] 85%
 
 ## Performance Metrics
 
@@ -144,6 +144,7 @@ Progress: [████████░░] 84%
 | Phase 14-ux-polish P01 | 7min | 2 tasks | 1 files |
 | Phase 14-ux-polish P02 | 21min | 2 tasks | 12 files |
 | Phase 14 P03 | 23 | 3 tasks | 7 files |
+| Phase 14 P04 | 13min | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -409,6 +410,9 @@ Progress: [████████░░] 84%
 - Plan 14-02: GRAMMAR_BG_COLOR_CLASS added as parallel map alongside existing GRAMMAR_COLOR_CLASS — legacy text-grammar-* map preserved for VocabularySection/VerseBlock/TokenSpan callers, new bg-[var(--color-grammar-*)] map serves Badge primitive's grammar variant
 - Plan 14-02: Badge grammar variant uses inline style with color-mix instead of arbitrary class — Tailwind v4 has no color-mix utility syntax, so 12%/25% alpha tints are expressed inline; token name still grep-discoverable via style string
 - Phase 14-03: setThemePreference + getThemePreference server actions write DB + kb_theme cookie atomically; SSR cookie read in RootLayout + zero-flash inline script; T-14-03-01 mitigated (literal-string only, regex-constrained)
+- Plan 14-04: URL-encoded folder name (%5F%5Fdev) workaround for Next.js underscore-private routing
+- Plan 14-04: /dashboard route deleted unconditionally; -1410 lines, -18 token violations (planner WARNING 1 closed)
+- Plan 14-04: a11y nightly gate via RUN_A11Y env + cross-env npm script (planner WARNING 3 closed; no --ignore-pattern flag)
 
 ### Pending Todos
 
@@ -434,8 +438,8 @@ Progress: [████████░░] 84%
 
 ## Session Continuity
 
-Last session: 2026-05-02T07:28:09.671Z
-Stopped at: Completed 14-03-PLAN.md
+Last session: 2026-05-02T07:48:05.255Z
+Stopped at: Completed 14-04-PLAN.md
 Resume file: None
 
 **Planned Phase:** 11.6 (beginner-focused-practice-redesign) — 11 plans — 2026-05-01T22:35:53.218Z
