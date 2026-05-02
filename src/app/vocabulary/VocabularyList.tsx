@@ -6,10 +6,17 @@
  * from 'lapsed and relearning' (state=3). This component therefore reads `state`
  * directly and does NOT use `tierFor()`. Do not replace with `tierFor()` — that
  * would silently merge two sections the user explicitly sees.
+ *
+ * Phase 11.6 Plan 11: Each word now shows two mastery badges — one for romaji_meaning
+ * (the foundational track, always visible) and one for kanji_kana (only shown when
+ * the word's dictionary_form contains at least one kanji codepoint). Tier grouping
+ * uses romaji_state (the foundational track per SPEC R18). The `state` field on
+ * DashboardRow is a backward-compat alias for romaji_state.
  */
 
 import type { DashboardRow } from "@/lib/db/queries";
 import { localize } from "@/lib/types/lesson";
+import { hasKanji } from "@/lib/exercises/kanji";
 import SeenInExpander from "./SeenInExpander";
 
 interface Props {
@@ -28,20 +35,65 @@ function getMeaning(meaning: unknown): string {
   );
 }
 
+// ---------------------------------------------------------------------------
+// MasteryBadge — a color-coded pill showing a card_kind label + state text.
+//
+// Phase 14 Plan 14-09 (D-PRE-10 chrome cleanup): all palette utilities -> token
+// vars. Card surface uses --color-card; rests of the type ramp uses
+// --color-text/--color-text-muted/--color-text-dim per SPEC §A.2 hierarchy.
+// Pills use --color-card-2 fill, matching the catalog tile recipe from Plan 14-06.
+// ---------------------------------------------------------------------------
+
+interface MasteryBadgeProps {
+  state: 0 | 1 | 2 | 3 | null;
+  label: string;
+  testId: string;
+}
+
+function stateText(state: 0 | 1 | 2 | 3 | null): string {
+  if (state === null) return "—";
+  if (state === 0) return "New";
+  if (state === 1) return "Learn";
+  if (state === 2) return "Review";
+  return "Relearn";
+}
+
+function stateColor(state: 0 | 1 | 2 | 3 | null): string {
+  if (state === null) return "bg-[var(--color-card-2)] text-[var(--color-text-dim)]";
+  if (state === 0) return "bg-blue-700/20 text-blue-300";
+  if (state === 1) return "bg-yellow-700/20 text-yellow-300";
+  if (state === 2) return "bg-emerald-700/20 text-emerald-300";
+  return "bg-rose-700/20 text-rose-300";
+}
+
+function MasteryBadge({ state, label, testId }: MasteryBadgeProps) {
+  return (
+    <span
+      data-testid={testId}
+      className={`inline-flex items-center gap-1 rounded-[var(--radius-pill)] px-2 py-0.5 text-xs ${stateColor(state)}`}
+    >
+      <span className="text-[10px] uppercase opacity-60">{label}</span>
+      {stateText(state)}
+    </span>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// VocabRow
+// ---------------------------------------------------------------------------
+
 interface VocabRowProps {
   row: DashboardRow;
 }
 
-// Phase 14 Plan 14-09 (D-PRE-10 chrome cleanup): all palette utilities -> token
-// vars. Card surface uses --color-card; rests of the type ramp uses
-// --color-text/--color-text-muted/--color-text-dim per SPEC §A.2 hierarchy.
-// Pills (POS + JLPT) use --color-card-2 fill, matching the catalog tile recipe
-// from Plan 14-06. The card-fill alpha (`/50` opacity modifier) is replaced
-// with a flat --color-card so the row reads against both light + dark themes
-// equivalently — the alpha was a dark-only effect that didn't translate.
 function VocabRow({ row }: VocabRowProps) {
+  const showKanjiIndicator = hasKanji(row.dictionary_form);
+
   return (
-    <div className="flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3">
+    <div
+      data-testid={`vocab-row-${row.vocab_item_id}`}
+      className="flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3"
+    >
       {/* Left: word identity */}
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
@@ -69,10 +121,25 @@ function VocabRow({ row }: VocabRowProps) {
           )}
         </div>
       </div>
-      {/* Right: review metadata + seen-in */}
-      <div className="flex shrink-0 flex-col items-end gap-1 text-right">
+      {/* Right: mastery badges + review metadata + seen-in */}
+      <div className="flex shrink-0 flex-col items-end gap-1.5 text-right">
+        {/* Dual mastery indicators (Phase 11.6 Plan 11) */}
+        <div className="flex flex-wrap justify-end gap-1">
+          <MasteryBadge
+            state={row.romaji_state}
+            label="romaji"
+            testId={`mastery-romaji-${row.vocab_item_id}`}
+          />
+          {showKanjiIndicator && (
+            <MasteryBadge
+              state={row.kanji_state}
+              label="kanji"
+              testId={`mastery-kanji-${row.vocab_item_id}`}
+            />
+          )}
+        </div>
         <span className="text-xs text-[var(--color-text-dim)]">
-          Due {formatDue(row.due)}
+          Due {formatDue(row.romaji_due)}
         </span>
         <SeenInExpander
           vocabItemId={row.vocab_item_id}
@@ -82,6 +149,10 @@ function VocabRow({ row }: VocabRowProps) {
     </div>
   );
 }
+
+// ---------------------------------------------------------------------------
+// Bucket
+// ---------------------------------------------------------------------------
 
 interface BucketProps {
   title: string;
@@ -107,6 +178,10 @@ function Bucket({ title, rows }: BucketProps) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// VocabularyList
+// ---------------------------------------------------------------------------
+
 export default function VocabularyList({ rows }: Props) {
   if (rows.length === 0) {
     return (
@@ -120,10 +195,11 @@ export default function VocabularyList({ rows }: Props) {
   }
 
   // Phase-local 3-bucket split (LOCKED — Path B):
-  //   Mastered → state === 2  (FSRS Review)
-  //   Known    → state === 3  (FSRS Relearning — previously mastered, now lapsed)
-  //   Learning → state === 1  (FSRS Learning — first-pass)
-  // state === 0 (New) is excluded by getVocabularyDashboard's WHERE state IN (1,2,3).
+  //   Mastered → romaji_state === 2  (FSRS Review)
+  //   Known    → romaji_state === 3  (FSRS Relearning — previously mastered, now lapsed)
+  //   Learning → romaji_state === 1  (FSRS Learning — first-pass)
+  // romaji_state === 0 (New) is excluded by getVocabularyDashboard's WHERE romaji_state IN (1,2,3).
+  // Tier grouping uses romaji_meaning state per SPEC R18 (the `state` alias equals romaji_state).
   const mastered = rows.filter((r) => r.state === 2);
   const known = rows.filter((r) => r.state === 3);
   const learning = rows.filter((r) => r.state === 1);
