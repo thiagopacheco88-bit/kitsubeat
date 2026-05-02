@@ -40,9 +40,22 @@ export const TIER_REVIEW: Tier = 3;
  *
  * Defensive: any unknown state value returns TIER_NEW (1).
  *
- * @param state  The `state` column value from user_vocab_mastery (0|1|2|3)
+ * Phase 11.6 SPEC-REQ-2: When `trackKind` is "vocab" or "grammar", returns
+ * TIER_NEW regardless of FSRS state — bypasses tier-based reveal entirely so
+ * romaji is always the emphasized teaching signal on these tracks.
+ * Kanji track and /review caller behavior is unchanged (omit trackKind or pass
+ * "kanji" / "advanced_drills").
+ *
+ * @param state      The `state` column value from user_vocab_mastery (0|1|2|3)
+ * @param trackKind  Phase 11.6: optional track kind; "vocab" | "grammar" → bypass tier reveal
  */
-export function tierFor(state: number): Tier {
+export function tierFor(state: number, trackKind?: string): Tier {
+  // Phase 11.6 SPEC R2: Vocab + Grammar tracks teach romaji, not furigana.
+  // Return TIER_NEW so kanji + furigana + romaji are all shown regardless of FSRS state.
+  if (trackKind === "vocab" || trackKind === "grammar") {
+    return TIER_NEW;
+  }
+
   switch (state) {
     case 0: return TIER_NEW;      // New
     case 1: return TIER_LEARNING; // Learning

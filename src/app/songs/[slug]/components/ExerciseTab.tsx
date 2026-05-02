@@ -2,19 +2,14 @@
 
 import { useEffect, useState } from "react";
 import type { Lesson, VocabEntry } from "@/lib/types/lesson";
-import type { ExerciseType } from "@/lib/exercises/generator";
+import type { TrackKind, LengthMode } from "@/lib/exercises/generator";
 import { buildQuestions } from "@/lib/exercises/generator";
 import {
   useExerciseSession,
   isSessionForSong,
 } from "@/stores/exerciseSession";
 import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
-import { getAdvancedDrillAccess } from "@/app/actions/exercises";
-import { areAllGrammarRulesMasteredForSong } from "@/app/actions/grammarSession";
 import ExerciseSession from "./ExerciseSession";
-import AdvancedDrillsUpsellModal from "./AdvancedDrillsUpsellModal";
-import GrammarSessionRunner from "./GrammarSessionRunner";
-import { Button } from "@/components/ui/Button";
 
 interface ExerciseTabProps {
   lesson: Lesson;
@@ -22,39 +17,98 @@ interface ExerciseTabProps {
   songSlug: string;
   // TODO: replace with Clerk userId from auth()
   userId: string;
+  /**
+   * Phase 11.6 SPEC-REQ-16: computed at SSR via hasKanji(). When false, the
+   * Kanji track card is hidden (all-kana song). Defaults to true if not provided
+   * (backwards-compatible — shows Kanji card for songs that pre-date this prop).
+   */
+  hasKanjiBearingVocab?: boolean;
 }
 
-type TabState = "config" | "session" | "grammar_session";
-type Mode = "short" | "full" | "grammar" | "advanced_drills";
+type TabState = "config" | "session";
 
-/**
- * Phase 13 — Quick / Full Practice emit ONLY vocabulary exercises. Grammar
- * Conjugation, Listening Drill, and Sentence Order are advanced drills and
- * must not appear in the vocab-only path.
- */
-const VOCAB_ONLY_TYPES: ExerciseType[] = [
-  "vocab_meaning",
-  "meaning_vocab",
-  "reading_match",
-  "fill_lyric",
-];
+// ---------------------------------------------------------------------------
+// TrackCard — single mode card with Short/Long toggle
+// ---------------------------------------------------------------------------
 
-/**
- * Advanced Drills mode emits ONLY the quota-gated advanced exercise types.
- * Passed as a typeFilter to buildQuestions — the generator's per-vocab and
- * per-verse / per-grammar-point loops honor the allowlist.
- */
-const ADVANCED_DRILL_TYPES: ExerciseType[] = [
-  "grammar_conjugation",
-  "listening_drill",
-  "sentence_order",
-];
+interface TrackCardProps {
+  title: string;
+  trackKind: TrackKind;
+  description: string;
+  lengthMode: LengthMode;
+  onLengthChange: (mode: LengthMode) => void;
+  onStart: () => void;
+  loading: boolean;
+}
+
+function TrackCard({
+  title,
+  description,
+  lengthMode,
+  onLengthChange,
+  onStart,
+  loading,
+}: TrackCardProps) {
+  return (
+    <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-5">
+      <div>
+        <h3 className="font-semibold text-[var(--color-text)]">{title}</h3>
+        <p className="mt-1 text-sm text-[var(--color-text-dim)]">{description}</p>
+      </div>
+
+      {/* Short / Long length toggle */}
+      <div
+        className="flex gap-2"
+        role="radiogroup"
+        aria-label="Session length"
+      >
+        <button
+          role="radio"
+          aria-checked={lengthMode === "short"}
+          onClick={() => onLengthChange("short")}
+          className={`px-3 py-1 text-xs rounded transition-colors ${
+            lengthMode === "short"
+              ? "bg-[var(--color-accent)] text-white"
+              : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-border)]"
+          }`}
+        >
+          Short (10)
+        </button>
+        <button
+          role="radio"
+          aria-checked={lengthMode === "long"}
+          onClick={() => onLengthChange("long")}
+          className={`px-3 py-1 text-xs rounded transition-colors ${
+            lengthMode === "long"
+              ? "bg-[var(--color-accent)] text-white"
+              : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-border)]"
+          }`}
+        >
+          Long (25)
+        </button>
+      </div>
+
+      <button
+        onClick={onStart}
+        disabled={loading}
+        className="mt-auto rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--color-accent-hover)] disabled:opacity-50"
+      >
+        {loading ? "Loading..." : "Start"}
+      </button>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// ExerciseTab
+// ---------------------------------------------------------------------------
 
 export default function ExerciseTab({
   lesson,
   songVersionId,
   songSlug,
   userId,
+  hasKanjiBearingVocab = true,
 }: ExerciseTabProps) {
   const store = useExerciseSession();
   const { _hasHydrated, startSession, clearSession } = store;
@@ -64,19 +118,13 @@ export default function ExerciseTab({
   const [error, setError] = useState<string | null>(null);
   const [skipLearning, setSkipLearning] = useState(false);
 
-  // Phase 10 Plan 06 — tab-open upsell state. Holds the family whose quota was
-  // exhausted at Advanced Drills click time; null = no modal. The gate check
-  // runs as part of handleStart("advanced_drills") and never throws — it
-  // either allows through or sets this state.
-  const [upsell, setUpsell] = useState<{
-    family: "listening" | "advanced_drill";
-    quotaUsed: number;
-    quotaLimit: number;
-  } | null>(null);
+  // Per-track length preferences (independent within the session)
+  const [vocabLength, setVocabLength] = useState<LengthMode>("short");
+  const [grammarLength, setGrammarLength] = useState<LengthMode>("short");
+  const [kanjiLength, setKanjiLength] = useState<LengthMode>("short");
+  const [advancedLength] = useState<LengthMode>("long");
 
   // --- Resume path: re-fetch prefs so skipLearning is accurate for the remaining questions.
-  // Do NOT re-fetch the effective cap — the filtering decision was already baked
-  // into the persisted questions array.
   const hasActiveSession = isSessionForSong(store, songVersionId);
   useEffect(() => {
     if (!_hasHydrated) return;
@@ -138,84 +186,25 @@ export default function ExerciseTab({
     return sessionView;
   }
 
-  if (tabState === "grammar_session") {
-    return (
-      <GrammarSessionRunner
-        userId={userId}
-        songVersionId={songVersionId}
-        songSlug={songSlug}
-        onExit={() => setTabState("config")}
-      />
-    );
-  }
+  // ---------------------------------------------------------------------------
+  // Config screen
+  // ---------------------------------------------------------------------------
 
-  // --- Config screen ---
-  const vocabCount = lesson.vocabulary.filter((v) => v.vocab_item_id).length;
-  const shortCount = Math.min(10, vocabCount * 4);
-  const fullCount = Math.min(40, vocabCount * 4);
-  const songHasGrammar = (lesson.grammar_points?.length ?? 0) > 0;
-
-  const handleStart = async (mode: Mode) => {
+  /**
+   * handleStart — common entry point for all four tracks.
+   *
+   * Vocab/Grammar tracks use the Phase 11.6 pool-based buildQuestions overload
+   * (BuildQuestionsPoolInput) with trackKind + lengthMode. Advanced Drills uses
+   * the same overload with trackKind="advanced_drills".
+   *
+   * The legacy per-quota Advanced Drills gate (getAdvancedDrillAccess) is REMOVED
+   * for this plan — Plan 11.6-07 will wire the 80%-per-track unlock gate instead.
+   */
+  const handleStart = async (trackKind: TrackKind, lengthMode: LengthMode) => {
     setLoading(true);
     setError(null);
-    setUpsell(null);
 
     try {
-      // Grammar Session has a wholly different question flow (no per-vocab
-      // generator, on-demand AI bank). It delegates to GrammarSessionRunner
-      // which handles its own loading state and save path — we just switch
-      // tab state and return early.
-      if (mode === "grammar") {
-        if (!songHasGrammar) {
-          setError("This song has no grammar points to practice.");
-          setLoading(false);
-          return;
-        }
-        setTabState("grammar_session");
-        setLoading(false);
-        return;
-      }
-
-      // Phase 10 Plan 06 — Advanced Drills mode requires the tab-open gate check
-      // BEFORE any question generation. If either quota family is exhausted the
-      // corresponding upsell modal renders and we bail without starting the
-      // session.
-      //
-      // UI invariant: ExerciseTab NEVER imports EXERCISE_FEATURE_FLAGS or
-      // checkExerciseAccess directly. All gate decisions flow through the
-      // getAdvancedDrillAccess server action (thin wrapper in
-      // src/app/actions/exercises.ts) — preserves the Phase 08.1-07 single-gate
-      // regression contract.
-      if (mode === "advanced_drills") {
-        const access = await getAdvancedDrillAccess(userId, songVersionId);
-        // Listening Drill is non-negotiable for Star 3 — if its family is
-        // exhausted, show that upsell first (10-song cap is the more generous
-        // of the two, so hitting it is the rarer event).
-        if (!access.listeningAllowed) {
-          setUpsell({
-            family: "listening",
-            quotaUsed: access.listeningQuotaLimit,
-            quotaLimit: access.listeningQuotaLimit,
-          });
-          setLoading(false);
-          return;
-        }
-        if (!access.advancedAllowed) {
-          setUpsell({
-            family: "advanced_drill",
-            quotaUsed: access.advancedQuotaLimit,
-            quotaLimit: access.advancedQuotaLimit,
-          });
-          setLoading(false);
-          return;
-        }
-        // Both gates open → fall through to buildQuestions with Advanced
-        // Drills filter.
-      }
-
-      // Fetch user prefs, effective cap, and JLPT distractor pool in parallel.
-      // getEffectiveCap is the authoritative cap value — free users always get
-      // DEFAULT_NEW_CARD_CAP regardless of what's stored on users.new_card_cap.
       const [prefs, effectiveCap, jlptPool] = await Promise.all([
         getUserPrefs(userId),
         getEffectiveCap(userId),
@@ -226,7 +215,6 @@ export default function ExerciseTab({
           );
           if (!res.ok) return [];
           const data = await res.json();
-          // Map API response to VocabEntry shape (partial — used only for distractors)
           return (
             data as Array<{
               id: string;
@@ -247,20 +235,15 @@ export default function ExerciseTab({
                 ? { en: item.meaning }
                 : item.meaning,
             vocab_item_id: item.id,
-            // Required fields with fallback defaults for distractor-only use
             example_from_song: "",
             additional_examples: [],
           }));
         })(),
       ]);
 
-      // Remember skipLearning for the session view (controls learn-card rendering).
       setSkipLearning(prefs.skipLearning);
 
-      // Pre-fetch FSRS tiers + states for ALL lesson vocab_item_ids before we
-      // filter. We need states to know which words are new (0) vs review (1/2)
-      // vs relearning (3). The cap filter excludes new+relearning beyond cap;
-      // review/learning words always pass through untouched.
+      // Fetch FSRS tiers + states for all vocab_item_ids before capping
       const allVocabIds = lesson.vocabulary
         .map((v) => v.vocab_item_id)
         .filter((id): id is string => !!id);
@@ -269,7 +252,6 @@ export default function ExerciseTab({
       let stateMap: Record<string, 0 | 1 | 2 | 3> = {};
 
       if (allVocabIds.length > 0) {
-        // Chunk to 200 IDs per batch (API limit). Most songs fit in one call.
         for (let i = 0; i < allVocabIds.length; i += 200) {
           const chunk = allVocabIds.slice(i, i + 200);
           const res = await fetch(
@@ -286,14 +268,7 @@ export default function ExerciseTab({
         }
       }
 
-      // Apply per-session cap: keep only the first `effectiveCap` new/relearning
-      // vocab. Review + learning words always pass through. Words excluded here
-      // never enter the session at all — they're deferred to the next session.
-      //
-      // Order: preserve the lesson's vocabulary order — the first N new/relearning
-      // words in document order are kept. Random shuffling happens later in
-      // buildQuestions(). This is predictable for users and doesn't require an
-      // extra server-side ordering contract.
+      // Apply per-session cap (same cap logic as legacy path)
       const newAndRelearningIds: string[] = [];
       for (const v of lesson.vocabulary) {
         const id = v.vocab_item_id;
@@ -301,70 +276,36 @@ export default function ExerciseTab({
         const state = stateMap[id] ?? 0;
         if (state === 0 || state === 3) newAndRelearningIds.push(id);
       }
-      const allowedNewIds = new Set(
-        newAndRelearningIds.slice(0, effectiveCap)
-      );
+      const allowedNewIds = new Set(newAndRelearningIds.slice(0, effectiveCap));
 
       const filteredVocab = lesson.vocabulary.filter((v) => {
-        if (!v.vocab_item_id) return false; // no id => can't track mastery, exclude (matches existing vocabCount calc)
+        if (!v.vocab_item_id) return false;
         const state = stateMap[v.vocab_item_id] ?? 0;
-        if (state === 0 || state === 3) {
-          return allowedNewIds.has(v.vocab_item_id);
-        }
-        return true; // learning (1) + review (2) always pass through
+        if (state === 0 || state === 3) return allowedNewIds.has(v.vocab_item_id);
+        return true;
       });
 
-      // Build questions from the capped vocab.
-      //
-      // Phase 13: Quick / Full use VOCAB_ONLY_TYPES so grammar / listening /
-      // sentence-order never leak into the vocab session. Advanced Drills
-      // stays on ADVANCED_DRILL_TYPES.
-      const typeFilter =
-        mode === "advanced_drills" ? ADVANCED_DRILL_TYPES : VOCAB_ONLY_TYPES;
-      const engineMode: "short" | "full" =
-        mode === "advanced_drills" ? "full" : mode;
-
-      // Phase 13 Ex 7 gate — only computed for advanced_drills mode. Requires:
-      //   (a) all grammar rules on this song at mastery level "advanced" + state=2
-      //   (b) set of vocab_item_ids at FSRS state=2 (mastered) — derived from
-      //       the stateMap we already have in scope.
-      let sentenceOrderGate: Parameters<typeof buildQuestions>[4] | undefined;
-      if (mode === "advanced_drills") {
-        const allGrammarMastered = songHasGrammar
-          ? await areAllGrammarRulesMasteredForSong(userId, songVersionId)
-          : true;
-        const masteredVocabIds = new Set<string>();
-        for (const [id, st] of Object.entries(stateMap)) {
-          if (st === 2) masteredVocabIds.add(id);
-        }
-        sentenceOrderGate = {
-          allGrammarMastered,
-          masteredVocabIds,
-        };
-      }
-
-      const questions = buildQuestions(
-        { ...lesson, vocabulary: filteredVocab },
-        engineMode,
+      // Phase 11.6 Plan 04: pool-based buildQuestions with trackKind + lengthMode
+      const questions = buildQuestions({
+        vocab: filteredVocab,
+        verses: lesson.verses,
+        grammarPoints: lesson.grammar_points,
         jlptPool,
-        typeFilter,
-        sentenceOrderGate
-      );
+        trackKind,
+        lengthMode,
+      });
 
       if (questions.length === 0) {
         setError(
-          mode === "advanced_drills"
-            ? "No Advanced Drill questions can be generated for this song yet (needs timed verses and structured grammar points)."
-            : "Not enough vocabulary in this song to build questions yet. Try skipping the new-word cap from your profile."
+          "Not enough questions can be generated for this track yet. Try a different track or check back later."
         );
         setLoading(false);
         return;
       }
 
-      // Start session, then populate tiers + states.
-      // startSession FIRST (resets tiers/states slices), then setTiers/setVocabStates
-      // so the freshly-fetched data survives the reset.
-      startSession(songVersionId, questions, engineMode);
+      // Phase 11.6: use "short" session mode for the legacy startSession signature.
+      // The actual cap is controlled by lengthMode in buildQuestions above.
+      startSession(songVersionId, questions, "short");
       store.setTiers(tierMap);
       store.setVocabStates(stateMap);
 
@@ -387,196 +328,75 @@ export default function ExerciseTab({
         </p>
       )}
 
+      {/* Phase 11.6 SPEC-REQ-1: Four-track grid */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {/* Quick Practice mode */}
-        <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-5">
-          <div>
-            <h3 className="font-semibold text-[var(--color-text)]">Quick Practice</h3>
-            <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-              {shortCount} questions &middot; ~2 min
-            </p>
-          </div>
-          <p className="text-sm text-[var(--color-text-dim)]">
-            A focused burst — perfect for a quick vocab refresh.
-          </p>
-          <Button
-            variant="primary"
-            size="md"
-            onClick={() => handleStart("short")}
-            disabled={loading}
-            className="mt-auto"
-          >
-            {loading ? "Loading..." : "Start"}
-          </Button>
-        </div>
+        {/* Vocabulary track — romaji-emphasized, tier bypass active */}
+        <TrackCard
+          title="Vocabulary"
+          trackKind="vocab"
+          description="Romaji + meaning recognition · romaji is the teaching signal"
+          lengthMode={vocabLength}
+          onLengthChange={setVocabLength}
+          onStart={() => handleStart("vocab", vocabLength)}
+          loading={loading}
+        />
 
-        {/* Full Lesson mode */}
-        <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-5">
-          <div>
-            <h3 className="font-semibold text-[var(--color-text)]">Full Lesson</h3>
-            <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-              {fullCount} questions &middot; ~5–8 min
-            </p>
-          </div>
-          <p className="text-sm text-[var(--color-text-dim)]">
-            All vocab across all 4 exercise types — the complete workout.
-          </p>
-          <Button
-            variant="secondary"
-            size="md"
-            onClick={() => handleStart("full")}
-            disabled={loading}
-            className="mt-auto"
-          >
-            {loading ? "Loading..." : "Start"}
-          </Button>
-        </div>
+        {/* Grammar track — conjugation drills, romaji-emphasized */}
+        <TrackCard
+          title="Grammar"
+          trackKind="grammar"
+          description="Conjugation drills · romaji + meaning guided"
+          lengthMode={grammarLength}
+          onLengthChange={setGrammarLength}
+          onStart={() => handleStart("grammar", grammarLength)}
+          loading={loading}
+        />
 
-        {/*
-         * Phase 13 — Grammar Session card.
-         *
-         * Hidden when the song has zero grammar points. Delegates entirely to
-         * GrammarSessionRunner on click; no buildQuestions path.
-         */}
-        {songHasGrammar && (
-          <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
-            <div>
-              <h3 className="font-semibold text-[var(--color-text)]">Grammar Session</h3>
-              <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-                Per-rule drills · beginner → intermediate → advanced
-              </p>
-            </div>
-            <p className="text-sm text-[var(--color-text-dim)]">
-              Master each grammar point with level-adaptive drills. Unlocks the 3rd
-              star when the song has grammar.
-            </p>
-            <Button
-              variant="secondary"
-              size="md"
-              onClick={() => handleStart("grammar")}
-              disabled={loading}
-              data-testid="grammar-session-start"
-              className="mt-auto"
-            >
-              {loading ? "Loading..." : "Start"}
-            </Button>
-          </div>
+        {/* Kanji track — conditional on song having kanji-bearing vocab (SPEC-REQ-16) */}
+        {hasKanjiBearingVocab && (
+          <TrackCard
+            title="Kanji"
+            trackKind="kanji"
+            description="Read kanji aloud — type the romaji reading"
+            lengthMode={kanjiLength}
+            onLengthChange={setKanjiLength}
+            onStart={() => handleStart("kanji", kanjiLength)}
+            loading={loading}
+          />
         )}
+      </div>
 
-        {/*
-         * Phase 10 Plan 06 — Advanced Drills mode card.
-         *
-         * Always rendered (CONTEXT-locked). The gate decides whether the session
-         * starts: click → getAdvancedDrillAccess server action → upsell modal
-         * on quota exhaustion OR full session otherwise.
-         */}
-        <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
-          <div>
-            <h3 className="font-semibold text-[var(--color-text)]">Advanced Drills</h3>
-            <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-              Grammar · Listening · Sentence Order
-            </p>
-          </div>
-          <p className="text-sm text-[var(--color-text-dim)]">
-            The 3-star workout — conjugation, listening, and sentence-reordering
-            questions.
+      {/* Three-ring slot — Plan 11.6-07 implements TrackProgressRings here */}
+      {/* <TrackProgressRings vocab={...} grammar={...} kanji={...} /> */}
+
+      {/* Advanced Drills card — Plan 11.6-07 wires 80%-per-track unlock gate */}
+      <div className="mt-4 flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
+        <div>
+          <h3 className="font-semibold text-[var(--color-text)]">Advanced Drills</h3>
+          <p className="mt-1 text-sm text-[var(--color-text-dim)]">
+            Mixed-track session — unlocked at 80% progress per track.
           </p>
-          <Button
-            variant="secondary"
-            size="md"
-            onClick={() => handleStart("advanced_drills")}
-            disabled={loading}
-            data-testid="advanced-drills-start"
-            className="mt-auto"
-          >
-            {loading ? "Loading..." : "Start"}
-          </Button>
         </div>
+        <p className="text-sm text-[var(--color-text-dim)]">
+          Grammar · Listening · Sentence Order — the 3-star workout.
+        </p>
+        <button
+          onClick={() => handleStart("advanced_drills", advancedLength)}
+          disabled={loading}
+          className="mt-auto rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--color-accent-hover)] disabled:opacity-50"
+          data-testid="advanced-drills-start"
+        >
+          {loading ? "Loading..." : "Start"}
+        </button>
       </div>
 
       <p className="mt-4 text-xs text-[var(--color-text-dim)]">
-        {vocabCount} vocabulary {vocabCount === 1 ? "item" : "items"} available
-        in this lesson.
+        {lesson.vocabulary.filter((v) => v.vocab_item_id).length} vocabulary{" "}
+        {lesson.vocabulary.filter((v) => v.vocab_item_id).length === 1
+          ? "item"
+          : "items"}{" "}
+        available in this lesson.
       </p>
-
-      {/* Star criteria — guides learner to next achievement */}
-      <div className="mt-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)]/50 p-4">
-        <h3 className="mb-3 text-sm font-semibold text-[var(--color-text)]">
-          Star Mastery Criteria
-        </h3>
-        <ul className="flex flex-col gap-2 text-sm text-[var(--color-text-muted)]">
-          <li className="flex items-start gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>
-              <span className="text-[var(--color-text)] font-medium">Star 1:</span> Score 80%+
-              on vocabulary exercises (meaning, reading, recognition)
-            </span>
-          </li>
-          <li className="flex items-start gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>
-              <span className="text-[var(--color-text)] font-medium">Star 2:</span> Score 80%+
-              on Fill-the-Lyric exercises
-            </span>
-          </li>
-          <li className="flex items-start gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span>
-              <span className="text-[var(--color-text)] font-medium">Star 3:</span> Score 80%+
-              {songHasGrammar
-                ? " on the Grammar Session"
-                : " on Listening Drill exercises"}
-            </span>
-          </li>
-        </ul>
-      </div>
-
-      {upsell && (
-        <AdvancedDrillsUpsellModal
-          family={upsell.family}
-          quotaUsed={upsell.quotaUsed}
-          quotaLimit={upsell.quotaLimit}
-          onClose={() => setUpsell(null)}
-          onUpgrade={() => {
-            // Upgrade link routes to /profile via Next/Link — nothing else to
-            // do here; the modal dismisses itself as the page navigates.
-            setUpsell(null);
-          }}
-        />
-      )}
     </div>
   );
 }

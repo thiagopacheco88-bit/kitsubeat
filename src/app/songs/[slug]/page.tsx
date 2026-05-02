@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getSongBySlug, getVocabularyEnrichmentForSong } from "@/lib/db/queries";
 import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
+import { hasKanji } from "@/lib/exercises/kanji";
 import SongContent from "./components/SongContent";
 
 export async function generateMetadata({
@@ -90,6 +91,15 @@ export default async function SongPlayerPage({
           };
         }),
       };
+
+      // Phase 11.6 SPEC-REQ-16: Compute whether this song version has any
+      // kanji-bearing vocabulary at SSR time (RESEARCH Pitfall 7 — must NOT run
+      // on every client render). Used by ExerciseTab to conditionally render the
+      // Kanji track card.
+      const hasKanjiBearingVocab = enrichedLesson.vocabulary.some(
+        (entry) => hasKanji(entry.surface)
+      );
+
       return {
         id: v.id,
         type: v.version_type as "tv" | "full",
@@ -97,6 +107,7 @@ export default async function SongPlayerPage({
         lesson: enrichedLesson,
         synced_lrc: v.synced_lrc as { startMs: number; text: string }[] | null,
         lyrics_offset_ms: v.lyrics_offset_ms,
+        hasKanjiBearingVocab,
       };
     });
 
