@@ -232,7 +232,12 @@ export async function getAllSongs(userId?: string | null) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.language} = 'ja'`)
+    ) AND ${songs.language} = 'ja'
+    AND ${songs.quality_status} = 'active'
+    AND EXISTS (
+      SELECT 1 FROM song_versions sv
+      WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
+    )`)
     .orderBy(asc(songs.popularity_rank));
 }
 
@@ -266,7 +271,12 @@ export async function getFeaturedSongs(limit: number = 6) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.language} = 'ja'`)
+    ) AND ${songs.language} = 'ja'
+    AND ${songs.quality_status} = 'active'
+    AND EXISTS (
+      SELECT 1 FROM song_versions sv
+      WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
+    )`)
     .orderBy(asc(songs.popularity_rank))
     .limit(limit);
 }
@@ -315,7 +325,12 @@ export async function getTopAnimeFranchises(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.language} = 'ja'`)
+    ) AND ${songs.language} = 'ja'
+    AND ${songs.quality_status} = 'active'
+    AND EXISTS (
+      SELECT 1 FROM song_versions sv
+      WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
+    )`)
     .groupBy(sql`regexp_replace(
       ${songs.anime},
       '( Season\\s.*| Final Season.*|:\\s.*|\\sII$|\\sIII$|\\sIV$| the Movie.*| Alternative.*| Extra.*)',
@@ -346,7 +361,12 @@ export async function getTopArtists(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.language} = 'ja'`)
+    ) AND ${songs.language} = 'ja'
+    AND ${songs.quality_status} = 'active'
+    AND EXISTS (
+      SELECT 1 FROM song_versions sv
+      WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
+    )`)
     .groupBy(songs.artist)
     .orderBy(sql`count(*) desc`)
     .limit(limit);
@@ -408,7 +428,12 @@ export async function getBeginnerSongs(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.jlpt_level} IN ('N5', 'N4') AND ${songs.language} = 'ja'`)
+    ) AND ${songs.jlpt_level} IN ('N5', 'N4') AND ${songs.language} = 'ja'
+    AND ${songs.quality_status} = 'active'
+    AND EXISTS (
+      SELECT 1 FROM song_versions sv
+      WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
+    )`)
     .orderBy(asc(songs.popularity_rank))
     .limit(limit);
 }
@@ -437,7 +462,12 @@ export async function getRecentSongs(limit: number = 10) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.language} = 'ja'`)
+    ) AND ${songs.language} = 'ja'
+    AND ${songs.quality_status} = 'active'
+    AND EXISTS (
+      SELECT 1 FROM song_versions sv
+      WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
+    )`)
     .orderBy(sql`${songs.created_at} desc`)
     .limit(limit);
 }
