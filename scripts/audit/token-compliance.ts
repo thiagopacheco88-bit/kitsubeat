@@ -46,6 +46,11 @@ const ALLOWLIST = [
   "src/components/ui/",
   "src/app/admin/",
   "src/app/__dev/",
+  // Phase 14 Plan 14-04: Next.js excludes underscore-prefixed folders from
+  // routing. To make /__dev/states reachable, the on-disk folder is
+  // %5F%5Fdev (URL-encoded underscores). Allowlist both forms so future
+  // contributors do not have to re-discover the workaround.
+  "src/app/%5F%5Fdev/",
   "src/app/error.tsx",
   "src/app/global-error.tsx",
   "src/app/globals.css",
