@@ -1,14 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
+import {
+  Modal,
+  ModalContent,
+  ModalTitle,
+  ModalDescription,
+} from "@/components/ui/Modal";
+import { Button } from "@/components/ui/Button";
 
 /**
  * Phase 10 Plan 06 — Advanced Drills tab-open upsell modal.
  *
- * Rendered when a free user taps the "Advanced Drills" mode card in ExerciseTab
- * and their per-family song quota is exhausted. The session does NOT start —
- * the modal is the ONLY visible UI until the user dismisses or upgrades.
+ * Phase 14 Plan 14-05 — migrated to consume the <Modal> primitive (Radix
+ * Dialog substrate). Radix handles ESC, focus trap, scroll lock, and the
+ * aria-modal/role="dialog" attributes; the per-family copy + props +
+ * onClose contract are unchanged.
  *
  * Quota families (locked — see feature-flags.ts QUOTA_LIMITS):
  *   - listening        → 10 songs per free user (drives Listening Drill / Ex 6)
@@ -18,9 +25,9 @@ import Link from "next/link";
  * assertions in tests/e2e/advanced-drill-quota.spec.ts in the same PR. This
  * brittleness is deliberate — copy is the user-facing contract for FREE-05.
  *
- * Closes on backdrop click, ESC key, and "Not now" button. Upgrade CTA links
- * to /profile (mirrors src/app/review/UpsellModal.tsx — no real upgrade flow
- * ships until v3).
+ * The data-testid="advanced-drills-upsell-modal" + data-family attributes
+ * are preserved on ModalContent so tests/e2e/advanced-drill-quota.spec.ts
+ * (Phase 10-06 regression guard) keeps finding the rendered modal.
  */
 interface Props {
   family: "listening" | "advanced_drill";
@@ -37,15 +44,6 @@ export default function AdvancedDrillsUpsellModal({
   onClose,
   onUpgrade,
 }: Props) {
-  // ESC closes. Registered once — cleanup on unmount.
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
-
   // Copy-as-contract: label and body change based on family, numbers bound to
   // props so future tuning of QUOTA_LIMITS doesn't require a copy edit.
   const familyLabel =
@@ -58,52 +56,47 @@ export default function AdvancedDrillsUpsellModal({
   const body = `Free users get ${quotaLimit} songs of ${bodyDrillName} practice. Upgrade to Premium for unlimited access.`;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="advanced-drills-upsell-heading"
-      onClick={onClose}
-      data-testid="advanced-drills-upsell-modal"
-      data-family={family}
+    <Modal
+      open
+      onOpenChange={(o) => {
+        if (!o) onClose();
+      }}
     >
-      <div
-        className="w-full max-w-md rounded-2xl border border-gray-700 bg-gray-900 p-7 text-center shadow-xl"
-        onClick={(e) => e.stopPropagation()}
+      <ModalContent
+        className="max-w-md text-center"
+        data-testid="advanced-drills-upsell-modal"
+        data-family={family}
       >
-        <h2
-          id="advanced-drills-upsell-heading"
-          className="text-xl font-semibold text-white"
-        >
-          {heading}
-        </h2>
-        <p className="mt-3 text-sm leading-relaxed text-gray-300">{body}</p>
+        <ModalTitle>{heading}</ModalTitle>
+        <ModalDescription>{body}</ModalDescription>
 
         {/* Quota indicator — shown for transparency ("10 of 10 used"). */}
         <p
-          className="mt-4 text-xs uppercase tracking-wider text-gray-500"
+          className="mt-4 text-xs uppercase tracking-wider text-[var(--color-text-dim)]"
           data-testid="upsell-quota-indicator"
         >
           {quotaUsed} of {quotaLimit} used
         </p>
 
         <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:gap-3">
-          <button
+          <Button
             type="button"
+            variant="secondary"
+            size="md"
             onClick={onClose}
-            className="flex-1 rounded-lg border border-gray-700 px-4 py-2 text-sm text-gray-300 hover:bg-gray-800"
+            className="flex-1"
           >
             Not now
-          </button>
+          </Button>
           <Link
             href="/profile"
             onClick={onUpgrade}
-            className="flex-1 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+            className="inline-flex h-11 min-h-11 flex-1 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold text-[var(--color-text)] shadow-[var(--shadow-button-red)] transition-colors hover:bg-[var(--color-accent)]/90"
           >
             Upgrade to Premium
           </Link>
         </div>
-      </div>
-    </div>
+      </ModalContent>
+    </Modal>
   );
 }

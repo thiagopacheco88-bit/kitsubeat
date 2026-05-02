@@ -24,7 +24,7 @@ export default function SongLayout({
       <div className="max-lg:shrink-0 lg:w-[55%] lg:shrink-0">{video}</div>
 
       <div className="max-lg:min-h-0 max-lg:flex-1 max-lg:overflow-y-auto lg:w-[45%] lg:max-h-[calc(100vh-10rem)] lg:overflow-y-auto lg:pr-2">
-        <h2 className="sticky top-0 z-10 mb-3 bg-gray-950 pb-2 text-lg font-semibold text-white">
+        <h2 className="sticky top-0 z-10 mb-3 bg-[var(--color-bg)] pb-2 text-lg font-semibold text-[var(--color-text)]">
           Lyrics
         </h2>
         {lyrics}
