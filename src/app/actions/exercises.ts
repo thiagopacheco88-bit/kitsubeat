@@ -885,13 +885,15 @@ export async function recordVocabAnswer(
       kanji: string | null;
     }>(sql`
       WITH song_vocab_items AS (
-        -- Extract all vocab items from the song's lesson JSONB vocabulary array
+        -- Extract all vocab items from the song's lesson JSONB vocabulary array.
+        -- Surface comes from the lesson JSONB directly (VocabEntry.surface) — no
+        -- JOIN to vocabulary_items needed (that table has dictionary_form, not
+        -- a "surface" column, and the lesson is the canonical surface source).
         SELECT
           (elem->>'vocab_item_id')::uuid AS vocab_item_id,
-          vi.surface
+          (elem->>'surface')::text       AS surface
         FROM song_versions sv,
           jsonb_array_elements(sv.lesson->'vocabulary') AS elem
-          JOIN vocabulary_items vi ON vi.id = (elem->>'vocab_item_id')::uuid
         WHERE sv.id = ${songVersionId}::uuid
           AND elem->>'vocab_item_id' IS NOT NULL
       ),
@@ -965,8 +967,8 @@ export async function recordVocabAnswer(
       INSERT INTO user_song_progress (user_id, song_version_id, vocab_track_pct, grammar_track_pct, kanji_track_pct, advanced_drills_unlocked_at)
       VALUES (
         ${userId}, ${songVersionId}::uuid,
-        ${vocabPct}, ${grammarPct}, ${kanjiPct},
-        CASE WHEN ${vocabPct} >= 80 AND ${grammarPct} >= 80 AND ${kanjiPct} >= 80 THEN NOW() ELSE NULL END
+        ${vocabPct}::numeric, ${grammarPct}::numeric, ${kanjiPct}::numeric,
+        CASE WHEN ${vocabPct}::numeric >= 80 AND ${grammarPct}::numeric >= 80 AND ${kanjiPct}::numeric >= 80 THEN NOW() ELSE NULL END
       )
       ON CONFLICT (user_id, song_version_id) DO UPDATE SET
         vocab_track_pct = EXCLUDED.vocab_track_pct,

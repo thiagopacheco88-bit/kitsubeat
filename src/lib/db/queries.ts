@@ -217,6 +217,29 @@ export async function getAllSongs(userId?: string | null) {
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
       )`,
+      // Phase 11.6 — average of the three per-track pcts (Vocab + Grammar + Kanji).
+      // Drives the song-card circular ring as a "real progress" signal in place
+      // of the legacy session-count completion_pct (which incremented +15/+30 per
+      // session and didn't reflect mastery).
+      //
+      // NULLs (track row absent / pct not yet computed) are treated as 0 via
+      // COALESCE — a brand-new song reads 0/0/0 = 0%. Returns text per Pitfall 6
+      // (neon-http boxes numeric as string).
+      avg_track_pct: sql<string | null>`(
+        SELECT ROUND(
+          (
+            COALESCE(p.vocab_track_pct, 0) +
+            COALESCE(p.grammar_track_pct, 0) +
+            COALESCE(p.kanji_track_pct, 0)
+          ) / 3.0,
+          0
+        )::text
+        FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
       // Learner count: distinct (user_id OR session_key) across all versions
       // of this song. COALESCE lets anonymous plays (user_id NULL) contribute
       // as distinct by session_key — each tab/mount counts once, matching the

@@ -95,8 +95,18 @@ export default function SongCard({ song }: SongCardProps) {
   const learnerCount = song.learner_count ?? 0;
   const showLearnerCount = learnerCount >= LEARNER_COUNT_MIN;
 
-  // Show progress only if the user has started (pct > 0 or stars > 0).
-  const showProgress = completionPct > 0 || stars > 0;
+  // Phase 11.6 — circular ring shows the average of the three per-track pcts
+  // (Vocab + Grammar + Kanji) instead of the legacy session-count completion_pct.
+  // Numeric column comes back as a string from neon-http (Pitfall 6).
+  const avgTrackPct =
+    song.avg_track_pct != null
+      ? parseFloat(song.avg_track_pct as unknown as string)
+      : 0;
+
+  // Show progress only if the user has started — track pcts > 0, legacy
+  // completion_pct > 0 (so existing users with session credit still see their
+  // ring during the migration), or stars earned.
+  const showProgress = avgTrackPct > 0 || completionPct > 0 || stars > 0;
   // Mastery decorations gate — never surface them when the user hasn't
   // started. stars === 3 implies ex1_2_3 / ex4 / ex6 all >= 0.8 (showProgress
   // is implied) but the explicit guard documents the CONTEXT-locked rule.
@@ -140,10 +150,12 @@ export default function SongCard({ song }: SongCardProps) {
               {opEd}
             </span>
           )}
-          {/* Circular progress ring — bottom-right overlay */}
+          {/* Circular progress ring — bottom-right overlay.
+              Phase 11.6: ring is now the average of the three per-track pcts
+              (Vocab + Grammar + Kanji), not the legacy session-count completion_pct. */}
           {showProgress && (
             <div className="absolute bottom-2 right-2">
-              <CircularProgress pct={completionPct} size={40} />
+              <CircularProgress pct={avgTrackPct} size={40} />
             </div>
           )}
         </div>
