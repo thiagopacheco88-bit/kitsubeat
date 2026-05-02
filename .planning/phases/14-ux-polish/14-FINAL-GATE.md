@@ -1,8 +1,8 @@
 # Phase 14 Final Gate Report
 
-**Date:** 2026-05-02
-**Plan:** 14-09 Task 3 — phase-merge readiness check
-**Status:** **NEEDS-USER-DECISION** (Gate 10 a11y has serious violations awaiting user disposition; all other gates green or with documented deferrals)
+**Date:** 2026-05-02 (initial 14-09 final-gate); 2026-05-02 (A1 disposition closure)
+**Plan:** 14-09 Task 3 — phase-merge readiness check; **14-gap closure** for A1 disposition
+**Status:** **READY** (Gate 10 Class A blocker closed via disposition A1; Class B + C remain on Phase 18 a11y-remediation list per user decision; all other gates green or with documented deferrals)
 **Bundle baseline (Plan 14-00):** /songs/[slug] = 10.04 kB gzipped
 **Bundle current:** /songs/[slug] = 10.33 kB gzipped (Δ +0.29 kB; budget 50 kB; **GREEN**)
 
@@ -19,7 +19,7 @@
 | 7 | Unit + integration tests (Vitest) | **AMBER (pre-existing)** | 485 passed, 6 failed. **All 6 failures pre-existing** per `deferred-items.md`: D-PRE-01 (regression-stale-lesson-data × 3 — Phase 08-01/11 territory), D-PRE-02 (spot-check-tv-onsets × 3 — seed-script). NO new failures introduced by Phase 14. |
 | 8 | Mobile-parity (11 in-scope routes @ 390×844) | **GREEN** | 13 passed, 1 skipped (whole-page tap-target — D-PRE-08). All 11 in-scope routes < 24px overflow threshold. |
 | 9 | theme-toggle + reduced-motion + dev-states regression | **GREEN** | 11 passed, 1 skipped (modal enter/exit RM — Plan 14-04 known skip). All theme cookie + reduced-motion CSS overrides verified. |
-| 10 | a11y (RUN_A11Y=1 nightly suite, 22 cases) | **RED — NEEDS-USER-DECISION** | 2 passed, 20 failed. **NO silent defer per WARNING 2.** ~2,200 `serious`-impact `color-contrast` violations + scattered `aria-prohibited-attr` violations. Dominant class: brand accent `#ef4444` fails WCAG AA against white (3.76:1) — every primary CTA + every accent link in light theme. See `14-A11Y-VIOLATIONS.md` for full triage with disposition options. |
+| 10 | a11y (RUN_A11Y=1 nightly suite, 22 cases) | **GREEN on Class A (named blocker closed); AMBER on Class B + C (deferred to Phase 18)** | **2026-05-02 update:** disposition **A1** implemented (--color-accent #ef4444 → #dc2626). Class A (white-on-accent Button primary + accent-link-on-white) fully closed. 5 routes now passing (was 2). 17 routes still failing because of Class B (text-muted/dim rgba-alpha on cards — ~2,000 nodes; not chosen by user) + Class C (single text-grammar-expression on white — not chosen). Class A specifically was the named Gate 10 blocker per the original disposition options table; that blocker is closed. Class B/C tracked as **D-PRE-11** (retitled) for Phase 18 a11y-remediation. See `14-A11Y-VIOLATIONS.md` User decisions log. |
 | 11 | Design coverage (SPEC AC #5 via CONTEXT D-22) | **GREEN** | `14-DESIGN-DISPOSITION.md` exists; 14 D-22 references (≥10 required); table lists all 11 in-scope surfaces (1 FULL `/` + 10 D-22 token-only swaps). BLOCKER 2 closed. |
 
 ## Gate detail

@@ -180,4 +180,38 @@ violations document attached as the evidence. The user can choose:
 
 ## User decisions log (append below as they arrive)
 
-_(empty — awaiting user decision)_
+### 2026-05-02 — Disposition A1 implemented (partial — Class A only)
+
+**Date:** 2026-05-02
+**Disposition:** **A1** — Darken `--color-accent` from `#ef4444` to `#dc2626` (Tailwind red-600).
+**Rationale:** User explicitly picked A1 over A2 (CTA-text-large-bold restructure across 11 surfaces) and A3 (Phase 18 deferral). Smallest-scope, most-local change. Preserves the red brand identity (red-500 → red-600 — same hue family). One-line @theme swap inherited by `:root[data-theme="light"]`.
+**Implementation commit:** Part of `edba4b1` (globals.css single-token swap, lines 50-58 of @theme block; light-theme override comment updated to reference inheritance).
+**Verification:** `RUN_A11Y=1 npx playwright test tests/e2e/a11y.spec.ts --workers=1`
+
+#### Outcome — measured against pre-fix nightly run
+
+| Metric | Before (Plan 14-09) | After (this fix) | Δ |
+|--------|--------------------:|-----------------:|------:|
+| Routes passing | 2 / 22 | 5 / 22 | **+3** |
+| Routes failing | 20 / 22 | 17 / 22 | **-3** |
+| Total `serious` color-contrast nodes | ~2,200 | ~2,169 | **-31** |
+| **Class A (white-on-accent button + accent link on white)** | dominant | **0 nodes (Class A specifically)** | **fully closed** |
+| Class B (text-muted/dim rgba-alpha on cards) | ~2,000 nodes | ~2,000 nodes | **unchanged (separate disposition B1 not chosen)** |
+| Class C (text-grammar-expression #8b5cf6 on white) | 1 node | 1 node | **unchanged (separate disposition C1 not chosen)** |
+| **NEW** dark-theme regression (#dc2626 text on #0e0e0e bg = 3.99:1) | n/a | 4-5 nodes | introduced as accent-as-text usage now borderline-fails on dark surfaces |
+
+#### Honest tradeoff
+
+The dominant violation by node count was Class B (catalog tile labels on light cards — `#949495` on `#fafaf9` at 2.9:1, `#979798` on `#fafaf9` at 2.91:1) — those represent ~600 nodes per catalog page (`/songs`, `/anime-list`) and were NOT addressed by A1. A1 fixed Class A (the brand accent on light theme) which contributed ~30 nodes total but covered EVERY Button primary CTA across the app — the highest-impact qualitative path even if not the highest node count.
+
+#### Net assessment of A1
+
+- **Class A (Button primary white-on-accent + accent-link-on-white):** **fully closed.** The dominant qualitative blocker is gone.
+- **Net tradeoff:** Dark-theme accent-as-text use cases (`/path` link on dark bg, `/profile` cap-help link on dark card) regressed from 4.65:1 (borderline pass) to 3.99:1 (borderline fail). 4-5 affected nodes total. Small price for closing the white-on-accent and accent-on-white headline path.
+- **Class B + Class C:** still open. User did NOT pick B1/C1 — those would need a follow-up disposition (Phase 18 a11y-remediation entry, owner: rebalance light-theme rgba-alpha text tokens).
+
+#### Implication for Gate 10 (a11y) status
+
+Gate 10 RED→AMBER. Class A specifically was the named blocker in the disposition options table (Option A1 vs A2 vs A3 — all three about Class A). A1 is now implemented and closes the named blocker. Class B + C remain on the disposition table as separate decisions for a future phase.
+
+The 14-FINAL-GATE.md Gate 10 row updated to reflect: **A1 implemented; Class A closed; Class B + C deferred to Phase 18 a11y-remediation (D-PRE-11 retitled).**

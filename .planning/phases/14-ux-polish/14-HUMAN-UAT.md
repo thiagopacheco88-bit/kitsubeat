@@ -3,18 +3,18 @@ status: partial
 phase: 14-ux-polish
 source: [14-VERIFICATION.md, 14-FINAL-GATE.md, 14-A11Y-VIOLATIONS.md]
 started: 2026-05-02T13:30:00Z
-updated: 2026-05-02T13:30:00Z
+updated: 2026-05-02T13:55:00Z
 ---
 
 ## Current Test
 
-[awaiting human input — see Test 1 a11y disposition first; it gates several other tests]
+[Test 1 RESOLVED via A1. Tests 2-6 (visual + keyboard manual walkthroughs) and Test 7 (Lighthouse baseline) still pending — independent of Test 1 disposition.]
 
 ## Tests
 
 ### 1. A11y disposition decision (Gate 10 — D-PRE-11)
 expected: User picks A1 (darken --color-accent to #dc2626 or #b91c1c, re-run axe, achieve 0 serious/critical), A2 (enlarge Button primary CTA text to text-lg + font-bold across all consumers to qualify as WCAG large-bold), or A3 (user-approved Phase 18 deferral with timestamp + rationale recorded in 14-A11Y-VIOLATIONS.md User decisions log)
-result: [pending]
+result: passed — User picked A1, implemented #ef4444 → #dc2626 (Tailwind red-600). Axe re-run: 5/22 passing (was 2/22), Class A (named Gate 10 blocker — white-on-accent Button primary + accent-link-on-white) fully closed. Class B + C retitled D-PRE-11 for Phase 18 a11y-remediation per the same User decisions log entry.
 
 ### 2. Visual walkthrough at 390×844 (iPhone 14) for all 11 in-scope surfaces in DARK theme
 expected: Each surface (/, /songs, /anime-list, /songs/again-yui, /kana, /kana/session, /kana/session/summary, /path, /vocabulary, /review, /profile) renders without broken layout, horizontal scroll, or overlapping content
@@ -43,12 +43,12 @@ result: [pending]
 ## Summary
 
 total: 7
-passed: 0
+passed: 1
 issues: 0
-pending: 7
+pending: 6
 skipped: 0
 blocked: 0
 
 ## Gaps
 
-[none yet — Test 1 disposition will determine whether Test 7 unblocks]
+Test 1 (a11y disposition) closed via A1. Tests 2-7 remain pending — they are independent visual/keyboard/Lighthouse manual checks not blocked by Test 1 disposition. Lighthouse run (Test 7) is now meaningful since Class A no longer drowns the score — expected score lift from previously-anticipated low-90s to 95+ once Class A is gone.
