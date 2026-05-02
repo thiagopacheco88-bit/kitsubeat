@@ -24,6 +24,15 @@ export default async function SongPlayerPage({
   const song = await getSongBySlug(slug);
   if (!song) notFound();
 
+  // Phase 11.5 SPEC #22 + D-13: flagged or rerunning songs return 404 on the
+  // public song page. This mirrors the catalog filter in src/lib/db/queries.ts.
+  // getSongBySlug fetches the full songs row (including quality_status) and all
+  // song_versions rows (including pipeline_status). The check here is explicit
+  // and greppable; it does NOT mutate getSongBySlug so admin/debug paths still work.
+  if (song.quality_status !== "active") notFound();
+  const hasIdleVersion = song.versions.some((v) => v.pipeline_status === "idle");
+  if (!hasIdleVersion) notFound();
+
   // Collect unique vocab_item_ids from every lesson's vocabulary across all versions
   const vocabIds = new Set<string>();
   for (const v of song.versions) {
