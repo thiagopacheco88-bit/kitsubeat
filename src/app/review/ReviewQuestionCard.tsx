@@ -34,6 +34,8 @@ interface ReviewQuestionCardProps {
   exerciseType: ReviewQuestionType;
   /** true = this card came from the new-card bucket (affects budget accounting) */
   isNew: boolean;
+  /** Phase 11.6: which FSRS card track is being answered. Passed through to recordReviewAnswer. */
+  cardKind?: "romaji_meaning" | "kanji_kana";
   /** Called when user selects an answer (before continue) */
   onAnswered: (chosen: string, correct: boolean, timeMs: number) => void;
   /** Called when user clicks Continue in feedback panel */
@@ -49,6 +51,7 @@ export default function ReviewQuestionCard({
   question,
   exerciseType,
   isNew,
+  cardKind,
   onAnswered,
   onContinue,
   userId,
@@ -94,6 +97,7 @@ export default function ReviewQuestionCard({
           userId,
           vocabItemId: question.vocabItemId,
           exerciseType, // already excludes fill_lyric at type level
+          cardKind,     // Phase 11.6: thread through to keyed (user_id, vocab_item_id, card_kind) upsert
           correct,
           revealedReading: false, // review session has no reveal-reading button
           responseTimeMs: timeMs,

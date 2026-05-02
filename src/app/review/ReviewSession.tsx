@@ -18,8 +18,10 @@
 import { useState, useCallback } from "react";
 import { useReviewSession } from "@/stores/reviewSession";
 import ReviewQuestionCard from "./ReviewQuestionCard";
+import VocabTypedCard from "@/app/songs/[slug]/components/VocabTypedCard";
 import { pickDistractors } from "@/lib/exercises/generator";
 import { vocabRowToVocabEntry } from "@/lib/review/distractors";
+import { recordReviewAnswer } from "@/app/actions/review";
 import type { VocabRow } from "@/app/api/review/queue/route";
 import type { Question } from "@/lib/exercises/generator";
 import type { ReviewQueueItem, ReviewQuestionType } from "@/lib/review/queue-builder";
@@ -78,6 +80,11 @@ function buildQuestion(
       correctAnswer = vocab.dictionary_form;
       break;
     case "reading_match":
+      prompt = vocab.dictionary_form;
+      correctAnswer = vocab.romaji;
+      break;
+    case "vocab_typed":
+      // Phase 11.6: kanji_kana track — prompt is kanji surface, correct answer is romaji
       prompt = vocab.dictionary_form;
       correctAnswer = vocab.romaji;
       break;
@@ -233,6 +240,12 @@ export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBac
 
   const question = buildQuestion(currentItem, vocab, jlptPools);
 
+  // Phase 11.6: kanji_kana cards use VocabTypedCard (romaji typed-input).
+  // romaji_meaning cards use the existing MCQ ReviewQuestionCard.
+  const isKanjiKana =
+    currentItem.card_kind === "kanji_kana" ||
+    currentItem.exerciseType === "vocab_typed";
+
   return (
     <div className="mx-auto max-w-lg px-4 py-8">
       {/* Progress */}
@@ -264,17 +277,50 @@ export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBac
         </div>
       )}
 
-      {/* Question card */}
-      <ReviewQuestionCard
-        key={question.id}
-        question={question}
-        exerciseType={currentItem.exerciseType}
-        isNew={currentItem.isNew}
-        onAnswered={handleAnswered}
-        onContinue={handleContinue}
-        userId={userId}
-        onCapReached={handleCapReached}
-      />
+      {/* Phase 11.6: kanji_kana cards → VocabTypedCard; romaji_meaning → ReviewQuestionCard */}
+      {isKanjiKana ? (
+        <VocabTypedCard
+          key={question.id}
+          question={question}
+          onAnswered={(chosen, correct, timeMs) => {
+            handleAnswered(chosen, correct, timeMs);
+            // Record FSRS answer for kanji_kana card via review server action
+            void (async () => {
+              try {
+                await recordReviewAnswer({
+                  userId,
+                  vocabItemId: currentItem.vocab_item_id,
+                  exerciseType: currentItem.exerciseType,
+                  cardKind: currentItem.card_kind,
+                  correct,
+                  responseTimeMs: timeMs,
+                  isNew: currentItem.isNew,
+                });
+              } catch (err) {
+                const message = err instanceof Error ? err.message : String(err);
+                if (message === "daily_new_card_cap_reached") {
+                  void handleCapReached();
+                } else {
+                  console.error("recordReviewAnswer (kanji_kana) failed:", err);
+                }
+              }
+            })();
+          }}
+          onContinue={handleContinue}
+        />
+      ) : (
+        <ReviewQuestionCard
+          key={question.id}
+          question={question}
+          exerciseType={currentItem.exerciseType}
+          isNew={currentItem.isNew}
+          onAnswered={handleAnswered}
+          onContinue={handleContinue}
+          userId={userId}
+          onCapReached={handleCapReached}
+          cardKind={currentItem.card_kind}
+        />
+      )}
     </div>
   );
 }

@@ -15,14 +15,21 @@
  *   Writes are linearized: consumeNewCardBudget first, then recordVocabAnswer.
  * - users.new_card_cap (per-session cap, Phase 08.4) and users.review_new_today
  *   (per-day counter, Phase 11) are independent columns with distinct semantics.
+ * - Phase 11.6: cardKind added to recordReviewAnswer; shared daily cap (SPEC R17):
+ *   review_new_today increments once per isNew=true call regardless of cardKind.
  */
 
+import { z } from "zod";
 import { sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { recordVocabAnswer } from "@/app/actions/exercises";
 import { isPremium } from "@/app/actions/userPrefs";
 import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
 import type { ExerciseType } from "@/lib/exercises/generator";
+
+// Phase 11.6: Zod-validated card_kind enum — mirrors Plan 11.6-05 defense-in-depth.
+// Threat T-11.6-10-01: rejects non-literal cardKind at the server-action boundary.
+const CardKindSchema = z.enum(["romaji_meaning", "kanji_kana"]);
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -132,6 +139,10 @@ export async function recordReviewAnswer(input: {
   userId: string;
   vocabItemId: string;
   exerciseType: Exclude<ExerciseType, "fill_lyric">;
+  /** Phase 11.6 NEW (SPEC R17): which FSRS card track is being answered.
+   *  Zod-validated at boundary (Threat T-11.6-10-01). Defaults to "romaji_meaning"
+   *  for backward compatibility with callers that pre-date Plan 11.6-10. */
+  cardKind?: "romaji_meaning" | "kanji_kana";
   correct: boolean;
   revealedReading?: boolean;
   responseTimeMs: number;
@@ -140,7 +151,13 @@ export async function recordReviewAnswer(input: {
   const premium = await isPremium(input.userId);
   if (!premium) throw new Error("premium_required");
 
+  // Phase 11.6: Zod-validate cardKind at server-action boundary (T-11.6-10-01).
+  // Default to "romaji_meaning" for backward-compat with pre-Phase-11.6 callers.
+  const cardKind = CardKindSchema.parse(input.cardKind ?? "romaji_meaning");
+
   // New-card gate: consume a budget slot before recording FSRS.
+  // SPEC R17 shared-cap semantics: review_new_today increments ONCE per isNew=true
+  // call regardless of cardKind. Introducing both kinds for same vocab burns 2 slots.
   // A race-safe server-side check — the UI should stop serving new cards
   // once budget hits zero, but this is the source of truth.
   if (input.isNew) {
@@ -152,11 +169,13 @@ export async function recordReviewAnswer(input: {
 
   // Passthrough to the existing FSRS + exercise_log pipeline.
   // songVersionId=null is explicitly supported by recordVocabAnswer.
+  // cardKind is threaded through to key the (user_id, vocab_item_id, card_kind) upsert.
   return recordVocabAnswer({
     userId: input.userId,
     vocabItemId: input.vocabItemId,
     songVersionId: null,
     exerciseType: input.exerciseType,
+    cardKind,                    // Phase 11.6 NEW passthrough
     correct: input.correct,
     revealedReading: input.revealedReading,
     responseTimeMs: input.responseTimeMs,

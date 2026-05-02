@@ -910,12 +910,13 @@ export async function getDueReviewQueue(
   newCardCap: number,
   now: Date = new Date()
 ): Promise<{
-  due: Array<{ vocab_item_id: string; state: 0 | 1 | 2 | 3; due: Date }>;
+  due: Array<{ vocab_item_id: string; state: 0 | 1 | 2 | 3; due: Date; card_kind: "romaji_meaning" | "kanji_kana" }>;
   new: Array<{ vocab_item_id: string }>;
 }> {
   // Query 1: due cards (uncapped)
-  const dueR = await db.execute<{ vocab_item_id: string; state: number; due: string }>(sql`
-    SELECT m.vocab_item_id::text, m.state, m.due
+  // Phase 11.6: SELECT now includes card_kind so queue-builder can route kanji_kana → vocab_typed.
+  const dueR = await db.execute<{ vocab_item_id: string; state: number; due: string; card_kind: string }>(sql`
+    SELECT m.vocab_item_id::text, m.state, m.due, m.card_kind
     FROM user_vocab_mastery m
     WHERE m.user_id = ${userId}
       AND m.state IN (1, 2, 3)
@@ -927,6 +928,7 @@ export async function getDueReviewQueue(
     vocab_item_id: string;
     state: number;
     due: string;
+    card_kind: string;
   }>;
 
   // Query 2: new cards (bounded by newCardCap)
@@ -952,6 +954,8 @@ export async function getDueReviewQueue(
       vocab_item_id: row.vocab_item_id,
       state: row.state as 0 | 1 | 2 | 3,
       due: new Date(row.due),
+      // Phase 11.6: card_kind propagated from DB; default romaji_meaning for safety
+      card_kind: (row.card_kind === "kanji_kana" ? "kanji_kana" : "romaji_meaning") as "romaji_meaning" | "kanji_kana",
     })),
     new: newRows.map((row) => ({ vocab_item_id: row.vocab_item_id })),
   };

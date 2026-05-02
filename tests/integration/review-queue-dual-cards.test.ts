@@ -1,18 +1,14 @@
-// Phase 11.6 Wave 0 RED stub — implementation in Task 2.
+// Phase 11.6 Plan 10 — GREEN after Task 2 implementation.
 /**
  * tests/integration/review-queue-dual-cards.test.ts
  *
  * SPEC-REQ-17: /review queue dual-card emission + shared daily cap.
  *
- * RED: These tests will fail until Task 2 lands:
+ * GREEN: All tests pass after Task 2 implementation:
  *   - DueCardInput / ReviewQueueItem carry card_kind
  *   - buildReviewQueue routes kanji_kana → vocab_typed
- *   - recordReviewAnswer accepts cardKind
+ *   - recordReviewAnswer accepts cardKind (Zod-validated)
  *   - getDueReviewQueue SELECT includes card_kind
- *
- * Failure modes expected at this stage:
- *   - TypeScript error: "card_kind does not exist on DueCardInput"
- *   - OR test assertion failures because queue items lack card_kind
  */
 
 import { describe, it, expect, beforeEach, afterAll } from "vitest";
@@ -21,12 +17,9 @@ import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
 import { seedDualCardFixtures, teardownDualCardFixtures } from "./setup-card-kind";
 import type { DualCardFixtures } from "./setup-card-kind";
-// RED: card_kind not yet on DueCardInput / ReviewQueueItem
 import { buildReviewQueue } from "@/lib/review/queue-builder";
-import type { DueCardInput, NewCardInput } from "@/lib/review/queue-builder";
-// RED: cardKind not yet on recordReviewAnswer
+import type { DueCardInput } from "@/lib/review/queue-builder";
 import { recordReviewAnswer } from "@/app/actions/review";
-// RED: getDueReviewQueue SELECT does not include card_kind yet
 import { getDueReviewQueue } from "@/lib/db/queries";
 
 const HAS_TEST_DB = !!process.env.TEST_DATABASE_URL;
@@ -92,15 +85,10 @@ describeIfTestDb(
         // Fetch from DB and build queue
         const queueData = await getDueReviewQueue(TEST_USER, 0); // newCardCap=0: due-only
 
-        // RED: getDueReviewQueue should return card_kind on each row; currently it doesn't
         expect(queueData.due).toHaveLength(2);
 
-        // Build queue from the due rows (cast is intentional — RED will fail at type level)
-        const queue = buildReviewQueue(
-          queueData.due as unknown as DueCardInput[],
-          [],
-          0
-        );
+        // Build queue — card_kind is now part of DueCardInput (Phase 11.6)
+        const queue = buildReviewQueue(queueData.due, [], 0);
 
         expect(queue).toHaveLength(2);
         expect(queue.map((i) => i.vocab_item_id)).toEqual([
@@ -108,21 +96,17 @@ describeIfTestDb(
           fixtures.kanjiVocabId,
         ]);
 
-        // RED: card_kind should be present on each item
-        const kinds = queue.map((i) => (i as { card_kind?: string }).card_kind);
+        // card_kind propagated to each ReviewQueueItem
+        const kinds = queue.map((i) => i.card_kind);
         expect(kinds).toContain("romaji_meaning");
         expect(kinds).toContain("kanji_kana");
 
         // kanji_kana branch forces vocab_typed exerciseType
-        const kanjiItem = queue.find(
-          (i) => (i as { card_kind?: string }).card_kind === "kanji_kana"
-        );
+        const kanjiItem = queue.find((i) => i.card_kind === "kanji_kana");
         expect(kanjiItem?.exerciseType).toBe("vocab_typed");
 
         // romaji_meaning uses hash-rotation (one of the 3 rotation types)
-        const romajiItem = queue.find(
-          (i) => (i as { card_kind?: string }).card_kind === "romaji_meaning"
-        );
+        const romajiItem = queue.find((i) => i.card_kind === "romaji_meaning");
         expect(["vocab_meaning", "meaning_vocab", "reading_match"]).toContain(
           romajiItem?.exerciseType
         );
@@ -145,12 +129,10 @@ describeIfTestDb(
         // Record 5 new-card answers (alternating cardKind) — each should consume 1 slot
         for (let i = 0; i < 5; i++) {
           const cardKind = i % 2 === 0 ? "romaji_meaning" : "kanji_kana";
-          // RED: cardKind param does not yet exist on recordReviewAnswer
           await recordReviewAnswer({
             userId: TEST_USER,
             vocabItemId: fixtures.kanjiVocabId,
             exerciseType: "vocab_meaning",
-            // @ts-expect-error RED: cardKind not yet in recordReviewAnswer type
             cardKind,
             correct: true,
             responseTimeMs: 100,
@@ -172,7 +154,6 @@ describeIfTestDb(
             userId: TEST_USER,
             vocabItemId: fixtures.kanjiVocabId,
             exerciseType: "vocab_meaning",
-            // @ts-expect-error RED: cardKind not yet in recordReviewAnswer type
             cardKind: "kanji_kana",
             correct: true,
             responseTimeMs: 100,
@@ -192,12 +173,10 @@ describeIfTestDb(
           ON CONFLICT (id) DO UPDATE SET new_card_cap = 10
         `);
 
-        // RED: cardKind param does not yet exist on recordReviewAnswer
         await recordReviewAnswer({
           userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           exerciseType: "vocab_meaning",
-          // @ts-expect-error RED: cardKind not yet in recordReviewAnswer type
           cardKind: "kanji_kana",
           correct: true,
           responseTimeMs: 100,
@@ -220,13 +199,11 @@ describeIfTestDb(
     it(
       "Test 4: kanji_kana DueCardInput forces vocab_typed exerciseType in buildReviewQueue",
       () => {
-        // RED: card_kind not yet part of DueCardInput interface
         const dueCards: DueCardInput[] = [
           {
             vocab_item_id: fixtures.kanjiVocabId,
             state: 2,
             due: new Date(),
-            // @ts-expect-error RED: card_kind not yet on DueCardInput
             card_kind: "kanji_kana",
           },
         ];
@@ -234,8 +211,8 @@ describeIfTestDb(
         const queue = buildReviewQueue(dueCards, [], 0);
 
         expect(queue).toHaveLength(1);
-        // RED: card_kind not yet propagated to ReviewQueueItem
-        expect((queue[0] as { card_kind?: string }).card_kind).toBe("kanji_kana");
+        // card_kind propagated to ReviewQueueItem (Phase 11.6)
+        expect(queue[0].card_kind).toBe("kanji_kana");
         // vocab_typed forced for kanji_kana
         expect(queue[0].exerciseType).toBe("vocab_typed");
       }

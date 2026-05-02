@@ -28,10 +28,14 @@ export interface DueCardInput {
   /** FSRS state: 1=Learning, 2=Review, 3=Relearning */
   state: 0 | 1 | 2 | 3;
   due: Date;
+  /** Phase 11.6: which FSRS card track (D-01). */
+  card_kind: "romaji_meaning" | "kanji_kana";
 }
 
 export interface NewCardInput {
   vocab_item_id: string;
+  /** Phase 11.6: which FSRS card track (D-01). Defaults to "romaji_meaning" when absent. */
+  card_kind?: "romaji_meaning" | "kanji_kana";
 }
 
 export interface ReviewQueueItem {
@@ -39,10 +43,12 @@ export interface ReviewQueueItem {
   exerciseType: ReviewQuestionType;
   /** true = card was in the "new" bucket (state=0, never seen) */
   isNew: boolean;
+  /** Phase 11.6: which FSRS card track (D-01). Propagated from DueCardInput / NewCardInput. */
+  card_kind: "romaji_meaning" | "kanji_kana";
 }
 
 // ---------------------------------------------------------------------------
-// Allowed exercise types for rotation
+// Allowed exercise types for rotation (romaji_meaning track only)
 // ---------------------------------------------------------------------------
 
 const REVIEW_EXERCISE_TYPES: ReviewQuestionType[] = [
@@ -94,8 +100,9 @@ function assignExerciseType(vocabItemId: string): ReviewQuestionType {
  * - If `newCardBudget <= 0`, all new cards are dropped.
  *
  * Type assignment:
- * - Each card receives a single exercise type chosen deterministically from
- *   {vocab_meaning, meaning_vocab, reading_match} based on the vocab_item_id hash.
+ * - romaji_meaning cards: exercise type chosen deterministically from
+ *   {vocab_meaning, meaning_vocab, reading_match} based on vocab_item_id hash.
+ * - kanji_kana cards: always routed to vocab_typed (romaji typed-input exercise).
  * - Fill-the-Lyric is NEVER emitted (CONTEXT-locked, enforced at type level).
  *
  * @param due    Due cards returned by getDueReviewQueue (ordered due ASC upstream).
@@ -112,20 +119,33 @@ export function buildReviewQueue(
 
   // Due cards first — preserve upstream ordering (due ASC)
   for (const card of due) {
+    // Phase 11.6: kanji_kana cards are always routed to vocab_typed;
+    // romaji_meaning cards keep the existing hash-based rotation.
+    const exerciseType: ReviewQuestionType =
+      card.card_kind === "kanji_kana"
+        ? "vocab_typed"
+        : assignExerciseType(card.vocab_item_id);
     queue.push({
       vocab_item_id: card.vocab_item_id,
-      exerciseType: assignExerciseType(card.vocab_item_id),
+      exerciseType,
       isNew: false,
+      card_kind: card.card_kind,
     });
   }
 
   // New cards appended, bounded by budget
   const cappedNew = newCards.slice(0, Math.max(0, newCardBudget));
   for (const card of cappedNew) {
+    const cardKind = card.card_kind ?? "romaji_meaning";
+    const exerciseType: ReviewQuestionType =
+      cardKind === "kanji_kana"
+        ? "vocab_typed"
+        : assignExerciseType(card.vocab_item_id);
     queue.push({
       vocab_item_id: card.vocab_item_id,
-      exerciseType: assignExerciseType(card.vocab_item_id),
+      exerciseType,
       isNew: true,
+      card_kind: cardKind,
     });
   }
 

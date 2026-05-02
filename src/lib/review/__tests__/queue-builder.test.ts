@@ -11,11 +11,12 @@ import {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function makeDue(id: string, dueOffset = 0): DueCardInput {
+function makeDue(id: string, dueOffset = 0, card_kind: DueCardInput["card_kind"] = "romaji_meaning"): DueCardInput {
   return {
     vocab_item_id: id,
     state: 2,
     due: new Date(Date.now() - dueOffset * 60_000),
+    card_kind,
   };
 }
 
