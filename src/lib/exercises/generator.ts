@@ -23,6 +23,9 @@ import {
   classifyConjugationForm,
 } from "./conjugation";
 import { parseConjugationPath } from "../../../scripts/lib/conjugation-audit";
+// Phase 11.6 Plan 04: lag-test scheduler + JLPT sort + kanji codepoint helper
+import { buildSessionSequence, sortByJlpt, type SessionItem } from "./scheduler";
+import { hasKanji } from "./kanji";
 
 // ---------------------------------------------------------------------------
 // Types
@@ -35,7 +38,36 @@ export type ExerciseType =
   | "fill_lyric"
   | "grammar_conjugation"  // Ex 5 — Grammar Conjugation
   | "listening_drill"      // Ex 6 — Listening Drill (drives Star 3)
-  | "sentence_order";      // Ex 7 — Sentence Order
+  | "sentence_order"       // Ex 7 — Sentence Order
+  | "vocab_typed";         // Phase 11.6 SPEC-REQ-7 — Kanji track romaji typed input
+
+// ---------------------------------------------------------------------------
+// Phase 11.6 — Track kinds + length modes (SPEC-REQ-3, SPEC-REQ-7, SPEC-REQ-12)
+// ---------------------------------------------------------------------------
+
+export type TrackKind = "vocab" | "grammar" | "kanji" | "advanced_drills";
+export type LengthMode = "short" | "long";
+
+// CONTEXT D-20: lengthCap per LengthMode
+const LENGTH_CAP: Record<LengthMode, number> = { short: 10, long: 25 };
+
+// CONTEXT D-18: minIntroToTestGap is 3 (strict invariant)
+const MIN_INTRO_TO_TEST_GAP = 3;
+
+// SPEC R3: which exercise types are eligible per track
+const TRACK_TYPES: Record<TrackKind, ExerciseType[]> = {
+  vocab: ["vocab_meaning", "meaning_vocab", "reading_match", "fill_lyric"],
+  grammar: ["grammar_conjugation"],
+  kanji: ["vocab_typed"], // Kanji track uses romaji-typed only per SPEC R3
+  advanced_drills: [
+    "vocab_meaning",
+    "meaning_vocab",
+    "vocab_typed",
+    "grammar_conjugation",
+    "listening_drill",
+    "sentence_order",
+  ],
+};
 
 /**
  * Minimal vocab representation for tier-aware rendering in exercise UI.
@@ -56,6 +88,8 @@ export interface Question {
   type: ExerciseType;
   /** vocab_item_id from VocabEntry */
   vocabItemId: string;
+  /** Phase 11.6: JLPT level of the target vocab (for lag-test JLPT sort). Null for non-vocab questions. */
+  jlpt_level?: "N5" | "N4" | "N3" | "N2" | "N1" | null;
   /** What to show the user */
   prompt: string;
   /** The right answer */
@@ -161,6 +195,10 @@ function extractField(vocab: VocabEntry, type: ExerciseType): string {
       // bypassing pickDistractors (tap-to-build has no 4-option structure).
       // Kept as a throw so a misuse from a new caller fails loudly.
       throw new Error("sentence_order extractField unused — buildQuestions handles sentence-order directly");
+    case "vocab_typed":
+      // Phase 11.6: vocab_typed is a typed-input exercise (no MC distractors).
+      // extractField returns the romaji reading used as the correct answer.
+      return vocab.reading;
   }
 }
 
@@ -325,6 +363,9 @@ function makeExplanation(vocab: VocabEntry, type: ExerciseType): string {
       // Plan 10-05: unused — the sentence-order loop in buildQuestions
       // generates the explanation inline (no vocab-centric framing).
       throw new Error("sentence_order makeExplanation unused — explanation is generated inline in buildQuestions");
+    case "vocab_typed":
+      // Phase 11.6: typed romaji input exercise — explanation shows the correct reading.
+      return `「${surface}」 is read as "${romaji}". Type the romaji reading.`;
   }
 }
 
@@ -428,6 +469,12 @@ function makeQuestion(
       // off a VocabEntry + type, which doesn't fit Sentence Order's
       // per-verse model. Kept as a defensive throw.
       throw new Error("sentence_order makeQuestion unused — buildQuestions runs its own sentence-order loop");
+    case "vocab_typed":
+      // Phase 11.6: vocab_typed is handled by makeVocabTypedQuestion; this
+      // branch covers ad-hoc callers invoking makeQuestion directly with vocab_typed.
+      prompt = vocab.surface;
+      correctAnswer = vocab.reading;
+      break;
   }
 
   // Build distractorVocab map (field → VocabInfo) for TierText rendering
@@ -562,6 +609,73 @@ function makeGrammarConjugationQuestion(
 }
 
 // ---------------------------------------------------------------------------
+// Phase 11.6 — vocab_typed question factory (SPEC-REQ-7)
+// ---------------------------------------------------------------------------
+//
+// Builds a Question where correctAnswer is the romaji reading.
+// Distractors are empty — this is a typed input exercise, not multiple-choice.
+// The romajiEquals comparator from romaji-normalize.ts runs at submit time.
+
+function makeVocabTypedQuestion(vocab: VocabEntry): Question {
+  const vocabInfo: VocabInfo = {
+    surface: vocab.surface,
+    reading: vocab.reading,
+    romaji: vocab.romaji,
+    vocab_item_id: vocab.vocab_item_id,
+  };
+
+  return {
+    id: crypto.randomUUID(),
+    type: "vocab_typed",
+    vocabItemId: vocab.vocab_item_id ?? "",
+    jlpt_level: vocab.jlpt_level === "unknown" ? null : vocab.jlpt_level,
+    prompt: vocab.surface,
+    correctAnswer: vocab.reading, // romajiEquals comparator runs at submit
+    distractors: [],              // typed input, no MC options
+    explanation: `Type the reading of 「${vocab.surface}」 in romaji.`,
+    detailedExplanation: makeDetailedExplanation(vocab),
+    mnemonic: vocab.mnemonic,
+    kanji_breakdown: vocab.kanji_breakdown ?? null,
+    image_url: vocab.image_url,
+    meaning_en: vocab.meaning_en,
+    vocabInfo,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Phase 11.6 — buildQuestionsFromPool: new object-parameter form
+// ---------------------------------------------------------------------------
+//
+// This overload is the Phase 11.6 entry point used by ExerciseTab when a
+// trackKind is provided. It accepts a plain vocab array + verses instead of a
+// full Lesson object so it can be called from the server action layer without
+// materializing the full lesson shape.
+//
+// Input shape:
+//   vocab         — eligible vocab entries (caller provides; kanji filter applied here)
+//   verses        — verse list (required for fill_lyric / listening_drill; can be [])
+//   grammarPoints — optional grammar points for grammar_conjugation emissions
+//   jlptPool      — JLPT distractor pool (same semantics as existing buildQuestions)
+//   typeFilter    — explicit allowlist (bypasses TRACK_TYPES default when provided)
+//   trackKind     — Phase 11.6 track enum; drives TRACK_TYPES selection + kanji filter
+//   lengthMode    — "short" (10) or "long" (25); defaults to no cap
+//   dueReviews    — due-for-review items (D-19); generator caller pre-fetches
+//
+// Backwards compatibility: When trackKind is absent (or this overload is not
+// used), the existing Lesson-based buildQuestions behavior is UNCHANGED.
+
+export interface BuildQuestionsPoolInput {
+  vocab: VocabEntry[];
+  verses: Verse[];
+  grammarPoints?: GrammarPoint[];
+  jlptPool?: VocabEntry[];
+  typeFilter?: ExerciseType[];
+  trackKind?: TrackKind;
+  lengthMode?: LengthMode;
+  dueReviews?: VocabEntry[];
+}
+
+// ---------------------------------------------------------------------------
 // Main entry point
 // ---------------------------------------------------------------------------
 
@@ -589,6 +703,16 @@ export interface SentenceOrderGate {
   masteredVocabIds: Set<string> | null;
 }
 
+export function buildQuestions(input: BuildQuestionsPoolInput): Question[];
+
+export function buildQuestions(
+  lesson: Lesson,
+  mode: SessionConfig["mode"],
+  jlptPool: VocabEntry[],
+  typeFilter?: ExerciseType[],
+  sentenceOrderGate?: SentenceOrderGate
+): Question[];
+
 /**
  * Build a shuffled list of exercise questions from a lesson.
  *
@@ -609,12 +733,27 @@ export interface SentenceOrderGate {
  *                             mastery. Omitted = gate disabled (legacy).
  */
 export function buildQuestions(
-  lesson: Lesson,
-  mode: SessionConfig["mode"],
-  jlptPool: VocabEntry[],
+  lessonOrInput: Lesson | BuildQuestionsPoolInput,
+  mode?: SessionConfig["mode"],
+  jlptPool?: VocabEntry[],
   typeFilter?: ExerciseType[],
   sentenceOrderGate?: SentenceOrderGate
 ): Question[] {
+  // ---------------------------------------------------------------------------
+  // Phase 11.6 pool-based overload dispatch
+  // When first arg has a `vocab` property it is a BuildQuestionsPoolInput.
+  // ---------------------------------------------------------------------------
+  if ("vocab" in lessonOrInput) {
+    return buildQuestionsFromPool(lessonOrInput);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Legacy Lesson-based path (backwards compatible)
+  // ---------------------------------------------------------------------------
+  const lesson = lessonOrInput as Lesson;
+  const resolvedMode = mode ?? "short";
+  const resolvedJlptPool = jlptPool ?? [];
+
   // Only include vocab entries with a UUID identity
   const base = lesson.vocabulary.filter((v) => v.vocab_item_id);
 
@@ -653,7 +792,7 @@ export function buildQuestions(
       // card cannot seek/play and the drill is unwinnable.
       if (type === "listening_drill" && !hasTimedVerses) continue;
 
-      const distractorEntries = pickDistractorsWithVocab(vocab, type, base, jlptPool);
+      const distractorEntries = pickDistractorsWithVocab(vocab, type, base, resolvedJlptPool);
       const distractors = distractorEntries.map((d) => d.field);
       const question = makeQuestion(vocab, type, distractors, lesson.verses, distractorEntries);
       if (question) {
@@ -773,7 +912,7 @@ export function buildQuestions(
   // -------------------------------------------------------------------------
   if (typeAllowed("grammar_conjugation")) {
     for (const gp of lesson.grammar_points ?? []) {
-      const q = makeGrammarConjugationQuestion(gp, base, lesson.verses, jlptPool);
+      const q = makeGrammarConjugationQuestion(gp, base, lesson.verses, resolvedJlptPool);
       if (q) questions.push(q);
     }
   }
@@ -782,9 +921,247 @@ export function buildQuestions(
 
   const MAX_FULL = 40;
   const count =
-    mode === "short"
+    resolvedMode === "short"
       ? Math.min(10, shuffled.length)
       : Math.min(MAX_FULL, shuffled.length);
 
   return shuffled.slice(0, count);
+}
+
+// ---------------------------------------------------------------------------
+// Phase 11.6 — buildQuestionsFromPool (pool-based overload implementation)
+// ---------------------------------------------------------------------------
+//
+// Implements the new object-parameter form of buildQuestions. Called when
+// the caller passes a BuildQuestionsPoolInput. All Phase 11.6 track logic
+// lives here; the Lesson-based path above is unchanged.
+
+function buildQuestionsFromPool(input: BuildQuestionsPoolInput): Question[] {
+  const {
+    vocab,
+    verses,
+    grammarPoints = [],
+    jlptPool = [],
+    typeFilter,
+    trackKind,
+    lengthMode,
+    dueReviews = [],
+  } = input;
+
+  // Only include vocab entries with a UUID identity
+  const baseVocab = vocab.filter((v) => v.vocab_item_id);
+
+  // -------------------------------------------------------------------------
+  // Step 1: Filter vocab pool based on trackKind
+  // Kanji track: only kanji-bearing vocab (SPEC R3)
+  // -------------------------------------------------------------------------
+  let eligibleVocab = baseVocab;
+  if (trackKind === "kanji") {
+    eligibleVocab = eligibleVocab.filter((v) => hasKanji(v.surface));
+  }
+
+  // -------------------------------------------------------------------------
+  // Step 2: Determine effective type filter
+  // typeFilter param takes precedence; otherwise TRACK_TYPES drives selection
+  // -------------------------------------------------------------------------
+  const trackTypes = trackKind ? TRACK_TYPES[trackKind] : null;
+  const effectiveTypes = typeFilter
+    ? new Set<ExerciseType>(typeFilter)
+    : trackTypes
+    ? new Set<ExerciseType>(trackTypes)
+    : null; // null = all types (backwards-compat default)
+
+  const typeAllowed = (t: ExerciseType): boolean =>
+    effectiveTypes === null || effectiveTypes.has(t);
+
+  const questions: Question[] = [];
+
+  // -------------------------------------------------------------------------
+  // Step 3a: Advanced Drills — 1:1:1 mixed-track emission (SPEC-REQ-12)
+  // -------------------------------------------------------------------------
+  if (trackKind === "advanced_drills") {
+    return buildAdvancedDrillsSession(eligibleVocab, verses, grammarPoints, jlptPool, lengthMode);
+  }
+
+  // -------------------------------------------------------------------------
+  // Step 3b: Kanji track — emit vocab_typed for every kanji-bearing vocab
+  // -------------------------------------------------------------------------
+  if (trackKind === "kanji") {
+    for (const vocab of eligibleVocab) {
+      questions.push(makeVocabTypedQuestion(vocab));
+    }
+  } else {
+    // -----------------------------------------------------------------------
+    // Step 3c: Vocab / Grammar / other tracks — use standard per-vocab loop
+    // -----------------------------------------------------------------------
+    const hasTimedVerses = verses.some((v) => v.start_time_ms > 0);
+    const ALL_VOCAB_LOOP_TYPES: ExerciseType[] = [
+      "vocab_meaning",
+      "meaning_vocab",
+      "reading_match",
+      "fill_lyric",
+      "listening_drill",
+    ];
+    const activeTypes = ALL_VOCAB_LOOP_TYPES.filter(typeAllowed);
+
+    for (const vocab of eligibleVocab) {
+      for (const type of activeTypes) {
+        if ((type === "fill_lyric" || type === "listening_drill") && eligibleVocab.length < 3) continue;
+        if (type === "listening_drill" && !hasTimedVerses) continue;
+
+        const distractorEntries = pickDistractorsWithVocab(vocab, type, eligibleVocab, jlptPool);
+        const distractors = distractorEntries.map((d) => d.field);
+        const question = makeQuestion(vocab, type, distractors, verses, distractorEntries);
+        if (question) questions.push(question);
+      }
+    }
+
+    // Grammar conjugation
+    if (typeAllowed("grammar_conjugation")) {
+      for (const gp of grammarPoints) {
+        const q = makeGrammarConjugationQuestion(gp, eligibleVocab, verses, jlptPool);
+        if (q) questions.push(q);
+      }
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // Step 4: Lag-test + JLPT sort wrap via buildSessionSequence (D-17, D-18)
+  // -------------------------------------------------------------------------
+  const lengthCap = lengthMode ? LENGTH_CAP[lengthMode] : Number.MAX_SAFE_INTEGER;
+
+  // Build SessionItem[] from emitted questions
+  const introsItems: SessionItem[] = questions.map((q) => ({
+    vocabItemId: q.vocabItemId,
+    jlptLevel: (q.jlpt_level ?? null) as SessionItem["jlptLevel"],
+    isNew: true,
+  }));
+
+  const reviewsItems: SessionItem[] = dueReviews
+    .filter((v) => v.vocab_item_id)
+    .map((v) => ({
+      vocabItemId: v.vocab_item_id!,
+      jlptLevel: (v.jlpt_level === "unknown" ? null : v.jlpt_level) as import("./scheduler").JlptLevel,
+      isNew: false,
+    }));
+
+  const sequenced = buildSessionSequence({
+    intros: introsItems,
+    reviews: reviewsItems,
+    lengthCap,
+    minIntroToTestGap: MIN_INTRO_TO_TEST_GAP,
+  });
+
+  // Reorder questions to match the sequenced output
+  const questionByVocabId = new Map<string, Question>();
+  for (const q of questions) {
+    if (q.vocabItemId) questionByVocabId.set(q.vocabItemId, q);
+  }
+
+  const reordered: Question[] = [];
+  for (const seq of sequenced) {
+    if (seq.kind === "intro" || seq.kind === "test" || seq.kind === "review") {
+      const match = questionByVocabId.get(seq.item.vocabItemId);
+      if (match) reordered.push(match);
+    }
+  }
+
+  // Fallback: if sequencer skipped items (e.g., vocabItemId mismatch), return shuffled
+  if (reordered.length === 0 && questions.length > 0) {
+    return shuffle(questions).slice(0, lengthCap);
+  }
+
+  return reordered;
+}
+
+// ---------------------------------------------------------------------------
+// Phase 11.6 — Advanced Drills session builder (SPEC-REQ-12)
+// ---------------------------------------------------------------------------
+//
+// Mixes vocab-MC, kanji-typed, and grammar-conjugation ~1:1:1 (+/-20%).
+// At least 30% of questions must be vocab_typed.
+// Round-robin interleaves sub-pools until cap is met.
+
+function buildAdvancedDrillsSession(
+  allVocab: VocabEntry[],
+  verses: Verse[],
+  grammarPoints: GrammarPoint[],
+  jlptPool: VocabEntry[],
+  lengthMode: LengthMode | undefined
+): Question[] {
+  const lengthCap = lengthMode ? LENGTH_CAP[lengthMode] : 25;
+
+  // Sub-pool A: kanji-bearing vocab → vocab_typed questions
+  const kanjiVocab = allVocab.filter((v) => hasKanji(v.surface));
+  const kanjiQs: Question[] = kanjiVocab.map(makeVocabTypedQuestion);
+
+  // Sub-pool B: all vocab → multiple-choice vocab questions (vocab_meaning)
+  const vocabQs: Question[] = [];
+  for (const vocab of allVocab) {
+    const distractorEntries = pickDistractorsWithVocab(vocab, "vocab_meaning", allVocab, jlptPool);
+    const distractors = distractorEntries.map((d) => d.field);
+    const q = makeQuestion(vocab, "vocab_meaning", distractors, verses, distractorEntries);
+    if (q) vocabQs.push(q);
+  }
+
+  // Sub-pool C: grammar conjugation questions
+  const grammarQs: Question[] = [];
+  for (const gp of grammarPoints) {
+    const q = makeGrammarConjugationQuestion(gp, allVocab, verses, jlptPool);
+    if (q) grammarQs.push(q);
+  }
+
+  // Round-robin interleave: pop 1 from each pool in sequence
+  const shuffledKanji = shuffle(kanjiQs);
+  const shuffledVocab = shuffle(vocabQs);
+  const shuffledGrammar = shuffle(grammarQs);
+
+  const pools: Question[][] = [shuffledVocab, shuffledKanji, shuffledGrammar].filter((p) => p.length > 0);
+  const mixed: Question[] = [];
+  let poolIdx = 0;
+
+  while (mixed.length < lengthCap) {
+    let emitted = false;
+    // Try each pool in round-robin once
+    const startIdx = poolIdx;
+    for (let attempts = 0; attempts < pools.length; attempts++) {
+      const pi = (startIdx + attempts) % pools.length;
+      const pool = pools[pi];
+      if (pool.length > 0) {
+        mixed.push(pool.shift()!);
+        poolIdx = (pi + 1) % pools.length;
+        emitted = true;
+        break;
+      }
+    }
+    if (!emitted) break; // all pools exhausted
+  }
+
+  // Enforce >=30% typed (SPEC-REQ-12): convert some vocab_meaning to vocab_typed if needed
+  const typedCount = mixed.filter((q) => q.type === "vocab_typed").length;
+  const typedThreshold = Math.ceil(mixed.length * 0.30);
+
+  if (typedCount < typedThreshold && kanjiVocab.length > 0) {
+    let needed = typedThreshold - typedCount;
+    for (let i = 0; i < mixed.length && needed > 0; i++) {
+      if (mixed[i].type === "vocab_meaning") {
+        // Find matching kanji vocab
+        const matchingKanji = kanjiVocab.find((v) => v.vocab_item_id === mixed[i].vocabItemId);
+        if (matchingKanji) {
+          mixed[i] = makeVocabTypedQuestion(matchingKanji);
+          needed--;
+        } else if (kanjiVocab.length > 0) {
+          // Pick any kanji vocab not already in mixed
+          const usedIds = new Set(mixed.map((q) => q.vocabItemId));
+          const available = kanjiVocab.filter((v) => !usedIds.has(v.vocab_item_id!));
+          if (available.length > 0) {
+            mixed[i] = makeVocabTypedQuestion(available[0]);
+            needed--;
+          }
+        }
+      }
+    }
+  }
+
+  return mixed;
 }
