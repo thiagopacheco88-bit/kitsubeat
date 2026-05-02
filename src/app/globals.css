@@ -8,6 +8,7 @@
 }
 
 @theme {
+  /* Grammar colors — theme-independent (kept verbatim from pre-Phase-14) */
   --color-grammar-noun: #3b82f6;
   --color-grammar-verb: #ef4444;
   --color-grammar-adjective: #22c55e;
@@ -16,11 +17,85 @@
   --color-grammar-expression: #8b5cf6;
   --color-grammar-other: #6b7280;
 
+  /* JLPT base colors — theme-independent (kept verbatim from pre-Phase-14) */
   --color-jlpt-n5: #22c55e;
   --color-jlpt-n4: #3b82f6;
   --color-jlpt-n3: #f59e0b;
   --color-jlpt-n2: #f97316;
   --color-jlpt-n1: #ef4444;
+
+  /* JLPT alpha tints — badge backgrounds (12% alpha) + rings (25% alpha) per SPEC §A.2.
+   * Same values used in both light + dark themes (12%/25% alpha works on both backgrounds). */
+  --color-jlpt-n5-bg: rgba(34, 197, 94, 0.12);
+  --color-jlpt-n5-ring: rgba(34, 197, 94, 0.25);
+  --color-jlpt-n4-bg: rgba(59, 130, 246, 0.12);
+  --color-jlpt-n4-ring: rgba(59, 130, 246, 0.25);
+  --color-jlpt-n3-bg: rgba(245, 158, 11, 0.12);
+  --color-jlpt-n3-ring: rgba(245, 158, 11, 0.25);
+  --color-jlpt-n2-bg: rgba(249, 115, 22, 0.12);
+  --color-jlpt-n2-ring: rgba(249, 115, 22, 0.25);
+  --color-jlpt-n1-bg: rgba(239, 68, 68, 0.12);
+  --color-jlpt-n1-ring: rgba(239, 68, 68, 0.25);
+
+  /* Color (DARK theme — default) per SPEC §A.2. Light theme overrides below. */
+  --color-bg: #0E0E0E;
+  --color-bg-2: #111111;
+  --color-card: #191919;
+  --color-card-2: #1E1E1E;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.10);
+  --color-text: #F5F5F4;
+  --color-text-muted: rgba(245, 245, 244, 0.56);
+  --color-text-dim: rgba(245, 245, 244, 0.40);
+  --color-accent: #ef4444;
+
+  /* Typography — theme-independent per CONTEXT D-01 / SPEC §A.3 */
+  --font-sans: Inter, -apple-system, "SF Pro Text", system-ui, sans-serif;
+  --font-jp: "Noto Sans JP", -apple-system, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+
+  /* Spacing scale (10 steps) — theme-independent per SPEC §A.4 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+
+  /* Radii (11 steps) — theme-independent per SPEC §A.5 */
+  --radius-xs: 8px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-2xl: 18px;
+  --radius-3xl: 20px;
+  --radius-4xl: 22px;
+  --radius-5xl: 24px;
+  --radius-6xl: 26px;
+  --radius-pill: 9999px;
+
+  /* Shadows — DARK theme recipes per SPEC §A.6. Light theme overrides below
+   * with 30% higher opacity per CONTEXT D-04. */
+  --shadow-card-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-card-ring-strong: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  --shadow-hero-glow: inset 0 0 0 1px rgba(239, 68, 68, 0.32), 0 16px 40px rgba(239, 68, 68, 0.14);
+  --shadow-hero-inner: inset 0 0 80px rgba(239, 68, 68, 0.18);
+  --shadow-button-red: 0 8px 22px rgba(239, 68, 68, 0.45);
+  --shadow-cta-red: 0 8px 24px rgba(239, 68, 68, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --shadow-logo-glow: drop-shadow(0 0 14px rgba(239, 68, 68, 0.32));
+  --shadow-focus-ring: 0 0 0 2px rgba(239, 68, 68, 0.40);
+
+  /* Motion — theme-independent per SPEC §A.7 */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 400ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Thin scrollbar for horizontal carousels */
