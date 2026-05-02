@@ -3,13 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import type { Lesson } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
+import type { TrackKind } from "@/lib/exercises/generator";
 import { useExerciseSession } from "@/stores/exerciseSession";
+import { recordVocabAnswer } from "@/app/actions/exercises";
 import QuestionCard from "./QuestionCard";
 import SessionSummary from "./SessionSummary";
 import LearnCard from "./LearnCard";
 import ConjugationCard from "./ConjugationCard";
 import ListeningDrillCard from "./ListeningDrillCard";
 import SentenceOrderCard from "./SentenceOrderCard";
+import VocabTypedCard from "./VocabTypedCard";
 import { usePlayer } from "./PlayerContext";
 
 /**
@@ -29,6 +32,7 @@ export default function ExerciseSession({
   userId,
   onRetry,
   skipLearning,
+  trackKind = "vocab",
 }: {
   lesson: Lesson;
   songSlug: string;
@@ -38,6 +42,8 @@ export default function ExerciseSession({
   onRetry: () => void;
   /** Phase 08.4: when true, never render the LearnCard — go straight to QuestionCard. */
   skipLearning: boolean;
+  /** Phase 11.6: track driving this session — determines cardKind for FSRS upsert. Defaults to "vocab". */
+  trackKind?: TrackKind;
 }) {
   const store = useExerciseSession();
   const { questions, currentIndex, answers, mode, recordAnswer, advanceQuestion } =
@@ -49,6 +55,9 @@ export default function ExerciseSession({
   const markLearnCardShown = useExerciseSession((s) => s.markLearnCardShown);
   const markVocabIntroduced = useExerciseSession((s) => s.markVocabIntroduced);
   const introducedNewVocabIds = useExerciseSession((s) => s.introducedNewVocabIds);
+
+  // Phase 11.6: verse domination animation trigger
+  const setVersesDominatedNow = useExerciseSession((s) => s.setVersesDominatedNow);
 
   // Translation language for localizing learn card meaning
   const { translationLang } = usePlayer();
@@ -151,6 +160,7 @@ export default function ExerciseSession({
           jlptLevel={jlptLevel}
           meaningText={meaningText}
           lang={translationLang}
+          trackKind={trackKind}
           onDismiss={() => {
             markLearnCardShown(vocabItemId);
             if (!introducedNewVocabIds[vocabItemId]) {
@@ -168,6 +178,49 @@ export default function ExerciseSession({
     timeMs: number
   ) => {
     recordAnswer(current.id, chosen, correct, timeMs);
+  };
+
+  /**
+   * Phase 11.6: VocabTypedCard answer handler.
+   *
+   * Calls recordVocabAnswer with the correct cardKind:
+   *   - Kanji track ("kanji") → card_kind = "kanji_kana"
+   *   - Vocab / Advanced Drills → card_kind = "romaji_meaning"
+   *
+   * Also threads versesDominatedNow back into the store to trigger
+   * the verse-domination animation (Plan 11.6-05 return contract).
+   */
+  const handleVocabTypedAnswered = (
+    chosen: string,
+    correct: boolean,
+    timeMs: number
+  ) => {
+    // Always record in the session store (progress tracking)
+    recordAnswer(current.id, chosen, correct, timeMs);
+
+    // Persist FSRS state with the correct card kind
+    const cardKind: "romaji_meaning" | "kanji_kana" =
+      trackKind === "kanji" ? "kanji_kana" : "romaji_meaning";
+
+    void (async () => {
+      try {
+        const result = await recordVocabAnswer({
+          userId,
+          vocabItemId: current.vocabItemId,
+          songVersionId,
+          exerciseType: current.type,
+          cardKind,
+          correct,
+          responseTimeMs: timeMs,
+        });
+        if (result.versesDominatedNow.length > 0) {
+          setVersesDominatedNow(result.versesDominatedNow);
+        }
+      } catch (err) {
+        console.error("recordVocabAnswer (vocab_typed) failed:", err);
+        // Non-fatal: UI still proceeds; mastery update missed for this attempt
+      }
+    })();
   };
 
   const handleContinue = () => {
@@ -266,6 +319,24 @@ export default function ExerciseSession({
                 question={current}
                 onAnswer={handleAnswered}
                 onContinue={handleContinue}
+              />
+            );
+          }
+          if (current.type === "vocab_typed") {
+            // Plan 11.6-09 — Kanji track typed romaji input.
+            //
+            // Dispatches to VocabTypedCard. FSRS persistence uses the
+            // track-aware cardKind: kanji track → "kanji_kana",
+            // vocab / advanced_drills → "romaji_meaning".
+            // Verse-domination is triggered via handleVocabTypedAnswered
+            // (Plan 11.6-05 return contract).
+            return (
+              <VocabTypedCard
+                key={current.id}
+                question={current}
+                onAnswered={handleVocabTypedAnswered}
+                onContinue={handleContinue}
+                lang={translationLang}
               />
             );
           }

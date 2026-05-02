@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { Question } from "@/lib/exercises/generator";
+import type { TrackKind } from "@/lib/exercises/generator";
 import { localize } from "@/lib/types/lesson";
 import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "@/lib/tts";
 import KanjiBreakdownSection from "./KanjiBreakdownSection";
@@ -18,6 +19,12 @@ interface LearnCardProps {
   lang: string;
   /** Called when any tap/swipe outside the reveal control or speaker icon dismisses the card. */
   onDismiss: () => void;
+  /**
+   * Phase 11.6-09: track driving this session.
+   * - "kanji" → KanjiBreakdownSection lifted out of accordion and shown prominently in card body.
+   * - all others → KanjiBreakdownSection stays in revealed accordion (existing Plan 08.3 behaviour).
+   */
+  trackKind?: TrackKind;
 }
 
 export default function LearnCard({
@@ -27,6 +34,7 @@ export default function LearnCard({
   meaningText,
   lang,
   onDismiss,
+  trackKind,
 }: LearnCardProps) {
   const [revealed, setRevealed] = useState(false);
   // Phase 11.4: silent-fail flag — when the image 404s, collapse to no-image.
@@ -43,7 +51,12 @@ export default function LearnCard({
   const hasMnemonic = !!question.mnemonic;
   const hasKanjiBreakdown =
     question.kanji_breakdown != null && question.kanji_breakdown.characters.length > 0;
-  const hasMoreContent = hasMnemonic || hasKanjiBreakdown;
+  // For Kanji track, KanjiBreakdownSection is rendered prominently in the card body
+  // (outside the accordion) — the accordion only needs to show the mnemonic.
+  const isKanjiTrack = trackKind === "kanji";
+  const hasMoreContent = isKanjiTrack
+    ? hasMnemonic
+    : hasMnemonic || hasKanjiBreakdown;
 
   return (
     <div
@@ -139,6 +152,19 @@ export default function LearnCard({
       {/* Meaning */}
       <p className="mb-3 text-base text-[var(--color-text)]">{meaningText}</p>
 
+      {/* Phase 11.6-09: Kanji track — KanjiBreakdownSection lifted out of accordion
+          and shown prominently so learners see it before answering the typed question.
+          Non-Kanji tracks keep breakdown in the accordion (Plan 08.3 behaviour). */}
+      {isKanjiTrack && hasKanjiBreakdown && question.kanji_breakdown && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="my-3 rounded bg-gray-800 p-3"
+          data-testid="learn-card-kanji-breakdown-prominent"
+        >
+          <KanjiBreakdownSection breakdown={question.kanji_breakdown} lang={lang} />
+        </div>
+      )}
+
       {/* Show more control — the ONE dedicated reveal. Never advances. */}
       {hasMoreContent && (
         <button
@@ -173,7 +199,8 @@ export default function LearnCard({
               </p>
             </div>
           )}
-          {hasKanjiBreakdown && question.kanji_breakdown && (
+          {/* Kanji track: breakdown is shown prominently above (not duplicated in accordion) */}
+          {!isKanjiTrack && hasKanjiBreakdown && question.kanji_breakdown && (
             <KanjiBreakdownSection
               breakdown={question.kanji_breakdown}
               lang={lang}

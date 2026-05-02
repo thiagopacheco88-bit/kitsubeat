@@ -118,6 +118,10 @@ export default function ExerciseTab({
   const [error, setError] = useState<string | null>(null);
   const [skipLearning, setSkipLearning] = useState(false);
 
+  // Phase 11.6-09: track kind active for the current / most-recent session.
+  // Passed to ExerciseSession so it can use the correct cardKind for FSRS upserts.
+  const [activeTrackKind, setActiveTrackKind] = useState<TrackKind>("vocab");
+
   // Per-track length preferences (independent within the session)
   const [vocabLength, setVocabLength] = useState<LengthMode>("short");
   const [grammarLength, setGrammarLength] = useState<LengthMode>("short");
@@ -173,6 +177,7 @@ export default function ExerciseTab({
         userId={userId}
         onRetry={handleRetry}
         skipLearning={skipLearning}
+        trackKind={activeTrackKind}
       />
     </div>
   );
@@ -308,6 +313,10 @@ export default function ExerciseTab({
       startSession(songVersionId, questions, "short");
       store.setTiers(tierMap);
       store.setVocabStates(stateMap);
+
+      // Phase 11.6-09: record the active trackKind so ExerciseSession can thread
+      // the correct cardKind ("kanji_kana" vs "romaji_meaning") to recordVocabAnswer.
+      setActiveTrackKind(trackKind);
 
       setTabState("session");
     } catch (err) {
