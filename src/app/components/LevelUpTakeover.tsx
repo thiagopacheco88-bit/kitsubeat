@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { playLevelUpSFX, triggerHaptic } from "@/lib/sfx";
 import {
   Modal,
@@ -53,9 +53,24 @@ export function LevelUpTakeover({
   hapticsEnabled,
   onDismiss,
 }: LevelUpTakeoverProps) {
-  // Fire confetti + SFX + haptic when overlay becomes visible
+  // Fire confetti + SFX + haptic ONCE when overlay becomes visible.
+  //
+  // Phase 14 gap fix (WR-02): the prior implementation re-fired the entire
+  // celebration burst whenever soundEnabled or hapticsEnabled changed during
+  // an open takeover (deps array included both prefs). Toggling a pref
+  // mid-celebration would re-load canvas-confetti, replay the SFX, and
+  // re-trigger the haptic. Now latched with a useRef sentinel: fires only
+  // on the rising edge of `visible` (false -> true) and resets when the
+  // takeover closes. soundEnabled/hapticsEnabled stay in deps to satisfy
+  // exhaustive-deps but are read-through; the sentinel guards re-fire.
+  const firedRef = useRef(false);
   useEffect(() => {
-    if (!visible) return;
+    if (!visible) {
+      firedRef.current = false;
+      return;
+    }
+    if (firedRef.current) return;
+    firedRef.current = true;
 
     // motion-catalog: confetti milestone — disableForReducedMotion already applied
     // Confetti burst — same pattern as StarDisplay.tsx (canvas-confetti, dynamic import)
