@@ -5,6 +5,7 @@ import { useState } from "react";
 import { setStarterSong } from "@/app/actions/gamification";
 import type { StarterSongRow } from "@/lib/gamification/starter-songs";
 import { Button } from "@/components/ui/Button";
+import { EmptyState } from "@/components/ui/EmptyState";
 
 // Hardcoded vibe descriptors per slug — user-approved at Plan 03 decision checkpoint.
 const VIBE_MAP: Record<string, string> = {
@@ -40,6 +41,23 @@ interface StarterPickProps {
 export function StarterPick({ candidates, userId }: StarterPickProps) {
   const router = useRouter();
   const [selecting, setSelecting] = useState<string | null>(null);
+
+  // Phase 14.1 D-01 — when getStarterSongs() filtered all 3 slugs (DB drift),
+  // render an EmptyState fallback rather than the empty 3-card layout.
+  // Visual restyle of the populated branch is deferred per D-02; only this
+  // empty-branch is added here.
+  if (candidates.length === 0) {
+    return (
+      <EmptyState
+        heading="More starter songs coming soon"
+        body="Pick something from the full catalog while we restock your starter list."
+        ctaLabel="Explore the catalog"
+        ctaHref="/songs"
+        aria-label="No starter songs available"
+        className="my-6"
+      />
+    );
+  }
 
   async function handleSelect(slug: string) {
     if (selecting) return; // prevent double-tap
