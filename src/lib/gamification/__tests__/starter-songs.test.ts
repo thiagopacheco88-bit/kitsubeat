@@ -180,38 +180,8 @@ describe("getStarterSongs", () => {
     expect(result[2].youtube_id).toBeNull();
   });
 
-  it("throws with the missing slug name when a slug is absent from the DB", async () => {
-    // Only 2 of 3 slugs returned — simulate a missing slug
-    mockDbSelect(THREE_ROWS.slice(0, 2));
-    await expect(getStarterSongs()).rejects.toThrow(
-      "yume-wo-kanaete-doraemon-mao"
-    );
-  });
-
-  it("throws when a song has no lesson (has_lesson null)", async () => {
-    mockDbSelect([
-      THREE_ROWS[0],
-      THREE_ROWS[1],
-      makeDbRow({
-        slug: "yume-wo-kanaete-doraemon-mao",
-        title: "Yume wo Kanaete Doraemon",
-        anime: "Doraemon",
-        jlpt_level: "N5",
-        youtube_id: null,
-        has_lesson: null, // no lesson
-      }),
-    ]);
-    await expect(getStarterSongs()).rejects.toThrow(
-      "yume-wo-kanaete-doraemon-mao"
-    );
-  });
-
-  it("error message names the offending slug(s)", async () => {
-    mockDbSelect([]); // all missing
-    await expect(getStarterSongs()).rejects.toThrow(
-      /under-the-tree-sim.*misa-no-uta-aya-hirano.*yume-wo-kanaete-doraemon-mao/
-    );
-  });
+  // Filter+warn behavior (replaces old throw-on-missing contract per Phase 14.1
+  // SPEC-REQ-1) is covered in src/lib/gamification/starter-songs.test.ts.
 
   it("jlpt_level can be null (nullable field)", async () => {
     mockDbSelect(
