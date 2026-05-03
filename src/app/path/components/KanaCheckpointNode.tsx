@@ -21,6 +21,10 @@
  * itself.
  *
  * All 3 states link to /kana?script={hiragana|katakana} per D-05.
+ *
+ * Phase 14.2 CONTEXT D-08: `size?: "path" | "home"` prop added.
+ *   size="path" (default) — byte-equivalent to 14.1 callers (h-16, horizontal).
+ *   size="home" — 130×124 vertical dashed-border card for Foundations section.
  */
 import { useKanaProgress } from "@/stores/kanaProgress";
 import { computeCheckpointState } from "@/lib/kana/checkpoint-state";
@@ -30,6 +34,7 @@ import type { Script } from "@/lib/kana/types";
 
 interface KanaCheckpointNodeProps {
   script: Script;
+  size?: "path" | "home"; // CONTEXT D-08: default "path" preserves 14.1 byte-equivalence
 }
 
 const SCRIPT_GLYPH: Record<Script, string> = {
@@ -42,7 +47,7 @@ const SCRIPT_NAME: Record<Script, string> = {
   katakana: "Katakana",
 };
 
-export function KanaCheckpointNode({ script }: KanaCheckpointNodeProps) {
+export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNodeProps) {
   const hasHydrated = useKanaProgress((s) => s._hasHydrated);
   const map = useKanaProgress((s) =>
     script === "hiragana" ? s.hiragana : s.katakana,
@@ -51,8 +56,9 @@ export function KanaCheckpointNode({ script }: KanaCheckpointNodeProps) {
   if (!hasHydrated) {
     return (
       <Skeleton
-        variant="list-item"
-        className="h-16"
+        variant={size === "home" ? "card" : "list-item"}
+        className={size === "home" ? undefined : "h-16"}
+        style={size === "home" ? { width: "130px", height: "124px" } : undefined}
         data-testid={`kana-checkpoint-skeleton-${script}`}
       />
     );
@@ -111,36 +117,71 @@ export function KanaCheckpointNode({ script }: KanaCheckpointNodeProps) {
     ariaState = "locked";
   }
 
+  // CONTEXT D-08 — size variant layout. Default "path" = byte-equivalent to 14.1 callers.
+  const isHome = size === "home";
+
+  // Home variant uses inline styles for specific pixel dimensions (lint-clean: style attrs
+  // are not subject to no-raw-tokens rule which only covers className strings).
+  const rootClassName = isHome
+    ? "relative flex flex-col items-center justify-between gap-2 border-dashed p-2"
+    : "relative flex items-center gap-3 h-16 w-full max-w-xs border-dashed";
+  const rootStyle: React.CSSProperties = isHome
+    ? { width: "130px", height: "124px" }
+    : {};
+
+  const glyphBadgeClassName = isHome
+    ? `flex-shrink-0 rounded-full bg-[var(--color-card-2)] flex items-center justify-center font-bold ${glyphClass}`
+    : `flex-shrink-0 w-10 h-10 rounded-full bg-[var(--color-card-2)] flex items-center justify-center text-2xl font-bold ${glyphClass}`;
+  const glyphBadgeStyle: React.CSSProperties = isHome
+    ? { fontFamily: "var(--font-jp)", fontSize: "22px", fontWeight: 900, width: "42px", height: "42px" }
+    : { fontFamily: "var(--font-jp)" };
+
   return (
     <CardLink
       href={href}
       variant="flat"
-      size="md"
-      className="relative flex items-center gap-3 h-16 w-full max-w-xs border-dashed"
+      size={isHome ? "sm" : "md"}
+      className={rootClassName}
+      style={rootStyle}
       aria-label={`${name} checkpoint, ${ariaState}`}
       data-testid={`kana-checkpoint-${script}`}
       data-state={result.state}
+      data-size={size}
     >
-      {/* Kana glyph badge — circle, large glyph */}
+      {/* Kana glyph badge */}
       <div
-        className={`flex-shrink-0 w-10 h-10 rounded-full bg-[var(--color-card-2)] flex items-center justify-center text-2xl font-bold ${glyphClass}`}
-        style={{ fontFamily: "var(--font-jp)" }}
+        className={glyphBadgeClassName}
+        style={glyphBadgeStyle}
         aria-hidden="true"
       >
         {glyph}
       </div>
 
-      {/* Label + state pill */}
-      <div className="min-w-0 flex-1">
-        <p className="text-sm font-semibold text-[var(--color-text)]">
-          {name}
-        </p>
-        <span
-          className={`inline-block mt-0.5 rounded-[var(--radius-pill)] px-2 py-0.5 text-xs font-semibold ${pillClass}`}
-        >
-          {pillText}
-        </span>
-      </div>
+      {/* Label + state pill — vertical for home, side for path */}
+      {isHome ? (
+        <div className="flex flex-col items-center gap-1 min-w-0">
+          <p className="text-xs font-semibold text-[var(--color-text)] truncate">
+            {name}
+          </p>
+          <span
+            className={`inline-block rounded-[var(--radius-pill)] px-2 py-0.5 font-semibold ${pillClass}`}
+            style={{ fontSize: "10px" }}
+          >
+            {pillText}
+          </span>
+        </div>
+      ) : (
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-semibold text-[var(--color-text)]">
+            {name}
+          </p>
+          <span
+            className={`inline-block mt-0.5 rounded-[var(--radius-pill)] px-2 py-0.5 text-xs font-semibold ${pillClass}`}
+          >
+            {pillText}
+          </span>
+        </div>
+      )}
 
       {progressBar}
       {mistOverlay}

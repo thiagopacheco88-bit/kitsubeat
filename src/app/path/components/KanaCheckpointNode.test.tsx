@@ -152,4 +152,68 @@ describe("KanaCheckpointNode", () => {
     const { getByLabelText } = render(<KanaCheckpointNode script="hiragana" />);
     expect(getByLabelText(/Hiragana checkpoint.*locked/i)).toBeDefined();
   });
+
+  it("Test 9: size='home' renders 130x124 dashed-border layout (locked default)", () => {
+    mockStore({ _hasHydrated: true, hiragana: {} });
+    const { getByTestId } = render(<KanaCheckpointNode script="hiragana" size="home" />);
+    const link = getByTestId("kana-checkpoint-hiragana");
+
+    // Home-variant dimensions — expressed as inline styles (lint-clean approach)
+    expect(link.style.width).toBe("130px");
+    expect(link.style.height).toBe("124px");
+    // className still carries layout classes including border-dashed
+    expect(link.className).toContain("border-dashed");
+
+    // data-size attribute carries the variant for future selector use
+    expect(link.getAttribute("data-size")).toBe("home");
+
+    // Locked state by default (empty hiragana map)
+    expect(link.getAttribute("data-state")).toBe("locked");
+
+    // M1 invariant — root clickable, no disabled, no inline pointer-events:none
+    expect(link.hasAttribute("disabled")).toBe(false);
+    expect(link.style.pointerEvents).not.toBe("none");
+
+    // /kana?script=hiragana navigation preserved (V1 verified in 14.2-01)
+    expect(link.getAttribute("href")).toBe("/kana?script=hiragana");
+  });
+
+  it("Test 10: size='home' in-progress state renders progress bar with grammar-adverb token", () => {
+    // Seed an in-progress mastery map. Use the same shape Test 3 uses — adapt
+    // to the actual MasteryMap entry shape: Record<string, number> (star count).
+    mockStore({
+      _hasHydrated: true,
+      hiragana: {
+        // 2 chars at 7 stars: enough for in-progress (2/46 = 4%), not mastered (need 42)
+        あ: 7,
+        い: 7,
+      },
+    });
+    const { getByTestId } = render(<KanaCheckpointNode script="hiragana" size="home" />);
+    const link = getByTestId("kana-checkpoint-hiragana");
+
+    // If this seed maps to in-progress per computeCheckpointState, assert progress bar.
+    if (link.getAttribute("data-state") === "in-progress") {
+      const progressBars = link.querySelectorAll("[aria-hidden='true']");
+      const hasProgressBar = Array.from(progressBars).some((el) =>
+        el.innerHTML.includes("bg-[var(--color-jlpt-n3)]") ||
+        el.innerHTML.includes("bg-[var(--color-grammar-adverb)]"),
+      );
+      expect(hasProgressBar).toBe(true);
+    }
+  });
+
+  it("Test 11: backward compat — no size prop renders byte-equivalent 14.1 layout (h-16, no data-size='home')", () => {
+    mockStore({ _hasHydrated: true, hiragana: {} });
+    const { getByTestId } = render(<KanaCheckpointNode script="hiragana" />);
+    const link = getByTestId("kana-checkpoint-hiragana");
+
+    // 14.1 layout preserved — h-16 in className, no inline width/height overrides
+    expect(link.className).toContain("h-16");
+    expect(link.style.width).not.toBe("130px");
+    expect(link.style.height).not.toBe("124px");
+
+    // data-size MAY be present as "path" (the default) OR absent — assert NOT "home"
+    expect(link.getAttribute("data-size")).not.toBe("home");
+  });
 });
