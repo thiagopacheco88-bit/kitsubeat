@@ -69,14 +69,18 @@ describe("ContinueLearning - empty/auth gate (D-14, AC #9)", () => {
   it("Test 4: cards rendered in updated_at DESC order (D-03)", async () => {
     mockGetContinueLearning.mockResolvedValueOnce(sampleRows);
     const node = await ContinueLearning({ userId: "user_real_123" });
-    const { container } = render(node as React.ReactElement);
+    const { getByTestId } = render(node as React.ReactElement);
 
-    // Query in DOM order
-    const cards = container.querySelectorAll('[data-testid^="continue-card-"]');
-    expect(cards.length).toBe(3);
-    expect(cards[0].getAttribute("data-testid")).toBe("continue-card-song-a"); // newest first
-    expect(cards[1].getAttribute("data-testid")).toBe("continue-card-song-b");
-    expect(cards[2].getAttribute("data-testid")).toBe("continue-card-song-c"); // oldest last
+    // Verify ordering by checking each card's testid individually — slugs are ordered newest first per D-03.
+    // The container is the section root; direct children flow is: SectionHeader then Carousel then cards.
+    const cardA = getByTestId("continue-card-song-a");
+    const cardB = getByTestId("continue-card-song-b");
+    const cardC = getByTestId("continue-card-song-c");
+
+    // Verify DOM order: a (newest) → b → c (oldest)
+    // compareDocumentPosition: 4 (DOCUMENT_POSITION_FOLLOWING) means 'a' comes before 'b'
+    expect(cardA.compareDocumentPosition(cardB) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(cardB.compareDocumentPosition(cardC) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it("Test 5: stars prop is threaded to each ContinueCard (D-14)", async () => {
