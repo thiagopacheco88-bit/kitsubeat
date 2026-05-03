@@ -498,7 +498,7 @@ Plans:
 - [x] 14.1-08-PLAN.md — Wave 2: <KanaCheckpointNode> client island reading useKanaProgress (SPEC-REQ-6 + D-03) + 3-state + M1 vitest
 - [x] 14.1-09-PLAN.md — Wave 2: <PathNode> cover-art-as-background rewrite (SPEC-REQ-5) + 4 states + M1 invariant + ka-* keyframe hooks + vitest
 - [x] 14.1-10-PLAN.md — Wave 2: <ContinueAnchor> sticky bottom CTA (SPEC-REQ-8) + visibility + position + tap navigation vitest
-- [ ] 14.1-11-PLAN.md — Wave 3: page.tsx integration + DELETE PathHud + PathMap composes TierDivider + KanaCheckpointNode + /kana ?script param (D-05/D-06)
+- [x] 14.1-11-PLAN.md — Wave 3: page.tsx integration + DELETE PathHud + PathMap composes TierDivider + KanaCheckpointNode + /kana ?script param (D-05/D-06)
 - [ ] 14.1-12-PLAN.md — Wave 4: 8 Playwright specs covering AC #1-#10 + axe dark+light + bundle delta report (D-10/D-11/D-12/D-15/D-18)
 
 
