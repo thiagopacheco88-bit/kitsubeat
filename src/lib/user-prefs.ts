@@ -33,6 +33,33 @@ import { PLACEHOLDER_USER_ID } from "./user-prefs-shared";
  * than 500-ing the page.
  */
 export async function getCurrentUserId(): Promise<string> {
+  // E2E auth bypass — DOUBLE-GATED to prevent accidental production exposure.
+  // Both gates must be true:
+  //   1. NODE_ENV !== 'production' (prevents accidental prod activation)
+  //   2. KB_E2E_AUTH_BYPASS_ENABLED === 'true' (explicit per-CI-run opt-in)
+  //   3. KB_E2E_AUTH_BYPASS is set to a non-empty user id
+  //
+  // Every bypassed call emits console.warn so a misconfigured prod build
+  // surfaces noise immediately. The env vars are NOT documented in
+  // .env.example (intentional — must be explicit per-CI-run).
+  //
+  // Phase 14.2 Plan 14.2-01b — required because Clerk free tier has no
+  // test-mode session JWT mechanism. If KitsuBeat upgrades to Clerk Pro,
+  // migrate to @clerk/testing + signInToken and remove this branch.
+  const bypassId = process.env.KB_E2E_AUTH_BYPASS;
+  if (
+    process.env.NODE_ENV !== "production" &&
+    process.env.KB_E2E_AUTH_BYPASS_ENABLED === "true" &&
+    bypassId &&
+    bypassId.length > 0
+  ) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      "[e2e] auth bypass active — DO NOT enable in production",
+    );
+    return bypassId;
+  }
+
   try {
     const { auth } = await import("@clerk/nextjs/server");
     const session = await auth();
