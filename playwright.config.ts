@@ -74,6 +74,19 @@ export default defineConfig({
       ...(process.env.CLERK_ADMIN_EMAILS
         ? { CLERK_ADMIN_EMAILS: process.env.CLERK_ADMIN_EMAILS }
         : {}),
+      // Phase 14.2 Plan 14.2-01b — propagate bypass env to the dev server
+      // when PLAYWRIGHT_AUTH=true. WITHOUT this, getCurrentUserId() in the
+      // server process never sees KB_E2E_AUTH_BYPASS even if Playwright has it.
+      // The bypass is triple-gated in getCurrentUserId() itself (NODE_ENV !== production
+      // + KB_E2E_AUTH_BYPASS_ENABLED + non-empty KB_E2E_AUTH_BYPASS) so this
+      // injection is safe even if env is set without PLAYWRIGHT_AUTH.
+      // DO NOT document KB_E2E_AUTH_BYPASS in .env.example — must be explicit per-CI-run.
+      ...(process.env.PLAYWRIGHT_AUTH === "true"
+        ? {
+            KB_E2E_AUTH_BYPASS_ENABLED: "true",
+            KB_E2E_AUTH_BYPASS: process.env.KB_E2E_AUTH_BYPASS ?? "test-user-1",
+          }
+        : {}),
     },
   },
   projects: [{ name: "chromium", use: { browserName: "chromium" } }],
