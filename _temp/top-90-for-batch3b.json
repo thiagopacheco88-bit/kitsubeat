@@ -1,0 +1,906 @@
+[
+  {
+    "id": "0588f1da-7292-4efc-bebf-3d103b09b7d6",
+    "name": "〜te mo (〜ても) — even if / no matter",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "Attach 〜te mo (〜ても) to a verb's te-form to mean 'even if (X)' or 'even though (X)'. The condition doesn't change the outcome. With question words, it expands to 'no matter what / when / how': nani o shite mo (<ruby>何<rt>なに</rt></ruby>をしても) — 'no matter what I do'.\n\nFor i-adjectives, drop い and add 〜kute mo (〜くても): yasukute mo (<ruby>安<rt>やす</rt></ruby>くても) — 'even if it's cheap'. For nouns and na-adjectives, attach 〜de mo (〜でも): ame de mo (<ruby>雨<rt>あめ</rt></ruby>でも) — 'even if it rains'.\n\nCompare with 〜tara (たら) and 〜ba (ば), which assert that the consequence DOES depend on the condition. 〜te mo asserts the opposite: the consequence holds REGARDLESS. Common in song lyrics for stubborn / resilient stances ('even if X happens, I won't change').\n\n• ame ga futte mo iku (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っても<ruby>行<rt>い</rt></ruby>く) — 'I'll go even if it rains'\n• nani o itte mo muda da (<ruby>何<rt>なに</rt></ruby>を<ruby>言<rt>い</rt></ruby>っても<ruby>無駄<rt>むだ</rt></ruby>だ) — 'no matter what I say, it's pointless'\n• donnani osokute mo matsu (どんなに<ruby>遅<rt>おそ</rt></ruby>くても<ruby>待<rt>ま</rt></ruby>つ) — 'I'll wait no matter how late'\n• tabete mo onaka ga suku (<ruby>食<rt>た</rt></ruby>べてもお<ruby>腹<rt>なか</rt></ruby>がすく) — 'even after eating, I get hungry'\n• doko ni itte mo utsukushii (どこに<ruby>行<rt>い</rt></ruby>っても<ruby>美<rt>うつく</rt></ruby>しい) — 'beautiful no matter where you go'\n• shippai shite mo akiramenai (<ruby>失敗<rt>しっぱい</rt></ruby>してもあきらめない) — 'even if I fail, I won't give up'\n• yasukute mo kawanai (<ruby>安<rt>やす</rt></ruby>くても<ruby>買<rt>か</rt></ruby>わない) — 'I won't buy it even if it's cheap'\n• ame de mo shiai wa aru (<ruby>雨<rt>あめ</rt></ruby>でも<ruby>試合<rt>しあい</rt></ruby>はある) — 'the match is on even if it rains'\n• kodomo de mo wakaru (<ruby>子供<rt>こども</rt></ruby>でもわかる) — 'even a child can understand'\n• ikutsu negai kanaete mo (いくつ<ruby>願<rt>ねが</rt></ruby>い<ruby>叶<rt>かな</rt></ruby>えても) — 'no matter how many wishes are granted'\n• nemurenakute mo asa wa kuru (<ruby>眠<rt>ねむ</rt></ruby>れなくても<ruby>朝<rt>あさ</rt></ruby>は<ruby>来<rt>く</rt></ruby>る) — 'morning comes even if I can't sleep'\n• samukute mo soto e deru (<ruby>寒<rt>さむ</rt></ruby>くても<ruby>外<rt>そと</rt></ruby>へ<ruby>出<rt>で</rt></ruby>る) — 'I'll go out even if it's cold'\n• dare ga kite mo aenai (<ruby>誰<rt>だれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>ても<ruby>会<rt>あ</rt></ruby>えない) — 'I can't see anyone, no matter who comes'\n• takakute mo hoshii (<ruby>高<rt>たか</rt></ruby>くても<ruby>欲<rt>ほ</rt></ruby>しい) — 'I want it even if it's expensive'\n• naite mo waratte mo (<ruby>泣<rt>な</rt></ruby>いても<ruby>笑<rt>わら</rt></ruby>っても) — 'whether you cry or laugh' (idiomatic — 'no matter what')\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 45
+  },
+  {
+    "id": "a0d93554-e629-4a25-8d26-6f4bd78a227d",
+    "name": "〜te iku (〜ていく) — gradually / moving onward",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "Attach iku (<ruby>行<rt>い</rt></ruby>く, 'to go') to a verb's te-form to express gradual onward motion — either physical (going away from the speaker) or aspectual (a process unfolding into the future). Past form: 〜te itta (〜ていった). Casual contraction: 〜teku (〜てく). When the te-form ends in 〜で (e.g., 〜<ruby>飲<rt>の</rt></ruby>んで), the auxiliary is still 〜でいく.\n\nTwo main senses: (a) physical movement away — motte iku (<ruby>持<rt>も</rt></ruby>っていく) 'take/carry along', aruite iku (<ruby>歩<rt>ある</rt></ruby>いていく) 'walk away/onward'. (b) Aspectual unfolding — kawatte iku (<ruby>変<rt>か</rt></ruby>わっていく) 'gradually changes', kiete iku (<ruby>消<rt>き</rt></ruby>えていく) 'fades away over time'. The aspectual sense is the one that dominates in songs.\n\nCompare 〜te iku with 〜te kuru (movement TOWARD the speaker / change UP TO now), 〜te iru (current state / progressive), and 〜tsuzukeru (deliberate continuation). 〜te iku tilts forward — the action moves AWAY from the present moment, into the future or into the distance. The literary reading is 〜te yuku (〜てゆく), preferred in songs and poetry.\n\n• kawatte iku (<ruby>変<rt>か</rt></ruby>わっていく) — 'gradually changes / will change'\n• kiete iku (<ruby>消<rt>き</rt></ruby>えていく) — 'fades away'\n• ikite iku (<ruby>生<rt>い</rt></ruby>きていく) — 'live on / keep on living'\n• motte iku (<ruby>持<rt>も</rt></ruby>っていく) — 'take/carry away'\n• tsuzukete iku (<ruby>続<rt>つづ</rt></ruby>けていく) — 'keep on going'\n• wasurete iku (<ruby>忘<rt>わす</rt></ruby>れていく) — 'gradually forget'\n• fuete iku (<ruby>増<rt>ふ</rt></ruby>えていく) — 'increases over time'\n• herakte iku (<ruby>減<rt>へ</rt></ruby>っていく) — 'decreases over time'\n• ochite iku (<ruby>落<rt>お</rt></ruby>ちていく) — 'falls away / sinks'\n• mukatte iku (<ruby>向<rt>む</rt></ruby>かっていく) — 'heads toward'\n• tobi-satte iku (<ruby>飛<rt>と</rt></ruby>び<ruby>去<rt>さ</rt></ruby>っていく) — 'flies away'\n• toozakatte iku (<ruby>遠<rt>とお</rt></ruby>ざかっていく) — 'recedes into the distance'\n• kasanate iku (<ruby>重<rt>かさ</rt></ruby>なっていく) — 'piles up over time'\n• tsuyoku natte iku (<ruby>強<rt>つよ</rt></ruby>くなっていく) — 'becomes stronger over time'\n• ayunde iku (<ruby>歩<rt>あゆ</rt></ruby>んでいく) — 'walks onward (life)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 44
+  },
+  {
+    "id": "670a043a-cc9c-4e59-958e-60a43313c364",
+    "name": "〜ba (〜ば) — general conditional",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜ba (ば) is the general conditional 'if (X)'. For godan (Group 1) verbs, replace -u with -eba: iku → ikeba (<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>けば). For ichidan (Group 2), drop -ru and add -reba: taberu → tabereba (<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べれば). For i-adjectives, drop い and add ければ: yasui → yasukereba (<ruby>安<rt>やす</rt></ruby>い → <ruby>安<rt>やす</rt></ruby>ければ). Negative is 〜nakereba (〜なければ).\n\nThe ば-conditional implies a natural cause-and-effect: 'if A, then naturally B'. It is the most \"logical\" conditional, often used in proverbs and reasoned statements. In casual speech the negative collapses to 〜nakya (〜なきゃ): isoganakya (<ruby>急<rt>いそ</rt></ruby>がなきゃ) — 'gotta hurry'.\n\nCompare with 〜tara (たら, sequential 'when/if'), 〜nara (なら, topic-based 'if it's the case that'), and 〜to (と, inevitable consequence 'whenever A, then always B'). 〜ba sits in the middle — neutral, logical, slightly formal-feeling vs the others.\n\n• ikeba wakaru (<ruby>行<rt>い</rt></ruby>けばわかる) — 'if you go, you'll understand'\n• yasukereba kau (<ruby>安<rt>やす</rt></ruby>ければ<ruby>買<rt>か</rt></ruby>う) — 'I'll buy it if it's cheap'\n• ame ga fureba chuushi (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>れば<ruby>中止<rt>ちゅうし</rt></ruby>) — 'if it rains, it's cancelled'\n• tabereba genki ni naru (<ruby>食<rt>た</rt></ruby>べれば<ruby>元気<rt>げんき</rt></ruby>になる) — 'if you eat, you'll feel better'\n• mireba wakaru (<ruby>見<rt>み</rt></ruby>ればわかる) — 'one look and you'll get it'\n• okane ga areba kau (お<ruby>金<rt>かね</rt></ruby>があれば<ruby>買<rt>か</rt></ruby>う) — 'I'll buy it if I have money'\n• samukereba uwagi o kite (<ruby>寒<rt>さむ</rt></ruby>ければ<ruby>上着<rt>うわぎ</rt></ruby>を<ruby>着<rt>き</rt></ruby>て) — 'put on a jacket if you're cold'\n• doryoku sureba dekiru (<ruby>努力<rt>どりょく</rt></ruby>すればできる) — 'you can do it if you try'\n• yomeba omoshiroi (<ruby>読<rt>よ</rt></ruby>めば<ruby>面白<rt>おもしろ</rt></ruby>い) — 'it's interesting once you read it'\n• yasumeba naoru (<ruby>休<rt>やす</rt></ruby>めば<ruby>治<rt>なお</rt></ruby>る) — 'rest and you'll get better'\n• kikeba kotaeru (<ruby>聞<rt>き</rt></ruby>けば<ruby>答<rt>こた</rt></ruby>える) — 'I'll answer if you ask'\n• isogeba ma ni au (<ruby>急<rt>いそ</rt></ruby>げば<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>う) — 'I'll make it if I hurry'\n• kakeba wakaru (<ruby>書<rt>か</rt></ruby>けばわかる) — 'you'll understand once you write it'\n• isoganakya ma ni awanai (<ruby>急<rt>いそ</rt></ruby>がなきゃ<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わない) — 'gotta hurry or I won't make it' (collapsed 〜nakereba)\n• kotaerareru hito ga ireba (<ruby>答<rt>こた</rt></ruby>えられる<ruby>人<rt>ひと</rt></ruby>がいれば) — 'if there's someone who can answer'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 37
+  },
+  {
+    "id": "ebd9bcdf-2acf-4879-a970-50f98346c3cf",
+    "name": "meireikei (命令形) — imperative form",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "meireikei (<ruby>命令形<rt>めいれいけい</rt></ruby>) is the bare imperative — direct, often blunt commands. For godan (Group 1) verbs, change the final -u to -e: hashiru → hashire (<ruby>走<rt>はし</rt></ruby>る → <ruby>走<rt>はし</rt></ruby>れ), iku → ike (<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>け). For ichidan (Group 2), drop -ru and add -ro: taberu → tabero (<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べろ). Irregulars: suru → shiro (する → しろ), kuru → koi (<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>い).\n\nThe bare imperative is strong — common in anime, sports cheering, military / authority contexts, and song lyrics. In daily polite speech, learners use 〜te kudasai (〜てください) instead. The negative imperative is verb-dictionary-form + na (な): iku na (<ruby>行<rt>い</rt></ruby>くな) — 'don't go'.\n\nA softer alternative is the ichidan-friendly form 〜yo (〜よ): tabeyo (<ruby>食<rt>た</rt></ruby>べよ), used in literary / archaic / poetic registers. Female speakers and softer contexts often use 〜nasai (〜なさい) instead, which is firm but polite ('do X, please'): hayaku tabenasai (<ruby>早<rt>はや</rt></ruby>く<ruby>食<rt>た</rt></ruby>べなさい) — 'eat quickly!'.\n\n• hashire (<ruby>走<rt>はし</rt></ruby>れ) — 'run!'\n• tabero (<ruby>食<rt>た</rt></ruby>べろ) — 'eat!'\n• mezamero (<ruby>目覚<rt>めざ</rt></ruby>めろ) — 'wake up!'\n• miro (<ruby>見<rt>み</rt></ruby>ろ) — 'look!'\n• tate (<ruby>立<rt>た</rt></ruby>て) — 'stand up!'\n• koi (<ruby>来<rt>こ</rt></ruby>い) — 'come!' (irregular)\n• shiro (しろ) — 'do (it)!' (irregular する)\n• mate (<ruby>待<rt>ま</rt></ruby>て) — 'wait!'\n• nigero (<ruby>逃<rt>に</rt></ruby>げろ) — 'run away! / escape!'\n• damare (<ruby>黙<rt>だま</rt></ruby>れ) — 'shut up! / be silent!'\n• yamero (<ruby>止<rt>や</rt></ruby>めろ) — 'stop (it)!'\n• ake (<ruby>開<rt>あ</rt></ruby>け) — 'open (it)!'\n• moyase (<ruby>燃<rt>も</rt></ruby>やせ) — 'burn (it)! / set ablaze!'\n• tatakae (<ruby>戦<rt>たたか</rt></ruby>え) — 'fight!'\n• ganbare (<ruby>頑張<rt>がんば</rt></ruby>れ) — 'do your best! / hang in there!'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 35
+  },
+  {
+    "id": "28040405-e731-49b2-9bb5-a082bbf34da2",
+    "name": "〜te iru / 〜teru (〜ている / 〜てる) — progressive / state",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜te iru (〜ている) attaches to a verb's te-form to express ongoing action ('is X-ing') OR resulting state ('has X-ed and remains'). In casual speech the い (i) drops, contracting to 〜teru (〜てる): tabeteiru → tabeteru (<ruby>食<rt>た</rt></ruby>べている → <ruby>食<rt>た</rt></ruby>べてる).\n\nWhether 〜te iru reads as progressive or state depends on the verb's lexical aspect. Action verbs (taberu 'eat', hashiru 'run', yomu 'read') become progressive. Change-of-state verbs (shiru 'come to know', sumu 'come to live', kekkon suru 'get married') become resultative state: shitte iru (<ruby>知<rt>し</rt></ruby>っている) means 'I know' (state), not 'I'm in the process of knowing'.\n\nThe casual てる contraction is extremely common in songs, anime, and informal writing. Past form: 〜te ita (〜ていた) → 〜teta (〜てた). Negative: 〜te inai (〜ていない) → 〜tenai (〜てない). Distinguish from 〜te aru (〜てある, intentional resulting state from a transitive verb).\n\n• ame ga futte iru (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っている) — 'it is raining'\n• ongaku o kiite iru (<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聴<rt>き</rt></ruby>いている) — 'I'm listening to music'\n• naiteru (<ruby>泣<rt>な</rt></ruby>いてる) — 'is crying' (casual)\n• mou shitteru (もう<ruby>知<rt>し</rt></ruby>ってる) — 'I already know' (casual)\n• zutto matteta (ずっと<ruby>待<rt>ま</rt></ruby>ってた) — 'had been waiting all along' (casual past)\n• nani shiteru? (<ruby>何<rt>なに</rt></ruby>してる？) — 'what are you doing?' (casual)\n• Tokyo ni sunde iru (<ruby>東京<rt>とうきょう</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいる) — 'I live in Tokyo' (state)\n• megane o kakete iru (<ruby>眼鏡<rt>めがね</rt></ruby>をかけている) — 'wearing glasses' (state)\n• kekkon shite iru (<ruby>結婚<rt>けっこん</rt></ruby>している) — 'is married' (state)\n• kare wa hashitte iru (<ruby>彼<rt>かれ</rt></ruby>は<ruby>走<rt>はし</rt></ruby>っている) — 'he is running' (progressive)\n• mada netenai (まだ<ruby>寝<rt>ね</rt></ruby>てない) — 'I haven't slept yet' (casual negative)\n• gakkou de benkyou shite iru (<ruby>学校<rt>がっこう</rt></ruby>で<ruby>勉強<rt>べんきょう</rt></ruby>している) — 'studying at school'\n• mado ga aite iru (<ruby>窓<rt>まど</rt></ruby>が<ruby>開<rt>あ</rt></ruby>いている) — 'the window is open' (state)\n• kawaite iru (<ruby>渇<rt>かわ</rt></ruby>いている) — 'is thirsty / dried up' (state)\n• kanojo o aishite iru (<ruby>彼女<rt>かのじょ</rt></ruby>を<ruby>愛<rt>あい</rt></ruby>している) — 'I love her' (state)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 33
+  },
+  {
+    "id": "7055ddcc-0f83-4d34-94ca-6b8807abd37e",
+    "name": "〜zu (ni) (〜ず(に)) — without doing",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜zu (〜ず) and 〜zu ni (〜ずに) attach to a verb's negative stem (the ない-form minus ない) to mean 'without doing (X)'. Modern usage prefers 〜zu ni; bare 〜zu is more literary. Adding に does not change the meaning, only the register. The pattern is a survival from classical Japanese into modern poetic / formal register.\n\nFormation: take the ない-form and replace ない with ず. iku → ikanai → ikazu (<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>かない → <ruby>行<rt>い</rt></ruby>かず). taberu → tabenai → tabezu (<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べない → <ruby>食<rt>た</rt></ruby>べず). The irregular suru becomes sezu (せず, NOT shinai+zu — this is the only consistent irregularity to memorise).\n\nCompare with 〜nai de (〜ないで, 'without doing / please don't'), which is the standard colloquial equivalent. 〜zu ni is preferred in writing, songs, formal speech, and idiomatic compounds (omoiwa-zu — 'unexpectedly', shira-zu — 'unknowingly'). Distinguish from the noun-suffix 〜zu (ず) meaning 'incomplete number' (chi-uchi-zu — 'half-done').\n\n• tabezu ni (<ruby>食<rt>た</rt></ruby>べずに) — 'without eating'\n• iwazu ni (<ruby>言<rt>い</rt></ruby>わずに) — 'without saying'\n• sezu ni (せずに) — 'without doing' (irregular する)\n• nemurazu ni hataraku (<ruby>眠<rt>ねむ</rt></ruby>らずに<ruby>働<rt>はたら</rt></ruby>く) — 'work without sleeping'\n• yasumazu ni hashiru (<ruby>休<rt>やす</rt></ruby>まずに<ruby>走<rt>はし</rt></ruby>る) — 'run without resting'\n• shirazu ni iru (<ruby>知<rt>し</rt></ruby>らずにいる) — 'remain unaware'\n• matazu ni iku (<ruby>待<rt>ま</rt></ruby>たずに<ruby>行<rt>い</rt></ruby>く) — 'go without waiting'\n• kotaezu ni (<ruby>答<rt>こた</rt></ruby>えずに) — 'without answering'\n• furikaerazu ni (<ruby>振<rt>ふ</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>らずに) — 'without looking back'\n• wasurerarezu (<ruby>忘<rt>わす</rt></ruby>れられず) — 'unable to forget' (literary, no に)\n• akiramezu ni (<ruby>諦<rt>あきら</rt></ruby>めずに) — 'without giving up'\n• naka-zu ni warau (<ruby>泣<rt>な</rt></ruby>かずに<ruby>笑<rt>わら</rt></ruby>う) — 'laugh without crying'\n• kangaezu ni hashiru (<ruby>考<rt>かんが</rt></ruby>えずに<ruby>走<rt>はし</rt></ruby>る) — 'run without thinking'\n• tabe-zu ni nemuru (<ruby>食<rt>た</rt></ruby>べずに<ruby>眠<rt>ねむ</rt></ruby>る) — 'sleep without eating'\n• ki-zukazu ni sugosu (<ruby>気<rt>き</rt></ruby>づかずに<ruby>過<rt>す</rt></ruby>ごす) — 'spend (time) unawares'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 33
+  },
+  {
+    "id": "2f4bde8c-f15b-43bc-bcfa-191da710a386",
+    "name": "〜tai (〜たい) — want to do",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "〜tai (〜たい) attaches to a verb's i-stem (masu-stem) to express the speaker's desire to do something — 'I want to (X)'. For ichidan verbs, drop る and add たい: taberu → tabetai (<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べたい). For godan, change the final -u to its -i row counterpart and add たい: iku → ikitai (<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>きたい), nomu → nomitai (<ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>みたい).\n\n〜tai conjugates like an i-adjective: takunai (たくない) for negative ('don't want to'), takatta (たかった) for past ('wanted to'), takereba (たければ) for conditional ('if I want to'). The object of desire usually takes が (ga) or を (o): mizu ga nomitai / mizu o nomitai (<ruby>水<rt>みず</rt></ruby>が／を<ruby>飲<rt>の</rt></ruby>みたい) — 'I want to drink water'.\n\n〜tai expresses the SPEAKER's desire (1st person). For 3rd-person desire, use 〜tagaru (たがる) instead: kanojo wa ikitagaru (<ruby>彼女<rt>かのじょ</rt></ruby>は<ruby>行<rt>い</rt></ruby>きたがる) — 'she wants to go'. This gendered shift exists because the speaker can never directly know another person's internal state.\n\n• tabetai (<ruby>食<rt>た</rt></ruby>べたい) — 'want to eat'\n• ikitai (<ruby>行<rt>い</rt></ruby>きたい) — 'want to go'\n• mitai (<ruby>見<rt>み</rt></ruby>たい) — 'want to see'\n• shiritai (<ruby>知<rt>し</rt></ruby>りたい) — 'want to know'\n• yasumitai (<ruby>休<rt>やす</rt></ruby>みたい) — 'want to rest'\n• kaeritai (<ruby>帰<rt>かえ</rt></ruby>りたい) — 'want to go home'\n• kaitai (<ruby>買<rt>か</rt></ruby>いたい) — 'want to buy'\n• yomitai (<ruby>読<rt>よ</rt></ruby>みたい) — 'want to read'\n• ai ni ikitai (<ruby>会<rt>あ</rt></ruby>いに<ruby>行<rt>い</rt></ruby>きたい) — 'want to go meet (you)'\n• shitai koto (したいこと) — 'things I want to do'\n• tabetakunai (<ruby>食<rt>た</rt></ruby>べたくない) — 'don't want to eat' (negative)\n• ikitakatta (<ruby>行<rt>い</rt></ruby>きたかった) — 'wanted to go' (past)\n• mizu ga nomitai (<ruby>水<rt>みず</rt></ruby>が<ruby>飲<rt>の</rt></ruby>みたい) — 'I want to drink water'\n• kataritai omoide (<ruby>語<rt>かた</rt></ruby>りたい<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>) — 'memories I want to talk about'\n• issho ni itai (<ruby>一緒<rt>いっしょ</rt></ruby>にいたい) — 'I want to be with (you)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 30
+  },
+  {
+    "id": "4d5ffbe9-28ba-475a-a185-d090a30e75a3",
+    "name": "〜te shimau (〜てしまう) — end up doing / regrettably",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜te shimau (〜てしまう) attaches to a verb's te-form and carries two readings: (a) full / complete completion of an action, and (b) doing something unintentionally or regretfully. Context distinguishes — same form, two senses. Past form 〜te shimatta (〜てしまった). For -de te-forms (e.g., 飲んで), the contraction becomes 〜de shimau (〜でしまう).\n\nIn casual speech, 〜te shimau collapses to 〜chau (〜ちゃう), and 〜de shimau collapses to 〜jau (〜じゃう). The past forms are 〜chatta (〜ちゃった) / 〜jatta (〜じゃった). These contractions are extremely common in spoken Japanese, songs, and informal writing.\n\nThe \"regret\" reading is the more emotionally loaded one — 言ってしまった = 'I went and said it (I shouldn't have)'. The \"completion\" reading is more neutral — 食べてしまった = 'I ate it all'. Some verbs lean strongly one way: 失敗してしまう reads as regret almost always, while 飲み干してしまう reads as completion.\n\n• tabete shimau (<ruby>食<rt>た</rt></ruby>べてしまう) — 'eat it all up / end up eating'\n• wasurete shimatta (<ruby>忘<rt>わす</rt></ruby>れてしまった) — 'I went and forgot'\n• kowashite shimatta (<ruby>壊<rt>こわ</rt></ruby>してしまった) — 'I broke it (oops)'\n• itte shimatta (<ruby>言<rt>い</rt></ruby>ってしまった) — 'I went and said it'\n• yonde shimau (<ruby>読<rt>よ</rt></ruby>んでしまう) — 'I'll read it through'\n• shinde shimau (<ruby>死<rt>し</rt></ruby>んでしまう) — 'will die / end up dying' (often hyperbolic)\n• tabechatta (<ruby>食<rt>た</rt></ruby>べちゃった) — 'I ate it all up' (casual)\n• wasurechatta (<ruby>忘<rt>わす</rt></ruby>れちゃった) — 'I (sadly) forgot' (casual)\n• yonjatta (<ruby>読<rt>よ</rt></ruby>んじゃった) — 'I read it' (casual)\n• owatte shimatta (<ruby>終<rt>お</rt></ruby>わってしまった) — 'it's over now'\n• shippai shite shimatta (<ruby>失敗<rt>しっぱい</rt></ruby>してしまった) — 'I screwed up'\n• nete shimatta (<ruby>寝<rt>ね</rt></ruby>てしまった) — 'I (accidentally) fell asleep'\n• naite shimau (<ruby>泣<rt>な</rt></ruby>いてしまう) — 'I'm going to cry'\n• nigete shimatta (<ruby>逃<rt>に</rt></ruby>げてしまった) — 'they ran away'\n• modotte kichau (<ruby>戻<rt>もど</rt></ruby>ってきちゃう) — 'ends up coming back' (casual)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 29
+  },
+  {
+    "id": "cd6b0ba0-2202-4c5e-8856-db742ca9d2bf",
+    "name": "〜nara (〜なら) — topic-based conditional",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜nara (なら) is a topic-based conditional 'if (it's the case that)'. Unlike 〜ba and 〜tara, 〜nara presupposes the topic and gives advice / commentary based on it. Attach to the plain form of a verb, the dictionary form of an i-adjective, or directly to a noun / na-adjective stem (no need for だ before nara).\n\nUse 〜nara when responding to information someone just gave you, or when setting up a hypothetical situation as the premise. The clause that follows is typically a recommendation, opinion, or course of action: 'if that's the case, then...'.\n\nCompare with 〜ba (logical 'if'), 〜tara (sequential 'when/if'), and 〜to (inevitable 'whenever'). 〜nara feels conversational and topic-anchored — it picks up on something already in the air. Common collocations: 〜nara naraba (the literary/emphatic form), 〜suru no nara (formal nominalised version).\n\n• hima nara kite (<ruby>暇<rt>ひま</rt></ruby>なら<ruby>来<rt>き</rt></ruby>て) — 'if you're free, come over'\n• iku nara hayaku (<ruby>行<rt>い</rt></ruby>くなら<ruby>早<rt>はや</rt></ruby>く) — 'if you're going, go early'\n• gakusei nara yasui (<ruby>学生<rt>がくせい</rt></ruby>なら<ruby>安<rt>やす</rt></ruby>い) — 'if you're a student, it's cheap'\n• motomeru nara ataeyou (<ruby>求<rt>もと</rt></ruby>めるなら<ruby>与<rt>あた</rt></ruby>えよう) — 'if you seek it, I'll give it'\n• samui nara mado o shimete (<ruby>寒<rt>さむ</rt></ruby>いなら<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>めて) — 'if you're cold, close the window'\n• nihon ni iku nara Kyoto (<ruby>日本<rt>にほん</rt></ruby>に<ruby>行<rt>い</rt></ruby>くなら<ruby>京都<rt>きょうと</rt></ruby>) — 'if you're going to Japan, Kyoto'\n• yameru nara ima (やめるなら<ruby>今<rt>いま</rt></ruby>) — 'if you're going to quit, now'\n• kare nara shitte iru (<ruby>彼<rt>かれ</rt></ruby>なら<ruby>知<rt>し</rt></ruby>っている) — 'as for him, he knows'\n• ame nara chuushi da (<ruby>雨<rt>あめ</rt></ruby>なら<ruby>中止<rt>ちゅうし</rt></ruby>だ) — 'if it rains, it's cancelled'\n• yasui nara hoshii (<ruby>安<rt>やす</rt></ruby>いなら<ruby>欲<rt>ほ</rt></ruby>しい) — 'if it's cheap, I want it'\n• kimi nara dekiru (<ruby>君<rt>きみ</rt></ruby>ならできる) — 'you can do it' (lit. 'as for you, it's possible')\n• Tokyo nara den-sha ga benri (<ruby>東京<rt>とうきょう</rt></ruby>なら<ruby>電車<rt>でんしゃ</rt></ruby>が<ruby>便利<rt>べんり</rt></ruby>) — 'if it's Tokyo, the train is convenient'\n• komaru nara iwanai (<ruby>困<rt>こま</rt></ruby>るなら<ruby>言<rt>い</rt></ruby>わない) — 'if it'd trouble you, I won't say it'\n• kau nara ima dake (<ruby>買<rt>か</rt></ruby>うなら<ruby>今<rt>いま</rt></ruby>だけ) — 'if you're buying, only now'\n• kanojo nara wakatte kureru (<ruby>彼女<rt>かのじょ</rt></ruby>ならわかってくれる) — 'she'd understand'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 28
+  },
+  {
+    "id": "3271a7b8-8e74-4372-9a57-ec39b80e8cc6",
+    "name": "〜mama (〜まま) — as it is / unchanged",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜mama (まま) expresses 'as it is / unchanged / in the state of (X)' — describing a state that persists while another action takes place. Attaches to past-tense verbs (-ta form), to i-adjectives (-i form), to nouns + no, or to na-adjectives + na. The state is held constant while something else happens.\n\nCommon patterns: (1) V-ta + mama: tatta mama (<ruby>立<rt>た</rt></ruby>ったまま) — 'while standing'; nuida mama (<ruby>脱<rt>ぬ</rt></ruby>いだまま) — 'left taken-off'. (2) i-adj + mama: atatakai mama (<ruby>暖<rt>あたた</rt></ruby>かいまま) — 'while still warm'. (3) N-no + mama: kodomo no mama (<ruby>子供<rt>こども</rt></ruby>のまま) — 'still a child'. (4) na-adj-na + mama: kirei na mama (きれいなまま) — 'still pretty'.\n\nThe pattern often carries a sense of ineffectiveness or unfinished state ('left as is, didn't change') — kuruma o tometa mama dekaketa = 'went out, leaving the car parked'. In poetic / song contexts, 〜mama frames a frozen-in-time emotional state. Distinguish from 〜tabaka-ri (just-finished action) and 〜te iru (state in progress) — 〜mama is about preserved condition.\n\n• tatta mama (<ruby>立<rt>た</rt></ruby>ったまま) — 'while standing'\n• suwatta mama (<ruby>座<rt>すわ</rt></ruby>ったまま) — 'while seated'\n• megane o kaketa mama neta (<ruby>眼鏡<rt>めがね</rt></ruby>をかけたまま<ruby>寝<rt>ね</rt></ruby>た) — 'fell asleep with glasses on'\n• tabako o tsuketa mama (タバコをつけたまま) — 'with the cigarette still lit'\n• kutsu o haita mama (<ruby>靴<rt>くつ</rt></ruby>を<ruby>履<rt>は</rt></ruby>いたまま) — 'with shoes still on'\n• mado o aketa mama (<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けたまま) — 'leaving the window open'\n• atatakai mama tabete (<ruby>暖<rt>あたた</rt></ruby>かいまま<ruby>食<rt>た</rt></ruby>べて) — 'eat while it's still warm'\n• kodomo no mama (<ruby>子供<rt>こども</rt></ruby>のまま) — 'still a child'\n• kirei na mama (きれいなまま) — 'still pretty / pristine'\n• mukashi no mama (<ruby>昔<rt>むかし</rt></ruby>のまま) — 'just like the old days'\n• shitta-ka-buri shita mama (<ruby>知<rt>し</rt></ruby>ったかぶりしたまま) — 'while pretending to know'\n• damatta mama (<ruby>黙<rt>だま</rt></ruby>ったまま) — 'staying silent'\n• shiranai mama owatta (<ruby>知<rt>し</rt></ruby>らないまま<ruby>終<rt>お</rt></ruby>わった) — 'ended without knowing'\n• yume no mama (<ruby>夢<rt>ゆめ</rt></ruby>のまま) — 'as a dream / left unfulfilled'\n• ano hi no mama (あの<ruby>日<rt>ひ</rt></ruby>のまま) — 'just like that day' (frozen in time)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 27
+  },
+  {
+    "id": "d1afdbf7-411d-4b51-9aef-c1d29a3349e0",
+    "name": "命令形 (imperative form)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Change the verb ending to create a direct command. For -ru verbs (ichidan), replace る with ろ. For -u verbs (godan), change the final う-row syllable to its え-row equivalent.\n\nExample from this song: 掴め (tsukame) = 'Grab it!' — from 掴む (tsukamu, 'to grab') → change む (mu) to め (me)\n\nMore examples:\n• 攻める (semeru, 'to attack') → 攻めろ (semero, 'Attack!')\n• 探る (saguru, 'to search') → 探れ (sagure, 'Search!')\n• 走る (hashiru, 'to run') → 走れ (hashire, 'Run!')\n\nNote: For godan verbs: む→め, く→け, す→せ, つ→て, ぬ→ね, ぶ→べ, る→れ. For ichidan verbs: る→ろ. This form is very direct and strong — common in song lyrics, sports, and anime but rarely used in polite conversation."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 26
+  },
+  {
+    "id": "75765b3c-d98d-4081-9316-dd2f85f309eb",
+    "name": "Volitional 〜you / 〜ou (〜よう / 〜おう) — let's / I'll",
+    "jlpt_reference": "N4",
+    "explanation": {
+      "en": "The volitional form expresses 'let's (X)' (1st-person plural intent) or 'I'll (X)' (1st-person resolve / suggestion to oneself). For godan (Group 1) verbs, change the final -u to -ou: iku → ikou (<ruby>行<rt>い</rt></ruby>く → <ruby>行<rt>い</rt></ruby>こう), nomu → nomou (<ruby>飲<rt>の</rt></ruby>む → <ruby>飲<rt>の</rt></ruby>もう). For ichidan (Group 2), drop -ru and add -you: taberu → tabeyou (<ruby>食<rt>た</rt></ruby>べる → <ruby>食<rt>た</rt></ruby>べよう). Irregulars: suru → shiyou (する → しよう), kuru → koyou (<ruby>来<rt>く</rt></ruby>る → <ruby>来<rt>こ</rt></ruby>よう).\n\nCommon contexts: invitations ('let's go for a coffee'), self-resolutions ('I'll try harder'), and conjecture pairings (V-volitional + to omou — 'I think I'll V'). Polite version: 〜mashou (〜ましょう) — ikimashou (<ruby>行<rt>い</rt></ruby>きましょう) — 'shall we go'. The pattern V-you to suru (V-volitional + とする) means 'try to / about to V'.\n\nDistinguish volitional from 〜tai (which is desire, not invitation/resolve): tabeyou = 'let's eat / I'll eat (intent)'. tabetai = 'I want to eat (desire)'. Songs use volitionals for chant-like motivational lines ('let's run, let's fight, let's keep going').\n\n• ikou (<ruby>行<rt>い</rt></ruby>こう) — 'let's go'\n• tabeyou (<ruby>食<rt>た</rt></ruby>べよう) — 'let's eat'\n• nomou (<ruby>飲<rt>の</rt></ruby>もう) — 'let's drink'\n• miyou (<ruby>見<rt>み</rt></ruby>よう) — 'let's see / let's watch'\n• shiyou (しよう) — 'let's do'\n• koyou (<ruby>来<rt>こ</rt></ruby>よう) — 'let me come / let's come'\n• ganbarou (<ruby>頑張<rt>がんば</rt></ruby>ろう) — 'let's do our best'\n• hashirou (<ruby>走<rt>はし</rt></ruby>ろう) — 'let's run'\n• hanasou (<ruby>話<rt>はな</rt></ruby>そう) — 'let's talk'\n• arukou (<ruby>歩<rt>ある</rt></ruby>こう) — 'let's walk'\n• yasumou (<ruby>休<rt>やす</rt></ruby>もう) — 'let's rest'\n• kaerou (<ruby>帰<rt>かえ</rt></ruby>ろう) — 'let's go home'\n• tatakaou (<ruby>戦<rt>たたか</rt></ruby>おう) — 'let's fight'\n• shinjiyou (<ruby>信<rt>しん</rt></ruby>じよう) — 'let's believe'\n• ikou to omou (<ruby>行<rt>い</rt></ruby>こうと<ruby>思<rt>おも</rt></ruby>う) — 'I think I'll go'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 25
+  },
+  {
+    "id": "975331f4-03e3-4703-94a7-100d26eb5145",
+    "name": "〜tsuzukeru (〜続ける) — keep doing",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "Attach tsuzukeru (<ruby>続<rt>つづ</rt></ruby>ける, 'to continue') to a verb's i-stem (masu-stem) to create 〜tsuzukeru (〜続ける), meaning 'keep doing (X) / continue to (X)'. Formation: take the masu-stem of any verb and append 続ける directly. arukimasu → aruki tsuzukeru (<ruby>歩<rt>ある</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>ける) — 'keep walking'.\n\nThe pattern emphasises persistent, ongoing action — often used in songs and poetic contexts to convey determination ('I'll keep believing', 'keep running'). 続ける conjugates as a regular ichidan verb: tsuzuketa (<ruby>続<rt>つづ</rt></ruby>けた) past, tsuzuketai (<ruby>続<rt>つづ</rt></ruby>けたい) want-to, tsuzuke yo (<ruby>続<rt>つづ</rt></ruby>けよう) volitional.\n\nCompare with 〜tsuzuku (続く, intransitive 'to continue / go on') — uses different verbs as subjects, not as a suffix. And 〜te iku (〜ていく, 'gradually'), 〜te kuru (〜てくる, 'gradually toward now'), 〜oeru (〜終える, 'finish doing') — all aspectual variants. 続ける is the persistent / determined flavour.\n\n• aruki tsuzukeru (<ruby>歩<rt>ある</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>ける) — 'keep walking'\n• hashiri tsuzukeru (<ruby>走<rt>はし</rt></ruby>り<ruby>続<rt>つづ</rt></ruby>ける) — 'keep running'\n• mamori tsuzukeru (<ruby>守<rt>まも</rt></ruby>り<ruby>続<rt>つづ</rt></ruby>ける) — 'keep protecting'\n• matsu → machi tsuzukeru (<ruby>待<rt>ま</rt></ruby>ち<ruby>続<rt>つづ</rt></ruby>ける) — 'keep waiting'\n• ai shi tsuzukeru (<ruby>愛<rt>あい</rt></ruby>し<ruby>続<rt>つづ</rt></ruby>ける) — 'keep loving'\n• sagashi tsuzukeru (<ruby>探<rt>さが</rt></ruby>し<ruby>続<rt>つづ</rt></ruby>ける) — 'keep searching'\n• shinji tsuzukeru (<ruby>信<rt>しん</rt></ruby>じ<ruby>続<rt>つづ</rt></ruby>ける) — 'keep believing'\n• kaki tsuzukeru (<ruby>書<rt>か</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>ける) — 'keep writing'\n• benkyou shi tsuzukeru (<ruby>勉強<rt>べんきょう</rt></ruby>し<ruby>続<rt>つづ</rt></ruby>ける) — 'keep studying'\n• yume o oi tsuzukeru (<ruby>夢<rt>ゆめ</rt></ruby>を<ruby>追<rt>お</rt></ruby>い<ruby>続<rt>つづ</rt></ruby>ける) — 'keep chasing the dream'\n• warai tsuzukeru (<ruby>笑<rt>わら</rt></ruby>い<ruby>続<rt>つづ</rt></ruby>ける) — 'keep laughing'\n• naki tsuzukeru (<ruby>泣<rt>な</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>ける) — 'keep crying'\n• tatakai tsuzukeru (<ruby>戦<rt>たたか</rt></ruby>い<ruby>続<rt>つづ</rt></ruby>ける) — 'keep fighting'\n• ikiru → iki tsuzukeru (<ruby>生<rt>い</rt></ruby>き<ruby>続<rt>つづ</rt></ruby>ける) — 'keep living / live on'\n• utai tsuzukeru (<ruby>歌<rt>うた</rt></ruby>い<ruby>続<rt>つづ</rt></ruby>ける) — 'keep singing'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 25
+  },
+  {
+    "id": "bce4d9cb-0d2c-41fb-a910-7f1a127ba466",
+    "name": "〜tara (〜たら) — sequential / discovery conditional",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜tara (〜たら) is a sequential / discovery conditional 'when / if (X happens, then Y)'. Formed by attaching ら to the past-tense form: tabeta → tabetara (<ruby>食<rt>た</rt></ruby>べた → <ruby>食<rt>た</rt></ruby>べたら), itta → ittara (<ruby>行<rt>い</rt></ruby>った → <ruby>行<rt>い</rt></ruby>ったら). For i-adjectives: yasukatta → yasukattara (<ruby>安<rt>やす</rt></ruby>かった → <ruby>安<rt>やす</rt></ruby>かったら). For nouns / na-adjectives: 〜dattara (だったら).\n\n〜tara is the most flexible conditional. It covers temporal sequence ('when / once X happens'), discovery ('I went and found Y'), and hypotheticals ('if X were to happen'). With moshi (もし) prefix, it tilts towards the hypothetical: moshi takarakuji ga atattara (もし<ruby>宝<rt>たから</rt></ruby>くじが<ruby>当<rt>あ</rt></ruby>たったら) — 'if I won the lottery'.\n\nCompare with 〜ba (logical 'if'), 〜nara (topic-based 'if it's the case'), 〜to (inevitable 'whenever A then always B'). 〜tara is the catch-all that beginners learn first because it works in nearly every conditional context. Its discovery flavour is unique: 〜ba and 〜nara cannot mean 'I went and discovered Y' — only 〜tara can.\n\n• tabetara oishikatta (<ruby>食<rt>た</rt></ruby>べたらおいしかった) — 'when I ate it, it was delicious'\n• moshi takarakuji ga atattara (もし<ruby>宝<rt>たから</rt></ruby>くじが<ruby>当<rt>あ</rt></ruby>たったら) — 'if I won the lottery'\n• ie ni kaettara dare mo inakatta (<ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ったら<ruby>誰<rt>だれ</rt></ruby>もいなかった) — 'when I got home, no one was there'\n• ame ga futtara chuushi (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったら<ruby>中止<rt>ちゅうし</rt></ruby>) — 'if it rains, cancelled'\n• yasukattara kau (<ruby>安<rt>やす</rt></ruby>かったら<ruby>買<rt>か</rt></ruby>う) — 'I'll buy it if it's cheap'\n• ittara wakatta (<ruby>行<rt>い</rt></ruby>ったらわかった) — 'I went and figured it out'\n• 18-sai ni nattara (<ruby>歳<rt>さい</rt></ruby>になったら) — 'once I turn 18'\n• genki ni nattara aimashou (<ruby>元気<rt>げんき</rt></ruby>になったら<ruby>会<rt>あ</rt></ruby>いましょう) — 'let's meet once you're well'\n• samukattara stove o tsukete (<ruby>寒<rt>さむ</rt></ruby>かったらストーブをつけて) — 'turn on the heater if you're cold'\n• ie ni tsuitara denwa shite (<ruby>家<rt>いえ</rt></ruby>に<ruby>着<rt>つ</rt></ruby>いたら<ruby>電話<rt>でんわ</rt></ruby>して) — 'call me when you get home'\n• shukudai ga owattara asobou (<ruby>宿題<rt>しゅくだい</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったら<ruby>遊<rt>あそ</rt></ruby>ぼう) — 'let's play once homework's done'\n• haru ni nattara hana ga saku (<ruby>春<rt>はる</rt></ruby>になったら<ruby>花<rt>はな</rt></ruby>が<ruby>咲<rt>さ</rt></ruby>く) — 'when spring comes, the flowers bloom'\n• damaru kara dattara komaru (<ruby>黙<rt>だま</rt></ruby>るからだったら<ruby>困<rt>こま</rt></ruby>る) — 'if it's because you'd be silent, I'm in trouble'\n• kanojo dattara wakaru (<ruby>彼女<rt>かのじょ</rt></ruby>だったらわかる) — 'if it were her, she'd understand'\n• moshi yumemonara samenaide (もし<ruby>夢<rt>ゆめ</rt></ruby>ならさめないで) — 'if this is a dream, don't let me wake' (poetic with なら/だったら interchangeable here)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 24
+  },
+  {
+    "id": "5f70f52a-4e3b-4b57-93ce-b44763a711cd",
+    "name": "Passive 〜(ら)reru (〜(ら)れる) — was done by / suffering passive",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "The passive form attaches 〜reru (〜れる) to Type-1 (godan) a-stems and 〜rareru (〜られる) to Type-2 (ichidan) verbs. Type 1: <ruby>書<rt>か</rt></ruby>く → kakareru (<ruby>書<rt>か</rt></ruby>かれる) 'is written'. Type 2: <ruby>食<rt>た</rt></ruby>べる → taberareru (<ruby>食<rt>た</rt></ruby>べられる) 'is eaten'. Irregular: suru → sareru (される), kuru → korareru (<ruby>来<rt>こ</rt></ruby>られる).\n\nThree uses: (a) Direct passive — focuses on the receiver of the action, like English passive. (b) Suffering passive (<ruby>迷惑<rt>めいわく</rt></ruby>の<ruby>受身<rt>うけみ</rt></ruby>) — the speaker is negatively affected, even when intransitive verbs are involved (ame ni furareta — '(I) was rained on'). (c) Honorific use — same form, polite reading: shachou ga ko-rareta — 'the boss came (honorific)'.\n\nSame surface form as the potential (〜eru / 〜rareru, 'can do') for ichidan verbs — context disambiguates. The passive is also formally identical to the honorific. In modern casual speech, ra-nuki (ら抜き) drops the ら from potential (taberareru → tabereru) but NOT from passive — a useful disambiguation cue.\n\n• iwareta (<ruby>言<rt>い</rt></ruby>われた) — 'I was told'\n• kakareta (<ruby>書<rt>か</rt></ruby>かれた) — 'was written'\n• yobareta (<ruby>呼<rt>よ</rt></ruby>ばれた) — 'was called/invited'\n• shikarareta (<ruby>叱<rt>しか</rt></ruby>られた) — 'was scolded'\n• nusumareta (<ruby>盗<rt>ぬす</rt></ruby>まれた) — 'had it stolen' (suffering)\n• ame ni furareta (<ruby>雨<rt>あめ</rt></ruby>に<ruby>降<rt>ふ</rt></ruby>られた) — '(I) got rained on' (suffering)\n• aisarete iru (<ruby>愛<rt>あい</rt></ruby>されている) — 'is loved'\n• tsukurareta (<ruby>作<rt>つく</rt></ruby>られた) — 'was made'\n• mitsukerareta (<ruby>見<rt>み</rt></ruby>つけられた) — 'was discovered'\n• tatakareta (<ruby>叩<rt>たた</rt></ruby>かれた) — 'was hit'\n• shinjirareru (<ruby>信<rt>しん</rt></ruby>じられる) — 'is believed / can believe'\n• mamorareta (<ruby>守<rt>まも</rt></ruby>られた) — 'was protected'\n• ubawareta (<ruby>奪<rt>うば</rt></ruby>われた) — 'was taken away'\n• wasureraremasen (<ruby>忘<rt>わす</rt></ruby>れられません) — 'cannot be forgotten'\n• kowasareta (<ruby>壊<rt>こわ</rt></ruby>された) — 'was broken'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 22
+  },
+  {
+    "id": "16cee5b1-d12f-4943-a9ed-6812dfe73d26",
+    "name": "〜nante (〜なんて) — such a thing as / things like",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜nante (なんて) attaches to a noun, verb, or quoted clause to express disbelief, dismissal, surprise, or self-deprecation — 'such a thing as (X)', 'the very idea of (X)', 'I never thought (X)'. The emotional colour is what makes 〜nante distinct from neutral 〜nado (など, 'such things as'). It almost always carries judgement.\n\nCommon contexts: dismissive ('grades don't matter — seiseki nante kankei nai'), surprised ('to think you'd come — kuru nante odoroita'), self-deprecating ('me, do something like that — boku ga sonna koto suru nante'). It can attach to a clause via the quotative pattern: 〜suru nante / 〜da nante (just append after the plain form).\n\nSometimes interchangeable with 〜nanka (なんか) for casual emphasis ('flowers? — hana nanka iranai = I don't need flowers'). Both are colloquial; in formal writing prefer 〜nado. After negation, 〜nante intensifies the negative ('not at all').\n\n• ikemen nante kankei nai (イケメンなんて<ruby>関係<rt>かんけい</rt></ruby>ない) — 'looks have nothing to do with it'\n• shinpai nante shinai (<ruby>心配<rt>しんぱい</rt></ruby>なんてしない) — 'I'm not worried at all'\n• kuru nante shiranakatta (<ruby>来<rt>く</rt></ruby>るなんて<ruby>知<rt>し</rt></ruby>らなかった) — 'I had no idea you were coming'\n• boku nante (<ruby>僕<rt>ぼく</rt></ruby>なんて) — 'someone like me' (self-deprecating)\n• yume nante minai (<ruby>夢<rt>ゆめ</rt></ruby>なんて<ruby>見<rt>み</rt></ruby>ない) — 'I don't dream' (dismissive)\n• sonna koto nante deki nai (そんなことなんてできない) — 'I can't do something like that'\n• atari mae nante uso da (<ruby>当<rt>あ</rt></ruby>たり<ruby>前<rt>まえ</rt></ruby>なんて<ruby>嘘<rt>うそ</rt></ruby>だ) — 'the idea that it's obvious is a lie'\n• kane nante iranai (<ruby>金<rt>かね</rt></ruby>なんて<ruby>要<rt>い</rt></ruby>らない) — 'I don't need money or anything'\n• benkyou nante taikutsu (<ruby>勉強<rt>べんきょう</rt></ruby>なんて<ruby>退屈<rt>たいくつ</rt></ruby>) — 'studying is boring' (dismissive)\n• shippai suru nante omowanakatta (<ruby>失敗<rt>しっぱい</rt></ruby>するなんて<ruby>思<rt>おも</rt></ruby>わなかった) — 'never thought I'd fail'\n• kanojo to wakareru nante (<ruby>彼女<rt>かのじょ</rt></ruby>と<ruby>別<rt>わか</rt></ruby>れるなんて) — 'breaking up with her (of all things)'\n• kimi nante kirai da (<ruby>君<rt>きみ</rt></ruby>なんて<ruby>嫌<rt>きら</rt></ruby>いだ) — 'I hate someone like you'\n• kyou wa hima nante koto nai (<ruby>今日<rt>きょう</rt></ruby>は<ruby>暇<rt>ひま</rt></ruby>なんてことない) — 'it's not like I'm free today'\n• ureshii nante mono ja nai (<ruby>嬉<rt>うれ</rt></ruby>しいなんてものじゃない) — 'happy doesn't even cover it'\n• shinjirarenai nante (<ruby>信<rt>しん</rt></ruby>じられないなんて) — 'unbelievable, of all things'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 21
+  },
+  {
+    "id": "9c03bf67-2944-4a87-88fe-7ef21fd1edaf",
+    "name": "〜te kureru (〜てくれる) — doing for me / us",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "Attach kureru (くれる) to a verb's te-form to express that someone does the action as a favour for the speaker (or the speaker's in-group). 〜te kureru carries gratitude — the speaker recognises the action as benevolent. Past form: 〜te kureta (〜てくれた). Polite form: 〜te kudasaru (〜てくださる) for higher-status givers; 〜te kudasai (〜てください) is the imperative request derived from it.\n\nThis is one of three giving-and-receiving verbs central to Japanese pragmatics: kureru (くれる, 'someone gives me / does for me'), ageru (<ruby>上<rt>あ</rt></ruby>げる, 'I give / do for someone'), and morau (もらう, 'I receive / have someone do'). Together they encode the directional flow of favours and the social position of the speaker.\n\nCompare 〜te kureru with 〜te ageru (the speaker is the actor) and 〜te morau (the speaker is the receiver of the action). 〜te kureru positions the speaker as the GRATEFUL recipient. The pattern is essential for natural-sounding Japanese — omitting it where it should appear sounds cold or transactional.\n\n• oshiete kureru (<ruby>教<rt>おし</rt></ruby>えてくれる) — 'teaches me'\n• tsukutte kureru (<ruby>作<rt>つく</rt></ruby>ってくれる) — 'makes (it) for me'\n• matte kureru (<ruby>待<rt>ま</rt></ruby>ってくれる) — 'waits for me'\n• tasukete kureru (<ruby>助<rt>たす</rt></ruby>けてくれる) — 'helps me'\n• kanaete kureru (<ruby>叶<rt>かな</rt></ruby>えてくれる) — 'grants (the wish) for me'\n• yurushite kureta (<ruby>許<rt>ゆる</rt></ruby>してくれた) — 'forgave me'\n• wakatte kureru (<ruby>分<rt>わ</rt></ruby>かってくれる) — 'understands me'\n• shoukai shite kureta (<ruby>紹介<rt>しょうかい</rt></ruby>してくれた) — 'introduced (someone) to me'\n• kashite kureru? (<ruby>貸<rt>か</rt></ruby>してくれる？) — 'will you lend me?'\n• yonde kureta (<ruby>読<rt>よ</rt></ruby>んでくれた) — 'read it (out loud) for me'\n• kiite kureru (<ruby>聞<rt>き</rt></ruby>いてくれる) — 'listens to me'\n• mukae ni kite kureta (<ruby>迎<rt>むか</rt></ruby>えに<ruby>来<rt>き</rt></ruby>てくれた) — 'came to pick me up'\n• shinjite kureru (<ruby>信<rt>しん</rt></ruby>じてくれる) — 'believes in me'\n• mamotte kureru (<ruby>守<rt>まも</rt></ruby>ってくれる) — 'protects me'\n• tetsudatte kureta (<ruby>手伝<rt>てつだ</rt></ruby>ってくれた) — 'helped me out'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 21
+  },
+  {
+    "id": "47e9005b-2c76-4c7d-8e05-10d53c506123",
+    "name": "〜you ni (〜ように) — so that / hoping that",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜you ni (ように) attaches to a plain-form verb (often potential or negative) to express purpose, hope, or wish — 'so that / in order that / hoping that (X)'. Unlike 〜tame ni (ために, 'in order to'), 〜you ni works with non-volitional outcomes (things you cannot directly control: 'so that the rain stops', 'hoping it works').\n\nTwo main uses: (1) Purpose: V-eru you ni / V-nai you ni — 'so that I can X / so that X doesn't happen'. (2) Hope / prayer: V-masu-stem-less + you ni — addressed to the heavens, often left as a sentence-final wish: hareru you ni (<ruby>晴<rt>は</rt></ruby>れるように) — '(I hope) it'll be sunny'. Common in shrine omikuji and song lyrics.\n\nCompare with 〜tame ni (volitional 'in order to'). Use ように with potential / state / negative verbs (where the actor doesn't directly cause the outcome); use ために with action verbs the actor performs. Also distinguish from 〜you ni naru ('come to be / change into'), which is a separate change-of-state idiom.\n\n• wasurenai you ni (<ruby>忘<rt>わす</rt></ruby>れないように) — 'so I don't forget'\n• mienai you ni (<ruby>見<rt>み</rt></ruby>えないように) — 'so it can't be seen'\n• ma ni au you ni (<ruby>間<rt>ま</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うように) — 'so I make it in time'\n• yoku miru you ni shite (よく<ruby>見<rt>み</rt></ruby>るようにして) — 'try to look closely'\n• hareru you ni (<ruby>晴<rt>は</rt></ruby>れるように) — 'hoping it'll be sunny'\n• shiawase ni nareru you ni (<ruby>幸<rt>しあわ</rt></ruby>せになれるように) — 'so that you can be happy'\n• genki ni narimasu you ni (<ruby>元気<rt>げんき</rt></ruby>になりますように) — 'praying you'll get well' (shrine wish)\n• kuru you ni tanonda (<ruby>来<rt>く</rt></ruby>るように<ruby>頼<rt>たの</rt></ruby>んだ) — 'asked them to come'\n• ochinai you ni motte (<ruby>落<rt>お</rt></ruby>ちないように<ruby>持<rt>も</rt></ruby>って) — 'hold it so it doesn't fall'\n• miemasen you ni (<ruby>見<rt>み</rt></ruby>えませんように) — 'hoping it stays unseen'\n• ki o tsukeru you ni iwareta (<ruby>気<rt>き</rt></ruby>をつけるように<ruby>言<rt>い</rt></ruby>われた) — 'I was told to be careful'\n• yume ga kanau you ni inoru (<ruby>夢<rt>ゆめ</rt></ruby>が<ruby>叶<rt>かな</rt></ruby>うように<ruby>祈<rt>いの</rt></ruby>る) — 'pray that the dream comes true'\n• osokunaranai you ni (<ruby>遅<rt>おそ</rt></ruby>くならないように) — 'so as not to be late'\n• kowarenai you ni hakobu (<ruby>壊<rt>こわ</rt></ruby>れないように<ruby>運<rt>はこ</rt></ruby>ぶ) — 'carry it so it doesn't break'\n• kanojo ni aeru you ni (<ruby>彼女<rt>かのじょ</rt></ruby>に<ruby>会<rt>あ</rt></ruby>えるように) — 'so that I can meet her'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 21
+  },
+  {
+    "id": "02522b64-19a7-422c-87d7-318afd223420",
+    "name": "〜chau / 〜jau (〜ちゃう / 〜じゃう) — casual 〜te shimau",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜chau (〜ちゃう) is the casual contraction of 〜te shimau (〜てしまう); 〜jau (〜じゃう) is the casual contraction of 〜de shimau (〜でしまう, used after -de te-forms like 飲んで). Both express either (a) total / thorough completion, or (b) doing something unintentionally / regretfully. Context — and often the verb's lexical aspect — determines which reading dominates.\n\nFormation: take the te-form, drop て, append ちゃう (or ぢゃう). For verbs with 〜nde te-form (yonde, nonde, shinde), use じゃう: yonde → yonjau (<ruby>読<rt>よ</rt></ruby>んじゃう). Past forms 〜chatta / 〜jatta are extremely common in spoken Japanese, songs, and informal text.\n\nCompared to the full 〜te shimau, the contracted forms feel more spoken / colloquial / emotional. Songs lean on them heavily for the regret nuance ('went and did it, can't take it back'). Avoid in business writing or formal speech — use 〜te shimau or just past form there.\n\n• tabechatta (<ruby>食<rt>た</rt></ruby>べちゃった) — 'I ate it all up'\n• wasurechatta (<ruby>忘<rt>わす</rt></ruby>れちゃった) — 'I (sadly) forgot'\n• owacchatta (<ruby>終<rt>お</rt></ruby>わっちゃった) — 'it's all over now'\n• icchatta (<ruby>言<rt>い</rt></ruby>っちゃった) — 'I went and said it'\n• kowashichatta (<ruby>壊<rt>こわ</rt></ruby>しちゃった) — 'I broke it (oops)'\n• yonjatta (<ruby>読<rt>よ</rt></ruby>んじゃった) — 'I read it through'\n• shinjatta (<ruby>死<rt>し</rt></ruby>んじゃった) — 'they died (sadly)'\n• shippai shichatta (<ruby>失敗<rt>しっぱい</rt></ruby>しちゃった) — 'I screwed up'\n• chikoku shichau (<ruby>遅刻<rt>ちこく</rt></ruby>しちゃう) — 'I'm going to be late'\n• nechatta (<ruby>寝<rt>ね</rt></ruby>ちゃった) — 'I fell asleep accidentally'\n• naichatta (<ruby>泣<rt>な</rt></ruby>いちゃった) — 'I cried (couldn't help it)'\n• nigechatta (<ruby>逃<rt>に</rt></ruby>げちゃった) — 'they ran away'\n• yacchatta (やっちゃった) — 'I (went and) did it'\n• modotte kichau (<ruby>戻<rt>もど</rt></ruby>ってきちゃう) — 'ends up coming back'\n• tsukarechatta (<ruby>疲<rt>つか</rt></ruby>れちゃった) — 'I'm exhausted (and that's that)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 20
+  },
+  {
+    "id": "14e074d3-b63d-429f-954a-03bde8b36612",
+    "name": "〜n da / 〜no da (〜んだ / 〜のだ) — explanatory emphasis",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜n da (んだ) is the contracted form of 〜no da (のだ), an explanatory / emphatic copula. It attaches to plain forms of verbs and i-adjectives, and after な for nouns / na-adjectives (〜nan da / 〜na no da). The function: signal that the speaker is providing an explanation, justifying a stance, or seeking confirmation.\n\nThree flavours: (1) Explaining: kaze o hiita n da (<ruby>風邪<rt>かぜ</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>いたんだ) — 'it's that I caught a cold' (explaining why I'm tired). (2) Asking for explanation: dou shita n da? (どうしたんだ？) — 'what's going on?'. (3) Strong assertion / emphasis: kore wa boku no da (これは<ruby>僕<rt>ぼく</rt></ruby>のだ) — 'this IS mine'.\n\nThe polite version 〜n desu (〜んです) is used in formal speech. Female speakers may prefer 〜no (without だ) for a softer feel: kaeru no? (<ruby>帰<rt>かえ</rt></ruby>るの？) — 'going home?'. Without 〜n da, the same statement reads as cold or factual; with it, as engaged and contextualised.\n\n• kaze o hiita n da (<ruby>風邪<rt>かぜ</rt></ruby>を<ruby>引<rt>ひ</rt></ruby>いたんだ) — 'it's that I caught a cold'\n• shukudai ga aru n da (<ruby>宿題<rt>しゅくだい</rt></ruby>があるんだ) — 'I have homework, you see'\n• ame ga futte iru n da (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>っているんだ) — 'it's raining (that's why)'\n• dou shita n da? (どうしたんだ？) — 'what's the matter?'\n• naze naite iru n da? (なぜ<ruby>泣<rt>な</rt></ruby>いているんだ？) — 'why are you crying?'\n• kore ga hoshii n da (これが<ruby>欲<rt>ほ</rt></ruby>しいんだ) — 'I want THIS one' (emphatic)\n• tabetai n da (<ruby>食<rt>た</rt></ruby>べたいんだ) — 'I want to eat (that's the thing)'\n• gakusei nan da (<ruby>学生<rt>がくせい</rt></ruby>なんだ) — 'I'm a student (that's why)'\n• shitte iru n da yo (<ruby>知<rt>し</rt></ruby>っているんだよ) — 'I do know!' (emphatic with よ)\n• samui n desu (<ruby>寒<rt>さむ</rt></ruby>いんです) — 'it's cold (informing)'\n• ikitakunai n da (<ruby>行<rt>い</rt></ruby>きたくないんだ) — 'I don't want to go'\n• genki na n da (<ruby>元気<rt>げんき</rt></ruby>なんだ) — 'I'm fine (informing)'\n• yatto kaereru n da (やっと<ruby>帰<rt>かえ</rt></ruby>れるんだ) — 'I can finally go home'\n• boku no sei nan da (<ruby>僕<rt>ぼく</rt></ruby>のせいなんだ) — 'it's my fault'\n• mou tsukareta n da (もう<ruby>疲<rt>つか</rt></ruby>れたんだ) — 'I'm just exhausted'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 20
+  },
+  {
+    "id": "b275fafa-892e-45a7-94c6-8a48271031ed",
+    "name": "〜nagara (〜ながら) — while doing / despite",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜nagara (ながら) attaches to a verb's i-stem (masu-stem) to express simultaneous actions — 'while (X) is happening, also (Y)'. The two actions belong to the SAME subject. tabe + nagara hon o yomu (<ruby>食<rt>た</rt></ruby>べながら<ruby>本<rt>ほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby>む) — 'read a book while eating'.\n\nA second sense: 〜nagara mo (ながらも) means 'despite / although' — concessive, with an unexpected contrast. tsukareteinagara mo waratta (<ruby>疲<rt>つか</rt></ruby>れていながらも<ruby>笑<rt>わら</rt></ruby>った) — 'despite being tired, smiled'. The mo emphasises the contrast.\n\nImportant: the simultaneous-action sense requires the SAME subject for both actions. For different subjects, use 〜te iru aida ni (〜ている<ruby>間<rt>あいだ</rt></ruby>に, 'while X is happening, separately Y'). The masu-stem requirement means na-adjectives and nouns need 〜de ari nagara (〜であり<ruby>乍<rt>なが</rt></ruby>ら) for the despite-sense, or just attach 〜nagara directly for ambient state ('koukousei nagara — being a high-schooler, [yet]').\n\n• aruki nagara hanasu (<ruby>歩<rt>ある</rt></ruby>きながら<ruby>話<rt>はな</rt></ruby>す) — 'talk while walking'\n• tabenagara terebi o miru (<ruby>食<rt>た</rt></ruby>べながらテレビを<ruby>見<rt>み</rt></ruby>る) — 'watch TV while eating'\n• ongaku o kiki nagara benkyou suru (<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聴<rt>き</rt></ruby>きながら<ruby>勉強<rt>べんきょう</rt></ruby>する) — 'study while listening to music'\n• naki nagara kataru (<ruby>泣<rt>な</rt></ruby>きながら<ruby>語<rt>かた</rt></ruby>る) — 'speak while crying'\n• warai nagara hashiru (<ruby>笑<rt>わら</rt></ruby>いながら<ruby>走<rt>はし</rt></ruby>る) — 'run while laughing'\n• shitte i nagara mo damatta (<ruby>知<rt>し</rt></ruby>っていながらも<ruby>黙<rt>だま</rt></ruby>った) — 'stayed silent despite knowing' (concessive)\n• tsukare nagara mo tsuzukeru (<ruby>疲<rt>つか</rt></ruby>れながらも<ruby>続<rt>つづ</rt></ruby>ける) — 'continue despite being tired'\n• kodomo nagara rikou da (<ruby>子供<rt>こども</rt></ruby>ながら<ruby>利口<rt>りこう</rt></ruby>だ) — 'clever for a child'\n• unten shi nagara denwa (<ruby>運転<rt>うんてん</rt></ruby>しながら<ruby>電話<rt>でんわ</rt></ruby>) — 'phone while driving'\n• mi nagara mane suru (<ruby>見<rt>み</rt></ruby>ながら<ruby>真似<rt>まね</rt></ruby>する) — 'imitate while watching'\n• sake o nomi nagara kataru (<ruby>酒<rt>さけ</rt></ruby>を<ruby>飲<rt>の</rt></ruby>みながら<ruby>語<rt>かた</rt></ruby>る) — 'speak over a drink'\n• kangae nagara aruku (<ruby>考<rt>かんが</rt></ruby>えながら<ruby>歩<rt>ある</rt></ruby>く) — 'walk while thinking'\n• yowai nagara tatakau (<ruby>弱<rt>よわ</rt></ruby>いながら<ruby>戦<rt>たたか</rt></ruby>う) — 'fight despite being weak' (concessive)\n• mayoi nagara erabu (<ruby>迷<rt>まよ</rt></ruby>いながら<ruby>選<rt>えら</rt></ruby>ぶ) — 'choose while wavering'\n• zannen nagara ikenai (<ruby>残念<rt>ざんねん</rt></ruby>ながら<ruby>行<rt>い</rt></ruby>けない) — 'regrettably, I cannot go' (idiomatic)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 20
+  },
+  {
+    "id": "c52c6db9-1101-4e55-a082-e883ac1fa800",
+    "name": "〜sae (〜さえ) — even (emphatic / focal)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜sae (さえ) is a focal / emphatic particle meaning 'even (X)' — singling out a minimal or extreme case. It can attach to nouns directly (kodomo sae wakaru — even a child understands) or to clause-internal constituents. With 〜sae 〜eba / 〜nara, it forms a sufficient-condition pattern: 'as long as ONLY (X), then Y'.\n\nTwo main constructions: (1) Emphatic 'even' alone: kuuki sae nai (<ruby>空気<rt>くうき</rt></ruby>さえない) — 'there isn't even air'. (2) Sufficient condition with conditional: ki sae areba (<ruby>気<rt>き</rt></ruby>さえあれば) — 'if I just have the will'. The second usage is very common in songs and motivational speech.\n\nCompare with 〜mo (も, 'also / even') and 〜datte (だって, casual 'even'): 〜sae is the most emphatic and works best when the example is at the extreme low end of expectation ('even THIS minimal thing is missing / is enough'). It always carries surprise or focus on the minimum.\n\n• kodomo sae wakaru (<ruby>子供<rt>こども</rt></ruby>さえわかる) — 'even a child understands'\n• kuuki sae nai (<ruby>空気<rt>くうき</rt></ruby>さえない) — 'there isn't even air'\n• Tarou sae shitte iru (<ruby>太郎<rt>たろう</rt></ruby>さえ<ruby>知<rt>し</rt></ruby>っている) — 'even Tarou knows'\n• yume sae mireba (<ruby>夢<rt>ゆめ</rt></ruby>さえ<ruby>見<rt>み</rt></ruby>れば) — 'as long as I just dream'\n• kimi sae ireba ii (<ruby>君<rt>きみ</rt></ruby>さえいればいい) — 'as long as you're here, that's enough'\n• genki sae areba (<ruby>元気<rt>げんき</rt></ruby>さえあれば) — 'as long as I just have my health'\n• jikan sae areba (<ruby>時間<rt>じかん</rt></ruby>さえあれば) — 'if I just had time'\n• namae sae shiranai (<ruby>名前<rt>なまえ</rt></ruby>さえ<ruby>知<rt>し</rt></ruby>らない) — 'I don't even know the name'\n• jibun no namae sae kakenai (<ruby>自分<rt>じぶん</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>さえ<ruby>書<rt>か</rt></ruby>けない) — 'can't even write his own name'\n• ippun sae matenai (<ruby>一分<rt>いっぷん</rt></ruby>さえ<ruby>待<rt>ま</rt></ruby>てない) — 'can't wait even one minute'\n• kotoba sae denai (<ruby>言葉<rt>ことば</rt></ruby>さえ<ruby>出<rt>で</rt></ruby>ない) — 'words won't even come out'\n• kao sae mitakunai (<ruby>顔<rt>かお</rt></ruby>さえ<ruby>見<rt>み</rt></ruby>たくない) — 'don't even want to see your face'\n• ame sae fureba shiawase (<ruby>雨<rt>あめ</rt></ruby>さえ<ruby>降<rt>ふ</rt></ruby>れば<ruby>幸<rt>しあわ</rt></ruby>せ) — 'as long as it rains, I'm happy'\n• benkyou sae sureba goukaku (<ruby>勉強<rt>べんきょう</rt></ruby>さえすれば<ruby>合格<rt>ごうかく</rt></ruby>) — 'pass as long as you just study'\n• sora sae aoi nara (<ruby>空<rt>そら</rt></ruby>さえ<ruby>青<rt>あお</rt></ruby>いなら) — 'as long as the sky is blue'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 19
+  },
+  {
+    "id": "c3fd6077-9048-44c1-b8ec-93fe565fdc2b",
+    "name": "〜datte (〜だって) — even / no matter (casual)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜datte (だって) is a casual particle with two related senses. (1) Emphatic 'even / also' — kodomo datte wakaru (<ruby>子供<rt>こども</rt></ruby>だってわかる) — 'even a child understands'. (2) 'They say / I heard that' — kuru n datte (<ruby>来<rt>く</rt></ruby>るんだって) — 'they say (he)'s coming'. Context disambiguates.\n\nThe 'even' sense is interchangeable with 〜demo (〜でも) and 〜sae (〜さえ) in many contexts, but 〜datte is the most casual and most emotional of the three. Often used as a defensive or assertive emphasis: hima da datte! (<ruby>暇<rt>ひま</rt></ruby>ださって!) — 'I'm free, I tell you!'.\n\nThe hearsay sense derives from 〜da to itta — shortened. Only attaches to plain forms of verbs / i-adjectives (kuru datte, samui datte). For na-adjectives and nouns, use 〜nan datte (〜なんだって): kirei nan datte — 'they say it's pretty'. Sentence-initial datte = 'because / it's just that' — a separate connective use ('datte / shikata nai').\n\n• kodomo datte wakaru (<ruby>子供<rt>こども</rt></ruby>だってわかる) — 'even a child understands'\n• boku datte ningen da (<ruby>僕<rt>ぼく</rt></ruby>だって<ruby>人間<rt>にんげん</rt></ruby>だ) — 'I'm human too, you know'\n• ame ga futta n datte (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったんだって) — 'I heard it rained'\n• kanojo datte kuru (<ruby>彼女<rt>かのじょ</rt></ruby>だって<ruby>来<rt>く</rt></ruby>る) — 'she's coming too'\n• yasui datte iiyo (<ruby>安<rt>やす</rt></ruby>いだっていいよ) — 'cheap is fine'\n• shinjirarenai datte (<ruby>信<rt>しん</rt></ruby>じられないだって) — 'unbelievable, they say'\n• boku datte hoshii (<ruby>僕<rt>ぼく</rt></ruby>だって<ruby>欲<rt>ほ</rt></ruby>しい) — 'I want one too'\n• kirei nan datte (きれいなんだって) — 'they say it's pretty'\n• jikan ga nai n datte (<ruby>時間<rt>じかん</rt></ruby>がないんだって) — 'they say there's no time'\n• hima datte nai (<ruby>暇<rt>ひま</rt></ruby>だってない) — 'I'm not even free'\n• gakusei datte tsukareru (<ruby>学生<rt>がくせい</rt></ruby>だって<ruby>疲<rt>つか</rt></ruby>れる) — 'students get tired too'\n• kau datte iwa-rete-mo (<ruby>買<rt>か</rt></ruby>うだって<ruby>言<rt>い</rt></ruby>われても) — 'even being told to buy it...'\n• warui datte (<ruby>悪<rt>わる</rt></ruby>いだって) — 'I heard it's bad'\n• onaji datte ii (<ruby>同<rt>おな</rt></ruby>じだっていい) — 'the same is fine'\n• inu datte kowai (<ruby>犬<rt>いぬ</rt></ruby>だって<ruby>怖<rt>こわ</rt></ruby>い) — 'even dogs are scary'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 16
+  },
+  {
+    "id": "e172f73b-9c00-439a-b0da-b24b207d7e80",
+    "name": "〜nai de (〜ないで) — please don't / without doing",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜nai de (ないで) attaches to the negative ない-form of a verb to express two related senses: (1) 'without doing (X)' — describing the manner of another action (gohan o tabe nai de neta = 'slept without eating'), and (2) 'please don't (X)' — a soft negative request (ikanai de = 'please don't go'). The sense depends on whether 〜nai de stands alone or feeds into another verb.\n\nThe formal / written counterpart is 〜zu (ni) (〜ず(に)) — same meaning, more literary register. The polite imperative 'please don't' adds 〜kudasai: konaide kudasai (<ruby>来<rt>こ</rt></ruby>ないでください) — 'please don't come'. Without kudasai, it's still polite-ish but more intimate.\n\nDistinguish from 〜nakute (なくて, the negative te-form), which is used for cause / sequence — could not 〜 and so 〜 — not for 'without doing'. tabenakute komatta (<ruby>食<rt>た</rt></ruby>べなくて<ruby>困<rt>こま</rt></ruby>った) — 'I was troubled because I couldn't eat' (cause). vs tabenai de neta — 'slept without eating' (manner).\n\n• nakanai de (<ruby>泣<rt>な</rt></ruby>かないで) — 'please don't cry'\n• ikanai de (<ruby>行<rt>い</rt></ruby>かないで) — 'please don't go'\n• wasurenai de (<ruby>忘<rt>わす</rt></ruby>れないで) — 'please don't forget'\n• shimpai shinai de (<ruby>心配<rt>しんぱい</rt></ruby>しないで) — 'don't worry'\n• gohan o tabenai de neta (ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べないで<ruby>寝<rt>ね</rt></ruby>た) — 'slept without eating'\n• ki ni shinai de kudasai (<ruby>気<rt>き</rt></ruby>にしないでください) — 'please don't worry about it'\n• matanai de yon de (<ruby>待<rt>ま</rt></ruby>たないで<ruby>呼<rt>よ</rt></ruby>んで) — 'call me without waiting'\n• nan mo iwanai de (<ruby>何<rt>なに</rt></ruby>も<ruby>言<rt>い</rt></ruby>わないで) — 'don't say anything'\n• samenai de yume (<ruby>覚<rt>さ</rt></ruby>めないで<ruby>夢<rt>ゆめ</rt></ruby>) — 'don't wake from the dream' (poetic)\n• denwa shinai de hatsu shi (<ruby>電話<rt>でんわ</rt></ruby>しないで<ruby>発<rt>はっ</rt></ruby>し) — 'left without calling'\n• minai de hashitta (<ruby>見<rt>み</rt></ruby>ないで<ruby>走<rt>はし</rt></ruby>った) — 'ran without looking'\n• kasa o sasanai de aruita (<ruby>傘<rt>かさ</rt></ruby>を<ruby>差<rt>さ</rt></ruby>さないで<ruby>歩<rt>ある</rt></ruby>いた) — 'walked without an umbrella'\n• shippai shinai de yatte (<ruby>失敗<rt>しっぱい</rt></ruby>しないでやって) — 'do it without messing up'\n• furikaeranai de susume (<ruby>振<rt>ふ</rt></ruby>り<ruby>返<rt>かえ</rt></ruby>らないで<ruby>進<rt>すす</rt></ruby>め) — 'go forward without looking back'\n• naka nai de waratte (<ruby>泣<rt>な</rt></ruby>かないで<ruby>笑<rt>わら</rt></ruby>って) — 'smile, don't cry'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 16
+  },
+  {
+    "id": "4c07593c-4c9a-4ecb-86d5-ab49c372825f",
+    "name": "〜tatte (〜たって) — even if (casual)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜tatte (たって) is the casual / colloquial equivalent of 〜te mo (ても), meaning 'even if (X)'. Formation is irregular: it derives from past tense + って (the casual quotative), but functions as a conditional concessive. ittatte (<ruby>言<rt>い</rt></ruby>ったって) ≈ itte mo (<ruby>言<rt>い</rt></ruby>っても) — 'even if (I) say'.\n\nFor i-adjectives, 〜kutatte (くたって): yasukutatte kawanai (<ruby>安<rt>やす</rt></ruby>くたって<ruby>買<rt>か</rt></ruby>わない) — 'won't buy it even if cheap'. For nouns / na-adjectives, 〜datte: kodomo datte wakaru (<ruby>子供<rt>こども</rt></ruby>だってわかる) — 'even a child understands' (note: this overlaps with the standalone 〜datte particle for 'even / no matter').\n\nThe register is decidedly casual, often defiant or dismissive. Common in song lyrics expressing stubbornness. Compare 〜tatte with 〜te mo (more neutral / everyday) and 〜tokoro de (〜ところで, more formal-literary 'no matter what'). Never use 〜tatte in business writing.\n\n• naitatte muda da (<ruby>泣<rt>な</rt></ruby>いたって<ruby>無駄<rt>むだ</rt></ruby>だ) — 'crying won't help'\n• ittatte kawaranai (<ruby>言<rt>い</rt></ruby>ったって<ruby>変<rt>か</rt></ruby>わらない) — 'even if I say it, nothing changes'\n• benkyou shitatte muda (<ruby>勉強<rt>べんきょう</rt></ruby>したって<ruby>無駄<rt>むだ</rt></ruby>) — 'studying won't help'\n• ame ga futtatte iku (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ったって<ruby>行<rt>い</rt></ruby>く) — 'I'll go even if it rains'\n• damattatte wakaru (<ruby>黙<rt>だま</rt></ruby>ったってわかる) — 'I can tell even if you don't speak'\n• tabetatte futoranai (<ruby>食<rt>た</rt></ruby>べたって<ruby>太<rt>ふと</rt></ruby>らない) — 'I won't gain weight even if I eat'\n• yasukutatte iranai (<ruby>安<rt>やす</rt></ruby>くたって<ruby>要<rt>い</rt></ruby>らない) — 'don't want it even if it's cheap'\n• takakutatte hoshii (<ruby>高<rt>たか</rt></ruby>くたって<ruby>欲<rt>ほ</rt></ruby>しい) — 'I want it even if expensive'\n• samukutatte heiki (<ruby>寒<rt>さむ</rt></ruby>くたって<ruby>平気<rt>へいき</rt></ruby>) — 'I'm fine even if it's cold'\n• shittatte oshienai (<ruby>知<rt>し</rt></ruby>ったって<ruby>教<rt>おし</rt></ruby>えない) — 'I won't tell you even if I know'\n• mattatte konai (<ruby>待<rt>ま</rt></ruby>ったって<ruby>来<rt>こ</rt></ruby>ない) — 'no matter how long I wait, they won't come'\n• ittatte kikanai (<ruby>言<rt>い</rt></ruby>ったって<ruby>聞<rt>き</rt></ruby>かない) — 'they won't listen no matter what I say'\n• ishi ga atatte mo heiki (<ruby>石<rt>いし</rt></ruby>が<ruby>当<rt>あ</rt></ruby>たっても<ruby>平気<rt>へいき</rt></ruby>) — 'even if a stone hits me, I'm fine' (note: 〜ても here, neutral form)\n• damattatte tsumannai (<ruby>黙<rt>だま</rt></ruby>ったってつまんない) — 'staying silent is boring anyway'\n• onaji datte ii (<ruby>同<rt>おな</rt></ruby>じだっていい) — 'it's fine even if it's the same'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 16
+  },
+  {
+    "id": "2a28ef78-f2e4-432f-a6f5-d2d6b22a577e",
+    "name": "〜you ni (〜ように) — like / in the manner of",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜you ni (ように) in the manner / simile sense attaches to a noun via no (の) — N + no you ni — or to a clause's plain form, expressing 'like (X) / in the manner of (X) / as (X did)'. Distinct from the purpose / hope sense (also ように) covered separately in batch 2; same particle, different syntactic frame.\n\nTwo main uses here: (a) Simile — tori no you ni tobu (<ruby>鳥<rt>とり</rt></ruby>のように<ruby>飛<rt>と</rt></ruby>ぶ) 'fly like a bird'. Common with maru de (まるで, 'just/exactly') for emphatic comparison: marude yume no you ni (just like a dream). (b) Manner reference — clause + you ni — itta you ni (<ruby>言<rt>い</rt></ruby>ったように) 'like I said', omou you ni (<ruby>思<rt>おも</rt></ruby>うように) 'the way you think'.\n\nCompare with 〜mitai (more colloquial simile, attaches directly to a noun without の), 〜sou (visual / hearsay 'looks like'), and 〜rashii (evidential 'apparently'). 〜you ni is the most flexible and the most literary of the simile family — preferred in songs, written Japanese, and any context wanting a measured comparison rather than a casual one.\n\n• tori no you ni (<ruby>鳥<rt>とり</rt></ruby>のように) — 'like a bird'\n• yume no you ni (<ruby>夢<rt>ゆめ</rt></ruby>のように) — 'like a dream'\n• kaze no you ni (<ruby>風<rt>かぜ</rt></ruby>のように) — 'like the wind'\n• hana no you ni (<ruby>花<rt>はな</rt></ruby>のように) — 'like a flower'\n• kodomo no you ni (<ruby>子供<rt>こども</rt></ruby>のように) — 'like a child'\n• yuki no you ni (<ruby>雪<rt>ゆき</rt></ruby>のように) — 'like snow'\n• mizu no you ni (<ruby>水<rt>みず</rt></ruby>のように) — 'like water'\n• hoshi no you ni (<ruby>星<rt>ほし</rt></ruby>のように) — 'like a star'\n• marude uso no you ni (まるで<ruby>嘘<rt>うそ</rt></ruby>のように) — 'as if it were a lie'\n• kimi no itta you ni (<ruby>君<rt>きみ</rt></ruby>の<ruby>言<rt>い</rt></ruby>ったように) — 'just like you said'\n• omou you ni (<ruby>思<rt>おも</rt></ruby>うように) — 'as one thinks / the way one wants'\n• mae ni hanashita you ni (<ruby>前<rt>まえ</rt></ruby>に<ruby>話<rt>はな</rt></ruby>したように) — 'as I mentioned before'\n• mukashi no you ni (<ruby>昔<rt>むかし</rt></ruby>のように) — 'like in the old days'\n• maiagaru you ni (<ruby>舞<rt>ま</rt></ruby>い<ruby>上<rt>あ</rt></ruby>がるように) — 'as if dancing into the air'\n• hadaka no kokoro no you ni (<ruby>裸<rt>はだか</rt></ruby>の<ruby>心<rt>こころ</rt></ruby>のように) — 'like a bare heart'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 15
+  },
+  {
+    "id": "82bde35d-b73c-494a-a1a0-dff9fc412303",
+    "name": "〜hodo (〜ほど) — to the extent of",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜hodo (ほど) expresses degree or extent — 'to the extent of (X)', '(as much as) X'. Attaches to nouns directly, to plain-form verbs, or to i-adjectives. The degree may be a comparison (kuruma ga hoshii hodo — 'as much as I want a car'), a benchmark (sora ni todoku hodo — 'to the extent of reaching the sky'), or a measurement (1-jikan hodo — 'about an hour').\n\nTwo key constructions: (1) X 〜hodo Y nai (X ほど Y ない) — 'not as Y as X' (e.g., kanji wa eigo hodo muzukashikunai — 'kanji isn't as hard as English'). (2) 〜ba 〜hodo (the more X, the more Y) — okiku nareba naru hodo (<ruby>大<rt>おお</rt></ruby>きくなればなるほど) — 'the bigger it gets, the more...'.\n\nAlso forms set phrases: naku hodo ureshii (<ruby>泣<rt>な</rt></ruby>くほど<ruby>嬉<rt>うれ</rt></ruby>しい) — 'happy enough to cry'; nemurenai hodo (<ruby>眠<rt>ねむ</rt></ruby>れないほど) — 'so much that I can't sleep'. The 'about / approximately' use is more colloquial when applied to small amounts (jippun hodo — 'about ten minutes'); for larger / more formal estimates use 〜kurai or 〜gurai.\n\n• naku hodo ureshii (<ruby>泣<rt>な</rt></ruby>くほど<ruby>嬉<rt>うれ</rt></ruby>しい) — 'happy enough to cry'\n• shinu hodo tsukareta (<ruby>死<rt>し</rt></ruby>ぬほど<ruby>疲<rt>つか</rt></ruby>れた) — 'tired enough to die' (hyperbolic)\n• 1-jikan hodo (<ruby>一時間<rt>いちじかん</rt></ruby>ほど) — 'about an hour'\n• miru hodo utsukushii (<ruby>見<rt>み</rt></ruby>るほど<ruby>美<rt>うつく</rt></ruby>しい) — 'beautiful (the more I look)'\n• kare hodo kashikoi hito wa inai (<ruby>彼<rt>かれ</rt></ruby>ほど<ruby>賢<rt>かしこ</rt></ruby>い<ruby>人<rt>ひと</rt></ruby>はいない) — 'no one is as smart as him'\n• shaberu hodo wasureru (<ruby>喋<rt>しゃべ</rt></ruby>るほど<ruby>忘<rt>わす</rt></ruby>れる) — 'the more I talk, the more I forget'\n• yamu hodo amai (<ruby>止<rt>や</rt></ruby>むほど<ruby>甘<rt>あま</rt></ruby>い) — 'sweet enough to make you stop'\n• kurai hodo aoi sora (<ruby>暗<rt>くら</rt></ruby>いほど<ruby>青<rt>あお</rt></ruby>い<ruby>空<rt>そら</rt></ruby>) — 'a sky as deep blue as it is dark'\n• ureshikute namida ga deru hodo (<ruby>嬉<rt>うれ</rt></ruby>しくて<ruby>涙<rt>なみだ</rt></ruby>が<ruby>出<rt>で</rt></ruby>るほど) — 'happy enough to bring tears'\n• matsu hodo oishikunaru (<ruby>待<rt>ま</rt></ruby>つほどおいしくなる) — 'the longer you wait, the better it tastes'\n• ima hodo yoi koto wa nai (<ruby>今<rt>いま</rt></ruby>ほど<ruby>良<rt>よ</rt></ruby>いことはない) — 'nothing is as good as right now'\n• ki ga tsukanai hodo shizuka (<ruby>気<rt>き</rt></ruby>がつかないほど<ruby>静<rt>しず</rt></ruby>か) — 'so quiet you wouldn't notice'\n• benkyou sureba suru hodo (<ruby>勉強<rt>べんきょう</rt></ruby>すればするほど) — 'the more you study, the more...'\n• samui hodo kirei na keshiki (<ruby>寒<rt>さむ</rt></ruby>いほど<ruby>綺麗<rt>きれい</rt></ruby>な<ruby>景色<rt>けしき</rt></ruby>) — 'a view as beautiful as it is cold'\n• yume hodo tooi (<ruby>夢<rt>ゆめ</rt></ruby>ほど<ruby>遠<rt>とお</rt></ruby>い) — 'as distant as a dream'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 14
+  },
+  {
+    "id": "8748faec-25ee-4167-ad26-c7b292f5fa41",
+    "name": "〜noni (〜のに) — even though / despite",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜noni (のに) connects two clauses where the second contradicts what one would expect from the first. Unlike neutral 〜kedo (けど) or 〜ga (が), 〜noni carries strong emotional colour — disappointment, frustration, or surprise. Attaches to plain forms of verbs and i-adjectives; for nouns and na-adjectives, use 〜na noni (なのに).\n\nSentence-final 〜noni often expresses regret with the second clause left unsaid: '...even though it should be otherwise'. ii hito na noni... (いい<ruby>人<rt>ひと</rt></ruby>なのに...) — 'they're a good person, but...' (and yet things didn't work out). This trailing form is heavily used in songs and emotional speech.\n\nCompare with kedo (neutral, 'but') and ga (more formal but still neutral). 〜noni adds the emotional layer — accusatory, regretful, or wistful. Don't use 〜noni in business writing where neutrality is expected; ga is the safe formal choice.\n\n• benkyou shita noni (<ruby>勉強<rt>べんきょう</rt></ruby>したのに) — 'even though I studied'\n• takai noni mazui (<ruby>高<rt>たか</rt></ruby>いのにまずい) — 'expensive but tastes bad'\n• ganbatta noni dame datta (<ruby>頑張<rt>がんば</rt></ruby>ったのにダメだった) — 'I tried my best but it didn't work'\n• wakai noni kashikoi (<ruby>若<rt>わか</rt></ruby>いのに<ruby>賢<rt>かしこ</rt></ruby>い) — 'wise despite being young'\n• shizuka na noni nemurenai (<ruby>静<rt>しず</rt></ruby>かなのに<ruby>眠<rt>ねむ</rt></ruby>れない) — 'even though it's quiet, I can't sleep'\n• yakusoku shita noni konakatta (<ruby>約束<rt>やくそく</rt></ruby>したのに<ruby>来<rt>こ</rt></ruby>なかった) — 'they promised but didn't come'\n• dekiru noni shinai (できるのにしない) — 'they could do it but they don't'\n• ame na noni dekaketa (<ruby>雨<rt>あめ</rt></ruby>なのに<ruby>出<rt>で</rt></ruby>かけた) — 'went out despite the rain'\n• tsukareta noni neru jikan ga nai (<ruby>疲<rt>つか</rt></ruby>れたのに<ruby>寝<rt>ね</rt></ruby>る<ruby>時間<rt>じかん</rt></ruby>がない) — 'tired but no time to sleep'\n• atatakai noni samui (<ruby>暖<rt>あたた</rt></ruby>かいのに<ruby>寒<rt>さむ</rt></ruby>い) — 'feels cold despite being warm'\n• matta noni konakatta (<ruby>待<rt>ま</rt></ruby>ったのに<ruby>来<rt>こ</rt></ruby>なかった) — 'I waited but they didn't show'\n• ii hito na noni... (いい<ruby>人<rt>ひと</rt></ruby>なのに...) — 'they're a good person, but...' (sentence-final regret)\n• eigo o benkyou shita noni hanasenai (<ruby>英語<rt>えいご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>したのに<ruby>話<rt>はな</rt></ruby>せない) — 'studied English but can't speak'\n• itte oita noni (<ruby>言<rt>い</rt></ruby>っておいたのに) — 'I told you, and yet...'\n• mou otona na noni (もう<ruby>大人<rt>おとな</rt></ruby>なのに) — 'even though you're an adult now'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 14
+  },
+  {
+    "id": "4d218c66-5ade-47a3-87a1-002466891415",
+    "name": "〜tame ni (〜ために) — for the sake of / in order to",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜tame ni (ために) expresses purpose ('in order to / for the sake of') and reason ('because of'). The volitional purpose sense attaches to a dictionary-form verb: yume o kanaeru tame ni (<ruby>夢<rt>ゆめ</rt></ruby>を<ruby>叶<rt>かな</rt></ruby>えるために) — 'in order to make my dream come true'. Both clauses must share the same agent.\n\nTwo distinct uses: (1) Purpose: V-dict + tame ni — 'in order to V'. The agent of the goal-clause must be able to perform the goal. (2) Beneficiary / reason: N + no tame ni — 'for the sake of (N) / because of (N)'. kazoku no tame ni (<ruby>家族<rt>かぞく</rt></ruby>のために) — 'for my family'.\n\nCompare with 〜you ni (ように, 'so that' for non-volitional outcomes — see separate rule). Use ために when YOU control the outcome via direct action; use ように when the outcome is hoped for / non-volitional. Never use ために with potential or state verbs — those need ように.\n\n• benkyou suru tame ni (<ruby>勉強<rt>べんきょう</rt></ruby>するために) — 'in order to study'\n• yume no tame ni (<ruby>夢<rt>ゆめ</rt></ruby>のために) — 'for the sake of the dream'\n• kazoku no tame ni hataraku (<ruby>家族<rt>かぞく</rt></ruby>のために<ruby>働<rt>はたら</rt></ruby>く) — 'work for the family'\n• kenkou no tame ni (<ruby>健康<rt>けんこう</rt></ruby>のために) — 'for one's health'\n• miru tame ni kita (<ruby>見<rt>み</rt></ruby>るために<ruby>来<rt>き</rt></ruby>た) — 'came in order to see (it)'\n• kau tame ni okane o tameru (<ruby>買<rt>か</rt></ruby>うためにお<ruby>金<rt>かね</rt></ruby>を<ruby>貯<rt>た</rt></ruby>める) — 'save money to buy it'\n• shiken no tame ni (<ruby>試験<rt>しけん</rt></ruby>のために) — 'for the exam'\n• ai no tame ni (<ruby>愛<rt>あい</rt></ruby>のために) — 'for love'\n• mamoru tame ni tatakau (<ruby>守<rt>まも</rt></ruby>るために<ruby>戦<rt>たたか</rt></ruby>う) — 'fight in order to protect'\n• shourai no tame ni (<ruby>将来<rt>しょうらい</rt></ruby>のために) — 'for the future'\n• yasai o tabe-ru tame ni (<ruby>野菜<rt>やさい</rt></ruby>を<ruby>食<rt>た</rt></ruby>べるために) — 'in order to eat vegetables'\n• kimi no tame ni utau (<ruby>君<rt>きみ</rt></ruby>のために<ruby>歌<rt>うた</rt></ruby>う) — 'sing for you'\n• ikiru tame ni hataraku (<ruby>生<rt>い</rt></ruby>きるために<ruby>働<rt>はたら</rt></ruby>く) — 'work in order to live'\n• shiawase ni naru tame ni (<ruby>幸<rt>しあわ</rt></ruby>せになるために) — 'in order to become happy'\n• kodomo no tame ni (<ruby>子供<rt>こども</rt></ruby>のために) — 'for the children'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 14
+  },
+  {
+    "id": "a69edff2-3f3f-448c-899b-e75e9387fabf",
+    "name": "〜te yuku (〜てゆく) — literary 〜ていく (poetic onward motion)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜te yuku (〜てゆく) is the literary / poetic reading of 〜te iku (〜ていく). Attach yuku (<ruby>行<rt>ゆ</rt></ruby>く) to a verb's te-form. Same meaning as 〜te iku — gradual onward motion, away from the present — but yuku reads as elevated, classical, or song-like. Past: 〜te yukita (〜てゆきた) is rare; 〜te itta is preferred even with the literary present. Modern Japanese spoken speech overwhelmingly uses 〜ていく; songs and poetry prefer 〜てゆく.\n\nゆく vs いく: both write 〜行く but are different historical readings. ゆく is the older, classical reading, surviving in fixed expressions (yuku-kawa no nagare wa taezu shite — 'the river goes on flowing endlessly') and in lyric / literary contexts. いく is the modern colloquial form. The choice between 〜てゆく and 〜ていく is purely register: poetic vs. everyday.\n\nJ-pop / anime OST writers reach for 〜てゆく to add weight and timelessness. Same aspectual senses as 〜ていく: gradual change, fading, drifting onward, life-as-journey metaphors. If a song says omoi ga tsunorite yuku (<ruby>想<rt>おも</rt></ruby>いが<ruby>募<rt>つの</rt></ruby>ってゆく) instead of 〜tsunoritte iku, the songwriter is signalling: this is a serious feeling, not a casual one.\n\n• kawatte yuku (<ruby>変<rt>か</rt></ruby>わってゆく) — 'gradually changes' (poetic)\n• kiete yuku (<ruby>消<rt>き</rt></ruby>えてゆく) — 'fades away' (poetic)\n• nagarete yuku (<ruby>流<rt>なが</rt></ruby>れてゆく) — 'flows onward'\n• ochite yuku (<ruby>落<rt>お</rt></ruby>ちてゆく) — 'falls / sinks gradually'\n• sugite yuku (<ruby>過<rt>す</rt></ruby>ぎてゆく) — 'passes by'\n• afurete yuku (<ruby>溢<rt>あふ</rt></ruby>れてゆく) — 'overflows / fills up'\n• tsuzuite yuku (<ruby>続<rt>つづ</rt></ruby>いてゆく) — 'continues onward'\n• toozakatte yuku (<ruby>遠<rt>とお</rt></ruby>ざかってゆく) — 'recedes into the distance'\n• tobi-satte yuku (<ruby>飛<rt>と</rt></ruby>び<ruby>去<rt>さ</rt></ruby>ってゆく) — 'flies away'\n• ikite yuku (<ruby>生<rt>い</rt></ruby>きてゆく) — 'live on'\n• ayunde yuku (<ruby>歩<rt>あゆ</rt></ruby>んでゆく) — 'walks onward (life)'\n• kumo ga nagarete yuku (<ruby>雲<rt>くも</rt></ruby>が<ruby>流<rt>なが</rt></ruby>れてゆく) — 'clouds drift away'\n• yoru ga akete yuku (<ruby>夜<rt>よる</rt></ruby>が<ruby>明<rt>あ</rt></ruby>けてゆく) — 'night gives way to dawn'\n• omoi ga tsunorite yuku (<ruby>想<rt>おも</rt></ruby>いが<ruby>募<rt>つの</rt></ruby>ってゆく) — 'feelings build up'\n• yume ga sugite yuku (<ruby>夢<rt>ゆめ</rt></ruby>が<ruby>過<rt>す</rt></ruby>ぎてゆく) — 'the dream slips by'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 14
+  },
+  {
+    "id": "21037dd8-4312-4b4d-a104-0b6f3fb1f856",
+    "name": "〜darake (〜だらけ) — covered in / riddled with",
+    "jlpt_reference": "JLPT N2",
+    "explanation": {
+      "en": "〜darake (〜だらけ) attaches directly to a noun (no particle) to mean 'covered in (X) / full of (X) / riddled with (X)'. Almost always carries a negative or messy connotation — chi-darake (<ruby>血<rt>ち</rt></ruby>だらけ) 'covered in blood', shippai-darake (<ruby>失敗<rt>しっぱい</rt></ruby>だらけ) 'riddled with failures'. The image is one of saturation by something undesirable, dirty, or excessive.\n\nUsed both literally (physical mess) and figuratively (abstract excess of bad things). Goes with countables (kizu-darake, 'covered in scars') and uncountables (doro-darake, 'covered in mud'). Modifies nouns attributively with の: kizu-darake no kao (<ruby>傷<rt>きず</rt></ruby>だらけの<ruby>顔<rt>かお</rt></ruby>) 'a scarred face'.\n\nCompare with 〜mamire (〜まみれ — 'smeared with', wetter / more visceral, often blood/sweat/mud), 〜zukume (〜ずくめ — 'all X-style', neutral or positive: ii-koto-zukume 'nothing but good things'), and 〜ippai (いっぱい — 'full of', neutral). 〜darake is the negative-charged member of the family — never use it for things you like.\n\n• chi-darake (<ruby>血<rt>ち</rt></ruby>だらけ) — 'covered in blood'\n• doro-darake (<ruby>泥<rt>どろ</rt></ruby>だらけ) — 'covered in mud'\n• ase-darake (<ruby>汗<rt>あせ</rt></ruby>だらけ) — 'drenched in sweat'\n• kizu-darake (<ruby>傷<rt>きず</rt></ruby>だらけ) — 'covered in wounds / scars'\n• machigai-darake (<ruby>間違<rt>まちが</rt></ruby>いだらけ) — 'full of mistakes'\n• shippai-darake (<ruby>失敗<rt>しっぱい</rt></ruby>だらけ) — 'riddled with failures'\n• hokori-darake (<ruby>埃<rt>ほこり</rt></ruby>だらけ) — 'covered in dust'\n• namida-darake (<ruby>涙<rt>なみだ</rt></ruby>だらけ) — 'tear-stained'\n• ana-darake (<ruby>穴<rt>あな</rt></ruby>だらけ) — 'full of holes'\n• gomi-darake (ゴミだらけ) — 'full of trash'\n• shimi-darake (シミだらけ) — 'covered in stains'\n• yowamushi-darake (<ruby>弱虫<rt>よわむし</rt></ruby>だらけ) — 'a bunch of cowards'\n• uso-darake (<ruby>嘘<rt>うそ</rt></ruby>だらけ) — 'full of lies'\n• shiwa-darake (<ruby>皺<rt>しわ</rt></ruby>だらけ) — 'covered in wrinkles'\n• yume-darake no jinsei (<ruby>夢<rt>ゆめ</rt></ruby>だらけの<ruby>人生<rt>じんせい</rt></ruby>) — 'a life full of dreams' (rare positive use, ironic)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 12
+  },
+  {
+    "id": "8d859f55-61c8-4539-9c3b-96832e31e940",
+    "name": "〜bakari (〜ばかり) — only / nothing but / just done",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜bakari (〜ばかり) has two distinct uses depending on what it attaches to. (a) After a noun or V-dictionary: 'only / nothing but X' — uso bakari (<ruby>嘘<rt>うそ</rt></ruby>ばかり) 'nothing but lies'. (b) After V-past (〜ta): 'just (did)' — tabeta bakari (<ruby>食<rt>た</rt></ruby>べたばかり) 'just ate'. (c) After te-form: 〜te bakari iru — 'always doing X' — naite bakari iru (<ruby>泣<rt>な</rt></ruby>いてばかりいる) 'always crying'.\n\nThe 'only / nothing but' sense often carries mild criticism or weariness — 'X is the only thing happening, and that's tiresome'. The 'just done' sense is purely temporal, like the English just (just got home, just woke up). The 〜te bakari iru flavour is dismissive — 'always doing X (and not doing the things they should)'.\n\nCompare with 〜dake (〜だけ — neutral 'only / just', no judgement), 〜nomi (〜のみ — formal / written 'only'), 〜tokoro (〜ところ — temporal 'just X-ed', neutral, more bookish than 〜tabakari), batch1's 〜tsuzukeru (deliberate continuation, no criticism). Casual contraction: 〜bakka (〜ばっか) or 〜bakkari (〜ばっかり) — same meaning, more spoken.\n\n• uso bakari (<ruby>嘘<rt>うそ</rt></ruby>ばかり) — 'nothing but lies'\n• yume bakari (<ruby>夢<rt>ゆめ</rt></ruby>ばかり) — 'just dreams'\n• naite bakari iru (<ruby>泣<rt>な</rt></ruby>いてばかりいる) — 'always crying'\n• tabeta bakari (<ruby>食<rt>た</rt></ruby>べたばかり) — 'just ate'\n• kaetta bakari (<ruby>帰<rt>かえ</rt></ruby>ったばかり) — 'just got home'\n• okita bakari (<ruby>起<rt>お</rt></ruby>きたばかり) — 'just woke up'\n• kanji bakari (<ruby>漢字<rt>かんじ</rt></ruby>ばかり) — 'all kanji'\n• kimi no koto bakari kangaete iru (<ruby>君<rt>きみ</rt></ruby>のことばかり<ruby>考<rt>かんが</rt></ruby>えている) — 'just thinking about you'\n• warai bakari (<ruby>笑<rt>わら</rt></ruby>いばかり) — 'nothing but laughter'\n• iya na koto bakari (<ruby>嫌<rt>いや</rt></ruby>なことばかり) — 'only bad things'\n• gēmu bakari shite iru (ゲームばかりしている) — 'just playing games (constantly)'\n• hajimatta bakari (<ruby>始<rt>はじ</rt></ruby>まったばかり) — 'just begun'\n• kanashii koto bakari (<ruby>悲<rt>かな</rt></ruby>しいことばかり) — 'only sad things'\n• atta bakari (<ruby>会<rt>あ</rt></ruby>ったばかり) — 'just met'\n• yume bakka mite iru (<ruby>夢<rt>ゆめ</rt></ruby>ばっか<ruby>見<rt>み</rt></ruby>ている) — 'doing nothing but dreaming' (casual)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 11
+  },
+  {
+    "id": "05a47b35-f7bd-41a0-bea8-1eab6bfcd2a1",
+    "name": "〜made (〜まで) — until / as far as / even",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "〜made (〜まで) attaches to a noun, time expression, or V-dictionary form to mark a limit. Three senses: (a) temporal 'until X' — asa made (<ruby>朝<rt>あさ</rt></ruby>まで) 'until morning'; (b) spatial 'as far as / up to' — tokyo made (<ruby>東京<rt>とうきょう</rt></ruby>まで) 'as far as Tokyo'; (c) emphatic 'even / going so far as to' — kodomo made (<ruby>子供<rt>こども</rt></ruby>まで) 'even children'.\n\nPairs with 〜kara (〜から, 'from') to bracket a span: tokyo kara osaka made (<ruby>東京<rt>とうきょう</rt></ruby>から<ruby>大阪<rt>おおさか</rt></ruby>まで) 'from Tokyo to Osaka'. With a verb: kuru made matsu (<ruby>来<rt>く</rt></ruby>るまで<ruby>待<rt>ま</rt></ruby>つ) 'wait until they come'. The 'even' / scalar sense is one of the most expressive uses in songs and casual speech: kimi made boku o uragiru no? (<ruby>君<rt>きみ</rt></ruby>まで<ruby>僕<rt>ぼく</rt></ruby>を<ruby>裏切<rt>うらぎ</rt></ruby>るの？) 'even you betray me?'.\n\nDistinct from 〜made ni (〜までに, 'by — deadline'): hachi-ji made = 'until 8 (continuously)', hachi-ji made ni = 'by 8 (one-shot deadline)'. Compare with 〜kara (start), 〜dake (only — limit on amount, not endpoint), and the te-form + 〜made (going so far as to do X — very emphatic concessive).\n\n• ie made (<ruby>家<rt>いえ</rt></ruby>まで) — 'to / until home'\n• asa made (<ruby>朝<rt>あさ</rt></ruby>まで) — 'until morning'\n• shinu made (<ruby>死<rt>し</rt></ruby>ぬまで) — 'until I die'\n• doko made? (どこまで？) — 'how far?'\n• kimi ga kuru made (<ruby>君<rt>きみ</rt></ruby>が<ruby>来<rt>く</rt></ruby>るまで) — 'until you come'\n• saigo made (<ruby>最後<rt>さいご</rt></ruby>まで) — 'until the end'\n• kodomo made wakaru (<ruby>子供<rt>こども</rt></ruby>までわかる) — 'even a child gets it'\n• boku made waratta (<ruby>僕<rt>ぼく</rt></ruby>まで<ruby>笑<rt>わら</rt></ruby>った) — 'even I laughed'\n• ame ga yamu made (<ruby>雨<rt>あめ</rt></ruby>が<ruby>止<rt>や</rt></ruby>むまで) — 'until the rain stops'\n• kore made (これまで) — 'up until now / so far'\n• itsu made? (いつまで？) — 'until when?'\n• yoru made matte (<ruby>夜<rt>よる</rt></ruby>まで<ruby>待<rt>ま</rt></ruby>って) — 'wait until night'\n• kotaeru made hanasanai (<ruby>答<rt>こた</rt></ruby>えるまで<ruby>離<rt>はな</rt></ruby>さない) — \"won't let go until you answer\"\n• kimi made ushinau no wa iya da (<ruby>君<rt>きみ</rt></ruby>まで<ruby>失<rt>うしな</rt></ruby>うのは<ruby>嫌<rt>いや</rt></ruby>だ) — \"I can't bear losing even you\"\n• tooku made tobu (<ruby>遠<rt>とお</rt></ruby>くまで<ruby>飛<rt>と</rt></ruby>ぶ) — 'flies far'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 11
+  },
+  {
+    "id": "0086e6bc-d5b1-4122-b312-e870381d6eb5",
+    "name": "〜kurai / 〜gurai (〜くらい / 〜ぐらい) — about / to the extent of",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜kurai / 〜gurai (くらい / ぐらい — interchangeable) attaches to nouns, quantifiers, or V-dictionary forms. Two main senses: (a) approximation — 'about X / roughly X' — juppun kurai (<ruby>十<rt>じゅっ</rt></ruby><ruby>分<rt>ぷん</rt></ruby>くらい) 'about 10 minutes'; (b) extent / comparison — 'to the extent that X / so much that X' — naku kurai ureshikatta (<ruby>泣<rt>な</rt></ruby>くくらい<ruby>嬉<rt>うれ</rt></ruby>しかった) 'I was so happy I could cry'.\n\nA scalar marker: it sets up a benchmark. With small / trivial things, it minimises ('it's just X kurai — no big deal') — kore kurai wakaru yo (これくらいわかるよ) 'I understand at least this much'. With big / extreme things, it intensifies — shinitai kurai (<ruby>死<rt>し</rt></ruby>にたいくらい) 'to the point of wanting to die'.\n\nCompare with 〜hodo (〜ほど — also extent, but more formal and often used in 'the more X, the more Y' constructions like takaranareba takai hodo); 〜bakari (also approximate, but more about 'limited to'); and 〜yaku (<ruby>約<rt>やく</rt></ruby> — neutral 'approximately', formal). 〜kurai is the everyday, conversational scalar marker. After question words it scales meaning: dore kurai (どれくらい) 'how much / how long'.\n\n• juppun kurai (<ruby>十<rt>じゅっ</rt></ruby><ruby>分<rt>ぷん</rt></ruby>くらい) — 'about 10 minutes'\n• hyaku-en kurai (<ruby>百円<rt>ひゃくえん</rt></ruby>くらい) — 'about ¥100'\n• kore kurai (これくらい) — 'about this much'\n• dore kurai? (どれくらい？) — 'how much / how long?'\n• naku kurai ureshii (<ruby>泣<rt>な</rt></ruby>くくらい<ruby>嬉<rt>うれ</rt></ruby>しい) — 'so happy I could cry'\n• shinitai kurai (<ruby>死<rt>し</rt></ruby>にたいくらい) — 'to the point of wanting to die'\n• hazukashii kurai (<ruby>恥<rt>は</rt></ruby>ずかしいくらい) — 'embarrassingly so'\n• kanji ga komaru kurai (<ruby>漢字<rt>かんじ</rt></ruby>が<ruby>困<rt>こま</rt></ruby>るくらい) — 'enough kanji to be a problem'\n• boku kurai wakaru (<ruby>僕<rt>ぼく</rt></ruby>くらいわかる) — 'at least someone like me understands'\n• onaji kurai (<ruby>同<rt>おな</rt></ruby>じくらい) — 'about the same'\n• kao mo wasureru kurai (<ruby>顔<rt>かお</rt></ruby>も<ruby>忘<rt>わす</rt></ruby>れるくらい) — 'enough to forget even your face'\n• aitai kurai (<ruby>会<rt>あ</rt></ruby>いたいくらい) — 'wanting to meet so badly'\n• mukashi kurai mae ni (<ruby>昔<rt>むかし</rt></ruby>くらい<ruby>前<rt>まえ</rt></ruby>に) — 'about as long ago as the old days'\n• kore gurai no koto (これぐらいのこと) — 'something this trivial'\n• hyaku-nin gurai (<ruby>百人<rt>ひゃくにん</rt></ruby>ぐらい) — 'about a hundred people'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 10
+  },
+  {
+    "id": "2cea4155-d0c8-4446-b751-95e46f54942d",
+    "name": "〜mitai (〜みたい) — like / it seems (colloquial)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜mitai (〜みたい) is the colloquial 'like / seems like' marker. Attaches directly to a noun (no の particle): tori mitai (<ruby>鳥<rt>とり</rt></ruby>みたい) 'like a bird'. To V/Adj plain forms: ame ga furu mitai (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るみたい) 'looks like it'll rain'. To na-adj stems without な: kirei mitai (<ruby>綺麗<rt>きれい</rt></ruby>みたい) 'seems pretty'. Conjugates as a na-adjective: mitai na (modifying), mitai ni (adverbial), mitai datta (past).\n\nTwo senses: (a) Simile — 'like / similar to'. (b) Conjecture from observation — 'it looks / seems X' — based on what the speaker can perceive directly. The conjecture flavour is informal and immediate, less hedged than 〜you da or 〜rashii.\n\nCompare with 〜you da (formal, written, both simile and conjecture; 〜mitai is its colloquial twin), 〜sou da (visual 'looks X' — narrower, only based on appearance), and 〜rashii (evidential 'apparently / from what I hear' — based on hearsay or social typicality). 〜mitai is the everyday spoken Japanese choice — songs and casual speech overflow with it. The combination 〜mitai ni (adverbial: 'in the manner of') is a song staple: kaze mitai ni (<ruby>風<rt>かぜ</rt></ruby>みたいに) 'like the wind'.\n\n• tori mitai (<ruby>鳥<rt>とり</rt></ruby>みたい) — 'like a bird'\n• yume mitai (<ruby>夢<rt>ゆめ</rt></ruby>みたい) — 'like a dream'\n• kodomo mitai (<ruby>子供<rt>こども</rt></ruby>みたい) — 'like a child'\n• kaze mitai ni (<ruby>風<rt>かぜ</rt></ruby>みたいに) — 'like the wind'\n• ame ga furu mitai (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るみたい) — \"looks like it'll rain\"\n• shiranai mitai (<ruby>知<rt>し</rt></ruby>らないみたい) — \"looks like (they) don't know\"\n• tsukareta mitai (<ruby>疲<rt>つか</rt></ruby>れたみたい) — 'seems tired'\n• boku mitai (<ruby>僕<rt>ぼく</rt></ruby>みたい) — 'like me'\n• marude uso mitai (まるで<ruby>嘘<rt>うそ</rt></ruby>みたい) — 'just like a lie'\n• kirei mitai (<ruby>綺麗<rt>きれい</rt></ruby>みたい) — 'seems pretty'\n• kanji mitai na shape (<ruby>漢字<rt>かんじ</rt></ruby>みたいな<ruby>形<rt>かたち</rt></ruby>) — 'a kanji-like shape'\n• yuki mitai ni shiroi (<ruby>雪<rt>ゆき</rt></ruby>みたいに<ruby>白<rt>しろ</rt></ruby>い) — 'white like snow'\n• sukoshi okotteru mitai (<ruby>少<rt>すこ</rt></ruby>し<ruby>怒<rt>おこ</rt></ruby>ってるみたい) — 'seems a bit angry'\n• boku ja nai mitai (<ruby>僕<rt>ぼく</rt></ruby>じゃないみたい) — \"doesn't feel like me\"\n• mahou mitai (<ruby>魔法<rt>まほう</rt></ruby>みたい) — 'like magic'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 10
+  },
+  {
+    "id": "e5c690b1-cd13-4d82-8181-dde2aba2045e",
+    "name": "〜sugiru (〜すぎる) — too much / excessively",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜sugiru (〜すぎる, 'to exceed') attaches to a verb's masu-stem or an adjective's stem to mean 'too (much) X / excessively X'. Verb: tabe-sugiru (<ruby>食<rt>た</rt></ruby>べすぎる) 'eat too much'. I-adjective: takasugiru (<ruby>高<rt>たか</rt></ruby>すぎる) 'too expensive' (drop the い). Na-adjective: shizuka-sugiru (<ruby>静<rt>しず</rt></ruby>かすぎる) 'too quiet' (drop the な). Conjugates as an ichidan verb: 〜sugita (past), 〜suginai (negative), 〜sugite (te-form).\n\nThe default flavour is mildly negative — 'X is happening to a degree that is excessive / problematic'. Even neutral or positive descriptions become slightly critical with 〜sugiru: kawai-sugiru (<ruby>可愛<rt>かわい</rt></ruby>すぎる) literally 'too cute', often used affectionately ('cuter than is reasonable') but still implies excess. In writing, frequently nominalised: tabesugi (<ruby>食<rt>た</rt></ruby>べすぎ) 'overeating'.\n\nCompare with 〜tooi (too far — but this is just an adjective, not a productive pattern), the colloquial chou (<ruby>超<rt>ちょう</rt></ruby> — 'super', positive intensifier, no excess implication), and 〜amari (〜あまり — formal 'so X that...'). 〜sugiru is the ubiquitous everyday 'too' suffix — present in almost every meal, every shopping trip, every workout.\n\n• tabesugi-ru (<ruby>食<rt>た</rt></ruby>べすぎる) — 'eat too much'\n• nomisugi-ru (<ruby>飲<rt>の</rt></ruby>みすぎる) — 'drink too much'\n• takasugi-ru (<ruby>高<rt>たか</rt></ruby>すぎる) — 'too expensive / too tall'\n• yasusugi-ru (<ruby>安<rt>やす</rt></ruby>すぎる) — 'too cheap'\n• kawai-sugiru (<ruby>可愛<rt>かわい</rt></ruby>すぎる) — 'too cute'\n• shaberi-sugiru (しゃべりすぎる) — 'talk too much'\n• kangae-sugiru (<ruby>考<rt>かんが</rt></ruby>えすぎる) — 'overthink'\n• hayasugi-ru (<ruby>早<rt>はや</rt></ruby>すぎる) — 'too early / too fast'\n• osoi-sugita (<ruby>遅<rt>おそ</rt></ruby>すぎた) — 'was too late'\n• ureshii-sugiru (<ruby>嬉<rt>うれ</rt></ruby>しすぎる) — 'too happy (overwhelmed)'\n• shiawase-sugiru (<ruby>幸<rt>しあわ</rt></ruby>せすぎる) — 'too happy'\n• tsuyo-sugiru (<ruby>強<rt>つよ</rt></ruby>すぎる) — 'too strong'\n• yoru ga nagasugiru (<ruby>夜<rt>よる</rt></ruby>が<ruby>長<rt>なが</rt></ruby>すぎる) — 'the night is too long'\n• kimi wa yasashisugiru (<ruby>君<rt>きみ</rt></ruby>は<ruby>優<rt>やさ</rt></ruby>しすぎる) — 'you are too kind'\n• tabesugi (<ruby>食<rt>た</rt></ruby>べすぎ) — 'overeating' (nominalised)\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 10
+  },
+  {
+    "id": "eedcd2c8-0695-4b2c-ba78-70e75b4b5c01",
+    "name": "〜te kita (〜てきた) — has been doing / came to be",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜te kita (〜てきた) is the past form of 〜te kuru (〜てくる) — attach kita (<ruby>来<rt>き</rt></ruby>た, 'came') to a verb's te-form. Three main readings: (a) physical motion toward the speaker — motte kita (<ruby>持<rt>も</rt></ruby>ってきた) 'brought (here)'. (b) Aspectual change unfolding UP TO NOW — fuete kita (<ruby>増<rt>ふ</rt></ruby>えてきた) 'has been increasing'. (c) Inception / appearance — futte kita (<ruby>降<rt>ふ</rt></ruby>ってきた) 'started raining / began to fall'.\n\nThe 'has been doing' reading (perfect aspect from the past up to now) is the one beginners hit constantly: ganbatte kita (<ruby>頑張<rt>がんば</rt></ruby>ってきた) 'I have been trying / I've worked hard up to this point'. It collapses the entire arc of effort into a single past-completed-but-still-relevant form. Distinct from 〜te ita (continuous past, ongoing at a past moment) and from 〜ta (one-shot past).\n\nCompare with 〜te iku (movement away / forward) — 〜te kuru/kita is its mirror, motion or change TOWARD the present. With change-of-state verbs, 〜te kita signals 'has come to be' — wakatte kita (<ruby>分<rt>わ</rt></ruby>かってきた) 'I'm starting to understand / I've come to understand'. With weather and natural phenomena, it signals onset: kaze ga fuite kita (<ruby>風<rt>かぜ</rt></ruby>が<ruby>吹<rt>ふ</rt></ruby>いてきた) 'the wind picked up'.\n\n• motte kita (<ruby>持<rt>も</rt></ruby>ってきた) — 'brought (here)'\n• fuete kita (<ruby>増<rt>ふ</rt></ruby>えてきた) — 'has been increasing'\n• ganbatte kita (<ruby>頑張<rt>がんば</rt></ruby>ってきた) — 'I have been trying'\n• ikite kita (<ruby>生<rt>い</rt></ruby>きてきた) — 'I have lived (up to now)'\n• wakatte kita (<ruby>分<rt>わ</rt></ruby>かってきた) — \"I'm starting to understand\"\n• futte kita (<ruby>降<rt>ふ</rt></ruby>ってきた) — 'started raining / falling'\n• samuku natte kita (<ruby>寒<rt>さむ</rt></ruby>くなってきた) — 'has gotten cold'\n• atsuku natte kita (<ruby>暑<rt>あつ</rt></ruby>くなってきた) — 'has gotten hot'\n• kaze ga fuite kita (<ruby>風<rt>かぜ</rt></ruby>が<ruby>吹<rt>ふ</rt></ruby>いてきた) — 'the wind picked up'\n• tanoshiku natte kita (<ruby>楽<rt>たの</rt></ruby>しくなってきた) — \"it's getting fun\"\n• mietekita (<ruby>見<rt>み</rt></ruby>えてきた) — 'has come into view / started to see'\n• yatte kita (やってきた) — 'have done / have arrived'\n• tsuzukete kita (<ruby>続<rt>つづ</rt></ruby>けてきた) — 'have kept doing (until now)'\n• naite kita (<ruby>泣<rt>な</rt></ruby>いてきた) — 'started crying'\n• mamotte kita (<ruby>守<rt>まも</rt></ruby>ってきた) — 'have protected (until now)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 10
+  },
+  {
+    "id": "e6d9fc96-2d75-41a2-9fc4-7d4f9b87129c",
+    "name": "〜dasu (〜だす / 〜出す) — suddenly start / burst into",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜dasu (〜だす / 〜出す) attaches dasu (<ruby>出<rt>だ</rt></ruby>す, 'to put/take out') to a verb's masu-stem to express the sudden, often unexpected, onset of an action — 'burst out X-ing / suddenly start to X'. naki-dasu (<ruby>泣<rt>な</rt></ruby>き<ruby>出<rt>だ</rt></ruby>す) 'burst into tears'. furi-dasu (<ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す) 'start to rain (suddenly)'. Conjugates as a regular godan verb: dashita past, dasanai negative.\n\nDistinguished from 〜hajimeru (〜<ruby>始<rt>はじ</rt></ruby>める, 'begin to') by abruptness. 〜hajimeru is neutral — 'begin doing X' (planned or natural). 〜dasu is sudden and often involuntary — 'burst into X'. Also distinct from the productive auxiliary 'X out' sense in compounds like motte dasu (<ruby>持<rt>も</rt></ruby>ち<ruby>出<rt>だ</rt></ruby>す) 'take out, bring out' — same 出す, different aspectual function.\n\nThe sudden-onset reading dominates with emotional verbs (cry, laugh, scream, run) and weather verbs (rain, snow, blow). Common in narrative writing and lyrics where sudden mood shifts matter. Compare with 〜tsukeru (〜つける — habitual / customary), 〜komu (〜<ruby>込<rt>こ</rt></ruby>む — 'into / deeply'), and the 〜hajimeru / 〜dasu / 〜tsukeru / 〜tsuzukeru aspectual cluster.\n\n• naki-dasu (<ruby>泣<rt>な</rt></ruby>き<ruby>出<rt>だ</rt></ruby>す) — 'burst into tears'\n• warai-dasu (<ruby>笑<rt>わら</rt></ruby>い<ruby>出<rt>だ</rt></ruby>す) — 'burst out laughing'\n• furi-dasu (<ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す) — 'start to rain (suddenly)'\n• hashiri-dasu (<ruby>走<rt>はし</rt></ruby>り<ruby>出<rt>だ</rt></ruby>す) — 'break into a run'\n• sakebi-dasu (<ruby>叫<rt>さけ</rt></ruby>び<ruby>出<rt>だ</rt></ruby>す) — 'start screaming'\n• naki-dashita (<ruby>泣<rt>な</rt></ruby>き<ruby>出<rt>だ</rt></ruby>した) — 'burst into tears (past)'\n• ame ga furi-dashita (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>した) — 'it started to rain'\n• kaze ga fuki-dasu (<ruby>風<rt>かぜ</rt></ruby>が<ruby>吹<rt>ふ</rt></ruby>き<ruby>出<rt>だ</rt></ruby>す) — 'wind starts blowing'\n• utai-dasu (<ruby>歌<rt>うた</rt></ruby>い<ruby>出<rt>だ</rt></ruby>す) — 'burst into song'\n• hanashi-dasu (<ruby>話<rt>はな</rt></ruby>し<ruby>出<rt>だ</rt></ruby>す) — 'start talking'\n• ugoki-dasu (<ruby>動<rt>うご</rt></ruby>き<ruby>出<rt>だ</rt></ruby>す) — 'begin to move'\n• tobi-dasu (<ruby>飛<rt>と</rt></ruby>び<ruby>出<rt>だ</rt></ruby>す) — 'jump out / dash out'\n• afure-dasu (<ruby>溢<rt>あふ</rt></ruby>れ<ruby>出<rt>だ</rt></ruby>す) — 'overflow / start spilling'\n• kanga-e-dasu (<ruby>考<rt>かんが</rt></ruby>え<ruby>出<rt>だ</rt></ruby>す) — 'begin to think (sudden)'\n• kakidashita (<ruby>書<rt>か</rt></ruby>き<ruby>出<rt>だ</rt></ruby>した) — 'started writing (suddenly)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 9
+  },
+  {
+    "id": "737080ec-457d-4433-928f-56c4a1a84ee6",
+    "name": "〜kirenai (〜きれない) — can't fully / cannot do completely",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜kirenai (〜きれない) is the negative potential of 〜kiru (<ruby>切<rt>き</rt></ruby>る — auxiliary 'do completely / to the end'). Attach to a verb's masu-stem: tabekirenai (<ruby>食<rt>た</rt></ruby>べきれない) 'can't eat it all', kazoekirenai (<ruby>数<rt>かぞ</rt></ruby>えきれない) 'can't count them all'. The implication is overwhelming quantity, complexity, or duration — 'so much that one cannot finish'.\n\nThe positive 〜kiru means 'do completely, exhaust the action': tabekiru (<ruby>食<rt>た</rt></ruby>べきる) 'eat it all, finish eating'. The negative 〜kirenai inverts this: the action cannot be fully completed because of scale. Distinct from a simple negative potential (taberarenai 'can't eat') — 〜kirenai specifically asserts that completion is the obstacle.\n\nCommon in songs and emotional speech: ureshikute namida ga koraekirenai (<ruby>嬉<rt>うれ</rt></ruby>しくて<ruby>涙<rt>なみだ</rt></ruby>が<ruby>堪<rt>こら</rt></ruby>えきれない) 'so happy I can't hold back the tears'. Compare with 〜enai (general inability, 〜られない), 〜ezu (literary inability), and 〜tsukusu (〜尽くす — exhaustive completion). 〜kirenai is the one to reach for when expressing 'too much to handle'.\n\n• tabekirenai (<ruby>食<rt>た</rt></ruby>べきれない) — \"can't eat it all\"\n• kazoekirenai (<ruby>数<rt>かぞ</rt></ruby>えきれない) — 'too many to count'\n• matikirenai (<ruby>待<rt>ま</rt></ruby>ちきれない) — \"can't wait (any longer)\"\n• gaman shikirenai (<ruby>我慢<rt>がまん</rt></ruby>しきれない) — 'cannot endure (any more)'\n• shinjikirenai (<ruby>信<rt>しん</rt></ruby>じきれない) — 'unable to fully believe'\n• kotaekirenai (<ruby>答<rt>こた</rt></ruby>えきれない) — 'cannot fully answer'\n• yomikirenai (<ruby>読<rt>よ</rt></ruby>みきれない) — 'too much to read'\n• namida ga koraekirenai (<ruby>涙<rt>なみだ</rt></ruby>が<ruby>堪<rt>こら</rt></ruby>えきれない) — \"can't hold back tears\"\n• omoi ga osaekirenai (<ruby>想<rt>おも</rt></ruby>いが<ruby>抑<rt>おさ</rt></ruby>えきれない) — \"can't suppress these feelings\"\n• arigato to ii-kirenai (ありがとうと<ruby>言<rt>い</rt></ruby>いきれない) — \"can't say thanks enough\"\n• ai wo tsutaekirenai (<ruby>愛<rt>あい</rt></ruby>を<ruby>伝<rt>つた</rt></ruby>えきれない) — 'cannot fully convey love'\n• mamori-kirenakatta (<ruby>守<rt>まも</rt></ruby>りきれなかった) — 'could not fully protect'\n• wasure-kirenai omoide (<ruby>忘<rt>わす</rt></ruby>れきれない<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>で</rt></ruby>) — 'memories I cannot let go of'\n• mi-kirenai dorama (<ruby>見<rt>み</rt></ruby>きれないドラマ) — 'too many shows to watch'\n• tsuki-aikirenai (<ruby>付<rt>つ</rt></ruby>き<ruby>合<rt>あ</rt></ruby>いきれない) — \"can't keep up with (someone) anymore\"\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 9
+  },
+  {
+    "id": "e57b7b25-a0c0-4824-9fd7-5c1481c4296f",
+    "name": "〜no nara (〜のなら) — if it's the case that",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜no nara (〜のなら) attaches to plain-form verbs / adjectives via の (the explanatory particle, sometimes ん in casual). It marks a topic-based conditional grounded in something the speaker has observed or been told: 'if (it's the case that) X, then Y'. iku no nara (<ruby>行<rt>い</rt></ruby>くのなら) 'if you're going (then...)'. The の adds the nuance 'given that', distinguishing this conditional from a generic 〜nara.\n\nCompare with batch1's 〜nara (without の: bare topic conditional, often hypothetical). 〜no nara is more situational — the conditional is anchored in something already in the conversation. Often shortened to 〜n nara (〜んなら) in casual speech. Politely: 〜no deshitara / 〜noyo deshitara.\n\nFrequently used to give advice or impose a condition: shitsumon ga aru no nara, ima kiite (<ruby>質問<rt>しつもん</rt></ruby>があるのなら、<ruby>今<rt>いま</rt></ruby><ruby>聞<rt>き</rt></ruby>いて) 'if you have a question, ask now'. Also for emotional response / complaint: sonna ni iya na no nara, yamete (そんなに<ruby>嫌<rt>いや</rt></ruby>なのなら、やめて) 'if you hate it that much, stop'. Compare with 〜tara (sequential discovery), 〜ba (logical 'if'), and 〜to (inevitable consequence).\n\n• iku no nara (<ruby>行<rt>い</rt></ruby>くのなら) — \"if you're going\"\n• yameru no nara (やめるのなら) — \"if you're going to quit\"\n• taberu no nara (<ruby>食<rt>た</rt></ruby>べるのなら) — \"if you're going to eat (it)\"\n• kanashii no nara (<ruby>悲<rt>かな</rt></ruby>しいのなら) — 'if you are sad'\n• shinjiru no nara (<ruby>信<rt>しん</rt></ruby>じるのなら) — 'if you believe'\n• boku ga inai no nara (<ruby>僕<rt>ぼく</rt></ruby>がいないのなら) — 'if I were not there'\n• yume nara samenaide (<ruby>夢<rt>ゆめ</rt></ruby>ならさめないで) — \"if it's a dream, don't let me wake\" (variant)\n• iya na no nara yamete (<ruby>嫌<rt>いや</rt></ruby>なのならやめて) — 'if you hate it, stop'\n• kuru no nara matsu (<ruby>来<rt>く</rt></ruby>るのなら<ruby>待<rt>ま</rt></ruby>つ) — \"if you're coming, I'll wait\"\n• shitsumon ga aru no nara (<ruby>質問<rt>しつもん</rt></ruby>があるのなら) — 'if you have a question'\n• wasureru no nara wasurete (<ruby>忘<rt>わす</rt></ruby>れるのなら<ruby>忘<rt>わす</rt></ruby>れて) — 'if you would forget, then forget'\n• sayonara nara (さよならなら) — 'if (this is) farewell'\n• damaru no nara (<ruby>黙<rt>だま</rt></ruby>るのなら) — \"if you'll stay silent\"\n• motto aitai no nara (もっと<ruby>会<rt>あ</rt></ruby>いたいのなら) — 'if you want to meet more'\n• kowareru no nara koware-yo (<ruby>壊<rt>こわ</rt></ruby>れるのなら<ruby>壊<rt>こわ</rt></ruby>れよ) — 'if it would break, then break (let it)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 9
+  },
+  {
+    "id": "abbf5947-fe80-40e4-8187-81e4c120511f",
+    "name": "〜tari 〜tari (〜たり〜たり) — doing things like X and Y",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜tari 〜tari (〜たり〜たり) attaches the 〜たり ending (V-past + り) to two or more verbs to list representative actions — 'doing things like X and Y (among others)'. Closes with する or its conjugated forms. Past: 〜tari shita. The list is non-exhaustive: 〜tari 〜tari implies 'these are examples; there may be more'.\n\nFormation: take the 〜ta past form, replace the final 〜た with 〜たり (or 〜だり for verbs whose past ends in 〜だ): tabeta → tabetari, nonda → nondari. For nouns / na-adjectives: 〜dattari. Single 〜tari without a partner (only one verb listed) is also valid, with the same 'one example among others' nuance — naitari shite ita (<ruby>泣<rt>な</rt></ruby>いたりしていた) 'doing things like crying'.\n\nA second use: alternation — 'sometimes X, sometimes Y' — futtari yandari (<ruby>降<rt>ふ</rt></ruby>ったりやんだり) 'on and off (raining and stopping)'. Compare with 〜te 〜te (sequential 'X then Y, in order'), 〜nagara (simultaneous 'while doing'), and Verb-ya...ya (formal listing). 〜tari 〜tari is the everyday neutral way to enumerate non-sequential examples.\n\n• tabetari nondari shita (<ruby>食<rt>た</rt></ruby>べたり<ruby>飲<rt>の</rt></ruby>んだりした) — 'ate and drank (and so on)'\n• naitari warattari (<ruby>泣<rt>な</rt></ruby>いたり<ruby>笑<rt>わら</rt></ruby>ったり) — 'crying and laughing'\n• ittari kitari (<ruby>行<rt>い</rt></ruby>ったり<ruby>来<rt>き</rt></ruby>たり) — 'going back and forth'\n• futtari yandari (<ruby>降<rt>ふ</rt></ruby>ったりやんだり) — 'raining on and off'\n• mitari kiitari (<ruby>見<rt>み</rt></ruby>たり<ruby>聞<rt>き</rt></ruby>いたり) — 'watching and listening'\n• yondari kaitari (<ruby>読<rt>よ</rt></ruby>んだり<ruby>書<rt>か</rt></ruby>いたり) — 'reading and writing'\n• hashittari aruitari (<ruby>走<rt>はし</rt></ruby>ったり<ruby>歩<rt>ある</rt></ruby>いたり) — 'running and walking'\n• yorokondari kanashindari (<ruby>喜<rt>よろこ</rt></ruby>んだり<ruby>悲<rt>かな</rt></ruby>しんだり) — 'rejoicing and grieving'\n• tsuyokattari yowakattari (<ruby>強<rt>つよ</rt></ruby>かったり<ruby>弱<rt>よわ</rt></ruby>かったり) — 'sometimes strong, sometimes weak'\n• ame dattari yuki dattari (<ruby>雨<rt>あめ</rt></ruby>だったり<ruby>雪<rt>ゆき</rt></ruby>だったり) — 'sometimes rain, sometimes snow'\n• ittari kitari no toshi (<ruby>行<rt>い</rt></ruby>ったり<ruby>来<rt>き</rt></ruby>たりの<ruby>都市<rt>とし</rt></ruby>) — 'a city of comings and goings'\n• shinjitari utagattari (<ruby>信<rt>しん</rt></ruby>じたり<ruby>疑<rt>うたが</rt></ruby>ったり) — 'believing and doubting'\n• iitari iwanakattari (<ruby>言<rt>い</rt></ruby>ったり<ruby>言<rt>い</rt></ruby>わなかったり) — 'sometimes saying it, sometimes not'\n• naitari shite ita (<ruby>泣<rt>な</rt></ruby>いたりしていた) — 'doing things like crying'\n• kawattari modottari (<ruby>変<rt>か</rt></ruby>わったり<ruby>戻<rt>もど</rt></ruby>ったり) — 'changing and reverting'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 9
+  },
+  {
+    "id": "53a9a336-3d93-42ce-8de2-5e5c55f7855d",
+    "name": "〜yori (〜より) — than / rather than (comparison)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜yori (〜より) marks the standard of comparison — 'than X' or 'rather than X'. Attaches to nouns, V-dictionary forms, or adjectives. Basic frame: A wa B yori X — 'A is X-er than B'. neko yori inu ga suki (<ruby>猫<rt>ねこ</rt></ruby>より<ruby>犬<rt>いぬ</rt></ruby>が<ruby>好<rt>す</rt></ruby>き) 'I like dogs more than cats'. Sometimes paired with 〜hou ga (〜<ruby>方<rt>ほう</rt></ruby>が) for clarity.\n\nTwo distinct uses: (a) Comparison — 'X than Y'. (b) Source / starting point in formal contexts — yori (より) means 'from' in written/announcement Japanese: tokyo yori (<ruby>東京<rt>とうきょう</rt></ruby>より) 'from Tokyo'. The comparison sense is what songs and conversation use; the 'from' sense appears on packages, formal letters, and announcements.\n\nCombined with negation, 〜yori expresses preference: B yori A no hou ga ii (B より A の<ruby>方<rt>ほう</rt></ruby>がいい) 'A is better than B'. Adverbial intensifier: yori takaku (より<ruby>高<rt>たか</rt></ruby>く) 'higher (than before)' — compare with 〜motto (more, neutral). 〜yori in this elevated 'even more' sense gives song lyrics their sweep.\n\n• neko yori inu (<ruby>猫<rt>ねこ</rt></ruby>より<ruby>犬<rt>いぬ</rt></ruby>) — 'dogs (more) than cats'\n• kinou yori atatakai (<ruby>昨日<rt>きのう</rt></ruby>より<ruby>暖<rt>あたた</rt></ruby>かい) — 'warmer than yesterday'\n• boku yori kimi (<ruby>僕<rt>ぼく</rt></ruby>より<ruby>君<rt>きみ</rt></ruby>) — 'you (more) than me'\n• mae yori tsuyoi (<ruby>前<rt>まえ</rt></ruby>より<ruby>強<rt>つよ</rt></ruby>い) — 'stronger than before'\n• kotoba yori (<ruby>言葉<rt>ことば</rt></ruby>より) — 'more than words'\n• yume yori riaru (<ruby>夢<rt>ゆめ</rt></ruby>よりリアル) — 'more real than a dream'\n• shinjiru yori (<ruby>信<rt>しん</rt></ruby>じるより) — 'rather than believing'\n• A yori B no hou ga suki (AよりBの<ruby>方<rt>ほう</rt></ruby>が<ruby>好<rt>す</rt></ruby>き) — 'I like B more than A'\n• yori takaku (より<ruby>高<rt>たか</rt></ruby>く) — 'even higher'\n• yori tsuyoku (より<ruby>強<rt>つよ</rt></ruby>く) — 'even stronger'\n• tokyo yori (<ruby>東京<rt>とうきょう</rt></ruby>より) — 'from Tokyo' (formal sender)\n• boku no kanashimi yori (<ruby>僕<rt>ぼく</rt></ruby>の<ruby>悲<rt>かな</rt></ruby>しみより) — 'more than my sadness'\n• ima yori mae (<ruby>今<rt>いま</rt></ruby>より<ruby>前<rt>まえ</rt></ruby>) — 'before now (earlier than now)'\n• namida yori egao (<ruby>涙<rt>なみだ</rt></ruby>より<ruby>笑顔<rt>えがお</rt></ruby>) — 'smiles more than tears'\n• nani yori (<ruby>何<rt>なに</rt></ruby>より) — 'more than anything'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 9
+  },
+  {
+    "id": "02bb26e0-41f3-475e-8b1b-adffc0e84ef2",
+    "name": "〜au (〜合う) — do mutually / to each other",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "〜au (〜<ruby>合<rt>あ</rt></ruby>う) attaches to a verb's masu-stem to express mutual / reciprocal action — 'do X to each other'. ai-suru → ai shi-au (<ruby>愛<rt>あい</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う) 'love each other'. tasukeru → tasuke-au (<ruby>助<rt>たす</rt></ruby>け<ruby>合<rt>あ</rt></ruby>う) 'help each other'. Conjugates as a regular godan verb: 〜atta past, 〜awanai negative, 〜aeru potential ('be able to do mutually').\n\nImplies bidirectionality and intimacy. Often used for relational verbs — love, help, understand, fight, talk, hold. The implied subject is plural ('we / they each other'): hanashi-au (<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う) 'discuss / talk things over together'. Distinguish from 〜ai (〜<ruby>合<rt>あ</rt></ruby>い) the noun form: hanashi-ai (<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>い) 'a discussion'.\n\nCompare with 〜komu (deeply / into), 〜kaesu (return / repeat), and the standalone verb au (<ruby>会<rt>あ</rt></ruby>う 'to meet'). The mutual sense is highly productive — most action verbs accept it. In songs and ballads, 〜au is the marker of romantic mutuality: shinji-au (<ruby>信<rt>しん</rt></ruby>じ<ruby>合<rt>あ</rt></ruby>う) 'believe in each other' is a J-pop staple.\n\n• ai shi-au (<ruby>愛<rt>あい</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う) — 'love each other'\n• tasuke-au (<ruby>助<rt>たす</rt></ruby>け<ruby>合<rt>あ</rt></ruby>う) — 'help each other'\n• shinji-au (<ruby>信<rt>しん</rt></ruby>じ<ruby>合<rt>あ</rt></ruby>う) — 'trust each other'\n• wakari-au (<ruby>分<rt>わ</rt></ruby>かり<ruby>合<rt>あ</rt></ruby>う) — 'understand each other'\n• mitsume-au (<ruby>見<rt>み</rt></ruby>つめ<ruby>合<rt>あ</rt></ruby>う) — 'gaze at each other'\n• hanashi-au (<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う) — 'discuss / talk things over'\n• tatakai-au (<ruby>戦<rt>たたか</rt></ruby>い<ruby>合<rt>あ</rt></ruby>う) — 'fight each other'\n• yobi-au (<ruby>呼<rt>よ</rt></ruby>び<ruby>合<rt>あ</rt></ruby>う) — 'call out to each other'\n• tsutae-au (<ruby>伝<rt>つた</rt></ruby>え<ruby>合<rt>あ</rt></ruby>う) — 'communicate (with each other)'\n• mamori-au (<ruby>守<rt>まも</rt></ruby>り<ruby>合<rt>あ</rt></ruby>う) — 'protect each other'\n• butsukari-au (ぶつかり<ruby>合<rt>あ</rt></ruby>う) — 'collide / clash with each other'\n• yurushi-au (<ruby>許<rt>ゆる</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う) — 'forgive each other'\n• kotaeau (<ruby>応<rt>こた</rt></ruby>え<ruby>合<rt>あ</rt></ruby>う) — 'respond to each other'\n• fure-au (<ruby>触<rt>ふ</rt></ruby>れ<ruby>合<rt>あ</rt></ruby>う) — 'touch / be in contact with each other'\n• sasae-au (<ruby>支<rt>ささ</rt></ruby>え<ruby>合<rt>あ</rt></ruby>う) — 'support each other'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 8
+  },
+  {
+    "id": "0b73b44c-4256-49cb-9002-825f9d225b32",
+    "name": "〜hazu (〜はず) — should / supposed to (logical expectation)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜hazu (〜はず) is a noun meaning 'logical expectation / what should be the case'. Attaches to plain-form verbs, adjectives, or nouns + の. Marks the speaker's confident inference based on evidence or established knowledge — 'it should be that X / X is supposed to be'. kuru hazu da (<ruby>来<rt>く</rt></ruby>るはずだ) 'they should come'. Negative: 〜hazu ga nai / 〜hazu wa nai (it can't possibly be / no way that).\n\nDistinguished from 〜beki (〜べき, moral 'should / ought to') — 〜hazu is about likelihood and reasoning, not duty. Distinct from 〜darou (probably — softer guess) and 〜kamo shirenai (〜かもしれない — 'might be', genuine uncertainty). 〜hazu sits at the high-confidence end of conjecture: the speaker has reason to believe X is true, even if they can't directly verify it.\n\nCommon pattern 〜hazu datta (〜はずだった) 'was supposed to (but didn't happen)' marks unfulfilled expectations: kuru hazu datta (<ruby>来<rt>く</rt></ruby>るはずだった) 'they were supposed to come'. The negation 〜hazu ga nai is one of the most emphatic ways to deny something in Japanese — 'there's no way'. Bunkai kara: 'I won't accept that this is true given what I know'.\n\n• kuru hazu da (<ruby>来<rt>く</rt></ruby>るはずだ) — 'they should come'\n• shitte iru hazu (<ruby>知<rt>し</rt></ruby>っているはず) — 'should know'\n• wakaru hazu (<ruby>分<rt>わ</rt></ruby>かるはず) — 'ought to understand'\n• ano hito ga shiranai hazu ga nai (あの<ruby>人<rt>ひと</rt></ruby>が<ruby>知<rt>し</rt></ruby>らないはずがない) — 'no way that person would not know'\n• boku no koto wo wasureru hazu ga nai (<ruby>僕<rt>ぼく</rt></ruby>のことを<ruby>忘<rt>わす</rt></ruby>れるはずがない) — \"you can't possibly have forgotten me\"\n• kuru hazu datta (<ruby>来<rt>く</rt></ruby>るはずだった) — 'was supposed to come (but didn't)'\n• kekkon suru hazu datta (<ruby>結婚<rt>けっこん</rt></ruby>するはずだった) — 'was supposed to get married'\n• ima goro tsuita hazu (<ruby>今頃<rt>いまごろ</rt></ruby><ruby>着<rt>つ</rt></ruby>いたはず) — 'should have arrived by now'\n• maketa hazu wa nai (<ruby>負<rt>ま</rt></ruby>けたはずはない) — \"there's no way I lost\"\n• kotaeru hazu (<ruby>答<rt>こた</rt></ruby>えるはず) — 'should answer'\n• kanarazu kuru hazu (<ruby>必<rt>かなら</rt></ruby>ず<ruby>来<rt>く</rt></ruby>るはず) — 'should definitely come'\n• kanjiru hazu (<ruby>感<rt>かん</rt></ruby>じるはず) — 'should be able to feel'\n• issho ni iru hazu datta (<ruby>一緒<rt>いっしょ</rt></ruby>にいるはずだった) — 'we were supposed to be together'\n• mitsukaru hazu (<ruby>見<rt>み</rt></ruby>つかるはず) — 'should be findable'\n• taberareru hazu ga nai (<ruby>食<rt>た</rt></ruby>べられるはずがない) — 'no way I can eat (it)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 8
+  },
+  {
+    "id": "da3b1a0a-498c-4ec0-abdb-14c27c8d0e37",
+    "name": "〜you da (〜ようだ) — it seems / appears to be (formal)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜you da (〜ようだ) is the formal / written counterpart to 〜mitai. Attaches to plain-form verbs, adjectives, or nouns + の: ame ga furu you da (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るようだ) 'it seems it'll rain'. Conjugates as a na-adjective: 〜you na (modifying), 〜you ni (adverbial), 〜you datta (past), 〜you de (and / so).\n\nTwo senses: (a) Conjecture from evidence — 'it appears / seems X' (based on what the speaker observes). (b) Simile — 'like X' — yume no you da (<ruby>夢<rt>ゆめ</rt></ruby>のようだ) 'it's like a dream'. Same particle ように in adverbial form gives both 'so that / hoping that' (batch 2) and 'in the manner of' (rule #3 in this batch). 〜you da is the noun-final / sentence-final form.\n\nCompare with 〜mitai (colloquial twin, identical meaning, less formal), 〜rashii (〜らしい — evidential 'apparently / from hearsay'), and 〜sou da (visual 'looks X' — narrower, only direct appearance). 〜you da is the choice for written Japanese, news, formal reports, and any context wanting measured judgement rather than chatty inference.\n\n• ame ga furu you da (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るようだ) — \"it seems it'll rain\"\n• yume no you da (<ruby>夢<rt>ゆめ</rt></ruby>のようだ) — \"it's like a dream\"\n• shitte iru you da (<ruby>知<rt>し</rt></ruby>っているようだ) — 'seems to know'\n• tsukareta you da (<ruby>疲<rt>つか</rt></ruby>れたようだ) — 'seems tired'\n• marude uso no you da (まるで<ruby>嘘<rt>うそ</rt></ruby>のようだ) — 'just like a lie'\n• kanashii you ni (<ruby>悲<rt>かな</rt></ruby>しいように) — 'as if sad'\n• tori no you ni tobu (<ruby>鳥<rt>とり</rt></ruby>のように<ruby>飛<rt>と</rt></ruby>ぶ) — 'fly like a bird'\n• hada-zamui you ni (<ruby>肌寒<rt>はださむ</rt></ruby>いように) — 'as if chilly'\n• hito no you na karada (<ruby>人<rt>ひと</rt></ruby>のような<ruby>体<rt>からだ</rt></ruby>) — 'a body like a person'\n• maru de boku no you na (まるで<ruby>僕<rt>ぼく</rt></ruby>のような) — 'just like me'\n• mou owatta you da (もう<ruby>終<rt>お</rt></ruby>わったようだ) — \"it seems it's already over\"\n• warau you ni naita (<ruby>笑<rt>わら</rt></ruby>うように<ruby>泣<rt>な</rt></ruby>いた) — 'cried as if laughing'\n• kaze no you ni (<ruby>風<rt>かぜ</rt></ruby>のように) — 'like the wind'\n• yuki no you ni shiroi (<ruby>雪<rt>ゆき</rt></ruby>のように<ruby>白<rt>しろ</rt></ruby>い) — 'white like snow'\n• shiranai you datta (<ruby>知<rt>し</rt></ruby>らないようだった) — 'seemed not to know'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 8
+  },
+  {
+    "id": "30adc6ac-4819-46e7-bf32-2f1d8c4c6938",
+    "name": "Causative + kure (〜(さ)せてくれ) — let me / permit me to",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "Causative + kure (〜(さ)せてくれ / 〜(さ)せてください) combines the causative form (〜seru / 〜saseru) with the te-form + kureru (or its imperative kure) to ask permission — 'let me do X / allow me to do X'. Type 1 verbs: yobaseru (<ruby>呼<rt>よ</rt></ruby>ばせる) → yobase-te kure ('let me call'). Type 2: tabesaseru (<ruby>食<rt>た</rt></ruby>べさせる) → tabesase-te kure ('let me eat'). Polite: 〜(さ)せてください.\n\nThe structure asks the listener to PERMIT the speaker to do something. Forces a giving-and-receiving frame: the listener allows, the speaker receives. This is the standard polite way to ask for permission, request a favour involving the speaker's own action, or beg for a chance: ayamarasete kudasai (<ruby>謝<rt>あやま</rt></ruby>らせてください) 'please let me apologise'.\n\nCommon emotional uses in songs and drama: aisasete (<ruby>愛<rt>あい</rt></ruby>させて) 'let me love (you)', wasuresasete (<ruby>忘<rt>わす</rt></ruby>れさせて) 'let me forget'. Compare with simple imperative (commanding the listener), 〜te kudasai (asking the listener to do X — opposite direction), and 〜tai (just expressing the speaker's own desire). Causative + kure is the only way to formally REQUEST PERMISSION TO ACT.\n\n• yobasete kure (<ruby>呼<rt>よ</rt></ruby>ばせてくれ) — 'let me call (you)'\n• tabesasete (<ruby>食<rt>た</rt></ruby>べさせて) — 'let me eat'\n• ikasete kure (<ruby>行<rt>い</rt></ruby>かせてくれ) — 'let me go'\n• yasumasete kudasai (<ruby>休<rt>やす</rt></ruby>ませてください) — 'please let me rest'\n• kangaesasete (<ruby>考<rt>かんが</rt></ruby>えさせて) — 'let me think'\n• ayamarasete kudasai (<ruby>謝<rt>あやま</rt></ruby>らせてください) — 'please let me apologise'\n• aisasete (<ruby>愛<rt>あい</rt></ruby>させて) — 'let me love (you)'\n• wasure-sasete (<ruby>忘<rt>わす</rt></ruby>れさせて) — 'let me forget'\n• mamora-sete kure (<ruby>守<rt>まも</rt></ruby>らせてくれ) — 'let me protect (you)'\n• shinji-sasete (<ruby>信<rt>しん</rt></ruby>じさせて) — 'let me believe'\n• hitori ni shite kure (<ruby>一人<rt>ひとり</rt></ruby>にしてくれ) — 'leave me alone' (related: shi-te → shi makes the verb)\n• kissu-sasete (キスさせて) — 'let me kiss (you)'\n• sayonara wo iwa-sete (さよならを<ruby>言<rt>い</rt></ruby>わせて) — 'let me say goodbye'\n• naki-sasete (<ruby>泣<rt>な</rt></ruby>かせて) — 'let me cry'\n• matase-te (<ruby>待<rt>ま</rt></ruby>たせて) — 'have me wait / let me wait' (also 'I made you wait — sorry')\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "374d6f9b-2df1-46a3-8b3b-5239c712b804",
+    "name": "〜darou (〜だろう) — probably / right? (conjecture / seeking confirmation)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜darou (〜だろう, polite 〜deshou 〜でしょう) attaches to plain-form sentences. The plain copula da's volitional / inferential form, it carries two reading flavours: (a) conjecture — 'probably / I'd guess (X)' — ame ga furu darou (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るだろう) 'it'll probably rain'. (b) Confirmation-seeking — 'X, right?' — wakaru darou? (<ruby>分<rt>わ</rt></ruby>かるだろう？) 'you understand, right?' — same form, rising intonation.\n\nFrequently dropped to 〜daro (〜だろ) in casual male speech, or to 〜desho (〜でしょ) in casual feminine. Distinct from 〜hazu (high-confidence inference based on evidence) and 〜kamo shirenai (genuine uncertainty). 〜darou sits in the middle: confident but tentative, asserting probability with room for doubt.\n\nThe 'right?' use is one of the most-used pragmatic markers in spoken Japanese. With na-adj or noun, attaches directly: kirei darou (<ruby>綺麗<rt>きれい</rt></ruby>だろう) 'pretty, isn't it?'. With i-adj or verb, attaches to the plain form: omoshiroi darou (<ruby>面白<rt>おもしろ</rt></ruby>いだろう) 'interesting, right?'. Compare with 〜janai? (also 'isn't it?', more casual / negotiating), 〜yo ne (gentle agreement-seeking).\n\n• ame ga furu darou (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るだろう) — \"it'll probably rain\"\n• kuru darou (<ruby>来<rt>く</rt></ruby>るだろう) — \"they'll probably come\"\n• wakaru darou? (<ruby>分<rt>わ</rt></ruby>かるだろう？) — 'you understand, right?'\n• omoshiroi darou (<ruby>面白<rt>おもしろ</rt></ruby>いだろう) — 'interesting, right?'\n• kirei darou (<ruby>綺麗<rt>きれい</rt></ruby>だろう) — 'pretty, isn't it?'\n• tabun shiranai darou (<ruby>多分<rt>たぶん</rt></ruby><ruby>知<rt>し</rt></ruby>らないだろう) — \"they probably don't know\"\n• kitto deshou (きっとでしょう) — 'surely so'\n• boku no koto suki daro? (<ruby>僕<rt>ぼく</rt></ruby>のこと<ruby>好<rt>す</rt></ruby>きだろ？) — 'you like me, right?' (casual)\n• mata aeru darou (また<ruby>会<rt>あ</rt></ruby>えるだろう) — \"we'll meet again, probably\"\n• taihen datta darou (<ruby>大変<rt>たいへん</rt></ruby>だっただろう) — 'must have been hard'\n• kimi mo wakaru darou (<ruby>君<rt>きみ</rt></ruby>も<ruby>分<rt>わ</rt></ruby>かるだろう) — 'you understand too, right?'\n• zutto issho da yo, daro? (ずっと<ruby>一緒<rt>いっしょ</rt></ruby>だよ、だろ？) — \"we'll always be together, right?\"\n• mou inai darou (もういないだろう) — \"they're probably gone now\"\n• nidoto naku desho (<ruby>二度<rt>にど</rt></ruby>と<ruby>泣<rt>な</rt></ruby>かないでしょ) — \"you won't cry again, will you\"\n• shoujiki da darou (<ruby>正直<rt>しょうじき</rt></ruby>だだろう) — 'they're honest, no?'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "616aebc3-512c-44f6-9e19-52cf8f05a3e7",
+    "name": "〜kara (〜から) — because / since (subjective reason)",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "〜kara (〜から) attaches to plain-form sentences to express reason or cause — 'because X / since X'. atsui kara (<ruby>暑<rt>あつ</rt></ruby>いから) 'because it's hot'. Polite: 〜masu kara / 〜desu kara. Sentence-final 〜kara ne / 〜kara yo emphasises that the speaker is offering a justification.\n\nCrucial contrast with 〜node (〜ので): 〜kara is SUBJECTIVE — the speaker's own reason or judgement, often to assert, demand, or warn. 〜node is OBJECTIVE — a presented-as-given fact, more polite and softer. tsukareta kara nemashou (<ruby>疲<rt>つか</rt></ruby>れたから<ruby>寝<rt>ね</rt></ruby>ましょう) 'let's sleep — I'm tired' (subjective). tsukareta node nemasu (<ruby>疲<rt>つか</rt></ruby>れたので<ruby>寝<rt>ね</rt></ruby>ます) 'I will sleep, since I'm tired' (more deferential).\n\nAlso marks 'from' (origin / source) when attached to nouns: tokyo kara (<ruby>東京<rt>とうきょう</rt></ruby>から) 'from Tokyo'. With 〜made (until), brackets a span: tokyo kara osaka made (<ruby>東京<rt>とうきょう</rt></ruby>から<ruby>大阪<rt>おおさか</rt></ruby>まで) 'from Tokyo to Osaka'. The reason and the source uses share the underlying 'starting point' image.\n\n• atsui kara (<ruby>暑<rt>あつ</rt></ruby>いから) — \"because it's hot\"\n• samui kara (<ruby>寒<rt>さむ</rt></ruby>いから) — \"because it's cold\"\n• tsukareta kara (<ruby>疲<rt>つか</rt></ruby>れたから) — \"because I'm tired\"\n• kimi ga iru kara (<ruby>君<rt>きみ</rt></ruby>がいるから) — \"because you're here\"\n• suki dakara (<ruby>好<rt>す</rt></ruby>きだから) — \"because I like (it)\"\n• ame ga furu kara kasa wo motte iku (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るから<ruby>傘<rt>かさ</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていく) — \"I'll bring an umbrella because it'll rain\"\n• tokyo kara (<ruby>東京<rt>とうきょう</rt></ruby>から) — 'from Tokyo'\n• kinou kara (<ruby>昨日<rt>きのう</rt></ruby>から) — 'since yesterday'\n• ima kara (<ruby>今<rt>いま</rt></ruby>から) — 'from now'\n• kore kara (これから) — 'from now on'\n• kimi dakara hanasu (<ruby>君<rt>きみ</rt></ruby>だから<ruby>話<rt>はな</rt></ruby>す) — \"because it's you, I'll talk (about it)\"\n• mou ii kara (もういいから) — \"that's enough already\"\n• shinpai dakara (<ruby>心配<rt>しんぱい</rt></ruby>だから) — \"because I'm worried\"\n• boku ga iru kara daijoubu (<ruby>僕<rt>ぼく</rt></ruby>がいるから<ruby>大丈夫<rt>だいじょうぶ</rt></ruby>) — \"you'll be fine because I'm here\"\n• atashi-tachi tomodachi dakara ne (<ruby>私<rt>わたし</rt></ruby>たち<ruby>友達<rt>ともだち</rt></ruby>だからね) — \"after all, we're friends\"\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "d4fdeda5-ac36-40a6-b961-23bea04f8c6f",
+    "name": "〜te kuru (〜てくる) — comes toward / becomes",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜te kuru (〜てくる) attaches kuru (<ruby>来<rt>く</rt></ruby>る, 'to come') to a verb's te-form. The directional mirror of 〜te iku (〜ていく). Three readings: (a) Physical motion toward the speaker — motte kuru (<ruby>持<rt>も</rt></ruby>ってくる) 'bring (here)'. (b) Aspectual change UP TO NOW — fuete kuru (<ruby>増<rt>ふ</rt></ruby>えてくる) 'is increasing (up to the present)'. (c) Inception / appearance — futte kuru (<ruby>降<rt>ふ</rt></ruby>ってくる) 'starts raining'.\n\nConjugates as kuru does (irregular): 〜te kita (past, see batch3a entry), 〜te konai (negative), 〜te kite (te-form / requesting). The past 〜te kita is what many learners encounter first, but the present-tense 〜te kuru is critical for describing ongoing change UP TO and INCLUDING now: dandan tsuyoku natte kuru (だんだん<ruby>強<rt>つよ</rt></ruby>くなってくる) 'gradually becoming stronger'.\n\nPairs structurally with 〜te iku (forward / away). Together they let speakers locate change in time relative to the present. Common in songs for sweeping arrival imagery: yoake ga chikadzuite kuru (<ruby>夜明<rt>よあ</rt></ruby>けが<ruby>近<rt>ちかづ</rt></ruby>いてくる) 'dawn approaches'. Casual contractions in spoken Japanese: 〜tekuru is rarely contracted since kuru is already short.\n\n• motte kuru (<ruby>持<rt>も</rt></ruby>ってくる) — 'bring (here)'\n• tsurete kuru (<ruby>連<rt>つ</rt></ruby>れてくる) — 'bring (a person)'\n• fuete kuru (<ruby>増<rt>ふ</rt></ruby>えてくる) — 'is increasing'\n• samuku natte kuru (<ruby>寒<rt>さむ</rt></ruby>くなってくる) — 'is getting cold'\n• atsuku natte kuru (<ruby>暑<rt>あつ</rt></ruby>くなってくる) — 'is getting hot'\n• kaze ga fuite kuru (<ruby>風<rt>かぜ</rt></ruby>が<ruby>吹<rt>ふ</rt></ruby>いてくる) — 'wind picks up'\n• hashitte kuru (<ruby>走<rt>はし</rt></ruby>ってくる) — 'comes running'\n• mietekuru (<ruby>見<rt>み</rt></ruby>えてくる) — 'comes into view'\n• wakatte kuru (<ruby>分<rt>わ</rt></ruby>かってくる) — 'starts to make sense'\n• yatte kuru (やってくる) — 'comes / arrives'\n• ame ga futte kuru (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>ってくる) — \"it's starting to rain\"\n• naite kuru (<ruby>泣<rt>な</rt></ruby>いてくる) — 'feels like crying / starts crying'\n• yoake ga chikadzuite kuru (<ruby>夜明<rt>よあ</rt></ruby>けが<ruby>近<rt>ちかづ</rt></ruby>いてくる) — 'dawn approaches'\n• kanji ga afurete kuru (<ruby>感<rt>かん</rt></ruby>じが<ruby>溢<rt>あふ</rt></ruby>れてくる) — 'feelings come welling up'\n• ki ni natte kuru (<ruby>気<rt>き</rt></ruby>になってくる) — 'starts to bother me / catches my attention'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "65590c80-9908-4a07-95ae-f27a4a3b4e51",
+    "name": "〜te oku (〜ておく) — do in advance / leave as is",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜te oku (〜ておく) attaches oku (<ruby>置<rt>お</rt></ruby>く, 'to put/place') to a verb's te-form. Two senses: (a) Preparation — 'do X in advance' — kau (<ruby>買<rt>か</rt></ruby>う) → katte oku (<ruby>買<rt>か</rt></ruby>っておく) 'buy in advance'. (b) Maintenance — 'leave X as it is / let it remain' — sono mama ni shite oku (そのままにしておく) 'leave it as it is'. Casual contraction: 〜toku (〜とく). Past: 〜te oita / 〜toita.\n\nThe preparation reading is enormously common in everyday and business Japanese — anything done IN ADVANCE for a future need takes 〜te oku. yoyaku shite oku (<ruby>予約<rt>よやく</rt></ruby>しておく) 'make a reservation in advance'. yonde oku (<ruby>読<rt>よ</rt></ruby>んでおく) 'read it beforehand'.\n\nThe maintenance reading often signals 'leave it alone, don't touch it': hanashite oite (<ruby>離<rt>はな</rt></ruby>しておいて) — actually that's the casual 'let go and leave alone'. Compare with batch1's 〜te shimau (completion / regret), 〜te aru (resultative passive 'has been done'), and the bare imperative oki nasai. 〜te oku focuses on the SPEAKER's foresight or restraint — preparing OR not interfering.\n\n• katte oku (<ruby>買<rt>か</rt></ruby>っておく) — 'buy in advance'\n• yonde oku (<ruby>読<rt>よ</rt></ruby>んでおく) — 'read beforehand'\n• yoyaku shite oku (<ruby>予約<rt>よやく</rt></ruby>しておく) — 'make a reservation'\n• tabete oku (<ruby>食<rt>た</rt></ruby>べておく) — 'eat in advance'\n• kangae-te oku (<ruby>考<rt>かんが</rt></ruby>えておく) — \"I'll think about it\"\n• sono mama ni shite oku (そのままにしておく) — 'leave it as is'\n• shitte oite (<ruby>知<rt>し</rt></ruby>っておいて) — 'know this in advance'\n• junbi shite oku (<ruby>準備<rt>じゅんび</rt></ruby>しておく) — 'prepare in advance'\n• kaite oita (<ruby>書<rt>か</rt></ruby>いておいた) — 'wrote it down beforehand'\n• nokoshi-te oku (<ruby>残<rt>のこ</rt></ruby>しておく) — 'leave (some) behind / save'\n• kette oku (<ruby>決<rt>き</rt></ruby>めておく) — 'decide in advance'\n• kioku shite oku (<ruby>記憶<rt>きおく</rt></ruby>しておく) — 'commit to memory'\n• ittoku ne (<ruby>言<rt>い</rt></ruby>っとくね) — \"I'm telling you in advance\" (casual)\n• matte oite (<ruby>待<rt>ま</rt></ruby>っておいて) — 'wait for me (in the meantime)'\n• samete oku (<ruby>覚<rt>さ</rt></ruby>めておく) — 'stay awake (in advance)'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "2645301e-25e7-440f-9993-1d996d9ff79a",
+    "name": "〜to iu (〜という) — called / the fact that / so-called",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "〜to iu (〜という) is the quotative particle と + iu (<ruby>言<rt>い</rt></ruby>う 'say'), serving as a flexible labelling / quotative connector. Three main uses: (a) Naming — N + to iu + N — 'an X called Y' — yamada-san to iu hito (<ruby>山田<rt>やまだ</rt></ruby>さんという<ruby>人<rt>ひと</rt></ruby>) 'a person named Yamada-san'. (b) Quotative content — clause + to iu — 'that says / the fact that' — ame ga furu to iu hanashi (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るという<ruby>話<rt>はなし</rt></ruby>) 'the news that it'll rain'. (c) Definitional — N + to iu + no wa — 'what X means is...' — ai to iu no wa (<ruby>愛<rt>あい</rt></ruby>というのは) 'what love is'.\n\nCasual contraction: 〜tte (〜って) — extremely common in spoken Japanese. yamada-san tte hito (<ruby>山田<rt>やまだ</rt></ruby>さんって<ruby>人<rt>ひと</rt></ruby>) 'a guy called Yamada'. With abstract nouns (koto, mono, no), it builds nominalisations and metalinguistic statements.\n\nThe naming use is essential when introducing unfamiliar referents — names of places, people, books, songs. The definitional use is the workhorse for explaining concepts. The quotative use connects content clauses to head nouns (hanashi, kangae, uwasa, etc.) and is critical for reported speech and indirect description. Compare 〜to iu koto wa (literally 'the thing that says X' — 'in other words / so what you mean is').\n\n• yamada-san to iu hito (<ruby>山田<rt>やまだ</rt></ruby>さんという<ruby>人<rt>ひと</rt></ruby>) — 'a person named Yamada'\n• kitsubeat to iu apuri (キツビートというアプリ) — 'an app called KitsuBeat'\n• ame ga furu to iu hanashi (<ruby>雨<rt>あめ</rt></ruby>が<ruby>降<rt>ふ</rt></ruby>るという<ruby>話<rt>はなし</rt></ruby>) — \"the news that it'll rain\"\n• ai to iu no wa (<ruby>愛<rt>あい</rt></ruby>というのは) — 'what love is'\n• shiawase to iu mono (<ruby>幸<rt>しあわ</rt></ruby>せというもの) — 'something called happiness'\n• inochi to iu (<ruby>命<rt>いのち</rt></ruby>という) — 'so-called life'\n• shinjiru to iu koto (<ruby>信<rt>しん</rt></ruby>じるということ) — 'the act / fact of believing'\n• yoku waratta tte (よく<ruby>笑<rt>わら</rt></ruby>ったって) — 'they say (you) laughed a lot' (casual)\n• kimi to iu sonzai (<ruby>君<rt>きみ</rt></ruby>という<ruby>存在<rt>そんざい</rt></ruby>) — 'the existence called you'\n• yume to iu mono (<ruby>夢<rt>ゆめ</rt></ruby>というもの) — 'something called a dream'\n• kawaru to iu koto (<ruby>変<rt>か</rt></ruby>わるということ) — 'the meaning of changing'\n• ima to iu shunkan (<ruby>今<rt>いま</rt></ruby>という<ruby>瞬間<rt>しゅんかん</rt></ruby>) — 'this moment we call now'\n• boku to iu ningen (<ruby>僕<rt>ぼく</rt></ruby>という<ruby>人間<rt>にんげん</rt></ruby>) — 'a human being called me'\n• naku to iu koto wa (<ruby>泣<rt>な</rt></ruby>くということは) — 'what it means to cry is...'\n• mahou to iu (<ruby>魔法<rt>まほう</rt></ruby>という) — 'so-called magic'\n\n<!-- v2-romaji-primary -->"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "684d6fd0-8657-4946-9102-9c474b79bc88",
+    "name": "〜てる (teru - continuous/result)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "A casual contraction of ている (te iru), expressing an ongoing action or current state. Extremely common in everyday Japanese.\n\nHow it works:\nDrop the い (i) from ている (te iru) to get てる (teru).\n\nExample from this song:\n笑ってる空 (waratteru sora, \"The sky is smiling\")\n\nMore examples:\n- 今食べてる (ima tabeteru, \"I’m eating now\")\n- 知ってる (shitteru, \"I know\" - contracted from 知っている)\n- 雨が降ってる (ame ga futteru, \"It’s raining\")"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "e099e98b-d943-471b-a6f7-60a0f158cd14",
+    "name": "〜なきゃ (nakya: gotta; must)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: This is the most casual contraction of なければならない (nakereba naranai, 'must do'). Take the ない-form, drop い, change to なきゃ. It means 'gotta' or 'have to'.\n\nExample from this song: 勝ち取らなきゃ (kachitoranakya) = 'gotta win/seize' — from 勝ち取る (kachitoru, 'to win/seize') → 勝ち取らない (kachitoranai) → 勝ち取らなきゃ (kachitoranakya)\n\nMore examples:\n• 行く (iku, 'to go') → 行かなきゃ (ikanakya, 'gotta go')\n• 食べる (taberu, 'to eat') → 食べなきゃ (tabenakya, 'gotta eat')\n• 起きる (okiru, 'to wake up') → 起きなきゃ (okinakya, 'gotta wake up')\n\nNote: Contraction chain: なければならない → なくてはいけない → なくちゃいけない → なくちゃ → なきゃ. Each step gets more casual. なきゃ is what you'd hear in everyday anime dialogue."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "49fba520-a454-4d3b-913c-35e6aa990829",
+    "name": "〜んだろう (explanatory + conjecture)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Combine んだ (nda, explanatory) with ろう (rou, conjecture/wonder) to express wondering about something with an explanatory nuance — 'I wonder (what/why/how) it is that...'\n\nExample from this song: 待ってるんだろう (matteru ndarou) = 'I wonder what's waiting' — from 待っている (matteiru, 'is waiting') → 待ってる (matteru, casual) + んだろう (ndarou, 'I wonder')\n\nMore examples:\n• 行く (iku, 'to go') → 行くんだろう (iku ndarou, 'I wonder if they'll go')\n• 何 (nani, 'what') → 何なんだろう (nan nandarou, 'I wonder what it is')\n• 好き (suki, 'like') → 好きなんだろう (suki nandarou, 'I wonder if they like it')\n\nNote: だろう alone expresses conjecture ('probably'). Adding ん before it adds the explanatory feeling of 'the reason/situation is...'."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 7
+  },
+  {
+    "id": "bde81cdd-76c3-4f05-a902-d1bfdeb5ea76",
+    "name": "〜かける (kakeru - about to; on the verge of)",
+    "jlpt_reference": "JLPT N2",
+    "explanation": {
+      "en": "Attached to a verb stem, かける (kakeru) indicates an action that has started but is not yet complete, or something on the verge of happening. Think of it as \"half-done\" or \"about to.\"\n\nHow it works:\nTake the masu-stem of a verb and add かける (kakeru).\n\nExample from this song:\n描いてた理想が崩れかけても (egaiteta risou ga kuzure kakete mo, \"Even if the ideal I envisioned is about to crumble\")\n\nMore examples:\n- 死にかけた (shinikaketa, \"almost died\")\n- 言いかけてやめた (iikakete yameta, \"started to say something but stopped\")\n- 食べかけのりんご (tabekake no ringo, \"a half-eaten apple\")"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "1ef3e2d7-8393-4513-b1b6-81d93c2b1549",
+    "name": "〜たとえ〜でも (tatoe ~ demo: even if)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Pair the adverb たとえ at the front of a clause with でも at the end to say 'even if X' or 'no matter how X'. Works with nouns, い-adjectives, な-adjectives, and verbs.\n\nExample from this song: 真実がたとえ残酷でも (shinjitsu ga tatoe zankoku demo) = 'even if the truth is cruel'.\n\nMore examples:\n• たとえ雨でも行く (even if it rains, I'll go)\n• たとえ負けても諦めない (even if I lose, I won't give up)\n• たとえ難しくてもやる (even if it's hard, I'll do it)\n\nNote: たとえ is optional but intensifies the concessive meaning — without it, でも alone is weaker."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "cca60ff5-153c-4c71-8859-ff59163cd7d9",
+    "name": "〜てあげる (doing for someone's benefit)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add てあげる (te ageru) after the te-form of a verb to express doing something for another person's benefit — 'I'll do X for you'.\n\nExample from this song: 守ってあげる (mamotte ageru) = 'I'll protect you' — from 守る (mamoru, 'to protect') → 守って (mamotte, te-form) + あげる (ageru, 'give/do for')\n\nMore examples:\n• 教える (oshieru, 'to teach') → 教えてあげる (oshiete ageru, 'I'll teach you')\n• 作る (tsukuru, 'to make') → 作ってあげる (tsukutte ageru, 'I'll make it for you')\n• 連れていく (tsurete iku, 'to take along') → 連れていってあげる (tsurete itte ageru, 'I'll take you there')\n\nNote: The giving/receiving verbs: あげる = I do for others. くれる = others do for me. もらう = I receive from others. Be careful — てあげる can sound condescending if used with superiors. Use with friends, children, or in songs."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "7546c279-a5a1-4000-bb87-a6ab9ca419eb",
+    "name": "〜てみる (te-miru - try doing)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Attach みる (miru) to a verb's te-form to express 'try doing something to see what happens.' It implies doing something as an experiment or first attempt.\n\nExample from this song: 立ち尽くしてみた (tachitsukushite mita) = 'tried standing frozen (to see what would happen)' — from 立ち尽くす (tachitsukusu, 'to stand rooted')\n\nMore examples:\n• 食べてみる (tabete miru, 'try eating it') — from 食べる (taberu, 'to eat')\n• やってみよう (yatte miyou, 'let's try doing it') — from やる (yaru, 'to do')\n• 聞いてみた (kiite mita, 'tried asking') — from 聞く (kiku, 'to ask/listen')\n\nNote: みる here doesn't mean 'to see' literally — it means 'to try and see.' The past form てみた (te mita) means 'tried doing and saw the result.'"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "ecdf4566-dd99-4a6f-bed5-473e9ba18e84",
+    "name": "〜なくていい (nakute ii: don't have to)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Take the negative て-form (なくて, nakute) and add いい (ii, 'good') to express 'you don't have to do X' — giving permission not to do something.\n\nExample from this song: 強がらなくていい (tsuyo garanakute ii) = 'you don't have to pretend to be strong' — from 強がる (tsuyogaru, 'to act tough') → 強がらなくて (tsuyo garanakute, negative te-form) + いい (ii, 'fine')\n\nMore examples:\n• 我慢する (gaman suru, 'to endure') → 我慢しなくていい (gaman shinakute ii, 'you don't have to endure it')\n• 隠す (kakusu, 'to hide') → 隠さなくていい (kakusanakute ii, 'you don't have to hide it')\n• 急ぐ (isogu, 'to hurry') → 急がなくていい (isoganakute ii, 'you don't have to hurry')\n\nNote: This is a comforting, liberating expression — 'it's okay, you don't need to'. Very common in emotional moments. The song's title 'Let it Out' matches this grammar perfectly — stop holding back."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "583a6e56-7874-4efd-9dc2-21b5ce2300df",
+    "name": "〜なくても (nakutemo: even without)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Take the negative form of a verb or adjective (ない), change to なくて (nakute), then add も (mo, 'even'). This means 'even without X' or 'even if there isn't X'.\n\nExample from this song: 地図なんかなくても (chizu nanka nakutemo) = 'even without a map or anything' — from 地図 (chizu, 'map') + なんか (nanka, 'or anything') + なくても (nakutemo, 'even without')\n\nMore examples:\n• お金 (okane, 'money') → お金がなくても (okane ga nakutemo, 'even without money')\n• 分からない (wakaranai, 'don't understand') → 分からなくても (wakaranakutemo, 'even if you don't understand')\n• 完璧 (kanpeki, 'perfect') → 完璧じゃなくても (kanpeki ja nakutemo, 'even if it's not perfect')\n\nNote: なんか before なくても adds dismissive emphasis — 'something like a map' implies maps are unnecessary. The pattern is very empowering in this context."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "afdceda7-1a51-4e56-ae49-d2e8e593ca73",
+    "name": "〜のに (despite / and yet)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "Sentence-end or mid-clause particle that flags an unexpected contrast. '〜のに' = 'although / despite / and yet.' More emotionally loaded than 〜けど ('but'): the speaker feels the outcome shouldn't have happened. The Fourth Avenue Cafe pairs 〜はず with 〜なのに ('supposed to + and yet') for maximum dissonance — the expectation and reality don't align, and the speaker is hurt by the mismatch. Common pattern: '〜はずなのに' = 'should be X, and yet [the opposite].'",
+      "es": "Partícula final o intermedia que señala contraste inesperado. '〜のに' = 'aunque / a pesar de / y sin embargo'. Más carga emocional que 〜けど ('pero'): el hablante cree que el resultado no debía ocurrir. El Fourth Avenue Cafe empareja 〜はず con 〜なのに ('debía + y sin embargo') para máxima disonancia. Patrón común: '〜はずなのに' = 'se suponía que X, y sin embargo [lo opuesto]'.",
+      "pt-BR": "Partícula final ou meio-frasal que sinaliza contraste inesperado. '〜のに' = 'embora / apesar de / e mesmo assim'. Mais carga emocional que 〜けど ('mas'): o falante acha que o resultado não deveria ter acontecido. O Fourth Avenue Cafe pareia 〜はず com 〜なのに ('devia ser + e mesmo assim') pra dissonância máxima. Padrão comum: '〜はずなのに' = 'devia ser X, e mesmo assim [o oposto]'."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "cf6c9f79-3a4d-4227-a32e-cced4debb9ef",
+    "name": "〜わけがない (wake ga nai) — there's no way / impossible",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works:\nThe pattern Verb plain form + わけがない (wake ga nai) means \"there's no reason that ~\" or \"it can't possibly be that ~.\" It is a strong denial of possibility. わけ (wake) means \"reason/logic,\" so わけがない (wake ga nai) literally means \"there is no logic for ~.\" Often softened with など (nado): わけなどはない (wake nado wa nai).\n\nExample from this song:\nあきらめられるわけなどはなく (akiramerareru wake nado wa naku) — \"there's no reason I could give up\"\nThe singer emphatically states that giving up is logically impossible.\n\nMore examples:\n• そんなことあるわけがない (sonna koto aru wake ga nai) — \"there's no way that's true\"\n• 忘れるわけがない (wasureru wake ga nai) — \"there's no way I'd forget\"\n• 彼が犯人のわけがない (kare ga hannin no wake ga nai) — \"there's no way he's the culprit\""
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 6
+  },
+  {
+    "id": "0e471da0-a5fc-4486-9c83-6fcf29926111",
+    "name": "〜そう (seems like)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: For verbs, take the masu-stem and add そう (sou). For い-adjectives, drop い and add そう. This expresses that something appears likely to happen based on what you see.\n\nExample from this song: 離れそう (hanaresou) = 'seems like it will separate' — from 離れる (hanareru, 'to separate') → 離れ (hanare, masu-stem) + そう (sou)\n\nMore examples:\n• 降る (furu, 'to rain') → 降りそう (furisou, 'looks like it'll rain')\n• 美味しい (oishii, 'delicious') → 美味しそう (oishisou, 'looks delicious')\n• 泣く (naku, 'to cry') → 泣きそう (nakisou, 'looks like about to cry')\n\nNote: This そう is based on visual appearance or immediate impression. Don't confuse with hearsay そうだ (dictionary form + そうだ, 'I heard that...'). 美味しそう (looks delicious) vs. 美味しいそうだ (I heard it's delicious)."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "d2c689cc-c7b1-4e28-b26d-c07dbe503840",
+    "name": "〜たくない (takunai: don't want to)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Take the たい (tai, 'want to') form and make it negative by changing い to くない (kunai). Since たい conjugates like an い-adjective, its negative is たくない.\n\nExample from this song: 見たくない (mitakunai) = 'don't want to see' — from 見る (miru, 'to see') → 見たい (mitai, 'want to see') → 見たくない (mitakunai, 'don't want to see')\n\nMore examples:\n• 行く (iku, 'to go') → 行きたくない (ikitakunai, 'don't want to go')\n• 食べる (taberu, 'to eat') → 食べたくない (tabetakunai, 'don't want to eat')\n• 会う (au, 'to meet') → 会いたくない (aitakunai, 'don't want to meet')\n\nNote: たい conjugates exactly like an い-adjective: たい (want), たくない (don't want), たかった (wanted), たくなかった (didn't want). In this farewell song, 見たくない expresses the pain of not wanting to witness the goodbye."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "17aedcea-dd37-4c90-b25e-9b39fdd5815e",
+    "name": "〜たびに (tabi ni) — each time / every time",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works:\nThe pattern Verb dictionary form + たびに (tabi ni) means \"each time ~\" or \"every time ~.\" It describes a recurring trigger — whenever the first action occurs, the second action follows. It has a slightly literary or reflective tone, making it common in songs and storytelling.\n\nExample from this song:\n増えるたびに (fueru tabi ni) — \"each time it increases\"\nEvery time something grows or accumulates, the singer notices a change.\n\nMore examples:\n• 会うたびに綺麗になる (au tabi ni kirei ni naru) — \"you get prettier every time we meet\"\n• この歌を聞くたびに泣く (kono uta o kiku tabi ni naku) — \"I cry every time I hear this song\"\n• 旅をするたびに新しい発見がある (tabi o suru tabi ni atarashii hakken ga aru) — \"every time I travel, there are new discoveries\""
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "d795b132-df64-4e4b-a3e5-d7e9b91a942b",
+    "name": "〜だけ (dake: only; just)",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "How it works: Add だけ (dake) after a noun, verb, or number to restrict meaning to 'only' or 'just'. It limits the scope to exactly what's mentioned.\n\nExample from this song: 繰り返すだけの (kurikaesu dake no) = 'just/only repeating' — from 繰り返す (kurikaesu, 'to repeat') + だけ (dake, 'only') + の (no, connecting)\n\nMore examples:\n• 一つ (hitotsu, 'one') → 一つだけ (hitotsu dake, 'just one')\n• 見る (miru, 'to see') → 見るだけ (miru dake, 'just looking')\n• 少し (sukoshi, 'a little') → 少しだけ (sukoshi dake, 'just a little')\n\nNote: だけ is neutral — it simply limits. Compare with しか (shika) + negative, which implies disappointment: 一つだけある (hitotsu dake aru, 'there's just one') vs. 一つしかない (hitotsu shika nai, 'there's only one [unfortunately]')."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "c96afb7b-cc6a-4e4a-9d11-07b5a46e566e",
+    "name": "〜て form (te-form) — sequential actions",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "How it works:\nThe て-form (te-form) is one of the most versatile verb forms in Japanese. One key use is connecting actions in sequence — \"do X and then Y.\" It is also the building block for many other grammar patterns (ている, てください, てもいい, etc.). Each verb group has its own te-form rules.\n\nExample from this song:\n蹴り破って (keri yabutte) — \"kick through and...\"\nThe action of breaking through connects to what follows — a sequence of determined actions.\n\nMore examples:\n• 起きて、顔を洗って、朝ごはんを食べた (okite, kao o aratte, asagohan o tabeta) — \"woke up, washed my face, and ate breakfast\"\n• 手を繋いで歩く (te o tsunaide aruku) — \"walk holding hands\"\n• 座って待ってください (suwatte matte kudasai) — \"please sit down and wait\""
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "284f8804-f884-4be9-81d7-45f7aaf2f7fb",
+    "name": "〜てく (teku) — going on doing (casual)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nてく (teku) is the casual contraction of ていく (te iku), which means an action continues or progresses into the future — moving away from the present. The い (i) is dropped for casual flow. This is extremely common in songs and casual speech.\n\nExample from this song:\nぶっとばしてく (buttobashiteku) — \"blasting away\" / \"keeps knocking out\"\nThe action will keep going forward with relentless energy.\n\nMore examples:\n• 変わってく (kawatteku) — \"keeps changing\"\n• 消えてく (kieteku) — \"fading away\"\n• 走ってく (hashitteku) — \"running off\""
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "4bf73669-f3e6-47ed-bfae-570bfd4ea370",
+    "name": "〜としても (even if)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Add としても (to shitemo) after a verb to express a strong concessive — 'even if' or 'even assuming that'. It's more emphatic than simple ても.\n\nExample from this song: つまずいたとしても (tsumazuita to shitemo) = 'even if you stumble' — from つまずいた (tsumazuita, 'stumbled') + としても (to shitemo, 'even if')\n\nMore examples:\n• 失敗する (shippai suru, 'to fail') → 失敗したとしても (shippai shita to shitemo, 'even if I fail')\n• 嫌だ (iya da, 'dislike') → 嫌だとしても (iya da to shitemo, 'even if I hate it')\n• できない (dekinai, 'can't') → できないとしても (dekinai to shitemo, 'even if I can't')\n\nNote: としても is more hypothetical and emphatic than ても. It often introduces a scenario the speaker acknowledges but pushes past. 仮に (kari ni, 'supposing') often precedes it for extra emphasis."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "c4a89586-ffd1-47dc-bb76-73608793f04c",
+    "name": "〜ならば (naraba: if)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: ならば (naraba) is the formal version of なら (nara), meaning 'if it is the case that.' It adds formality and weight to the conditional.\n\nExample from this song: 会えるなら (aeru nara) = 'if I can meet you' — from 会える (aeru, 'can meet', potential of 会う) + なら (nara, 'if')\n\nMore examples:\n• 可能ならば (kanou naraba, 'if it's possible') — from 可能 (kanou, 'possible')\n• 行くならば早く (iku naraba hayaku, 'if you're going, go quickly')\n• 君がそう言うならば (kimi ga sou iu naraba, 'if you say so') — from 言う (iu, 'to say')\n\nNote: なら is casual, ならば is formal/literary. Both express the same conditional meaning. In songs, ならば gives a more dramatic or poetic feeling than plain なら."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "d058db02-2b24-455a-8966-93a3aa65d9df",
+    "name": "〜ぬ (nu: classical negative)",
+    "jlpt_reference": "JLPT N2",
+    "explanation": {
+      "en": "How it works: Replace ない (nai) with ぬ (nu) on the negative stem of a verb for a classical/literary negative. ぬ means the same as ない but sounds archaic and poetic.\n\nExample from this song: 塞がらぬ (fusagaranu) = 'that doesn't close / that won't heal' — from 塞がる (fusagaru, 'to close/heal') → 塞がら (fusagara, negative stem) + ぬ (nu, classical negative)\n\nMore examples:\n• 知る (shiru, 'to know') → 知らぬ (shiranu, 'not knowing')\n• 消える (kieru, 'to disappear') → 消えぬ (kienu, 'doesn't disappear')\n• 言う (iu, 'to say') → 言わぬ (iwanu, 'doesn't say')\n\nNote: ぬ is classical Japanese and adds gravity to the expression. It's common in song titles, poetry, and dramatic moments. The prenominal form is ぬ (same): 消えぬ炎 (kienu honoo, 'an unextinguishable flame'). In this song, 'a wound that won't heal' uses ぬ for emotional impact."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "f5280e84-a494-4aa7-a7e7-42b878eddd0d",
+    "name": "〜のは...だ (emphasis/focus)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Wrap a clause with のは...だ to emphasize or focus on a specific element. のは nominalizes the clause ('the one who...', 'the thing that...'), and だ concludes. This is like English cleft sentences: 'It is X that...'.\n\nExample from this song: The lyrics use this pattern to focus attention on what truly matters in the speaker's journey.\n\nMore examples:\n• 教えてくれたのは先生だ (oshiete kureta no wa sensei da, 'it was the teacher who taught me')\n• 一番大切なのは友達だ (ichiban taisetsu na no wa tomodachi da, 'what's most important is friends')\n• 泣いたのは嬉しかったからだ (naita no wa ureshikatta kara da, 'the reason I cried is because I was happy')\n\nNote: This is a focus/emphasis construction, not just a statement. It draws attention to the specific element between のは and だ."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "a26c69c5-5c7e-4fae-a6b3-5b1151b1fc8f",
+    "name": "〜気がする (feel like; sense that)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: 気がする (ki ga suru) means 'to have a feeling that' or 'to sense that.' It expresses a vague impression or intuition rather than certainty.\n\nExample from this song: The song uses 気がする to express an uncertain feeling — a sense that something might be true without being sure.\n\nMore examples:\n• 誰かに見られている気がする (dareka ni mirarete iru ki ga suru, 'I feel like someone is watching me')\n• 前に会った気がする (mae ni atta ki ga suru, 'I feel like we've met before')\n• うまくいく気がする (umaku iku ki ga suru, 'I have a feeling it'll go well')\n\nNote: 気 (ki) means 'spirit/feeling.' The full pattern is: sentence (plain form) + 気がする. It's softer and more uncertain than 思う (omou, 'to think'). Very natural in daily conversation."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "0a113c07-9391-43d8-8e6d-5ab070401a09",
+    "name": "で (means/instrument particle)",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "How it works: The particle で (de) marks the means, tool, or method by which an action is performed — 'with', 'by means of', 'using'.\n\nExample from this song: ふしぎなポッケで かなえてくれる (fushigi na pokke de kanaete kureru) = 'grants them with a magical pocket'. Also べんりなどうぐで (benri na dougu de) = 'with handy gadgets' and 未来の機械で (mirai no kikai de) = 'with machines from the future'.\n\nMore examples:\n• バスで行く (basu de iku) — go by bus\n• 箸で食べる (hashi de taberu) — eat with chopsticks\n• 日本語で話す (nihongo de hanasu) — speak in Japanese\n\nNote: で has multiple uses (location of action, reason, material, etc.) but in this song it consistently means 'by means of / using'. This is one of the most common uses and great for beginners to master.",
+      "es": "Cómo funciona: La partícula で (de) marca el medio, herramienta o método por el cual se realiza una acción — 'con', 'por medio de', 'usando'.\n\nEjemplo de la canción: ふしぎなポッケで (fushigi na pokke de) = 'con un bolsillo mágico'. También べんりなどうぐで (benri na dougu de) = 'con gadgets prácticos'.\n\nMás ejemplos:\n• バスで行く (basu de iku) — ir en autobús\n• 箸で食べる (hashi de taberu) — comer con palillos\n• 日本語で話す (nihongo de hanasu) — hablar en japonés",
+      "pt-BR": "Como funciona: A partícula で (de) marca o meio, ferramenta ou método pelo qual uma ação é realizada — 'com', 'por meio de', 'usando'.\n\nExemplo da música: ふしぎなポッケで (fushigi na pokke de) = 'com um bolso mágico'. Também べんりなどうぐで (benri na dougu de) = 'com gadgets práticos'.\n\nMais exemplos:\n• バスで行く (basu de iku) — ir de ônibus\n• 箸で食べる (hashi de taberu) — comer com pauzinhos\n• 日本語で話す (nihongo de hanasu) — falar em japonês"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "09478338-ebca-4c5c-8c6d-a4394ee01f8a",
+    "name": "受身形 (ukemi-kei) — passive form 〜れる/〜られる",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nThe passive form means the subject receives an action. For godan (u-verb) verbs: change -u to -a + れる (reru). For ichidan (ru-verb) verbs: drop る (ru) + られる (rareru). Japanese passive often implies adversity — something unwanted happening to the subject.\n\nExample from this song:\n吹かれて (fukarete) — \"being blown by\"\n風に吹かれて (kaze ni fukarete) — \"being blown by the wind\" — the subject is at the mercy of the wind.\n\nMore examples:\n• 雨に降られた (ame ni furareta) — \"got rained on\" (adversity)\n• 先生に褒められた (sensei ni homerareta) — \"was praised by the teacher\"\n• 彼に手紙を読まれた (kare ni tegami o yomareta) — \"he read my letter\" (adversity — without my permission)"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "48215292-9f98-4cd8-b5c3-2491486afc4e",
+    "name": "意志形 〜よう (volitional form)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: The volitional form expresses intention ('let's do') or suggestion. For godan verbs, change the final -u to -ou. For ichidan verbs, replace る with よう.\n\nExample from this song: つなごう (tsunagou) = 'let's connect (hands)' — from つなぐ (tsunagu, 'to connect') — godan verb, ぐ (gu) → ごう (gou)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べよう (tabeyou, 'let's eat')\n• 行く (iku, 'to go') → 行こう (ikou, 'let's go')\n• する (suru, 'to do') → しよう (shiyou, 'let's do it') — irregular\n\nNote: For godan verbs, the vowel shift is: u→ou, ku→kou, su→sou, tsu→tou, nu→nou, bu→bou, mu→mou, ru→rou, gu→gou. Irregular: する → しよう, 来る (kuru) → 来よう (koyou)."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 5
+  },
+  {
+    "id": "23e8091a-08c3-4c70-8ed9-dc7dd8361707",
+    "name": "〜かな (kana: I wonder)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add かな (kana) at the end of a sentence to express wondering or uncertainty — 'I wonder if...' It's softer and more reflective than か (ka) alone.\n\nExample from this song: 差すかな (sasu kana) = 'I wonder if it shines through' — from 差す (sasu, 'to shine/point') + かな (kana, 'I wonder')\n\nMore examples:\n• 大丈夫 (daijoubu, 'okay') → 大丈夫かな (daijoubu kana, 'I wonder if it's okay')\n• 来る (kuru, 'to come') → 来るかな (kuru kana, 'I wonder if they'll come')\n• いい (ii, 'good') → いいのかな (ii no kana, 'I wonder if it's alright')\n\nNote: かな is used when talking to yourself or thinking aloud. Adding の before かな (のかな) adds more of an explanatory nuance. かな is gender-neutral, while かしら (kashira) is the traditional feminine equivalent."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "88fee13d-6632-45bc-91b3-f80f677e2d0a",
+    "name": "〜かもしれない (kamoshirenai: might / perhaps)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "Attach to a plain verb, noun, or adjective to express 'might be / maybe'. Expresses genuine uncertainty.\n\nFrom this song: 愛かもしれない = '(it) might be love'.\n\nMore examples:\n• 雨が降るかもしれない。(It might rain.)\n• 彼は忙しいかもしれない。(He might be busy.)\n• 遅れるかもしれない。(I might be late.)\n\nNote: the formal version is かもしれません; the colloquial/abbreviated version is かも."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "e59dfad2-264d-4e28-92dd-c02726a3a516",
+    "name": "〜きり (kiri - only/just)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "Limits something to \"only\" or \"just\" one thing. With 一人 (hitori), it emphasizes total solitude: \"all alone.\"\n\nHow it works:\nAttach きり (kiri) after a noun or counter.\n\nExample from this song:\n一人きりでも平気と (hitori kiri demo heiki to, \"I’m fine even all alone\")\n\nMore examples:\n- 二人きりで話したい (futari kiri de hanashitai, \"I want to talk with just the two of us\")\n- 一度きりの人生 (ichido kiri no jinsei, \"A life you only get once\")\n- 彼に会ったきり連絡がない (kare ni atta kiri renraku ga nai, \"Met him once and never heard back\")"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "f8364773-e5b7-4064-991a-1238030f9e00",
+    "name": "〜きる (completely)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Take the verb masu-stem and add きる (kiru, 'to cut'). As an auxiliary, it means 'to do completely' or 'to do thoroughly'. The negative きれない means 'can't fully do'.\n\nExample from this song: 満たし切る (mitashi kiru) = 'to fully satisfy' — from 満たす (mitasu, 'to satisfy') → 満たし (mitashi, masu-stem) + 切る (kiru)\n\nMore examples:\n• 使う (tsukau, 'to use') → 使い切る (tsukai kiru, 'use up completely')\n• 走る (hashiru, 'to run') → 走り切る (hashiri kiru, 'run the whole way')\n• 言う (iu, 'to say') → 言い切る (ii kiru, 'state definitively')\n\nNote: きる adds a sense of completion and totality. 疲れ切った (tsukare kitta, 'completely exhausted'). The negative きれない is also very common: やりきれない (yari kirenai, 'can't bear it / too much to handle')."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "7ca38620-e36b-434c-bdad-84e764f5be5b",
+    "name": "〜けれど (although; but)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add けれど (keredo) or its shorter forms けど (kedo), けれども (keredomo) to the end of a clause to mean 'although' or 'but'. It connects two contrasting ideas.\n\nExample from this song: 居たいけれど (itai keredo) = 'I want to be there, but...' — from 居たい (itai, 'want to be') + けれど (keredo, 'but')\n\nMore examples:\n• 高い (takai, 'expensive') → 高いけれど (takai keredo, 'it's expensive, but...')\n• 好きだ (suki da, 'I like it') → 好きだけれど (suki da keredo, 'I like it, but...')\n• 行きたい (ikitai, 'want to go') → 行きたいけど (ikitai kedo, 'I want to go, but...')\n\nNote: Formality levels: けれども (most formal) > けれど > けど (most casual). All three mean the same thing. Sometimes the second clause is left unsaid for dramatic effect."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "8370cb1d-8060-46e9-8d24-2f48ae3aaf20",
+    "name": "〜ず (classical negative)",
+    "jlpt_reference": "JLPT N2",
+    "explanation": {
+      "en": "How it works: Replace the negative ない (nai) with ず (zu). This is the classical/literary negative conjunctive form, meaning 'without doing'. It's equivalent to modern ないで (naide).\n\nExample from this song: 構わず (kamawazu) = 'without caring' — from 構う (kamau, 'to care/mind') → 構わない (kamawanai, negative) → 構わず (kamawazu)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べず (tabezu, 'without eating')\n• 言う (iu, 'to say') → 言わず (iwazu, 'without saying')\n• する (suru, 'to do') → せず (sezu, 'without doing')\n\nNote: する → せず (not しず) is an irregular form to memorize. ず is common in written Japanese, formal speech, proverbs, and anime lyrics. 振り向かず進む (furimukazu susumu, 'advance without looking back')."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "1a68a128-09ef-4721-bc78-31074523000a",
+    "name": "〜ぜ (ze: masculine emphasis)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add ぜ (ze) at the end of a sentence for strong masculine assertion. It conveys confidence, excitement, and determination. Very common in hip-hop and shonen anime.\n\nExample from this song: いいぜ (ii ze) = 'It's good!' / 行くぜ (iku ze) = 'Let's go!' — ぜ turns statements into confident declarations.\n\nMore examples:\n• やる (yaru, 'to do') → やるぜ (yaru ze, 'I'll do it, yeah!')\n• 負けない (makenai, 'won't lose') → 負けないぜ (makenai ze, 'I won't lose!')\n• 最高 (saikou, 'the best') → 最高だぜ (saikou da ze, 'It's the best!')\n\nNote: ぜ is strongly masculine and casual. Using it in formal settings would be inappropriate. In this hip-hop track, it perfectly matches the high-energy, confident tone. Strength ranking: ぞ (strongest) > ぜ > よ (mildest)."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "f8785d71-eff2-4792-8c1c-60943bc423dc",
+    "name": "〜そうだ (sou da: seems like)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Attach そう (sō) to the verb stem (masu-stem) to express that something appears about to happen based on visual evidence — 'it looks like it will X'.\n\nExample from this song: 途切れそうだ (togiresō da) = 'seems about to break off' — from 途切れる (togireru, 'to be interrupted') → 途切れ (togire, stem) + そうだ (sō da, 'seems like')\n\nMore examples:\n• 降る (furu, 'to rain') → 降りそうだ (furisō da, 'looks like it'll rain')\n• 壊れる (kowareru, 'to break') → 壊れそうだ (kowaresō da, 'looks about to break')\n• 泣く (naku, 'to cry') → 泣きそうだ (nakisō da, 'looks about to cry')\n\nNote: This そう is based on appearance/observation. Different from hearsay そうだ (after dictionary form): 雨が降るそうだ (ame ga furu sō da, 'I heard it will rain'). For adjectives: drop い, add そう: 美味しい → 美味しそう (oishisō, 'looks delicious')."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "92ec3103-b6d8-4c6f-b8a2-6bd26a541707",
+    "name": "〜ていた (te-ita past continuous)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Combine a verb's te-form with いた (ita, past of いる) to express a state or action that was ongoing in the past. It's like English 'was doing' or 'had been doing.'\n\nExample from this song: 立ち尽くしていた (tachitsukushite ita) = 'was standing frozen' — from 立ち尽くす (tachitsukusu, 'to stand rooted to the spot')\n\nMore examples:\n• 食べていた (tabete ita, 'was eating') — from 食べる (taberu, 'to eat')\n• 待っていた (matte ita, 'was waiting') — from 待つ (matsu, 'to wait')\n• 雨が降っていた (ame ga futte ita, 'it was raining') — from 降る (furu, 'to fall/rain')\n\nNote: In casual speech, ていた contracts to てた (teta). In the song, 立ち尽くしてた (tachitsukushiteta) is this casual contraction."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "e6de1447-6403-4de1-a3c1-b599cacbf5d1",
+    "name": "〜ている (ongoing state / progressive)",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "How it works: Take the て-form (te-form) of a verb and add いる (iru). This expresses an ongoing action or a resulting state. In casual speech, いる is often shortened to る.\n\nExample from this song: えがいてる (egaiteru) = 'is drawing/imagining' — from えがく (egaku, 'to draw/imagine') → えがいて (egaite, te-form) + いる (iru) → えがいてる (casual contraction)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べている (tabete iru, 'is eating') → 食べてる (tabeteru, casual)\n• 住む (sumu, 'to live') → 住んでいる (sunde iru, 'is living/lives') → 住んでる (sunderu, casual)\n• 知る (shiru, 'to know') → 知っている (shitte iru, 'knows') → 知ってる (shitteru, casual)\n\nNote: The casual contraction dropping い is very common in songs and everyday speech. ている can indicate either an action in progress or a state that has resulted from a completed action."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "f43b1e81-1fd0-46e9-afd9-40aced2f6271",
+    "name": "〜てくれ (te kure: do it for me! / please do)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: くれ (kure) is the imperative of くれる (kureru, 'to do for me'). Attach it to a verb's te-form for a rough/casual request: 'do this for me!'\n\nExample from this song: 聞いてくれ (kiite kure) = 'listen to me!' — from 聞く (kiku, 'to listen') → 聞いて (kiite) + くれ (kure)\n\nMore examples:\n• 見てくれ (mite kure, 'look at this!') — from 見る (miru, 'to see')\n• 信じてくれ (shinjite kure, 'believe me!') — from 信じる (shinjiru, 'to believe')\n• 待ってくれ (matte kure, 'wait for me!') — from 待つ (matsu, 'to wait')\n\nNote: てくれ is more direct/rough than てください. It's masculine and common in punk, rock, and emotional contexts. Adding よ softens it slightly: 聞いてくれよ (kiite kure yo)."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "966c10ca-5bb2-4c4a-b93a-0157fce019c9",
+    "name": "〜でしょう (deshou - probably)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "Expresses supposition or probability: \"probably\" or \"I think.\" It is the polite form of だろう (darou).\n\nHow it works:\nAttach でしょう (deshou) after the plain form of a verb, adjective, or noun.\n\nExample from this song:\n忘れたのでしょう (wasureta no deshou, \"You’ve probably forgotten\")\n\nMore examples:\n- 明日は雨でしょう (ashita wa ame deshou, \"It will probably rain tomorrow\")\n- 彼は来ないでしょう (kare wa konai deshou, \"He probably won’t come\")\n- 大丈夫でしょう (daijoubu deshou, \"It’s probably fine\")"
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "641e4f77-0f2c-4454-bd02-a23c3937033b",
+    "name": "〜な (na) — na-adjective connector",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "How it works:\nな-adjectives (na-adjectives) connect to nouns using な (na). Unlike い-adjectives (i-adjectives) which directly modify nouns, な-adjectives need this な (na) particle between them and the noun. This is one of the first patterns learners encounter.\n\nExample from this song:\n大切な物 (taisetsu na mono) — \"important thing\"\n大切 (taisetsu, \"important/precious\") needs な (na) before the noun 物 (mono, \"thing\").\n\nMore examples:\n• 静かな夜 (shizuka na yoru) — \"a quiet night\"\n• 好きな食べ物 (suki na tabemono) — \"favorite food\"\n• 元気な子供 (genki na kodomo) — \"an energetic child\""
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  },
+  {
+    "id": "abddaea4-962f-48a6-9844-0f93f895a6e8",
+    "name": "〜ないでいて (keep not doing)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Take the ない-form, add で (de), then いて (ite, te-form of いる). This requests someone to maintain a negative state — 'keep not doing X' or 'stay in the state of not having done X'.\n\nExample from this song: 閉ざさないでいて (tozasanaide ite) = 'keep it from closing / stay open' — from 閉ざす (tozasu, 'to close off') → 閉ざさない (tozasanai, negative) + でいて (de ite, 'keep being')\n\nMore examples:\n• 忘れる (wasureru, 'to forget') → 忘れないでいて (wasurenaide ite, 'keep not forgetting / don't forget')\n• 変わる (kawaru, 'to change') → 変わらないでいて (kawaranaide ite, 'keep not changing / stay the same')\n• 諦める (akirameru, 'to give up') → 諦めないでいて (akiramenaide ite, 'keep not giving up')\n\nNote: This is more specific than just ないで (naide, 'don't'). The いて adds 'stay in that state' — it's a request for ongoing non-action, not just a one-time prohibition."
+    },
+    "canonical_conjugation_template": null,
+    "song_count": 4
+  }
+]

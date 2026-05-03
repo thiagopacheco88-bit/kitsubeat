@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KitsuBeat /path · C+A Hybrid · Stage Lights on a Route</title>
+
+  <!-- Junior Designer assumptions (visible at top of file for review):
+       - Phase 14 tokens injected as CSS vars per theme scope
+       - Cover art: stylized CSS gradients (anime-vibe palettes); production
+         swaps in youtube_id thumbnail per PathNode.tsx:60
+       - Tier icons: SVG bamboo / torii / mountain (single-color, theme-aware)
+       - Lantern streak: SVG with flame; flame intensity scales with streak count
+       - Mist on locked nodes: low-opacity gradient + backdrop-filter blur
+       - 3-star aura on mastered: outer accent glow, reduced-motion safe
+       - PLAY overlay on current node: gentle pulse, suppressed when reduced-motion
+       - Both themes shown side-by-side at 390×844 -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #2a2a2a; min-height: 100vh; font-family: Inter, -apple-system, system-ui, sans-serif; }
+    body { padding: 48px 32px; }
+
+    @keyframes ka-pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.06); opacity: 0.92; }
+    }
+    @keyframes ka-flicker {
+      0%, 100% { opacity: 0.95; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-0.5px); }
+    }
+    @keyframes ka-aura {
+      0%, 100% { opacity: 0.75; }
+      50% { opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useMemo } = React;
+
+    /* ===== IosFrame (vendored from huashu-design assets/ios_frame.jsx, trimmed to essentials) ===== */
+    const iosFrameStyles = {
+      wrapper: { display: 'inline-block', padding: 12, background: '#000', borderRadius: 60, boxShadow: '0 0 0 2px #1f2937, 0 20px 60px rgba(0,0,0,0.45)', position: 'relative' },
+      screen: { position: 'relative', borderRadius: 48, overflow: 'hidden' },
+      statusBar: { position: 'absolute', top: 0, left: 0, right: 0, height: 54, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px', fontSize: 16, fontWeight: 600, fontFamily: '-apple-system, "SF Pro Text", sans-serif', zIndex: 20, pointerEvents: 'none' },
+      dynamicIsland: { position: 'absolute', top: 12, left: '50%', transform: 'translateX(-50%)', width: 124, height: 36, background: '#000', borderRadius: 999, zIndex: 30 },
+      content: { position: 'absolute', top: 54, left: 0, right: 0, bottom: 34, overflow: 'auto' },
+      homeIndicator: { position: 'absolute', bottom: 10, left: '50%', transform: 'translateX(-50%)', width: 140, height: 5, borderRadius: 999, zIndex: 10 },
+    };
+    function IosFrame({ children, width = 390, height = 844, time = '9:41', battery = 87, darkMode = false, bgColor }) {
+      const textColor = darkMode ? '#fff' : '#000';
+      return (
+        <div style={iosFrameStyles.wrapper}>
+          <div style={{ ...iosFrameStyles.screen, width, height, background: bgColor || (darkMode ? '#000' : '#fff') }}>
+            <div style={{ ...iosFrameStyles.statusBar, color: textColor }}>
+              <span>{time}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <div style={{ display: 'flex', alignItems: 'flex-end', gap: 2, height: 12 }}>
+                  {[4,6,9,11].map(h => <div key={h} style={{ width: 3, height: h, background: 'currentColor', borderRadius: 1 }} />)}
+                </div>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                  <path d="M8 11.5a1 1 0 100-2 1 1 0 000 2z" fill="currentColor"/>
+                  <path d="M3 7.5a7 7 0 0110 0" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round"/>
+                  <path d="M1 4.5a11 11 0 0114 0" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" opacity="0.7"/>
+                </svg>
+                <div style={{ width: 26, height: 12, border: '1.5px solid currentColor', borderRadius: 3, padding: 1, position: 'relative', opacity: 0.85 }}>
+                  <div style={{ width: `${battery}%`, height: '100%', background: 'currentColor', borderRadius: 1, opacity: 0.9 }} />
+                  <div style={{ position: 'absolute', top: 3, right: -3, width: 2, height: 6, background: 'currentColor', borderRadius: '0 1px 1px 0' }} />
+                </div>
+              </div>
+            </div>
+            <div style={iosFrameStyles.dynamicIsland} />
+            <div style={iosFrameStyles.content}>{children}</div>
+            <div style={{ ...iosFrameStyles.homeIndicator, background: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.3)' }} />
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== Phase 14 tokens — both themes scoped via wrapper data-theme ===== */
+    const tokensCSS = `
+      [data-theme="dark"] {
+        --color-bg: #0E0E0E;
+        --color-bg-2: #111111;
+        --color-card: #191919;
+        --color-card-2: #1E1E1E;
+        --color-border: rgba(255,255,255,0.06);
+        --color-border-strong: rgba(255,255,255,0.10);
+        --color-text: #F5F5F4;
+        --color-text-muted: rgba(245,245,244,0.56);
+        --color-text-dim: rgba(245,245,244,0.40);
+        --color-accent: #dc2626;
+        --color-jlpt-n5: #22c55e;
+        --color-jlpt-n3: #f59e0b;
+        --color-grammar-adverb: #f97316;
+        --shadow-card-ring: inset 0 0 0 1px rgba(255,255,255,0.06);
+        --shadow-button-red: 0 8px 22px rgba(239,68,68,0.45);
+        --shadow-cta-red: 0 8px 24px rgba(239,68,68,0.28), inset 0 1px 0 rgba(255,255,255,0.15);
+        --shadow-hero-glow: inset 0 0 0 1px rgba(239,68,68,0.32), 0 16px 40px rgba(239,68,68,0.14);
+        --mist-fill: linear-gradient(180deg, rgba(14,14,14,0.65) 0%, rgba(14,14,14,0.85) 100%);
+        --aura-color: rgba(220,38,38,0.45);
+      }
+      [data-theme="light"] {
+        --color-bg: #FAFAF9;
+        --color-bg-2: #F4F4F2;
+        --color-card: #FFFFFF;
+        --color-card-2: #FAFAF9;
+        --color-border: rgba(0,0,0,0.08);
+        --color-border-strong: rgba(0,0,0,0.14);
+        --color-text: #18181B;
+        --color-text-muted: rgba(24,24,27,0.62);
+        --color-text-dim: rgba(24,24,27,0.45);
+        --color-accent: #dc2626;
+        --color-jlpt-n5: #16a34a;
+        --color-jlpt-n3: #d97706;
+        --color-grammar-adverb: #ea580c;
+        --shadow-card-ring: inset 0 0 0 1px rgba(0,0,0,0.08);
+        --shadow-button-red: 0 8px 22px rgba(239,68,68,0.55);
+        --shadow-cta-red: 0 8px 24px rgba(239,68,68,0.36), inset 0 1px 0 rgba(255,255,255,0.20);
+        --shadow-hero-glow: inset 0 0 0 1px rgba(239,68,68,0.42), 0 16px 40px rgba(239,68,68,0.18);
+        --mist-fill: linear-gradient(180deg, rgba(250,250,249,0.68) 0%, rgba(250,250,249,0.88) 100%);
+        --aura-color: rgba(220,38,38,0.32);
+      }
+      .ka-screen { font-family: var(--font-sans, Inter, system-ui, sans-serif); color: var(--color-text); background: var(--color-bg); min-height: 100%; padding: 0 0 96px 0; }
+      .ka-jp { font-family: 'Noto Sans JP', system-ui, sans-serif; }
+    `;
+
+    /* ===== Mock catalog — songs (cover-art nodes) + kana checkpoints (foundation nodes) ===== */
+    /* PRODUCTION: songs swap `cover` → `https://img.youtube.com/vi/${youtube_id}/maxresdefault.jpg` per PathNode.tsx:60.
+       Kana checkpoints are NOT in current PathMap — recommended addition (your brief said
+       "each node = a song or kana milestone"; only songs are wired today). */
+    const NODES = [
+      // Foundation — kana milestones come BEFORE songs in Side A
+      { type: 'kana', slug: 'hiragana-basics', kana: 'あ', script: 'Hiragana', scriptJp: 'ひらがな', subtitle: 'あいうえお · 46 characters', tier: 'basic', state: 'mastered', stars: 3 },
+      { type: 'kana', slug: 'katakana-basics', kana: 'ア', script: 'Katakana', scriptJp: 'カタカナ', subtitle: 'アイウエオ · 46 characters', tier: 'basic', state: 'in_progress', stars: 0, progressPct: 40 },
+      // Songs
+      { type: 'song', slug: 'idol-yoasobi', title: 'アイドル', titleRomaji: 'Idol', anime: 'Oshi no Ko', tier: 'basic', state: 'mastered', stars: 3, cover: 'linear-gradient(135deg, #ff5599 0%, #ff0d6f 50%, #c9006a 100%)' },
+      { type: 'song', slug: 'gurenge-lisa', title: '紅蓮華', titleRomaji: 'Gurenge', anime: 'Demon Slayer', tier: 'basic', state: 'mastered', stars: 2, cover: 'linear-gradient(135deg, #2a0606 0%, #b91c1c 60%, #facc15 100%)' },
+      { type: 'song', slug: 'silhouette-kanaboon', title: 'シルエット', titleRomaji: 'Silhouette', anime: 'Naruto Shippuden', tier: 'basic', state: 'current', stars: 1, cover: 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)' },
+      { type: 'song', slug: 'zankyou-sanka', title: '残響散歌', titleRomaji: 'Zankyou Sanka', anime: 'Demon Slayer S2', tier: 'intermediate', state: 'in_progress', stars: 0, cover: 'linear-gradient(135deg, #042f2e 0%, #831843 60%, #be123c 100%)' },
+      { type: 'song', slug: 'kaikai-kitan', title: '廻廻奇譚', titleRomaji: 'Kaikai Kitan', anime: 'Jujutsu Kaisen', tier: 'intermediate', state: 'locked', stars: 0, cover: 'linear-gradient(135deg, #1e1b4b 0%, #6b21a8 60%, #db2777 100%)' },
+      { type: 'song', slug: 'zankoku-thesis', title: '残酷な天使のテーゼ', titleRomaji: "Zankoku na Tenshi no Thesis", anime: 'Evangelion', tier: 'advanced', state: 'locked', stars: 0, cover: 'linear-gradient(135deg, #312e81 0%, #be123c 50%, #ca8a04 100%)' },
+    ];
+
+    const TIERS = [
+      { id: 'basic', label: 'Side A · 基礎 · Beginner', icon: 'bamboo' },
+      { id: 'intermediate', label: 'Side B · 中級 · Intermediate', icon: 'torii' },
+      { id: 'advanced', label: 'Side C · 上級 · Advanced', icon: 'mountain' },
+    ];
+
+    /* ===== Tier icons (single-color, currentColor — theme-aware) ===== */
+    function TierIcon({ kind, size = 22 }) {
+      const s = { width: size, height: size, display: 'inline-block', verticalAlign: 'middle' };
+      if (kind === 'bamboo') return (
+        <svg viewBox="0 0 24 24" fill="none" style={s}>
+          <path d="M9 2v4m0 4v4m0 4v4M15 2v3m0 5v3m0 5v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <ellipse cx="9" cy="6" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
+          <ellipse cx="9" cy="14" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
+          <ellipse cx="15" cy="9" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
+          <ellipse cx="15" cy="17" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
+        </svg>
+      );
+      if (kind === 'torii') return (
+        <svg viewBox="0 0 24 24" fill="none" style={s}>
+          <path d="M3 5h18M2 8h20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          <path d="M5 8v13M19 8v13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          <path d="M5 11h14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+      );
+      if (kind === 'mountain') return (
+        <svg viewBox="0 0 24 24" fill="none" style={s}>
+          <path d="M2 20l6-10 4 6 3-4 7 8" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
+          <path d="M6 14l2-3 2 3M14 12l1.5-2 1.5 2" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round" opacity="0.5" />
+        </svg>
+      );
+      return null;
+    }
+
+    /* ===== Lantern streak (Direction A's lantern, replaces 🔥 emoji) ===== */
+    function LanternStreak({ count }) {
+      // Flame intensity scales with streak: <7 dim, 7-29 warm, 30+ blazing
+      const blaze = count >= 30 ? 1 : count >= 7 ? 0.7 : 0.45;
+      return (
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8,
+          padding: '6px 12px 6px 8px',
+          borderRadius: 'var(--radius-pill, 9999px)',
+          background: 'var(--color-card-2)',
+          boxShadow: 'var(--shadow-card-ring)',
+          fontFamily: 'Inter, system-ui, sans-serif',
+        }}>
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
+            {/* Lantern top cap */}
+            <rect x="6" y="2" width="10" height="2" rx="0.5" fill="currentColor" opacity="0.9" />
+            <line x1="11" y1="0" x2="11" y2="2" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
+            {/* Lantern body — paper warm */}
+            <ellipse cx="11" cy="13" rx="7.5" ry="9" fill="#f59e0b" opacity={0.18 + blaze * 0.5} />
+            <ellipse cx="11" cy="13" rx="7.5" ry="9" fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.6" />
+            {/* Bamboo ribs */}
+            <line x1="3.6" y1="13" x2="18.4" y2="13" stroke="currentColor" strokeWidth="0.6" opacity="0.45" />
+            <line x1="4.2" y1="9" x2="17.8" y2="9" stroke="currentColor" strokeWidth="0.5" opacity="0.35" />
+            <line x1="4.2" y1="17" x2="17.8" y2="17" stroke="currentColor" strokeWidth="0.5" opacity="0.35" />
+            {/* Flame core */}
+            <ellipse cx="11" cy="13" rx="3" ry="4.5" fill="#dc2626" opacity={blaze} style={{ animation: 'ka-flicker 1.4s ease-in-out infinite', transformOrigin: '11px 13px' }} />
+            <ellipse cx="11" cy="13" rx="1.5" ry="2.5" fill="#fef3c7" opacity={blaze * 0.85} />
+            {/* Lantern bottom cap */}
+            <rect x="6" y="22" width="10" height="2" rx="0.5" fill="currentColor" opacity="0.9" />
+          </svg>
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.05 }}>
+            <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--color-text)' }}>{count}</span>
+            <span style={{ fontSize: 9, fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>day streak</span>
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== Three-star aura — visible from path overview ===== */
+    function StarAura({ stars, size = 9 }) {
+      return (
+        <div style={{ display: 'inline-flex', gap: 2 }}>
+          {[1, 2, 3].map(i => (
+            <span key={i} style={{
+              fontSize: size,
+              color: i <= stars ? 'var(--color-jlpt-n3)' : 'var(--color-text-dim)',
+              filter: i <= stars && stars === 3 ? 'drop-shadow(0 0 3px rgba(245,158,11,0.6))' : 'none',
+              lineHeight: 1,
+            }}>★</span>
+          ))}
+        </div>
+      );
+    }
+
+    /* ===== Path Header — KitsuBeat wordmark + lantern streak + theme indicator ===== */
+    function PathHeader({ streak, themeLabel }) {
+      return (
+        <header style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '14px 16px 10px',
+          color: 'var(--color-text)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {/* KitsuBeat wordmark — fox SVG mark + name */}
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+              <ellipse cx="16" cy="20" rx="9" ry="7" fill="var(--color-grammar-adverb)" />
+              <polygon points="9,15 4,5 13,11" fill="var(--color-grammar-adverb)" />
+              <polygon points="23,15 28,5 19,11" fill="var(--color-grammar-adverb)" />
+              <ellipse cx="13" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+              <ellipse cx="19" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+              <ellipse cx="16" cy="23.5" rx="1.4" ry="1" fill="var(--color-accent)" />
+            </svg>
+            <span style={{ fontWeight: 800, fontSize: 17, letterSpacing: '-0.01em' }}>
+              Kitsu<span style={{ color: 'var(--color-accent)' }}>Beat</span>
+            </span>
+          </div>
+          <LanternStreak count={streak} />
+        </header>
+      );
+    }
+
+    /* ===== Hero Progress Block ===== */
+    function HeroProgress({ level, xpInLevel, xpToNext, nextSong }) {
+      const pct = Math.round((xpInLevel / xpToNext) * 100);
+      return (
+        <section style={{
+          margin: '4px 16px 18px',
+          padding: '14px 16px',
+          background: 'var(--color-card)',
+          borderRadius: 'var(--radius-2xl, 18px)',
+          boxShadow: 'var(--shadow-card-ring)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Level</span>
+              <span style={{ fontSize: 28, fontWeight: 800, color: 'var(--color-text)', fontFeatureSettings: '"tnum"' }}>{level}</span>
+            </div>
+            <div style={{ textAlign: 'right', lineHeight: 1.15 }}>
+              <div style={{ fontSize: 11, fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Now Learning</div>
+              <div className="ka-jp" style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-text)' }}>{nextSong}</div>
+            </div>
+          </div>
+          {/* XP bar */}
+          <div style={{ position: 'relative', height: 8, background: 'var(--color-card-2)', borderRadius: 999, overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${pct}%`, background: 'var(--color-accent)', borderRadius: 999, boxShadow: '0 0 12px rgba(220,38,38,0.5)' }} />
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6, fontSize: 11, color: 'var(--color-text-muted)', fontFeatureSettings: '"tnum"' }}>
+            <span>{xpInLevel} / {xpToNext} XP</span>
+            <span>→ Level {level + 1}</span>
+          </div>
+        </section>
+      );
+    }
+
+    /* ===== Tier divider (vinyl-record-style "Side A/B/C") ===== */
+    function TierDivider({ tier }) {
+      return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '20px 16px 12px' }}>
+          <div style={{ flex: 1, height: 1, background: 'var(--color-border-strong)' }} />
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            padding: '6px 12px',
+            background: 'var(--color-card-2)',
+            border: '1px solid var(--color-border-strong)',
+            borderRadius: 999,
+            color: 'var(--color-text-muted)',
+          }}>
+            <TierIcon kind={tier.icon} size={16} />
+            <span className="ka-jp" style={{ fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{tier.label}</span>
+          </div>
+          <div style={{ flex: 1, height: 1, background: 'var(--color-border-strong)' }} />
+        </div>
+      );
+    }
+
+    /* ===== Kana Checkpoint Node — foundation milestone, visually distinct from songs.
+         Shorter card (no cover-art panel), large kana glyph on left as identity badge,
+         signals "checkpoint" not "song." Brief said path = "song or kana milestone";
+         this slots kana milestones inline at the start of any tier. ===== */
+    function KanaCheckpointNode({ node }) {
+      const isMastered = node.state === 'mastered';
+      const isInProgress = node.state === 'in_progress';
+      const isLocked = node.state === 'locked';
+      const showAura = isMastered && node.stars === 3;
+
+      return (
+        <div style={{ position: 'relative', margin: '0 16px 14px', isolation: 'isolate' }}>
+          {showAura && (
+            <div style={{
+              position: 'absolute', inset: -3, borderRadius: 'calc(var(--radius-2xl, 18px) + 3px)',
+              background: `radial-gradient(closest-side, var(--aura-color), transparent 75%)`,
+              animation: 'ka-aura 2.4s ease-in-out infinite',
+              zIndex: 0, pointerEvents: 'none',
+            }} />
+          )}
+          <article style={{
+            position: 'relative', zIndex: 1,
+            display: 'flex', alignItems: 'center', gap: 12,
+            height: 64,
+            padding: '0 14px 0 10px',
+            borderRadius: 'var(--radius-2xl, 18px)',
+            background: 'var(--color-card)',
+            boxShadow: 'var(--shadow-card-ring)',
+            border: '1px dashed var(--color-border-strong)',
+          }}>
+            {/* Identity badge: large kana glyph in a circle */}
+            <div style={{
+              flex: '0 0 44px',
+              width: 44, height: 44,
+              borderRadius: 999,
+              background: 'var(--color-card-2)',
+              border: '1px solid var(--color-border-strong)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <span className="ka-jp" style={{
+                fontSize: 24, fontWeight: 900,
+                color: isMastered ? 'var(--color-accent)' : 'var(--color-text)',
+                lineHeight: 1,
+              }}>{node.kana}</span>
+            </div>
+            {/* Title + subtitle */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
+                <span className="ka-jp" style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-text)' }}>{node.scriptJp}</span>
+                <span style={{ fontSize: 10, fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>· {node.script}</span>
+              </div>
+              <div className="ka-jp" style={{ fontSize: 11, color: 'var(--color-text-muted)', marginTop: 2, overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{node.subtitle}</div>
+              {/* Inline progress bar for in-progress kana */}
+              {isInProgress && (
+                <div style={{ position: 'relative', height: 3, background: 'var(--color-card-2)', borderRadius: 999, overflow: 'hidden', marginTop: 5 }}>
+                  <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${node.progressPct || 0}%`, background: 'var(--color-grammar-adverb)', borderRadius: 999 }} />
+                </div>
+              )}
+            </div>
+            {/* State affordance */}
+            <div style={{ flex: '0 0 auto', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+              {!isLocked && <StarAura stars={node.stars} size={9} />}
+              {isMastered && node.stars === 3 && (
+                <span style={{ fontSize: 9, fontWeight: 700, color: 'var(--color-jlpt-n3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Mastered</span>
+              )}
+              {isInProgress && (
+                <span style={{ fontSize: 9, fontWeight: 700, color: 'var(--color-grammar-adverb)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{node.progressPct}%</span>
+              )}
+              {isLocked && (
+                <span style={{ fontSize: 9, fontWeight: 700, color: 'var(--color-text-dim)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>霧 · Locked</span>
+              )}
+            </div>
+          </article>
+          {isLocked && (
+            <div style={{
+              position: 'absolute', inset: 0, zIndex: 2,
+              borderRadius: 'var(--radius-2xl, 18px)',
+              background: 'var(--mist-fill)',
+              backdropFilter: 'blur(0.5px)',
+              pointerEvents: 'none',
+            }} />
+          )}
+        </div>
+      );
+    }
+
+    /* ===== Path Node — cover-art-as-background (Direction C) + state vocabulary ===== */
+    function PathNode({ song }) {
+      const isCurrent = song.state === 'current';
+      const isMastered = song.state === 'mastered';
+      const isLocked = song.state === 'locked';
+      const isInProgress = song.state === 'in_progress';
+      const showAura = isMastered && song.stars === 3;
+
+      return (
+        <div style={{ position: 'relative', margin: '0 16px 14px', isolation: 'isolate' }}>
+          {/* 3-star aura halo */}
+          {showAura && (
+            <div style={{
+              position: 'absolute', inset: -3, borderRadius: 'calc(var(--radius-2xl, 18px) + 3px)',
+              background: `radial-gradient(closest-side, var(--aura-color), transparent 75%)`,
+              animation: 'ka-aura 2.4s ease-in-out infinite',
+              zIndex: 0, pointerEvents: 'none',
+            }} />
+          )}
+
+          <article style={{
+            position: 'relative', zIndex: 1,
+            display: 'flex', alignItems: 'stretch',
+            height: 84,
+            borderRadius: 'var(--radius-2xl, 18px)',
+            overflow: 'hidden',
+            background: 'var(--color-card)',
+            boxShadow: isCurrent
+              ? `var(--shadow-card-ring), 0 0 0 2px var(--color-accent), var(--shadow-button-red)`
+              : 'var(--shadow-card-ring)',
+            transform: isCurrent ? 'scale(1.02)' : 'scale(1)',
+            transition: 'transform var(--duration-base, 200ms) var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1))',
+          }}>
+            {/* Cover art panel (left, ~38% width) */}
+            <div style={{
+              position: 'relative',
+              flex: '0 0 38%',
+              background: song.cover,
+              filter: isLocked ? 'grayscale(0.6) brightness(0.55)' : 'none',
+            }}>
+              {/* Title overlay on cover */}
+              <div style={{
+                position: 'absolute', inset: 0,
+                padding: '10px 10px 8px',
+                display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
+                background: 'linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.85) 100%)',
+              }}>
+                <div className="ka-jp" style={{
+                  fontSize: 14, fontWeight: 900, color: '#fff', lineHeight: 1.1,
+                  textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+                  overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+                }}>{song.title}</div>
+              </div>
+              {/* PLAY ▶ overlay on current node */}
+              {isCurrent && (
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  pointerEvents: 'none',
+                }}>
+                  <div style={{
+                    width: 42, height: 42,
+                    borderRadius: 999,
+                    background: 'rgba(0,0,0,0.45)',
+                    border: '1.5px solid #fff',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    backdropFilter: 'blur(2px)',
+                    animation: 'ka-pulse 1.6s ease-in-out infinite',
+                  }}>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 2v12l11-6z" fill="#fff" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Info panel (right) */}
+            <div style={{ flex: 1, padding: '10px 14px 10px 14px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minWidth: 0 }}>
+              <div style={{ minWidth: 0 }}>
+                <div className="ka-jp" style={{ fontSize: 11, fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{song.titleRomaji}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--color-text)', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', marginTop: 2 }}>{song.anime}</div>
+              </div>
+              {/* State row */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                {!isLocked && <StarAura stars={song.stars} />}
+                {isLocked && <span style={{ fontSize: 10, color: 'var(--color-text-dim)', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>霧 · Locked</span>}
+                {isCurrent && (
+                  <span style={{ fontSize: 9, fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Next Up</span>
+                )}
+                {isMastered && song.stars === 3 && (
+                  <span style={{ fontSize: 9, fontWeight: 700, color: 'var(--color-jlpt-n3)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Mastered</span>
+                )}
+                {isInProgress && (
+                  <span style={{ fontSize: 9, fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>In progress</span>
+                )}
+              </div>
+            </div>
+          </article>
+
+          {/* Mist overlay on locked nodes */}
+          {isLocked && (
+            <div style={{
+              position: 'absolute', inset: 0, zIndex: 2,
+              borderRadius: 'var(--radius-2xl, 18px)',
+              background: 'var(--mist-fill)',
+              backdropFilter: 'blur(0.5px)',
+              pointerEvents: 'none',
+            }} />
+          )}
+        </div>
+      );
+    }
+
+    /* ===== Continue Anchor — ONE clear action (virality #2), thumb-zone (#3) ===== */
+    function ContinueAnchor({ song }) {
+      return (
+        <div style={{
+          position: 'absolute', left: 0, right: 0, bottom: 0,
+          padding: '16px 16px 22px',
+          background: 'linear-gradient(180deg, rgba(14,14,14,0) 0%, var(--color-bg) 40%, var(--color-bg) 100%)',
+          pointerEvents: 'none',
+        }}>
+          <button style={{
+            pointerEvents: 'auto',
+            width: '100%',
+            minHeight: 56, // ≥44px tap target — virality #3
+            padding: '0 18px',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            background: 'var(--color-accent)',
+            color: '#fff',
+            border: 'none',
+            borderRadius: 'var(--radius-2xl, 18px)',
+            fontFamily: 'Inter, system-ui, sans-serif',
+            fontWeight: 700,
+            fontSize: 15,
+            letterSpacing: '0.01em',
+            boxShadow: 'var(--shadow-cta-red)',
+            cursor: 'pointer',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="none">
+                <path d="M4 2v12l11-6z" fill="#fff" />
+              </svg>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.1 }}>
+                <span style={{ fontSize: 10, fontWeight: 600, opacity: 0.85, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Continue</span>
+                <span className="ka-jp" style={{ fontSize: 15, fontWeight: 800 }}>{song}</span>
+              </div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+      );
+    }
+
+    /* ===== Path Screen ===== */
+    function PathScreen() {
+      const grouped = useMemo(() => {
+        const m = {};
+        for (const n of NODES) (m[n.tier] = m[n.tier] || []).push(n);
+        return m;
+      }, []);
+      const currentSong = NODES.find(n => n.type === 'song' && n.state === 'current');
+
+      return (
+        <div className="ka-screen">
+          <PathHeader streak={47} />
+          <HeroProgress level={8} xpInLevel={245} xpToNext={400} nextSong={currentSong?.title || ''} />
+          {TIERS.map(tier => (
+            <React.Fragment key={tier.id}>
+              <TierDivider tier={tier} />
+              {(grouped[tier.id] || []).map(n =>
+                n.type === 'kana'
+                  ? <KanaCheckpointNode key={n.slug} node={n} />
+                  : <PathNode key={n.slug} song={n} />
+              )}
+            </React.Fragment>
+          ))}
+          {/* Bottom spacer so content can scroll above ContinueAnchor */}
+          <div style={{ height: 100 }} />
+          <ContinueAnchor song={currentSong?.title || ''} />
+        </div>
+      );
+    }
+
+    /* ===== App: side-by-side dark + light ===== */
+    function App() {
+      return (
+        <div>
+          <style>{tokensCSS}</style>
+          <div style={{ display: 'flex', gap: 40, alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div>
+              <div style={{ color: '#999', fontSize: 12, fontWeight: 600, marginBottom: 12, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Dark theme · default</div>
+              <IosFrame width={390} height={844} darkMode bgColor="#0E0E0E">
+                <div data-theme="dark" style={{ height: '100%', position: 'relative' }}>
+                  <PathScreen />
+                </div>
+              </IosFrame>
+            </div>
+            <div>
+              <div style={{ color: '#999', fontSize: 12, fontWeight: 600, marginBottom: 12, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Light theme</div>
+              <IosFrame width={390} height={844} bgColor="#FAFAF9">
+                <div data-theme="light" style={{ height: '100%', position: 'relative' }}>
+                  <PathScreen />
+                </div>
+              </IosFrame>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

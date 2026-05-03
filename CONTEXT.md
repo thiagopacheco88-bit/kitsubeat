@@ -1,15 +1,21 @@
-# CONTEXT
+# Resume Context
 
-**Current Task:** Lesson cache fully ingested into Neon Postgres. 273 song_versions rows now in DB (84% of 323-song catalog); 50 manifest songs remain unlessoned (SKIP-listed for foreign-language/garbled-whisper/too-short reasons + a few still-pending Whisper repass).
-
-**Critical state:** Schema-shape mismatch on 107/273 cache files (legacy `song_slug+summary` headers + recent `slug+summary` from autonomous /loop) was resolved via new `scripts/seed/transform-lesson-shape.ts` — normalizes to LessonSchema, coerces enum drift (`N/A`→`unknown`, `demonstrative`→`other`), validates each output. 273/273 pass safeParse. `05-insert-db.ts` then upserted all 273 with 0 errors. Backup snapshot at `data/lessons-cache.pre-transform.tar.gz` (4.9MB).
+## Current Task
+Phase 14.x design revamp — three huashu-design hi-fi prototypes built and approved for `/path`, `/`, and `/songs/[slug]`. Ready to formalize via GSD and ship surface-by-surface.
 
 ## Key Decisions
-- Two-step normalize-then-ingest beat partial-ingest of just the 166 already-correct files: full transform was idempotent (re-running on a correct file is a no-op), serializer matches existing `JSON.stringify(_, null, 2)` byte-for-byte so git diff stays clean, and lessons that DID change were validated post-transform before write.
-- Top-level `cultural_context` (61 files), `summary` (107), `examples` arrays inside grammar_points were dropped on transform — none are in LessonSchema and would have been stripped by Zod on ingest anyway. No DB outcome change; recoverable from git history if ever needed.
-- Transformer committed as `f908345` so the schema-shape logic is preserved; data/ stays gitignored as before.
+- **Design language: C+A hybrid "Stage Lights on a Route"** — cover-art-as-background nodes (Direction C / music-app DNA) + tier-themed journey gravitas (Direction A / Pokemon-route metaphor: bamboo/torii/mountain icons, lantern streak, mist on locked, kana foundation cards).
+- **Phase numbering:** 14.1 = `/path` redesign · 14.2 = `/` home redesign · 14.3 = `/songs/[slug]` lesson redesign · 14.4 = virality/engagement (social activity + streak behavioral hooks, deferred from revamp).
+- **Virality concepts (from 6-slide review):** principles 1+2+3+4+6a baked into briefings; 5 + 6b deferred to 14.4. See `HUASHU-BRIEFINGS.md` "Virality goals" section.
 
 ## Next Steps
-1. Triage the ~50 unupserted manifest songs: ~9 have no youtube_id, the rest hit the loop's SKIP list (foreign-language/garbled/<150-char fragments). Consider `scripts/seed/find-geo-replacements.ts` for the geo-blocked subset.
-2. Verify ingested lessons render correctly in the UI for a few sample slugs that came through the transform path (e.g. `us-ado`, `to-be-hero-ningen-isu`, `anytime-anywhere-milet`) — check verse timing displays since `start_time_ms`/`end_time_ms` were defaulted to 0 on transformed verses (timing pipeline backfills these later via `restore-verse-order.ts`).
-3. Consider deleting `data/lessons-cache.pre-transform.tar.gz` once the UI verification confirms no regression.
+1. Run `/gsd-spec-phase 14.1-redesign-path` first (smallest surface, validates the token system survives implementation). Demos at `_temp/path-redesign/demo-CA-hybrid.html` (path), `demo-home-CA-hybrid.html`, `demo-lesson-CA-hybrid.html`.
+2. After 14.1 ships → 14.2 home → 14.3 lesson → 14.4 virality.
+3. Side fix needed first: `/path` runtime errors (missing starter song slugs `misa-no-uta-aya-hirano`, `yume-wo-kanaete-doraemon-mao`, `under-the-tree-sim`) and `/songs/[slug]` title contrast bug — small PR before redesign commits land.
+
+## Key Artifacts
+- `HUASHU-BRIEFINGS.md` — 3 ready-to-paste briefings + virality goals section
+- `_temp/path-redesign/demo-*.html` — three approved hi-fi prototypes (open in browser)
+- `_temp/path-redesign/demo-*.png` + `*-scrolled.png` — static screenshots for review reference
+- `.planning/phases/14.4-virality-engagement/INTENT.md` — stub for future virality/engagement phase
+- Asset ask outstanding: SVG version of running fox illustration (currently only PNG at `public/logo-horizontal.png`)

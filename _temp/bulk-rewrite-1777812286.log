@@ -1,0 +1,81 @@
+
+[rewrite-grammar] 454 rules selected (all unmigrated) · concurrency=4
+  [0% · 1/454 · 10s · w1] JLPT N3 Casual contraction 〜ちゃえば (= 〜てしまえば)
+  [fail w2] JLPT N3 Casual contractions in spoken Japanese — ruby tag wraps kana (must be kanji-only): <ruby>している<rt>, <ruby>している<rt>
+  [2% · 10/454 · 49s · w4] JLPT N3 Compound verbs of penetration (超える / 貫く / 届く)
+  [fail w3] JLPT N1 Compound 見透かす (see through) — expected ≥15 bullet examples, got 14
+  [fail w2] JLPT N3 Conveyance verbs of declaration: 告げる / 寄せる / かける — expected ≥15 bullet examples, got 13
+  [4% · 20/454 · 184s · w2] N/A (German) German sentence structure (SVO/V2)
+  [fail w1] JLPT N3 Full conditional 〜のなら — expected ≥15 bullet examples, got 14
+  [7% · 30/454 · 281s · w1] JLPT N2 Kanji homophones as wordplay: 最後 vs. 最期
+  [9% · 40/454 · 364s · w2] JLPT N4 Listing 〜とか (X-and-such, Y-and-such)
+  [11% · 50/454 · 432s · w3] JLPT N1 Literary 〜ずとも / 〜なくとも (even without V)
+  [fail w3] N4 Masculine sentence-ending ぜ / ぞ (assertion) — ruby tag wraps kana (must be kanji-only): <ruby>お前<rt>
+  [13% · 60/454 · 522s · w1] JLPT N2 Mimetic words for sensation: クラクラ, ぐらぐら, ふらふら
+  [15% · 70/454 · 599s · w1] JLPT N4 Noun + くらい/ぐらい (about, the size of)
+  [18% · 80/454 · 695s · w1] JLPT N4 Noun + のまま + だ (still as / unchanged)
+  [20% · 90/454 · 782s · w4] JLPT N3 Passive 〜される (with implied agent)
+  [22% · 100/454 · 871s · w4] JLPT N3 Potential negative (no one can V)
+  [24% · 110/454 · 928s · w1] N/A Present continuous for emotion
+  [fail w1] JLPT N5 Question word + より (more than X) — ruby tag wraps kana (must be kanji-only): <ruby>どこ<rt>, <ruby>どこ<rt>, <ruby>どこ<rt>
+  [26% · 120/454 · 1025s · w1] JLPT N4 Sentence-final から (reassurance 'so / because')
+  [fail w2] JLPT N4 Sentence-final さ (soft assertion, masculine) — 429 {"type":"error","error":{"type":"rate_limit_error","message":"This request would exceed your organization's rate limit of 10,000 output tokens per minute (org: a70b61b0-9cef-4a1d-bd39-9f646f40c408, model: claude-haiku-4-5-20251001). For details, refer to: https://docs.claude.com/en/api/rate-limits. You can see the response headers for current usage. Please reduce the prompt length or the maximum tokens requested, or try again later. You may also contact sales at https://claude.com/contact-sales to discuss your options for a rate limit increase."},"request_id":"req_011CafgS6ZWroSZsb3bEZiC6"}
+  [fail w3] JLPT N4 Sentence-final の (soft assertion) — ruby tag wraps kana (must be kanji-only): <ruby>こんなことになるとは思<rt>
+  [29% · 130/454 · 1149s · w3] JLPT N3 Soft imperative 〜な (verb stem + な)
+  [fail w2] JLPT N3 Slang 〜みたく (variant of 〜みたいに) — ruby tag wraps kana (must be kanji-only): <ruby>み<rt>
+  [31% · 140/454 · 1247s · w1] JLPT N2 Verb stem + そう (looks like X) chained: 〜てしまいそう
+  [33% · 150/454 · 1308s · w3] JLPT N3 Verb stem + 抜ける (pass through completely)
+  [35% · 160/454 · 1394s · w1] JLPT N3 Verb-dictionary + べき (should / ought to)
+  [37% · 170/454 · 1457s · w1] JLPT N3 Verb-passive + ながら (while being X-ed)
+  [40% · 180/454 · 1550s · w2] JLPT N4 Verb-て + くれる (do X for me, kindness)
+  [42% · 190/454 · 1617s · w4] JLPT N2 Verb-て + 出す (start to / bring out)
+  [44% · 200/454 · 1713s · w3] N3 Volitional + とする (try to / be about to)
+  [fail w4] N2 Volitional + と (literary concessive: no matter what) — ruby tag wraps kana (must be kanji-only): <ruby>どんな<rt>
+  [46% · 210/454 · 1792s · w3] JLPT N4 〜(さ)せる (saseru: causative — make/let someone do)
+  [48% · 220/454 · 1876s · w3] JLPT N2 〜きる (kiru: do thoroughly / to completion)
+  [fail w4] JLPT N3 〜うちに (while / before things change) — ruby tag wraps kana (must be kanji-only): <ruby>ふざけ<rt>
+  [fail w1] JLPT N2 〜くらいなら〜方がマシ (rather... than) — ruby tag wraps kana (must be kanji-only): <ruby>ふざ<rt>
+  [51% · 230/454 · 2044s · w3] JLPT N2 〜げ (suffix: looking like X)
+  [53% · 240/454 · 2141s · w3] JLPT N4 〜じゃないだろ (janai daro: it's not, right?)
+  [fail w4] JLPT N4 〜しか〜ない (only) — ruby tag wraps kana (must be kanji-only): <ruby>ばか<rt>, <ruby>お酒<rt>
+  [55% · 250/454 · 2233s · w1] JLPT N4 〜せる / 〜させる (causative: make someone do)
+  [57% · 260/454 · 2327s · w1] JLPT N4 〜たまま (ta mama - remaining in a state)
+  [fail w2] JLPT N5 〜だ / 〜だぜ (casual copula + emphasis) — ruby tag wraps kana (must be kanji-only): <ruby>ゲット<rt>, <ruby>バトル<rt>, <ruby>の<rt>
+  [fail w1] JLPT N5 〜だから (because) — ruby tag wraps kana (must be kanji-only): <ruby>ポケモン<rt>
+  [59% · 270/454 · 2439s · w2] JLPT N3 〜だけだ (dake da: it's only / that's all)
+  [62% · 280/454 · 2541s · w3] JLPT N2 〜だろうと / 〜ようと (no matter / even if)
+  [64% · 290/454 · 2617s · w3] JLPT N4 〜てない / 〜てる (colloquial shortening of 〜ていない / 〜ている)
+  [66% · 300/454 · 2687s · w2] JLPT N3 〜て欲しい (I want you to V)
+  [fail w1] JLPT N2 〜でさえ (even) — ruby tag wraps kana (must be kanji-only): <ruby>お金<rt>, <ruby>そんな<rt>, <ruby>それ<rt>
+  [68% · 310/454 · 2777s · w3] JLPT N2 〜とともに (to tomo ni: together with; along with)
+  [70% · 320/454 · 2875s · w1] JLPT N3 〜なくなる (come to no longer V)
+  [fail w3] JLPT N4 〜なければならない (nakereba naranai - must do) — ruby tag wraps kana (must be kanji-only): <ruby>もがき続<rt>, <ruby>これ<rt>, <ruby>この<rt>
+  [fail w2] N3 〜なくても (even if not) — ruby tag wraps kana (must be kanji-only): <ruby>お金<rt>
+  [fail w1] JLPT N4 〜ならきっと (nara kitto: if... then surely) — ruby tag wraps kana (must be kanji-only): <ruby>この<rt>
+  [fail w3] JLPT N3 〜にとって (for; from the perspective of) — ruby tag wraps kana (must be kanji-only): <ruby>キャリア<rt>
+  [fail w2] JLPT N3 〜に + emotion verb (target of feeling) — ruby tag wraps kana (must be kanji-only): <ruby>この結果<rt>, <ruby>その仕事<rt>, <ruby>その原因<rt>
+  [fail w1] JLPT N3 〜には (in order to / for the purpose of) — expected ≥15 bullet examples, got 14
+  [73% · 330/454 · 3114s · w2] JLPT N3 〜に対して (ni taishite - against/toward)
+  [75% · 340/454 · 3201s · w3] JLPT N4 〜のなら (conditional 'if it's the case that')
+  [fail w4] JLPT N3 〜のは...ことだ (definition pattern) — expected ≥15 bullet examples, got 13
+  [fail w2] JLPT N4 〜のは…だから (the reason is…because) — ruby tag wraps kana (must be kanji-only): <ruby>お金<rt>
+  [fail w3] JLPT N4 〜のは〜から (no wa ... kara) — the reason is because — expected ≥15 bullet examples, got 14
+  [77% · 350/454 · 3367s · w1] N3 〜ば〜ほど (the more X, the more Y)
+  [79% · 360/454 · 3495s · w1] N3 〜みたい / 〜みたいな (like; resembling)
+  [fail w3] JLPT N3 〜ようになる / 〜ようになりたい (become so that ~) — ruby tag wraps kana (must be kanji-only): <ruby>この<rt>
+  [fail w2] JLPT N4 〜よりも (more than ~) — comparative — ruby tag wraps kana (must be kanji-only): <ruby>お金<rt>
+  [fail w1] JLPT N3 〜より先に (before — a comparative ordering) — ruby tag wraps kana (must be kanji-only): <ruby>この問題<rt>, <ruby>その前週<rt>
+  [81% · 370/454 · 3646s · w1] JLPT N3 〜を頼りに (relying on / guided by)
+  [fail w1] JLPT N3 〜分 (extent, amount, in proportion to) — ruby tag wraps kana (must be kanji-only): <ruby>お金<rt>
+  [84% · 380/454 · 3792s · w4] JLPT N3 〜度に (each time / every time)
+  [fail w3] JLPT N4 〜前に (before X happens) — ruby tag wraps kana (must be kanji-only): <ruby>あの<rt>
+  [fail w2] JLPT N1 〜得る / 〜得ない (literary potential: 'can / can't') — expected ≥15 bullet examples, got 14
+  [fail w4] JLPT N4 〜方が (hou ga: the X option / the X side) — ruby tag wraps kana (must be kanji-only): <ruby>あ<rt>
+  [fail w3] JLPT N4 〜時には (in times of / specifically when) — expected ≥15 bullet examples, got 14
+  [86% · 390/454 · 3995s · w4] JLPT N2 〜限り (kagiri: as long as; while)
+  [88% · 400/454 · 4086s · w3] JLPT N3 まず + negative (hardly ever)
+  [fail w1] JLPT N3 なんか / なんて (nanka / nante: dismissive 'or anything like that') — ruby tag wraps kana (must be kanji-only): <ruby>お金<rt>
+  [90% · 410/454 · 4182s · w4] JLPT N4 呼びかけの よ (yobikake no yo) — vocative particle
+  [fail w3] JLPT N3 辛い vs 苦しい (kinds of pain) — ruby tag wraps kana (must be kanji-only): <ruby>ずっと苦<rt>
+
+[rewrite-grammar] done · success=419 failed=35 elapsed=4302s

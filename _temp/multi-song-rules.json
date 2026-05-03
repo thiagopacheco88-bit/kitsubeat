@@ -1,0 +1,2504 @@
+[
+  {
+    "id": "eea9babb-c91c-4f24-ab8c-557d211aaf49",
+    "name": "Conditional with \"if\" (real condition)",
+    "jlpt_reference": "English grammar",
+    "song_count": 2
+  },
+  {
+    "id": "3d8f8611-2d56-472a-a6e2-ad16e53258c5",
+    "name": "〜なき (naki: classical attributive 'without')",
+    "jlpt_reference": "JLPT N1",
+    "song_count": 3
+  },
+  {
+    "id": "1074fd8a-19fc-496a-8b3f-300946424356",
+    "name": "Classical attributive 〜き (= modern 〜い)",
+    "jlpt_reference": "JLPT N1",
+    "song_count": 2
+  },
+  {
+    "id": "54523f3b-d4de-434f-bf4d-83f6996ba846",
+    "name": "Literary negative 〜ぬ (= 〜ない)",
+    "jlpt_reference": "JLPT N1",
+    "song_count": 2
+  },
+  {
+    "id": "126ccd9e-66f4-4acc-9104-9249a8dcb57e",
+    "name": "Literary 〜ぬ (= 〜ない negative)",
+    "jlpt_reference": "JLPT N1",
+    "song_count": 2
+  },
+  {
+    "id": "805d6df1-6d92-4366-bde6-787ff7153c14",
+    "name": "〜がままに (as one pleases)",
+    "jlpt_reference": "JLPT N1",
+    "song_count": 2
+  },
+  {
+    "id": "bde81cdd-76c3-4f05-a902-d1bfdeb5ea76",
+    "name": "〜かける (kakeru - about to; on the verge of)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 5
+  },
+  {
+    "id": "d058db02-2b24-455a-8966-93a3aa65d9df",
+    "name": "〜ぬ (nu: classical negative)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 5
+  },
+  {
+    "id": "185984a3-6b3b-485d-bfdb-2e3eacebfc5c",
+    "name": "〜次第 (shidai: depending on)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 4
+  },
+  {
+    "id": "8c42f4ca-678f-4e6d-bb53-f53e3f0d8ec5",
+    "name": "〜ぐらいなら (gurai nara - rather than)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 3
+  },
+  {
+    "id": "29df37ff-d9ce-411b-a7a5-22a3104a0774",
+    "name": "〜すら (sura) — even (emphatic)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "8370cb1d-8060-46e9-8d24-2f48ae3aaf20",
+    "name": "〜ず (classical negative)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "07fbac05-29cc-43cd-a5fb-7ca41f1b1ff8",
+    "name": "〜ず literary negative",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "21037dd8-4312-4b4d-a104-0b6f3fb1f856",
+    "name": "〜だらけ (covered in, full of)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "5e544164-432c-44fb-b607-2d8ba8079da5",
+    "name": "〜であろう (de arou - probably is/will be)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "c954075b-dbc6-4228-89d8-af1be035963e",
+    "name": "〜であろうと (de arou to: whether...or)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "9e8944b8-e9e8-4e2d-ba21-43d2c497be82",
+    "name": "〜なき (literary negation, 'without')",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "3bd0850e-e997-4dcd-a7ad-acd98d329455",
+    "name": "〜ぬ archaic negative",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "deb52676-1ca8-4bac-8654-3c64f004fb23",
+    "name": "〜ぬように (nu you ni: so as not to)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "deb06140-0c90-421a-a80b-e9ea0c2d9cd7",
+    "name": "〜やしない (emphatic negative)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "49a2dab5-3388-4f4a-8bb1-89d599891ecf",
+    "name": "〜ゆく (yuku - literary 〜ていく)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "b5e73cf5-d320-4a7a-bb88-3bda9f5bb3d5",
+    "name": "〜ようと (you to) — no matter what / regardless",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "4c081e42-482f-49e5-9ec3-0af1cf210dcf",
+    "name": "〜ワケにはいかない (wake ni wa ikanai - cannot do)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "54e4ec9d-25d4-4555-b32a-8b1ab11cc621",
+    "name": "〜故に (yue ni - because of)",
+    "jlpt_reference": "JLPT N2",
+    "song_count": 2
+  },
+  {
+    "id": "7055ddcc-0f83-4d34-94ca-6b8807abd37e",
+    "name": "〜ず(に) (without doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 20
+  },
+  {
+    "id": "16cee5b1-d12f-4943-a9ed-6812dfe73d26",
+    "name": "〜なんて (nante: such a thing as)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 14
+  },
+  {
+    "id": "02522b64-19a7-422c-87d7-318afd223420",
+    "name": "〜ちゃう / 〜じゃう (casual てしまう)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 13
+  },
+  {
+    "id": "4c07593c-4c9a-4ecb-86d5-ab49c372825f",
+    "name": "〜たって (tatte: even if)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 11
+  },
+  {
+    "id": "c52c6db9-1101-4e55-a082-e883ac1fa800",
+    "name": "〜さえ (sae) — even (emphasis)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 10
+  },
+  {
+    "id": "737080ec-457d-4433-928f-56c4a1a84ee6",
+    "name": "〜きれない (unable to completely)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 8
+  },
+  {
+    "id": "e6d9fc96-2d75-41a2-9fc4-7d4f9b87129c",
+    "name": "〜だす (sudden start)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 8
+  },
+  {
+    "id": "02bb26e0-41f3-475e-8b1b-adffc0e84ef2",
+    "name": "〜合う (au: mutual action)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 8
+  },
+  {
+    "id": "0086e6bc-d5b1-4122-b312-e870381d6eb5",
+    "name": "〜くらい / ぐらい (to the extent)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 7
+  },
+  {
+    "id": "501bafd7-c57f-4d31-b9af-0c973842c36d",
+    "name": "〜ほど...ない (not to the extent)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 6
+  },
+  {
+    "id": "cf6c9f79-3a4d-4227-a32e-cced4debb9ef",
+    "name": "〜わけがない (wake ga nai) — there's no way / impossible",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 6
+  },
+  {
+    "id": "17aedcea-dd37-4c90-b25e-9b39fdd5815e",
+    "name": "〜たびに (tabi ni) — each time / every time",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 5
+  },
+  {
+    "id": "cffc19a6-57f7-43e3-b8ac-62b675c6db81",
+    "name": "〜だらけ (darake: full of; riddled with)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 5
+  },
+  {
+    "id": "82bde35d-b73c-494a-a1a0-dff9fc412303",
+    "name": "〜ほど (to the extent that)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 5
+  },
+  {
+    "id": "20b9300c-5a14-4c96-b825-3e9c51d4b7f0",
+    "name": "〜続ける (tsuzukeru: keep doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 5
+  },
+  {
+    "id": "d1afdbf7-411d-4b51-9aef-c1d29a3349e0",
+    "name": "命令形 (imperative form)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 5
+  },
+  {
+    "id": "2bed4ee1-57cb-4e01-9f36-2d0ad69d7d2d",
+    "name": "命令形 (imperative)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 5
+  },
+  {
+    "id": "f1f89628-3f5f-4bb3-863e-daf56b14f8e0",
+    "name": "〜きれない (can't completely)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "8f2a8d1a-f687-40b2-91a2-cf129120b75b",
+    "name": "〜ずに (zu ni: without doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "4bf73669-f3e6-47ed-bfae-570bfd4ea370",
+    "name": "〜としても (even if)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "abddaea4-962f-48a6-9844-0f93f895a6e8",
+    "name": "〜ないでいて (keep not doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "f5280e84-a494-4aa7-a7e7-42b878eddd0d",
+    "name": "〜のは...だ (emphasis/focus)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "52cbab2e-3236-4886-bc96-d4090e0b877b",
+    "name": "〜はずなのに (hazu nanoni: should be, but...)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "f1266fba-4132-44fc-ae60-761959d6a13d",
+    "name": "〜ようとする (you to suru) — try to / about to",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "a26c69c5-5c7e-4fae-a6b3-5b1151b1fc8f",
+    "name": "〜気がする (feel like; sense that)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 4
+  },
+  {
+    "id": "e59dfad2-264d-4e28-92dd-c02726a3a516",
+    "name": "〜きり (kiri - only/just)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "f8364773-e5b7-4064-991a-1238030f9e00",
+    "name": "〜きる (completely)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "c3e728ed-6a46-4c67-b738-edcd42a4158c",
+    "name": "〜ことない (koto nai) — absence of experience or action",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "4b13802a-8934-4bde-b923-b8d58e1ed4ce",
+    "name": "〜しかない (no choice but)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "8e997c69-58b5-41f2-84b5-f427f32e1c7b",
+    "name": "〜ず (zu: classical literary negative)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "faa6f1a8-163a-46ce-9799-d7f1278e6e24",
+    "name": "〜ずに (without doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "ea300bd1-db31-4898-a7c2-1e780ca01878",
+    "name": "〜ずに (without doing, literary)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "aa60d28f-a77f-4470-9dd7-e6927ef9f546",
+    "name": "〜たって (even if, casual)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "06b8fab5-c450-4ca3-8909-605bbac40c74",
+    "name": "〜たって (tatte) — even if (casual)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "1ef3e2d7-8393-4513-b1b6-81d93c2b1549",
+    "name": "〜たとえ〜でも (tatoe ~ demo: even if)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "feb8b0e7-b0a1-4a5b-a41e-fb91cd17b023",
+    "name": "〜たまま (ta mama — while remaining)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "c4a89586-ffd1-47dc-bb76-73608793f04c",
+    "name": "〜ならば (naraba: if)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "6da945a9-1801-47fb-97e8-d8ed22a0e68f",
+    "name": "〜なんて (such things as, dismissive)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "45d1f1c9-5d78-4779-b3a0-93e395a86711",
+    "name": "〜のだろう (speculative wonder)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "b928630d-f2f9-4445-be1e-571e01d5fad7",
+    "name": "〜まま (as it is)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "d30cf78c-842b-476b-94db-3393b8c558cc",
+    "name": "けして〜ない (never)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 3
+  },
+  {
+    "id": "486507b7-e64b-43df-bb06-05c092b878d2",
+    "name": "Emphatic prefix 真っ〜 (intensified adjective)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "f3b50770-a608-49c2-a7f9-b581de34c130",
+    "name": "Emphatic は in negative: 〜たくはない",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "aa328157-c231-4373-929e-b5a317174d6d",
+    "name": "Imperative form (命令形)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "499f3fd9-1d45-42da-b054-0bb4e6f529b7",
+    "name": "Sentence-final さ (masculine assertive)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "e3e26935-8ebc-4a9c-828b-cf2b828f8c8f",
+    "name": "Verb stem + 合う (do mutually)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "415e6c3d-c658-436d-909f-7260b242e0ee",
+    "name": "〜かけた (kaketa) — on the verge of / half-done",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "6ebc71c7-f44b-44e7-89a1-d1da6a1f5011",
+    "name": "〜かけて (on the verge of)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "afbf25e7-b1d1-4d34-9a42-3cc2f45611c7",
+    "name": "〜かしら (I wonder, feminine)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "59fe4c7b-4012-455d-846e-2994570a6a82",
+    "name": "〜きれない (kirenai - unable to completely)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "9244f9a8-5c27-498c-bc58-5102338e64e2",
+    "name": "〜くらいなら (kurai nara: rather than)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "1db7fd63-214a-48ec-a645-ab0bf035f297",
+    "name": "〜ことさえも",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "a9ccd668-c087-4714-8f75-f6eeff4c476b",
+    "name": "〜ことで",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "e40c56be-913a-4545-9aa0-c3936f994d8e",
+    "name": "〜ことは...ない (never/won't)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "9d3ce380-023c-4c4e-b4b9-91272c3f6f75",
+    "name": "〜ことも＋なく (koto mo naku - without even)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "5a435e01-ccd3-48e8-964f-d7866ab3d6ba",
+    "name": "〜さえ (even, including)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "392b26a9-be2c-4c0b-b4bf-554a36360e60",
+    "name": "〜さえ (sae - even)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "5cc608f1-af3b-446c-ba70-2ce36fd89528",
+    "name": "〜さえ(も)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "78077137-6640-4348-967b-9af035e2a736",
+    "name": "〜しかない (shika nai — no choice but to)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "361cac68-082f-46f0-8d22-6ae11c48bd5a",
+    "name": "〜じまう (jimau: end up doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "b1d83bf0-d6da-4100-9bd4-3c164698920f",
+    "name": "〜ず (zu) — without doing (literary negative)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "2e529c00-0e52-4e8d-87dd-b409eca3e8fc",
+    "name": "〜そうで〜ない",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "49d03379-0c6c-45a9-9fc5-8226fc59b3d4",
+    "name": "〜たびに (tabi ni - every time)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "1777001c-988a-4ec9-bea2-35d81c91b0a5",
+    "name": "〜ために (tame ni — in order to)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "c3fd6077-9048-44c1-b8ec-93fe565fdc2b",
+    "name": "〜だって (datte) — even / no matter",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "e8b25ad9-fce5-4f2c-ad47-284aa55d8bdb",
+    "name": "〜だって (datte: even if)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "46612091-bfa1-4534-b95c-193661602d72",
+    "name": "〜だって (even if)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "9e4a3683-a733-4525-b070-ab0eec98954a",
+    "name": "〜っと (onomatopoeia emphasis)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "30736478-1209-4c9c-a379-95333cc48584",
+    "name": "〜ていく (continuing away)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "16b82a70-2c59-453e-bcae-4043bf6b9f51",
+    "name": "〜ていける (te ikeru) — can keep doing / can go on",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "de868d75-2016-4b85-9a90-672c626c3193",
+    "name": "〜てくぜ (gonna do it - masculine)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "aba91ffa-bd0e-408c-a631-5dddd79d32ad",
+    "name": "〜てしまう (regrettable / inevitable completion)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "02ced521-5fca-472b-955f-697573868c9d",
+    "name": "〜てみせる (te miseru) — I'll show you I can!",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "1f99eab6-15e3-4fa6-bf70-e50f54f0dd58",
+    "name": "〜てやる (do forcefully/for someone)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "96ccc215-f3e3-4966-8534-a837a5933504",
+    "name": "〜てゆく (te yuku: to go on doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "94459561-d189-43ad-91ab-ae362d1c6c71",
+    "name": "〜でしかない (de shika nai: can only be)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "574fac10-4108-4f9e-95e5-5b8be3fb29b6",
+    "name": "〜というの (to iu no) — are you saying that / the fact that",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "4cff93ad-c762-48ef-aa6a-497a17f097f3",
+    "name": "〜として (assuming; as)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "f22f9bb7-a5eb-4595-bf56-8bd4eaf9cb78",
+    "name": "〜となる (to naru: to become)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "b33edd87-ba4f-4f49-94b8-ffb3581fdd96",
+    "name": "〜ないでいて (naide ite: please remain not doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "33712870-7b1f-4bde-a437-599613342f33",
+    "name": "〜ないでいる (naide iru: to remain not doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "84ad8647-ce88-433e-8049-b5aba30485a2",
+    "name": "〜ながらも (nagara mo: even while)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "1f9ecb8e-3984-4af0-9a5d-3e666f80c4fc",
+    "name": "〜なけりゃ (casual conditional)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "ffee1e24-5368-4a80-bdea-d175f88df981",
+    "name": "〜なりに (nari ni: in one's own way)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "a546c994-79ed-4d29-bd9d-f0300fd67989",
+    "name": "〜なんて",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "d1c2fd84-3422-4358-a3f8-4a8bfedbb416",
+    "name": "〜なんて (dismissive emphasis)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "109781b7-d3e2-4b79-92ad-09c5765bca5e",
+    "name": "〜なんて (nante - something like)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "6e514209-7354-41dc-b701-45a63b0ffdfe",
+    "name": "〜なんて (nante) — such a thing as / how surprising that",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "7dbbeee1-2f16-4653-971c-f14aae6c62d0",
+    "name": "〜なんて (things like)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "161d00ad-a61d-4b82-9a18-bcf409b8f6d4",
+    "name": "〜にだって (ni datte: even by)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "e2efd972-5a89-4bb8-b792-47e4f982b75d",
+    "name": "〜にでもなれる (can even become)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "4aa667f2-9a46-4fef-b83b-8130a5bfa8cc",
+    "name": "〜にも...ない (not even / no one can)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "b5402ad0-77e7-4b62-b55c-b5dcdca53349",
+    "name": "〜にも負けず (ni mo makezu) — without losing to / undaunted by",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "4f946a7b-2cd7-4d3f-8d50-045f3e8c9b1a",
+    "name": "〜のせい (because of; due to)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "e57b7b25-a0c0-4824-9fd7-5c1481c4296f",
+    "name": "〜のなら (no nara: if it is that)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "c79b712c-1aef-4787-b3a8-3081f26ca1f7",
+    "name": "〜のなら (no nara: if it's the case that)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "dd0ffa22-79c6-449e-8332-b515cb6a49d0",
+    "name": "〜のならば (if)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "afdceda7-1a51-4e56-ae49-d2e8e593ca73",
+    "name": "〜のに (despite / and yet)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "bfee67fe-e2e1-4dbb-8ddc-f0fb9d434989",
+    "name": "〜のままに (no mama ni: as it is; following)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "f2c6109f-883a-4c75-a622-2e9120d78793",
+    "name": "〜はず (should be)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "64703ae6-1ec3-4ac2-b349-0520439b1517",
+    "name": "〜はずなのに (hazu nanoni: was supposed to, but...)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "f2ab28fb-5ed2-4320-9fda-2596d622256d",
+    "name": "〜はずのない (hazu no nai) — should not have / impossible that",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "b940a4e8-981a-4b92-b67f-1c85207c47ed",
+    "name": "〜ば (ba conditional)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "c80a4167-24ba-4d70-8099-f1c99e68db91",
+    "name": "〜ばっか / ばかり (just)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "520f0c46-7414-4fca-83ae-16ab474a5bbf",
+    "name": "〜ようで (you de) — as if / it seems like",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "2d01603b-5e04-49c3-8ce1-ccbe9aadb733",
+    "name": "〜ようとして (you to shite) — trying to",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "74b4a502-1009-4243-b8ee-25f6cd55760f",
+    "name": "〜ようにする (yō ni suru — as if doing)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "d85daf5b-180a-4bbb-aa54-e0e5bd266141",
+    "name": "〜を超えて (to surpass; beyond)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "7d3cac62-978f-46e5-9446-30f4325c9b73",
+    "name": "〜を追い越す (o oikosu - to overtake)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "40bb1891-762e-486a-806b-09c33e4a1d71",
+    "name": "〜んじゃないの (n ja nai no) — isn't it that / could it be",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "71712166-a071-4407-b6f4-cdd00e2b5b2b",
+    "name": "〜んだろう (probably)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "4d7d59fa-73e7-4e7f-820f-33b1a1dd8ab1",
+    "name": "〜んでしょ (right?)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "00bcaffb-d799-4e40-bebc-6caea8c47749",
+    "name": "〜フリをする (furi wo suru: to pretend)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "919fe20e-fc4d-4c10-bcbf-59e3c672b8f6",
+    "name": "〜出す (begin to)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "367370f3-ad1c-428b-aae7-c019d497c214",
+    "name": "〜出す (to start doing; to burst out)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "001d8f70-592d-43c8-8d45-4c7b03e4c253",
+    "name": "〜合う (au - mutual/reciprocal action)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "50866c2a-f90b-401d-812b-86a0205ea941",
+    "name": "〜合う (mutual action)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "a3ddc225-8497-48cb-b1eb-045a8762b424",
+    "name": "〜次第 (depends on; up to)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "57d21878-1d09-47bf-8f5c-d695be22b48c",
+    "name": "せっかく〜のに/から (sekkaku: since the effort was made)",
+    "jlpt_reference": "JLPT N3",
+    "song_count": 2
+  },
+  {
+    "id": "a0d93554-e629-4a25-8d26-6f4bd78a227d",
+    "name": "〜ていく (te iku: keep doing; gradually)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 36
+  },
+  {
+    "id": "28040405-e731-49b2-9bb5-a082bbf34da2",
+    "name": "〜ている / 〜てる (te iru / teru) — progressive / state",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 33
+  },
+  {
+    "id": "0588f1da-7292-4efc-bebf-3d103b09b7d6",
+    "name": "〜ても (te mo) — even if / no matter",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 31
+  },
+  {
+    "id": "ebd9bcdf-2acf-4879-a970-50f98346c3cf",
+    "name": "命令形 (meireikei - imperative)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 30
+  },
+  {
+    "id": "670a043a-cc9c-4e59-958e-60a43313c364",
+    "name": "〜ば (conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 26
+  },
+  {
+    "id": "975331f4-03e3-4703-94a7-100d26eb5145",
+    "name": "〜続ける (tsuzukeru: to keep doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 23
+  },
+  {
+    "id": "4d5ffbe9-28ba-475a-a185-d090a30e75a3",
+    "name": "〜てしまう (end up doing, regrettably)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 22
+  },
+  {
+    "id": "bce4d9cb-0d2c-41fb-a910-7f1a127ba466",
+    "name": "〜たら/なら (conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 21
+  },
+  {
+    "id": "cd6b0ba0-2202-4c5e-8856-db742ca9d2bf",
+    "name": "〜なら (nara conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 21
+  },
+  {
+    "id": "47e9005b-2c76-4c7d-8e05-10d53c506123",
+    "name": "〜ように (you ni: hoping that)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 20
+  },
+  {
+    "id": "14e074d3-b63d-429f-954a-03bde8b36612",
+    "name": "〜んだ (nda: explanatory)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 19
+  },
+  {
+    "id": "9c03bf67-2944-4a87-88fe-7ef21fd1edaf",
+    "name": "〜てくれる (doing for me/us)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 18
+  },
+  {
+    "id": "4d218c66-5ade-47a3-87a1-002466891415",
+    "name": "〜ために (tame ni: for the sake of; in order to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 13
+  },
+  {
+    "id": "b275fafa-892e-45a7-94c6-8a48271031ed",
+    "name": "〜ながら (nagara) — while doing / despite",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 13
+  },
+  {
+    "id": "c25fe9ad-7563-4005-a0fb-ab434580d4b0",
+    "name": "〜おう / 〜よう (volitional — let's)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 11
+  },
+  {
+    "id": "8748faec-25ee-4167-ad26-c7b292f5fa41",
+    "name": "〜のに (noni: even though)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 11
+  },
+  {
+    "id": "3271a7b8-8e74-4372-9a57-ec39b80e8cc6",
+    "name": "〜まま (mama: as it is; unchanged)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 11
+  },
+  {
+    "id": "7db79739-81ba-4b52-9a53-5217a8826b90",
+    "name": "〜だって (datte) — even (casual)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 10
+  },
+  {
+    "id": "22f86c2b-6619-4c48-99f5-a9c7b879c17d",
+    "name": "〜られる (passive voice)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 10
+  },
+  {
+    "id": "e5c690b1-cd13-4d82-8181-dde2aba2045e",
+    "name": "〜すぎる (sugiru: too much)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 9
+  },
+  {
+    "id": "eedcd2c8-0695-4b2c-ba78-70e75b4b5c01",
+    "name": "〜てきた (te-kita: have been doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 9
+  },
+  {
+    "id": "e172f73b-9c00-439a-b0da-b24b207d7e80",
+    "name": "〜ないで (negative te-form: please don't / without doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 9
+  },
+  {
+    "id": "2cea4155-d0c8-4446-b751-95e46f54942d",
+    "name": "〜みたい (it seems like)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 9
+  },
+  {
+    "id": "2e579378-728d-4edb-bd13-a01626e0fff3",
+    "name": "命令形 (imperative form)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 9
+  },
+  {
+    "id": "da3b1a0a-498c-4ec0-abdb-14c27c8d0e37",
+    "name": "〜ようだ (you da) — it seems like / appears to be",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 8
+  },
+  {
+    "id": "53a9a336-3d93-42ce-8de2-5e5c55f7855d",
+    "name": "〜より (yori: rather than; compared to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 8
+  },
+  {
+    "id": "65590c80-9908-4a07-95ae-f27a4a3b4e51",
+    "name": "〜ておく (te oku: to do in advance; to leave as is)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 7
+  },
+  {
+    "id": "2f739636-50af-4229-a910-4750bcd341eb",
+    "name": "〜ながら (while doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 7
+  },
+  {
+    "id": "dcc7f95f-1596-4949-a869-c9886605ecf7",
+    "name": "〜ばかり (only; always doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 7
+  },
+  {
+    "id": "49fba520-a454-4d3b-913c-35e6aa990829",
+    "name": "〜んだろう (explanatory + conjecture)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 7
+  },
+  {
+    "id": "c3e347ad-c900-4eed-bdfe-27ed3388ba3e",
+    "name": "〜続ける (tsuzukeru) — to keep doing",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 7
+  },
+  {
+    "id": "abbf5947-fe80-40e4-8187-81e4c120511f",
+    "name": "〜たり〜たり (tari tari: doing things like)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 6
+  },
+  {
+    "id": "add25a2c-5fac-4d10-b8f7-b9f525b7bb74",
+    "name": "〜ちゃう (chau: end up doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 6
+  },
+  {
+    "id": "3d4deac3-728c-4eca-8706-0c56be06a795",
+    "name": "〜ても (temo - even if)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 6
+  },
+  {
+    "id": "721f7a57-3f81-4d03-b19f-52a06d22b79f",
+    "name": "〜ても (temo: even if)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 6
+  },
+  {
+    "id": "583a6e56-7874-4efd-9dc2-21b5ce2300df",
+    "name": "〜なくても (nakutemo: even without)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 6
+  },
+  {
+    "id": "140d9ca9-8cfe-4b2a-8663-041052da19e9",
+    "name": "〜のように (no you ni: like; as if)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 6
+  },
+  {
+    "id": "7faff1b1-bc1f-4d88-9eb1-4aa023616ed7",
+    "name": "〜んだ (n da) — explanatory emphasis",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 6
+  },
+  {
+    "id": "cca60ff5-153c-4c71-8859-ff59163cd7d9",
+    "name": "〜てあげる (doing for someone's benefit)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 5
+  },
+  {
+    "id": "d4fdeda5-ac36-40a6-b961-23bea04f8c6f",
+    "name": "〜てくる (te kuru) — approaching / coming toward",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 5
+  },
+  {
+    "id": "9ad9250f-098f-439a-aa33-75a528bd0041",
+    "name": "〜ても (even if)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 5
+  },
+  {
+    "id": "e099e98b-d943-471b-a6f7-60a0f158cd14",
+    "name": "〜なきゃ (nakya: gotta; must)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 5
+  },
+  {
+    "id": "b555b57f-cf53-48f5-8576-6c616934c57d",
+    "name": "〜ば conditional (ba-form)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 5
+  },
+  {
+    "id": "23e8091a-08c3-4c70-8ed9-dc7dd8361707",
+    "name": "〜かな (kana: I wonder)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "7ca38620-e36b-434c-bdad-84e764f5be5b",
+    "name": "〜けれど (although; but)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "1a68a128-09ef-4721-bc78-31074523000a",
+    "name": "〜ぜ (ze: masculine emphasis)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "c38ecbc8-8a01-4e0f-9438-02badaf7b596",
+    "name": "〜たい (want to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "d2c689cc-c7b1-4e28-b26d-c07dbe503840",
+    "name": "〜たくない (takunai: don't want to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "ef33b156-20d4-49b1-8e09-da215615b73c",
+    "name": "〜ために (tame ni: in order to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "7c4656bc-5626-4f0c-85ae-4e4806f9c7b4",
+    "name": "〜たら (if/when conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "a459cc86-7756-4f74-88aa-faea539b7abf",
+    "name": "〜たら (if/when)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "000ecab4-9750-40cb-929d-1bb492814f69",
+    "name": "〜たら (tara: if; when)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "cd5b841a-2149-42e9-b253-bbe4a270bba9",
+    "name": "〜てきた (te kita: have been doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "2645301e-25e7-440f-9993-1d996d9ff79a",
+    "name": "〜という (to iu) — called / that says / the fact that",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "1d9b0ac0-d552-4177-b1db-e647e7d490c8",
+    "name": "〜ながら (nagara - while)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "ecdf4566-dd99-4a6f-bed5-473e9ba18e84",
+    "name": "〜なくていい (nakute ii: don't have to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "3b3d1273-4dab-40d3-9c74-8baac48e041a",
+    "name": "〜のさ (explanatory + emphasis)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "8d2edf85-67d9-451b-82f0-9173a153bc0a",
+    "name": "〜のは〜だ (no wa ~ da - emphasis)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "0b73b44c-4256-49cb-9002-825f9d225b32",
+    "name": "〜はず (hazu: should; supposed to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "f04179f1-3ee7-4315-8e21-63c5593403ab",
+    "name": "〜んだよ (explanatory emphasis)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "eac3a7b9-ff96-40bd-89a8-3106f4cf1648",
+    "name": "可能形 (potential form)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 4
+  },
+  {
+    "id": "dffa622b-c837-4639-ab39-3be68fa11b4f",
+    "name": "Verb-conditional 〜ば (if X)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "c7596dae-615b-4f55-a7d3-1d9cef6a614b",
+    "name": "〜くらい (kurai: to the extent of)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "ab9d2989-50cb-4156-96ab-77405fbe9430",
+    "name": "〜させる (causative form)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "a401e623-4821-4d03-a57d-4814297122b2",
+    "name": "〜そうな (sou-na: looks like / seems)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "854c42c4-e6f0-408a-8b64-5574492ea68b",
+    "name": "〜たい (tai - want to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "d3ed0b92-cb47-4831-8156-fc0a656e1620",
+    "name": "〜たい (tai: want to do)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "19c44529-e7f9-422c-bd1c-9d9453907818",
+    "name": "〜たらいい (tara ii: it would be nice if; should)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "92ec3103-b6d8-4c6f-b8a2-6bd26a541707",
+    "name": "〜ていた (te-ita past continuous)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "f18280f7-2899-4561-9a5b-ce1ee20614a6",
+    "name": "〜てくれる",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "0fad8be0-edcd-4c2d-8707-6834f12fea3c",
+    "name": "〜てくれる (te kureru: to do for me)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "d890ac4b-b7af-48eb-8f12-df48f432af88",
+    "name": "〜てしまう (regrettable completion)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "7546c279-a5a1-4000-bb87-a6ab9ca419eb",
+    "name": "〜てみる (te-miru - try doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "04c6a3f3-050b-4db3-a56d-4ce39a4115da",
+    "name": "〜ても (te mo) — even if / even though",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "564ab366-834b-4e62-b249-58b23a66ae6b",
+    "name": "〜ても concessive (even if)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "1d33d68b-d8a1-49d8-8972-4cc7631b6b1c",
+    "name": "〜ではなくて (de wa nakute: not X, but)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "39ce1717-23ba-411c-9ba5-5136c75681e5",
+    "name": "〜ないで (please don't)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "79fbddfb-6c20-48b7-adad-e4a0f3fbd8ab",
+    "name": "〜なら (if it's the case that)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "29f331b5-95b9-49fa-8e14-84036db8c432",
+    "name": "〜なら (nara - if/conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "be1897e6-f9d8-4e0c-aa5e-dc7af14941d9",
+    "name": "〜ば (ba) — conditional (if)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "95073f58-e6ec-449d-9236-23d1a5c18c90",
+    "name": "〜ば (ba: if; conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "dc6e59f6-cab1-4b95-ba09-a00233546600",
+    "name": "〜ば いい (if you do... it's fine)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "af86cc55-afb9-481f-ac9f-9fe20507e630",
+    "name": "〜より (comparison)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "a022e6b7-6469-4f04-bc35-1d593e8e8477",
+    "name": "〜んだ (explanatory)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "ae368a16-a2e0-49a0-9c26-6cedaf7255e9",
+    "name": "〜続ける (tsuzukeru - keep doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "09478338-ebca-4c5c-8c6d-a4394ee01f8a",
+    "name": "受身形 (ukemi-kei) — passive form 〜れる/〜られる",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "6377a6a7-1b3e-4911-8cb8-98864bf64c7e",
+    "name": "命令形 (imperative)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "35fe1bcf-7f36-4dc4-877f-88123374a596",
+    "name": "命令形 (meireikei) — imperative form",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "7f4e7745-ed9a-4e7d-b6bf-85760ab59b80",
+    "name": "意向形 (volitional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 3
+  },
+  {
+    "id": "1a53d7f9-0271-4707-92d2-a1c5f2f42249",
+    "name": "Adjective stem + さ (-ness nominalizer)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "adec69fe-6548-4718-94f6-7269d7f0a984",
+    "name": "Casual masculine particles (ぞ, ぜ)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "082b854d-e694-4cc8-a651-de26ebf96b55",
+    "name": "Causative 〜(さ)せる (saseru: make/let X do)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "5cc4e34b-c3a0-437f-b8c6-e6ee757972f7",
+    "name": "Imperative form (commands)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "aecda142-2cfd-496f-af67-a6df428e5902",
+    "name": "Imperative form (命令形)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "0d5ce238-fbaf-4d65-a42f-487ed2649bd8",
+    "name": "Negative imperative 〜ないで",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "3eb9c806-9849-4f67-a02a-b22a40cc6e2b",
+    "name": "Question word + も + negative (universal negation)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "88fa7efc-df17-43ae-acac-5d603b0fcf3a",
+    "name": "Verb stem + に + 行く / 来る (go/come to do X)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "7e4813d5-4fb5-4e16-a1fa-036ce3d30b9e",
+    "name": "Volitional 〜よう / 〜おう (let's...)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "4b183a7c-28fb-445c-bd80-083c55e340b2",
+    "name": "imperative form (命令形)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "171a233e-9e0d-45bf-b46c-35012719245a",
+    "name": "volitional form 〜よう/〜おう",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "361a2299-0baa-47fc-9e10-0226de17446d",
+    "name": "〜かな (I wonder)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "88fee13d-6632-45bc-91b3-f80f677e2d0a",
+    "name": "〜かもしれない (kamoshirenai: might / perhaps)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "dbab0d5c-771f-4ddc-bc2d-5bc782e95c0f",
+    "name": "〜かもしれない (kamoshirenai: might)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "79289a36-28ac-4585-8fce-a4b764fa8ca5",
+    "name": "〜くらい (kurai - to the extent)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c1e10b8a-8cfb-4733-a326-8dd6b9a811c0",
+    "name": "〜けれど / 〜けど (keredo / kedo) — but / although",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "92c0b989-72f8-4018-888f-f83fefb68f01",
+    "name": "〜ことができる (koto ga dekiru - can do)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "d0a76e99-e909-41ce-8fc0-a8be6943b21f",
+    "name": "〜させて (sasete: let me)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "9c284416-ab60-496d-b643-11b2b554cf3f",
+    "name": "〜させる (saseru - causative form)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "7c4e4800-faed-444f-8f39-851a4473e09c",
+    "name": "〜じゃないか (janai ka: isn't it?; haven't you?)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c010cba8-cd0c-45e4-b980-0c0be9928311",
+    "name": "〜すぎる (sugiru) — too much",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "13a8f618-33dc-4f88-a4e1-9fc947df6b4a",
+    "name": "〜すぎる (too much)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "61c2db86-91a2-4477-8ca0-ca50cc52e894",
+    "name": "〜ぜ (masculine emphasis)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "0e471da0-a5fc-4486-9c83-6fcf29926111",
+    "name": "〜そう (seems like)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f8785d71-eff2-4792-8c1c-60943bc423dc",
+    "name": "〜そうだ (sou da: seems like)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "603337aa-3455-4d39-b1a8-f7710ac32620",
+    "name": "〜たい (tai) — want to do",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "5e7b515a-a44f-469f-a9fa-73cf4262156f",
+    "name": "〜たくなる (come to want to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "47072f59-3fd4-45a4-b11d-ba8b95844ae0",
+    "name": "〜ために (for the sake of)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "41119976-d21a-4d15-a2a3-25cdd77e628a",
+    "name": "〜ために (tame ni - for the sake of)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "ebfe4cc0-4e49-4f1a-956c-a07bf0c3fede",
+    "name": "〜ために (tame ni - in order to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "d5878d42-7dbd-4132-abe5-d0117ce563d2",
+    "name": "〜たら (conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "2a17b076-d005-41ef-8fb3-384be85f355f",
+    "name": "〜たら conditional",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "ba200d93-8147-407a-bc40-e813c0b9cac7",
+    "name": "〜たらいいのに (tara ii noni - if only)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "91e19061-4edb-40e3-bf73-1ab72af24f0e",
+    "name": "〜たり〜たり (do things like X, Y)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "1f3ff131-62a0-4d67-8558-41b766b7bb89",
+    "name": "〜たりする (tari suru) — sometimes / among other things",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "11db77b1-45c8-46a0-b398-a50b205d622d",
+    "name": "〜だけの (dake no: only)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "38ded77c-a9dd-456b-a865-f712aa8ed81c",
+    "name": "〜だけは (dake wa: at least)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "edb4319d-dfad-4c1a-9dcd-98f1080a491a",
+    "name": "〜だって (datte - even)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "374d6f9b-2df1-46a3-8b3b-5239c712b804",
+    "name": "〜だろう (conjecture/confirmation seeking)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "913e4c04-1325-4f0e-a831-5dbacdcdb7be",
+    "name": "〜ちゃいけない (cha ikenai: must not)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "77f68112-1870-4875-9e2f-a7e23bb8d04f",
+    "name": "〜ちゃう (chau) — casual completion / regret",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "1d182629-1348-438f-b629-52ad773cc94b",
+    "name": "〜ちゃう / 〜じゃう",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "196d5de1-8d41-4279-989a-cf3a2a46721d",
+    "name": "〜てあげる (te ageru - do for someone)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "91023e80-4a3f-461c-96a7-a6bf7bf421c6",
+    "name": "〜ていく (continuing into the future)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "22cd69af-defb-4502-a606-9d12c3fc87a6",
+    "name": "〜ていく (continuing/progressing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "fe92eda1-642d-4d21-992b-1044211c9173",
+    "name": "〜ていく (gradual change)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "b245496c-b0b1-4bdc-bac3-b100a9a0c30f",
+    "name": "〜ていく (gradual change/departure)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "e73b962a-8cce-404f-a040-0f7b68d16c4d",
+    "name": "〜ていく (moving away/continuing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "425c6290-91fd-4663-9e66-ba31b96bed9d",
+    "name": "〜ていく (te iku: to go on doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "d60cba2c-cc8b-41d7-ac05-4fadbd48520d",
+    "name": "〜ていた (te-ita past progressive)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "ac4a0d2b-a80d-4035-9f1e-b780789f67a1",
+    "name": "〜ていった (went on doing / faded away)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "a9521f29-e4fa-4546-9a35-7d00104cb7f0",
+    "name": "〜ている (continuous state)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "6a544276-01ce-4e6f-b9b0-ab8ac25d1f5f",
+    "name": "〜ている (ongoing state)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "0b255b7d-3683-4b1d-a747-6767b36d63ce",
+    "name": "〜ている (progressive/state)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "30e7b30f-bea6-4881-800e-4b953ff03b18",
+    "name": "〜ている (te iru) — ongoing state",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c1006ee2-bb5c-484d-80ae-ad5bbb40483a",
+    "name": "〜ている (te iru) — progressive / ongoing state",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "9413483f-ad20-4282-9260-c69b3fe439ce",
+    "name": "〜ている (te-iru continuous/resultative)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "03661120-0dee-4bb3-8522-8909dd9bf468",
+    "name": "〜ておく",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "ca7db727-52a6-4efd-8dd2-674fe2b2d3fb",
+    "name": "〜ておく (to do in advance; to leave as is)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c8177184-c860-4f52-997a-1cfbd0330720",
+    "name": "〜てきた (have been doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "ae56c269-01ae-4e8b-9953-1481901de442",
+    "name": "〜てきた (te kita) — have been doing (up to now)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "284f8804-f884-4be9-81d7-45f7aaf2f7fb",
+    "name": "〜てく (teku) — going on doing (casual)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "32d9b066-57cc-4a2d-bf4a-3e9b1717bed9",
+    "name": "〜てくる (te-kuru: have been doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f43b1e81-1fd0-46e9-afd9-40aced2f6271",
+    "name": "〜てくれ (te kure: do it for me! / please do)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "b87cc7bf-fae9-4deb-9599-5d206dfe2657",
+    "name": "〜てくれる (someone does for me)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "951493b7-506c-461a-a2f7-d0c50fd8985b",
+    "name": "〜てくれる (te kureru) — someone does a favor for me",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "9074955d-38c7-4d39-b83d-e8f31506e388",
+    "name": "〜てくれる (te kureru) — someone does something for my benefit",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c0e7cefe-bfbf-4e9e-93f8-5271127994f1",
+    "name": "〜てしまう",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "9bf33104-210a-408f-8cad-f08a82d68b50",
+    "name": "〜てしまう (te shimau - end up doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "3e35bf84-7b52-484a-be3f-f5fc1ffdc087",
+    "name": "〜てしまう (te shimau) — completion / regret",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "78c00a7a-3757-4db9-88be-5cfafbabce5a",
+    "name": "〜てしまう (te shimau: end up doing; regrettably)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "61654485-ebfd-4e9f-a16a-665a0c160a17",
+    "name": "〜てしまう (te-shimau accidental/regretful)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "cae3879c-bb6f-4ad6-8c29-3cea9fac54fd",
+    "name": "〜てしまう (te-shimau: end up doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "86546fa5-416f-4790-980f-c110e440d917",
+    "name": "〜てしまう / 〜てしまった (regretful completion)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c3cd432b-3728-402c-9346-258834359913",
+    "name": "〜てみる (try doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "40bfd61b-d513-40ad-871d-a5071cd5c538",
+    "name": "〜ても (te mo) — even if",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "a69edff2-3f3f-448c-899b-e75e9387fabf",
+    "name": "〜てゆく (te yuku) — progressive movement away (literary)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "63e26697-ca38-4492-949e-415a848a2672",
+    "name": "〜てゆく / 〜ていく (gradual progression)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "a23739dc-4d68-414f-97bd-b9d7b7e68c42",
+    "name": "〜てゆく / 〜ていく (te yuku / te iku) — gradual change into the future",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "684d6fd0-8657-4946-9102-9c474b79bc88",
+    "name": "〜てる (teru - continuous/result)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "33a5b194-5d40-4518-8147-556cb23320e3",
+    "name": "〜てる (teru: progressive contraction)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "1631cb54-fb11-49a2-b634-ef0b6ef701b3",
+    "name": "〜てん (casual contraction of ている)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f9788474-c2d6-4aee-8ca5-fd15d8b3319e",
+    "name": "〜でいて (please be/stay)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "aa1d0769-bf78-4bd6-9756-7f4871d1d7d4",
+    "name": "〜でしょ (desho: right?; isn't it?)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "966c10ca-5bb2-4c4a-b93a-0157fce019c9",
+    "name": "〜でしょう (deshou - probably)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "464a9697-b2a6-4dba-a2d2-7301f898b776",
+    "name": "〜ではなくて (de wa nakute) — not ~ but rather",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f376a137-ddb1-4dc0-bfd2-170b610f5e35",
+    "name": "〜とか〜とか (toka ... toka) — things like ~ and ~",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "d24529da-20ac-494c-8095-e42d1f893ff6",
+    "name": "〜ないで (naide - without/don't)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "bd108d67-343a-40b6-a3e7-a00a53123c20",
+    "name": "〜ないで (please don't / without doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "e659db0c-2823-4ebf-b1b9-6846c7d40cef",
+    "name": "〜ながら (while V-ing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "9dff88d4-55bf-406e-9728-babc7b835573",
+    "name": "〜なきゃよかった (nakya yokatta - wish I hadn’t)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "11c3e684-2567-492c-9ad3-5ec13124f2ba",
+    "name": "〜なくちゃ (nakucha: must; have to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "4bc93370-bf53-4cb2-b73e-806d101812e0",
+    "name": "〜なくちゃいけない (nakucha ikenai: must do)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f82f007d-4d42-4dd7-84f6-5009a92c99dd",
+    "name": "〜なくていい (don't have to / it's fine if not)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "db336185-093c-47a7-b476-c89baf2fc09e",
+    "name": "〜なくても (even without doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "eba17b12-2879-4006-ae05-b3db9552fd9a",
+    "name": "〜なくても (nakutemo - even without)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "58ab413a-06ca-497d-80e4-3aa02c27f093",
+    "name": "〜なよ (na yo: don't do!)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "2765d5a5-d6b6-4e4d-aaea-c9956756cf77",
+    "name": "〜なら (if; in the case of)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "12f9c2c6-2676-41cf-8ebf-4ba0ddc5b068",
+    "name": "〜にしか...ない (ni shika nai: only)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "21288264-9a21-484b-9967-548e6b11a455",
+    "name": "〜に変わる (to change into)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "d559940b-e22c-4b5f-865b-b49300ba0c3b",
+    "name": "〜に来る (ni kuru) — come to do",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "66607f63-dd4d-4666-b62b-b169bbdbbc27",
+    "name": "〜のか (rhetorical question)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "6f43bb26-4bff-445d-97c2-d53a1568dea9",
+    "name": "〜のかな (no kana) — I wonder if",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f6f9dd31-9f64-4edd-b060-d5c24ac54875",
+    "name": "〜のさ (explanatory + masculine emphasis)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "a8ff86cb-842b-4eee-b591-28f10361cd08",
+    "name": "〜のに (even though / if only)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "786cb4d7-556d-4465-b66c-49dcf066d0b5",
+    "name": "〜のに (even though)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "a2ef8b3c-5945-4b68-8b9c-662ff1ee3547",
+    "name": "〜のに (even though, despite)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "cf700b2b-a126-4cc9-b429-e689c3b6982d",
+    "name": "〜のに (noni - even though/despite)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "9f65a1b3-e84a-4a37-8864-55f482ef30de",
+    "name": "〜のよう (like)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "5b788735-d38b-439c-9839-97b724e74c38",
+    "name": "〜のようで (no you de) — it seems like / is like",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "0f81aa3c-3424-40ee-90b2-ae3ef32e043d",
+    "name": "〜の方が (no hou ga: the ... one is more)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "fcd4142b-237a-4e5a-93a5-4aa7a71e40cb",
+    "name": "〜はじめる (begin to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "74492d07-249b-45de-a4e9-c937eaadf20e",
+    "name": "〜はずのない (hazu no nai - not supposed to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "3ab85eca-9529-48bb-9585-9531475420c6",
+    "name": "〜ば (ba conditional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "b9bd6ab1-f15e-40b4-8ebd-3ce81714df23",
+    "name": "〜ば (conditional 'if')",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "8cfba72a-3280-47dc-9d34-9324ac4d9c11",
+    "name": "〜ば conditional (ba) — if",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "a7e8c3c9-985f-46f6-9aa4-4676abf8920b",
+    "name": "〜ばかり (bakari - nothing but)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "5b369ad3-1980-418c-93b5-79c681c94a80",
+    "name": "〜まで (until)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "e184d21f-f82a-41d0-95ca-6d853901dd3b",
+    "name": "〜まま (as it is; unchanged state)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "ed556754-c058-4753-b8d8-474291e0a266",
+    "name": "〜みたい",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "ac4002ff-fcdd-480b-9016-5abdc591574c",
+    "name": "〜みたいだ (it seems like; it's like)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "45e7730d-0812-4cee-ae3d-62edde7dc3e9",
+    "name": "〜みたいに (like; similar to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "52662dd3-4b86-4359-bea8-0ea58973c7a3",
+    "name": "〜みたいに (mitai ni) — like ~",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "e279daec-0760-45e3-a2bd-e95d98f21db0",
+    "name": "〜よう (you: volitional / let's)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "d003d9b6-9d39-4e07-a1cb-7558bcc63db2",
+    "name": "〜ように (just like)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f2759a19-b8d2-4290-839b-d5b8b70ccd68",
+    "name": "〜ように (so that; in order to)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "3f437ea9-70bf-4cca-aed9-0b35a6ce0099",
+    "name": "〜ように (you ni - so that)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "90bd688e-3e15-43e4-a631-d8b6a1685726",
+    "name": "〜ように (you ni) — as if / in such a way",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "086fbb4e-5edf-4573-a8a5-25b0b09acb11",
+    "name": "〜ように (you ni: so that; hoping that)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "76ad9bfe-347f-4a67-847f-2b5b5ebe1ea8",
+    "name": "〜より (yori) — more than / rather than",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c40c6111-78d8-446e-9dcc-b4ef2553cdea",
+    "name": "〜んだ (explanatory の + だ)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "f4f21250-ff2b-4d96-9877-51a6d37da33c",
+    "name": "〜んだ (nda - explanatory)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "c9f708f5-7022-402c-ad61-97a6193fa479",
+    "name": "〜んだよ (n da yo) — explanatory + emphasis",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "909f7379-f0b7-4ded-8b11-69360754110b",
+    "name": "〜んだろう (n darou) — I wonder / it must be that",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "e63ca82a-4035-4020-93c8-70d0e25f1e88",
+    "name": "〜んな (nna - casual prohibition)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "145bea2d-d068-46f3-8292-bfc51296437e",
+    "name": "〜今すぐ (ima sugu - right now)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "42324460-f06b-4b14-a6e5-3e62d81603cd",
+    "name": "〜出す (dasu - to begin)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "312577e4-0801-4db9-92e9-2befda119cba",
+    "name": "〜前に (mae ni - before)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "0dedd15b-c65f-486c-b9c3-7c2e2ec2e614",
+    "name": "〜気がする (ki ga suru: have a feeling that)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "60496340-4340-45f0-bb85-5164fe476de5",
+    "name": "〜続ける (tsuzukeru - to keep doing)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "2677b13f-36b6-4f71-aae0-70a2da9ffcb7",
+    "name": "〜続ける (tsuzukeru) — to continue doing",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "927e47f8-ceb3-4e85-9911-d6fe729f357f",
+    "name": "受身形 (ukemi-kei) — passive form 〜られる/〜れる",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "81457d16-ca54-4dd9-9a0c-433cc98ae861",
+    "name": "可能形 (kanoukei) — potential form 〜える/〜られる",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "a265d9a1-bcd1-4887-8414-b1ae265ea8e2",
+    "name": "命令形 〜ろ (ro) — imperative for ru-verbs",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "48215292-9f98-4cd8-b5c3-2491486afc4e",
+    "name": "意志形 〜よう (volitional form)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "84ae701f-be61-4777-8232-b7eccc9edc8f",
+    "name": "意志形 〜よう (volitional)",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "76c6c34a-4395-40ef-b523-04b6da3d4300",
+    "name": "頂戴 (ちょうだい) please/give me",
+    "jlpt_reference": "JLPT N4",
+    "song_count": 2
+  },
+  {
+    "id": "2f4bde8c-f15b-43bc-bcfa-191da710a386",
+    "name": "〜たい (tai: want to do)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 21
+  },
+  {
+    "id": "616aebc3-512c-44f6-9e19-52cf8f05a3e7",
+    "name": "〜から (kara) — because",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 7
+  },
+  {
+    "id": "05a47b35-f7bd-41a0-bea8-1eab6bfcd2a1",
+    "name": "〜まで (made: until)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 7
+  },
+  {
+    "id": "d795b132-df64-4e4b-a3e5-d7e9b91a942b",
+    "name": "〜だけ (dake: only; just)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 5
+  },
+  {
+    "id": "c96afb7b-cc6a-4e4a-9d11-07b5a46e566e",
+    "name": "〜て form (te-form) — sequential actions",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 5
+  },
+  {
+    "id": "0a113c07-9391-43d8-8e6d-5ab070401a09",
+    "name": "で (means/instrument particle)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 5
+  },
+  {
+    "id": "641e4f77-0f2c-4454-bd02-a23c3937033b",
+    "name": "〜な (na) — na-adjective connector",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 4
+  },
+  {
+    "id": "c1913d2d-67ba-460b-9f63-372d5520ce72",
+    "name": "〜から (because)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 3
+  },
+  {
+    "id": "4902e9be-6416-4df0-bc96-b8d0e28c500d",
+    "name": "〜ない (negative form)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 3
+  },
+  {
+    "id": "8ecf8721-70bb-427f-b94a-f56fda8500d4",
+    "name": "〜たい (want to do)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "52163f3b-9487-4cee-83a0-af995d29759c",
+    "name": "〜たくない (don't want to)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "992fbcec-b1ac-4a15-839f-4cebf06e3d04",
+    "name": "〜て form (te-form connection)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "879cbd33-9644-4207-87a3-686e2da82b11",
+    "name": "〜ていますか (te imasu ka - are you doing?)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "e6de1447-6403-4de1-a3c1-b599cacbf5d1",
+    "name": "〜ている (ongoing state / progressive)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "b648bc11-ab25-472d-955f-4b87a736c96c",
+    "name": "〜で (de - means/instrument)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "bbd3bfb6-04f5-4f3a-b8f4-92c18b31859d",
+    "name": "〜と言う (quoting with to)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "85d0b4b9-d2b4-4298-af61-cc613cfacd17",
+    "name": "〜なかった (nakatta - could not / did not)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "3298d59f-1b27-4067-aa9a-1a86589f1c3b",
+    "name": "〜も〜も (mo ... mo) — both ... and ...",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "5b163db1-475c-406d-8ba0-78b2c12d269e",
+    "name": "も particle (also/too, even)",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "dc997bc4-e7cc-40b5-8b5a-68c724ac3480",
+    "name": "何も〜ない (nani mo ... nai) — nothing / not anything",
+    "jlpt_reference": "JLPT N5",
+    "song_count": 2
+  },
+  {
+    "id": "88377396-f716-4e65-9ae0-9a8733ba908b",
+    "name": "English lyrics in anime OST",
+    "jlpt_reference": "N/A",
+    "song_count": 4
+  },
+  {
+    "id": "d2d5eaa4-0844-482c-a28f-f33de57065d8",
+    "name": "English song - no Japanese grammar",
+    "jlpt_reference": "N/A",
+    "song_count": 4
+  },
+  {
+    "id": "d60bbd29-b8f3-4f40-96fa-359378b6e814",
+    "name": "Japanese-English code-switching",
+    "jlpt_reference": "N/A",
+    "song_count": 4
+  },
+  {
+    "id": "d47f7395-db27-44bb-a9bd-a38d19bec3da",
+    "name": "German song - no Japanese grammar",
+    "jlpt_reference": "N/A",
+    "song_count": 2
+  },
+  {
+    "id": "6838a57f-38ac-4832-bcf8-0a168a794be8",
+    "name": "Past tense narration",
+    "jlpt_reference": "N/A",
+    "song_count": 2
+  },
+  {
+    "id": "22278c3f-93e6-4961-b4c2-ec34ade78140",
+    "name": "Present continuous",
+    "jlpt_reference": "N/A",
+    "song_count": 2
+  },
+  {
+    "id": "6cf047da-64ba-4f8a-aec8-1231b6cff7a0",
+    "name": "〜ぬ (literary negative ending)",
+    "jlpt_reference": "N1",
+    "song_count": 2
+  },
+  {
+    "id": "a6300249-5711-44bd-8669-96f93a59b519",
+    "name": "〜きれない (can't fully / can't completely)",
+    "jlpt_reference": "N2",
+    "song_count": 2
+  },
+  {
+    "id": "691ce281-42fe-4021-8505-a2866e663a63",
+    "name": "〜noni (〜のに) — although / despite (with regret)",
+    "jlpt_reference": "N3",
+    "song_count": 2
+  },
+  {
+    "id": "c287e411-d4c7-4404-9f30-d32876b08c64",
+    "name": "〜ずに (literary 'without doing')",
+    "jlpt_reference": "N3",
+    "song_count": 2
+  },
+  {
+    "id": "3eb8dab3-a7f6-4651-8d12-06bf363cff34",
+    "name": "〜まま (in the unchanged state of)",
+    "jlpt_reference": "N3",
+    "song_count": 2
+  },
+  {
+    "id": "75765b3c-d98d-4081-9316-dd2f85f309eb",
+    "name": "Volitional 〜よう / 〜う (let's...; intent)",
+    "jlpt_reference": "N4",
+    "song_count": 5
+  },
+  {
+    "id": "0d7a3ab4-0776-4b3a-a5be-1c1095f54d3a",
+    "name": "〜ないで (please don't / without doing)",
+    "jlpt_reference": "N4",
+    "song_count": 3
+  },
+  {
+    "id": "d7ed097a-b459-4528-9a61-076e9e69b3d5",
+    "name": "〜ながら (while doing)",
+    "jlpt_reference": "N4",
+    "song_count": 3
+  },
+  {
+    "id": "d174b63e-c564-4721-a089-f86199a1eb9e",
+    "name": "Bare imperative 〜ろ / 〜れ (direct command)",
+    "jlpt_reference": "N4",
+    "song_count": 2
+  },
+  {
+    "id": "23cf7647-acad-4ccf-bcd9-933b1d1b4ad6",
+    "name": "〜だろう (probably; surely; conjecture)",
+    "jlpt_reference": "N4",
+    "song_count": 2
+  },
+  {
+    "id": "2374a740-7777-495c-aaf4-6077d1e89d08",
+    "name": "〜ば (general conditional 'if')",
+    "jlpt_reference": "N4",
+    "song_count": 2
+  },
+  {
+    "id": "9f61e125-2fb4-4a3c-836c-9cde8ffef803",
+    "name": "〜たい (want to do)",
+    "jlpt_reference": "N5",
+    "song_count": 2
+  }
+]

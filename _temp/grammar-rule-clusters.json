@@ -1,0 +1,2656 @@
+[
+  {
+    "stem_key": "te",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "0588f1da-7292-4efc-bebf-3d103b09b7d6",
+      "name": "〜te mo (〜ても) — even if / no matter",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 45
+    },
+    "members": [
+      {
+        "id": "0588f1da-7292-4efc-bebf-3d103b09b7d6",
+        "name": "〜te mo (〜ても) — even if / no matter",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 45
+      },
+      {
+        "id": "28040405-e731-49b2-9bb5-a082bbf34da2",
+        "name": "〜te iru / 〜teru (〜ている / 〜てる) — progressive / state",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 33
+      },
+      {
+        "id": "4d5ffbe9-28ba-475a-a185-d090a30e75a3",
+        "name": "〜te shimau (〜てしまう) — end up doing / regrettably",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 29
+      },
+      {
+        "id": "9c03bf67-2944-4a87-88fe-7ef21fd1edaf",
+        "name": "〜te kureru (〜てくれる) — doing for me / us",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 21
+      }
+    ],
+    "total_song_count": 128,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "ba",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "670a043a-cc9c-4e59-958e-60a43313c364",
+      "name": "〜ba (〜ば) — general conditional",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 36
+    },
+    "members": [
+      {
+        "id": "670a043a-cc9c-4e59-958e-60a43313c364",
+        "name": "〜ba (〜ば) — general conditional",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 36
+      },
+      {
+        "id": "5dce6151-b1cb-4acf-a41a-b982cd918eb7",
+        "name": "〜ba (〜ば) — general conditional + 〜kya collapse",
+        "jlpt_reference": "N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 37,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Verb",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "e3e26935-8ebc-4a9c-828b-cf2b828f8c8f",
+      "name": "Verb stem + 合う (do mutually)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "e3e26935-8ebc-4a9c-828b-cf2b828f8c8f",
+        "name": "Verb stem + 合う (do mutually)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 2
+      },
+      {
+        "id": "bc702836-43e1-44c9-abe8-62502b04ee5e",
+        "name": "Verb stem + あう (do mutually / each other)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "2d029959-f3c1-42b9-85af-b57b4fa7e737",
+        "name": "Verb stem + そう (looks like / about to)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "038affad-3d8d-40a6-b07a-36be59779faf",
+        "name": "Verb stem + そう (looks like / seems about to)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "abe5b383-fcdc-47ed-a68d-d37a776ab4b6",
+        "name": "Verb stem + ふり(を)する (pretend to)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "38ea38c8-d28a-4b79-a8ae-ea15f060f822",
+        "name": "Verb stem + 出す (begin to / out)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "831c8b4b-7c34-4999-8ef3-85ee3c0b33db",
+        "name": "Verb stem + 出す (to start doing X)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "d0d62ba7-896a-4606-96df-865bb543f567",
+        "name": "Verb stem + 切る (do completely / to the end)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "a7fc1acb-0c41-4726-be0e-41c65b6760b5",
+        "name": "Verb stem + 合う → 〜あえる ('be able to do mutually')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "1f375515-920c-4514-b7f2-8446c13efd1a",
+        "name": "Verb stem + 抜ける (pass through completely)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "e86b55f9-9115-4a18-bb74-2d671a5d39cc",
+        "name": "Verb stem + 続ける (keep doing)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "4bba962b-d536-448a-aa51-34fbf7025ca8",
+        "name": "Verb stem + 続ける / 出逢う / 抱える: stem-form compounds",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "41c38f67-4bd2-4a2f-ae41-581675ea26a0",
+        "name": "Verb stem + 続ける / 続く (keep doing)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "ec1aa66d-bbba-403d-8abf-bba77aeeef72",
+        "name": "Verb stem + 込む (in / into / deeply)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "14eb4520-54ce-40d2-b8d7-e9fafb2dda68",
+        "name": "Verb-dictionary + ことがある (sometimes / there are times)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "a3256c71-3938-4384-8158-dc6eec0343c4",
+        "name": "Verb-dictionary + べき (should / ought to)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "455086e0-d17a-492f-996d-ddb1cf181c28",
+        "name": "Verb-dictionary + ほど (to the extent of)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "1db8500d-029f-49e2-81c4-f3877b007c5a",
+        "name": "Verb-dictionary + ように (so that — outcome-hoped)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "3ecaeb26-8b0b-46b8-a0e6-ea2075a93a90",
+        "name": "Verb-imperative 〜届け / 〜来い (rough imperative)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "c587f998-a367-4d46-b5d9-0808c2dd5fcc",
+        "name": "Verb-negative + なくなる (come to no longer X)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "2849b40c-76a9-4715-ac31-ac0bff0667e1",
+        "name": "Verb-passive + ながら (while being X-ed)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "dbff39c7-287f-403f-8d15-e8a94781a81e",
+        "name": "Verb-past + なら (counterfactual / wistful past 'if you had')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "69f50d74-4e89-4f82-8585-13dd8e819fda",
+        "name": "Verb-past + ふりをする (pretend that)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "4b108cd2-1ce2-4944-9315-6bcd9f1df251",
+        "name": "Verb-stem + がる (act as if / 3rd-person desire)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "d1d56f29-0736-4bc0-a23a-d1186910b443",
+        "name": "Verb-stem nouns (V → N)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "34413ec0-6f25-4c71-aff5-42b6f9befe61",
+        "name": "Verb-て + くる (becoming audible / approaching)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "1e1c3844-c866-4227-bed0-79e3482d6588",
+        "name": "Verb-て + くる (becoming visible / approaching)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "0fc858a8-b4fe-4b03-9f8f-346b842919de",
+        "name": "Verb-て + しまえそう ('looks like one might be able to fully do')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "20f58d71-abe8-491c-8cda-913d48a5a36f",
+        "name": "Verb-て + は + verb (cyclic 'do X then Y, repeatedly')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "9ccee499-2682-43af-a013-cd782c64be11",
+        "name": "Verb-て + まで (going so far as / even at the cost of)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 31,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "chau",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "02522b64-19a7-422c-87d7-318afd223420",
+      "name": "〜chau / 〜jau (〜ちゃう / 〜じゃう) — casual 〜te shimau",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 19
+    },
+    "members": [
+      {
+        "id": "02522b64-19a7-422c-87d7-318afd223420",
+        "name": "〜chau / 〜jau (〜ちゃう / 〜じゃう) — casual 〜te shimau",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 19
+      },
+      {
+        "id": "9a24ae2d-56dd-4dfd-81bf-39aac4839fff",
+        "name": "〜chau (〜ちゃう) — regretful / unintended completion",
+        "jlpt_reference": "N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 20,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Verb",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "dffa622b-c837-4639-ab39-3be68fa11b4f",
+      "name": "Verb-conditional 〜ば (if X)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 3
+    },
+    "members": [
+      {
+        "id": "dffa622b-c837-4639-ab39-3be68fa11b4f",
+        "name": "Verb-conditional 〜ば (if X)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 3
+      },
+      {
+        "id": "88fa7efc-df17-43ae-acac-5d603b0fcf3a",
+        "name": "Verb stem + に + 行く / 来る (go/come to do X)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "f61e046a-0e69-4453-b510-f19af207e3c1",
+        "name": "Verb conditional 〜ば",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "98fd3ff8-863b-4f07-8c16-3c9418de2f95",
+        "name": "Verb stem + たい / たくない / たくても (want to / don't want to / even if I want)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "cac5d72f-9762-4be4-bf78-736903742504",
+        "name": "Verb-dictionary + ために (in order to)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "d9505111-5d86-4284-8368-f49fb91e7282",
+        "name": "Verb-dictionary + ような (like / a kind of)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "e2a53cb9-6aa0-4c6d-be05-349afdbfeba7",
+        "name": "Verb-negative + ければ (if not X)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "648729f2-42dc-4ad0-ae4b-17091b5d876c",
+        "name": "Verb-negative + で (soft prohibition: 'don't')",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "6c25bee7-9596-4ce7-b540-47efe6f4fc4a",
+        "name": "Verb-negative + で (soft prohibition: please don't)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "fe7d49b6-d474-4af7-ae0e-363fb34e3baf",
+        "name": "Verb-past + り (representative actions: 〜たり)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "eaba5b66-3832-4a2f-9516-62f3c1c440d0",
+        "name": "Verb-stem + に + 行く/来る (go/come to do X)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "4b321624-7af5-4a78-b246-ceb26059aff9",
+        "name": "Verb-て + あげよう (let's do for someone)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "04594c6a-d78a-4d96-be63-17d18ed87e27",
+        "name": "Verb-て + くれる (do X for me, kindness)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "d43300f2-2b54-4b70-8592-b26742b8696d",
+        "name": "Verb-て + しまう (end up doing — regret)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "02941649-bab8-4469-ab5d-b2fd627eb294",
+        "name": "Verb-て + たい (= 〜たくて) — wanting to + and",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "3a06aa1f-036b-4579-83da-7b008937ac1d",
+        "name": "Verb-て + みる (try doing) and stacking",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 19,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Casual",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "1748bdba-278c-40bb-964c-375e2f516277",
+      "name": "Casual / Kansai-flavoured negative 〜ん (= 〜ない)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "1748bdba-278c-40bb-964c-375e2f516277",
+        "name": "Casual / Kansai-flavoured negative 〜ん (= 〜ない)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "df0f8c5f-b46d-46d6-a722-f45db5570942",
+        "name": "Casual conditional 〜たって (= 〜ても)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "f1e08d6a-56c5-4b92-8b4d-049b1f541c7e",
+        "name": "Casual conditional 〜なきゃ (= 〜なければ)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "4682e0c4-ed8f-4a5b-ba08-6a20b36d72f1",
+        "name": "Casual contraction 〜え / 〜ねぇ (rough masculine)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "95ec42e5-91b0-46ef-a34d-227eaab80b7a",
+        "name": "Casual contraction 〜ちゃ / 〜じゃ (= 〜ては / 〜では)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "56099343-bbb7-4832-97ab-e28c5951fc8b",
+        "name": "Casual contraction 〜ちゃえば (= 〜てしまえば)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "f11415eb-be5b-4339-8b6b-71ab79abc872",
+        "name": "Casual contraction 〜てった (= 〜ていった)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "70a54ab2-57b5-4d8d-afd0-ba549ba7aa6f",
+        "name": "Casual contraction 〜てても (= 〜ていても)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "e34d3207-6167-40d9-87d2-2fc18488c5be",
+        "name": "Casual contractions (わかんない, やっぱ, どっか, ポッケ)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "78419045-e681-433b-8a05-bf22e38f316d",
+        "name": "Casual contractions in spoken Japanese",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "6788c73c-a15d-4658-bdc0-c6d53710f1b3",
+        "name": "Casual quotative-ending って (= I said)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "ad0cab45-5722-4a89-8230-110aedfd20fb",
+        "name": "Casual reasoning 〜もん (because — colloquial)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "6a6c10e6-4266-4f93-84b1-c53960522dce",
+        "name": "Casual 〜ばっか (= 〜ばかり, only / nothing but)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "f0bae0d9-4d66-496f-8e42-002c2d749a9e",
+        "name": "Casual ら抜き / 〜らんない (rough male contraction)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 14,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Literary",
+    "jlpt": "N1",
+    "canonical": {
+      "id": "54523f3b-d4de-434f-bf4d-83f6996ba846",
+      "name": "Literary negative 〜ぬ (= 〜ない)",
+      "jlpt_reference": "JLPT N1",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "54523f3b-d4de-434f-bf4d-83f6996ba846",
+        "name": "Literary negative 〜ぬ (= 〜ない)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 2
+      },
+      {
+        "id": "126ccd9e-66f4-4acc-9104-9249a8dcb57e",
+        "name": "Literary 〜ぬ (= 〜ない negative)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 2
+      },
+      {
+        "id": "afbf80aa-35ff-498f-a1c5-d8ae2c0078d9",
+        "name": "Literary attributive 〜き",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "52e4412f-86eb-4e0d-80c9-ae9d0df0a8e8",
+        "name": "Literary attributive 〜き (= modern 〜い)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "932b9e0a-ec89-4115-92e6-08f914575010",
+        "name": "Literary attributive 〜き / 〜なき (no / without)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "c9fb15b2-a03f-4167-b174-7b7f929f335d",
+        "name": "Literary attributive 〜き / 〜ぬ",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "ef861248-7ba5-416f-b779-f6d0d399ebe9",
+        "name": "Literary contrastive 〜えど (although / even though)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "9f1dc6ec-1c87-4781-ace9-5c2aba3e624c",
+        "name": "Literary imperative 〜よ (with Group-2 verbs)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "4cd50cdf-c69d-4013-985b-89db7fd83b78",
+        "name": "Literary 〜ずとも / 〜なくとも (even without V)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "9abe690b-d92d-43ca-987d-4b2b144f410d",
+        "name": "Literary negative attributives 〜なき / 〜ぬ",
+        "jlpt_reference": "N1",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 12,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Verb",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "27b9379f-f0be-48ec-912a-c0f43bbbf8d8",
+      "name": "Verb stem + そう (looks like X) chained: 〜てしまいそう",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "27b9379f-f0be-48ec-912a-c0f43bbbf8d8",
+        "name": "Verb stem + そう (looks like X) chained: 〜てしまいそう",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "acb5af46-3b97-4c74-9476-174cbdc91661",
+        "name": "Verb stem + 切る (do completely) + ない (negation): 〜きれない",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "a9fd1252-391d-462e-ab1f-f625a2b6be12",
+        "name": "Verb stem + 切る → 〜きれない (cannot fully X)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "177ade3e-af43-4242-9b24-0483f6ab57c6",
+        "name": "Verb stem + 戻す (return / take back)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "08ebf5c5-e26d-4126-a065-0d1f93e7fb5d",
+        "name": "Verb stem + 抜く (do X to the end / through)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "0ba0761b-13ae-4679-bfd0-2e6eabb8728f",
+        "name": "Verb stem + 続く (keep doing X — intransitive)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "2f5db940-8533-4151-9195-3e373cc19ddc",
+        "name": "Verb stem + 飽きる (grow tired of doing X)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "98695578-f3da-4d16-9dd9-25001f41ef45",
+        "name": "Verb-negative-stem + ずに + いる (be in a state of not having done)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "2cd4c0fc-54c5-4334-8ab2-6f5fd1acb04f",
+        "name": "Verb-stem + 尽くす / 去る (compound aspect endings)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "3528c74a-0d24-4dc1-8b3f-76d09082a5ea",
+        "name": "Verb-て + ゆけ (literary imperative + go)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "d8256f6e-fee4-4c8b-9a9e-e9f0a617eb82",
+        "name": "Verb-て + 出す (start to / bring out)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 11,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "English",
+    "jlpt": "N/A",
+    "canonical": {
+      "id": "88377396-f716-4e65-9ae0-9a8733ba908b",
+      "name": "English lyrics in anime OST",
+      "jlpt_reference": "N/A",
+      "song_count": 4
+    },
+    "members": [
+      {
+        "id": "88377396-f716-4e65-9ae0-9a8733ba908b",
+        "name": "English lyrics in anime OST",
+        "jlpt_reference": "N/A",
+        "song_count": 4
+      },
+      {
+        "id": "d2d5eaa4-0844-482c-a28f-f33de57065d8",
+        "name": "English song - no Japanese grammar",
+        "jlpt_reference": "N/A",
+        "song_count": 4
+      }
+    ],
+    "total_song_count": 8,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Classica",
+    "jlpt": "N1",
+    "canonical": {
+      "id": "1074fd8a-19fc-496a-8b3f-300946424356",
+      "name": "Classical attributive 〜き (= modern 〜い)",
+      "jlpt_reference": "JLPT N1",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "1074fd8a-19fc-496a-8b3f-300946424356",
+        "name": "Classical attributive 〜き (= modern 〜い)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 2
+      },
+      {
+        "id": "66d0a631-c188-4c91-a485-16fd10b2b8bd",
+        "name": "Classical negative 〜ぬ (= ない)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "c3263981-8d8e-44bb-b499-0e35e13ed254",
+        "name": "Classical negative 〜ぬ / 〜ず",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "90efe3f8-aa6d-41bd-9ba2-e7afe965372d",
+        "name": "Classical 〜し (literary past)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "8eb4cbfb-f778-411c-a62c-d8bbccae4774",
+        "name": "Classical/literary endings: 〜き〜かな",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "387685f9-226a-4a8f-8f60-d1ea220c85e2",
+        "name": "Classical/literary negative 〜ぬ (= 〜ない)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 7,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Compound",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "e1516b8b-589b-450b-ad00-807ed0e7a1e0",
+      "name": "Compound stem-form chains (V-stem + V-stem)",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "e1516b8b-589b-450b-ad00-807ed0e7a1e0",
+        "name": "Compound stem-form chains (V-stem + V-stem)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "8b2bd6c4-22e0-4eea-b979-fa0e330e4e4c",
+        "name": "Compound suffix 〜抜ける (race / pass through)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "0ff96aa8-00aa-470f-a22a-f86b94bab952",
+        "name": "Compound verb suffix 〜抜く / 〜出す",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "95c8283f-791b-47bc-9144-e72815687faf",
+        "name": "Compound verb suffix 〜抜く / 〜出す / 〜寄せる",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "d28ae284-a602-4861-828d-cc012fdf10c9",
+        "name": "Compound verbs with 〜落ちる / 〜潰す / 〜絞る (verb + verb)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "645340f4-3261-4f73-94af-14140fdd1be4",
+        "name": "Compound verbs 〜落ちる / 〜去る / 〜乗せる (verb + verb compounds)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "a83c4fb6-19e7-4998-9201-b650eb9a213d",
+        "name": "Compound verbs (literary completion / direction)",
+        "jlpt_reference": "N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 7,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Sentence",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "499f3fd9-1d45-42da-b054-0bb4e6f529b7",
+      "name": "Sentence-final さ (masculine assertive)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "499f3fd9-1d45-42da-b054-0bb4e6f529b7",
+        "name": "Sentence-final さ (masculine assertive)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 2
+      },
+      {
+        "id": "61ecfaf7-9252-413e-8f99-7c957597d50c",
+        "name": "Sentence-final ending やん (Kansai)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "1706406b-546d-47c9-8ed4-ab47fd2cc145",
+        "name": "Sentence-final さ / ぜ (masculine assertive)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "151afb20-72d6-4005-a410-779b92e0d4c6",
+        "name": "Sentence-final ぜ / さ / ぞ (masculine emphatic particles)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "e197dc7e-9603-4833-bf83-61724ae37a58",
+        "name": "Sentence-final のに (yet / even though, leaving the rest unsaid)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "30b04b76-caad-48e7-9321-f6d7b88de9b4",
+        "name": "Sentence-final わ (soft feminine assertion)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 7,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Casual",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "adec69fe-6548-4718-94f6-7269d7f0a984",
+      "name": "Casual masculine particles (ぞ, ぜ)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "adec69fe-6548-4718-94f6-7269d7f0a984",
+        "name": "Casual masculine particles (ぞ, ぜ)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "6668dc26-fc57-47f2-b760-3598380a1515",
+        "name": "Casual contraction 〜だろう → 〜だろ → 〜ろ",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "bcba6d53-de9f-41bb-a66f-019fb518b943",
+        "name": "Casual contraction 〜てる (= 〜ている)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "cf6e73bb-a346-42ce-a5be-6148f17d1642",
+        "name": "Casual contraction 〜てんだ (= 〜ているんだ)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "4ad6715d-eff7-4267-919d-7af9bf395504",
+        "name": "Casual contrastive 〜けど (but)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "688d1e06-053a-404f-ad6f-4b664078d8a4",
+        "name": "Casual emphatic 〜くって / 〜って (= 〜くて / 〜て)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 7,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Emphatic",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "486507b7-e64b-43df-bb06-05c092b878d2",
+      "name": "Emphatic prefix 真っ〜 (intensified adjective)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "486507b7-e64b-43df-bb06-05c092b878d2",
+        "name": "Emphatic prefix 真っ〜 (intensified adjective)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 2
+      },
+      {
+        "id": "f3b50770-a608-49c2-a7f9-b581de34c130",
+        "name": "Emphatic は in negative: 〜たくはない",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 2
+      },
+      {
+        "id": "93fc9d81-bd5c-41d1-85b8-4b21f9333d40",
+        "name": "Emphatic 〜だからこそ (precisely because)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "b61425ca-3bb1-4ccc-b93c-8d6ada5f4536",
+        "name": "Emphatic 自分自身 (one's very self)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 6,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Volition",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "8dee202b-8be6-44a8-aa57-ad7a3e16724d",
+      "name": "Volitional + ぜ (let's X, masculine)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "8dee202b-8be6-44a8-aa57-ad7a3e16724d",
+        "name": "Volitional + ぜ (let's X, masculine)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "42683024-ba3a-4f0a-abf1-b248c7c77e72",
+        "name": "Volitional + として (try to do X)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "2a0e9c2b-f321-48a1-87b9-ab187df5c3b8",
+        "name": "Volitional + とも / 〜ても (even if)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "205720cd-5a13-4f24-851d-ae85a57d9052",
+        "name": "Volitional 〜よう/〜おう + ぜ (rough male 'let's')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "2693fb6a-3bb5-444b-a789-bbfcfb25b118",
+        "name": "Volitional 〜ようぜ (rough male 'let's')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "a6fc93c6-8bf6-497b-8727-793ffa0354e8",
+        "name": "Volitional + とする (try to / be about to)",
+        "jlpt_reference": "N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 6,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Adjectiv",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "1a53d7f9-0271-4707-92d2-a1c5f2f42249",
+      "name": "Adjective stem + さ (-ness nominalizer)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "1a53d7f9-0271-4707-92d2-a1c5f2f42249",
+        "name": "Adjective stem + さ (-ness nominalizer)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "520c013d-16bf-4a33-978a-c2a691a7dfb6",
+        "name": "Adjective + さ (-ness nominalizer)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "f5109671-bca8-4489-a260-59a0f1aca5d8",
+        "name": "Adjective stem + すぎる (too X)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "af46a8b8-7bd5-476f-89a4-502d8d1e9d7e",
+        "name": "Adjective stem + そう ('looks X' — for others' visible feelings)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "91437b6f-da66-4e4c-a38c-2dde4c4b6aba",
+        "name": "Adjective-stem + も + ない (negative emphasis)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 6,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Imperati",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "5cc4e34b-c3a0-437f-b8c6-e6ee757972f7",
+      "name": "Imperative form (commands)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "5cc4e34b-c3a0-437f-b8c6-e6ee757972f7",
+        "name": "Imperative form (commands)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "aecda142-2cfd-496f-af67-a6df428e5902",
+        "name": "Imperative form (命令形)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "8442f9d8-d20b-4ba8-86e4-62307f689923",
+        "name": "Imperative form (command)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "c5453237-5db4-45b6-b618-54ec8ad9bc9c",
+        "name": "Imperative stacking (見ろ / 来い / 考えろ)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 6,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Noun",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "040e3a73-cfa6-4e7c-ab8c-64d343a4ac6c",
+      "name": "Noun + くらい/ぐらい (about, the size of)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "040e3a73-cfa6-4e7c-ab8c-64d343a4ac6c",
+        "name": "Noun + くらい/ぐらい (about, the size of)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "1c1c4e8a-e99a-43e9-9628-273f857854e8",
+        "name": "Noun + のまま + だ (still as / unchanged)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "823c3091-c8fc-4395-bac3-dfc4177bb118",
+        "name": "Noun repetition for emphasis",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "45c28978-9d8d-4306-b470-535327fe61b0",
+        "name": "Noun-modifying verb clauses (whole clause modifying a noun)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "3ce609eb-027e-43ad-befe-0dc6afd0f7c0",
+        "name": "Noun/adjective + まま (in the unchanged state of)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "4721f670-5c1b-4c57-ae15-9857ec60b65f",
+        "name": "Noun/clause + のように (like, in the manner of)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 6,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "可能形",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "eac3a7b9-ff96-40bd-89a8-3106f4cf1648",
+      "name": "可能形 (potential form)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 4
+    },
+    "members": [
+      {
+        "id": "eac3a7b9-ff96-40bd-89a8-3106f4cf1648",
+        "name": "可能形 (potential form)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 4
+      },
+      {
+        "id": "81457d16-ca54-4dd9-9a0c-433cc98ae861",
+        "name": "可能形 (kanoukei) — potential form 〜える/〜られる",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      }
+    ],
+    "total_song_count": 6,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Compound",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "6607b521-129a-4f8a-a598-154c4704c92c",
+      "name": "Compound stem chaining 〜続け (keep V-ing — stem form)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "6607b521-129a-4f8a-a598-154c4704c92c",
+        "name": "Compound stem chaining 〜続け (keep V-ing — stem form)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "781066f3-ec53-44fd-836e-4e37306151a8",
+        "name": "Compound suffix 〜出す (begin / set out)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "94848eed-fc96-4513-9b3a-d3a6149bf216",
+        "name": "Compound suffix 〜込む (deeply / into)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "d7bca2de-562e-418b-96c2-13dc220992a7",
+        "name": "Compound verbs of penetration (超える / 貫く / 届く)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "5289aed5-49cc-41bd-ab8c-cd25f8668330",
+        "name": "Compound verbs with 〜込む (do thoroughly / deeply)",
+        "jlpt_reference": "N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 5,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Potentia",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "75cf046d-abd9-47ec-b094-0e46f951274e",
+      "name": "Potential conditional 〜たら (if I could X)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "75cf046d-abd9-47ec-b094-0e46f951274e",
+        "name": "Potential conditional 〜たら (if I could X)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "bb484d91-de44-439b-afef-63b70acbf21d",
+        "name": "Potential negative (no one can V)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "981dfe86-0598-4770-a6f1-938771d78553",
+        "name": "Potential negative 〜られない (can't / unable to)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "38d6fca3-f73a-40d9-aada-5808b501f14d",
+        "name": "Potential of cognition: 〜と思える / 〜と感じられる",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "0b828a6c-9211-45c5-a497-2c09feb2185e",
+        "name": "Potential of compound continuous: 〜ていられる / 〜てゆける",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 5,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Vocative",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "0d0ae911-7877-444a-af4d-fa7b442d045a",
+      "name": "Vocative 〜よ (O ~ / addressing abstractions)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "0d0ae911-7877-444a-af4d-fa7b442d045a",
+        "name": "Vocative 〜よ (O ~ / addressing abstractions)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "9442e232-ccb0-45d0-a4e1-c66a31543a35",
+        "name": "Vocative 〜よ + imperative",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "608aa2af-cf32-4e20-af9c-fcb53d6dc176",
+        "name": "Vocative よ (literary direct address)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "02c6ee2f-23ef-4d41-9cea-d2f359ac839f",
+        "name": "Vocative よ (poetic direct address)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "51099504-d46e-4fa5-8521-8830ea636e5f",
+        "name": "Vocative 君よ (poetic direct address)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 5,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "気がする",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "a26c69c5-5c7e-4fae-a6b3-5b1151b1fc8f",
+      "name": "〜気がする (feel like; sense that)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 4
+    },
+    "members": [
+      {
+        "id": "a26c69c5-5c7e-4fae-a6b3-5b1151b1fc8f",
+        "name": "〜気がする (feel like; sense that)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 4
+      },
+      {
+        "id": "49317de1-82dc-43f4-8b14-cf79ca16c647",
+        "name": "〜気がする (feel that / have a feeling)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 5,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "受身形",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "09478338-ebca-4c5c-8c6d-a4394ee01f8a",
+      "name": "受身形 (ukemi-kei) — passive form 〜れる/〜られる",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 3
+    },
+    "members": [
+      {
+        "id": "09478338-ebca-4c5c-8c6d-a4394ee01f8a",
+        "name": "受身形 (ukemi-kei) — passive form 〜れる/〜られる",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 3
+      },
+      {
+        "id": "927e47f8-ceb3-4e85-9911-d6fe729f357f",
+        "name": "受身形 (ukemi-kei) — passive form 〜られる/〜れる",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      }
+    ],
+    "total_song_count": 5,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "意志形",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "48215292-9f98-4cd8-b5c3-2491486afc4e",
+      "name": "意志形 〜よう (volitional form)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "48215292-9f98-4cd8-b5c3-2491486afc4e",
+        "name": "意志形 〜よう (volitional form)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "84ae701f-be61-4777-8232-b7eccc9edc8f",
+        "name": "意志形 〜よう (volitional)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "a238903f-35ed-4570-81f0-d3f31b717263",
+        "name": "意志形 + よ (volitional + yo: let's)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 5,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Compound",
+    "jlpt": "N1",
+    "canonical": {
+      "id": "36777154-ab2b-4e67-8e2e-55fc6c689c23",
+      "name": "Compound 〜打ち明ける (open up about / reveal)",
+      "jlpt_reference": "JLPT N1",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "36777154-ab2b-4e67-8e2e-55fc6c689c23",
+        "name": "Compound 〜打ち明ける (open up about / reveal)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "3448628f-0ff4-4ab4-8db0-ded52a71c34c",
+        "name": "Compound 〜抜く (V through to the end)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "5fad904b-98e6-4914-a9ff-5f82da53e411",
+        "name": "Compound 〜暴く (literary 'expose')",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "258d49ad-65d8-43be-ac61-67a80c671cad",
+        "name": "Compound 見透かす (see through)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 4,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Yojijuku",
+    "jlpt": "N1",
+    "canonical": {
+      "id": "9bf05e56-3428-4382-a996-4b65bc6e5e79",
+      "name": "Yojijukugo (4-character idioms) — 喜怒哀楽",
+      "jlpt_reference": "JLPT N1",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "9bf05e56-3428-4382-a996-4b65bc6e5e79",
+        "name": "Yojijukugo (4-character idioms) — 喜怒哀楽",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "e19578d9-dbce-48cf-badd-bea144d27e8e",
+        "name": "Yojijukugo (four-character compounds)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "acf5e436-7b99-4a00-9dce-916e1ad0732e",
+        "name": "Yojijukugo (four-character idioms)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "80a9c160-2b11-4c68-b860-1dc84103e905",
+        "name": "Yojijukugo: 全身全霊 (with body and soul)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 4,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Literary",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "2a1e91fc-544f-4955-bab7-78a4c17e9a9b",
+      "name": "Literary conditional 〜のならば (= 〜のなら)",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "2a1e91fc-544f-4955-bab7-78a4c17e9a9b",
+        "name": "Literary conditional 〜のならば (= 〜のなら)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "27c2efd2-6cd7-4b1f-a611-872f95e8e715",
+        "name": "Literary verbs: 歩く vs. 歩む",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "d0b20409-6f1b-4dc7-9885-213082dc7dcf",
+        "name": "Literary なお (still / nonetheless)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "5a518a48-c10e-4fc1-b5a0-9aea6c68ec84",
+        "name": "Literary 未だ (still, yet)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 4,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Noun",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "a35c8fc2-8fce-4dde-8d2f-4674fbb70d3a",
+      "name": "Noun + という名の (called / named — emphatic)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "a35c8fc2-8fce-4dde-8d2f-4674fbb70d3a",
+        "name": "Noun + という名の (called / named — emphatic)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "8150e490-59a5-42c1-bb48-88f14175b1b4",
+        "name": "Noun + の方 / 〜の方じゃない (the side of / not the side of)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "6299134a-1685-4f19-a050-1af540cd715a",
+        "name": "Noun + 通り (as / according to)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "2f78107b-86a0-42a0-b676-ad14ee71d60c",
+        "name": "Noun stacking (list form)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 4,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "出す",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "919fe20e-fc4d-4c10-bcbf-59e3c672b8f6",
+      "name": "〜出す (begin to)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "919fe20e-fc4d-4c10-bcbf-59e3c672b8f6",
+        "name": "〜出す (begin to)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 2
+      },
+      {
+        "id": "367370f3-ad1c-428b-aae7-c019d497c214",
+        "name": "〜出す (to start doing; to burst out)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 2
+      }
+    ],
+    "total_song_count": 4,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Causativ",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "082b854d-e694-4cc8-a651-de26ebf96b55",
+      "name": "Causative 〜(さ)せる (saseru: make/let X do)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "082b854d-e694-4cc8-a651-de26ebf96b55",
+        "name": "Causative 〜(さ)せる (saseru: make/let X do)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "20385c1b-114d-4181-ad5f-8ff8344fde82",
+        "name": "Causative form 〜させる / 〜せる",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "68312db4-3e2a-4090-bda2-c4a0a1c8a9ac",
+        "name": "Causative 〜せる / 〜させる (make/let X do)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 4,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Present",
+    "jlpt": "N/A",
+    "canonical": {
+      "id": "22278c3f-93e6-4961-b4c2-ec34ade78140",
+      "name": "Present continuous",
+      "jlpt_reference": "N/A",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "22278c3f-93e6-4961-b4c2-ec34ade78140",
+        "name": "Present continuous",
+        "jlpt_reference": "N/A",
+        "song_count": 2
+      },
+      {
+        "id": "fe205a30-da6e-4562-a9fc-8f0fd37e8e3c",
+        "name": "Present continuous action",
+        "jlpt_reference": "N/A",
+        "song_count": 1
+      },
+      {
+        "id": "83939ded-0ffe-4c77-ac4a-5c3a7d9b332d",
+        "name": "Present continuous for emotion",
+        "jlpt_reference": "N/A",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 4,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Mimetic",
+    "jlpt": "N1",
+    "canonical": {
+      "id": "0e5adfce-958e-4600-8fc4-fd1c5cd8f239",
+      "name": "Mimetic 〜々と adverbs (淡々と, 燦々と, etc.)",
+      "jlpt_reference": "JLPT N1",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "0e5adfce-958e-4600-8fc4-fd1c5cd8f239",
+        "name": "Mimetic 〜々と adverbs (淡々と, 燦々と, etc.)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "daa01c92-8fd0-496d-ace6-03fbec9059ab",
+        "name": "Mimetic ぷかぷか / すっぱだか (visual mimetics)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      },
+      {
+        "id": "32495533-001d-4731-aed3-ddc1ebc7cf38",
+        "name": "Mimetic ジンジン / ピリピリ / ガンガン (pain types)",
+        "jlpt_reference": "JLPT N1",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Volition",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "fc45fd42-63e8-40f9-928b-dbd0569c38b5",
+      "name": "Volitional + と (no matter what / however)",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "fc45fd42-63e8-40f9-928b-dbd0569c38b5",
+        "name": "Volitional + と (no matter what / however)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "3061ef5d-a0a7-4d24-a227-81b6f608c850",
+        "name": "Volitional + と (no matter whether / even if)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "21bb94d3-6fa7-4736-ad97-c48d34283e6f",
+        "name": "Volitional + と (literary concessive: no matter what)",
+        "jlpt_reference": "N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "限り",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "3845faed-1f77-4feb-9ce1-209bab0fef05",
+      "name": "〜限り (as far as / to the extent that)",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "3845faed-1f77-4feb-9ce1-209bab0fef05",
+        "name": "〜限り (as far as / to the extent that)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "cde72f10-58b5-46f1-836c-df927895542f",
+        "name": "〜限り (kagiri: as long as; while)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "195ab285-7418-437b-bab4-3fe9c685837a",
+        "name": "限り / 限りない (limit / limitless)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Conditio",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "8fe73b63-8c49-4d37-8c7a-bef45b47eb55",
+      "name": "Conditional stack: 〜てしまえたら ('if I could fully X')",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "8fe73b63-8c49-4d37-8c7a-bef45b47eb55",
+        "name": "Conditional stack: 〜てしまえたら ('if I could fully X')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "8c62d220-6a6f-4f06-bfd0-9f621b198c46",
+        "name": "Conditional 〜ば + はずさ ('should be able to')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "0e3eca15-76c8-4e03-80af-6736c789ba27",
+        "name": "Conditional 〜ば → 〜りゃ (slang contraction)",
+        "jlpt_reference": "N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Dismissi",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "b0638e09-1c3e-46f8-9e29-33f224c31090",
+      "name": "Dismissive 〜など (= 〜なんて, literary)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "b0638e09-1c3e-46f8-9e29-33f224c31090",
+        "name": "Dismissive 〜など (= 〜なんて, literary)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "aeb98717-b6e1-436d-8fbc-1c404e8ce9c9",
+        "name": "Dismissive 〜なんて",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "2e233bf7-d5ed-45fb-a000-7562bd2ccaf9",
+        "name": "Dismissive 〜なんて (things like / something as trivial as)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Literary",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "5e790f64-ce3e-460f-b9d1-929a571812ce",
+      "name": "Literary conditional 〜ならば (= 〜なら)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "5e790f64-ce3e-460f-b9d1-929a571812ce",
+        "name": "Literary conditional 〜ならば (= 〜なら)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "5b021d14-25da-47bd-b064-d2fb12d149b4",
+        "name": "Literary conditional 〜ならば (= 〜なら, formal)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "4bd5af00-aaae-49bf-ae8f-22e381fa8185",
+        "name": "Literary 〜ゆく (= 〜いく)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Negative",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "25560258-db3f-481d-8677-aa85a6a4b0ed",
+      "name": "Negative emphatic split: 〜は〜ない",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "25560258-db3f-481d-8677-aa85a6a4b0ed",
+        "name": "Negative emphatic split: 〜は〜ない",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "0f6ba91a-bb54-4107-b11b-786ff79c0d17",
+        "name": "Negative imperative 〜な (don't do!)",
+        "jlpt_reference": "N3",
+        "song_count": 1
+      },
+      {
+        "id": "f806a17a-be5d-47ef-9032-69654af83bfa",
+        "name": "Negative imperative 〜な (don't!)",
+        "jlpt_reference": "N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Number",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "a254bf40-c8db-41aa-81d0-69ff9610e236",
+      "name": "Number + ごとに / 〜ごとに (every — at each interval)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "a254bf40-c8db-41aa-81d0-69ff9610e236",
+        "name": "Number + ごとに / 〜ごとに (every — at each interval)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "b6d9eeab-9c16-4b29-86d2-b157b59032e6",
+        "name": "Number + もの (emphatic quantifier: 'as many as')",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "7a995532-7996-4902-9472-5b4d0d3053c6",
+        "name": "Number + 分 (worth of / portion of)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Negative",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "0d5ce238-fbaf-4d65-a42f-487ed2649bd8",
+      "name": "Negative imperative 〜ないで",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "0d5ce238-fbaf-4d65-a42f-487ed2649bd8",
+        "name": "Negative imperative 〜ないで",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "19988856-2724-4de5-b4c6-af71699966ac",
+        "name": "Negative imperative 〜な (don't V!)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Past",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "70223239-654b-4d92-842d-0a54de741f93",
+      "name": "Past + ままで (in the state X-ed)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "70223239-654b-4d92-842d-0a54de741f93",
+        "name": "Past + ままで (in the state X-ed)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "99971538-977e-4de5-9a5c-130ff1311e47",
+        "name": "Past explanatory 〜だったんだ (it was X — realization)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "fba8da75-af61-46a1-a199-100a8ccc8331",
+        "name": "Past noun-modifier 〜見えた (what looked / appeared)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Potentia",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "c04960f1-78c5-4537-b89f-6d52f799b507",
+      "name": "Potential form 〜られる / 〜える",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "c04960f1-78c5-4537-b89f-6d52f799b507",
+        "name": "Potential form 〜られる / 〜える",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "067d45af-9dbf-43c4-b639-19e74f0b10f5",
+        "name": "Potential negative 〜せない / 〜えない",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "cdbeefe3-669e-40a3-83b5-17eed8d28209",
+        "name": "Potential verbs (〜eる / 〜られる: can do)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Question",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "3eb9c806-9849-4f67-a02a-b22a40cc6e2b",
+      "name": "Question word + も + negative (universal negation)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "3eb9c806-9849-4f67-a02a-b22a40cc6e2b",
+        "name": "Question word + も + negative (universal negation)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "a91345e5-5c78-42a8-ad72-86e88c3580ad",
+        "name": "Question word + も (with negative) = no/none",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Sentence",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "c4dad91c-aa57-4256-a596-06525b2f641a",
+      "name": "Sentence-final から (reassurance 'so / because')",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "c4dad91c-aa57-4256-a596-06525b2f641a",
+        "name": "Sentence-final から (reassurance 'so / because')",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "30547aa9-76d4-4726-b4f2-d8096abe9954",
+        "name": "Sentence-final さ (soft assertion, masculine)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "b032becb-f347-41f2-9c9a-3e6e234b4b26",
+        "name": "Sentence-final の (soft assertion)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "4fa70faa-63b6-4274-8de7-2549f9c42087",
+      "name": "〜(さ)せる (saseru: causative — make/let someone do)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "4fa70faa-63b6-4274-8de7-2549f9c42087",
+        "name": "〜(さ)せる (saseru: causative — make/let someone do)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "031ae43a-06b0-4afa-984c-dadf25fcf5ca",
+        "name": "〜(よ)う (volitional: let's / I will)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "b7b7686c-8ee6-440e-895a-e1f540997bf9",
+        "name": "〜(よ)う volitional form (let's / I shall)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "前に",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "312577e4-0801-4db9-92e9-2befda119cba",
+      "name": "〜前に (mae ni - before)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 2
+    },
+    "members": [
+      {
+        "id": "312577e4-0801-4db9-92e9-2befda119cba",
+        "name": "〜前に (mae ni - before)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 2
+      },
+      {
+        "id": "bdc780be-5794-4f58-88aa-e8dae79b6a3f",
+        "name": "〜前に (before X happens)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Latin",
+    "jlpt": "Latin grammar",
+    "canonical": {
+      "id": "42fb6946-f6ca-4e65-bfc4-9aa8b4f52fd0",
+      "name": "Latin ablative case (sine + noun)",
+      "jlpt_reference": "Latin grammar",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "42fb6946-f6ca-4e65-bfc4-9aa8b4f52fd0",
+        "name": "Latin ablative case (sine + noun)",
+        "jlpt_reference": "Latin grammar",
+        "song_count": 1
+      },
+      {
+        "id": "dc0e2b67-a839-4f48-81d0-a52ceacb958e",
+        "name": "Latin imperative (dormite)",
+        "jlpt_reference": "Latin grammar",
+        "song_count": 1
+      },
+      {
+        "id": "0ef6fece-6aa3-4fda-b0e1-1a1a58cfed42",
+        "name": "Latin pronoun placement",
+        "jlpt_reference": "Latin grammar",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "German",
+    "jlpt": "N/A (German)",
+    "canonical": {
+      "id": "a15c5bb7-44f5-492c-88c5-1fe01aa67986",
+      "name": "German noun gender (der/die/das)",
+      "jlpt_reference": "N/A (German)",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "a15c5bb7-44f5-492c-88c5-1fe01aa67986",
+        "name": "German noun gender (der/die/das)",
+        "jlpt_reference": "N/A (German)",
+        "song_count": 1
+      },
+      {
+        "id": "c05122d9-a102-4ef9-8107-893b2496fed8",
+        "name": "German sentence structure (SVO/V2)",
+        "jlpt_reference": "N/A (German)",
+        "song_count": 1
+      },
+      {
+        "id": "fc4636c6-fd0c-45b6-88e2-147f473af654",
+        "name": "German separable verbs (ansehen)",
+        "jlpt_reference": "N/A (German)",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 3,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Present",
+    "jlpt": "English grammar",
+    "canonical": {
+      "id": "f13574fd-1011-4e7f-90ce-2ae9f2511286",
+      "name": "Present Continuous for dramatic effect (-ing forms)",
+      "jlpt_reference": "English grammar",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "f13574fd-1011-4e7f-90ce-2ae9f2511286",
+        "name": "Present Continuous for dramatic effect (-ing forms)",
+        "jlpt_reference": "English grammar",
+        "song_count": 1
+      },
+      {
+        "id": "312fcf6b-28ba-451d-a6b0-93388c0a863a",
+        "name": "Present Perfect (have + past participle)",
+        "jlpt_reference": "English grammar",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Causativ",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "9e08c96f-45e1-434e-b4ea-18e7d6b615e7",
+      "name": "Causative + て (let / make X happen — soft request)",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "9e08c96f-45e1-434e-b4ea-18e7d6b615e7",
+        "name": "Causative + て (let / make X happen — soft request)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "6927503b-dae0-44ce-932f-4aff1781e2c8",
+        "name": "Causative 曇らせる (make X cloudy)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Mimetic",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "56ca9ed0-7d4f-49da-b9f6-3359105d91bf",
+      "name": "Mimetic + 〜とした (mimetic-as-adjective)",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "56ca9ed0-7d4f-49da-b9f6-3359105d91bf",
+        "name": "Mimetic + 〜とした (mimetic-as-adjective)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "9b47fb11-277d-4042-9102-fce5c492d0f5",
+        "name": "Mimetic words for sensation: クラクラ, ぐらぐら, ふらふら",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Noun",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "b93fffa5-eaaf-4b19-8c95-defe66b2b807",
+      "name": "Noun + のち + Noun (formal 'and then')",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "b93fffa5-eaaf-4b19-8c95-defe66b2b807",
+        "name": "Noun + のち + Noun (formal 'and then')",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "cde8eb99-fe6b-4e94-a4f6-0ba2b1dd6267",
+        "name": "Noun + を背にする (with X at one's back)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Stem",
+    "jlpt": "N2",
+    "canonical": {
+      "id": "1c0a82e0-153e-4890-b832-335340aedb18",
+      "name": "Stem-form chaining (verb-stem + verb-stem)",
+      "jlpt_reference": "JLPT N2",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "1c0a82e0-153e-4890-b832-335340aedb18",
+        "name": "Stem-form chaining (verb-stem + verb-stem)",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      },
+      {
+        "id": "04b5e9f0-4a26-471a-8f85-bcb00e13507f",
+        "name": "Stem-form compounds: 〜切る / 〜抜ける / 〜去る",
+        "jlpt_reference": "JLPT N2",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Adjectiv",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "87f55482-258e-4495-84b2-f84907b184f3",
+      "name": "Adjective doubling for emphasis (深い深い, 青い青い)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "87f55482-258e-4495-84b2-f84907b184f3",
+        "name": "Adjective doubling for emphasis (深い深い, 青い青い)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "e27d8508-9a48-4464-a86f-2ef712363efb",
+        "name": "Adjective-stem nouns (V → N): 弱さ / 痛み / 終わり",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Conveyan",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "7f95be38-399b-4f89-82a9-b82c306d5b8d",
+      "name": "Conveyance verbs of declaration: 告げる / 寄せる / かける",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "7f95be38-399b-4f89-82a9-b82c306d5b8d",
+        "name": "Conveyance verbs of declaration: 告げる / 寄せる / かける",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "aa63f737-3b4e-4e83-9c88-89214bffff41",
+        "name": "Conveyance verbs: 伝える / 届ける / 届く",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Idiom",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "f14f6db9-3958-4316-a29e-f9b1d7d9e8c0",
+      "name": "Idiom 〜手に入れる (get into one's hand / obtain)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "f14f6db9-3958-4316-a29e-f9b1d7d9e8c0",
+        "name": "Idiom 〜手に入れる (get into one's hand / obtain)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "2824ac20-79d0-4867-9140-350068785f4a",
+        "name": "Idiom 〜終わりにする (call X off / make X end)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Masculin",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "a79913ce-359f-4b8b-ac1f-76fc79f4db5b",
+      "name": "Masculine explanatory 〜のさ",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "a79913ce-359f-4b8b-ac1f-76fc79f4db5b",
+        "name": "Masculine explanatory 〜のさ",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "c1e4eb97-7746-4bb0-94db-4aebf3d9b6ce",
+        "name": "Masculine register: 俺, ぜ, ねぇ contractions",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Object",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "74ca7863-ea60-4b1e-8d73-c3646441b9e7",
+      "name": "Object + ばかりで (just doing X)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "74ca7863-ea60-4b1e-8d73-c3646441b9e7",
+        "name": "Object + ばかりで (just doing X)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "818fd438-2b7f-425a-9c6e-106e63e246ac",
+        "name": "Object + 取る (idiomatic 'to take' phrases)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Plain",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "2a2c0003-b88d-447b-9bfe-edffd6d26fad",
+      "name": "Plain imperative (〜え / 〜ろ)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "2a2c0003-b88d-447b-9bfe-edffd6d26fad",
+        "name": "Plain imperative (〜え / 〜ろ)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "a611c494-f2de-4682-90d8-df047814b30e",
+        "name": "Plain imperative form (verb-e / verb-ろ)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Slang",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "5f58cd39-4800-4808-9cb6-c98727abb175",
+      "name": "Slang 〜みたく (variant of 〜みたいに)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "5f58cd39-4800-4808-9cb6-c98727abb175",
+        "name": "Slang 〜みたく (variant of 〜みたいに)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "b7f93f3d-0f13-49fa-ba05-ba1e73f2cd88",
+        "name": "Slang 振る (to reject romantically)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Stem",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "d6db4354-8ec7-43ae-8f84-82219368cf5f",
+      "name": "Stem-form 連用形 as a literary conjunction",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "d6db4354-8ec7-43ae-8f84-82219368cf5f",
+        "name": "Stem-form 連用形 as a literary conjunction",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "91596f9a-de18-4041-b162-a2433c69d7c4",
+        "name": "Stem-form 連用形 chaining (literary listing)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "受身形",
+    "jlpt": "N3",
+    "canonical": {
+      "id": "d0274e5a-d6ef-4dc2-a784-17f39b1c27a5",
+      "name": "受身形 (passive)",
+      "jlpt_reference": "JLPT N3",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "d0274e5a-d6ef-4dc2-a784-17f39b1c27a5",
+        "name": "受身形 (passive)",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      },
+      {
+        "id": "410551ac-b047-4750-ac2e-8bf3e71171ab",
+        "name": "受身形 (ukemi-kei) — passive form",
+        "jlpt_reference": "JLPT N3",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Comparat",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "fdb1558f-f37b-42cb-a9ec-82898522b71a",
+      "name": "Comparative 〜より + adverb (X-er than)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "fdb1558f-f37b-42cb-a9ec-82898522b71a",
+        "name": "Comparative 〜より + adverb (X-er than)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "93d1e76c-e5c7-40b2-96ee-e12b077573c3",
+        "name": "Comparative 〜より + 〜が + adjective",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Sequenti",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "403d0fef-7cfb-41b7-8371-344e6c70278f",
+      "name": "Sequential conditional 〜たら (when X happens)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "403d0fef-7cfb-41b7-8371-344e6c70278f",
+        "name": "Sequential conditional 〜たら (when X happens)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "5a1cf4da-080a-46fb-ab38-aa019c6cf0c4",
+        "name": "Sequential conjunction 〜と (when X, then Y)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Soft",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "82c389d9-69aa-40f6-bcf3-ca5a74db482b",
+      "name": "Soft request 〜てよ",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "82c389d9-69aa-40f6-bcf3-ca5a74db482b",
+        "name": "Soft request 〜てよ",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "b848e7e5-bf3e-4703-aa1f-49fa52344f1b",
+        "name": "Soft sentence-ending 〜の (rising — question / wonder)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Time",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "d78c71f8-dba0-4548-ae2c-9b46bbb8cfeb",
+      "name": "Time clause 〜まで (until / by which point)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "d78c71f8-dba0-4548-ae2c-9b46bbb8cfeb",
+        "name": "Time clause 〜まで (until / by which point)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "74b55df6-a63f-465d-bf87-0c13f70f798e",
+        "name": "Time-clause 〜後 (after X)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "過ぎる",
+    "jlpt": "N4",
+    "canonical": {
+      "id": "b7250e37-376e-4f8d-bb50-667d236f5a32",
+      "name": "〜過ぎる (sugiru: too much)",
+      "jlpt_reference": "JLPT N4",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "b7250e37-376e-4f8d-bb50-667d236f5a32",
+        "name": "〜過ぎる (sugiru: too much)",
+        "jlpt_reference": "JLPT N4",
+        "song_count": 1
+      },
+      {
+        "id": "1226fa57-77e7-4151-8600-520e0891d575",
+        "name": "〜過ぎる (excessive: too / overly)",
+        "jlpt_reference": "N4",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Volition",
+    "jlpt": "N5",
+    "canonical": {
+      "id": "5bd65dc6-5a27-417e-8263-e575298746d3",
+      "name": "Volitional 〜ましょう (let's V)",
+      "jlpt_reference": "JLPT N5",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "5bd65dc6-5a27-417e-8263-e575298746d3",
+        "name": "Volitional 〜ましょう (let's V)",
+        "jlpt_reference": "JLPT N5",
+        "song_count": 1
+      },
+      {
+        "id": "d9596f06-1424-45b1-a07c-abb4354d8dc9",
+        "name": "Volitional form (~おう/~よう)",
+        "jlpt_reference": "N5",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  },
+  {
+    "stem_key": "Imperati",
+    "jlpt": "N/A",
+    "canonical": {
+      "id": "c1cd5bc9-573f-4001-8d7b-76b7d461c25b",
+      "name": "Imperative commands",
+      "jlpt_reference": "N/A",
+      "song_count": 1
+    },
+    "members": [
+      {
+        "id": "c1cd5bc9-573f-4001-8d7b-76b7d461c25b",
+        "name": "Imperative commands",
+        "jlpt_reference": "N/A",
+        "song_count": 1
+      },
+      {
+        "id": "43161633-8ac7-487f-9b56-396b08afd578",
+        "name": "Imperative mood",
+        "jlpt_reference": "N/A",
+        "song_count": 1
+      }
+    ],
+    "total_song_count": 2,
+    "confidence": "review"
+  }
+]

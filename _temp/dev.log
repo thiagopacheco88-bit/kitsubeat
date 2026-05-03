@@ -1,0 +1,126 @@
+
+> kitsubeat@0.1.0 dev
+> next dev --port 7000
+
+   ▲ Next.js 15.5.14
+   - Local:        http://localhost:7000
+   - Network:      http://192.168.1.239:7000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.5s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 1242ms (221 modules)
+ ○ Compiling /path ...
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (201kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ✓ Compiled /vocabulary in 14.8s (1542 modules)
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:7000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET /vocabulary 200 in 4097ms
+ ○ Compiling / ...
+ GET /path 200 in 15461ms
+ ✓ Compiled / in 2.3s (1534 modules)
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:7000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 3550ms
+ GET / 200 in 363ms
+ ✓ Compiled in 993ms (403 modules)
+ ✓ Compiled in 473ms (403 modules)
+ ✓ Compiled in 244ms (403 modules)
+ GET /path 200 in 540ms
+ GET /path 200 in 342ms
+ GET /path 200 in 200ms
+ GET / 200 in 1222ms
+ GET / 200 in 850ms
+ GET / 200 in 649ms
+ GET / 200 in 515ms
+ GET / 200 in 354ms
+ GET / 200 in 233ms
+ ✓ Compiled in 793ms (1548 modules)
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:7000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET /path 200 in 673ms
+ GET / 200 in 803ms
+ GET / 200 in 151ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET / 200 in 991ms
+ ✓ Compiled in 269ms (403 modules)
+ ✓ Compiled in 252ms (403 modules)
+ ✓ Compiled in 337ms (403 modules)
+ GET /path 200 in 445ms
+ ✓ Compiled in 223ms (403 modules)
+ GET /path 200 in 444ms
+ ✓ Compiled in 210ms (403 modules)
+ ✓ Compiled in 273ms (403 modules)
+ GET / 200 in 1458ms
+ GET / 200 in 1075ms
+ GET / 200 in 799ms
+ GET / 200 in 523ms
+ GET / 200 in 345ms
+ ✓ Compiled in 151ms (403 modules)
+ ✓ Compiled in 153ms (403 modules)
+ ✓ Compiled in 149ms (403 modules)
+ ✓ Compiled in 152ms (403 modules)
+ ✓ Compiled in 147ms (403 modules)
+ ✓ Compiled in 144ms (403 modules)
+ ✓ Compiled in 148ms (403 modules)
+ ✓ Compiled in 148ms (403 modules)
+ ✓ Compiled in 146ms (403 modules)
+ ✓ Compiled in 162ms (403 modules)
+ ✓ Compiled in 158ms (403 modules)
+ ✓ Compiled in 175ms (403 modules)
+ ✓ Compiled in 144ms (403 modules)
+ ✓ Compiled in 154ms (403 modules)
+ ✓ Compiled in 238ms (403 modules)
+ ✓ Compiled in 165ms (403 modules)
+ ✓ Compiled in 178ms (403 modules)
+ ✓ Compiled in 142ms (403 modules)
+ ✓ Compiled in 137ms (403 modules)
+ ✓ Compiled in 142ms (403 modules)
+ ✓ Compiled in 135ms (403 modules)
+ ✓ Compiled in 157ms (403 modules)
+ ✓ Compiled in 144ms (403 modules)
+ ✓ Compiled in 150ms (403 modules)
+ ✓ Compiled in 150ms (403 modules)
+ ✓ Compiled in 141ms (403 modules)
+ ✓ Compiled in 137ms (403 modules)
+ ✓ Compiled in 151ms (403 modules)
+ ✓ Compiled in 135ms (403 modules)
+ ✓ Compiled in 135ms (403 modules)
+ ✓ Compiled in 141ms (403 modules)
+ ✓ Compiled in 152ms (403 modules)
+ ✓ Compiled in 163ms (403 modules)
+ ✓ Compiled in 159ms (403 modules)
+ ✓ Compiled in 155ms (403 modules)
+ ✓ Compiled in 134ms (403 modules)
+ ✓ Compiled in 149ms (403 modules)
+ GET / 200 in 113ms
+ ✓ Compiled in 171ms (403 modules)
+ ✓ Compiled in 173ms (403 modules)
+ ✓ Compiled in 139ms (403 modules)
+ ✓ Compiled in 140ms (403 modules)
+ ✓ Compiled in 144ms (403 modules)
+ ✓ Compiled in 143ms (403 modules)
+ ✓ Compiled in 146ms (403 modules)
+ ✓ Compiled in 134ms (403 modules)
+ ✓ Compiled in 137ms (403 modules)
+ ✓ Compiled in 152ms (403 modules)
+ ✓ Compiled in 137ms (403 modules)
+ ✓ Compiled in 132ms (403 modules)
+ ✓ Compiled in 138ms (403 modules)
+ ✓ Compiled in 141ms (403 modules)
+ ✓ Compiled in 142ms (403 modules)
+ ✓ Compiled in 152ms (403 modules)
+ ✓ Compiled in 147ms (403 modules)
+ ✓ Compiled in 190ms (403 modules)
+ ✓ Compiled in 141ms (403 modules)
+ ✓ Compiled in 135ms (403 modules)
+ ✓ Compiled in 138ms (403 modules)
+ ✓ Compiled in 170ms (403 modules)
+ ✓ Compiled in 166ms (403 modules)
+ ✓ Compiled in 151ms (403 modules)
+ ✓ Compiled in 139ms (403 modules)
+ ✓ Compiled in 151ms (403 modules)
+ ✓ Compiled in 152ms (403 modules)
+ ✓ Compiled in 150ms (403 modules)
+ ✓ Compiled in 137ms (403 modules)
+ ✓ Compiled in 152ms (403 modules)
+ ✓ Compiled in 135ms (403 modules)
+ ✓ Compiled in 142ms (403 modules)

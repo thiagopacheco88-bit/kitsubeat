@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KitsuBeat /songs/[slug] · C+A Hybrid · Lesson redesign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; background: #2a2a2a; min-height: 100vh; font-family: Inter, -apple-system, system-ui, sans-serif; }
+    body { padding: 48px 32px; }
+    @keyframes ka-pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.06); opacity: 0.92; } }
+    @keyframes ka-flicker { 0%,100% { opacity: 0.95; } 50% { opacity: 1; } }
+    @keyframes ka-aura { 0%,100% { opacity: 0.75; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    /* ===== IosFrame (vendored) ===== */
+    function IosFrame({ children, width = 390, height = 844, time = '9:41', battery = 87, darkMode = false, bgColor }) {
+      const textColor = darkMode ? '#fff' : '#000';
+      return (
+        <div style={{ display: 'inline-block', padding: 12, background: '#000', borderRadius: 60, boxShadow: '0 0 0 2px #1f2937, 0 20px 60px rgba(0,0,0,0.45)', position: 'relative' }}>
+          <div style={{ position: 'relative', borderRadius: 48, overflow: 'hidden', width, height, background: bgColor || (darkMode ? '#000' : '#fff') }}>
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 54, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px', fontSize: 16, fontWeight: 600, fontFamily: '-apple-system, "SF Pro Text", sans-serif', zIndex: 20, pointerEvents: 'none', color: textColor }}>
+              <span>{time}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <div style={{ display: 'flex', alignItems: 'flex-end', gap: 2, height: 12 }}>
+                  {[4,6,9,11].map(h => <div key={h} style={{ width: 3, height: h, background: 'currentColor', borderRadius: 1 }} />)}
+                </div>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                  <path d="M8 11.5a1 1 0 100-2 1 1 0 000 2z" fill="currentColor"/>
+                  <path d="M3 7.5a7 7 0 0110 0" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round"/>
+                  <path d="M1 4.5a11 11 0 0114 0" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" opacity="0.7"/>
+                </svg>
+                <div style={{ width: 26, height: 12, border: '1.5px solid currentColor', borderRadius: 3, padding: 1, position: 'relative', opacity: 0.85 }}>
+                  <div style={{ width: `${battery}%`, height: '100%', background: 'currentColor', borderRadius: 1, opacity: 0.9 }} />
+                  <div style={{ position: 'absolute', top: 3, right: -3, width: 2, height: 6, background: 'currentColor', borderRadius: '0 1px 1px 0' }} />
+                </div>
+              </div>
+            </div>
+            <div style={{ position: 'absolute', top: 12, left: '50%', transform: 'translateX(-50%)', width: 124, height: 36, background: '#000', borderRadius: 999, zIndex: 30 }} />
+            <div style={{ position: 'absolute', top: 54, left: 0, right: 0, bottom: 34, overflow: 'auto' }}>{children}</div>
+            <div style={{ position: 'absolute', bottom: 10, left: '50%', transform: 'translateX(-50%)', width: 140, height: 5, borderRadius: 999, zIndex: 10, background: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.3)' }} />
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== Phase 14 tokens ===== */
+    const tokensCSS = `
+      [data-theme="dark"] {
+        --color-bg: #0E0E0E; --color-bg-2: #111111; --color-card: #191919; --color-card-2: #1E1E1E;
+        --color-border: rgba(255,255,255,0.06); --color-border-strong: rgba(255,255,255,0.10);
+        --color-text: #F5F5F4; --color-text-muted: rgba(245,245,244,0.56); --color-text-dim: rgba(245,245,244,0.40);
+        --color-accent: #dc2626;
+        --color-jlpt-n5: #22c55e; --color-jlpt-n3: #f59e0b;
+        --color-grammar-noun: #3b82f6; --color-grammar-verb: #ef4444; --color-grammar-adjective: #22c55e;
+        --color-grammar-adverb: #f97316; --color-grammar-particle: #6b7280; --color-grammar-expression: #8b5cf6;
+        --shadow-card-ring: inset 0 0 0 1px rgba(255,255,255,0.06);
+        --shadow-cta-red: 0 8px 24px rgba(239,68,68,0.28), inset 0 1px 0 rgba(255,255,255,0.15);
+        --aura-color: rgba(220,38,38,0.45);
+      }
+      .ka-screen { font-family: var(--font-sans, Inter, system-ui, sans-serif); color: var(--color-text); background: var(--color-bg); min-height: 100%; }
+      .ka-jp { font-family: 'Noto Sans JP', system-ui, sans-serif; }
+    `;
+
+    /* Cover for Gurenge (Demon Slayer) — vibe palette per /path demo */
+    const COVER = 'linear-gradient(135deg, #2a0606 0%, #b91c1c 60%, #facc15 100%)';
+
+    /* Real verse 1 of Gurenge (from current /songs/gurenge-lisa screenshot) */
+    /* Grammar tags follow KitsuBeat's color scheme: noun=blue, verb=red, adverb=orange, particle=gray, adjective=green, expression=violet */
+    const VERSE_1 = {
+      number: 1, romaji: 'tsuyoku nareru riyuu wo shitta boku wo tsurete susume',
+      translation: 'Take this me who has learned the reason to become strong, and march on',
+      tokens: [
+        { kanji: '強く', furigana: 'つよく', grammar: 'adverb' },
+        { kanji: 'なれる', furigana: '', grammar: 'verb' },
+        { kanji: '理由', furigana: 'りゆう', grammar: 'noun' },
+        { kanji: 'を', furigana: '', grammar: 'particle' },
+        { kanji: '知った', furigana: 'しった', grammar: 'verb' },
+        { kanji: '僕', furigana: 'ぼく', grammar: 'noun' },
+        { kanji: 'を', furigana: '', grammar: 'particle' },
+        { kanji: '連れて', furigana: 'つれて', grammar: 'verb' },
+        { kanji: '進め', furigana: 'すすめ', grammar: 'verb' },
+      ],
+      isActive: true,
+    };
+    const VERSE_2 = {
+      number: 2, romaji: 'kuyashisa wa tane mukiae sodate', translation: 'Plant the seeds of your frustration, face them, and let them grow',
+      tokens: [
+        { kanji: '悔しさ', furigana: 'くやしさ', grammar: 'noun' },
+        { kanji: 'は', furigana: '', grammar: 'particle' },
+        { kanji: '種', furigana: 'たね', grammar: 'noun' },
+        { kanji: '向き合え', furigana: 'むきあえ', grammar: 'verb' },
+        { kanji: '育て', furigana: 'そだて', grammar: 'verb' },
+      ],
+      isActive: false,
+    };
+
+    /* ===== Lantern Streak (vendored) ===== */
+    function LanternStreak({ count }) {
+      const blaze = count >= 30 ? 1 : count >= 7 ? 0.7 : 0.45;
+      return (
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 10px 4px 6px', borderRadius: 999, background: 'var(--color-card-2)', boxShadow: 'var(--shadow-card-ring)' }}>
+          <svg width="20" height="24" viewBox="0 0 22 26" fill="none">
+            <rect x="6" y="2" width="10" height="2" rx="0.5" fill="currentColor" opacity="0.9" />
+            <ellipse cx="11" cy="13" rx="7.5" ry="9" fill="#f59e0b" opacity={0.18 + blaze * 0.5} />
+            <ellipse cx="11" cy="13" rx="7.5" ry="9" fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.6" />
+            <line x1="3.6" y1="13" x2="18.4" y2="13" stroke="currentColor" strokeWidth="0.6" opacity="0.45" />
+            <ellipse cx="11" cy="13" rx="3" ry="4.5" fill="#dc2626" opacity={blaze} style={{ animation: 'ka-flicker 1.4s ease-in-out infinite' }} />
+            <ellipse cx="11" cy="13" rx="1.5" ry="2.5" fill="#fef3c7" opacity={blaze * 0.85} />
+            <rect x="6" y="22" width="10" height="2" rx="0.5" fill="currentColor" opacity="0.9" />
+          </svg>
+          <span style={{ fontSize: 13, fontWeight: 700, color: 'var(--color-text)' }}>{count}</span>
+        </div>
+      );
+    }
+
+    /* ===== Lesson Header — back + minimal song title + streak ===== */
+    function LessonHeader({ title, anime, jlpt, streak }) {
+      return (
+        <header style={{
+          position: 'sticky', top: 0, zIndex: 5,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '12px 14px',
+          background: 'rgba(14,14,14,0.85)',
+          backdropFilter: 'blur(12px)',
+          borderBottom: '1px solid var(--color-border)',
+        }}>
+          <button style={{ background: 'transparent', border: 'none', color: 'var(--color-text)', display: 'flex', alignItems: 'center', gap: 4, padding: 4, cursor: 'pointer' }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <div style={{ flex: 1, textAlign: 'center', minWidth: 0, padding: '0 8px' }}>
+            <div className="ka-jp" style={{ fontSize: 14, fontWeight: 800, color: 'var(--color-text)', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{title}</div>
+            <div style={{ fontSize: 9, fontWeight: 600, color: 'var(--color-text-muted)', marginTop: 1, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{anime} · JLPT {jlpt}</div>
+          </div>
+          <LanternStreak count={streak} />
+        </header>
+      );
+    }
+
+    /* ===== Video Player Panel ===== */
+    function VideoPlayer({ verseNum, totalVerses, isPlaying }) {
+      return (
+        <div style={{ position: 'relative', margin: '12px 16px 0', borderRadius: 18, overflow: 'hidden', boxShadow: 'var(--shadow-card-ring)', isolation: 'isolate' }}>
+          {/* Video frame — production: YouTube iframe; placeholder: cover gradient */}
+          <div style={{ position: 'relative', aspectRatio: '16 / 9', background: COVER }}>
+            {/* Subtle vignette */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.55) 100%)' }} />
+            {/* Big play/pause center */}
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: 56, height: 56, borderRadius: 999, background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(4px)', border: '1.5px solid rgba(255,255,255,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', animation: isPlaying ? 'none' : 'ka-pulse 1.6s ease-in-out infinite' }}>
+                {isPlaying ? (
+                  <svg width="20" height="20" viewBox="0 0 16 16" fill="none"><rect x="4" y="2" width="3" height="12" rx="0.5" fill="#fff"/><rect x="9" y="2" width="3" height="12" rx="0.5" fill="#fff"/></svg>
+                ) : (
+                  <svg width="22" height="22" viewBox="0 0 16 16" fill="none"><path d="M5 2v12l9-6z" fill="#fff"/></svg>
+                )}
+              </div>
+            </div>
+            {/* Bottom progress strip */}
+            <div style={{ position: 'absolute', left: 12, right: 12, bottom: 10 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+                <span style={{ fontSize: 9, fontWeight: 700, color: '#fff', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Verse {verseNum} of {totalVerses}</span>
+                <span style={{ fontSize: 9, fontWeight: 700, color: 'rgba(255,255,255,0.85)', fontFeatureSettings: '"tnum"' }}>1:24 / 4:08</span>
+              </div>
+              <div style={{ position: 'relative', height: 3, background: 'rgba(255,255,255,0.25)', borderRadius: 999, overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '34%', background: 'var(--color-accent)', borderRadius: 999 }} />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== Lyric token (kanji + furigana ruby) with grammar color ===== */
+    function LyricToken({ token }) {
+      const grammarColor = `var(--color-grammar-${token.grammar})`;
+      return (
+        <span style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', margin: '0 2px' }}>
+          {/* Furigana mini ruby */}
+          <span className="ka-jp" style={{ fontSize: 8, color: 'var(--color-text-muted)', height: 10, lineHeight: 1, fontWeight: 500 }}>
+            {token.furigana || ' '}
+          </span>
+          <span className="ka-jp" style={{ fontSize: 19, fontWeight: 700, color: grammarColor, lineHeight: 1.2, cursor: 'pointer', borderBottom: '1px dashed transparent' }}>
+            {token.kanji}
+          </span>
+        </span>
+      );
+    }
+
+    /* ===== Verse Card ===== */
+    function VerseCard({ verse }) {
+      const isActive = verse.isActive;
+      return (
+        <article style={{
+          margin: '12px 16px', padding: '14px 14px 12px',
+          borderRadius: 18, background: isActive ? 'var(--color-card)' : 'var(--color-bg-2)',
+          border: isActive ? '1.5px solid var(--color-accent)' : '1px solid var(--color-border)',
+          boxShadow: isActive ? '0 0 0 4px rgba(220,38,38,0.08)' : 'none',
+          opacity: isActive ? 1 : 0.7,
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+            <span style={{ fontSize: 9, fontWeight: 800, color: isActive ? 'var(--color-accent)' : 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>Verse {verse.number}</span>
+            {isActive && (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 9, fontWeight: 700, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                <span style={{ width: 6, height: 6, borderRadius: 999, background: 'var(--color-accent)', animation: 'ka-pulse 1.2s ease-in-out infinite' }} />
+                Now Playing
+              </span>
+            )}
+          </div>
+          {/* Kanji + furigana row — flex wrap, grammar-colored */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', gap: 1, marginBottom: 10, lineHeight: 1.6 }}>
+            {verse.tokens.map((t, i) => <LyricToken key={i} token={t} />)}
+          </div>
+          {/* Romaji */}
+          <div style={{ fontSize: 10, fontWeight: 600, color: 'var(--color-text-muted)', fontStyle: 'italic', marginBottom: 6, letterSpacing: '0.01em' }}>{verse.romaji}</div>
+          {/* Translation */}
+          <div style={{ fontSize: 12, color: 'var(--color-text)', lineHeight: 1.4 }}>{verse.translation}</div>
+        </article>
+      );
+    }
+
+    /* ===== Gear-Shift bottom bar (lyrics → exercise) ===== */
+    function GearShiftBar() {
+      return (
+        <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '12px 16px 18px', background: 'linear-gradient(180deg, rgba(14,14,14,0) 0%, var(--color-bg) 30%)' }}>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button aria-label="Pause" style={{ flex: '0 0 56px', height: 52, borderRadius: 18, background: 'var(--color-card)', border: '1px solid var(--color-border-strong)', color: 'var(--color-text)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+              <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="4" y="2" width="3" height="12" rx="0.5" fill="currentColor"/><rect x="9" y="2" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+            </button>
+            <button style={{
+              flex: 1, height: 52, padding: '0 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10,
+              background: 'var(--color-accent)', color: '#fff', border: 'none', borderRadius: 18,
+              fontWeight: 800, fontSize: 13, letterSpacing: '0.02em', cursor: 'pointer', boxShadow: 'var(--shadow-cta-red)',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 4-9 4-9-4 9-4zm0 9l9-4v8l-9 4-9-4V8l9 4z" stroke="#fff" strokeWidth="1.6" strokeLinejoin="round" fill="none"/></svg>
+                <span>Practice this verse</span>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== LYRICS MODE SCREEN ===== */
+    function LyricsScreen() {
+      return (
+        <div className="ka-screen">
+          <LessonHeader title="紅蓮華" anime="Demon Slayer" jlpt="N3" streak={47} />
+          <VideoPlayer verseNum={1} totalVerses={13} isPlaying={true} />
+          <VerseCard verse={VERSE_1} />
+          <VerseCard verse={VERSE_2} />
+          <div style={{ height: 90 }} />
+          <GearShiftBar />
+        </div>
+      );
+    }
+
+    /* ===== EXERCISE MODE — game-feel MCQ ===== */
+    function ProgressDots({ current, total }) {
+      return (
+        <div style={{ display: 'flex', gap: 4, alignItems: 'center', justifyContent: 'center', padding: '4px 0' }}>
+          {Array.from({ length: total }).map((_, i) => (
+            <span key={i} style={{
+              width: i === current - 1 ? 18 : 6, height: 6, borderRadius: 999,
+              background: i < current ? 'var(--color-accent)' : 'var(--color-card-2)',
+              transition: 'all 200ms cubic-bezier(0.16, 1, 0.3, 1)',
+            }} />
+          ))}
+        </div>
+      );
+    }
+
+    function McqOption({ letter, text, japanese, isSelected, isCorrect, isRevealed }) {
+      let bg = 'var(--color-card)';
+      let border = '1px solid var(--color-border-strong)';
+      let textColor = 'var(--color-text)';
+      if (isRevealed && isCorrect) {
+        bg = 'rgba(34,197,94,0.12)'; border = '1.5px solid var(--color-jlpt-n5)';
+      } else if (isRevealed && isSelected && !isCorrect) {
+        bg = 'rgba(239,68,68,0.12)'; border = '1.5px solid var(--color-accent)';
+      } else if (isSelected) {
+        bg = 'var(--color-card-2)'; border = '1.5px solid var(--color-text)';
+      }
+      return (
+        <button style={{
+          width: '100%', minHeight: 60, padding: '12px 16px',
+          display: 'flex', alignItems: 'center', gap: 12,
+          background: bg, border, borderRadius: 16, color: textColor,
+          textAlign: 'left', cursor: 'pointer',
+          transition: 'all 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        }}>
+          <span style={{
+            flex: '0 0 28px', width: 28, height: 28, borderRadius: 999,
+            background: isRevealed && isCorrect ? 'var(--color-jlpt-n5)' : isSelected ? 'var(--color-text)' : 'var(--color-card-2)',
+            color: isRevealed && isCorrect ? '#fff' : isSelected ? 'var(--color-bg)' : 'var(--color-text-muted)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: 11, fontWeight: 800,
+          }}>{letter}</span>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            {japanese && <div className="ka-jp" style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-text)', marginBottom: 1 }}>{japanese}</div>}
+            <div style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>{text}</div>
+          </div>
+          {isRevealed && isCorrect && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="var(--color-jlpt-n5)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          )}
+        </button>
+      );
+    }
+
+    function FeedbackPanel() {
+      return (
+        <div style={{ margin: '12px 16px 0', padding: '14px 16px', borderRadius: 18, background: 'rgba(34,197,94,0.10)', border: '1px solid rgba(34,197,94,0.35)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+            <span style={{ width: 24, height: 24, borderRadius: 999, background: 'var(--color-jlpt-n5)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5 9-11" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </span>
+            <span style={{ fontSize: 12, fontWeight: 800, color: 'var(--color-jlpt-n5)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Correct · +12 XP</span>
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--color-text)', lineHeight: 1.45 }}>
+            <span className="ka-jp" style={{ fontWeight: 700 }}>強い (tsuyoi)</span> · i-adjective meaning <strong>"strong"</strong>. The adverb form <span className="ka-jp">強く (tsuyoku)</span> appears in this verse — "to become strong."
+          </div>
+        </div>
+      );
+    }
+
+    function ExerciseHeader({ trackName, current, total, streak }) {
+      return (
+        <header style={{
+          position: 'sticky', top: 0, zIndex: 5,
+          padding: '12px 14px 10px',
+          background: 'rgba(14,14,14,0.85)', backdropFilter: 'blur(12px)',
+          borderBottom: '1px solid var(--color-border)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+            <button style={{ background: 'transparent', border: 'none', color: 'var(--color-text)', padding: 4, cursor: 'pointer' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+            </button>
+            <div style={{ flex: 1, textAlign: 'center' }}>
+              <div style={{ fontSize: 10, fontWeight: 800, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>{trackName}</div>
+              <div className="ka-jp" style={{ fontSize: 12, fontWeight: 700, color: 'var(--color-text)', marginTop: 1 }}>紅蓮華 · Verse 1</div>
+            </div>
+            <LanternStreak count={streak} />
+          </div>
+          <ProgressDots current={current} total={total} />
+        </header>
+      );
+    }
+
+    function ExerciseScreen() {
+      return (
+        <div className="ka-screen" style={{ position: 'relative' }}>
+          <ExerciseHeader trackName="Vocabulary" current={3} total={10} streak={47} />
+
+          {/* Question prompt */}
+          <section style={{ margin: '20px 16px 8px' }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>What does this mean?</div>
+            <div style={{ padding: '20px 18px', borderRadius: 22, background: 'var(--color-card)', border: '1px solid var(--color-border-strong)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+              <span className="ka-jp" style={{ fontSize: 12, color: 'var(--color-text-muted)' }}>つよい</span>
+              <span className="ka-jp" style={{ fontSize: 38, fontWeight: 900, color: 'var(--color-grammar-adjective)', lineHeight: 1 }}>強い</span>
+              <span style={{ fontSize: 11, color: 'var(--color-text-muted)', fontStyle: 'italic' }}>tsuyoi</span>
+            </div>
+          </section>
+
+          {/* MCQ Options */}
+          <section style={{ margin: '14px 16px 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <McqOption letter="A" text="Beautiful" japanese="美しい (utsukushii)" />
+            <McqOption letter="B" text="Strong" japanese="強い (tsuyoi)" isSelected isCorrect isRevealed />
+            <McqOption letter="C" text="Fast" japanese="速い (hayai)" />
+            <McqOption letter="D" text="Quiet" japanese="静か (shizuka)" />
+          </section>
+
+          {/* Feedback */}
+          <FeedbackPanel />
+          <div style={{ height: 96 }} />
+
+          {/* Bottom CTA — one clear action */}
+          <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '12px 16px 18px', background: 'linear-gradient(180deg, rgba(14,14,14,0) 0%, var(--color-bg) 30%)' }}>
+            <button style={{
+              width: '100%', height: 56, padding: '0 18px',
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10,
+              background: 'var(--color-accent)', color: '#fff', border: 'none', borderRadius: 18,
+              fontWeight: 800, fontSize: 14, letterSpacing: '0.02em', cursor: 'pointer', boxShadow: 'var(--shadow-cta-red)',
+            }}>
+              <span style={{ visibility: 'hidden' }}>•</span>
+              <span>Next question</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <style>{tokensCSS}</style>
+          <div style={{ display: 'flex', gap: 40, alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div>
+              <div style={{ color: '#999', fontSize: 12, fontWeight: 600, marginBottom: 12, letterSpacing: '0.08em', textTransform: 'uppercase' }}>① Lyrics mode · music player</div>
+              <IosFrame width={390} height={844} darkMode bgColor="#0E0E0E">
+                <div data-theme="dark" style={{ height: '100%', position: 'relative' }}>
+                  <LyricsScreen />
+                </div>
+              </IosFrame>
+            </div>
+            <div>
+              <div style={{ color: '#999', fontSize: 12, fontWeight: 600, marginBottom: 12, letterSpacing: '0.08em', textTransform: 'uppercase' }}>② Exercise mode · game feel · post-answer state</div>
+              <IosFrame width={390} height={844} darkMode bgColor="#0E0E0E">
+                <div data-theme="dark" style={{ height: '100%', position: 'relative' }}>
+                  <ExerciseScreen />
+                </div>
+              </IosFrame>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

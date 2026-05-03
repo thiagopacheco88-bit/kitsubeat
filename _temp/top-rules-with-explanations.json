@@ -1,0 +1,462 @@
+[
+  {
+    "id": "0588f1da-7292-4efc-bebf-3d103b09b7d6",
+    "name": "〜ても (te mo) — even if / no matter",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nThe pattern Verb て-form (te-form) + も (mo) means \"even if ~\" or \"even though ~.\" It expresses that the outcome remains unchanged regardless of the condition. With question words, it means \"no matter what/when/how\": 何をしても (nani o shite mo, \"no matter what I do\").\n\nExample from this song:\nいくつ願い叶えても (ikutsu negai kanaete mo) — \"no matter how many wishes are granted\"\nEven if countless wishes come true, it still is not enough.\n\nMore examples:\n• どこに行っても美しい (doko ni itte mo utsukushii) — \"no matter where you go, it's beautiful\"\n• 何度失敗しても諦めない (nando shippai shite mo akiramenai) — \"no matter how many times I fail, I won't give up\"\n• いくら食べてもお腹がすく (ikura tabete mo onaka ga suku) — \"no matter how much I eat, I get hungry\""
+    },
+    "song_count": 45
+  },
+  {
+    "id": "670a043a-cc9c-4e59-958e-60a43313c364",
+    "name": "〜ば (conditional)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Change the verb ending to form an 'if' condition. For -ru verbs (ichidan), replace る with れば. For -u verbs (godan), change the final syllable to its え-row equivalent and add ば.\n\nExample from this song: あれば (areba) = 'if there is' — from ある (aru, 'to exist') → あれば (areba, 'if there is'). Also: 迷えば (mayoeba) = 'if you get lost' — from 迷う (mayou, 'to lose one's way') → 迷えば (mayoeba)\n\nMore examples:\n• 行く (iku, 'to go') → 行けば (ikeba, 'if you go')\n• 食べる (taberu, 'to eat') → 食べれば (tabereba, 'if you eat')\n• 安い (yasui, 'cheap') → 安ければ (yasukereba, 'if it's cheap')\n\nNote: The ば-conditional often implies a natural or expected consequence: 'if A, then naturally B'. For godan verbs: う→えば, く→けば, す→せば, つ→てば, む→めば, ぶ→べば, ぬ→ねば, る→れば."
+    },
+    "song_count": 36
+  },
+  {
+    "id": "28040405-e731-49b2-9bb5-a082bbf34da2",
+    "name": "〜ている / 〜てる (te iru / teru) — progressive / state",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nThe pattern Verb て-form (te-form) + いる (iru) expresses ongoing action or resulting state. In casual speech, the い (i) drops: ている (te iru) → てる (teru). This casual contraction is extremely common in everyday spoken Japanese, songs, and informal writing.\n\nExample from this song:\n泣いてる (naiteru) — \"is crying\" (casual)\nThe casual form captures the immediacy and rawness of the emotion.\n\nMore examples:\n• 何してる？ (nani shiteru?) — \"what are you doing?\" (casual)\n• もう知ってる (mou shitteru) — \"I already know\" (casual)\n• ずっと待ってた (zutto matteta) — \"had been waiting all along\" (casual past)"
+    },
+    "song_count": 33
+  },
+  {
+    "id": "ebd9bcdf-2acf-4879-a970-50f98346c3cf",
+    "name": "命令形 (meireikei - imperative)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: The imperative form creates direct commands. For godan verbs (-u verbs), change the final vowel to -e. For ichidan verbs (-ru verbs), replace る with ろ.\n\nExample from this song: 目覚めろ (mezamero) = 'wake up!' — from 目覚める (mezameru, 'to awaken'), an ichidan verb → drop る, add ろ. Also: 燃やせ (moyase) = 'set ablaze!' — from 燃やす (moyasu, 'to burn'), a godan verb → す becomes せ\n\nMore examples:\n• 立つ (tatsu, 'to stand') → 立て (tate, 'stand up!')\n• 見る (miru, 'to see') → 見ろ (miro, 'look!')\n• 来る (kuru, 'to come') → 来い (koi, 'come!') — irregular\n\nNote: This form is very strong and direct, common in anime, songs, and sports cheering. Irregular verbs: する (suru) → しろ (shiro), 来る (kuru) → 来い (koi)."
+    },
+    "song_count": 31
+  },
+  {
+    "id": "cd6b0ba0-2202-4c5e-8856-db742ca9d2bf",
+    "name": "〜なら (nara conditional)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: なら (nara) means 'if it is the case that.' It's used when the condition is based on new information or a hypothetical situation. Just add なら after a plain form verb, noun, or adjective.\n\nExample from this song: 求めるなら (motomeru nara) = 'if you seek (it)' — from 求める (motomeru, 'to seek')\n\nMore examples:\n• 暇なら来て (hima nara kite, 'if you're free, come over') — from 暇 (hima, 'free time')\n• 行くなら早く (iku nara hayaku, 'if you're going, go early') — from 行く (iku, 'to go')\n• 学生なら安い (gakusei nara yasui, 'if you're a student, it's cheap') — noun + なら\n\nNote: なら is often used to give advice or make suggestions based on what someone just said. It differs from ば (ba) in that なら focuses on the situation/topic rather than a cause-and-effect relationship."
+    },
+    "song_count": 28
+  },
+  {
+    "id": "2f4bde8c-f15b-43bc-bcfa-191da710a386",
+    "name": "〜たい (tai: want to do)",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "How it works: Take the verb stem (masu-stem) and add たい (tai) to express wanting to do something. This is one of the first and most important grammar patterns for beginners.\n\nExample from this song: 帰りたい (kaeritai) = 'want to return' — from 帰る (kaeru, 'to return') → 帰り (kaeri, stem) + たい (tai, 'want to'). Also: 育てたい (sodatetai) = 'want to raise' and 語りたい (kataritai) = 'want to talk about'\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べたい (tabetai, 'want to eat')\n• 行く (iku, 'to go') → 行きたい (ikitai, 'want to go')\n• 見る (miru, 'to see') → 見たい (mitai, 'want to see')\n\nNote: For -ru verbs (ichidan), drop る and add たい. For -u verbs (godan), change the last syllable to its い-row equivalent and add たい: く→きたい, む→みたい, す→したい. たい conjugates like an い-adjective: たくない (don't want), たかった (wanted)."
+    },
+    "song_count": 26
+  },
+  {
+    "id": "7055ddcc-0f83-4d34-94ca-6b8807abd37e",
+    "name": "〜ず(に) (without doing)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Change the verb to its negative stem (the ない-form minus ない) and add ず (zu). This means 'without doing X'. Adding に (ni) after is optional and more common in modern Japanese.\n\nExample from this song: 忘れられず (wasurerezu) = 'unable to forget / without being able to forget' — from 忘れる (wasureru, 'to forget') → 忘れられる (wasurerareru, potential: 'can forget') → 忘れられず (wasurerezu, 'without being able to forget')\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べず (tabezu, 'without eating')\n• 言う (iu, 'to say') → 言わず (iwazu, 'without saying')\n• する (suru, 'to do') → せず (sezu, 'without doing') — irregular!\n\nNote: ず is a classical Japanese negative that survives in modern usage. It sounds more literary/poetic than ないで. する → せず is the only irregular form."
+    },
+    "song_count": 25
+  },
+  {
+    "id": "bce4d9cb-0d2c-41fb-a910-7f1a127ba466",
+    "name": "〜たら/なら (conditional)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: たら (tara) is a conditional 'if/when' formed from the past tense + ら. なら (nara) is a conditional 'if (it's the case that)' used for hypothetical situations.\n\nExample from this song: The song uses conditional forms to express hypothetical scenarios — 'if this happened, then...'\n\nMore examples:\n• 食べたらおいしかった (tabetara oishikatta, 'when I ate it, it was delicious') — たら for 'when'\n• 暇なら遊ぼう (hima nara asobou, 'if you're free, let's hang out') — なら for 'if'\n• もし宝くじが当たったら (moshi takarakuji ga atattara, 'if I won the lottery') — hypothetical\n\nNote: たら = 'if/when (something happens)' — most versatile. なら = 'if (based on information/supposition)' — focuses on the topic. Both are essential conditionals."
+    },
+    "song_count": 24
+  },
+  {
+    "id": "4d5ffbe9-28ba-475a-a185-d090a30e75a3",
+    "name": "〜てしまう (end up doing, regrettably)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add てしまう (te shimau) after the te-form of a verb to express that something happened completely, often with regret or that it was unintentional. In casual speech, it contracts to ちゃう (chau) or じゃう (jau).\n\nExample from this song: 忘れちゃう (wasurechau) = 'end up forgetting (regrettably)' — from 忘れる (wasureru, 'to forget') → 忘れて (wasurete, te-form) + しまう (shimau) → casual: 忘れちゃう (wasurechau)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べてしまう (tabete shimau, 'end up eating it all') → 食べちゃう (tabechau)\n• 壊す (kowasu, 'to break') → 壊してしまう (kowashite shimau, 'accidentally break') → 壊しちゃう (kowashichau)\n• 飲む (nomu, 'to drink') → 飲んでしまう (nonde shimau) → 飲んじゃう (nonjau)\n\nNote: Contraction rules: てしまう → ちゃう, でしまう → じゃう. Past tense: ちゃった/じゃった. てしまう can also express completion without regret in some contexts."
+    },
+    "song_count": 24
+  },
+  {
+    "id": "975331f4-03e3-4703-94a7-100d26eb5145",
+    "name": "〜続ける (tsuzukeru: to keep doing)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Attach 続ける (tsuzukeru, 'to continue') to the verb stem (masu-stem) to express persistent, ongoing action.\n\nExample from this song: 歩き続ける (aruki tsuzukeru) = 'keep walking' and 守り続ける (mamori tsuzukeru) = 'keep protecting' — from 歩く (aruku, 'to walk') → 歩き (aruki, stem) and 守る (mamoru, 'to protect') → 守り (mamori, stem)\n\nMore examples:\n• 走る (hashiru, 'to run') → 走り続ける (hashiri tsuzukeru, 'keep running')\n• 愛する (ai suru, 'to love') → 愛し続ける (aishi tsuzukeru, 'keep loving')\n• 探す (sagasu, 'to search') → 探し続ける (sagashi tsuzukeru, 'keep searching')\n\nNote: This song uses 続ける twice with different verbs, emphasizing persistent determination despite 'unerasable sin' — the singer will keep walking, keep protecting, no matter what."
+    },
+    "song_count": 24
+  },
+  {
+    "id": "9c03bf67-2944-4a87-88fe-7ef21fd1edaf",
+    "name": "〜てくれる (doing for me/us)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Take the て-form (te-form) of a verb and add くれる (kureru). This expresses that someone does something as a favor for the speaker or the speaker's in-group. It carries a sense of gratitude.\n\nExample from this song: かなえてくれる (kanaete kureru) = 'grants (wishes) for us' — from かなえる (kanaeru, 'to grant') → かなえて (kanaete, te-form) + くれる (kureru). Also たすけてくれる (tasukete kureru) = 'helps us'.\n\nMore examples:\n• 教える (oshieru, 'to teach') → 教えてくれる (oshiete kureru, 'teaches me')\n• 作る (tsukuru, 'to make') → 作ってくれる (tsukutte kureru, 'makes (it) for me')\n• 待つ (matsu, 'to wait') → 待ってくれる (matte kureru, 'waits for me')\n\nNote: This is one of three giving/receiving verbs in Japanese. くれる = someone does for me (grateful). あげる = I do for someone. もらう = I receive someone's action. This song uses てくれる repeatedly to express how grateful the children are to Doraemon.",
+      "es": "Cómo funciona: Toma la forma て del verbo y agrega くれる (kureru). Expresa que alguien hace algo como favor para el hablante. Lleva un sentido de gratitud.\n\nEjemplo de la canción: かなえてくれる (kanaete kureru) = 'concede (deseos) por nosotros' — de かなえる (kanaeru, 'conceder') → かなえて (kanaete, forma て) + くれる (kureru).\n\nMás ejemplos:\n• 教える (oshieru, 'enseñar') → 教えてくれる (oshiete kureru, 'me enseña')\n• 作る (tsukuru, 'hacer') → 作ってくれる (tsukutte kureru, 'hace para mí')\n• 待つ (matsu, 'esperar') → 待ってくれる (matte kureru, 'espera por mí')",
+      "pt-BR": "Como funciona: Pegue a forma て do verbo e adicione くれる (kureru). Expressa que alguém faz algo como favor para o falante. Carrega um sentido de gratidão.\n\nExemplo da música: かなえてくれる (kanaete kureru) = 'realiza (desejos) para nós' — de かなえる (kanaeru, 'realizar') → かなえて (kanaete, forma て) + くれる (kureru).\n\nMais exemplos:\n• 教える (oshieru, 'ensinar') → 教えてくれる (oshiete kureru, 'me ensina')\n• 作る (tsukuru, 'fazer') → 作ってくれる (tsukutte kureru, 'faz para mim')\n• 待つ (matsu, 'esperar') → 待ってくれる (matte kureru, 'espera por mim')"
+    },
+    "song_count": 21
+  },
+  {
+    "id": "16cee5b1-d12f-4943-a9ed-6812dfe73d26",
+    "name": "〜なんて (nante: such a thing as)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Add なんて (nante) after a noun or phrase to express surprise, dismissal, or contempt — 'something like X' or 'such a thing as X'. The nuance depends on context.\n\nExample from this song: 地図なんて見ない (chizu nante minai) = 'I won't look at something like a map' — from 地図 (chizu, 'map') + なんて (nante, 'such a thing as') + 見ない (minai, 'won't look at')\n\nMore examples:\n• テスト (tesuto, 'test') → テストなんて簡単だ (tesuto nante kantan da, 'a test? That's easy!')\n• 別れ (wakare, 'farewell') → 別れなんて嫌だ (wakare nante iya da, 'I hate something like goodbyes')\n• 言う (iu, 'to say') → そんなこと言うなんて (sonna koto iu nante, 'I can't believe you'd say such a thing')\n\nNote: なんて is dismissive: 地図なんて = 'a mere map' — implying it's unnecessary. In this song, it shows confidence: 'who needs a map?' It can express pleasant surprise too: 合格するなんて (goukaku suru nante, 'to think I passed!')."
+    },
+    "song_count": 21
+  },
+  {
+    "id": "47e9005b-2c76-4c7d-8e05-10d53c506123",
+    "name": "〜ように (you ni: hoping that)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add ように (yō ni) after a verb to express a wish or hope — 'I hope that X' or 'so that X happens'. Often used in prayer-like or wish-like sentences, especially with ありますように.\n\nExample from this song: 多い人生でありますように (ooi jinsei de arimasu yō ni) = 'may life be full' — expressing a heartfelt wish using the formal ありますように pattern.\n\nMore examples:\n• 叶う (kanau, 'to come true') → 夢が叶いますように (yume ga kanaimasu yō ni, 'I hope my dream comes true')\n• うまくいく (umaku iku, 'to go well') → うまくいきますように (umaku ikimasu yō ni, 'I hope it goes well')\n• 元気 (genki, 'healthy') → 元気でありますように (genki de arimasu yō ni, 'may you be well')\n\nNote: This ように is specifically for wishes and prayers — different from 'in order to' (purpose). The ます form before ように makes it more formal/prayerful. This is the pattern used at shrines when making wishes."
+    },
+    "song_count": 21
+  },
+  {
+    "id": "b275fafa-892e-45a7-94c6-8a48271031ed",
+    "name": "〜ながら (nagara) — while doing / despite",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nThe pattern Verb ます-stem (masu-stem) + ながら (nagara) has two meanings: (1) doing two actions simultaneously — \"while doing ~,\" and (2) expressing contradiction — \"despite ~\" or \"although ~.\" The second meaning is more formal. Both meanings are very common in everyday Japanese.\n\nExample from this song:\nThe singer describes doing things simultaneously — experiencing pain while still pushing forward.\n\nMore examples:\n• 音楽を聴きながら勉強する (ongaku o kiki nagara benkyou suru) — \"study while listening to music\"\n• 歩きながら話す (aruki nagara hanasu) — \"talk while walking\"\n• 知っていながら黙っていた (shitte i nagara damatte ita) — \"stayed silent despite knowing\" (contradiction)"
+    },
+    "song_count": 20
+  },
+  {
+    "id": "14e074d3-b63d-429f-954a-03bde8b36612",
+    "name": "〜んだ (nda: explanatory)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add んだ (nda) after a verb, adjective, or noun phrase to give an explanatory nuance — 'the fact is that...' or 'you see...'. It signals you're sharing context or explaining something.\n\nExample from this song: 生きてるんだ (ikiterunda) = 'I'm alive, you see' — from 生きてる (ikiteru, 'am living') + んだ (nda). Also 始まってるんだ (hajimatterunda) = 'it has begun, you know'.\n\nMore examples:\n• 忙しい (isogashii, 'busy') → 忙しいんだ (isogashiinda, 'the thing is, I'm busy')\n• 食べた (tabeta, 'ate') → 食べたんだ (tabetanda, 'the thing is, I ate')\n• 学生 (gakusei, 'student') → 学生なんだ (gakusei nanda, 'the thing is, I'm a student')\n\nNote: This pattern is extremely common in casual Japanese. After nouns and な-adjectives, it becomes なんだ (nanda). The feminine/softer form is の (no)."
+    },
+    "song_count": 20
+  },
+  {
+    "id": "c52c6db9-1101-4e55-a082-e883ac1fa800",
+    "name": "〜さえ (sae) — even (emphasis)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works:\nThe particle さえ (sae) means \"even\" and is used to highlight an extreme or unexpected case. It is stronger and more dramatic than も (mo, \"also/even\"). The pattern is Noun + さえ (sae). When combined with も (mo) as さえも (sae mo), the emphasis is even stronger. It implies: \"if even this extreme case is true, then everything else certainly is too.\"\n\nExample from this song:\n星さえも無い夜 (hoshi sae mo nai yoru) — \"a night without even stars\"\nEven the stars — the most basic source of light — are absent, emphasizing total darkness.\n\nMore examples:\n• 名前さえ知らない (namae sae shiranai) — \"I don't even know their name\"\n• 水さえあれば生きられる (mizu sae areba ikirareru) — \"if there's even just water, I can survive\"\n• 子供さえ分かる (kodomo sae wakaru) — \"even a child understands\""
+    },
+    "song_count": 19
+  },
+  {
+    "id": "c38ecbc8-8a01-4e0f-9438-02badaf7b596",
+    "name": "〜たい (want to)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Take the verb masu-stem and add たい (tai). This expresses the speaker's desire to do something. It conjugates like an い-adjective.\n\nExample from this song: なりたい (naritai) = 'want to become' — from なる (naru, 'to become') → なり (nari, masu-stem) + たい (tai)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べたい (tabetai, 'want to eat')\n• 会う (au, 'to meet') → 会いたい (aitai, 'want to meet')\n• 行く (iku, 'to go') → 行きたい (ikitai, 'want to go')\n\nNote: Used in the song as つよくなりたい (tsuyoku naritai) — 'want to become strong'. The つよく is the adverb form of つよい (tsuyoi, 'strong').",
+      "es": "Cómo funciona: Toma la raíz masu del verbo y agrega たい (tai). Esto expresa el deseo del hablante.\n\nEjemplo de la canción: なりたい (naritai) = 'quiero convertirme' — de なる (naru, 'convertirse') → なり (nari, raíz masu) + たい (tai)",
+      "pt-BR": "Como funciona: Pegue a raiz masu do verbo e adicione たい (tai). Isso expressa o desejo do falante de fazer algo.\n\nExemplo da música: なりたい (naritai) = 'quero me tornar' — de なる (naru, 'tornar-se') → なり (nari, raiz masu) + たい (tai)\n\nMais exemplos:\n• 食べる (taberu, 'comer') → 食べたい (tabetai, 'quero comer')\n• 行く (iku, 'ir') → 行きたい (ikitai, 'quero ir')"
+    },
+    "song_count": 18
+  },
+  {
+    "id": "02522b64-19a7-422c-87d7-318afd223420",
+    "name": "〜ちゃう / 〜じゃう (casual てしまう)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: 〜ちゃう (chau) is the casual contraction of 〜てしまう (te shimau), expressing completion with a nuance of regret, accident, or something done completely.\n\nExample from this song: 消えちゃいそう (kiechaisō) = 'seems like it'll disappear (unfortunately)' — from 消えて (kiete, te-form of 'to disappear') + しまう → contracted to 消えちゃう + そう\n\nMore examples:\n• 食べてしまう → 食べちゃう (tabechau, 'end up eating')\n• 忘れてしまう → 忘れちゃう (wasurechau, 'accidentally forget')\n• 壊してしまう → 壊しちゃう (kowashichau, 'end up breaking')\n\nNote: 〜ちゃう replaces 〜てしまう; 〜じゃう replaces 〜でしまう (for de-form verbs). Very common in casual speech."
+    },
+    "song_count": 18
+  },
+  {
+    "id": "8f2a8d1a-f687-40b2-91a2-cf129120b75b",
+    "name": "〜ずに (zu ni: without doing)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Take the verb's negative stem (drop ない from the negative form) and add ずに (zuni) to mean 'without doing X'.\n\nExample from this song: 迷わずに (mayowazuni) = 'without hesitating' — from 迷う (mayou, 'to hesitate') → 迷わ (mayowa, negative stem) + ずに (zuni, 'without'). Also: 焦らずに (aserazuni) = 'without rushing' — from 焦る (aseru, 'to rush')\n\nMore examples:\n• 見る (miru, 'to see') → 見ずに (mizuni, 'without looking')\n• 食べる (taberu, 'to eat') → 食べずに (tabezuni, 'without eating')\n• する (suru, 'to do') → せずに (sezuni, 'without doing') — irregular\n\nNote: ずに is more literary/formal than ないで (naide). Both mean the same thing. The only irregular form is する → せず. This pattern appears twice in this song, showing its importance for expressing restraint."
+    },
+    "song_count": 16
+  },
+  {
+    "id": "4c07593c-4c9a-4ecb-86d5-ab49c372825f",
+    "name": "〜たって (tatte: even if)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Take the た-form (past) and add って (tte). This is a casual concessive meaning 'even if'. It's the informal equivalent of ても (temo).\n\nExample from this song: 消えたって (kietatte) = 'even if it disappears' — from 消える (kieru, 'to disappear') → 消えた (kieta, past) + って (tte)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べたって (tabetatte, 'even if I eat')\n• 言う (iu, 'to say') → 言ったって (ittatte, 'even if I say')\n• 高い (takai, 'expensive') → 高くたって (takakutatte, 'even if it's expensive')\n\nNote: たって is casual and spoken. ても is standard. The nuance is the same — 'even if'. For い-adjectives: い → くたって. For nouns: だって. 何だって (nandatte) = 'no matter what' or 'what did you say?!'."
+    },
+    "song_count": 16
+  },
+  {
+    "id": "e172f73b-9c00-439a-b0da-b24b207d7e80",
+    "name": "〜ないで (negative te-form: please don't / without doing)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Take the ない-form of a verb (negative stem) and add で (de). This creates either 'please don't do X' (request) or 'without doing X' (attendant circumstance).\n\nExamples from this song:\n• 泣いてないで (nai te nai de) = 'don't stay crying' — from 泣く (naku, 'to cry')\n• 止めないで (tomenaide) = 'please don't stop' — from 止める (tomeru, 'to stop')\n• 投げ出さないで (nagedasanaide) = 'don't throw (life) away' — from 投げ出す (nagedasu, 'to throw out')\n\nMore examples:\n• 食べないで (tabenaide) = 'don't eat (it)'\n• 行かないで (ikanaide) = 'please don't go'\n• 忘れないで (wasurenaide) = 'don't forget'\n\nNote: Compare with 〜なくて (nakute), which links negative clauses causally ('because not X'). 〜ないで is softer and more pleading — Eve stacks it repeatedly here to wring emotion from the listener.",
+      "es": "Cómo funciona: toma la forma ない de un verbo y añade で. Esto crea 'por favor, no hagas X' (petición) o 'sin hacer X' (circunstancia).\n\nEjemplos de la canción:\n• 泣いてないで = 'no sigas llorando' — de 泣く\n• 止めないで = 'por favor no pares' — de 止める\n• 投げ出さないで = 'no tires (la vida)' — de 投げ出す\n\nMás ejemplos:\n• 食べないで = 'no comas (eso)'\n• 行かないで = 'por favor no vayas'\n• 忘れないで = 'no olvides'\n\nNota: compara con 〜なくて, que une oraciones negativas causalmente. 〜ないで es más suave y suplicante — Eve la apila repetidamente para sacar emoción del oyente.",
+      "pt-BR": "Como funciona: pegue a forma ない de um verbo e adicione で. Isso cria 'por favor, não faça X' (pedido) ou 'sem fazer X' (circunstância).\n\nExemplos da música:\n• 泣いてないで = 'não fique chorando' — de 泣く\n• 止めないで = 'por favor não pare' — de 止める\n• 投げ出さないで = 'não jogue (a vida) fora' — de 投げ出す\n\nMais exemplos:\n• 食べないで = 'não coma (isso)'\n• 行かないで = 'por favor não vá'\n• 忘れないで = 'não esqueça'\n\nNota: compare com 〜なくて, que liga orações negativas por causa. 〜ないで é mais suave e suplicante — Eve empilha repetidamente para arrancar emoção do ouvinte."
+    },
+    "song_count": 16
+  },
+  {
+    "id": "75765b3c-d98d-4081-9316-dd2f85f309eb",
+    "name": "Volitional 〜よう / 〜う (let's...; intent)",
+    "jlpt_reference": "N4",
+    "explanation": {
+      "en": "The volitional form expresses 'let's (do)' or the speaker's intent. For Group 1 (godan) verbs, the final -u shifts to -ō: 捨てる happens to be Group 2 → 捨てよう ('let's throw away'). For Group 1: なる → なろう ('let's become'). Irregulars: する → しよう, 来る → 来よう.\n\nThis song uses it twice in close succession in the chorus reprise: ひとつになろう ('let's become one') and 捨ててしまおう ('let's throw it all away' — combining 捨てる + 〜てしまう volitional). Each rallies the listener to share the speaker's resolve.\n\nOther typical examples: 一緒に行こう ('let's go together'), 早く帰ろう ('let's head home soon'), 頑張ろう ('let's give it our best'), 信じよう ('let's believe')."
+    },
+    "song_count": 14
+  },
+  {
+    "id": "4d218c66-5ade-47a3-87a1-002466891415",
+    "name": "〜ために (tame ni: for the sake of; in order to)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add ために (tame ni) after a verb in dictionary form for purpose ('in order to'), or after noun + の for beneficiary ('for the sake of').\n\nExample from this song: 自分のために (jibun no tame ni) = 'for my own sake' — from 自分 (jibun, 'oneself') + の (no) + ために (tame ni, 'for the sake of'). Also: 歩くために (aruku tame ni) = 'in order to walk'\n\nMore examples:\n• 合格する (goukaku suru, 'to pass') → 合格するために (goukaku suru tame ni, 'in order to pass')\n• 家族 (kazoku, 'family') → 家族のために (kazoku no tame ni, 'for the family's sake')\n• 健康 (kenkou, 'health') → 健康のために (kenkou no tame ni, 'for health')\n\nNote: With verbs = purpose ('in order to'). With nouns + の = beneficiary ('for the sake of'). Past tense + ために = cause ('because'): 雨が降ったために (ame ga futta tame ni, 'because it rained')."
+    },
+    "song_count": 14
+  },
+  {
+    "id": "8748faec-25ee-4167-ad26-c7b292f5fa41",
+    "name": "〜のに (noni: even though)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add のに (noni) at the end of a clause to express frustration or disappointment that reality contradicts expectation — 'even though X' or 'despite X'.\n\nExample from this song: 溢れるのに見えない (afureru noni mienai) = 'even though it overflows, I can't see it' and 伝えたいのに (tsutaetai noni) = 'even though I want to convey it (I can't)'\n\nMore examples:\n• 好き (suki, 'like') → 好きなのに (suki na noni, 'even though I like it...')\n• 頑張った (ganbatta, 'tried hard') → 頑張ったのに (ganbatta noni, 'even though I tried hard...')\n• 約束した (yakusoku shita, 'promised') → 約束したのに (yakusoku shita noni, 'even though you promised...')\n\nNote: のに carries emotional weight — frustration, sadness, or mild complaint. After な-adjectives and nouns: なのに. After verbs and い-adjectives: attach directly. Often the sentence trails off: ...のに (implying the unfair result)."
+    },
+    "song_count": 14
+  },
+  {
+    "id": "c3fd6077-9048-44c1-b8ec-93fe565fdc2b",
+    "name": "〜だって (datte) — even / no matter",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works:\nThe particle だって (datte) after a noun means \"even ~\" or \"no matter ~.\" It is the casual equivalent of でも (demo) in this usage. With question words, it means \"no matter what/who/when\": 誰だって (dare datte, \"anyone / no matter who\"). It sounds defiant and emphatic.\n\nExample from this song:\nどんな瞬間だって (donna shunkan datte) — \"no matter what moment\"\nEvery single moment counts — there are no exceptions.\n\nMore examples:\n• 誰だって失敗する (dare datte shippai suru) — \"anyone can fail\"\n• いつだって味方だよ (itsu datte mikata da yo) — \"I'm always on your side\"\n• 何だってできる (nan datte dekiru) — \"you can do anything\""
+    },
+    "song_count": 12
+  },
+  {
+    "id": "82bde35d-b73c-494a-a1a0-dff9fc412303",
+    "name": "〜ほど (to the extent that)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Place ほど (hodo) after a verb or noun to indicate degree — 'to the extent that' or 'the more... the more...'. It shows how much of something there is.\n\nExample from this song: The lyrics use ほど to express the intensity of feelings and experiences.\n\nMore examples:\n• 死ぬ (shinu, 'to die') → 死ぬほど疲れた (shinu hodo tsukareta, 'tired enough to die — exhausted')\n• 泣く (naku, 'to cry') → 泣くほど嬉しい (naku hodo ureshii, 'so happy I could cry')\n• 食べる (taberu) + ほど → 食べれば食べるほど (tabereba taberu hodo, 'the more you eat, the more...')\n\nNote: The pattern [verb-ば] [same verb-dictionary] + ほど means 'the more you do, the more...'. This is very common: 知れば知るほど (shireba shiru hodo, 'the more you know, the more...')."
+    },
+    "song_count": 12
+  },
+  {
+    "id": "3271a7b8-8e74-4372-9a57-ec39b80e8cc6",
+    "name": "〜まま (mama: as it is; unchanged)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: まま (mama) expresses a state that remains unchanged. Attach it after の (no) with nouns, or after the plain form of verbs/adjectives, to mean 'as it is' or 'remaining in that state.'\n\nExample from this song: あの頃のまま (ano koro no mama) = 'unchanged from those days' — the side profile in dreams remains exactly as it was back then\n\nMore examples:\n• ドアを開けたまま (doa o aketa mama, 'with the door left open') — from 開ける (akeru, 'to open')\n• このままでいい (kono mama de ii, 'it's fine as it is') — expressing contentment\n• 靴のまま入る (kutsu no mama hairu, 'enter with shoes on') — state unchanged\n\nNote: まま after a past-tense verb means something was left in that state. After の, it describes maintaining a noun's condition. It often implies the state was unexpected or noteworthy."
+    },
+    "song_count": 12
+  },
+  {
+    "id": "5f70f52a-4e3b-4b57-93ce-b44763a711cd",
+    "name": "Passive form 〜(ら)れる (rareru: was X-ed)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "The passive voice. Godan verbs: negative stem + れる (蹴る → 蹴られる). Ichidan: 〜る → 〜られる (食べる → 食べられる). Past: 〜れた.\n\nFrom this song: 蹴られた地球 = 'the Earth that got kicked' (verse 3).\n\nMore examples:\n• 先生に叱られた (I was scolded by the teacher.)\n• 雨に降られた (I was caught in the rain — suffering passive.)\n• 友達に招待された (I was invited by a friend.)"
+    },
+    "song_count": 11
+  },
+  {
+    "id": "c25fe9ad-7563-4005-a0fb-ab434580d4b0",
+    "name": "〜おう / 〜よう (volitional — let's)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: For godan verbs, change the final -u vowel to -ou. For ichidan verbs, drop る and add よう. This creates the volitional form meaning 'let's do' or 'I shall do'.\n\nExample from this song: 歌おう (utaou) = 'let's sing' — from 歌う (utau, 'to sing') → change final -u to -ou → 歌おう\n\nMore examples:\n• 行く (iku, 'to go') → 行こう (ikou, 'let's go')\n• 食べる (taberu, 'to eat') → 食べよう (tabeyou, 'let's eat')\n• する (suru, 'to do') → しよう (shiyou, 'let's do')\n\nNote: When paired with みんなで (minna de, 'everyone together'), it becomes a warm invitation: みんなで歌おう = 'let's all sing together!'",
+      "es": "Cómo funciona: Para verbos godan, cambia la vocal final -u a -ou. Para verbos ichidan, quita る y agrega よう. Esto crea la forma volitiva que significa 'vamos a hacer'.\n\nEjemplo de la canción: 歌おう (utaou) = 'cantemos' — de 歌う (utau, 'cantar') → cambia -u a -ou → 歌おう\n\nMás ejemplos:\n• 行く (iku, 'ir') → 行こう (ikou, 'vamos')\n• 食べる (taberu, 'comer') → 食べよう (tabeyou, 'comamos')",
+      "pt-BR": "Como funciona: Para verbos godan, mude a vogal final -u para -ou. Para verbos ichidan, remova る e adicione よう. Isso cria a forma volitiva significando 'vamos fazer'.\n\nExemplo da música: 歌おう (utaou) = 'vamos cantar' — de 歌う (utau, 'cantar') → mude -u para -ou → 歌おう\n\nMais exemplos:\n• 行く (iku, 'ir') → 行こう (ikou, 'vamos')\n• 食べる (taberu, 'comer') → 食べよう (tabeyou, 'vamos comer')"
+    },
+    "song_count": 11
+  },
+  {
+    "id": "add25a2c-5fac-4d10-b8f7-b9f525b7bb74",
+    "name": "〜ちゃう (chau: end up doing)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: This is the casual contraction of てしまう (te shimau). て + しまう → ちゃう, で + しまう → じゃう. It expresses completion, often with regret or an unintended outcome.\n\nExample from this song: 渡っちゃう (watacchau) = 'end up crossing' — from 渡る (wataru, 'to cross') → 渡って (watatte) + しまう (shimau) → 渡っちゃう (watacchau)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べちゃう (tabechau, 'end up eating')\n• 飲む (nomu, 'to drink') → 飲んじゃう (nonjau, 'end up drinking')\n• やる (yaru, 'to do') → やっちゃう (yacchau, 'end up doing it')\n\nNote: In this song, the 'ending up' nuance is more about determination than regret — 'I'll just go ahead and cross!' The context determines whether ちゃう sounds regretful or boldly decisive."
+    },
+    "song_count": 11
+  },
+  {
+    "id": "b928630d-f2f9-4445-be1e-571e01d5fad7",
+    "name": "〜まま (as it is)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Place まま (mama) after a verb or adjective to express that a state remains unchanged — 'as it is' or 'while still in that state'. Often used with negative verbs to show stagnation.\n\nExample from this song: 言えないまま (ienai mama) = 'unable to say, remaining so' — from 言えない (ienai, 'cannot say') + まま (mama, 'as is')\n\nMore examples:\n• 立つ (tatsu, 'to stand') → 立ったまま (tatta mama, 'while still standing')\n• 開ける (akeru, 'to open') → 開けたまま (aketa mama, 'left open')\n• 知らない (shiranai, 'not knowing') → 知らないまま (shiranai mama, 'remaining unaware')\n\nNote: Past tense + まま = state left as is (ドアを開けたまま, 'left the door open'). Negative + まま = state that hasn't changed (食べないまま寝た, 'slept without eating')."
+    },
+    "song_count": 11
+  },
+  {
+    "id": "22f86c2b-6619-4c48-99f5-a9c7b879c17d",
+    "name": "〜られる (passive voice)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: For ichidan verbs, drop る and add られる. For godan verbs, change the final vowel to -a and add れる. This creates the passive voice — 'to be done to'.\n\nExample from this song: 守られた (mamorareta) = 'was protected' — from 守る (mamoru, 'to protect') → 守ら (mamora, a-stem) + れた (reta, passive past)\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べられる (taberareru, 'to be eaten')\n• 呼ぶ (yobu, 'to call') → 呼ばれる (yobareru, 'to be called')\n• 壊す (kowasu, 'to destroy') → 壊される (kowasareru, 'to be destroyed')\n\nNote: In this song, 守られた日々 ('days that were protected') uses the passive to show that the protection was done by an outside force — the 'gentle lies' of the dystopian society. Japanese passive often carries a nuance of being affected by something beyond one's control."
+    },
+    "song_count": 11
+  },
+  {
+    "id": "0086e6bc-d5b1-4122-b312-e870381d6eb5",
+    "name": "〜くらい / ぐらい (to the extent)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Place くらい (kurai) or ぐらい (gurai) after a verb or noun to express degree — 'to the extent of' or 'about/approximately'.\n\nExample from this song: 息もできないくらい (iki mo dekinai kurai) = 'to the extent of not being able to breathe' — from 息もできない (iki mo dekinai, 'can't even breathe') + くらい (kurai, 'to the extent')\n\nMore examples:\n• 死ぬ (shinu, 'to die') → 死ぬくらい痛い (shinu kurai itai, 'hurts so much I could die')\n• 泣く (naku, 'to cry') → 泣くくらい嬉しい (naku kurai ureshii, 'so happy I could cry')\n• 3時間 (san jikan, '3 hours') → 3時間くらい (san jikan kurai, 'about 3 hours')\n\nNote: くらい and ぐらい are interchangeable. With verbs, it means 'to the extent that'. With numbers, it means 'approximately'. Both are very common in everyday Japanese."
+    },
+    "song_count": 10
+  },
+  {
+    "id": "e5c690b1-cd13-4d82-8181-dde2aba2045e",
+    "name": "〜すぎる (sugiru: too much)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Attach すぎる (sugiru, 'to exceed') to a verb stem or adjective stem to express excess — 'too much' or 'excessively'. For verbs, use the masu-stem. For い-adjectives, drop い.\n\nExample from this song: 急ぎすぎる (isogi sugiru) = 'rushing too much' — from 急ぐ (isogu, 'to hurry') → 急ぎ (isogi, stem) + すぎる (sugiru, 'too much')\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べすぎる (tabesugiru, 'eat too much')\n• 高い (takai, 'expensive') → 高すぎる (takasugiru, 'too expensive')\n• 静か (shizuka, 'quiet') → 静かすぎる (shizuka sugiru, 'too quiet')\n\nNote: すぎる itself conjugates as a regular -ru verb: すぎた (sugita, past), すぎない (suginai, negative). い-adjectives drop い: 大きい → 大きすぎる. な-adjectives attach directly: 静かすぎる."
+    },
+    "song_count": 10
+  },
+  {
+    "id": "7db79739-81ba-4b52-9a53-5217a8826b90",
+    "name": "〜だって (datte) — even (casual)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nThe particle だって (datte) after a noun means \"even ~\" in casual speech. It is the informal equivalent of でも (demo, \"even\"). It adds emphasis to something that might be unexpected or difficult. With question words: 誰だって (dare datte, \"anyone\"), いつだって (itsu datte, \"anytime\").\n\nExample from this song:\n離ればなれの夜だって (hanabanare no yoru datte) — \"even on nights when we're apart\"\nEven during painful separation, the singer's feelings remain unchanged.\n\nMore examples:\n• 子供だって分かる (kodomo datte wakaru) — \"even a child understands\"\n• どんな時だって味方だよ (donna toki datte mikata da yo) — \"I'm on your side no matter when\"\n• 一人だって大丈夫 (hitori datte daijoubu) — \"even alone, it's okay\""
+    },
+    "song_count": 10
+  },
+  {
+    "id": "eedcd2c8-0695-4b2c-ba78-70e75b4b5c01",
+    "name": "〜てきた (te-kita: have been doing)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: てきた (te kita) expresses an action that started in the past and has continued up to the present. It uses the te-form + 来た (kita, past of 来る, 'to come').\n\nExample from this song: 決めてきた (kimete kita) = 'have been deciding / have decided (and carried it to now)' — from 決める (kimeru, 'to decide') → 決めて (kimete) + きた (kita)\n\nMore examples:\n• 頑張ってきた (ganbatte kita, 'have been working hard') — from 頑張る (ganbaru, 'to try hard')\n• 信じてきた (shinjite kita, 'have been believing') — from 信じる (shinjiru, 'to believe')\n• ずっと走ってきた (zutto hashitte kita, 'have been running all this time') — from 走る (hashiru, 'to run')\n\nNote: てくる = movement from past toward present. ていく = movement from present toward future. てきた (past of てくる) = 'has been doing up to now.' It often emphasizes perseverance or the weight of accumulated experience."
+    },
+    "song_count": 10
+  },
+  {
+    "id": "2cea4155-d0c8-4446-b751-95e46f54942d",
+    "name": "〜みたい (it seems like)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add みたい (mitai) after a noun, verb, or adjective to express that something seems like or resembles something else. It's the casual equivalent of ようだ (yō da).\n\nExample from this song: The song uses comparisons to describe how things appear — みたい expresses 'it seems like' or 'it's like' based on impression.\n\nMore examples:\n• 夢 (yume, 'dream') → 夢みたい (yume mitai, 'it's like a dream')\n• 嘘 (uso, 'lie') → 嘘みたい (uso mitai, 'it seems like a lie')\n• 子供 (kodomo, 'child') → 子供みたい (kodomo mitai, 'like a child')\n\nNote: When modifying a noun, add な: 夢みたいな話 (yume mitai na hanashi, 'a story that seems like a dream'). みたい is casual; ようだ is more formal/literary."
+    },
+    "song_count": 10
+  },
+  {
+    "id": "d1afdbf7-411d-4b51-9aef-c1d29a3349e0",
+    "name": "命令形 (imperative form)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Change the verb ending to create a direct command. For -ru verbs (ichidan), replace る with ろ. For -u verbs (godan), change the final う-row syllable to its え-row equivalent.\n\nExample from this song: 掴め (tsukame) = 'Grab it!' — from 掴む (tsukamu, 'to grab') → change む (mu) to め (me)\n\nMore examples:\n• 攻める (semeru, 'to attack') → 攻めろ (semero, 'Attack!')\n• 探る (saguru, 'to search') → 探れ (sagure, 'Search!')\n• 走る (hashiru, 'to run') → 走れ (hashire, 'Run!')\n\nNote: For godan verbs: む→め, く→け, す→せ, つ→て, ぬ→ね, ぶ→べ, る→れ. For ichidan verbs: る→ろ. This form is very direct and strong — common in song lyrics, sports, and anime but rarely used in polite conversation."
+    },
+    "song_count": 10
+  },
+  {
+    "id": "aa328157-c231-4373-929e-b5a317174d6d",
+    "name": "Imperative form (命令形)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: For godan verbs, change the final -u to -e. For ichidan verbs, replace る with ろ. This creates a strong, direct command.\n\nExample from this song: 断ち切れ (tachikire) = 'Cut it off!' — from 断ち切る (tachikiru, 'to sever') → 断ち切れ. Also 叫べ (sakebe) = 'Shout!' and 出し切れ (dashikire) = 'Give it all!'\n\nMore examples:\n• 走る (hashiru, 'to run') → 走れ (hashire, 'Run!')\n• 食べる (taberu, 'to eat') → 食べろ (tabero, 'Eat!')\n• 頑張る (ganbaru, 'to do your best') → 頑張れ (ganbare, 'Do your best!')\n\nNote: The imperative is particularly powerful in this song as a rallying cry for freedom. 頑張れ (ganbare, 'Do your best!') is one of the most commonly heard imperatives in Japanese culture."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "737080ec-457d-4433-928f-56c4a1a84ee6",
+    "name": "〜きれない (unable to completely)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Attach きれない (kirenai) to the verb stem (masu-stem) to express being unable to do something completely or thoroughly. きれる (kireru) means 'to be able to finish' and its negative きれない means 'can't completely'.\n\nExample from this song: 諦めきれない (akiramekirenai) = 'can't completely give up' — from 諦める (akirameru, 'to give up') → 諦め (akirame, stem) + きれない (kirenai, 'can't fully')\n\nMore examples:\n• 食べる (taberu, 'to eat') → 食べきれない (tabekirenai, 'can't eat it all')\n• 使う (tsukau, 'to use') → 使いきれない (tsukaikirenai, 'can't use it all up')\n• 読む (yomu, 'to read') → 読みきれない (yomikirenai, 'can't finish reading')\n\nNote: The positive form きれる means you CAN finish: 食べきれる (tabekireru, 'can eat it all'). The stem is formed by dropping ます from the polite form."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "abbf5947-fe80-40e4-8187-81e4c120511f",
+    "name": "〜たり〜たり (tari tari: doing things like)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Add たり (tari) to the past form of two or more verbs, usually ending with する, to list representative actions — 'doing things like X and Y'. It implies there are more actions too.\n\nExample from this song: 失くしたり拾ったり (nakushitari hirottari) = 'losing things and picking them up (among other things)' — from 失くす (nakusu, 'to lose') → 失くしたり and 拾う (hirou, 'to pick up') → 拾ったり\n\nMore examples:\n• 食べる (taberu, 'to eat') / 飲む (nomu, 'to drink') → 食べたり飲んだりする (tabetari nondari suru, 'doing things like eating and drinking')\n• 笑う (warau, 'to laugh') / 泣く (naku, 'to cry') → 笑ったり泣いたりする (warattari naitari suru, 'laughing and crying')\n• 読む (yomu, 'to read') / 書く (kaku, 'to write') → 読んだり書いたりする (yondari kaitari suru, 'reading and writing and such')\n\nNote: Formation: past form + り. 食べた → 食べたり. 飲んだ → 飲んだり. The たり list is incomplete by nature — it implies 'and other things'. Usually ends with する but not always in casual speech."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "e6d9fc96-2d75-41a2-9fc4-7d4f9b87129c",
+    "name": "〜だす (sudden start)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Take the verb masu-stem and add だす (dasu, 'to put out'). As an auxiliary, it means 'to suddenly start doing'. It emphasizes the abruptness of the action beginning.\n\nExample from this song: 鳴きだす (nakidasu) = 'suddenly start crying/chirping' — from 鳴く (naku, 'to cry/chirp') → 鳴き (naki, masu-stem) + だす (dasu)\n\nMore examples:\n• 走る (hashiru, 'to run') → 走りだす (hashiridasu, 'suddenly start running')\n• 笑う (warau, 'to laugh') → 笑いだす (waraidasu, 'burst out laughing')\n• 降る (furu, 'to fall — rain') → 降りだす (furidasu, 'suddenly start raining')\n\nNote: Compare with はじめる (hajimeru, 'begin to') which is a gradual, intentional start. だす implies suddenness and often surprise. 雨が降りだした (ame ga furidashita, 'it suddenly started raining')."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "e57b7b25-a0c0-4824-9fd7-5c1481c4296f",
+    "name": "〜のなら (no nara: if it is that)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Add のなら (no nara) after a verb to express a conditional that assumes the situation — 'if it is the case that X' or 'given that X'.\n\nExample from this song: くるのなら (kuru no nara) = 'if (that time) comes' — from くる (kuru, 'to come') + のなら (no nara, 'if it is that')\n\nMore examples:\n• 行く (iku, 'to go') → 行くのなら (iku no nara, 'if you're going')\n• 諦める (akirameru, 'to give up') → 諦めるのなら (akirameru no nara, 'if you're going to give up')\n• 会える (aeru, 'can meet') → 会えるのなら (aeru no nara, 'if we can meet')\n\nNote: のなら assumes the condition has been stated or is likely. It often implies 'since you've decided...' or 'well, if that's the case...' It's more emphatic than plain なら."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "2a28ef78-f2e4-432f-a6f5-d2d6b22a577e",
+    "name": "〜ように (as if, in the manner of)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "Verb (plain) + ように means 'as if X / like X'. 試されてるように 'as if I'm being tested'; 言葉遊びをするように 'as if playing word-games'. Different from 〜ように meaning 'so that' (purpose).",
+      "es": "Verbo (forma simple) + ように significa 'como si X / de la manera que X'. 試されてるように 'como si me estuvieran poniendo a prueba'.",
+      "pt-BR": "Verbo (forma simples) + ように significa 'como se X / da maneira que X'. 試されてるように 'como se eu estivesse sendo testado'."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "53a9a336-3d93-42ce-8de2-5e5c55f7855d",
+    "name": "〜より (yori: rather than; compared to)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works: Place より (yori) after what you're comparing to — 'more than X' or 'rather than X'. It sets up the comparison baseline.\n\nExample from this song: 逃げるよりマシ (nigeru yori mashi) = 'better than running away' — from 逃げる (nigeru, 'to run away') + より (yori, 'rather than') + マシ (mashi, 'better')\n\nMore examples:\n• 歩く (aruku, 'to walk') → 歩くより走る方がいい (aruku yori hashiru hou ga ii, 'running is better than walking')\n• 昨日 (kinou, 'yesterday') → 昨日より今日 (kinou yori kyou, 'today more than yesterday')\n• 何もしない (nanimo shinai, 'doing nothing') → 何もしないより (nanimo shinai yori, 'rather than doing nothing')\n\nNote: より + マシ is a powerful combination meaning 'better (of two bad options)'. The full comparison pattern: A より B の方が [adjective] = 'B is more [adj] than A'."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "20b9300c-5a14-4c96-b825-3e9c51d4b7f0",
+    "name": "〜続ける (tsuzukeru: keep doing)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Attach 続ける (tsuzukeru, 'to continue') to the verb stem (masu-stem) to express doing something continuously over time — 'keep doing X'.\n\nExample from this song: 探し続ける (sagashi tsuzukeru) = 'keep searching' — from 探す (sagasu, 'to search') → 探し (sagashi, stem) + 続ける (tsuzukeru, 'to continue')\n\nMore examples:\n• 走る (hashiru, 'to run') → 走り続ける (hashiri tsuzukeru, 'keep running')\n• 信じる (shinjiru, 'to believe') → 信じ続ける (shinji tsuzukeru, 'keep believing')\n• 歩く (aruku, 'to walk') → 歩き続ける (aruki tsuzukeru, 'keep walking')\n\nNote: The verb stem is the ます-form minus ます: 探します → 探し. 続ける itself can be conjugated: 探し続けた (kept searching), 探し続けている (has been searching)."
+    },
+    "song_count": 9
+  },
+  {
+    "id": "feb8b0e7-b0a1-4a5b-a41e-fb91cd17b023",
+    "name": "〜たまま (ta mama — while remaining)",
+    "jlpt_reference": "JLPT N3",
+    "explanation": {
+      "en": "How it works: Use the past tense (た-form) of a verb + まま (mama) to express that a state continues while something else happens. It means 'while still in the state of having done X'.\n\nExample from this song: 抑えたまま (osaeta mama) = 'while keeping it suppressed' — from 抑える (osaeru, 'to suppress') → 抑えた (osaeta, past) + まま (mama, 'as is')\n\nMore examples:\n• 立つ (tatsu, 'to stand') → 立ったまま (tatta mama, 'while still standing')\n• 開ける (akeru, 'to open') → 開けたまま (aketa mama, 'left open')\n• 座る (suwaru, 'to sit') → 座ったまま (suwatta mama, 'while still sitting')\n\nNote: まま indicates no change from the described state. 靴を履いたまま寝た (kutsu wo haita mama neta) = 'I slept with my shoes still on'."
+    },
+    "song_count": 8
+  },
+  {
+    "id": "a69edff2-3f3f-448c-899b-e75e9387fabf",
+    "name": "〜てゆく (te yuku) — progressive movement away (literary)",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nThe pattern Verb て-form (te-form) + ゆく (yuku) is the literary and poetic version of ていく (te iku). It expresses gradual change, fading, or movement away from the current moment. ゆく (yuku) is the classical form of 行く (iku, \"to go\"). Because it sounds more elegant and emotional, it appears frequently in songs, poems, and novels.\n\nExample from this song:\n失ってゆく (ushinatte yuku) — \"gradually losing\"\nThings are slipping away one by one over time.\n\nMore examples:\n• 消えてゆく (kiete yuku) — \"fading away\"\n• 過ぎてゆく時間 (sugite yuku jikan) — \"time passing by\"\n• 離れてゆく (hanarete yuku) — \"drifting apart\""
+    },
+    "song_count": 8
+  },
+  {
+    "id": "05a47b35-f7bd-41a0-bea8-1eab6bfcd2a1",
+    "name": "〜まで (made: until)",
+    "jlpt_reference": "JLPT N5",
+    "explanation": {
+      "en": "How it works: Add まで (made) after a noun or verb to mark an endpoint — 'until X'. It indicates the limit of an action's duration or reach.\n\nExample from this song: 届くまで (todoku made) = 'until it reaches' — from 届く (todoku, 'to reach') + まで (made, 'until')\n\nMore examples:\n• 終わる (owaru, 'to end') → 終わるまで (owaru made, 'until it ends')\n• 朝 (asa, 'morning') → 朝まで (asa made, 'until morning')\n• 分かる (wakaru, 'to understand') → 分かるまで (wakaru made, 'until you understand')\n\nNote: まで with verbs uses the dictionary form: 届くまで. With nouns, it attaches directly: 朝まで. まで can also mean 'as far as' for distance: 駅まで (eki made, 'as far as the station')."
+    },
+    "song_count": 8
+  },
+  {
+    "id": "da3b1a0a-498c-4ec0-abdb-14c27c8d0e37",
+    "name": "〜ようだ (you da) — it seems like / appears to be",
+    "jlpt_reference": "JLPT N4",
+    "explanation": {
+      "en": "How it works:\nThe pattern Verb plain form + ようだ (you da) means \"it seems like ~\" or \"it appears to be ~.\" It expresses the speaker's impression based on observation or indirect evidence. It is more tentative and uncertain than みたい (mitai, casual) and is used in both written and spoken Japanese.\n\nExample from this song:\n探しているようだ (sagashite iru you da) — \"seems to be searching\"\nThe speaker observes or senses that someone is looking for something.\n\nMore examples:\n• 雨が降るようだ (ame ga furu you da) — \"it looks like it will rain\"\n• 彼は怒っているようだ (kare wa okotte iru you da) — \"he seems to be angry\"\n• もう終わったようだ (mou owatta you da) — \"it seems like it's already over\""
+    },
+    "song_count": 8
+  }
+]
