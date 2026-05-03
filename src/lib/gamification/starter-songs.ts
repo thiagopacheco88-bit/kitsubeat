@@ -61,9 +61,8 @@ export interface StarterSongRow {
  * (not DB insertion order or popularity rank), so the modal always shows
  * Attack on Titan → Death Note → Doraemon.
  *
- * Defensive guard: if any slug in STARTER_SONG_SLUGS is missing a non-null
- * lesson at query time, this function throws immediately naming the offending
- * slug. This is a development-time safety net — not a user-facing error.
+ * Drifted slugs are filtered with a console.warn; if all 3 drift, returns []
+ * and the caller renders an EmptyState fallback (per Phase 14.1 D-01).
  */
 export async function getStarterSongs(): Promise<StarterSongRow[]> {
   const slugList = [...STARTER_SONG_SLUGS] as string[];
@@ -95,28 +94,42 @@ export async function getStarterSongs(): Promise<StarterSongRow[]> {
     .from(songs)
     .where(inArray(songs.slug, slugList));
 
-  // Defensive check: surface missing or lesson-less slugs immediately
+  // Phase 14.1 D-01: filter (not throw) — emit warn naming each drifted slug.
+  // One warn per drifted slug when at least one lessoned row survives.
+  // Special-case warn when ALL three drift (the EmptyState fallback case).
   const returnedSlugs = new Set(rows.map((r) => r.slug));
   const dbMissing = slugList.filter((s) => !returnedSlugs.has(s));
+  const lessonedRows = rows.filter(
+    (r) => r.has_lesson !== null && r.has_lesson !== 0,
+  );
   const lessonMissing = rows
     .filter((r) => r.has_lesson === null || r.has_lesson === 0)
     .map((r) => r.slug);
-  const allMissing = [...dbMissing, ...lessonMissing];
+  const allFiltered = [...dbMissing, ...lessonMissing];
 
-  if (allMissing.length > 0) {
-    throw new Error(
-      `[starter-songs] getStarterSongs(): the following slugs are missing from DB ` +
-        `or have no non-null lesson — fix the DB or update STARTER_SONG_SLUGS: ` +
-        allMissing.join(", ")
+  if (allFiltered.length > 0 && lessonedRows.length === 0) {
+    console.warn(
+      "[starter-songs] ALL approved starter slugs missing — rendering EmptyState fallback. " +
+        "Update STARTER_SONG_SLUGS or restore DB rows: " +
+        allFiltered.join(", "),
     );
+  } else if (allFiltered.length > 0) {
+    for (const slug of allFiltered) {
+      console.warn(
+        `[starter-songs] ${slug} missing or lessonless — filtered from starter pool`,
+      );
+    }
   }
 
-  // Re-order to match STARTER_SONG_SLUGS declaration order (stable, user-chosen)
-  const rowMap = new Map(rows.map((r) => [r.slug, r]));
-  return STARTER_SONG_SLUGS.map((slug) => {
-    const r = rowMap.get(slug)!;
+  // Re-order to match STARTER_SONG_SLUGS declaration order (stable, user-chosen).
+  // Drifted slugs (missing from rows OR lessonless) are filtered out — the
+  // component renders whatever survives (1, 2, 3, or 0 cards).
+  const lessonedRowMap = new Map(lessonedRows.map((r) => [r.slug, r]));
+  return STARTER_SONG_SLUGS.flatMap((slug) => {
+    const r = lessonedRowMap.get(slug);
+    if (!r) return [];
     const youtube_id = r.youtube_id ?? null;
-    return {
+    return [{
       slug: r.slug,
       title: r.title,
       anime: r.anime,
@@ -125,6 +138,6 @@ export async function getStarterSongs(): Promise<StarterSongRow[]> {
       thumbnail_url: youtube_id
         ? `https://img.youtube.com/vi/${youtube_id}/hqdefault.jpg`
         : null,
-    };
+    }];
   });
 }
