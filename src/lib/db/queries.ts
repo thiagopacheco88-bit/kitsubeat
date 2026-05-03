@@ -438,6 +438,180 @@ export async function getContinueLearning(
   }));
 }
 
+// =============================================================================
+// Phase 14.2 SPEC §Req 3 — HeroFeatured data path
+// =============================================================================
+
+/**
+ * HeroSongRow — the song fields returned by getHeroSong in all branches.
+ * verse_count is derived via jsonb_array_length(sv.lesson->'verses');
+ * COALESCE-wrapped to 0 when lesson IS NULL (JSONB shape verified in
+ * 14.2-01-VERIFICATIONS.md §V2 — path is { verses: [...] }).
+ */
+export interface HeroSongRow {
+  slug: string;
+  title: string;
+  artist: string;
+  anime: string;
+  youtube_id: string | null;
+  jlpt_level: string | null;
+  verse_count: number;
+}
+
+export type HeroCtaLabel = "Resume Lesson" | "Try Free Lesson" | "Start Learning";
+export type HeroSource = "current_path" | "fallback_featured" | "unauth_featured";
+
+export interface HeroSongResult {
+  song: HeroSongRow;
+  ctaLabel: HeroCtaLabel;
+  ctaHref: string;
+  source: HeroSource;
+}
+
+/**
+ * Internal helper: select the full hero song row for a given slug.
+ * Returns null if the slug does not resolve to an active ja song with a lesson.
+ */
+async function selectHeroSongRowBySlug(slug: string): Promise<HeroSongRow | null> {
+  const outerSongsId = sql.raw('"songs"."id"');
+  const rows = await db
+    .select({
+      slug: songs.slug,
+      title: songs.title,
+      artist: songs.artist,
+      anime: songs.anime,
+      jlpt_level: songs.jlpt_level,
+      youtube_id: sql<string | null>`(
+        SELECT sv.youtube_id FROM song_versions sv
+        WHERE sv.song_id = ${outerSongsId} AND sv.youtube_id IS NOT NULL
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      verse_count: sql<number>`COALESCE((
+        SELECT jsonb_array_length(sv.lesson->'verses')
+        FROM song_versions sv
+        WHERE sv.song_id = ${outerSongsId} AND sv.lesson IS NOT NULL
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      ), 0)`,
+    })
+    .from(songs)
+    .where(
+      and(
+        eq(songs.slug, slug),
+        eq(songs.language, "ja"),
+        eq(songs.quality_status, "active"),
+        sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL)`,
+      ),
+    )
+    .limit(1);
+  return rows[0] ?? null;
+}
+
+/**
+ * Internal helper: select the top featured hero song row (popularity_rank ASC).
+ * Throws if no active ja song with a lesson is available — the seed pipeline must
+ * guarantee at least one row (CONTEXT D-04 / T-14.2-03-05 disposition: accept throw,
+ * page-level error boundary catches and renders error UI).
+ */
+async function selectTopFeaturedHeroRow(): Promise<HeroSongRow> {
+  const outerSongsId = sql.raw('"songs"."id"');
+  const rows = await db
+    .select({
+      slug: songs.slug,
+      title: songs.title,
+      artist: songs.artist,
+      anime: songs.anime,
+      jlpt_level: songs.jlpt_level,
+      youtube_id: sql<string | null>`(
+        SELECT sv.youtube_id FROM song_versions sv
+        WHERE sv.song_id = ${outerSongsId} AND sv.youtube_id IS NOT NULL
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      verse_count: sql<number>`COALESCE((
+        SELECT jsonb_array_length(sv.lesson->'verses')
+        FROM song_versions sv
+        WHERE sv.song_id = ${outerSongsId} AND sv.lesson IS NOT NULL
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      ), 0)`,
+    })
+    .from(songs)
+    .where(
+      and(
+        eq(songs.language, "ja"),
+        eq(songs.quality_status, "active"),
+        sql`EXISTS (
+          SELECT 1 FROM song_versions sv
+          WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
+        )`,
+      ),
+    )
+    .orderBy(asc(songs.popularity_rank))
+    .limit(1);
+
+  const row = rows[0];
+  if (!row) {
+    throw new Error(
+      "[hero-song] no active featured song available — seed pipeline must guarantee >=1 row",
+    );
+  }
+  return row;
+}
+
+/**
+ * Phase 14.2 SPEC §Req 3 — HeroFeatured data path with auth-aware fallback.
+ *
+ * Three branches per CONTEXT D-04:
+ *   - userId === null            → top featured, 'Try Free Lesson', source 'unauth_featured', no warn
+ *   - userId set, slug resolves  → resolved row, 'Resume Lesson', source 'current_path', no warn
+ *   - userId set, slug missing   → top featured, 'Start Learning', source 'fallback_featured'
+ *                                   + console.warn IFF slug WAS set but didn't resolve (D-06)
+ *
+ * verse_count via jsonb_array_length(sv.lesson->'verses') — JSONB path { verses: [...] }
+ * verified in 14.2-01-VERIFICATIONS.md §V2. COALESCE-wrapped to 0 when lesson IS NULL.
+ */
+export async function getHeroSong(userId: string | null): Promise<HeroSongResult> {
+  // Branch 1 — unauth.
+  if (!userId) {
+    const song = await selectTopFeaturedHeroRow();
+    return {
+      song,
+      ctaLabel: "Try Free Lesson",
+      ctaHref: `/songs/${song.slug}`,
+      source: "unauth_featured",
+    };
+  }
+
+  // Branch 2/3 — auth.
+  const state = await getUserGamificationState(userId);
+  const slug = state.current_path_node_slug;
+
+  if (slug) {
+    const resolved = await selectHeroSongRowBySlug(slug);
+    if (resolved) {
+      return {
+        song: resolved,
+        ctaLabel: "Resume Lesson",
+        ctaHref: `/songs/${resolved.slug}`,
+        source: "current_path",
+      };
+    }
+    // Slug WAS set but didn't resolve — D-06 mandates the warn.
+    console.warn(
+      `[hero-song] ${slug} (current_path_node_slug) missing or lessonless — falling back to top featured`,
+    );
+  }
+
+  // Branch 3 — auth fallback (null slug OR drifted slug).
+  const song = await selectTopFeaturedHeroRow();
+  return {
+    song,
+    ctaLabel: "Start Learning",
+    ctaHref: `/songs/${song.slug}`,
+    source: "fallback_featured",
+  };
+}
+
 /**
  * Get anime franchises (merging seasons/movies) with song counts.
  */
