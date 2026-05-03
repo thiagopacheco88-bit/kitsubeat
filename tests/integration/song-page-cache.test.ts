@@ -48,12 +48,12 @@ describeIfTestDb("Phase 13 / song-page cache (R1)", () => {
 
   beforeAll(async () => {
     const db = getTestDb();
-    const rows = (await db.execute(sql`
+    const { rows } = (await db.execute(sql`
       SELECT s.slug FROM songs s
       JOIN song_versions v ON v.song_id = s.id
       WHERE v.lesson IS NOT NULL
       LIMIT 1
-    `)) as unknown as Array<{ slug: string }>;
+    `)) as unknown as { rows: Array<{ slug: string }> };
     if (!rows[0]) {
       throw new Error(
         "No seeded song with a lesson found in TEST_DATABASE_URL — run npm run test:seed first."

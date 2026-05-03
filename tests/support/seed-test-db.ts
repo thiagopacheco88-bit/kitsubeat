@@ -54,14 +54,14 @@ interface SlugCheckResult {
 
 async function checkSlug(slug: string): Promise<SlugCheckResult> {
   const db = getTestDb();
-  const rows = (await db.execute(sql`
+  const { rows } = (await db.execute(sql`
     SELECT s.id AS song_id,
            COUNT(v.id) FILTER (WHERE v.lesson IS NOT NULL) AS versions_with_lesson
       FROM songs s
       LEFT JOIN song_versions v ON v.song_id = s.id
      WHERE s.slug = ${slug}
      GROUP BY s.id
-  `)) as unknown as Array<{ song_id: string; versions_with_lesson: number | string }>;
+  `)) as unknown as { rows: Array<{ song_id: string; versions_with_lesson: number | string }> };
 
   if (rows.length === 0) {
     return { slug, songFound: false, versionWithLesson: false };
