@@ -502,6 +502,51 @@ Plans:
 - [x] 14.1-12-PLAN.md — Wave 4: 8 Playwright specs covering AC #1-#10 + axe dark+light + bundle delta report (D-10/D-11/D-12/D-15/D-18)
 
 
+### Phase 14.2: Redesign Home (/)
+**Goal**: Apply the Phase 14.1 CA-hybrid visual language to `/` (home / catalog entry) so it reads as an anime-music streaming service rather than a flashcard app — hero / featured-songs block above the fold with one clear CTA, celebratory mastery overlays at-a-glance for authenticated users, a value-prop empty state for unauthenticated visitors that lands in 1–2 seconds, and a mobile-first thumb-zone-audited layout. Inherits the lantern-streak header, cover-art-as-background card treatment, and sticky CTA pattern from 14.1.
+**Depends on**: Phase 14.1
+**Requirements**: TBD (lock via /gsd-spec-phase 14.2-redesign-home)
+**Success Criteria**:
+  1. Hero / featured-songs treatment renders above the fold (top 3–5 picks: trending, newly released, picks-for-your-level)
+  2. SongCard gains a `featured` variant (large, cover-art-bleed) alongside the existing catalog grid; both inherit 14.1 token system
+  3. Unauthenticated visitors see a value-prop hero comprehensible in 1–2s (no flat catalog-only fallback)
+  4. Authenticated users see mastery overlays (3-star ribbon, bonus-badge sparkle) without scroll
+  5. Persistent header chip from 14.1 (KitsuBeat wordmark + LanternStreak) carries to `/` (virality goal #5 — streak visible on every surface)
+  6. Global header nav exposes a `Path` entry as a first-class destination (provisional inline link added 2026-05-03; 14.2 absorbs its design treatment + ordering as part of the home-redesign chrome update)
+  7. Pixel-diff dark + light themes pass against demo references at ≤2% tolerance; axe-core ≥95 in both themes; reduced-motion honored
+**Source briefing**: [HUASHU-BRIEFINGS.md](../HUASHU-BRIEFINGS.md) Briefing 2
+**Plans**: TBD
+
+### Phase 14.3: Redesign Lesson (/songs/[slug])
+**Goal**: Apply the Phase 14.1 / 14.2 visual language to `/songs/[slug]` — the densest surface (12 components) and the core lesson + exercise experience — so the lyrics+video panel reads as a music player (not a textbook), exercise cards read as a game (not a quiz), and the transition from lyrics-mode to exercise-mode lands as a gear-shift moment rather than a page navigation. Preserves all existing mastery-moment animations (star-shine, level-pop, confetti) with reduced-motion fallbacks intact.
+**Depends on**: Phase 14.2 (carries the design language matured across 14.1 path + 14.2 home)
+**Requirements**: TBD (lock via /gsd-spec-phase 14.3-redesign-lesson)
+**Success Criteria**:
+  1. Lyrics + video panel reads as a music player surface (verse-scroll synced; furigana / translation / grammar pills; color-coded vocab) — not a textbook
+  2. Exercise cards (LearnCard, QuestionCard, GrammarMcqCard, SentenceOrderCard, ListeningDrillCard, ConjugationCard, FeedbackPanel, SessionSummary) read as a game — not a quiz
+  3. Lyrics → exercise transition is a single gear-shift moment (not a route navigation)
+  4. Mastery moments preserved with reduced-motion fallback: star-shine, level-pop, confetti
+  5. Mobile parity for primary content; desktop adds peripheral info (e.g. mastered-vocab sidebar) but never has primary content the mobile lacks
+  6. Bundle stays under 50 KB gzipped on /songs/[slug] (Phase 13 carry-over budget; current baseline ~10 KB)
+  7. Pixel-diff dark + light themes ≤2% tolerance; axe-core ≥95 in both themes
+**Source briefing**: [HUASHU-BRIEFINGS.md](../HUASHU-BRIEFINGS.md) Briefing 3
+**Plans**: TBD
+
+### Phase 14.4: Virality & Engagement
+**Goal**: Layer functional virality + retention mechanics on top of the visual foundation laid by 14.1 / 14.2 / 14.3 — visible social activity (live "now playing" signals, recently-mastered cross-user feed, opt-in leaderboards) and streak behavioral hooks (daily reminders, streak-saver token, weekly recap email). All social features opt-in by default; reduced-anxiety patterns throughout (no streak-shaming dark patterns).
+**Depends on**: Phase 14.1, Phase 14.2, Phase 14.3 (must inherit visual vocabulary; cannot ship before all three redesigns land), Clerk plan tier definition (premium vs free for streak-saver gating)
+**Requirements**: TBD (lock via /gsd-spec-phase 14.4-virality-engagement)
+**Success Criteria**:
+  1. "Now playing" live signal renders on home for popular songs (e.g. "12 learners on this song right now") — anonymized OK for MVP
+  2. Recently-mastered cross-user feed (anonymized OK for MVP) on home or `/path`
+  3. Daily reminder system: web push (where supported) OR transactional email fallback
+  4. Streak-saver token: one-time streak recovery earned via X-day milestone (free vs premium gating to be locked in spec-phase)
+  5. Weekly recap email: vocab learned, songs touched, streak status, next-up nudge
+  6. All social features opt-in by default; privacy-by-default; reduced-motion + reduced-anxiety patterns honored
+**Intent captured**: [.planning/phases/14.4-virality-engagement/INTENT.md](phases/14.4-virality-engagement/INTENT.md) (stub — formalize via /gsd-spec-phase)
+**Plans**: TBD
+
+
 ### Phase 15: Analytics & Error Tracking
 **Goal**: Every meaningful user event captured in product analytics; every exception surfaces in Sentry with debugging context; funnel metrics are queryable before beta opens.
 **Depends on**: Phase 14

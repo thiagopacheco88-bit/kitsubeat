@@ -108,6 +108,12 @@ export default async function RootLayout({
             </Link>
             <div className="flex items-center gap-4 sm:gap-6">
               <Link
+                href="/path"
+                className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+              >
+                Path
+              </Link>
+              <Link
                 href="/anime-list"
                 className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
               >
