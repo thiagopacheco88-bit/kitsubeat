@@ -485,7 +485,7 @@ Plans:
   5. M1 invariant preserved: every PathNode (4 states) + KanaCheckpointNode (3 states) clickable; mist overlays have pointer-events:none
 **Spec captured**: [.planning/phases/14.1-redesign-path/14.1-SPEC.md](phases/14.1-redesign-path/14.1-SPEC.md) (8 requirements, 12 acceptance criteria, ambiguity 0.18)
 **Context captured**: [.planning/phases/14.1-redesign-path/14.1-CONTEXT.md](phases/14.1-redesign-path/14.1-CONTEXT.md) (19 decisions D-01..D-19)
-**Plans:** 13 plans
+**Plans:** 13/13 plans complete
 Plans:
 - [x] 14.1-00-PLAN.md — Wave 0: capture light-theme reference PNG (D-11) + pre-Wave-1 /path bundle baseline (D-12)
 - [x] 14.1-01-PLAN.md — Wave 1: 2 new tokens (--mist-fill, --aura-color) for both themes + 3 keyframes (ka-pulse, ka-flicker, ka-aura) + motion-catalog entries
