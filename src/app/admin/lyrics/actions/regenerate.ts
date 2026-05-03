@@ -37,17 +37,26 @@ export interface RegenerateInput {
   verseNumbersToRegen: number[];   // subset to regenerate
 }
 
-export interface RegenerateOutput {
-  ok: boolean;
-  regenVersionId?: string;
-  regenVersionNumber?: number;
-  perVerseResults: Array<
-    | { verseNumber: number; status: "regenerated" }
-    | { verseNumber: number; status: "failed"; error: string }
-    | { verseNumber: number; status: "skipped"; reason: string }
-  >;
-  globalError?: string;
-}
+type PerVerseResult =
+  | { verseNumber: number; status: "regenerated" }
+  | { verseNumber: number; status: "failed"; error: string }
+  | { verseNumber: number; status: "skipped"; reason: string };
+
+// Discriminated on `ok` so callers narrowing on r.ok===true can read
+// regenVersionId/Number without `?? throw` — and the failure branch is
+// statically guaranteed to expose globalError instead of silent undefined.
+export type RegenerateOutput =
+  | {
+      ok: true;
+      regenVersionId: string;
+      regenVersionNumber: number;
+      perVerseResults: PerVerseResult[];
+    }
+  | {
+      ok: false;
+      perVerseResults: PerVerseResult[];
+      globalError: string;
+    };
 
 const REGEN_FIELDS: FillableField[] = ["translations", "literal_meaning", "cultural_context", "tokens"];
 

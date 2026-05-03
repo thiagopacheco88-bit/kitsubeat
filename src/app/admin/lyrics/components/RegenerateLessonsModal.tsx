@@ -6,7 +6,9 @@
  * Shows the N dirty verses, time estimate, and a confirm button.
  * On confirm: calls regenerateLessons server action (loops claude-cli per verse).
  * Post-run: shows per-verse status (regenerated / failed / skipped).
- * On success: calls clearDraft() — the regen publish consumed the dirty draft.
+ * On success: calls markPublished() — the regen publish consumed the dirty draft
+ * AND created a new lyrics_versions row. The submitted verses stay on screen as
+ * the new baseline.
  *
  * Modal cannot be closed during a running regen (prevents abandonment).
  * REGEN-T-01: Admin is aware via per-verse progress + time estimate.
@@ -42,7 +44,7 @@ function verseSurface(v: Verse | undefined): string {
 }
 
 export default function RegenerateLessonsModal(props: Props) {
-  const clearDraft = useAdminLyricsStore((s) => s.clearDraft);
+  const markPublished = useAdminLyricsStore((s) => s.markPublished);
   const [confirming, setConfirming] = useState(true);
   const [results, setResults] = useState<PerVerseResult[]>(
     props.dirtyVerseNumbers.map((n) => ({ verseNumber: n, status: "pending" }))
@@ -78,7 +80,13 @@ export default function RegenerateLessonsModal(props: Props) {
 
     if (r.ok) {
       setGlobalStatus("done");
-      clearDraft();   // a published regen consumed the dirty draft
+      // Regen-publish consumed the dirty draft AND created a new lyrics_version
+      // row. Advance the base pointers; keep verses on screen so the editor
+      // doesn't blank out — they're the new published baseline now.
+      markPublished({
+        newVersionId: r.regenVersionId,
+        newVersionNumber: r.regenVersionNumber,
+      });
     } else {
       setGlobalStatus("error");
       setGlobalError(r.globalError ?? "unknown");

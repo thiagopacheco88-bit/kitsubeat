@@ -14,7 +14,7 @@ export default function PublishButton({ slug }: Props) {
   const baseVersionId = useAdminLyricsStore((s) => s.baseVersionId);
   const verses = useAdminLyricsStore((s) => s.verses);
   const dirty = useAdminLyricsStore((s) => s.dirtyVerseNumbers);
-  const clearDraft = useAdminLyricsStore((s) => s.clearDraft);
+  const markPublished = useAdminLyricsStore((s) => s.markPublished);
 
   const [publishing, setPublishing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +47,10 @@ export default function PublishButton({ slug }: Props) {
         dirtyVerseNumbers: dirty,
       });
       if (r.ok) {
-        clearDraft();
+        markPublished({
+          newVersionId: r.newVersionId,
+          newVersionNumber: r.newVersionNumber,
+        });
         setSuccess({ versionNumber: r.newVersionNumber });
       } else if (r.error === "stale_publish" && "currentActiveId" in r) {
         setStale({ currentActiveId: r.currentActiveId });
@@ -72,10 +75,10 @@ export default function PublishButton({ slug }: Props) {
           padding: "8px 16px",
           fontSize: "14px",
           fontWeight: 600,
-          border: "1px solid #6366f1",
+          border: "1px solid var(--color-accent)",
           borderRadius: "4px",
-          background: publishing ? "#f3f4f6" : "#6366f1",
-          color: publishing ? "#6b7280" : "#fff",
+          background: publishing ? "var(--color-card-2)" : "var(--color-accent)",
+          color: publishing ? "var(--color-text-muted)" : "#fff",
           cursor: publishing ? "not-allowed" : "pointer",
         }}
       >
@@ -84,7 +87,7 @@ export default function PublishButton({ slug }: Props) {
       {success && (
         <span
           data-testid="publish-success"
-          style={{ marginLeft: "8px", fontSize: "12px", color: "#10b981" }}
+          style={{ marginLeft: "8px", fontSize: "12px", color: "#22c55e" }}
         >
           Published as version #{success.versionNumber}
         </span>
@@ -92,7 +95,7 @@ export default function PublishButton({ slug }: Props) {
       {error && (
         <span
           data-testid="publish-error"
-          style={{ marginLeft: "8px", fontSize: "12px", color: "#dc2626" }}
+          style={{ marginLeft: "8px", fontSize: "12px", color: "#ef4444" }}
         >
           Publish failed: {error}
         </span>

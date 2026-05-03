@@ -15,12 +15,28 @@
 
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { songs, songVersions } from "@/lib/db/schema";
-import { asc, eq } from "drizzle-orm";
+import { songs, songVersions, lyricsVersions } from "@/lib/db/schema";
+import { asc, desc, eq } from "drizzle-orm";
+import { clerkClient } from "@clerk/nextjs/server";
 import { requireAdminUser, AdminRequiredError } from "@/lib/admin/require-admin";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
+
+// Display name resolver — Clerk Users have firstName/lastName/username/emailAddresses.
+// Prefer the human-readable name; fall back through the chain so editors never show
+// as a raw Clerk ID even when their profile is sparse.
+function clerkDisplayName(u: {
+  firstName: string | null;
+  lastName: string | null;
+  username: string | null;
+  emailAddresses: { emailAddress: string }[];
+}): string {
+  const fullName = [u.firstName, u.lastName].filter(Boolean).join(" ").trim();
+  if (fullName) return fullName;
+  if (u.username) return u.username;
+  return u.emailAddresses[0]?.emailAddress.split("@")[0] ?? "unknown";
+}
 
 export async function GET() {
   try {
@@ -62,7 +78,69 @@ export async function GET() {
       // Admin-specific order: by title (admin cares about alphabetical, not timing status)
       .orderBy(asc(songs.title));
 
-    return NextResponse.json(rows);
+    // Last-human-review per song_version — query in created_at DESC order and
+    // keep the first row encountered per song_version_id. Cheaper than a window
+    // function and works fine for the row counts we have.
+    const humanRows = await db
+      .select({
+        song_version_id: lyricsVersions.song_version_id,
+        editor_id: lyricsVersions.editor_id,
+        created_at: lyricsVersions.created_at,
+      })
+      .from(lyricsVersions)
+      .where(eq(lyricsVersions.source, "human"))
+      .orderBy(desc(lyricsVersions.created_at));
+
+    const lastHumanByVersionId = new Map<
+      string,
+      { editor_id: string | null; created_at: Date }
+    >();
+    for (const r of humanRows) {
+      if (!lastHumanByVersionId.has(r.song_version_id)) {
+        lastHumanByVersionId.set(r.song_version_id, {
+          editor_id: r.editor_id,
+          created_at: r.created_at,
+        });
+      }
+    }
+
+    // Resolve editor_id → display name via Clerk. Batch one call for all
+    // distinct ids; if Clerk is unreachable, fall back to the raw id so the
+    // column still has *something* useful instead of going blank.
+    const editorIds = Array.from(
+      new Set(
+        Array.from(lastHumanByVersionId.values())
+          .map((v) => v.editor_id)
+          .filter((id): id is string => Boolean(id) && id !== "anonymous")
+      )
+    );
+    const namesById = new Map<string, string>();
+    if (editorIds.length > 0) {
+      try {
+        const client = await clerkClient();
+        const list = await client.users.getUserList({ userId: editorIds });
+        for (const u of list.data) {
+          namesById.set(u.id, clerkDisplayName(u));
+        }
+      } catch (err) {
+        console.warn("[api/admin/songs] Clerk lookup failed:", err);
+      }
+    }
+
+    const enriched = rows.map((row) => {
+      const last = lastHumanByVersionId.get(row.song_version_id);
+      return {
+        ...row,
+        last_human_revision_at: last ? last.created_at.toISOString() : null,
+        last_human_reviewer: last
+          ? last.editor_id
+            ? namesById.get(last.editor_id) ?? last.editor_id
+            : "anonymous"
+          : null,
+      };
+    });
+
+    return NextResponse.json(enriched);
   } catch (err) {
     console.error("[api/admin/songs] GET failed:", err);
     return NextResponse.json({ error: "Failed to fetch songs" }, { status: 500 });

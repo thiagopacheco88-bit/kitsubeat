@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { GrammarPoint } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
+import { parseRuleName } from "@/lib/grammar/rule-name";
 import { usePlayer } from "./PlayerContext";
 
 export default function GrammarSection({
@@ -74,10 +75,10 @@ function GrammarCard({
     <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
       <button
         onClick={() => setOpen(!open)}
-        className="flex w-full items-baseline gap-2 text-left"
+        className="flex w-full items-start gap-2 text-left"
       >
         <svg
-          className={`mt-1 h-3 w-3 shrink-0 transition-transform text-gray-500 ${open ? "rotate-90" : ""}`}
+          className={`mt-1.5 h-3 w-3 shrink-0 transition-transform text-gray-500 ${open ? "rotate-90" : ""}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -87,10 +88,32 @@ function GrammarCard({
             clipRule="evenodd"
           />
         </svg>
-        <span className="text-base font-semibold text-white font-[family-name:var(--font-noto-jp)]">
-          {point.name}
-        </span>
-        <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[10px] text-gray-400">
+        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+          <div className="flex items-baseline flex-wrap gap-x-2 gap-y-0.5">
+            {(() => {
+              const parts = parseRuleName(point.name);
+              return (
+                <>
+                  <span className="text-base font-semibold text-white font-[family-name:var(--font-noto-jp)]">
+                    {parts.romaji}
+                  </span>
+                  {parts.kana && (
+                    <span className="text-sm text-gray-400 font-[family-name:var(--font-noto-jp)]">
+                      {parts.kana}
+                    </span>
+                  )}
+                </>
+              );
+            })()}
+          </div>
+          {(() => {
+            const parts = parseRuleName(point.name);
+            return parts.translation ? (
+              <span className="text-xs text-gray-400">{parts.translation}</span>
+            ) : null;
+          })()}
+        </div>
+        <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[10px] text-gray-400 shrink-0 mt-1.5">
           {point.jlpt_reference}
         </span>
       </button>
@@ -100,23 +123,36 @@ function GrammarCard({
           <div className="mt-3 text-sm leading-relaxed text-gray-300">
             {explanation.split("\n").map((line, i) => {
               if (!line.trim()) return <div key={i} className="h-2" />;
+              // Lines may contain <ruby> furigana markup — render as HTML.
+              // Source is our own seed data (DB grammar_rules.explanation), not user input.
               if (/^(How it works|Example from this song|More examples|Note|Tip|Casual|In this song):?/i.test(line)) {
                 const [label, ...rest] = line.split(":");
                 return (
                   <p key={i} className="mt-2 first:mt-0">
                     <span className="font-medium text-gray-200">{label}:</span>
-                    <span className="text-gray-300">{rest.join(":")}</span>
+                    <span
+                      className="text-gray-300"
+                      dangerouslySetInnerHTML={{ __html: rest.join(":") }}
+                    />
                   </p>
                 );
               }
               if (line.startsWith("•") || line.startsWith("-")) {
                 return (
-                  <p key={i} className="ml-4 text-gray-400 font-[family-name:var(--font-noto-jp)]">
-                    {line}
-                  </p>
+                  <p
+                    key={i}
+                    className="ml-4 text-gray-400 font-[family-name:var(--font-noto-jp)]"
+                    dangerouslySetInnerHTML={{ __html: line }}
+                  />
                 );
               }
-              return <p key={i} className="font-[family-name:var(--font-noto-jp)]">{line}</p>;
+              return (
+                <p
+                  key={i}
+                  className="font-[family-name:var(--font-noto-jp)]"
+                  dangerouslySetInnerHTML={{ __html: line }}
+                />
+              );
             })}
           </div>
 

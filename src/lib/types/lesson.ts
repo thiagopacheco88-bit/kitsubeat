@@ -193,8 +193,8 @@ export const JLPT_COLOR_CLASS: Record<string, string> = {
 
 /**
  * Phase 14 — Grammar category → token-class map keyed for the Badge primitive's
- * grammar variant (paired with JLPT_COLOR_CLASS shape; bg-[var(--color-grammar-*)]
- * idiom).
+ * grammar variant (paired with JLPT_COLOR_CLASS shape; backed by the
+ * var(--color-grammar-<token>) CSS custom properties).
  *
  * NOTE: The legacy `GRAMMAR_COLOR_CLASS` (above, line 176) maps to `text-grammar-*`
  * and is consumed by VocabularySection / VerseBlock / TokenSpan for inline text

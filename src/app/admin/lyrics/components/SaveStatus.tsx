@@ -8,7 +8,9 @@ export default function SaveStatus() {
   const lastSavedAt = useAdminLyricsStore((s) => s.lastSavedAt);
 
   let label = "";
-  let color = "#6b7280";
+  // Theme-aware default; semantic state colors stay literal hex (verified
+  // legible on both light and dark backgrounds).
+  let color = "var(--color-text-muted)";
   switch (status) {
     case "idle":
       label = lastSavedAt
@@ -17,15 +19,15 @@ export default function SaveStatus() {
       break;
     case "saving":
       label = "saving…";
-      color = "#92400e";
+      color = "#f59e0b";
       break;
     case "saved":
       label = "saved ✓";
-      color = "#10b981";
+      color = "#22c55e";
       break;
     case "error":
       label = `save failed: ${error ?? "unknown"} (kept in localStorage)`;
-      color = "#dc2626";
+      color = "#ef4444";
       break;
   }
 

@@ -42,23 +42,29 @@ export default function FlagControls({
     setSubmitting(false);
   }
 
+  // Amber tints work on both light + dark via translucent rgba(); the saturated
+  // brand amber #f59e0b stays readable as both heading + button-fill on either bg.
+  const amber = "#f59e0b";
+  const amberTint = "rgba(245, 158, 11, 0.12)";
+  const amberRing = "rgba(245, 158, 11, 0.40)";
+
   return (
     <div
       data-testid="flag-controls"
       style={{
         marginTop: "16px",
         padding: "12px",
-        border: "1px solid #fcd34d",
+        border: `1px solid ${amberRing}`,
         borderRadius: "6px",
-        background: "#fef3c7",
+        background: amberTint,
       }}
     >
       <h3
-        style={{ margin: "0 0 8px 0", fontSize: "13px", fontWeight: 700, color: "#92400e" }}
+        style={{ margin: "0 0 8px 0", fontSize: "13px", fontWeight: 700, color: amber }}
       >
         Quality Flag
       </h3>
-      <p style={{ margin: "0 0 8px 0", fontSize: "11px", color: "#92400e" }}>
+      <p style={{ margin: "0 0 8px 0", fontSize: "11px", color: "var(--color-text-muted)" }}>
         Flagging hides the song from the public catalog. Cleared songs are restored.
       </p>
 
@@ -69,7 +75,7 @@ export default function FlagControls({
             style={{
               display: "block",
               fontSize: "13px",
-              color: "#374151",
+              color: "var(--color-text)",
               marginBottom: "2px",
             }}
           >
@@ -96,11 +102,13 @@ export default function FlagControls({
           style={{
             width: "100%",
             padding: "6px 8px",
-            border: "1px solid #fcd34d",
+            border: `1px solid ${amberRing}`,
             borderRadius: "4px",
             fontSize: "12px",
             marginBottom: "8px",
             boxSizing: "border-box",
+            color: "var(--color-text)",
+            background: "var(--color-card)",
           }}
         />
       )}
@@ -113,10 +121,10 @@ export default function FlagControls({
         style={{
           padding: "6px 12px",
           fontSize: "12px",
-          border: "1px solid #92400e",
+          border: `1px solid ${amber}`,
           borderRadius: "4px",
-          background: submitting ? "#f3f4f6" : "#92400e",
-          color: submitting ? "#6b7280" : "#fff",
+          background: submitting ? "var(--color-card-2)" : amber,
+          color: submitting ? "var(--color-text-muted)" : "#fff",
           cursor: submitting ? "not-allowed" : "pointer",
           fontWeight: 600,
         }}
@@ -127,7 +135,7 @@ export default function FlagControls({
       {feedback && (
         <p
           data-testid="flag-feedback"
-          style={{ margin: "8px 0 0 0", fontSize: "11px", color: "#92400e" }}
+          style={{ margin: "8px 0 0 0", fontSize: "11px", color: amber }}
         >
           {feedback}
         </p>

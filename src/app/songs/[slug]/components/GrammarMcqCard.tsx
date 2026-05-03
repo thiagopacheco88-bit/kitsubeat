@@ -44,6 +44,11 @@ export default function GrammarMcqCard({
   const translation = localize(exercise.prompt_translation, lang);
   const explanation = localize(rule.explanation, lang);
 
+  // Phase-13 UX: collapsible rule reference accessible before answering.
+  // Always-on rule access matters for grammar — unlike vocab, grammar rules
+  // are abstract patterns the learner needs to consult while solving.
+  const [ruleExpanded, setRuleExpanded] = useState(false);
+
   function handlePick(option: string) {
     if (chosen !== null) return;
     const correct = option === exercise.correct_answer;
@@ -67,18 +72,38 @@ export default function GrammarMcqCard({
 
   return (
     <div className="flex flex-col gap-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-5">
-      {/* Rule + level header */}
+      {/* JLPT + difficulty level header.
+          Rule name is intentionally hidden here — the rule's English gloss
+          (e.g., "looks like / about to") would give away the answer for
+          most exercises. Learner consults the rule via the "Check the rule"
+          toggle below if they need it. The rule name still appears in
+          GrammarRuleIntroCard before the first exercise of each rule. */}
       <div className="flex items-center justify-between">
-        <div className="flex flex-col">
-          <span className="text-xs uppercase tracking-wide text-[var(--color-text-dim)]">
-            {rule.jlpt_reference} · {rule.name}
-          </span>
-        </div>
-        <span
-          className={`rounded-full px-2 py-0.5 text-xs font-medium ${levelClass}`}
-        >
+        <span className="text-xs uppercase tracking-wide text-[var(--color-text-dim)]">
+          {rule.jlpt_reference}
+        </span>
+        <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${levelClass}`}>
           {level}
         </span>
+      </div>
+
+      {/* Collapsible rule reference — accessible before AND after answering. */}
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card-2)]">
+        <button
+          type="button"
+          onClick={() => setRuleExpanded((v) => !v)}
+          aria-expanded={ruleExpanded}
+          className="flex w-full items-center justify-between px-3 py-2 text-left text-xs font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+        >
+          <span>{ruleExpanded ? "Hide rule" : "Check the rule"}</span>
+          <span className="text-[var(--color-text-dim)]">{ruleExpanded ? "▾" : "▸"}</span>
+        </button>
+        {ruleExpanded && (
+          <div
+            className="border-t border-[var(--color-border)] px-3 py-3 text-xs leading-relaxed text-[var(--color-text-muted)] whitespace-pre-line"
+            dangerouslySetInnerHTML={{ __html: explanation }}
+          />
+        )}
       </div>
 
       {/* JP prompt — rendered as HTML so <ruby> furigana markup is honored.
@@ -129,6 +154,11 @@ export default function GrammarMcqCard({
               type="button"
               disabled={answered}
               onClick={() => handlePick(opt)}
+              // Options may contain <ruby> furigana markup for kanji-bearing
+              // answers (e.g., 走<rt>はし</rt>れ). dangerouslySetInnerHTML
+              // is safe here — option strings come from our own seed JSON,
+              // not user input.
+              dangerouslySetInnerHTML={{ __html: opt }}
               className={`rounded-lg border px-4 py-3 text-left text-base transition-colors ${
                 showGreen
                   ? "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)] text-[var(--color-text)]"
@@ -136,9 +166,7 @@ export default function GrammarMcqCard({
                     ? "border-[var(--color-accent)]/60 bg-[var(--color-accent)]/10 text-[var(--color-text)]"
                     : "border-[var(--color-border)] bg-[var(--color-card-2)] text-[var(--color-text)] hover:border-[var(--color-border-strong)]"
               } disabled:cursor-not-allowed`}
-            >
-              {opt}
-            </button>
+            />
           );
         })}
       </div>
@@ -159,7 +187,10 @@ export default function GrammarMcqCard({
               </span>
             )}
           </div>
-          <div className="text-xs text-[var(--color-text-muted)]">{explanation}</div>
+          <div
+            className="text-xs leading-relaxed text-[var(--color-text-muted)] whitespace-pre-line"
+            dangerouslySetInnerHTML={{ __html: explanation }}
+          />
           <Button
             type="button"
             variant="primary"

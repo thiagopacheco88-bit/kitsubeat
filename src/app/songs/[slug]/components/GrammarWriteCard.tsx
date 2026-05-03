@@ -46,9 +46,11 @@ export default function GrammarWriteCard({
 
   return (
     <div className="flex flex-col gap-5 rounded-xl border border-gray-800 bg-gray-900 p-5">
+      {/* JLPT + level only — rule name hidden so the gloss doesn't telegraph
+          the answer. Same rationale as GrammarMcqCard. */}
       <div className="flex items-center justify-between">
         <span className="text-xs uppercase tracking-wide text-gray-500">
-          {rule.jlpt_reference} · {rule.name}
+          {rule.jlpt_reference}
         </span>
         <span className="rounded-full bg-red-900/50 px-2 py-0.5 text-[11px] font-medium text-red-300">
           advanced

@@ -34,7 +34,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
             style={{
               fontSize: "24px",
               fontWeight: 700,
-              color: "#111827",
+              color: "var(--color-text)",
               margin: 0,
             }}
           >
@@ -42,7 +42,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           </h1>
           <p
             style={{
-              color: "#6b7280",
+              color: "var(--color-text-muted)",
               marginTop: "6px",
               fontSize: "14px",
             }}
@@ -61,7 +61,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
             border: "1px dashed #e5e7eb",
             borderRadius: "8px",
             background: "#fafafa",
-            color: "#6b7280",
+            color: "var(--color-text-muted)",
             textAlign: "center",
             fontSize: "14px",
           }}
@@ -123,7 +123,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
   if (!baseVersionId) {
     return (
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
-        <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#111827", margin: 0 }}>
+        <h1 style={{ fontSize: "24px", fontWeight: 700, color: "var(--color-text)", margin: 0 }}>
           Admin Lyrics Editor
         </h1>
         <p style={{ color: "#dc2626", marginTop: "16px" }}>
@@ -195,7 +195,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
       <div style={{ marginBottom: "24px" }}>
         <h1
-          style={{ fontSize: "24px", fontWeight: 700, color: "#111827", margin: 0 }}
+          style={{ fontSize: "24px", fontWeight: 700, color: "var(--color-text)", margin: 0 }}
         >
           Admin Lyrics Editor
         </h1>
@@ -209,7 +209,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
             style={{
               fontSize: "20px",
               fontWeight: 700,
-              color: "#111827",
+              color: "var(--color-text)",
               margin: 0,
             }}
           >
@@ -217,7 +217,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
             <span
               style={{
                 fontSize: "14px",
-                color: "#6b7280",
+                color: "var(--color-text-muted)",
                 marginLeft: "12px",
                 fontWeight: 400,
               }}
@@ -228,7 +228,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           </h2>
           <p
             style={{
-              color: "#6b7280",
+              color: "var(--color-text-muted)",
               marginTop: "6px",
               fontSize: "12px",
             }}
@@ -245,6 +245,12 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
         </div>
 
         <VerseEditor
+          // Force a clean remount when the admin picks a different song.
+          // VerseRow uses uncontrolled inputs (defaultValue) for translations,
+          // meanings, and timing — without this key, React preserves the same
+          // VerseRow instances across the navigation and the inputs keep
+          // showing the previous song's values even though `verse` prop changed.
+          key={songVer.song_version_id}
           songVersionId={songVer.song_version_id}
           editorId={editorId}
           slug={songVer.slug}

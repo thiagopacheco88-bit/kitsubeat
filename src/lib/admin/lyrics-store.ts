@@ -41,6 +41,12 @@ export interface AdminLyricsActions {
     verses: Verse[];
   }) => void;
   updateVerse: (verseNumber: number, patch: Partial<Verse>) => void;
+  /**
+   * Shift every verse's start_time_ms and end_time_ms by deltaMs (positive = later,
+   * negative = earlier). Marks every verse number dirty so the standard auto-save
+   * + publish flow picks them up. No-op when deltaMs === 0.
+   */
+  shiftAllVerses: (deltaMs: number) => void;
   insertVerse: (afterVerseNumber: number | null) => void;
   deleteVerse: (verseNumber: number) => void;
   reset: () => void;
@@ -48,8 +54,16 @@ export interface AdminLyricsActions {
   markSaved: () => void;
   markError: (msg: string) => void;
   setHasHydrated: (v: boolean) => void;
-  /** Used by Plan 07 publish to clear after successful publish */
-  clearDraft: () => void;
+  /**
+   * Called after a successful publish (or regen-publish). The submitted verses
+   * are now the new baseline, so we KEEP them in state — clearing would blank
+   * the editor until the next hard refresh. Advances baseVersionId/Number for
+   * subsequent stale-publish detection and zeroes the dirty set.
+   */
+  markPublished: (input: {
+    newVersionId: string;
+    newVersionNumber: number;
+  }) => void;
 }
 
 const INITIAL: AdminLyricsState = {
@@ -97,6 +111,23 @@ export const useAdminLyricsStore = create<AdminLyricsState & AdminLyricsActions>
       });
     },
 
+    shiftAllVerses: (deltaMs) => {
+      if (deltaMs === 0) return;
+      const verses = get().verses;
+      if (verses.length === 0) return;
+      const shifted = verses.map((v) => ({
+        ...v,
+        start_time_ms: v.start_time_ms + deltaMs,
+        end_time_ms: v.end_time_ms + deltaMs,
+      }));
+      const allNumbers = shifted.map((v) => v.verse_number);
+      const dirty = get().dirtyVerseNumbers;
+      const merged = Array.from(new Set([...dirty, ...allNumbers])).sort(
+        (a, b) => a - b
+      );
+      set({ verses: shifted, dirtyVerseNumbers: merged });
+    },
+
     insertVerse: (afterVerseNumber) => {
       const verses = get().verses;
       const idx =
@@ -136,9 +167,10 @@ export const useAdminLyricsStore = create<AdminLyricsState & AdminLyricsActions>
 
     setHasHydrated: (v) => set({ _hasHydrated: v }),
 
-    clearDraft: () =>
+    markPublished: ({ newVersionId, newVersionNumber }) =>
       set({
-        verses: [],
+        baseVersionId: newVersionId,
+        baseVersionNumber: newVersionNumber,
         dirtyVerseNumbers: [],
         saveStatus: "idle",
         saveError: null,

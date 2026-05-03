@@ -141,7 +141,7 @@ describe("useAdminLyricsStore", () => {
     expect(s.saveError).toBe("network failure");
   });
 
-  it("clearDraft empties verses + dirty without resetting base/songVersionId", () => {
+  it("markPublished advances base + clears dirty but keeps verses on screen", () => {
     useAdminLyricsStore.getState().init({
       songVersionId: "sv1",
       editorId: "u",
@@ -150,11 +150,18 @@ describe("useAdminLyricsStore", () => {
       verses: sampleVerses,
     });
     useAdminLyricsStore.getState().updateVerse(1, { translations: { en: "x" } });
-    useAdminLyricsStore.getState().clearDraft();
+    useAdminLyricsStore.getState().markPublished({
+      newVersionId: "lv2",
+      newVersionNumber: 2,
+    });
     const s = useAdminLyricsStore.getState();
-    expect(s.verses).toEqual([]);
+    // Verses stay — they ARE the just-published baseline now
+    expect(s.verses.length).toBe(sampleVerses.length);
     expect(s.dirtyVerseNumbers).toEqual([]);
     expect(s.songVersionId).toBe("sv1"); // identity preserved
-    expect(s.baseVersionId).toBe("lv1");
+    expect(s.baseVersionId).toBe("lv2"); // advanced to new version
+    expect(s.baseVersionNumber).toBe(2);
+    expect(s.saveStatus).toBe("idle");
+    expect(s.saveError).toBeNull();
   });
 });

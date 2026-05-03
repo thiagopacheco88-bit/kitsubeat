@@ -11,6 +11,7 @@ import {
 } from "@/app/actions/grammarSession";
 import GrammarMcqCard from "./GrammarMcqCard";
 import GrammarWriteCard from "./GrammarWriteCard";
+import GrammarRuleIntroCard from "./GrammarRuleIntroCard";
 
 interface Props {
   userId: string;
@@ -22,7 +23,20 @@ interface Props {
 type RunState =
   | { kind: "loading" }
   | { kind: "error"; message: string }
-  | { kind: "playing"; questions: GrammarSessionQuestion[]; index: number; answers: GrammarAnswerRecord[]; sessionStart: number }
+  | {
+      kind: "playing";
+      questions: GrammarSessionQuestion[];
+      index: number;
+      answers: GrammarAnswerRecord[];
+      sessionStart: number;
+      /** Per-session set of rule IDs already introduced — prevents the intro
+       *  card from re-firing mid-session when a rule's second question appears. */
+      seenRuleIds: Set<string>;
+      /** When true, render <GrammarRuleIntroCard> for the current question's
+       *  rule before flipping to the MCQ/Write card. Set whenever index lands
+       *  on a question whose rule.id is not in seenRuleIds. */
+      showingIntro: boolean;
+    }
   | { kind: "saving" }
   | { kind: "done"; result: SaveGrammarSessionResult };
 
@@ -65,6 +79,8 @@ export default function GrammarSessionRunner({
           index: 0,
           answers: [],
           sessionStart: Date.now(),
+          seenRuleIds: new Set<string>(),
+          showingIntro: true, // first question is always a new rule
         });
       } catch (err) {
         if (cancelled) return;
@@ -172,7 +188,7 @@ export default function GrammarSessionRunner({
   }
 
   // Playing
-  const { questions, index, answers, sessionStart } = state;
+  const { questions, index, answers, sessionStart, seenRuleIds, showingIntro } = state;
   const q = questions[index];
 
   const advance = () => {
@@ -180,7 +196,16 @@ export default function GrammarSessionRunner({
       persist(answers, sessionStart);
       return;
     }
-    setState({ ...state, index: index + 1 });
+    const nextIdx = index + 1;
+    const nextRuleId = questions[nextIdx].rule.id;
+    const nextNeedsIntro = !seenRuleIds.has(nextRuleId);
+    setState({ ...state, index: nextIdx, showingIntro: nextNeedsIntro });
+  };
+
+  const dismissIntro = () => {
+    const nextSeen = new Set(seenRuleIds);
+    nextSeen.add(q.rule.id);
+    setState({ ...state, seenRuleIds: nextSeen, showingIntro: false });
   };
 
   const recordAnswer = (chosen: string, correct: boolean, timeMs: number) => {
@@ -214,7 +239,13 @@ export default function GrammarSessionRunner({
           Return
         </button>
       </div>
-      {q.level === "advanced" ? (
+      {showingIntro ? (
+        <GrammarRuleIntroCard
+          key={`intro-${q.rule.id}`}
+          rule={q.rule}
+          onContinue={dismissIntro}
+        />
+      ) : q.level === "advanced" ? (
         <GrammarWriteCard
           key={q.exercise.id}
           question={q}

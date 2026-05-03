@@ -11,6 +11,7 @@ import {
 } from "@/stores/exerciseSession";
 import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
 import ExerciseSession from "./ExerciseSession";
+import GrammarSessionRunner from "./GrammarSessionRunner";
 import { TrackProgressRings } from "./TrackProgressRings";
 
 interface ExerciseTabProps {
@@ -38,7 +39,7 @@ interface ExerciseTabProps {
   advancedDrillsUnlocked?: boolean;
 }
 
-type TabState = "config" | "session";
+type TabState = "config" | "session" | "grammar-session";
 
 // ---------------------------------------------------------------------------
 // TrackCard — single mode card with Short/Long toggle
@@ -210,19 +211,37 @@ export default function ExerciseTab({
     return sessionView;
   }
 
+  if (tabState === "grammar-session") {
+    return (
+      <div className="py-4">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Practice</h2>
+        </div>
+        <GrammarSessionRunner
+          userId={userId}
+          songVersionId={songVersionId}
+          songSlug={songSlug}
+          onExit={() => {
+            setTabState("config");
+            router.refresh();
+          }}
+        />
+      </div>
+    );
+  }
+
   // ---------------------------------------------------------------------------
   // Config screen
   // ---------------------------------------------------------------------------
 
   /**
-   * handleStart — common entry point for all four tracks.
+   * handleStart — common entry point for Vocab, Kanji, and Advanced Drills tracks.
    *
-   * Vocab/Grammar tracks use the Phase 11.6 pool-based buildQuestions overload
-   * (BuildQuestionsPoolInput) with trackKind + lengthMode. Advanced Drills uses
-   * the same overload with trackKind="advanced_drills".
-   *
-   * The legacy per-quota Advanced Drills gate (getAdvancedDrillAccess) is REMOVED
-   * for this plan — Plan 11.6-07 will wire the 80%-per-track unlock gate instead.
+   * Uses the Phase 11.6 pool-based buildQuestions overload (BuildQuestionsPoolInput)
+   * with trackKind + lengthMode. Grammar is intentionally NOT routed here — it
+   * mounts GrammarSessionRunner directly (Phase-13 grammar_exercises bank) since
+   * buildQuestions(trackKind="grammar") only emits the legacy grammar_conjugation
+   * type, which has ~2.5% catalog yield (smoke test scripts/debug/smoke-grammar-track.ts).
    */
   const handleStart = async (trackKind: TrackKind, lengthMode: LengthMode) => {
     setLoading(true);
@@ -369,14 +388,21 @@ export default function ExerciseTab({
           loading={loading}
         />
 
-        {/* Grammar track — conjugation drills, romaji-emphasized */}
+        {/* Grammar track — Phase-13 grammar_exercises bank via GrammarSessionRunner.
+            Bypasses buildQuestions(trackKind="grammar") which routes through the
+            legacy grammar_conjugation type with V1-form + timed-verse + JLPT-pool
+            constraints that yield ~2.5% catalog coverage (smoke test
+            scripts/debug/smoke-grammar-track.ts). */}
         <TrackCard
           title="Grammar"
           trackKind="grammar"
           description="Conjugation drills · romaji + meaning guided"
           lengthMode={grammarLength}
           onLengthChange={setGrammarLength}
-          onStart={() => handleStart("grammar", grammarLength)}
+          onStart={() => {
+            setError(null);
+            setTabState("grammar-session");
+          }}
           loading={loading}
         />
 

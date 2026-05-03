@@ -150,7 +150,7 @@ Prioritize what helps the learner understand the intended feeling.
 Vocabulary candidates are pre-extracted deterministically from the lyrics by scripts/lib/vocab-extractor.ts (tokenized by kuromoji, filtered to content words, deduped by dictionary form). Your job is to ANNOTATE every candidate — not to select or drop.
 - Annotate all candidates provided. Do NOT omit any. Do NOT add new ones.
 - Only drop entries that are clear tokenization noise (grammatical ない, single-kana fragments, malformed lemmas where no real word exists).
-- Fix potential-form lemmas to dictionary form (見れる → 見る) and silently correct kuromoji POS mis-tags (na-adjectives tagged "noun" → "adjective"; pronouns tagged "noun" → drop or mark).
+- Fix potential-form lemmas to dictionary form (見れる → 見る) and silently correct kuromoji POS mis-tags (na-adjectives tagged "noun" → "adjective"). Demonstratives (その/それ/これ), conjunctions (でも/しかし), pronouns (私/僕/彼), and bare numerals (一/二/三) are intentionally included as candidates — annotate them with part_of_speech "expression" (connectors/demonstratives) or "noun" (pronouns/numerals) per the candidate's pre-tagged value, not dropped.
 - For each candidate, emit: readings, romaji, part_of_speech, jlpt_level, and meaning
 - **example_from_song**: quote the specific verse or phrase where this word appears
 - **additional_examples**: 1-3 natural example sentences using the word in different contexts, ordered from simpler to more complex

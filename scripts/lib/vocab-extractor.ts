@@ -32,22 +32,33 @@ async function dictFormReading(
   return result;
 }
 
-/** Allowed POS-1 tags (kuromoji Japanese tags) — only content words. */
-const CONTENT_POS = new Set(["名詞", "動詞", "形容詞", "副詞"]);
+/**
+ * Allowed POS-1 tags (kuromoji Japanese tags). Content words plus prenominals
+ * (連体詞: その/この/あらゆる) and conjunctions (接続詞: でも/しかし/そして) so
+ * basic-level demonstratives and connectors land in the vocab list — JLPT N5/N4
+ * coverage hinges on them.
+ */
+const CONTENT_POS = new Set([
+  "名詞",
+  "動詞",
+  "形容詞",
+  "副詞",
+  "連体詞",
+  "接続詞",
+]);
 
 /**
- * POS-2 subtypes to exclude inside content POS. These are functional / structural
- * uses that don't belong in vocabulary lists:
+ * POS-2 subtypes to exclude inside content POS. Functional/structural uses that
+ * don't belong in vocabulary lists:
  *   非自立 — bound forms (する in 勉強する, いる in 食べている)
- *   代名詞 — pronouns (私, あなた)
- *   数     — bare numerals
  *   接尾  — suffixes (さん, たち)
  *   接続助詞, 終助詞 — particle subtypes (defensive; particles already excluded)
+ *
+ * Pronouns (代名詞: 私/僕/彼/それ) and bare numerals (数: 一/二/三) are NOT
+ * excluded — JLPT vocab lists treat them as standalone test items.
  */
 const EXCLUDED_POS_2 = new Set([
   "非自立",
-  "代名詞",
-  "数",
   "接尾",
   "接続助詞",
   "終助詞",
@@ -61,7 +72,7 @@ export interface VocabCandidate {
   /** Hepburn romaji of the dictionary form */
   romaji: string;
   /** Normalized English POS label used by the lesson schema */
-  part_of_speech: "noun" | "verb" | "adjective" | "adverb";
+  part_of_speech: "noun" | "verb" | "adjective" | "adverb" | "expression";
   /** Raw surface form(s) as they appear in the lyrics (for disambiguation) */
   surfaces_in_lyrics: string[];
   /** Line of lyrics where the word first occurs — feeds example_from_song */
@@ -75,6 +86,8 @@ const POS_MAP: Record<string, VocabCandidate["part_of_speech"]> = {
   動詞: "verb",
   形容詞: "adjective",
   副詞: "adverb",
+  連体詞: "expression",
+  接続詞: "expression",
 };
 
 function dedupKey(dictionary_form: string, reading: string): string {

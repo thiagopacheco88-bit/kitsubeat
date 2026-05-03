@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import AdminPlayerEmbed from "./AdminPlayerEmbed";
 import VerseRow from "./VerseRow";
 import SaveStatus from "./SaveStatus";
@@ -13,6 +13,8 @@ import { detectOverlap } from "@/lib/admin/timing-overlap";
 import { useAdminLyricsStore } from "@/lib/admin/lyrics-store";
 import { saveDraft } from "../actions/save-draft";
 import type { Verse } from "@/lib/types/lesson";
+import { usePlayer } from "@/app/songs/[slug]/components/PlayerContext";
+import { timeToMs } from "@/lib/admin/verse-time-format";
 
 interface VocabRowMap {
   [vocabId: string]: {
@@ -75,8 +77,33 @@ export default function VerseEditor(props: Props) {
   const dirtyVerseNumbers = useAdminLyricsStore((s) => s.dirtyVerseNumbers);
   const init = useAdminLyricsStore((s) => s.init);
   const updateVerse = useAdminLyricsStore((s) => s.updateVerse);
+  const shiftAllVerses = useAdminLyricsStore((s) => s.shiftAllVerses);
   const insertVerseAction = useAdminLyricsStore((s) => s.insertVerse);
   const deleteVerseAction = useAdminLyricsStore((s) => s.deleteVerse);
+
+  // Bulk-shift toolbar state — admin types a positive interval, then clicks
+  // earlier/later to apply ±delta to every verse's start_time_ms + end_time_ms.
+  // Use case: video has a spoken intro before the song, so all verses need to
+  // start later than the WhisperX onsets suggest.
+  const [shiftInput, setShiftInput] = useState("0:01.000");
+  const [shiftError, setShiftError] = useState<string | null>(null);
+
+  const applyShift = useCallback(
+    (direction: 1 | -1) => {
+      const parsed = timeToMs(shiftInput);
+      if (parsed == null || parsed < 0) {
+        setShiftError("Enter a positive interval like 0:01.500 or 1500");
+        return;
+      }
+      if (parsed === 0) {
+        setShiftError("Interval is zero — nothing to shift");
+        return;
+      }
+      setShiftError(null);
+      shiftAllVerses(direction * parsed);
+    },
+    [shiftInput, shiftAllVerses]
+  );
   const markSaving = useAdminLyricsStore((s) => s.markSaving);
   const markSaved = useAdminLyricsStore((s) => s.markSaved);
   const markError = useAdminLyricsStore((s) => s.markError);
@@ -127,63 +154,54 @@ export default function VerseEditor(props: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.songVersionId, props.editorId]);
 
-  // Auto-save effect: debounce 5s after any verse or dirty change, then write server + localStorage
+  // Auto-save effect: debounce 5s after any verse or dirty change, then write server + localStorage.
+  // Save logic extracted into a callable so the per-verse "Save" button can flush immediately.
   const lastSavedHashRef = useRef<string>("");
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => {
+  const performSave = useCallback(async () => {
     if (dirtyVerseNumbers.length === 0) return;
     const hash = JSON.stringify({ v: verses, d: dirtyVerseNumbers });
     if (hash === lastSavedHashRef.current) return;
-
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(async () => {
-      markSaving();
-      try {
-        await saveDraft({
-          songVersionId: props.songVersionId,
-          baseVersionId: props.baseVersionId,
-          verses,
-          dirtyVerseNumbers,
-        });
-        // Write localStorage AFTER server success (D-17: server-first)
-        if (typeof window !== "undefined") {
+    markSaving();
+    try {
+      await saveDraft({
+        songVersionId: props.songVersionId,
+        baseVersionId: props.baseVersionId,
+        verses,
+        dirtyVerseNumbers,
+      });
+      if (typeof window !== "undefined") {
+        localStorage.setItem(
+          localStorageKey(props.songVersionId, props.editorId),
+          JSON.stringify({
+            verses,
+            dirtyVerseNumbers,
+            updatedAt: new Date().toISOString(),
+          })
+        );
+      }
+      lastSavedHashRef.current = hash;
+      markSaved();
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "save failed";
+      markError(msg);
+      if (typeof window !== "undefined") {
+        try {
           localStorage.setItem(
             localStorageKey(props.songVersionId, props.editorId),
             JSON.stringify({
               verses,
               dirtyVerseNumbers,
               updatedAt: new Date().toISOString(),
+              serverFailed: true,
             })
           );
-        }
-        lastSavedHashRef.current = hash;
-        markSaved();
-      } catch (err) {
-        const msg = err instanceof Error ? err.message : "save failed";
-        markError(msg);
-        // Still write localStorage so user's work isn't lost (D-17 fallback path — DRAFT-T-01)
-        if (typeof window !== "undefined") {
-          try {
-            localStorage.setItem(
-              localStorageKey(props.songVersionId, props.editorId),
-              JSON.stringify({
-                verses,
-                dirtyVerseNumbers,
-                updatedAt: new Date().toISOString(),
-                serverFailed: true,
-              })
-            );
-          } catch {
-            /* localStorage full or disabled */
-          }
+        } catch {
+          /* localStorage full or disabled */
         }
       }
-    }, AUTOSAVE_DEBOUNCE_MS);
-
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
+    }
   }, [
     verses,
     dirtyVerseNumbers,
@@ -194,6 +212,22 @@ export default function VerseEditor(props: Props) {
     markSaved,
     markError,
   ]);
+
+  useEffect(() => {
+    if (dirtyVerseNumbers.length === 0) return;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      void performSave();
+    }, AUTOSAVE_DEBOUNCE_MS);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [dirtyVerseNumbers, verses, performSave]);
+
+  const forceSave = useCallback(async () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    await performSave();
+  }, [performSave]);
 
   const warnings = detectOverlap(verses);
   const warningByVerseNumber = new Map(warnings.map((w) => [w.verseNumber, w]));
@@ -208,11 +242,25 @@ export default function VerseEditor(props: Props) {
           marginBottom: "12px",
         }}
       >
-        <p style={{ margin: 0, fontSize: "12px", color: "#6b7280" }}>
+        <p style={{ margin: 0, fontSize: "12px", color: "var(--color-text-muted)" }}>
           {verses.length} verses &middot; base version #
           {props.baseVersionNumber ?? "—"}
           {warnings.length > 0 && (
-            <span style={{ color: "#92400e", marginLeft: "12px" }}>
+            <span
+              style={{
+                color: "#f59e0b",
+                marginLeft: "12px",
+                cursor: "help",
+                borderBottom: "1px dotted #f59e0b",
+              }}
+              title={
+                "Timing warnings come in three kinds:\n" +
+                "• overlap — a verse starts before the previous verse has ended.\n" +
+                "• non_monotonic — a verse starts earlier than its predecessor in declared order.\n" +
+                "• degenerate — a verse's end_time is before its start_time.\n\n" +
+                "Warnings never block publish. Each affected verse shows the specific values inline."
+              }
+            >
               &#9888; {warnings.length} timing warning(s)
             </span>
           )}
@@ -229,8 +277,8 @@ export default function VerseEditor(props: Props) {
               fontSize: "12px",
               border: "1px solid #e5e7eb",
               borderRadius: "4px",
-              background: "#fff",
-              color: "#374151",
+              background: "var(--color-card)",
+              color: "var(--color-text)",
               cursor: "pointer",
             }}
           >
@@ -247,8 +295,8 @@ export default function VerseEditor(props: Props) {
               fontSize: "12px",
               border: "1px solid #e5e7eb",
               borderRadius: "4px",
-              background: dirtyVerseNumbers.length === 0 ? "#f3f4f6" : "#fff",
-              color: dirtyVerseNumbers.length === 0 ? "#6b7280" : "#374151",
+              background: dirtyVerseNumbers.length === 0 ? "var(--color-card-2)" : "var(--color-card)",
+              color: dirtyVerseNumbers.length === 0 ? "var(--color-text-muted)" : "var(--color-text)",
               cursor: dirtyVerseNumbers.length === 0 ? "not-allowed" : "pointer",
             }}
           >
@@ -259,8 +307,89 @@ export default function VerseEditor(props: Props) {
       </div>
 
       <div
-        style={{ display: "flex", justifyContent: "flex-end", marginBottom: "8px" }}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "12px",
+          marginBottom: "8px",
+          padding: "8px 10px",
+          background: "var(--color-card-2)",
+          border: "1px solid #e5e7eb",
+          borderRadius: "4px",
+        }}
       >
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+          <span style={{ fontSize: "12px", color: "var(--color-text)", fontWeight: 600 }}>
+            Shift all verses by
+          </span>
+          <input
+            type="text"
+            inputMode="decimal"
+            value={shiftInput}
+            onChange={(e) => {
+              setShiftInput(e.target.value);
+              if (shiftError) setShiftError(null);
+            }}
+            placeholder="0:01.000"
+            aria-label="Bulk shift interval"
+            data-testid="bulk-shift-input"
+            style={{
+              width: "100px",
+              padding: "4px 8px",
+              fontSize: "12px",
+              border: "1px solid #e5e7eb",
+              borderRadius: "4px",
+              fontVariantNumeric: "tabular-nums",
+              color: "var(--color-text)",
+              background: "var(--color-card)",
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => applyShift(-1)}
+            disabled={verses.length === 0}
+            data-testid="bulk-shift-earlier"
+            title="Subtract this interval from every verse's start and end time"
+            style={{
+              padding: "4px 10px",
+              fontSize: "12px",
+              border: "1px solid #e5e7eb",
+              borderRadius: "4px",
+              background: verses.length === 0 ? "var(--color-card-2)" : "var(--color-card)",
+              color: verses.length === 0 ? "var(--color-text-dim)" : "var(--color-text)",
+              cursor: verses.length === 0 ? "not-allowed" : "pointer",
+            }}
+          >
+            ← Earlier
+          </button>
+          <button
+            type="button"
+            onClick={() => applyShift(1)}
+            disabled={verses.length === 0}
+            data-testid="bulk-shift-later"
+            title="Add this interval to every verse's start and end time. Use this when the video has an intro/talking before the song starts."
+            style={{
+              padding: "4px 10px",
+              fontSize: "12px",
+              border: "1px solid #e5e7eb",
+              borderRadius: "4px",
+              background: verses.length === 0 ? "var(--color-card-2)" : "var(--color-card)",
+              color: verses.length === 0 ? "var(--color-text-dim)" : "var(--color-text)",
+              cursor: verses.length === 0 ? "not-allowed" : "pointer",
+            }}
+          >
+            Later →
+          </button>
+          {shiftError && (
+            <span
+              data-testid="bulk-shift-error"
+              style={{ fontSize: "11px", color: "#dc2626" }}
+            >
+              {shiftError}
+            </span>
+          )}
+        </div>
         <button
           type="button"
           onClick={() => insertVerseAction(null)}
@@ -270,8 +399,8 @@ export default function VerseEditor(props: Props) {
             fontSize: "12px",
             border: "1px solid #e5e7eb",
             borderRadius: "4px",
-            background: "#fff",
-            color: "#6366f1",
+            background: "var(--color-card)",
+            color: "var(--color-accent)",
             cursor: "pointer",
           }}
         >
@@ -282,60 +411,31 @@ export default function VerseEditor(props: Props) {
       {verses.length === 0 ? (
         <p
           style={{
-            color: "#6b7280",
+            color: "var(--color-text-muted)",
             padding: "24px",
-            background: "#f9fafb",
+            background: "var(--color-card-2)",
             borderRadius: "6px",
           }}
         >
           No verses yet. Click &ldquo;+ Insert&rdquo; to add one.
         </p>
       ) : (
-        verses.map((verse, idx) => (
-          <div key={`v-${verse.verse_number}-${idx}`}>
-            <VerseRow
-              verse={verse}
-              vocabMap={props.vocabMap}
-              warning={warningByVerseNumber.get(verse.verse_number) ?? null}
-              songMeta={props.songMeta}
-              onChange={(patch) => updateVerse(verse.verse_number, patch)}
-              onDelete={() => {
-                if (
-                  confirm(
-                    `Delete verse ${verse.verse_number}? This cannot be undone after publish.`
-                  )
-                ) {
-                  deleteVerseAction(verse.verse_number);
-                }
-              }}
-            />
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                margin: "4px 0",
-              }}
-            >
-              <button
-                type="button"
-                onClick={() => insertVerseAction(verse.verse_number)}
-                data-testid={`insert-after-${verse.verse_number}`}
-                style={{
-                  padding: "2px 8px",
-                  fontSize: "11px",
-                  border: "1px dashed #e5e7eb",
-                  borderRadius: "4px",
-                  background: "transparent",
-                  color: "#6b7280",
-                  cursor: "pointer",
-                }}
-                aria-label={`Insert verse after ${verse.verse_number}`}
-              >
-                + Insert after {verse.verse_number}
-              </button>
-            </div>
-          </div>
-        ))
+        <VerseList
+          verses={verses}
+          vocabMap={props.vocabMap}
+          warningByVerseNumber={warningByVerseNumber}
+          songMeta={props.songMeta}
+          lyricsOffsetMs={props.lyricsOffsetMs}
+          dirtyVerseNumbers={dirtyVerseNumbers}
+          onChangeVerse={(n, patch) => updateVerse(n, patch)}
+          onDeleteVerse={(n) => {
+            if (confirm(`Delete verse ${n}? This cannot be undone after publish.`)) {
+              deleteVerseAction(n);
+            }
+          }}
+          onInsertAfter={(n) => insertVerseAction(n)}
+          forceSave={forceSave}
+        />
       )}
       {/* Phase 11.5 Plan 08: pipeline status poller (D-10/D-22) */}
       <PipelineStatusPoller
@@ -389,5 +489,79 @@ export default function VerseEditor(props: Props) {
         />
       )}
     </AdminPlayerEmbed>
+  );
+}
+
+/**
+ * VerseList — lives inside <AdminPlayerEmbed> so it can read currentTimeMs from
+ * the PlayerProvider, compute the active verse, and propagate isActive down.
+ */
+function VerseList(props: {
+  verses: Verse[];
+  vocabMap: VocabRowMap;
+  warningByVerseNumber: Map<number, ReturnType<typeof detectOverlap>[number]>;
+  songMeta: SongMeta;
+  lyricsOffsetMs: number;
+  dirtyVerseNumbers: number[];
+  onChangeVerse: (verseNumber: number, patch: Partial<Verse>) => void;
+  onDeleteVerse: (verseNumber: number) => void;
+  onInsertAfter: (verseNumber: number) => void;
+  forceSave: () => Promise<void>;
+}) {
+  const { currentTimeMs } = usePlayer();
+
+  // Active verse: the one whose [start+offset, end+offset] window contains currentTimeMs.
+  const activeVerseNumber = useMemo<number | null>(() => {
+    for (const v of props.verses) {
+      const start = v.start_time_ms + props.lyricsOffsetMs;
+      const end = v.end_time_ms + props.lyricsOffsetMs;
+      if (currentTimeMs >= start && currentTimeMs < end) return v.verse_number;
+    }
+    return null;
+  }, [currentTimeMs, props.verses, props.lyricsOffsetMs]);
+
+  return (
+    <>
+      {props.verses.map((verse, idx) => (
+        <div key={`v-${verse.verse_number}-${idx}`}>
+          <VerseRow
+            verse={verse}
+            vocabMap={props.vocabMap}
+            warning={props.warningByVerseNumber.get(verse.verse_number) ?? null}
+            songMeta={props.songMeta}
+            lyricsOffsetMs={props.lyricsOffsetMs}
+            isActive={verse.verse_number === activeVerseNumber}
+            onSaveNow={props.forceSave}
+            onChange={(patch) => props.onChangeVerse(verse.verse_number, patch)}
+            onDelete={() => props.onDeleteVerse(verse.verse_number)}
+          />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              margin: "4px 0",
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => props.onInsertAfter(verse.verse_number)}
+              data-testid={`insert-after-${verse.verse_number}`}
+              style={{
+                padding: "2px 8px",
+                fontSize: "11px",
+                border: "1px dashed #e5e7eb",
+                borderRadius: "4px",
+                background: "transparent",
+                color: "var(--color-text-muted)",
+                cursor: "pointer",
+              }}
+              aria-label={`Insert verse after ${verse.verse_number}`}
+            >
+              + Insert after {verse.verse_number}
+            </button>
+          </div>
+        </div>
+      ))}
+    </>
   );
 }

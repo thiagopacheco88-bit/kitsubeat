@@ -3,11 +3,12 @@
 import { usePlayer } from "@/app/songs/[slug]/components/PlayerContext";
 import type { Verse, Token } from "@/lib/types/lesson";
 import type { OverlapWarning } from "@/lib/admin/timing-overlap";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAdminLyricsStore } from "@/lib/admin/lyrics-store";
 import { aiFillVerse } from "../actions/ai-fill";
 import type { VerseFillResponse } from "@/lib/admin/verse-fill-zod";
 import type { SongMeta } from "./VerseEditor";
+import { msToTime, timeToMs } from "@/lib/admin/verse-time-format";
 
 /**
  * Per-vocab lookup shape — populated from vocabulary_items rows loaded by page.tsx.
@@ -35,20 +36,40 @@ interface Props {
   vocabMap: VocabRowMap;
   warning: OverlapWarning | null;
   songMeta: SongMeta;
+  // Offset in ms between the lesson's verse timing (start_time_ms) and the YouTube
+  // playback time. Public song page applies this; admin editor must too or the play
+  // arrow seeks to the wrong spot in the video.
+  lyricsOffsetMs: number;
+  // True when the player's currentTimeMs falls within this verse's [start+offset, end+offset).
+  // Triggers visual highlight + auto-scroll-into-view.
+  isActive: boolean;
+  // Flushes the auto-save debounce immediately. Used by the per-verse Save button.
+  onSaveNow: () => Promise<void>;
   onChange: (patch: Partial<Verse>) => void;
   onDelete: () => void;
 }
 
+// Theme-aware palette — wires to globals.css tokens so dark and light modes both
+// stay readable. Warning colors stay literal hex (amber works on both backgrounds);
+// error stays literal red (verified WCAG on light + dark per CONTEXT D-03).
 const palette = {
-  border: "#e5e7eb",
-  bg: "#fff",
-  warningBg: "#fef3c7",
-  warningFg: "#92400e",
-  warningBorder: "#fcd34d",
-  link: "#6366f1",
-  subdued: "#6b7280",
-  body: "#374151",
-  error: "#dc2626",
+  border: "var(--color-border)",
+  borderStrong: "var(--color-border-strong)",
+  bg: "var(--color-card)",
+  bgSubtle: "var(--color-card-2)",
+  warningBg: "rgba(245, 158, 11, 0.12)",
+  warningFg: "#f59e0b",
+  warningBorder: "rgba(245, 158, 11, 0.40)",
+  link: "var(--color-accent)",
+  subdued: "var(--color-text-muted)",
+  body: "var(--color-text)",
+  dim: "var(--color-text-dim)",
+  error: "#ef4444",
+};
+
+const fieldDefaults = {
+  color: palette.body,
+  background: palette.bg,
 };
 
 function localizableToString(
@@ -65,10 +86,21 @@ export default function VerseRow({
   vocabMap,
   warning,
   songMeta,
+  lyricsOffsetMs,
+  isActive,
+  onSaveNow,
   onChange,
   onDelete,
 }: Props) {
   const player = usePlayer();
+  const rowRef = useRef<HTMLDivElement>(null);
+  // When this verse becomes active (player time entered our window), scroll into view.
+  useEffect(() => {
+    if (isActive && rowRef.current) {
+      rowRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [isActive]);
+  const saveStatus = useAdminLyricsStore((s) => s.saveStatus);
   const [expandedTokenIdx, setExpandedTokenIdx] = useState<number | null>(null);
   const [kanjiSavingId, setKanjiSavingId] = useState<string | null>(null);
   const [kanjiSaveError, setKanjiSaveError] = useState<string | null>(null);
@@ -196,13 +228,23 @@ export default function VerseRow({
 
   return (
     <div
+      ref={rowRef}
       data-testid={`verse-row-${verse.verse_number}`}
       style={{
-        border: `1px solid ${warning ? palette.warningBorder : palette.border}`,
+        border: `1px solid ${
+          isActive
+            ? palette.link
+            : warning
+            ? palette.warningBorder
+            : palette.border
+        }`,
         background: warning ? palette.warningBg : palette.bg,
         borderRadius: "6px",
         padding: "12px",
         marginBottom: "0px",
+        outline: isActive ? `2px solid ${palette.link}` : "none",
+        outlineOffset: isActive ? "2px" : 0,
+        transition: "outline 120ms ease-out",
       }}
     >
       {/* Header row: seek button, verse number, timing fields, delete button */}
@@ -216,14 +258,14 @@ export default function VerseRow({
       >
         <button
           type="button"
-          onClick={() => player.seekTo(verse.start_time_ms)}
+          onClick={() => player.seekTo(verse.start_time_ms + lyricsOffsetMs)}
           data-testid={`seek-${verse.verse_number}`}
           aria-label={`Seek to verse ${verse.verse_number}`}
           style={{
             padding: "2px 8px",
             border: "1px solid " + palette.border,
             borderRadius: "4px",
-            background: "#fff",
+            background: palette.bg,
             cursor: "pointer",
             color: palette.link,
           }}
@@ -236,41 +278,94 @@ export default function VerseRow({
           verse {verse.verse_number}
         </span>
 
-        {/* SPEC #12: timing fields — ms inputs, overlap warning is non-blocking */}
+        {/* SPEC #12: timing fields. We display playback time (lesson ms + offset) so the
+         * admin sees what users see in the YouTube video. On save we subtract the offset
+         * back out so the stored start_time_ms stays in lesson-time. Inputs are mm:ss.sss
+         * for readability; ms precision is preserved through the round-trip. */}
         <input
-          type="number"
-          defaultValue={verse.start_time_ms}
-          onBlur={(e) => onChange({ start_time_ms: Number(e.target.value) })}
-          aria-label={`start_time_ms for verse ${verse.verse_number}`}
+          type="text"
+          inputMode="decimal"
+          defaultValue={msToTime(verse.start_time_ms + lyricsOffsetMs)}
+          onBlur={(e) => {
+            const parsed = timeToMs(e.target.value);
+            if (parsed == null) {
+              e.target.value = msToTime(verse.start_time_ms + lyricsOffsetMs);
+              return;
+            }
+            e.target.value = msToTime(parsed);
+            onChange({ start_time_ms: parsed - lyricsOffsetMs });
+          }}
+          aria-label={`start_time for verse ${verse.verse_number}`}
           data-testid={`start-${verse.verse_number}`}
+          placeholder="0:00.000"
           style={{
             width: "90px",
             padding: "2px 6px",
             border: "1px solid " + palette.border,
             borderRadius: "4px",
             fontSize: "12px",
+            fontVariantNumeric: "tabular-nums",
+            ...fieldDefaults,
           }}
         />
         <span style={{ color: palette.subdued, fontSize: "11px" }}>
           &rarr;
         </span>
         <input
-          type="number"
-          defaultValue={verse.end_time_ms}
-          onBlur={(e) => onChange({ end_time_ms: Number(e.target.value) })}
-          aria-label={`end_time_ms for verse ${verse.verse_number}`}
+          type="text"
+          inputMode="decimal"
+          defaultValue={msToTime(verse.end_time_ms + lyricsOffsetMs)}
+          onBlur={(e) => {
+            const parsed = timeToMs(e.target.value);
+            if (parsed == null) {
+              e.target.value = msToTime(verse.end_time_ms + lyricsOffsetMs);
+              return;
+            }
+            e.target.value = msToTime(parsed);
+            onChange({ end_time_ms: parsed - lyricsOffsetMs });
+          }}
+          aria-label={`end_time for verse ${verse.verse_number}`}
           data-testid={`end-${verse.verse_number}`}
+          placeholder="0:00.000"
           style={{
             width: "90px",
             padding: "2px 6px",
             border: "1px solid " + palette.border,
             borderRadius: "4px",
             fontSize: "12px",
+            fontVariantNumeric: "tabular-nums",
+            ...fieldDefaults,
           }}
         />
-        <span style={{ color: palette.subdued, fontSize: "11px" }}>ms</span>
+        <span style={{ color: palette.subdued, fontSize: "11px" }}>mm:ss</span>
 
         <div style={{ flex: 1 }} />
+        {/* Per-verse Save now — flushes the auto-save 5s debounce immediately for this admin's draft. */}
+        <button
+          type="button"
+          disabled={!isDirty || saveStatus === "saving"}
+          onClick={() => void onSaveNow()}
+          data-testid={`save-${verse.verse_number}`}
+          aria-label={`Save draft now for verse ${verse.verse_number}`}
+          style={{
+            padding: "4px 10px",
+            fontSize: "12px",
+            border: "1px solid " + (isDirty ? "#22c55e" : palette.border),
+            borderRadius: "4px",
+            background: saveStatus === "saving" ? palette.bgSubtle : palette.bg,
+            color: isDirty ? "#22c55e" : palette.subdued,
+            cursor: !isDirty || saveStatus === "saving" ? "not-allowed" : "pointer",
+            opacity: !isDirty ? 0.5 : 1,
+          }}
+        >
+          {saveStatus === "saving"
+            ? "Saving..."
+            : isDirty
+            ? "Save"
+            : saveStatus === "saved"
+            ? "Saved"
+            : "Save"}
+        </button>
         {/* SPEC #10 + D-08: AI fill button — enabled only when verse is dirty */}
         <button
           type="button"
@@ -281,10 +376,10 @@ export default function VerseRow({
           style={{
             padding: "4px 10px",
             fontSize: "12px",
-            border: "1px solid #6366f1",
+            border: "1px solid " + palette.link,
             borderRadius: "4px",
-            background: aiFillState === "loading" ? "#f3f4f6" : "#fff",
-            color: "#6366f1",
+            background: aiFillState === "loading" ? palette.bgSubtle : palette.bg,
+            color: palette.link,
             cursor: !isDirty || aiFillState === "loading" ? "not-allowed" : "pointer",
             opacity: !isDirty || aiFillState === "loading" ? 0.5 : 1,
           }}
@@ -300,7 +395,7 @@ export default function VerseRow({
             padding: "2px 8px",
             border: "1px solid " + palette.border,
             borderRadius: "4px",
-            background: "#fff",
+            background: palette.bg,
             cursor: "pointer",
             color: palette.error,
             fontSize: "12px",
@@ -433,6 +528,7 @@ export default function VerseRow({
               borderRadius: "4px",
               fontSize: "13px",
               boxSizing: "border-box",
+              ...fieldDefaults,
             }}
           />
         </div>
@@ -464,6 +560,7 @@ export default function VerseRow({
             fontSize: "12px",
             resize: "vertical",
             boxSizing: "border-box",
+            ...fieldDefaults,
           }}
         />
       </div>
@@ -494,6 +591,7 @@ export default function VerseRow({
             fontSize: "12px",
             resize: "vertical",
             boxSizing: "border-box",
+            ...fieldDefaults,
           }}
         />
       </div>
@@ -501,22 +599,22 @@ export default function VerseRow({
       {/* Kanji breakdown editor (expanded token only) — SPEC #9 + ISSUE-02 writable form */}
       {/* SPEC #10 D-08: AI suggestion preview with accept/reject */}
       {aiFillState === "result" && aiSuggestion && (
-        <div data-testid={`ai-suggestion-${verse.verse_number}`} style={{ marginTop: "8px", padding: "8px", border: "1px solid #6366f1", borderRadius: "4px", background: "#eef2ff" }}>
-          <p style={{ fontSize: "11px", color: "#1e40af", margin: "0 0 4px 0" }}>
+        <div data-testid={`ai-suggestion-${verse.verse_number}`} style={{ marginTop: "8px", padding: "8px", border: `1px solid ${palette.link}`, borderRadius: "4px", background: "rgba(239, 68, 68, 0.08)" }}>
+          <p style={{ fontSize: "11px", color: palette.link, margin: "0 0 4px 0" }}>
             AI suggestion (snapshot already saved for gap analysis):
           </p>
-          <pre style={{ fontSize: "10px", margin: 0, maxHeight: "200px", overflow: "auto" }}>
+          <pre style={{ fontSize: "10px", margin: 0, maxHeight: "200px", overflow: "auto", color: palette.body }}>
             {JSON.stringify(aiSuggestion, null, 2)}
           </pre>
           <div style={{ marginTop: "6px", display: "flex", gap: "6px" }}>
-            <button type="button" onClick={acceptSuggestion} data-testid={`ai-accept-${verse.verse_number}`} style={{ padding: "2px 8px", fontSize: "11px", color: "#fff", background: "#6366f1", border: "none", borderRadius: "4px", cursor: "pointer" }}>Accept</button>
-            <button type="button" onClick={rejectSuggestion} data-testid={`ai-reject-${verse.verse_number}`} style={{ padding: "2px 8px", fontSize: "11px", color: "#6b7280", background: "#fff", border: "1px solid #e5e7eb", borderRadius: "4px", cursor: "pointer" }}>Reject</button>
+            <button type="button" onClick={acceptSuggestion} data-testid={`ai-accept-${verse.verse_number}`} style={{ padding: "2px 8px", fontSize: "11px", color: "#fff", background: palette.link, border: "none", borderRadius: "4px", cursor: "pointer" }}>Accept</button>
+            <button type="button" onClick={rejectSuggestion} data-testid={`ai-reject-${verse.verse_number}`} style={{ padding: "2px 8px", fontSize: "11px", color: palette.subdued, background: palette.bg, border: `1px solid ${palette.border}`, borderRadius: "4px", cursor: "pointer" }}>Reject</button>
           </div>
         </div>
       )}
 
       {aiFillState === "error" && (
-        <p data-testid={`ai-error-${verse.verse_number}`} style={{ marginTop: "8px", fontSize: "11px", color: "#dc2626" }}>
+        <p data-testid={`ai-error-${verse.verse_number}`} style={{ marginTop: "8px", fontSize: "11px", color: palette.error }}>
           AI fill failed: {aiError}
         </p>
       )}
@@ -579,7 +677,7 @@ export default function VerseRow({
                 marginTop: "8px",
                 padding: "8px",
                 border: "1px solid " + palette.border,
-                background: "#f9fafb",
+                background: palette.bgSubtle,
                 borderRadius: "4px",
               }}
             >
