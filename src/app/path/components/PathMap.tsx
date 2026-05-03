@@ -1,6 +1,8 @@
 "use client";
 
 import { PathNode } from "./PathNode";
+import { TierDivider } from "./TierDivider";
+import { KanaCheckpointNode } from "./KanaCheckpointNode";
 import type { SongListItem } from "@/lib/db/queries";
 
 interface PathMapProps {
@@ -13,13 +15,6 @@ const TIER_ORDER: Record<string, number> = {
   intermediate: 1,
   advanced: 2,
 };
-
-function tierLabel(tier: string | null | undefined): string {
-  if (tier === "basic") return "Beginner";
-  if (tier === "intermediate") return "Intermediate";
-  if (tier === "advanced") return "Advanced";
-  return tier ?? "Unknown";
-}
 
 /**
  * PathMap — stepped vertical learning-path map.
@@ -49,27 +44,28 @@ export function PathMap({ songs, currentNodeSlug }: PathMapProps) {
   for (const song of sorted) {
     const tier = song.difficulty_tier ?? "unknown";
 
-    // Insert tier divider chip on tier change. The chip uses Badge variant=mono
-    // shape (font-mono uppercase tracking-wide muted text on card-2 bg) but is
-    // inlined here as a <span> because (a) it needs the flanking <hr> rules and
-    // (b) the variant does not need the Badge primitive's px-2 py-0.5 — the
-    // tier divider uses px-3 to give the label visual breathing room between
-    // the rules. Token recipe matches Badge variant=mono verbatim.
+    // Delegate tier-divider rendering to <TierDivider> (SPEC-REQ-7).
+    // At the start of the basic tier, also insert 2 KanaCheckpointNode rows
+    // (SPEC-REQ-6 + CONTEXT D-19 beginner inclusivity).
     if (tier !== lastTier) {
-      elements.push(
-        <div
-          key={`tier-${tier}`}
-          className="flex items-center gap-3 my-4"
-          aria-label={`Tier: ${tierLabel(tier)}`}
-        >
-          <div className="flex-1 border-t border-[var(--color-border)]" />
-          <span className="rounded-[var(--radius-pill)] border border-[var(--color-border-strong)] bg-[var(--color-card-2)] px-3 py-0.5 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">
-            {tierLabel(tier)}
-          </span>
-          <div className="flex-1 border-t border-[var(--color-border)]" />
-        </div>
-      );
+      elements.push(<TierDivider key={`tier-${tier}`} tier={tier} />);
       lastTier = tier;
+
+      // Phase 14.1 SPEC-REQ-6: insert kana-checkpoint row at the start of
+      // the basic tier (CONTEXT Specifics — beginner inclusivity per D-19).
+      if (tier === "basic") {
+        elements.push(
+          <div
+            key="kana-checkpoint-row"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-2"
+            role="list"
+            aria-label="Kana checkpoints"
+          >
+            <KanaCheckpointNode script="hiragana" />
+            <KanaCheckpointNode script="katakana" />
+          </div>
+        );
+      }
     }
 
     // Alternate left/right alignment for winding path effect
