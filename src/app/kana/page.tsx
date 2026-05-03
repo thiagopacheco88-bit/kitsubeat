@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useKanaProgress } from "@/stores/kanaProgress";
 import type { KanaMode } from "@/lib/kana/types";
 import { KanaGrid } from "./components/KanaGrid";
@@ -21,10 +22,25 @@ import { SignupNudge } from "./components/SignupNudge";
  *   `src/app/songs/[slug]/components/ExerciseTab.tsx`).
  * - Start CTA navigates to `/kana/session?mode={mode}` — the session route
  *   is built in Plan 09-05; this href is the contract.
+ * - Honors ?script=hiragana|katakana query param (CONTEXT D-05): pre-selects
+ *   the matching mode on first mount. "mixed" is intentionally NOT accepted
+ *   as a deep-link target — it's a deliberate user-toggle action only.
  */
+
+/** T-14.1.11-01 mitigation: only accept exact enum values; fallback to hiragana. */
+function isValidScriptParam(v: string | null): v is "hiragana" | "katakana" {
+  return v === "hiragana" || v === "katakana";
+}
+
 export default function KanaLandingPage() {
+  const searchParams = useSearchParams();
+  const scriptParam = searchParams.get("script");
+  const initialMode: KanaMode = isValidScriptParam(scriptParam)
+    ? scriptParam
+    : "hiragana";
+
   const hasHydrated = useKanaProgress((s) => s._hasHydrated);
-  const [mode, setMode] = useState<KanaMode>("hiragana");
+  const [mode, setMode] = useState<KanaMode>(initialMode);
 
   if (!hasHydrated) {
     return (
