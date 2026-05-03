@@ -67,6 +67,12 @@ export interface StarterSongRow {
 export async function getStarterSongs(): Promise<StarterSongRow[]> {
   const slugList = [...STARTER_SONG_SLUGS] as string[];
 
+  // Correlated subqueries below reference the outer "songs"."id" via
+  // sql.raw — using ${songs.id} here would emit unqualified "id", which
+  // PostgreSQL resolves against the inner "sv" alias (sv.song_id = sv.id),
+  // a never-true condition that returns 0 lessoned rows for every song.
+  const outerSongsId = sql.raw('"songs"."id"');
+
   const rows = await db
     .select({
       slug: songs.slug,
@@ -77,7 +83,7 @@ export async function getStarterSongs(): Promise<StarterSongRow[]> {
       youtube_id: sql<string | null>`(
         SELECT sv.youtube_id
         FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
+        WHERE sv.song_id = ${outerSongsId}
           AND sv.lesson IS NOT NULL
         ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
         LIMIT 1
@@ -86,7 +92,7 @@ export async function getStarterSongs(): Promise<StarterSongRow[]> {
       has_lesson: sql<number | null>`(
         SELECT 1
         FROM song_versions sv
-        WHERE sv.song_id = ${songs.id}
+        WHERE sv.song_id = ${outerSongsId}
           AND sv.lesson IS NOT NULL
         LIMIT 1
       )`,

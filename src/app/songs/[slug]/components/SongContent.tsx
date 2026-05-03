@@ -125,7 +125,7 @@ function SongContentInner({
     <div className="mx-auto max-w-7xl px-4 py-6">
       {/* Header */}
       <div className="mb-4">
-        <h1 className="text-2xl font-bold text-white">{song.title}</h1>
+        <h1 className="text-2xl font-bold text-[var(--color-text)]">{song.title}</h1>
         <p className="mt-1 text-sm text-gray-400">
           {song.artist} &middot; {song.anime}
           {song.season_info && (
