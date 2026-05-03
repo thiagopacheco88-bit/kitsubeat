@@ -20,6 +20,7 @@ import { describe, it, expect, beforeEach, vi, afterEach } from "vitest";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
 import { KanaCheckpointNode } from "./KanaCheckpointNode";
+import type { MasteryMap } from "@/lib/kana/types";
 
 // Mock useKanaProgress — controllable per test
 vi.mock("@/stores/kanaProgress", () => ({
@@ -29,19 +30,28 @@ import { useKanaProgress } from "@/stores/kanaProgress";
 
 afterEach(() => cleanup());
 
+/** Minimal store shape used by the selector calls in KanaCheckpointNode. */
+interface MockKanaStore {
+  _hasHydrated: boolean;
+  hiragana: MasteryMap;
+  katakana: MasteryMap;
+  sessionsCompleted: number;
+}
+
 const mockStore = (state: {
   _hasHydrated: boolean;
-  hiragana?: Record<string, number>;
-  katakana?: Record<string, number>;
+  hiragana?: MasteryMap;
+  katakana?: MasteryMap;
 }) => {
-  // useKanaProgress is called with a selector; the mock returns selector(state)
-  vi.mocked(useKanaProgress).mockImplementation((sel: any) =>
-    sel({
-      _hasHydrated: state._hasHydrated,
-      hiragana: state.hiragana ?? {},
-      katakana: state.katakana ?? {},
-      sessionsCompleted: 0,
-    } as any),
+  // useKanaProgress is called with a selector; the mock returns selector(store)
+  vi.mocked(useKanaProgress).mockImplementation(
+    (sel: (s: MockKanaStore) => unknown) =>
+      sel({
+        _hasHydrated: state._hasHydrated,
+        hiragana: state.hiragana ?? {},
+        katakana: state.katakana ?? {},
+        sessionsCompleted: 0,
+      }),
   );
 };
 

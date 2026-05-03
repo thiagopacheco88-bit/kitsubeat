@@ -170,7 +170,7 @@ describe("PathNode", () => {
     const { container } = render(
       <PathNode song={baseSong} isCurrent={true} isCompleted={false} />,
     );
-    expect(container.innerHTML).not.toContain("🔥");
-    expect(container.innerHTML).not.toContain("\u{1F525}");
+    // AC #11: no fire emoji in rendered HTML (both literal and unicode escape checked)
+    expect(container.innerHTML).not.toContain("\u{1F525}"); // fire emoji U+1F525
   });
 });
