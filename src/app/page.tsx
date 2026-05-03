@@ -1,237 +1,101 @@
-import Link from "next/link";
-import Image from "next/image";
-import {
-  getFeaturedSongs,
-  getTopAnimeFranchises,
-  getBeginnerSongs,
-  getRecentSongs,
-  getTopArtists,
-} from "@/lib/db/queries";
+/**
+ * /  —  Phase 14.2 home redesign.
+ *
+ * 5-section CA-hybrid narrative replacing the flat 5-carousel catalog:
+ *   1. HeroFeatured (always — auth-aware via getHeroSong)
+ *   2. Continue Learning (auth-only — wrapper handles the gate)
+ *   3. Foundations (always)
+ *   4. Browse by Anime (always)
+ *   5. Featured Songs (always)
+ *
+ * SPEC §Req 6 + AC #13 — exact DOM order with stable data-testid selectors.
+ * CONTEXT D-14 — CoverCard receives showMastery={isSignedIn} for anonymous-clean.
+ *
+ * force-dynamic preserved (CONTEXT line 224) — auth-aware fetch needs fresh
+ * per-request render. Beginner / Recent / TopArtists queries dropped from
+ * imports per SPEC §Req 6 (no longer consumed on /).
+ */
+import { getHeroSong, getFeaturedSongs, getTopAnimeFranchises } from "@/lib/db/queries";
+import { getCurrentUserId, PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { HeroFeatured } from "./components/home/HeroFeatured";
+import { ContinueLearning } from "./components/home/ContinueLearning";
+import { Foundations } from "./components/home/Foundations";
+import { SectionHeader } from "./components/home/SectionHeader";
+import { Carousel } from "./components/home/Carousel";
+import { CoverCard } from "./components/home/CoverCard";
+import { AnimeCard } from "./components/home/AnimeCard";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [featured, topFranchises, beginner, recent, topArtists] =
-    await Promise.all([
-      getFeaturedSongs(12),
-      getTopAnimeFranchises(20),
-      getBeginnerSongs(12),
-      getRecentSongs(12),
-      getTopArtists(12),
-    ]);
+  const userId = await getCurrentUserId();
+  const isSignedIn = userId !== PLACEHOLDER_USER_ID;
+
+  const [hero, topFranchises, featured] = await Promise.all([
+    getHeroSong(isSignedIn ? userId : null),
+    getTopAnimeFranchises(20),
+    getFeaturedSongs(12),
+  ]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4">
-      {/* Hero */}
-      <section className="py-20">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--color-text)] sm:text-5xl">
-            Learn Japanese through{" "}
-            <span className="text-[var(--color-accent)]">anime songs</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-[var(--color-text-muted)]">
-            Understand every word in your favorite anime openings and endings
-            with color-coded grammar, furigana, translations, and vocabulary
-            breakdowns.
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <Link
-              href="/anime-list"
-              className="inline-block rounded-lg border border-[var(--color-border-strong)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-card-2)]"
-            >
-              Browse by Anime
-            </Link>
-            <Link
-              href="/songs"
-              className="inline-block rounded-lg border border-[var(--color-border-strong)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:bg-[var(--color-card-2)]"
-            >
-              All Songs
-            </Link>
-          </div>
-          <p className="mt-5 text-sm text-[var(--color-text-dim)]">
-            New to Japanese?{" "}
-            <Link
-              href="/kana"
-              className="font-medium text-[var(--color-text-muted)] underline-offset-4 transition-colors hover:text-[var(--color-text)] hover:underline"
-            >
-              Learn Hiragana &amp; Katakana &rarr;
-            </Link>
-          </p>
-        </div>
+    <div className="mx-auto max-w-6xl px-4 py-4">
+      {/* Section 1 — HeroFeatured (always) */}
+      <HeroFeatured hero={hero} />
+
+      {/* Section 2 — Continue Learning (auth-only; wrapper returns null when unauth or empty) */}
+      {isSignedIn && <ContinueLearning userId={userId} />}
+
+      {/* Section 3 — Foundations (always) */}
+      <Foundations />
+
+      {/* Section 4 — Browse by Anime */}
+      <section data-testid="browse-by-anime" className="pb-8">
+        <SectionHeader
+          titleJp="アニメ"
+          title="Browse by Anime"
+          viewAll="/anime-list"
+        />
+        <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse by anime">
+          {topFranchises.map((franchise) => (
+            // Per revision: confirmed mapping count->songCount, English-as-eyebrow for v1.
+            // anime_metadata.name_jp does not exist in current schema; defer JOIN to 14.4.
+            <AnimeCard
+              key={franchise.anime}
+              anime={franchise.anime}
+              nameJp={franchise.anime}
+              songCount={franchise.count}
+              coverImage={franchise.cover_image}
+              bannerImage={franchise.banner_image}
+            />
+          ))}
+        </Carousel>
       </section>
 
-      {/* Running fox divider */}
-      <div className="pointer-events-none flex justify-center py-4">
-        <Image
-          src="/logo-horizontal.png"
-          alt=""
-          width={480}
-          height={240}
-          style={{ width: 480, height: "auto" }}
-          unoptimized
-          aria-hidden
+      {/* Section 5 — Featured Songs */}
+      <section data-testid="featured-songs" className="pb-12">
+        <SectionHeader
+          titleJp="特集"
+          title="Featured Songs"
+          viewAll="/songs"
         />
-      </div>
-
-      {topFranchises.length > 0 && (
-        <Carousel title="Browse by Anime" viewAllHref="/anime-list">
-          {topFranchises.map((anime) => (
-            <MediaCard
-              key={anime.anime}
-              href={`/songs?search=${encodeURIComponent(anime.anime)}`}
-              title={anime.anime}
-              subtitle={`${anime.count} song${anime.count !== 1 ? "s" : ""}`}
-              youtubeId={anime.youtube_id}
-              bannerImage={anime.banner_image ?? anime.cover_image}
-            />
-          ))}
-        </Carousel>
-      )}
-
-      {featured.length > 0 && (
-        <Carousel title="Featured Songs" viewAllHref="/songs">
+        <Carousel testId="featured-songs-carousel" ariaLabel="Featured songs">
           {featured.map((song) => (
-            <MediaCard
-              key={song.id}
-              href={`/songs/${song.slug}`}
-              title={song.title}
-              subtitle={song.artist}
-              youtubeId={song.youtube_id}
+            <CoverCard
+              key={song.slug}
+              song={{
+                slug: song.slug,
+                title: song.title,
+                artist: song.artist,
+                anime: song.anime,
+                youtube_id: song.youtube_id,
+                jlpt_level: song.jlpt_level,
+              }}
+              stars={0}
+              showMastery={isSignedIn}
             />
           ))}
         </Carousel>
-      )}
-
-      {beginner.length > 0 && (
-        <Carousel
-          title="Beginner-Friendly (N5/N4)"
-          viewAllHref="/songs"
-        >
-          {beginner.map((song) => (
-            <MediaCard
-              key={song.id}
-              href={`/songs/${song.slug}`}
-              title={song.title}
-              subtitle={song.artist}
-              youtubeId={song.youtube_id}
-            />
-          ))}
-        </Carousel>
-      )}
-
-      {recent.length > 0 && (
-        <Carousel title="Recently Added" viewAllHref="/songs">
-          {recent.map((song) => (
-            <MediaCard
-              key={song.id}
-              href={`/songs/${song.slug}`}
-              title={song.title}
-              subtitle={song.artist}
-              youtubeId={song.youtube_id}
-            />
-          ))}
-        </Carousel>
-      )}
-
-      {topArtists.length > 0 && (
-        <Carousel title="Top Artists" viewAllHref="/songs">
-          {topArtists.map((a) => (
-            <MediaCard
-              key={a.artist}
-              href={`/songs?search=${encodeURIComponent(a.artist)}`}
-              title={a.artist}
-              subtitle={`${a.count} song${a.count !== 1 ? "s" : ""}`}
-              youtubeId={a.youtube_id}
-            />
-          ))}
-        </Carousel>
-      )}
+      </section>
     </div>
-  );
-}
-
-function Carousel({
-  title,
-  viewAllHref,
-  children,
-}: {
-  title: string;
-  viewAllHref: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="pb-12">
-      <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-[var(--color-text)]">
-          {title}
-        </h2>
-        <Link
-          href={viewAllHref}
-          className="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-        >
-          View all &rarr;
-        </Link>
-      </div>
-      <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-thin snap-x snap-mandatory">
-        {children}
-      </div>
-    </section>
-  );
-}
-
-function MediaCard({
-  href,
-  title,
-  subtitle,
-  youtubeId,
-  bannerImage,
-}: {
-  href: string;
-  title: string;
-  subtitle: string;
-  youtubeId: string | null;
-  bannerImage?: string | null;
-}) {
-  const imageSrc = bannerImage
-    ? bannerImage
-    : youtubeId
-    ? `https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`
-    : null;
-
-  return (
-    <Link
-      href={href}
-      className="group relative shrink-0 snap-start overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] transition-colors hover:border-[var(--color-border-strong)]"
-      style={{ width: "220px" }}
-    >
-      <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-bg-2)]">
-        {imageSrc ? (
-          <>
-            <img
-              src={imageSrc}
-              alt={title}
-              className="h-full w-full object-cover opacity-60 transition-all group-hover:opacity-80 group-hover:scale-105"
-              loading="lazy"
-            />
-            {/* Gradient overlay — fades from bg color (token) to transparent.
-                Phase 14 Plan 14-06: legacy palette gradient -> from-[var(--color-bg)]
-                so the gradient blends with the page background under the title strip. */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent" />
-          </>
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-[var(--color-card-2)] text-3xl font-bold text-[var(--color-text-dim)]">
-            ♪
-          </div>
-        )}
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 p-3">
-        <h3 className="truncate text-sm font-semibold text-[var(--color-text)]">
-          {title}
-        </h3>
-        <p className="truncate text-xs text-[var(--color-text-muted)]">
-          {subtitle}
-        </p>
-      </div>
-    </Link>
   );
 }
