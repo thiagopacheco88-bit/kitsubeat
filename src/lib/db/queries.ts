@@ -1,6 +1,6 @@
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
-import { eq, sql, asc, inArray, and } from "drizzle-orm";
+import { eq, sql, asc, desc, inArray, and } from "drizzle-orm";
 import { db } from "./index";
 import {
   songs,
@@ -342,6 +342,100 @@ export async function getFeaturedSongs(limit: number = 6) {
     )`)
     .orderBy(asc(songs.popularity_rank))
     .limit(limit);
+}
+
+/**
+ * Phase 14.2 SPEC §Req 4 — Continue Learning carousel data path.
+ *
+ * Returns up to `limit` rows of in-progress songs for the user, sorted by
+ * `user_song_progress.updated_at DESC`. Filter is `completion_pct > 0`
+ * (D-01) — single-column expression of "the user has engaged with this
+ * lesson." Returned shape mirrors getFeaturedSongs + adds completion_pct
+ * + updated_at (D-03) + stars (D-14, derived at read time via deriveStars
+ * — SAME helper getAllSongs uses (line 572) and SongCard renders).
+ *
+ * youtube_id resolves via the same correlated subquery getFeaturedSongs
+ * uses (TV version preferred, else first non-null). jlpt_level carried
+ * for parity (ContinueCard does not currently render it but D-03 keeps
+ * the field for future-proofing).
+ *
+ * stars derivation (D-14): JOIN brings ex1_2_3 / ex4 / ex6 / grammar
+ * accuracy + has_grammar EXISTS subquery; deriveStars() is applied in
+ * the post-query map. Single source of truth — no new threshold logic
+ * invented in this query. SongCard.tsx + getAllSongs use the same
+ * helper (queries.ts line 572).
+ */
+export async function getContinueLearning(
+  userId: string,
+  limit: number = 3,
+) {
+  const rows = await db
+    .select({
+      slug: songs.slug,
+      title: songs.title,
+      artist: songs.artist,
+      anime: songs.anime,
+      youtube_id: sql<string | null>`(
+        SELECT sv2.youtube_id
+        FROM song_versions sv2
+        WHERE sv2.song_id = ${songs.id} AND sv2.youtube_id IS NOT NULL
+        ORDER BY CASE sv2.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      jlpt_level: songs.jlpt_level,
+      completion_pct: userSongProgress.completion_pct,
+      updated_at: userSongProgress.updated_at,
+      // D-14 — accuracy columns for read-time stars derivation. Read
+      // directly from the joined user_song_progress row (no subquery
+      // needed because we ALREADY join on it for the filter).
+      ex1_2_3_best_accuracy: userSongProgress.ex1_2_3_best_accuracy,
+      ex4_best_accuracy: userSongProgress.ex4_best_accuracy,
+      ex6_best_accuracy: userSongProgress.ex6_best_accuracy,
+      grammar_best_accuracy: userSongProgress.grammar_best_accuracy,
+      // has_grammar EXISTS — same shape getAllSongs uses (queries.ts line 208).
+      has_grammar: sql<boolean>`EXISTS (
+        SELECT 1 FROM song_version_grammar_rules svgr
+        INNER JOIN song_versions sv3 ON sv3.id = svgr.song_version_id
+        WHERE sv3.song_id = ${songs.id}
+      )`,
+    })
+    .from(userSongProgress)
+    .innerJoin(songVersions, eq(songVersions.id, userSongProgress.song_version_id))
+    .innerJoin(songs, eq(songs.id, songVersions.song_id))
+    .where(
+      and(
+        eq(userSongProgress.user_id, userId),
+        sql`${userSongProgress.completion_pct} > 0`,
+        eq(songs.language, "ja"),
+        eq(songs.quality_status, "active"),
+      ),
+    )
+    .orderBy(desc(userSongProgress.updated_at))
+    .limit(limit);
+
+  // Apply deriveStars at read time — SAME helper getAllSongs (line 572) +
+  // SongCard.tsx use. Single source of truth for the mastery threshold.
+  // Strip the raw accuracy columns from the returned shape per D-03 (they
+  // are implementation detail; the public contract exposes only `stars`).
+  return rows.map((r) => ({
+    slug: r.slug,
+    title: r.title,
+    artist: r.artist,
+    anime: r.anime,
+    youtube_id: r.youtube_id,
+    jlpt_level: r.jlpt_level,
+    completion_pct: r.completion_pct,
+    updated_at: r.updated_at,
+    stars: deriveStars(
+      {
+        ex1_2_3_best_accuracy: r.ex1_2_3_best_accuracy,
+        ex4_best_accuracy: r.ex4_best_accuracy,
+        ex6_best_accuracy: r.ex6_best_accuracy,
+        grammar_best_accuracy: r.grammar_best_accuracy,
+      },
+      r.has_grammar ?? false,
+    ),
+  }));
 }
 
 /**
