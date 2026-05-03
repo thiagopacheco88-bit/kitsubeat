@@ -1,8 +1,8 @@
 /**
  * LanternStreak — Phase 14.1 SPEC-REQ-3.
  *
- * SVG paper lantern with 3-tier flame intensity scaling. Replaces the 🔥 emoji
- * that previously lived in PathHud (now deleted per CONTEXT D-06). Lives in
+ * SVG paper lantern with 3-tier flame intensity scaling. Replaces the fire-emoji
+ * streak indicator that previously lived in PathHud (now deleted per CONTEXT D-06). Lives in
  * <PathHeader> (Plan 05).
  *
  * Tiers (CONTEXT Specifics):
