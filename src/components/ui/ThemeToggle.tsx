@@ -27,7 +27,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { Button } from "./Button";
 import { setThemePreference } from "@/app/actions/userPrefs";
-import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
+import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs-shared";
 
 type ThemePref = "system" | "light" | "dark";
 const ORDER: readonly ThemePref[] = ["system", "light", "dark"] as const;
