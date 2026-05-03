@@ -7,7 +7,7 @@
  * - href correctness
  * - Text content (Continue + song title)
  * - Position class (fixed bottom-0 on wrapper)
- * - Min-height tap-target class (min-h-[56px] on link)
+ * - Min-height tap-target class (min-h-14 = 56px on link)
  * - aria-label
  */
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT =
@@ -108,11 +108,12 @@ describe("ContinueAnchor — Phase 14.1 Plan 10 (SPEC-REQ-8)", () => {
     expect(wrapper?.className).toContain("bottom-0");
   });
 
-  it("CTA link carries min-h-[56px] class for tap-target compliance", () => {
+  it("CTA link carries min-h-14 (56px) class for tap-target compliance", () => {
     const { getByTestId } = render(
       <ContinueAnchor currentSongSlug="x" currentSongTitle="y" />,
     );
-    expect(getByTestId("continue-anchor").className).toContain("min-h-[56px]");
+    // min-h-14 = 3.5rem = 56px (standard Tailwind spacing; satisfies SPEC AC #11 ≥44px floor)
+    expect(getByTestId("continue-anchor").className).toContain("min-h-14");
   });
 
   it("aria-label on the link includes 'Continue:' and the title", () => {
