@@ -1,5 +1,33 @@
 "use client";
 
+/**
+ * PathNode — Phase 14.1 SPEC-REQ-5 cover-art-as-background rewrite.
+ *
+ * 84px-tall 2-panel layout: ~38% cover-art (left) + ~62% info (right).
+ * Cover-art panel uses YouTube maxresdefault.jpg with bottom-fade gradient
+ * and Japanese title overlay.
+ *
+ * State derivation (locked):
+ *   isCurrent                 -> 'current'  (precedence over completed)
+ *   !isCurrent && isCompleted -> 'mastered' (per CONTEXT deferral — completed === mastered)
+ *   else                      -> 'locked'   (visual-only per M1 invariant)
+ *
+ * 'in_progress' is intentionally absent. SongListItem has no star-mastery
+ * field, so completed-but-not-mastered cannot be distinguished from completed.
+ * CONTEXT.md <deferred> records "Precise 3-star mastery signal: deferred —
+ * currently mastered = completed; refine when star-mastery field is exposed
+ * on SongListItem". When that field lands in a future phase, deriveState
+ * grows an `in_progress` branch via a one-line edit.
+ *
+ * Hard rules (CONTEXT D-18):
+ * - Root is always <CardLink variant="flat"> (clickable in every state)
+ * - No `disabled` attribute, no pointer-events: none on the link
+ * - Mist overlay (locked) has pointer-events: none so taps fall through
+ *
+ * Reduced-motion (CONTEXT D-15): the .ka-pulse and .ka-aura classes inherit
+ * the global @media prefers-reduced-motion override authored in globals.css —
+ * no per-component @media block needed.
+ */
 import { CardLink } from "@/components/ui/Card";
 import type { SongListItem } from "@/lib/db/queries";
 
@@ -9,93 +37,147 @@ interface PathNodeProps {
   isCompleted: boolean;
 }
 
-/**
- * PathNode — individual song node on the learning path map.
- *
- * M1 guard: every node is a clickable <Link> regardless of completion state.
- * No disabled attribute, no pointer-events:none — freemium quotas are the
- * sole access barrier (enforced in checkExerciseAccess, not here).
- *
- * Completion detection: uses ex1_2_3_best_accuracy > 0 as the simplest
- * available signal (any exercise completion means the user has engaged).
- *
- * Migration note (Phase 14-09 D-22 token-only swap): wraps CardLink primitive
- * (variant=flat, size=md). The variant's bg/border/hover-border tokens replace
- * the prior gray-800/gray-600/gray-700 palette utilities. The completed-vs-not
- * distinction collapses to a card-2 fill on completed (subtle elevation cue)
- * since the primitive's flat variant covers the not-completed surface
- * uniformly. The "current" node's ring uses --color-accent (the same accent
- * powering primary buttons + JLPT-N1 + hero glow) — orange ring would have
- * required a new token; per Plan 14-07's LevelUpTakeover precedent, the red
- * accent carries the same celebratory weight on the path map.
- */
+type NodeState = "mastered" | "current" | "locked";
+
+function deriveState(isCurrent: boolean, isCompleted: boolean): NodeState {
+  // Precedence: current > mastered > locked.
+  // CONTEXT D-19 + the existing PathNode (pre-rewrite) used isCurrent as the
+  // primary signal. A song the user is actively on retains the "Next Up"
+  // affordance even after a first completion.
+  if (isCurrent) return "current";
+  if (isCompleted) return "mastered";
+  return "locked";
+}
+
 export function PathNode({ song, isCurrent, isCompleted }: PathNodeProps) {
-  // Token-driven state styles. The current ring uses --color-accent matching
-  // the primitive Button variant=primary; completed bg lifts to card-2 to read
-  // as "engaged" without a separate token.
-  const currentRing = isCurrent
-    ? "ring-4 ring-[var(--color-accent)] scale-110 shadow-[var(--shadow-button-red)]"
-    : "";
-  const completedOverride = isCompleted
-    ? "!bg-[var(--color-card-2)]"
-    : "";
-  // CardLink variant=flat already supplies hover:border-[var(--color-border-strong)]
-  // — we add the hover scale + transition for the path-map zoom interaction.
-  const hoverClass =
-    "hover:scale-105 transition-transform duration-150";
+  const state = deriveState(isCurrent, isCompleted);
+
+  // YouTube cover-art with maxresdefault, fallback to default.jpg via onError.
+  const coverSrc = song.youtube_id
+    ? `https://img.youtube.com/vi/${song.youtube_id}/maxresdefault.jpg`
+    : null;
+  const coverFallback = song.youtube_id
+    ? `https://img.youtube.com/vi/${song.youtube_id}/default.jpg`
+    : null;
+
+  // State-specific aria suffix
+  let ariaSuffix = "";
+  if (state === "mastered") ariaSuffix = " — mastered";
+  else if (state === "current") ariaSuffix = " — your current path node";
+  else ariaSuffix = " — locked";
 
   return (
     <CardLink
       href={`/songs/${song.slug}`}
       variant="flat"
       size="md"
-      className={`group relative flex items-center gap-3 ${completedOverride} ${currentRing} ${hoverClass} px-4 py-3 w-full max-w-xs`}
-      aria-label={`${song.title}${isCurrent ? " — your current path node" : ""}${isCompleted ? " — completed" : ""}`}
+      className="relative flex items-stretch p-0 overflow-hidden w-full max-w-xs"
+      style={{ height: "84px" }}
+      aria-label={`${song.title}${ariaSuffix}`}
+      data-testid={`path-node-${song.slug}`}
+      data-state={state}
     >
-      {/* Thumbnail. Fallback uses card-2 token (same shade as the inline tier
-       * divider chip) so empty thumbnails read as a quiet placeholder, not a
-       * gray panel. */}
-      {song.youtube_id ? (
-        <img
-          src={`https://img.youtube.com/vi/${song.youtube_id}/default.jpg`}
-          alt=""
-          className="w-12 h-9 rounded object-cover flex-shrink-0"
-          aria-hidden="true"
-        />
-      ) : (
-        <div
-          className="w-12 h-9 rounded bg-[var(--color-card-2)] flex-shrink-0"
-          aria-hidden="true"
-        />
-      )}
+      {/* ── Cover-art panel (~38%) ── */}
+      <div
+        className={`relative w-[38%] flex-shrink-0 overflow-hidden${state === "locked" ? " grayscale" : ""}`}
+      >
+        {coverSrc ? (
+          <img
+            src={coverSrc}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden="true"
+            onError={(e) => {
+              // Fallback to default.jpg if maxresdefault is missing
+              const img = e.currentTarget;
+              if (coverFallback && img.src !== coverFallback) img.src = coverFallback;
+            }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-[var(--color-card-2)]" aria-hidden="true" />
+        )}
 
-      {/* Song info */}
-      <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-medium text-[var(--color-text)]">
+        {/* Bottom-fade gradient + Japanese title overlay */}
+        <div
+          className="absolute inset-x-0 bottom-0 px-2 py-1.5 text-xs font-semibold"
+          style={{
+            fontFamily: "var(--font-jp)",
+            background:
+              "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.65) 100%)",
+            color: "white",
+          }}
+          data-testid="path-node-jp-title"
+        >
+          <span className="truncate block">{song.title}</span>
+        </div>
+
+        {/* PLAY ▶ overlay — current state only */}
+        {state === "current" && (
+          <span
+            className="ka-pulse absolute inset-0 flex items-center justify-center pointer-events-none"
+            data-testid="path-node-play-overlay"
+            aria-hidden="true"
+          >
+            <span
+              className="text-3xl drop-shadow-lg"
+              style={{ color: "white", textShadow: "var(--shadow-button-red)" }}
+            >
+              ▶
+            </span>
+          </span>
+        )}
+      </div>
+
+      {/* ── Info panel (~62%) ── */}
+      <div className="flex-1 min-w-0 p-3 flex flex-col justify-center gap-1 relative">
+        {/* Romaji title — uppercase tracking per SPEC */}
+        <p className="truncate text-sm font-medium text-[var(--color-text)] uppercase tracking-wide">
           {song.title}
         </p>
         <p className="truncate text-xs text-[var(--color-text-muted)]">{song.anime}</p>
+
+        {/* State pill */}
+        {state === "mastered" && (
+          <span className="inline-block self-start rounded-[var(--radius-pill)] px-2 py-0.5 text-xs font-semibold bg-[var(--color-accent)] [color:white]">
+            Mastered
+          </span>
+        )}
+        {state === "current" && (
+          <span className="inline-block self-start rounded-[var(--radius-pill)] px-2 py-0.5 text-xs font-semibold bg-[var(--color-accent)] [color:white]">
+            Next Up
+          </span>
+        )}
+        {state === "locked" && (
+          <span className="inline-block self-start rounded-[var(--radius-pill)] px-2 py-0.5 text-xs font-semibold bg-[var(--color-card-2)] text-[var(--color-text-muted)]">
+            霧 · Locked
+          </span>
+        )}
+
+        {/* 3-star aura halo — mastered state only */}
+        {state === "mastered" && (
+          <span
+            className="ka-aura absolute right-2 top-2 inline-flex items-center justify-center w-6 h-6 rounded-full"
+            style={{ background: "var(--aura-color)" }}
+            data-testid="path-node-aura"
+            aria-hidden="true"
+          >
+            <span className="text-xs" style={{ color: "white" }}>★</span>
+          </span>
+        )}
       </div>
 
-      {/* Status badges. Completed checkmark uses --color-jlpt-n5 (green) —
-       * semantic-color reuse pattern from Plan 14-05/14-07 (success = N5
-       * green base). "Next up" pill uses --color-accent (red) matching
-       * Button variant=primary. */}
-      <div className="flex flex-col items-end gap-1 flex-shrink-0">
-        {isCompleted && (
-          <span
-            className="text-[var(--color-jlpt-n5)] text-xs"
-            aria-label="Completed"
-          >
-            &#10003;
-          </span>
-        )}
-        {isCurrent && (
-          <span className="rounded-[var(--radius-pill)] bg-[var(--color-accent)] [color:white] px-2 py-0.5 text-xs font-semibold whitespace-nowrap">
-            Next up
-          </span>
-        )}
-      </div>
+      {/* ── Locked-state mist overlay (covers entire card; pointer-events: none) ── */}
+      {state === "locked" && (
+        <div
+          className="absolute inset-0 rounded-[var(--radius-lg)]"
+          style={{
+            background: "var(--mist-fill)",
+            pointerEvents: "none",
+          }}
+          data-testid="path-node-mist"
+          aria-hidden="true"
+        />
+      )}
     </CardLink>
   );
 }
