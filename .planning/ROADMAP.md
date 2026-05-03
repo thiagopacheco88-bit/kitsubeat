@@ -487,10 +487,10 @@ Plans:
 **Context captured**: [.planning/phases/14.1-redesign-path/14.1-CONTEXT.md](phases/14.1-redesign-path/14.1-CONTEXT.md) (19 decisions D-01..D-19)
 **Plans:** 13 plans
 Plans:
-- [ ] 14.1-00-PLAN.md — Wave 0: capture light-theme reference PNG (D-11) + pre-Wave-1 /path bundle baseline (D-12)
-- [ ] 14.1-01-PLAN.md — Wave 1: 2 new tokens (--mist-fill, --aura-color) for both themes + 3 keyframes (ka-pulse, ka-flicker, ka-aura) + motion-catalog entries
-- [ ] 14.1-02-PLAN.md — Wave 1: getStarterSongs() filter+warn repair (SPEC-REQ-1) + StarterPick EmptyState fallback + integration + unit tests
-- [ ] 14.1-03-PLAN.md — Wave 1: src/lib/kana/checkpoint-state.ts pure helper (D-04) + Vitest fixtures
+- [x] 14.1-00-PLAN.md — Wave 0: capture light-theme reference PNG (D-11) + pre-Wave-1 /path bundle baseline (D-12)
+- [x] 14.1-01-PLAN.md — Wave 1: 2 new tokens (--mist-fill, --aura-color) for both themes + 3 keyframes (ka-pulse, ka-flicker, ka-aura) + motion-catalog entries
+- [x] 14.1-02-PLAN.md — Wave 1: getStarterSongs() filter+warn repair (SPEC-REQ-1) + StarterPick EmptyState fallback + integration + unit tests
+- [x] 14.1-03-PLAN.md — Wave 1: src/lib/kana/checkpoint-state.ts pure helper (D-04) + Vitest fixtures
 - [ ] 14.1-04-PLAN.md — Wave 2: <LanternStreak> SVG component (SPEC-REQ-3) + opacity-tier vitest
 - [ ] 14.1-05-PLAN.md — Wave 2: <PathHeader> wordmark + LanternStreak composition (SPEC-REQ-2) + structural vitest
 - [ ] 14.1-06-PLAN.md — Wave 2: <HeroProgress> Level + XP + Now Learning + next-reward chip (SPEC-REQ-4 + D-09) + structural vitest
