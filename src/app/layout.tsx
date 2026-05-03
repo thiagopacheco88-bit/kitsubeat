@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import Image from "next/image";
 import { ClerkProvider, SignInButton, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { cookies } from "next/headers";
 import "./globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
+import MobileNavSheet from "@/app/components/MobileNavSheet";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
+import { LanternStreak } from "@/app/path/components/LanternStreak";
+import { getUserGamificationState, type GamificationState } from "@/lib/db/queries";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -46,6 +48,7 @@ export default async function RootLayout({
   let isAdmin = false;
   let isSignedIn = false;
   let signedInUserId: string | undefined;
+  let state: GamificationState | null = null;
   try {
     const session = await auth();
     isSignedIn = Boolean(session.userId);
@@ -56,6 +59,13 @@ export default async function RootLayout({
         user?.primaryEmailAddress?.emailAddress ??
         user?.emailAddresses?.[0]?.emailAddress;
       isAdmin = isAdminEmail(email, parseAdminEmails(process.env.CLERK_ADMIN_EMAILS));
+    }
+    if (isSignedIn && signedInUserId) {
+      try {
+        state = await getUserGamificationState(signedInUserId);
+      } catch {
+        state = null; // graceful degrade — header still renders without streak chip
+      }
     }
   } catch {
     isAdmin = false;
@@ -90,65 +100,73 @@ export default async function RootLayout({
       <body className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[family-name:var(--font-inter)] antialiased">
         <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
-            <Link
-              href="/"
-              className="flex shrink-0 items-center gap-2 text-xl font-bold tracking-tight text-[var(--color-text)]"
-            >
-              <Image
-                src="/logo.png"
-                alt="KitsuBeat"
-                width={64}
-                height={32}
-                className="h-8 w-auto"
-                unoptimized
-              />
-              <span className="hidden sm:inline">
-                Kitsu<span className="text-[var(--color-accent)]">Beat</span>
+            <Link href="/" className="flex shrink-0 items-center gap-2" data-testid="brand-wordmark">
+              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <ellipse cx="16" cy="20" rx="9" ry="7" fill="var(--color-grammar-adverb)" />
+                <polygon points="9,15 4,5 13,11" fill="var(--color-grammar-adverb)" />
+                <polygon points="23,15 28,5 19,11" fill="var(--color-grammar-adverb)" />
+                <ellipse cx="13" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+                <ellipse cx="19" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+                <ellipse cx="16" cy="23.5" rx="1.4" ry="1" fill="var(--color-accent)" />
+              </svg>
+              <span className="text-lg font-extrabold tracking-tight" aria-label="KitsuBeat">
+                <span className="text-[var(--color-text)]">Kitsu</span>
+                <span className="text-[var(--color-accent)]" data-testid="wordmark-emphasis">Beat</span>
               </span>
             </Link>
             <div className="flex items-center gap-4 sm:gap-6">
-              <Link
-                href="/path"
-                className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-              >
-                Path
-              </Link>
-              <Link
-                href="/anime-list"
-                className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-              >
-                Songs
-              </Link>
-              <Link
-                href="/kana"
-                className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-              >
-                Kana
-              </Link>
-              <Link
-                href="/vocabulary"
-                className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-              >
-                Progress
-              </Link>
-              <GlobalLearnedCounter />
-              {isAdmin && (
+              <div className="hidden sm:contents">
                 <Link
-                  href="/admin/lyrics"
-                  className="whitespace-nowrap text-sm font-medium text-[var(--color-accent)] transition-colors hover:opacity-80"
-                  data-testid="nav-admin-lyrics"
+                  href="/path"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
-                  Admin
+                  Path
                 </Link>
-              )}
-              <Link
-                href="/profile"
-                className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-              >
-                Profile
-              </Link>
+                <Link
+                  href="/anime-list"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  Songs
+                </Link>
+                <Link
+                  href="/kana"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  Kana
+                </Link>
+                <Link
+                  href="/vocabulary"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  Progress
+                </Link>
+                <GlobalLearnedCounter />
+                {isAdmin && (
+                  <Link
+                    href="/admin/lyrics"
+                    className="whitespace-nowrap text-sm font-medium text-[var(--color-accent)] transition-colors hover:opacity-80"
+                    data-testid="nav-admin-lyrics"
+                  >
+                    Admin
+                  </Link>
+                )}
+                <Link
+                  href="/profile"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  Profile
+                </Link>
+              </div>
+              <MobileNavSheet isAdmin={isAdmin} isSignedIn={isSignedIn} />
               {isSignedIn ? (
-                <UserButton />
+                <>
+                  {state && (
+                    <div data-testid="global-lantern-streak">
+                      <LanternStreak count={state.streak_current} />
+                    </div>
+                  )}
+                  <UserButton />
+                </>
               ) : (
                 <SignInButton mode="modal">
                   <button
