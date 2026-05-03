@@ -9,7 +9,6 @@ import { rewardSlotDefinitions } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { getCurrentUserId } from "@/lib/user-prefs";
 import { CosmeticsProvider } from "@/app/components/CosmeticsProvider";
-import { PathHeader } from "./components/PathHeader";
 import { HeroProgress } from "./components/HeroProgress";
 import { PathMap } from "./components/PathMap";
 import { StarterPick } from "./components/StarterPick";
@@ -56,11 +55,10 @@ export default async function PathPage() {
       <CosmeticsProvider theme={state.equipped_theme}>
         <div className="mx-auto max-w-2xl px-4 py-8 pb-32">
           {/* W-7 preemptive a11y fix: keep an h1 in the DOM as `sr-only` so
-            * axe-core's page-has-heading-one rule passes. PathHeader provides
-            * the visible top chrome; this hidden h1 carries the page landmark
-            * for screen readers + axe. */}
+            * axe-core's page-has-heading-one rule passes. Global layout.tsx
+            * provides the visible top chrome; this hidden h1 carries the page
+            * landmark for screen readers + axe. */}
           <h1 className="sr-only">Your Learning Path</h1>
-          <PathHeader streakCurrent={state.streak_current} />
           <HeroProgress
             state={state}
             currentSongTitle={currentSongTitle}
