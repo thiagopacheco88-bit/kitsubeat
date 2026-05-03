@@ -44,9 +44,11 @@ export default function GrammarMcqCard({
   const translation = localize(exercise.prompt_translation, lang);
   const explanation = localize(rule.explanation, lang);
 
-  // Phase-13 UX: collapsible rule reference accessible before answering.
-  // Always-on rule access matters for grammar — unlike vocab, grammar rules
-  // are abstract patterns the learner needs to consult while solving.
+  // Collapsible rule reference. Shown only at beginner level and only before
+  // the user answers — intermediate/advanced means they've already passed the
+  // promotion gate (FSRS stability ≥ 21d, ≥ 8 reps, no recent lapses), so the
+  // toggle is noise; after answering, the feedback panel below owns the
+  // explanation, so showing it here too is a duplicate.
   const [ruleExpanded, setRuleExpanded] = useState(false);
 
   function handlePick(option: string) {
@@ -75,9 +77,9 @@ export default function GrammarMcqCard({
       {/* JLPT + difficulty level header.
           Rule name is intentionally hidden here — the rule's English gloss
           (e.g., "looks like / about to") would give away the answer for
-          most exercises. Learner consults the rule via the "Check the rule"
-          toggle below if they need it. The rule name still appears in
-          GrammarRuleIntroCard before the first exercise of each rule. */}
+          most exercises. The rule name still appears in GrammarRuleIntroCard
+          before the first exercise of each rule, and the "Check the rule"
+          toggle below surfaces the explanation at beginner level. */}
       <div className="flex items-center justify-between">
         <span className="text-xs uppercase tracking-wide text-[var(--color-text-dim)]">
           {rule.jlpt_reference}
@@ -87,24 +89,25 @@ export default function GrammarMcqCard({
         </span>
       </div>
 
-      {/* Collapsible rule reference — accessible before AND after answering. */}
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card-2)]">
-        <button
-          type="button"
-          onClick={() => setRuleExpanded((v) => !v)}
-          aria-expanded={ruleExpanded}
-          className="flex w-full items-center justify-between px-3 py-2 text-left text-xs font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
-        >
-          <span>{ruleExpanded ? "Hide rule" : "Check the rule"}</span>
-          <span className="text-[var(--color-text-dim)]">{ruleExpanded ? "▾" : "▸"}</span>
-        </button>
-        {ruleExpanded && (
-          <div
-            className="border-t border-[var(--color-border)] px-3 py-3 text-xs leading-relaxed text-[var(--color-text-muted)] whitespace-pre-line"
-            dangerouslySetInnerHTML={{ __html: explanation }}
-          />
-        )}
-      </div>
+      {level === "beginner" && !answered && (
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card-2)]">
+          <button
+            type="button"
+            onClick={() => setRuleExpanded((v) => !v)}
+            aria-expanded={ruleExpanded}
+            className="flex w-full items-center justify-between px-3 py-2 text-left text-xs font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+          >
+            <span>{ruleExpanded ? "Hide rule" : "Check the rule"}</span>
+            <span className="text-[var(--color-text-dim)]">{ruleExpanded ? "▾" : "▸"}</span>
+          </button>
+          {ruleExpanded && (
+            <div
+              className="border-t border-[var(--color-border)] px-3 py-3 text-xs leading-relaxed text-[var(--color-text-muted)] whitespace-pre-line"
+              dangerouslySetInnerHTML={{ __html: explanation }}
+            />
+          )}
+        </div>
+      )}
 
       {/* JP prompt — rendered as HTML so <ruby> furigana markup is honored.
           The prompt strings come from our own generator, not user input, so the
