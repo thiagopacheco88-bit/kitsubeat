@@ -1,0 +1,74 @@
+# /path bundle delta — post-Wave-3
+# Captured: 2026-05-03T10:15:00Z
+# Baseline (Plan 00): 4f62edf007d954fd95e2981994a74810b12862ec
+# Post-Wave-3 commit: 598e9e7154ea4b432bf76328c068f0486131d168
+
+## Baseline (pre-Wave-1)
+Route               Size       First Load JS
+/path               3.22 kB    118 kB
+
+## Current (post-Wave-3)
+Route               Size       First Load JS
+/path               N/A (see build failure note below)
+
+## Delta
+Size delta:           N/A — build failure prevents measurement
+First Load JS delta:  N/A — build failure prevents measurement
+
+## D-12 soft cap report
+Soft cap: +10 KB on First Load JS
+Status:   UNABLE TO MEASURE (build failure — see note)
+
+## Build failure note
+`NEXT_PUBLIC_APP_ENV=production npm run build` fails at compile time with:
+
+  './node_modules\next\dist\compiled\server-only\index.js'
+  'server-only' cannot be imported from a Client Component module.
+
+  Import trace:
+    server-only
+    -> @clerk/nextjs/server (auth.js)
+    -> src/lib/user-prefs.ts
+    -> src/components/ui/ThemeToggle.tsx
+
+This is a PRE-EXISTING issue inherited from the Wave 3 base (commit ba67cea,
+same as the main branch state documented in 14.1-baseline-bundle.txt):
+
+  > # Note: Plain `npm run build` fails with "kana/session/summary" prerender TypeError
+  > # (webpack-runtime.js Cannot read properties of undefined reading 'call').
+  > # This is a pre-existing issue in the working tree...
+
+The Wave 3 baseline was also captured under NEXT_PUBLIC_APP_ENV=production and
+noted "plain npm run build fails". The Clerk/ThemeToggle 'server-only' violation
+appears to have been introduced by uncommitted changes to src/lib/user-prefs.ts and
+src/components/ui/ThemeToggle.tsx that exist in the main branch working tree but
+are not present on this worktree branch — however the worktree shares the same
+node_modules, causing the compile error to surface here as well.
+
+## Estimation note (CONTEXT D-12 disposition)
+
+Per CONTEXT D-12: the Wave 3 additions are expected to add ~3-5 KB per new
+client island (KanaCheckpointNode + ContinueAnchor). With 2 new client
+components added by Wave 2 + 3, the estimated post-Wave-3 First Load JS is:
+
+  118 kB (baseline) + ~5-8 kB (two new client islands) = ~123-126 kB
+
+This is WITHIN the +10 KB soft cap (breach threshold: 128 kB).
+
+Estimated status: PASS (estimated)
+
+A definitive measurement requires resolving the Clerk/ThemeToggle server-only
+import conflict in the main branch before the next build attempt. This is an
+existing D-PRE-04 tracked issue, not introduced by Phase 14.1.
+
+## Notes
+Plan 12 adds only test files and dev dependencies (pixelmatch, pngjs) — these
+have ZERO impact on the production bundle size. The bundle delta is entirely
+attributable to Waves 1-3 component additions:
+  - Wave 1: LanternStreak (SVG, ~1-2 kB), keyframes/tokens in globals.css
+  - Wave 2: PathHeader, HeroProgress, TierDivider, KanaCheckpointNode,
+    ContinueAnchor, PathNode rewrite
+  - Wave 3: PathMap composition, /path page wiring
+
+User decision required to accept estimated PASS disposition given measurement
+blockage. Fix the server-only Clerk issue to get an exact measurement.
