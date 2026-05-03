@@ -91,3 +91,27 @@ Phase 14 / SPEC AC #11. The 12 named microinteractions in KitsuBeat, each with t
 - **Easing:** cubic-bezier(0.4, 0, 0.6, 1) — Tailwind's pulse
 - **Target:** opacity on Skeleton element via `::after` pseudo-element gradient
 - **Reduced-motion fallback:** Static placeholder (CSS @media override collapses pulse to instant rest state)
+
+## ka-pulse — current PathNode PLAY ▶ overlay
+
+- **Trigger:** PathNode renders with `state === 'current'` (Phase 14.1 SPEC-REQ-5)
+- **Duration:** 1.6s (loop) — picked sub-2s to feel alive without strobing
+- **Easing:** var(--ease-in-out)
+- **Target:** PLAY ▶ overlay element on the cover-art panel of the current node (transform: scale + opacity)
+- **Reduced-motion fallback:** Static — globals.css global `@media (prefers-reduced-motion: reduce)` override collapses animation-duration to 0ms; the PLAY ▶ overlay holds at the 0% keyframe (scale 1, opacity 0.85)
+
+## ka-flicker — LanternStreak flame
+
+- **Trigger:** PathHeader renders LanternStreak with any `count` (Phase 14.1 SPEC-REQ-3)
+- **Duration:** 1.8s (loop)
+- **Easing:** var(--ease-in-out)
+- **Target:** Flame `<ellipse>` element inside the lantern SVG (opacity sweep 1 → 0.88 → 1 → 0.92 → 1)
+- **Reduced-motion fallback:** Static — global override collapses duration to 0ms; flame holds at base opacity (the tier opacity 0.45 / 0.70 / 1.0 from SPEC §3 is unchanged; flicker is an additional sweep on top, suppressed under reduced-motion)
+
+## ka-aura — 3-star aura halo on PathNode
+
+- **Trigger:** PathNode renders 3-star StarAura (mastery threshold met) on a song node (Phase 14.1 SPEC-REQ-5)
+- **Duration:** 2.4s (loop) — slowest of the 3 new keyframes; an ambient cue, not a focal animation
+- **Easing:** var(--ease-in-out)
+- **Target:** Star aura element (box-shadow expanding from 0 → 24px 6px using `var(--aura-color)`)
+- **Reduced-motion fallback:** Static — global override collapses duration to 0ms; aura holds at the 0% keyframe (box-shadow 0 0 0 0)
