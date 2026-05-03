@@ -64,6 +64,16 @@ interface SearchResult {
   retryAfterMs: number | null;
 }
 
+// Demo tier resets hourly. Default to 60 min when the rate-limit-reset header
+// is absent — anything shorter (e.g. 60s) just bounces straight back into 403.
+const RATE_LIMIT_DEFAULT_SLEEP_MS = 60 * 60 * 1000;
+
+// Log the body of the first 403 response so future troubleshooters can see
+// Unsplash's exact rate-limit format. Earlier attempt to parse JSON `{errors:
+// ["Rate Limit Exceeded"]}` failed silently (text body? clone() quirk?), so we
+// now trust the status code and capture the body for visibility only.
+let loggedFirst403Body = false;
+
 async function searchUnsplash(query: string, accessKey: string): Promise<SearchResult> {
   const endpoint = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(
     query
@@ -75,9 +85,25 @@ async function searchUnsplash(query: string, accessKey: string): Promise<SearchR
     },
   });
 
-  if (response.status === 429) {
+  // 429 = production-tier rate limit. 403 from /search/photos with a valid
+  // Client-ID can only mean demo-tier rate limit (no permission scopes apply
+  // to public search). 401 would be invalid-key, NOT 403.
+  if (response.status === 429 || response.status === 403) {
+    if (response.status === 403 && !loggedFirst403Body) {
+      loggedFirst403Body = true;
+      try {
+        const sample = await response.clone().text();
+        console.log(
+          `[debug] first 403 body sample: ${sample.slice(0, 300).replace(/\n/g, " ")}`
+        );
+      } catch (e) {
+        console.log(
+          `[debug] first 403 body read failed: ${e instanceof Error ? e.message : String(e)}`
+        );
+      }
+    }
     const resetHeader = response.headers.get("x-ratelimit-reset");
-    let sleepMs = 60_000;
+    let sleepMs = RATE_LIMIT_DEFAULT_SLEEP_MS;
     if (resetHeader) {
       const resetSec = parseInt(resetHeader, 10);
       if (!Number.isNaN(resetSec)) {
@@ -136,12 +162,32 @@ export async function runFetch(): Promise<FetchResult> {
   const db = getDb();
   const accessKey = getAccessKey();
 
+  // Beginner-impact ordering: easier JLPT levels first (N5 → N4 → N3 → N2 → N1
+  // → unlisted), within each bucket the words appearing in the most songs first.
+  // Given demo-tier 50 req/hr × ~70 hours of runtime, this guarantees the most
+  // visible/frequent beginner vocab gets images on day 1, and the long tail of
+  // rare advanced vocab fills in over the following days.
   const rawRows = await db.execute(sql`
     SELECT vi.id, vi.dictionary_form, vi.meaning, vi.part_of_speech
     FROM vocabulary_items vi
+    LEFT JOIN (
+      SELECT vocab_item_id, count(*)::int AS song_count
+      FROM vocab_global
+      GROUP BY vocab_item_id
+    ) freq ON freq.vocab_item_id = vi.id
     WHERE vi.part_of_speech IN ('noun', 'verb', 'i_adjective', 'na_adjective')
       AND vi.image_url IS NULL
-    ORDER BY vi.dictionary_form ASC
+    ORDER BY
+      CASE vi.jlpt_level
+        WHEN 'N5' THEN 1
+        WHEN 'N4' THEN 2
+        WHEN 'N3' THEN 3
+        WHEN 'N2' THEN 4
+        WHEN 'N1' THEN 5
+        ELSE 6
+      END ASC,
+      COALESCE(freq.song_count, 0) DESC,
+      vi.dictionary_form ASC
   `);
   const rows = unwrap<VocabRow>(rawRows);
 

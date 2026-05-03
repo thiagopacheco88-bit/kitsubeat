@@ -17,6 +17,8 @@
 import { config } from "dotenv";
 config({ path: ".env.local" });
 
+import { spawn } from "node:child_process";
+import { mkdirSync, openSync } from "node:fs";
 import Anthropic from "@anthropic-ai/sdk";
 import pLimit from "p-limit";
 import { eq, isNull } from "drizzle-orm";
@@ -76,6 +78,36 @@ Output JSON only. No prose around it.`;
 }
 
 // ---------------------------------------------------------------------------
+// Background image fetcher hook
+// ---------------------------------------------------------------------------
+
+// Detached spawn of `npm run fetch-images` so that enrichment returns immediately
+// while Unsplash backfill runs in the background. 19c is idempotent (WHERE
+// image_url IS NULL); a no-op when the catalog is fully populated. Caveat: if
+// another fetch-images is already running (e.g. an overnight backfill batch),
+// both will race on the same NULL rows and waste rate-limit budget — let one
+// finish before re-running enrichment, or add a PID lockfile in 19c.
+function spawnImageFetcher(): void {
+  mkdirSync("_temp", { recursive: true });
+  const ts = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 16);
+  const logPath = `_temp/fetch-images-${ts}.log`;
+  const logfd = openSync(logPath, "a");
+  const child = spawn(
+    process.platform === "win32" ? "npm.cmd" : "npm",
+    ["run", "fetch-images"],
+    {
+      detached: true,
+      stdio: ["ignore", logfd, logfd],
+      windowsHide: true,
+    }
+  );
+  child.unref();
+  console.log(
+    `[fetch-images] background backfill started — PID ${child.pid}, log ${logPath}`
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -103,7 +135,8 @@ async function main() {
 
   console.log(`[enrich-vocab] ${rows.length} rows pending enrichment`);
   if (rows.length === 0) {
-    console.log("[enrich-vocab] Nothing to do. Exiting.");
+    console.log("[enrich-vocab] Nothing to do.");
+    spawnImageFetcher();
     return;
   }
 
@@ -176,6 +209,7 @@ async function main() {
   await Promise.all(tasks);
 
   console.log(`[done] succeeded=${ok} failed=${fail} total=${rows.length}`);
+  spawnImageFetcher();
   if (fail > 0) {
     console.error(
       `[enrich-vocab] ${fail} rows failed. Re-run the script to retry — failed rows still have mnemonic IS NULL.`
