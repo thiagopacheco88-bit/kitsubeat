@@ -546,6 +546,20 @@ Plans:
 **Intent captured**: [.planning/phases/14.4-virality-engagement/INTENT.md](phases/14.4-virality-engagement/INTENT.md) (stub — formalize via /gsd-spec-phase)
 **Plans**: TBD
 
+### Phase 14.5: Iconography & Brand Revamp
+**Goal**: Replace the brand chrome (logo, favicon, apple-touch-icon, og-image, twitter-image), `/path` tier icons (bamboo / torii / mountain SVGs in TierDivider), and reward/cosmetic badge icons with a unified, locally-generated set using the existing ComfyUI pipeline (FLUX.1-schnell / SDXL — already wired for Phase 11.6 kanji mnemonic images, so zero API spend). Establishes a single iconographic vocabulary across the app while preserving the lantern + fox-mark that just shipped in 14.1.
+**Depends on**: Phase 14.1 (visual language locked); parallelizable with Phase 14.2 / 14.3
+**Requirements**: TBD (lock via /gsd-spec-phase 14.5-iconography-brand-revamp)
+**Success Criteria**:
+  1. Brand chrome regenerated and wired: `logo.png`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png`, `twitter-image.png` referenced via [src/app/layout.tsx](../src/app/layout.tsx) `metadata.icons` + `openGraph.images`
+  2. `/path` tier icons (bamboo / torii / mountain) replaced with redrawn SVGs that compose with the 14.1 token system; existing `<TierDivider>` API + per-tier vitest coverage preserved
+  3. Reward / cosmetic badge icons regenerated for the full catalog enumerated in [src/lib/gamification/cosmetic-catalog.ts](../src/lib/gamification/cosmetic-catalog.ts) via a single ComfyUI batch
+  4. All generated raster assets shipped at @1x + @2x with consistent canvas / padding; SVGs hand-cleaned (no inline base64, no embedded raster)
+  5. ComfyUI workflow JSON + prompts captured in `docs/icon-generation/` for reproducibility (local-only tooling per project memory; no API spend)
+  6. 14.1 lantern (`<LanternStreak>`) and fox-mark wordmark remain untouched (explicitly out of scope)
+  7. Pixel-diff dark + light themes still pass for `/path`; axe-core ≥95 maintained (icons get correct `alt` / `aria-label` / `aria-hidden`)
+**Plans**: TBD
+
 
 ### Phase 15: Analytics & Error Tracking
 **Goal**: Every meaningful user event captured in product analytics; every exception surfaces in Sentry with debugging context; funnel metrics are queryable before beta opens.
