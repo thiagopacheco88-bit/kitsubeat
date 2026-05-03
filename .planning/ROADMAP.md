@@ -491,13 +491,13 @@ Plans:
 - [x] 14.1-01-PLAN.md — Wave 1: 2 new tokens (--mist-fill, --aura-color) for both themes + 3 keyframes (ka-pulse, ka-flicker, ka-aura) + motion-catalog entries
 - [x] 14.1-02-PLAN.md — Wave 1: getStarterSongs() filter+warn repair (SPEC-REQ-1) + StarterPick EmptyState fallback + integration + unit tests
 - [x] 14.1-03-PLAN.md — Wave 1: src/lib/kana/checkpoint-state.ts pure helper (D-04) + Vitest fixtures
-- [ ] 14.1-04-PLAN.md — Wave 2: <LanternStreak> SVG component (SPEC-REQ-3) + opacity-tier vitest
-- [ ] 14.1-05-PLAN.md — Wave 2: <PathHeader> wordmark + LanternStreak composition (SPEC-REQ-2) + structural vitest
-- [ ] 14.1-06-PLAN.md — Wave 2: <HeroProgress> Level + XP + Now Learning + next-reward chip (SPEC-REQ-4 + D-09) + structural vitest
-- [ ] 14.1-07-PLAN.md — Wave 2: <TierDivider> bilingual co-heading + 3 tier SVG icons (SPEC-REQ-7) + per-tier vitest
-- [ ] 14.1-08-PLAN.md — Wave 2: <KanaCheckpointNode> client island reading useKanaProgress (SPEC-REQ-6 + D-03) + 3-state + M1 vitest
-- [ ] 14.1-09-PLAN.md — Wave 2: <PathNode> cover-art-as-background rewrite (SPEC-REQ-5) + 4 states + M1 invariant + ka-* keyframe hooks + vitest
-- [ ] 14.1-10-PLAN.md — Wave 2: <ContinueAnchor> sticky bottom CTA (SPEC-REQ-8) + visibility + position + tap navigation vitest
+- [x] 14.1-04-PLAN.md — Wave 2: <LanternStreak> SVG component (SPEC-REQ-3) + opacity-tier vitest
+- [x] 14.1-05-PLAN.md — Wave 2: <PathHeader> wordmark + LanternStreak composition (SPEC-REQ-2) + structural vitest
+- [x] 14.1-06-PLAN.md — Wave 2: <HeroProgress> Level + XP + Now Learning + next-reward chip (SPEC-REQ-4 + D-09) + structural vitest
+- [x] 14.1-07-PLAN.md — Wave 2: <TierDivider> bilingual co-heading + 3 tier SVG icons (SPEC-REQ-7) + per-tier vitest
+- [x] 14.1-08-PLAN.md — Wave 2: <KanaCheckpointNode> client island reading useKanaProgress (SPEC-REQ-6 + D-03) + 3-state + M1 vitest
+- [x] 14.1-09-PLAN.md — Wave 2: <PathNode> cover-art-as-background rewrite (SPEC-REQ-5) + 4 states + M1 invariant + ka-* keyframe hooks + vitest
+- [x] 14.1-10-PLAN.md — Wave 2: <ContinueAnchor> sticky bottom CTA (SPEC-REQ-8) + visibility + position + tap navigation vitest
 - [ ] 14.1-11-PLAN.md — Wave 3: page.tsx integration + DELETE PathHud + PathMap composes TierDivider + KanaCheckpointNode + /kana ?script param (D-05/D-06)
 - [ ] 14.1-12-PLAN.md — Wave 4: 8 Playwright specs covering AC #1-#10 + axe dark+light + bundle delta report (D-10/D-11/D-12/D-15/D-18)
 
