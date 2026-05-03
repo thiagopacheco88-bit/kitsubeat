@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KitsuBeat / · C+A Hybrid · Home redesign</title>
+
+  <!-- Junior Designer assumptions (visible at top for review):
+       - Auth-state shown: signed-in (Continue Learning + lantern streak in header)
+       - Hero = full-bleed "Featured This Week" with anime cover-art bg + PLAY CTA
+       - Carousel cards inherit cover-art-as-bg from /path PathNode
+       - Foundations carousel = kana checkpoints first-class on home (not buried)
+       - Running fox brand illustration elevated to mascot watermark / wordmark companion
+       - Mobile-first (390×844); both themes side-by-side -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+
+  <style>
+    html, body { margin: 0; padding: 0; background: #2a2a2a; min-height: 100vh; font-family: Inter, -apple-system, system-ui, sans-serif; }
+    body { padding: 48px 32px; }
+    @keyframes ka-pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.06); opacity: 0.92; } }
+    @keyframes ka-flicker { 0%,100% { opacity: 0.95; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-0.5px); } }
+    @keyframes ka-aura { 0%,100% { opacity: 0.75; } 50% { opacity: 1; } }
+    @keyframes ka-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0ms !important; animation-iteration-count: 1 !important; }
+    }
+    /* Hide scrollbars on horizontal carousels for cleaner look */
+    .ka-carousel::-webkit-scrollbar { display: none; }
+    .ka-carousel { scrollbar-width: none; -ms-overflow-style: none; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useMemo } = React;
+
+    /* ===== IosFrame (vendored, trimmed) ===== */
+    const iosFrameStyles = {
+      wrapper: { display: 'inline-block', padding: 12, background: '#000', borderRadius: 60, boxShadow: '0 0 0 2px #1f2937, 0 20px 60px rgba(0,0,0,0.45)', position: 'relative' },
+      screen: { position: 'relative', borderRadius: 48, overflow: 'hidden' },
+      statusBar: { position: 'absolute', top: 0, left: 0, right: 0, height: 54, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px', fontSize: 16, fontWeight: 600, fontFamily: '-apple-system, "SF Pro Text", sans-serif', zIndex: 20, pointerEvents: 'none' },
+      dynamicIsland: { position: 'absolute', top: 12, left: '50%', transform: 'translateX(-50%)', width: 124, height: 36, background: '#000', borderRadius: 999, zIndex: 30 },
+      content: { position: 'absolute', top: 54, left: 0, right: 0, bottom: 34, overflow: 'auto' },
+      homeIndicator: { position: 'absolute', bottom: 10, left: '50%', transform: 'translateX(-50%)', width: 140, height: 5, borderRadius: 999, zIndex: 10 },
+    };
+    function IosFrame({ children, width = 390, height = 844, time = '9:41', battery = 87, darkMode = false, bgColor }) {
+      const textColor = darkMode ? '#fff' : '#000';
+      return (
+        <div style={iosFrameStyles.wrapper}>
+          <div style={{ ...iosFrameStyles.screen, width, height, background: bgColor || (darkMode ? '#000' : '#fff') }}>
+            <div style={{ ...iosFrameStyles.statusBar, color: textColor }}>
+              <span>{time}</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <div style={{ display: 'flex', alignItems: 'flex-end', gap: 2, height: 12 }}>
+                  {[4,6,9,11].map(h => <div key={h} style={{ width: 3, height: h, background: 'currentColor', borderRadius: 1 }} />)}
+                </div>
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                  <path d="M8 11.5a1 1 0 100-2 1 1 0 000 2z" fill="currentColor"/>
+                  <path d="M3 7.5a7 7 0 0110 0" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round"/>
+                  <path d="M1 4.5a11 11 0 0114 0" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" opacity="0.7"/>
+                </svg>
+                <div style={{ width: 26, height: 12, border: '1.5px solid currentColor', borderRadius: 3, padding: 1, position: 'relative', opacity: 0.85 }}>
+                  <div style={{ width: `${battery}%`, height: '100%', background: 'currentColor', borderRadius: 1, opacity: 0.9 }} />
+                  <div style={{ position: 'absolute', top: 3, right: -3, width: 2, height: 6, background: 'currentColor', borderRadius: '0 1px 1px 0' }} />
+                </div>
+              </div>
+            </div>
+            <div style={iosFrameStyles.dynamicIsland} />
+            <div style={iosFrameStyles.content}>{children}</div>
+            <div style={{ ...iosFrameStyles.homeIndicator, background: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.3)' }} />
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== Phase 14 tokens — both themes scoped ===== */
+    const tokensCSS = `
+      [data-theme="dark"] {
+        --color-bg: #0E0E0E; --color-bg-2: #111111;
+        --color-card: #191919; --color-card-2: #1E1E1E;
+        --color-border: rgba(255,255,255,0.06); --color-border-strong: rgba(255,255,255,0.10);
+        --color-text: #F5F5F4; --color-text-muted: rgba(245,245,244,0.56); --color-text-dim: rgba(245,245,244,0.40);
+        --color-accent: #dc2626;
+        --color-jlpt-n5: #22c55e; --color-jlpt-n4: #3b82f6; --color-jlpt-n3: #f59e0b;
+        --color-grammar-adverb: #f97316;
+        --shadow-card-ring: inset 0 0 0 1px rgba(255,255,255,0.06);
+        --shadow-button-red: 0 8px 22px rgba(239,68,68,0.45);
+        --shadow-cta-red: 0 8px 24px rgba(239,68,68,0.28), inset 0 1px 0 rgba(255,255,255,0.15);
+        --aura-color: rgba(220,38,38,0.45);
+      }
+      [data-theme="light"] {
+        --color-bg: #FAFAF9; --color-bg-2: #F4F4F2;
+        --color-card: #FFFFFF; --color-card-2: #FAFAF9;
+        --color-border: rgba(0,0,0,0.08); --color-border-strong: rgba(0,0,0,0.14);
+        --color-text: #18181B; --color-text-muted: rgba(24,24,27,0.62); --color-text-dim: rgba(24,24,27,0.45);
+        --color-accent: #dc2626;
+        --color-jlpt-n5: #16a34a; --color-jlpt-n4: #2563eb; --color-jlpt-n3: #d97706;
+        --color-grammar-adverb: #ea580c;
+        --shadow-card-ring: inset 0 0 0 1px rgba(0,0,0,0.08);
+        --shadow-button-red: 0 8px 22px rgba(239,68,68,0.55);
+        --shadow-cta-red: 0 8px 24px rgba(239,68,68,0.36), inset 0 1px 0 rgba(255,255,255,0.20);
+        --aura-color: rgba(220,38,38,0.32);
+      }
+      .ka-screen { font-family: var(--font-sans, Inter, system-ui, sans-serif); color: var(--color-text); background: var(--color-bg); min-height: 100%; }
+      .ka-jp { font-family: 'Noto Sans JP', system-ui, sans-serif; }
+    `;
+
+    /* ===== Mock data ===== */
+    /* PRODUCTION: cover swaps to youtube_id thumbnail per existing PathNode.tsx:60 pattern */
+    const FEATURED = { slug: 'idol-yoasobi', title: 'アイドル', titleRomaji: 'Idol', anime: 'Oshi no Ko', artist: 'YOASOBI', verseCount: 18, jlpt: 'N4', cover: 'linear-gradient(135deg, #ff5599 0%, #ff0d6f 50%, #c9006a 100%)' };
+    const CONTINUE = [
+      { slug: 'silhouette-kanaboon', title: 'シルエット', anime: 'Naruto Shippuden', stars: 1, pct: 33, cover: 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)' },
+      { slug: 'gurenge-lisa', title: '紅蓮華', anime: 'Demon Slayer', stars: 2, pct: 66, cover: 'linear-gradient(135deg, #2a0606 0%, #b91c1c 60%, #facc15 100%)' },
+    ];
+    const FOUNDATIONS = [
+      { slug: 'hiragana', kana: 'あ', script: 'Hiragana', scriptJp: 'ひらがな', state: 'mastered', stars: 3 },
+      { slug: 'katakana', kana: 'ア', script: 'Katakana', scriptJp: 'カタカナ', state: 'in_progress', pct: 40 },
+      { slug: 'kanji-n5', kana: '漢', script: 'Kanji N5', scriptJp: '漢字 N5', state: 'locked' },
+    ];
+    const FEATURED_SONGS = [
+      { slug: 'idol-yoasobi', title: 'アイドル', titleRomaji: 'Idol', anime: 'Oshi no Ko', state: 'mastered', stars: 3, cover: 'linear-gradient(135deg, #ff5599 0%, #ff0d6f 50%, #c9006a 100%)' },
+      { slug: 'gurenge-lisa', title: '紅蓮華', titleRomaji: 'Gurenge', anime: 'Demon Slayer', state: 'in_progress', stars: 2, cover: 'linear-gradient(135deg, #2a0606 0%, #b91c1c 60%, #facc15 100%)' },
+      { slug: 'kaikai-kitan', title: '廻廻奇譚', titleRomaji: 'Kaikai Kitan', anime: 'Jujutsu Kaisen', state: 'fresh', stars: 0, cover: 'linear-gradient(135deg, #1e1b4b 0%, #6b21a8 60%, #db2777 100%)' },
+      { slug: 'zankoku-thesis', title: '残酷な天使のテーゼ', titleRomaji: 'Cruel Angel\'s Thesis', anime: 'Evangelion', state: 'fresh', stars: 0, cover: 'linear-gradient(135deg, #312e81 0%, #be123c 50%, #ca8a04 100%)' },
+    ];
+    const ANIMES = [
+      { name: 'Demon Slayer', nameJp: '鬼滅の刃', count: 8, cover: 'linear-gradient(135deg, #2a0606 0%, #b91c1c 60%, #facc15 100%)' },
+      { name: 'Naruto', nameJp: 'ナルト', count: 12, cover: 'linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%)' },
+      { name: 'Jujutsu Kaisen', nameJp: '呪術廻戦', count: 6, cover: 'linear-gradient(135deg, #1e1b4b 0%, #6b21a8 60%, #db2777 100%)' },
+      { name: 'Attack on Titan', nameJp: '進撃の巨人', count: 14, cover: 'linear-gradient(135deg, #1f2937 0%, #6b7280 50%, #b91c1c 100%)' },
+    ];
+
+    /* ===== Lantern Streak (vendored from /path demo) ===== */
+    function LanternStreak({ count, compact }) {
+      const blaze = count >= 30 ? 1 : count >= 7 ? 0.7 : 0.45;
+      const size = compact ? 28 : 22;
+      return (
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: 8,
+          padding: '6px 12px 6px 8px', borderRadius: 9999,
+          background: 'var(--color-card-2)', boxShadow: 'var(--shadow-card-ring)',
+        }}>
+          <svg width={size} height={size + 4} viewBox="0 0 22 26" fill="none">
+            <rect x="6" y="2" width="10" height="2" rx="0.5" fill="currentColor" opacity="0.9" />
+            <line x1="11" y1="0" x2="11" y2="2" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
+            <ellipse cx="11" cy="13" rx="7.5" ry="9" fill="#f59e0b" opacity={0.18 + blaze * 0.5} />
+            <ellipse cx="11" cy="13" rx="7.5" ry="9" fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.6" />
+            <line x1="3.6" y1="13" x2="18.4" y2="13" stroke="currentColor" strokeWidth="0.6" opacity="0.45" />
+            <line x1="4.2" y1="9" x2="17.8" y2="9" stroke="currentColor" strokeWidth="0.5" opacity="0.35" />
+            <line x1="4.2" y1="17" x2="17.8" y2="17" stroke="currentColor" strokeWidth="0.5" opacity="0.35" />
+            <ellipse cx="11" cy="13" rx="3" ry="4.5" fill="#dc2626" opacity={blaze} style={{ animation: 'ka-flicker 1.4s ease-in-out infinite' }} />
+            <ellipse cx="11" cy="13" rx="1.5" ry="2.5" fill="#fef3c7" opacity={blaze * 0.85} />
+            <rect x="6" y="22" width="10" height="2" rx="0.5" fill="currentColor" opacity="0.9" />
+          </svg>
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.05 }}>
+            <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-text)' }}>{count}</span>
+            <span style={{ fontSize: 8, fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>day streak</span>
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== Stars (vendored) ===== */
+    function StarAura({ stars, size = 9 }) {
+      return (
+        <div style={{ display: 'inline-flex', gap: 2 }}>
+          {[1,2,3].map(i => (
+            <span key={i} style={{
+              fontSize: size, color: i <= stars ? 'var(--color-jlpt-n3)' : 'var(--color-text-dim)',
+              filter: i <= stars && stars === 3 ? 'drop-shadow(0 0 3px rgba(245,158,11,0.6))' : 'none', lineHeight: 1,
+            }}>★</span>
+          ))}
+        </div>
+      );
+    }
+
+    /* ===== Header — sticky, with KitsuBeat wordmark + lantern + theme toggle slot ===== */
+    function HomeHeader({ streak, isAuth }) {
+      return (
+        <header style={{
+          position: 'sticky', top: 0, zIndex: 5,
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '14px 16px 10px',
+          background: 'var(--color-bg)',
+          borderBottom: '1px solid var(--color-border)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            {/* Fox mark */}
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+              <ellipse cx="16" cy="20" rx="9" ry="7" fill="var(--color-grammar-adverb)" />
+              <polygon points="9,15 4,5 13,11" fill="var(--color-grammar-adverb)" />
+              <polygon points="23,15 28,5 19,11" fill="var(--color-grammar-adverb)" />
+              <ellipse cx="13" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+              <ellipse cx="19" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+              <ellipse cx="16" cy="23.5" rx="1.4" ry="1" fill="var(--color-accent)" />
+            </svg>
+            <span style={{ fontWeight: 800, fontSize: 17, letterSpacing: '-0.01em' }}>
+              Kitsu<span style={{ color: 'var(--color-accent)' }}>Beat</span>
+            </span>
+          </div>
+          {isAuth ? <LanternStreak count={streak} /> : (
+            <button style={{
+              fontSize: 12, fontWeight: 700, color: '#fff', background: 'var(--color-accent)',
+              border: 'none', borderRadius: 999, padding: '8px 14px', cursor: 'pointer',
+              boxShadow: 'var(--shadow-cta-red)',
+            }}>Sign in</button>
+          )}
+        </header>
+      );
+    }
+
+    /* ===== Hero Featured — full-bleed cover art + PLAY ===== */
+    function HeroFeatured({ song, isAuth }) {
+      return (
+        <section style={{
+          position: 'relative', margin: '12px 16px 0',
+          height: 280, borderRadius: 22, overflow: 'hidden',
+          background: song.cover, boxShadow: 'var(--shadow-card-ring)',
+        }}>
+          {/* Vignette overlay */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.75) 75%, rgba(0,0,0,0.92) 100%)',
+          }} />
+          {/* Eyebrow */}
+          <div style={{
+            position: 'absolute', top: 14, left: 16, right: 16,
+            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          }}>
+            <span style={{
+              fontSize: 9, fontWeight: 800, color: '#fff',
+              textTransform: 'uppercase', letterSpacing: '0.15em',
+              background: 'rgba(255,255,255,0.18)', padding: '4px 10px', borderRadius: 999,
+              backdropFilter: 'blur(4px)',
+            }}>★ Featured this week</span>
+            <span style={{
+              fontSize: 9, fontWeight: 700, color: '#fff',
+              background: 'rgba(0,0,0,0.4)', padding: '4px 8px', borderRadius: 6,
+              backdropFilter: 'blur(4px)', letterSpacing: '0.05em',
+            }}>JLPT {song.jlpt}</span>
+          </div>
+          {/* Bottom content stack */}
+          <div style={{
+            position: 'absolute', left: 16, right: 16, bottom: 14,
+            display: 'flex', flexDirection: 'column', gap: 10,
+          }}>
+            <div>
+              <div className="ka-jp" style={{
+                fontSize: 28, fontWeight: 900, color: '#fff', lineHeight: 1.05,
+                textShadow: '0 2px 10px rgba(0,0,0,0.5)',
+              }}>{song.title}</div>
+              <div style={{
+                fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,0.85)',
+                marginTop: 4, letterSpacing: '0.04em',
+              }}>{song.artist} · {song.anime} · {song.verseCount} verses</div>
+            </div>
+            <button style={{
+              alignSelf: 'flex-start',
+              display: 'inline-flex', alignItems: 'center', gap: 10,
+              padding: '12px 20px 12px 16px',
+              background: '#fff', color: '#000',
+              border: 'none', borderRadius: 999,
+              fontWeight: 800, fontSize: 13, letterSpacing: '0.02em',
+              cursor: 'pointer',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+            }}>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M4 2v12l11-6z" fill="#000" />
+              </svg>
+              {isAuth ? 'Resume Lesson' : 'Try Free Lesson'}
+            </button>
+          </div>
+        </section>
+      );
+    }
+
+    /* ===== Section header ===== */
+    function SectionHeader({ titleJp, title, viewAll }) {
+      return (
+        <div style={{
+          display: 'flex', alignItems: 'baseline', justifyContent: 'space-between',
+          margin: '24px 16px 10px',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
+            {titleJp && <span className="ka-jp" style={{ fontSize: 12, fontWeight: 700, color: 'var(--color-accent)', letterSpacing: '0.05em' }}>{titleJp}</span>}
+            <h2 style={{ margin: 0, fontSize: 16, fontWeight: 800, color: 'var(--color-text)', letterSpacing: '-0.005em' }}>{title}</h2>
+          </div>
+          {viewAll && (
+            <span style={{ fontSize: 11, color: 'var(--color-text-muted)', fontWeight: 600 }}>View all →</span>
+          )}
+        </div>
+      );
+    }
+
+    /* ===== Continue Learning Card — auth-only, mid-width, with progress + PLAY ===== */
+    function ContinueCard({ song }) {
+      return (
+        <article style={{
+          flex: '0 0 240px', position: 'relative',
+          height: 124, borderRadius: 18, overflow: 'hidden',
+          background: song.cover, boxShadow: 'var(--shadow-card-ring)',
+          isolation: 'isolate',
+        }}>
+          {/* Vignette */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0.9) 100%)',
+          }} />
+          {/* PLAY badge top-right */}
+          <div style={{
+            position: 'absolute', top: 10, right: 10,
+            width: 32, height: 32, borderRadius: 999,
+            background: 'rgba(255,255,255,0.92)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            animation: 'ka-pulse 1.6s ease-in-out infinite',
+          }}>
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+              <path d="M5 3v10l9-5z" fill="#000" />
+            </svg>
+          </div>
+          {/* Bottom info + progress */}
+          <div style={{ position: 'absolute', left: 12, right: 12, bottom: 10 }}>
+            <div className="ka-jp" style={{
+              fontSize: 16, fontWeight: 800, color: '#fff', lineHeight: 1.1,
+              textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+              overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+            }}>{song.title}</div>
+            <div style={{
+              fontSize: 10, fontWeight: 600, color: 'rgba(255,255,255,0.85)', marginTop: 2,
+              overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+            }}>{song.anime}</div>
+            {/* Progress bar */}
+            <div style={{ marginTop: 6, position: 'relative', height: 3, background: 'rgba(255,255,255,0.2)', borderRadius: 999, overflow: 'hidden' }}>
+              <div style={{
+                position: 'absolute', left: 0, top: 0, bottom: 0,
+                width: `${song.pct}%`, background: 'var(--color-accent)', borderRadius: 999,
+                boxShadow: '0 0 8px rgba(220,38,38,0.6)',
+              }} />
+            </div>
+          </div>
+        </article>
+      );
+    }
+
+    /* ===== Foundation Card (kana, on home) ===== */
+    function FoundationCard({ node }) {
+      const isMastered = node.state === 'mastered';
+      const isLocked = node.state === 'locked';
+      const isInProgress = node.state === 'in_progress';
+      const showAura = isMastered && node.stars === 3;
+      return (
+        <div style={{ position: 'relative', flex: '0 0 130px', isolation: 'isolate' }}>
+          {showAura && (
+            <div style={{
+              position: 'absolute', inset: -3, borderRadius: 'calc(18px + 3px)',
+              background: `radial-gradient(closest-side, var(--aura-color), transparent 75%)`,
+              animation: 'ka-aura 2.4s ease-in-out infinite',
+              zIndex: 0, pointerEvents: 'none',
+            }} />
+          )}
+          <article style={{
+            position: 'relative', zIndex: 1,
+            height: 124, padding: '14px 12px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between',
+            borderRadius: 18, background: 'var(--color-card)',
+            border: '1px dashed var(--color-border-strong)',
+            boxShadow: 'var(--shadow-card-ring)',
+            opacity: isLocked ? 0.55 : 1,
+            filter: isLocked ? 'grayscale(0.4)' : 'none',
+          }}>
+            <div style={{
+              width: 42, height: 42, borderRadius: 999,
+              background: 'var(--color-card-2)',
+              border: '1px solid var(--color-border-strong)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <span className="ka-jp" style={{
+                fontSize: 22, fontWeight: 900, lineHeight: 1,
+                color: isMastered ? 'var(--color-accent)' : 'var(--color-text)',
+              }}>{node.kana}</span>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div className="ka-jp" style={{ fontSize: 12, fontWeight: 700, color: 'var(--color-text)' }}>{node.scriptJp}</div>
+              <div style={{ fontSize: 9, fontWeight: 600, color: 'var(--color-text-muted)', marginTop: 2, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{node.script}</div>
+            </div>
+            <div style={{ minHeight: 12, display: 'flex', alignItems: 'center' }}>
+              {isMastered && <StarAura stars={node.stars} size={9} />}
+              {isInProgress && (
+                <div style={{ width: 60, position: 'relative', height: 3, background: 'var(--color-card-2)', borderRadius: 999, overflow: 'hidden' }}>
+                  <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${node.pct}%`, background: 'var(--color-grammar-adverb)', borderRadius: 999 }} />
+                </div>
+              )}
+              {isLocked && (
+                <span style={{ fontSize: 8, fontWeight: 700, color: 'var(--color-text-dim)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>霧 · Locked</span>
+              )}
+            </div>
+          </article>
+        </div>
+      );
+    }
+
+    /* ===== Catalog Cover Card — cover art + minimal meta + state ===== */
+    function CoverCard({ song }) {
+      const isMastered = song.state === 'mastered';
+      const isInProgress = song.state === 'in_progress';
+      const showAura = isMastered && song.stars === 3;
+      return (
+        <div style={{ position: 'relative', flex: '0 0 154px', isolation: 'isolate' }}>
+          {showAura && (
+            <div style={{
+              position: 'absolute', inset: -3, borderRadius: 'calc(18px + 3px)',
+              background: `radial-gradient(closest-side, var(--aura-color), transparent 75%)`,
+              animation: 'ka-aura 2.4s ease-in-out infinite',
+              zIndex: 0, pointerEvents: 'none',
+            }} />
+          )}
+          <article style={{
+            position: 'relative', zIndex: 1,
+            height: 196, borderRadius: 18, overflow: 'hidden',
+            background: 'var(--color-card)', boxShadow: 'var(--shadow-card-ring)',
+          }}>
+            {/* Cover art panel — top 60% */}
+            <div style={{ position: 'relative', height: 116, background: song.cover }}>
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.78) 100%)',
+              }} />
+              <div className="ka-jp" style={{
+                position: 'absolute', left: 10, right: 10, bottom: 8,
+                fontSize: 14, fontWeight: 900, color: '#fff', lineHeight: 1.1,
+                textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+                overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+              }}>{song.title}</div>
+              {isMastered && (
+                <div style={{
+                  position: 'absolute', top: 8, right: 8,
+                  fontSize: 8, fontWeight: 800, color: '#fff',
+                  background: 'rgba(245,158,11,0.95)', padding: '2px 6px', borderRadius: 4,
+                  letterSpacing: '0.08em',
+                }}>★ MASTERED</div>
+              )}
+            </div>
+            {/* Info panel */}
+            <div style={{ padding: '10px 12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: 80 }}>
+              <div style={{ minWidth: 0 }}>
+                <div style={{
+                  fontSize: 11, fontWeight: 700, color: 'var(--color-text-muted)',
+                  textTransform: 'uppercase', letterSpacing: '0.04em',
+                  overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+                }}>{song.titleRomaji}</div>
+                <div style={{
+                  fontSize: 11, fontWeight: 600, color: 'var(--color-text)',
+                  marginTop: 2, overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis',
+                }}>{song.anime}</div>
+              </div>
+              {!isMastered && song.stars > 0 && <StarAura stars={song.stars} size={9} />}
+              {isInProgress && song.stars === 0 && (
+                <span style={{ fontSize: 9, fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>In progress</span>
+              )}
+            </div>
+          </article>
+        </div>
+      );
+    }
+
+    /* ===== Anime franchise card ===== */
+    function AnimeCard({ anime }) {
+      return (
+        <div style={{ flex: '0 0 130px' }}>
+          <div style={{
+            position: 'relative', height: 130, borderRadius: 18, overflow: 'hidden',
+            background: anime.cover, boxShadow: 'var(--shadow-card-ring)',
+          }}>
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%)',
+            }} />
+            <div style={{ position: 'absolute', left: 10, right: 10, bottom: 8 }}>
+              <div className="ka-jp" style={{
+                fontSize: 13, fontWeight: 900, color: '#fff', lineHeight: 1.1,
+                textShadow: '0 1px 4px rgba(0,0,0,0.7)',
+              }}>{anime.nameJp}</div>
+              <div style={{
+                fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.85)',
+                marginTop: 2, letterSpacing: '0.04em',
+              }}>{anime.count} songs</div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    /* ===== Carousel container ===== */
+    function Carousel({ children }) {
+      return (
+        <div className="ka-carousel" style={{
+          display: 'flex', gap: 10, padding: '4px 16px 8px',
+          overflowX: 'auto', scrollSnapType: 'x mandatory',
+        }}>
+          {children}
+        </div>
+      );
+    }
+
+    /* ===== Home Screen ===== */
+    function HomeScreen({ isAuth }) {
+      return (
+        <div className="ka-screen">
+          <HomeHeader streak={47} isAuth={isAuth} />
+          <HeroFeatured song={FEATURED} isAuth={isAuth} />
+
+          {isAuth && (
+            <>
+              <SectionHeader titleJp="続ける" title="Continue Learning" viewAll />
+              <Carousel>
+                {CONTINUE.map(s => <ContinueCard key={s.slug} song={s} />)}
+              </Carousel>
+            </>
+          )}
+
+          <SectionHeader titleJp="基礎" title="Foundations" viewAll />
+          <Carousel>
+            {FOUNDATIONS.map(n => <FoundationCard key={n.slug} node={n} />)}
+          </Carousel>
+
+          <SectionHeader titleJp="アニメ" title="Browse by Anime" viewAll />
+          <Carousel>
+            {ANIMES.map(a => <AnimeCard key={a.name} anime={a} />)}
+          </Carousel>
+
+          <SectionHeader titleJp="特集" title="Featured Songs" viewAll />
+          <Carousel>
+            {FEATURED_SONGS.map(s => <CoverCard key={s.slug} song={s} />)}
+          </Carousel>
+
+          {/* Bottom spacer + community signal (simple, fits virality #5 deferred-to-14.2 framing) */}
+          <div style={{ margin: '20px 16px 24px', padding: '14px 16px', background: 'var(--color-card)', borderRadius: 18, border: '1px solid var(--color-border)' }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>This week, together</div>
+            <div className="ka-jp" style={{ fontSize: 18, fontWeight: 800, color: 'var(--color-text)', marginTop: 4 }}>12,847 verses mastered</div>
+            <div style={{ fontSize: 10, color: 'var(--color-text-muted)', marginTop: 2 }}>Join the community on the leaderboard · coming in 14.2</div>
+          </div>
+          <div style={{ height: 24 }} />
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <style>{tokensCSS}</style>
+          <div style={{ display: 'flex', gap: 40, alignItems: 'flex-start', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div>
+              <div style={{ color: '#999', fontSize: 12, fontWeight: 600, marginBottom: 12, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Dark · authenticated (streak visible)</div>
+              <IosFrame width={390} height={844} darkMode bgColor="#0E0E0E">
+                <div data-theme="dark" style={{ height: '100%', position: 'relative' }}>
+                  <HomeScreen isAuth />
+                </div>
+              </IosFrame>
+            </div>
+            <div>
+              <div style={{ color: '#999', fontSize: 12, fontWeight: 600, marginBottom: 12, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Light · authenticated</div>
+              <IosFrame width={390} height={844} bgColor="#FAFAF9">
+                <div data-theme="light" style={{ height: '100%', position: 'relative' }}>
+                  <HomeScreen isAuth />
+                </div>
+              </IosFrame>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
