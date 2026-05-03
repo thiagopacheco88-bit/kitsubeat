@@ -63,6 +63,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 21: Anime Scenes & Cultural Vocabulary** - Extend the content universe with iconic anime scenes and anime-anchored cultural vocabulary drills, distributed as Phase 12 unlock rewards (was v2.0 Phase 12)
 - [ ] **Phase 23: Native App Decision Point** - Retention-gated go/no-go on a native app (iOS/Android via React Native or PWA-first); decision only, not build. (Phase 22 reserved for Monetization per Phase 19 exit criteria.)
+- [ ] **Phase 24: UX Polish via Impeccable Design System** - Run [pbakaus/impeccable](https://github.com/pbakaus/impeccable) skill + commands (`/impeccable critique`, `/impeccable audit`, `/impeccable polish`) over the high-traffic surfaces individually (player, song detail, exercises, learn card, kana trainer, dashboard, gamification HUD) to fight LLM design defaults — bespoke typography/color/motion that match KitsuBeat's anime/learning identity. Element-by-element pass once Impeccable stabilizes; not a rewrite.
 
 ## Phase Details
 
@@ -471,6 +472,36 @@ Plans:
 - [x] 14-08-PLAN.md — /kana x3 surfaces + RowUnlockModal rewrite (eliminates the only dark: variant in codebase) (Wave 3)
 - [x] 14-09-PLAN.md — /path surface + a11y.spec.ts fill (22 cases) + final phase verification gate (Wave 4)
 
+
+### Phase 14.1: Redesign /path
+**Goal**: Apply the locked CA-hybrid design language (cover-art-as-background nodes + lantern-streak header + hero-progress block + visual-only locked treatment + Japanese-co-headed tier dividers + sticky Continue CTA + first-class kana checkpoints) to the /path surface, using only the Phase 14 token system extended with 2 new tokens (--mist-fill + --aura-color; --shadow-cta-red already authored in Phase 14-01) — and unblock visual verification by repairing the existing getStarterSongs() runtime error.
+**Depends on**: Phase 14
+**Requirements**: SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7, SPEC-REQ-8 (locked in 14.1-SPEC.md; no upstream REQUIREMENTS.md REQ-IDs map to this phase)
+**Success Criteria**:
+  1. /path renders without runtime error in both branches (StarterPick when current_path_node_slug=null; PathMap when set)
+  2. Playwright pixel-diff dark + light themes pass at <=2% tolerance against demo references
+  3. axe-core scan returns >=95 with zero serious/critical in both themes
+  4. Reduced-motion spec asserts ka-pulse, ka-flicker, ka-aura all resolve to 0ms animation-duration
+  5. M1 invariant preserved: every PathNode (4 states) + KanaCheckpointNode (3 states) clickable; mist overlays have pointer-events:none
+**Spec captured**: [.planning/phases/14.1-redesign-path/14.1-SPEC.md](phases/14.1-redesign-path/14.1-SPEC.md) (8 requirements, 12 acceptance criteria, ambiguity 0.18)
+**Context captured**: [.planning/phases/14.1-redesign-path/14.1-CONTEXT.md](phases/14.1-redesign-path/14.1-CONTEXT.md) (19 decisions D-01..D-19)
+**Plans:** 13 plans
+Plans:
+- [ ] 14.1-00-PLAN.md — Wave 0: capture light-theme reference PNG (D-11) + pre-Wave-1 /path bundle baseline (D-12)
+- [ ] 14.1-01-PLAN.md — Wave 1: 2 new tokens (--mist-fill, --aura-color) for both themes + 3 keyframes (ka-pulse, ka-flicker, ka-aura) + motion-catalog entries
+- [ ] 14.1-02-PLAN.md — Wave 1: getStarterSongs() filter+warn repair (SPEC-REQ-1) + StarterPick EmptyState fallback + integration + unit tests
+- [ ] 14.1-03-PLAN.md — Wave 1: src/lib/kana/checkpoint-state.ts pure helper (D-04) + Vitest fixtures
+- [ ] 14.1-04-PLAN.md — Wave 2: <LanternStreak> SVG component (SPEC-REQ-3) + opacity-tier vitest
+- [ ] 14.1-05-PLAN.md — Wave 2: <PathHeader> wordmark + LanternStreak composition (SPEC-REQ-2) + structural vitest
+- [ ] 14.1-06-PLAN.md — Wave 2: <HeroProgress> Level + XP + Now Learning + next-reward chip (SPEC-REQ-4 + D-09) + structural vitest
+- [ ] 14.1-07-PLAN.md — Wave 2: <TierDivider> bilingual co-heading + 3 tier SVG icons (SPEC-REQ-7) + per-tier vitest
+- [ ] 14.1-08-PLAN.md — Wave 2: <KanaCheckpointNode> client island reading useKanaProgress (SPEC-REQ-6 + D-03) + 3-state + M1 vitest
+- [ ] 14.1-09-PLAN.md — Wave 2: <PathNode> cover-art-as-background rewrite (SPEC-REQ-5) + 4 states + M1 invariant + ka-* keyframe hooks + vitest
+- [ ] 14.1-10-PLAN.md — Wave 2: <ContinueAnchor> sticky bottom CTA (SPEC-REQ-8) + visibility + position + tap navigation vitest
+- [ ] 14.1-11-PLAN.md — Wave 3: page.tsx integration + DELETE PathHud + PathMap composes TierDivider + KanaCheckpointNode + /kana ?script param (D-05/D-06)
+- [ ] 14.1-12-PLAN.md — Wave 4: 8 Playwright specs covering AC #1-#10 + axe dark+light + bundle delta report (D-10/D-11/D-12/D-15/D-18)
+
+
 ### Phase 15: Analytics & Error Tracking
 **Goal**: Every meaningful user event captured in product analytics; every exception surfaces in Sentry with debugging context; funnel metrics are queryable before beta opens.
 **Depends on**: Phase 14
@@ -594,3 +625,17 @@ Plans:
   2. If GO: target platforms, MVP scope (read-only vs full parity), store-fee impact on monetization model (15-30% Apple/Google cut), and review-process risk are all documented
   3. If NO-GO or DEFER: the specific retention/demand signals that would flip the decision are written down so this isn't re-litigated on vibes
 **Plans**: TBD (placeholder — only planned if gate criteria above are met)
+
+### Phase 24: UX Polish via Impeccable Design System
+**Goal**: Surface-by-surface UX polish pass driven by the [pbakaus/impeccable](https://github.com/pbakaus/impeccable) skill + 23 commands. Goal is not a rewrite — it's targeted application of `/impeccable critique`, `/impeccable audit`, and `/impeccable polish` to specific high-traffic elements once the upstream repo stabilizes, fighting generic LLM design defaults (Inter font, purple gradients, gray-on-color, cards-in-cards) and replacing them with choices that match KitsuBeat's anime + learning identity.
+**Depends on**: Phase 14 (UX Polish baseline complete), Phase 19 (real users to inform what surfaces matter), Impeccable repo declared stable by upstream
+**Requirements**: TBD (derive from Impeccable critique outputs per surface)
+**Repo location**: cloned at `velora-projects/impeccable/` as a sibling reference; do NOT vendor into kitsubeat
+**Success Criteria** (what must be TRUE):
+  1. PRODUCT.md and DESIGN.md generated for KitsuBeat via `/impeccable teach` — KitsuBeat's design language (typography, color system in OKLCH, motion vocabulary, anime/learning identity) is captured as a contract Impeccable can audit against
+  2. At least 6 high-traffic surfaces have been individually run through `/impeccable critique` → `/impeccable polish`: player page, song detail, exercise card, LearnCard, kana trainer, gamification HUD/celebrations
+  3. Each surface pass produces a before/after diff with rationale tied to Impeccable's reference files (typography / color-and-contrast / spatial / motion / interaction / responsive / ux-writing)
+  4. Anti-patterns flagged by Impeccable (Inter font, generic purple gradients, low-contrast gray-on-color, nested cards) are removed from the polished surfaces
+  5. No measurable regression in Lighthouse, a11y, or Core Web Vitals on any polished surface (Phase 13 perf gates still pass)
+  6. Polish work is element-scoped, not a rewrite — each commit touches one surface so individual changes can be reverted independently
+**Plans**: TBD (gated on Impeccable repo reaching a stable release)

@@ -1,0 +1,39 @@
+# /path bundle baseline — pre-Wave-1
+# Captured: 2026-05-03T09:20:50.603Z
+# Phase 14.1 master HEAD commit: 4f62edf007d954fd95e2981994a74810b12862ec
+
+# Build command: NEXT_PUBLIC_APP_ENV=production npm run build
+# Next.js version: 15.5.14
+# Note: Plain `npm run build` fails with "kana/session/summary" prerender TypeError
+# (webpack-runtime.js Cannot read properties of undefined reading 'call').
+# This is a pre-existing issue in the working tree (uncommitted Clerk/ThemeToggle changes);
+# it does NOT affect route chunk sizes. Used NEXT_PUBLIC_APP_ENV=production to reproduce
+# the Phase 13 build conditions (same env used in 13-03 size-limit baseline, commit 2026-04-28).
+
+Route               Size       First Load JS
+/path               3.22 kB    118 kB
+
+# Full route table (for context):
+# Route (app)                                        Size  First Load JS
+# ┌ ƒ /                                             310 B         111 kB
+# ├ ƒ /_not-found                                   998 B         103 kB
+# ├ ƒ /admin/lyrics                               12.8 kB         118 kB
+# ├ ƒ /kana                                       1.66 kB         111 kB
+# ├ ƒ /kana/session                               4.52 kB         139 kB
+# ├ ƒ /kana/session/summary                       1.81 kB         111 kB
+# ├ ƒ /path                                       3.22 kB         118 kB
+# ├ ƒ /profile                                    2.59 kB         117 kB
+# ├ ƒ /review                                     4.66 kB         130 kB
+# ├ ƒ /songs                                        135 B         141 kB
+# ├ ƒ /songs/[slug]                               8.87 kB         128 kB
+# └ ƒ /vocabulary                                 1.73 kB         116 kB
+
+# Shared chunks
+First Load JS shared by all   102 kB
+  # ├ chunks/1255-aadf393aa3a56bfa.js               46 kB
+  # ├ chunks/4bd1b696-f785427dddbba9fb.js         54.2 kB
+  # └ other shared chunks (total)                 2.21 kB
+
+# D-12 soft cap: +10 KB on /path First Load JS
+# Wave 4 verification compares against Y = 118 kB above
+# Breach threshold: 128 kB First Load JS on /path
