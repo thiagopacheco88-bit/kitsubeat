@@ -175,7 +175,20 @@ export default function LyricsPanel({
     if (activeVerse === null) return;
     const el = verseRefs.current.get(activeVerse);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      const panel = el.closest<HTMLElement>("[data-testid='song-lyrics-panel']");
+      if (!panel) return;
+
+      const panelRect = panel.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      const centeredOffset =
+        elRect.top -
+        panelRect.top -
+        Math.max(0, (panel.clientHeight - el.clientHeight) / 2);
+
+      panel.scrollTo({
+        top: panel.scrollTop + centeredOffset,
+        behavior: "smooth",
+      });
     }
   }, [activeVerse]);
 

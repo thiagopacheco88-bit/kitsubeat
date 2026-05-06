@@ -90,14 +90,6 @@ export default function YouTubeEmbed({
   // the lyrics panel below the video is immediately visible. Only fires once
   // per mount — the user can scroll freely after that without us fighting them.
   const hasScrolledOnFirstPlayRef = useRef(false);
-  // Arms the first-play scroll only after the user actually taps/clicks the
-  // player container. Without this, cached user activation from the previous
-  // page (navigator.userActivation stays live for ~5s) or a YT autoplay
-  // transition through PLAYING would fire the scroll on desktop with no real
-  // intent. Pointerdown is the right signal: it fires on the container before
-  // focus moves into the cross-origin iframe on every pointer device.
-  const userTappedPlayerRef = useRef(false);
-
   // Per-version session key for idempotent play recording. Regenerated inside
   // the player-init effect on every videoId / version change so a user who
   // toggles TV → Full gets a fresh row — captures "user explored both cuts"
@@ -322,24 +314,37 @@ export default function YouTubeEmbed({
                   // swallow — do not disrupt playback
                 });
               }
-              // Three conditions must all hold for the mobile first-play
-              // scroll: (1) viewport is actually mobile-sized, (2) the user
-              // tapped the player container directly this mount (not just had
-              // some recent click on a previous page), (3) we haven't scrolled
-              // yet this mount. Without (2), YT autoplay transitions or cached
-              // user activation can trigger a spurious scroll on desktop.
+              // Mobile first-play scroll: YouTube iframes can swallow pointer
+              // events before React sees them, so the reliable intent signal
+              // is the first real PLAYING event. Keep this one-shot and mobile
+              // only so desktop and later user scrolling remain undisturbed.
               const isMobileViewport =
                 typeof window !== "undefined" &&
                 window.matchMedia("(max-width: 1023px)").matches;
               if (
                 !hasScrolledOnFirstPlayRef.current &&
-                isMobileViewport &&
-                userTappedPlayerRef.current
+                isMobileViewport
               ) {
                 hasScrolledOnFirstPlayRef.current = true;
-                containerRef.current
-                  ?.closest<HTMLElement>("[data-song-layout]")
-                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                const videoPanel = containerRef.current?.closest<HTMLElement>(
+                  "[data-testid='song-video-panel']",
+                );
+                const appHeader = document.querySelector<HTMLElement>(
+                  "body > header",
+                );
+                if (videoPanel) {
+                  const headerHeight =
+                    appHeader?.getBoundingClientRect().height ?? 0;
+                  const top =
+                    videoPanel.getBoundingClientRect().top +
+                    window.scrollY -
+                    headerHeight -
+                    20;
+                  window.scrollTo({
+                    top: Math.max(0, top),
+                    behavior: "smooth",
+                  });
+                }
               }
             } else {
               stopTracking();
@@ -459,9 +464,6 @@ export default function YouTubeEmbed({
         <div
           ref={containerRef}
           data-yt-state={embedState}
-          onPointerDown={() => {
-            userTappedPlayerRef.current = true;
-          }}
           className="aspect-video w-full overflow-hidden rounded-lg bg-black [&>iframe]:h-full [&>iframe]:w-full [&>div]:h-full [&>div]:w-full"
         />
       )}
