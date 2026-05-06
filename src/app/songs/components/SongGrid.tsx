@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { SongListItem } from "@/lib/db/queries";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -23,6 +23,8 @@ export default function SongGrid({
   const [search, setSearch] = useState(initialSearch);
   const [jlptFilter, setJlptFilter] = useState<string | null>(null);
   const [difficultyFilter, setDifficultyFilter] = useState<string | null>(null);
+  const hasFilters =
+    search !== "" || jlptFilter !== null || difficultyFilter !== null;
 
   const filtered = useMemo(() => {
     let result = songs;
@@ -57,95 +59,104 @@ export default function SongGrid({
   }, [filtered]);
 
   return (
-    <div>
-      {/*
-        Control row.
-        Mobile: toggle on its own row at top (order-first + w-full forces wrap),
-        then search + filters below.
-        Desktop: single row — search + filters left, toggle pushed right (order-last + ml-auto).
-      */}
-      <div className="mb-6 flex flex-wrap items-center gap-2">
-        <div className="order-first flex w-full overflow-hidden rounded border border-[var(--color-border)] sm:order-last sm:ml-auto sm:w-auto">
-          <Link
-            href="/anime-list"
-            className={`flex-1 px-3 py-1.5 text-center text-xs font-medium transition-colors sm:flex-none ${
-              view === "by-anime"
-                ? "bg-[var(--color-accent)] [color:white]"
-                : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
-            }`}
-          >
-            Anime
-          </Link>
-          <Link
-            href="/songs"
-            className={`flex-1 px-3 py-1.5 text-center text-xs font-medium transition-colors sm:flex-none ${
-              view === "all"
-                ? "bg-[var(--color-accent)] [color:white]"
-                : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
-            }`}
-          >
-            Songs
-          </Link>
-        </div>
-
-        <input
-          type="text"
-          placeholder="Search songs, artists, anime…"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="min-w-0 flex-1 rounded border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-1.5 text-sm text-[var(--color-text)] placeholder-[var(--color-text-dim)] outline-none focus:border-[var(--color-border-strong)] sm:max-w-xs"
-        />
-
-        <div className="flex gap-1">
-          {JLPT_LEVELS.map((level) => (
-            <button
-              key={level}
-              onClick={() =>
-                setJlptFilter(jlptFilter === level ? null : level)
-              }
-              className={`rounded px-2 py-1 text-xs font-medium transition-colors ${
-                jlptFilter === level
-                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
-                  : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
+    <div className="flex flex-col gap-5">
+      <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 shadow-[var(--shadow-card-ring)] sm:p-4">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
+          <div className="flex w-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-1 lg:order-last lg:ml-auto lg:w-auto">
+            <Link
+              href="/anime-list"
+              className={`flex min-h-11 flex-1 items-center justify-center rounded-[var(--radius-md)] px-4 text-sm font-semibold transition-colors lg:flex-none ${
+                view === "by-anime"
+                  ? "bg-[var(--color-accent)] text-white shadow-sm"
+                  : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
               }`}
             >
-              {level}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex gap-1">
-          {DIFFICULTY_TIERS.map((tier) => (
-            <button
-              key={tier}
-              onClick={() =>
-                setDifficultyFilter(difficultyFilter === tier ? null : tier)
-              }
-              className={`rounded px-2 py-1 text-xs capitalize transition-colors ${
-                difficultyFilter === tier
-                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
-                  : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)]"
+              Anime
+            </Link>
+            <Link
+              href="/songs"
+              className={`flex min-h-11 flex-1 items-center justify-center rounded-[var(--radius-md)] px-4 text-sm font-semibold transition-colors lg:flex-none ${
+                view === "all"
+                  ? "bg-[var(--color-accent)] text-white shadow-sm"
+                  : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
               }`}
             >
-              {tier}
+              Songs
+            </Link>
+          </div>
+
+          <input
+            type="text"
+            placeholder="Search songs, artists, anime..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="min-h-11 min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 text-sm text-[var(--color-text)] outline-none transition-colors placeholder:text-[var(--color-text-dim)] focus:border-[var(--color-border-strong)] lg:w-72"
+          />
+
+          <div className="flex min-w-0 flex-wrap gap-1.5">
+            {JLPT_LEVELS.map((level) => (
+              <button
+                key={level}
+                onClick={() =>
+                  setJlptFilter(jlptFilter === level ? null : level)
+                }
+                className={`min-h-11 rounded-[var(--radius-md)] px-3 text-xs font-semibold transition-colors ${
+                  jlptFilter === level
+                    ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                    : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
+                }`}
+              >
+                {level}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex min-w-0 flex-wrap gap-1.5">
+            {DIFFICULTY_TIERS.map((tier) => (
+              <button
+                key={tier}
+                onClick={() =>
+                  setDifficultyFilter(difficultyFilter === tier ? null : tier)
+                }
+                className={`min-h-11 rounded-[var(--radius-md)] px-3 text-xs font-semibold capitalize transition-colors ${
+                  difficultyFilter === tier
+                    ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                    : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
+                }`}
+              >
+                {tier}
+              </button>
+            ))}
+          </div>
+
+          {hasFilters && (
+            <button
+              type="button"
+              onClick={() => {
+                setSearch("");
+                setJlptFilter(null);
+                setDifficultyFilter(null);
+              }}
+              className="min-h-11 rounded-[var(--radius-md)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
+            >
+              Clear
             </button>
-          ))}
+          )}
         </div>
       </div>
 
-      <p className="mb-4 text-sm text-[var(--color-text-dim)]">
+      <p className="px-1 text-sm text-[var(--color-text-dim)]">
         {filtered.length} song{filtered.length !== 1 ? "s" : ""}
         {view === "by-anime" && ` across ${groupedByAnime.length} anime`}
       </p>
 
-      {/* By anime — horizontal carousels */}
       {view === "by-anime" && (
-        <div className="flex flex-col gap-8">
+        <div className="flex min-w-0 flex-col gap-8">
           {groupedByAnime.map(([anime, animeSongs]) => (
-            <div key={anime}>
-              <h3 className="mb-3 flex items-baseline gap-2 text-lg font-semibold text-[var(--color-text)]">
-                {anime}
-                <span className="text-sm font-normal text-[var(--color-text-dim)]">
+            <section key={anime} className="min-w-0">
+              <h3 className="mb-3 flex min-w-0 items-baseline gap-2 px-1 text-lg font-semibold text-[var(--color-text)]">
+                <span className="truncate">{anime}</span>
+                <span className="shrink-0 text-sm font-normal text-[var(--color-text-dim)]">
                   {animeSongs.length} song{animeSongs.length !== 1 ? "s" : ""}
                 </span>
               </h3>
@@ -156,12 +167,11 @@ export default function SongGrid({
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
           ))}
         </div>
       )}
 
-      {/* All songs flat grid */}
       {view === "all" && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((song) => (

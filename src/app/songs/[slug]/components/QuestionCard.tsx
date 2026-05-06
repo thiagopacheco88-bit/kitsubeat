@@ -38,7 +38,7 @@ export default function QuestionCard({
 }: QuestionCardProps) {
   const [chosen, setChosen] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState(false);
-  const startTimeRef = useRef<number>(Date.now());
+  const startTimeRef = useRef<number>(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
 
   // Pull tier state from the session store
@@ -67,6 +67,10 @@ export default function QuestionCard({
     }
   }, [chosen]);
 
+  useEffect(() => {
+    startTimeRef.current = performance.now();
+  }, [question.id]);
+
   // Shuffle options ONCE per question ID (stable across re-renders)
   const options = useMemo(
     () => shuffle([question.correctAnswer, ...question.distractors]),
@@ -77,7 +81,8 @@ export default function QuestionCard({
   const handleSelect = (option: string) => {
     if (chosen !== null) return; // already answered
 
-    const timeMs = Date.now() - startTimeRef.current;
+    // eslint-disable-next-line react-hooks/purity -- event timestamp, not render output
+    const timeMs = Math.max(0, Math.round(performance.now() - startTimeRef.current));
     const correct = option === question.correctAnswer;
     setChosen(option);
     setIsCorrect(correct);
@@ -213,15 +218,18 @@ export default function QuestionCard({
     // Used by tests/e2e/exercise-resume-mid-session.spec.ts to track question identity
     // across reloads. The correct answer is NEVER exposed as a data-attribute — tests
     // read it via window.__kbExerciseStore (gated on NEXT_PUBLIC_APP_ENV === 'test').
-    <div data-question-id={question.id} data-question-type={question.type} className="flex flex-col gap-4">
-      {/* Question type label */}
-      <p className="text-xs uppercase tracking-wider text-[var(--color-text-dim)]">
-        {question.type.replace(/_/g, " ")}
-      </p>
-
-      {/* Question prompt */}
-      <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
-        {renderPrompt()}
+    <div
+      data-question-id={question.id}
+      data-question-type={question.type}
+      className="flex flex-col gap-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring)] sm:p-5"
+    >
+      <div className="flex flex-col gap-2 rounded-[var(--radius-lg)] bg-[var(--color-card-2)] p-4">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          {question.type.replace(/_/g, " ")}
+        </p>
+        <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
+          {renderPrompt()}
+        </div>
       </div>
 
       {/* Reveal reading button — visible only when unanswered, tier > 1, and not yet revealed */}
@@ -229,7 +237,7 @@ export default function QuestionCard({
         <button
           type="button"
           onClick={() => markRevealed(question.id)}
-          className="self-start text-xs underline text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+          className="min-h-11 self-start rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-xs font-semibold text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
         >
           Reveal reading
         </button>
@@ -242,7 +250,7 @@ export default function QuestionCard({
             key={option}
             onClick={() => handleSelect(option)}
             disabled={chosen !== null}
-            className={`rounded-lg border px-4 py-3 text-left text-sm font-medium transition-colors ${getOptionStyle(option)}`}
+            className={`min-h-16 rounded-[var(--radius-lg)] border px-4 py-3 text-left text-sm font-semibold transition-colors ${getOptionStyle(option)}`}
           >
             {renderOption(option)}
           </button>

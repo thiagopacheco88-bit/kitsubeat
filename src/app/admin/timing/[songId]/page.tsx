@@ -1,27 +1,23 @@
 /**
- * /admin/timing/[songId] — Timing editor page
+ * /admin/timing/[songId] - Timing editor page
  *
  * Server component that fetches song timing data and renders the TimingEditor.
  *
  * Audio URL strategy:
- *   Audio files are served from public/audio/{slug}.mp3 — created by the
- *   WhisperX extraction script (04-extract-timing.py) which copies the mp3
- *   to public/audio/ after yt-dlp download.
- *
- *   Production audio serving strategy will be decided in a later phase.
- *   For now the admin must run the timing extraction script before editing.
+ *   Audio files are served from public/audio/{slug}.mp3, created by the
+ *   WhisperX extraction script (04-extract-timing.py).
  *
  * TODO: Gate behind admin role in Phase 3.
  */
 
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { songs, songVersions } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
+import type { TimingData, WordTiming } from "@/lib/timing-types";
 import TimingEditor from "../components/TimingEditor";
 import TimingSaveHandler from "../components/TimingSaveHandler";
-import type { TimingData, WordTiming } from "@/lib/timing-types";
-import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -32,7 +28,6 @@ interface PageProps {
 export default async function TimingEditorPage({ params }: PageProps) {
   const { songId } = await params;
 
-  // songId is actually a song_versions.id — timing lives on versions.
   const [row] = await db
     .select({
       id: songVersions.id,
@@ -50,63 +45,52 @@ export default async function TimingEditorPage({ params }: PageProps) {
     .where(eq(songVersions.id, songId))
     .limit(1);
 
-  if (!row) {
-    notFound();
-  }
+  if (!row) notFound();
 
   const song = row;
-
   const timingData = song.timing_data as TimingData | null;
   const words: WordTiming[] = timingData?.words ?? [];
-
-  // Stats
   const totalWords = words.length;
   const lowConfidenceCount = words.filter((w) => w.low_confidence).length;
-
-  // Audio URL: served from public/audio/{slug}.mp3
-  // Admin must run 04-extract-timing.py first to create this file.
   const audioUrl = `/audio/${song.slug}.mp3`;
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
-      {/* Breadcrumb */}
-      <div style={{ marginBottom: "16px", fontSize: "13px", color: "#6b7280" }}>
-        <Link href="/admin/timing" style={{ color: "#6366f1", textDecoration: "none" }}>
+    <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6">
+      <div className="text-sm text-[var(--color-text-muted)]">
+        <Link
+          href="/admin/timing"
+          className="font-semibold text-[var(--color-accent)] no-underline"
+        >
           Timing Editor
         </Link>
         {" / "}
         {song.title}
       </div>
 
-      {/* Song header */}
-      <div style={{ marginBottom: "24px" }}>
-        <h1 style={{ fontSize: "22px", fontWeight: 700, color: "#111827", margin: "0 0 4px 0" }}>
+      <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          Admin timing
+        </p>
+        <h1 className="mt-1 text-3xl font-bold text-[var(--color-text)]">
           {song.title}
         </h1>
-        <p style={{ color: "#6b7280", margin: 0, fontSize: "14px" }}>
-          {song.artist} — <em>{song.anime}</em>
+        <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+          {song.artist} - <em>{song.anime}</em>
         </p>
-      </div>
+      </header>
 
-      {/* Stats row */}
-      <div
-        style={{
-          display: "flex",
-          gap: "24px",
-          marginBottom: "24px",
-          padding: "12px 16px",
-          background: "#f9fafb",
-          borderRadius: "8px",
-          border: "1px solid #e5e7eb",
-          fontSize: "13px",
-          color: "#374151",
-        }}
-      >
+      <div className="flex flex-wrap gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 text-sm text-[var(--color-text-muted)] shadow-[var(--shadow-card-ring)]">
         <span>
           <strong>{totalWords}</strong> words
         </span>
         <span>
-          <strong style={{ color: lowConfidenceCount > 0 ? "#ef4444" : "#10b981" }}>
+          <strong
+            className={
+              lowConfidenceCount > 0
+                ? "text-[var(--color-jlpt-n1)]"
+                : "text-[var(--color-jlpt-n5)]"
+            }
+          >
             {lowConfidenceCount}
           </strong>{" "}
           low-confidence
@@ -119,25 +103,17 @@ export default async function TimingEditorPage({ params }: PageProps) {
         </span>
         {song.timing_youtube_id && (
           <span>
-            YouTube ID: <code style={{ fontSize: "12px" }}>{song.timing_youtube_id}</code>
+            YouTube ID:{" "}
+            <code className="text-xs">{song.timing_youtube_id}</code>
           </span>
         )}
       </div>
 
-      {/* Timing editor — client component handles wavesurfer */}
       {words.length === 0 ? (
-        <div
-          style={{
-            padding: "24px",
-            background: "#fef3c7",
-            border: "1px solid #fcd34d",
-            borderRadius: "8px",
-            color: "#92400e",
-            fontSize: "14px",
-          }}
-        >
-          <strong>No timing data found.</strong> Run the WhisperX extraction script first:
-          <pre style={{ marginTop: "8px", fontSize: "12px" }}>
+        <div className="rounded-[var(--radius-2xl)] border border-[var(--color-jlpt-n3-ring)] bg-[var(--color-jlpt-n3-bg)] p-5 text-sm text-[var(--color-jlpt-n3)]">
+          <strong>No timing data found.</strong> Run the WhisperX extraction
+          script first:
+          <pre className="mt-2 overflow-x-auto text-xs">
             python scripts/seed/04-extract-timing.py {song.slug} {"{youtube_id}"}
           </pre>
         </div>
@@ -153,6 +129,6 @@ export default async function TimingEditorPage({ params }: PageProps) {
           )}
         </TimingSaveHandler>
       )}
-    </div>
+    </main>
   );
 }

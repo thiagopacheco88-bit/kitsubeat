@@ -45,14 +45,19 @@ describe("SectionHeader", () => {
     const { queryByText } = render(
       <SectionHeader titleJp="基礎" title="Foundations" />,
     );
-    expect(queryByText(/View all/i)).toBeNull();
+    expect(queryByText(/Browse/i)).toBeNull();
   });
 
   it("Test 4: viewAll present — renders <a href> with View all text", () => {
     const { getByText } = render(
-      <SectionHeader titleJp="特集" title="Featured Songs" viewAll="/songs" />,
+      <SectionHeader
+        titleJp="特集"
+        title="Featured Songs"
+        viewAll="/songs"
+        viewAllLabel="Browse Songs"
+      />,
     );
-    const link = getByText(/View all/i).closest("a");
+    const link = getByText(/Browse Songs/i).closest("a");
     expect(link).not.toBeNull();
     expect(link?.getAttribute("href")).toBe("/songs");
   });

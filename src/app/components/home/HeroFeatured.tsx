@@ -35,6 +35,7 @@
  */
 import Link from "next/link";
 import type { HeroSongResult } from "@/lib/db/queries";
+import { HeroCoverImage } from "./HeroCoverImage";
 
 interface HeroFeaturedProps {
   hero: HeroSongResult;
@@ -65,15 +66,10 @@ export function HeroFeatured({ hero }: HeroFeaturedProps) {
     >
       {/* Cover - full bleed with maxresdefault.jpg + mqdefault.jpg onError fallback */}
       {coverSrc ? (
-        <img
+        <HeroCoverImage
           src={coverSrc}
+          fallbackSrc={coverFallback}
           alt={song.title}
-          className="absolute inset-0 w-full h-full object-cover"
-          data-testid="hero-cover"
-          onError={(e) => {
-            const img = e.currentTarget;
-            if (coverFallback && img.src !== coverFallback) img.src = coverFallback;
-          }}
         />
       ) : (
         <div

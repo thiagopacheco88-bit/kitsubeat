@@ -57,23 +57,23 @@ export default function VerseBlock({
             }
           : undefined
       }
-      className={`rounded-lg border p-4 transition-all duration-300 ${
+      className={`rounded-[var(--radius-lg)] border p-4 transition-all duration-300 ${
         canSeek ? "cursor-pointer" : ""
       } ${
         isActive
-          ? "border-red-500/50 bg-red-950/20 shadow-lg shadow-red-500/5"
+          ? "border-[var(--color-accent)]/50 bg-[var(--color-accent)]/10 shadow-[var(--shadow-hero-glow)]"
           : isFiller
-            ? "border-gray-900 bg-gray-950/40 opacity-70 hover:border-gray-800"
-            : "border-gray-800 bg-gray-900/50 hover:border-gray-700"
+            ? "border-[var(--color-border)] bg-[var(--color-card)]/40 opacity-70 hover:border-[var(--color-border-strong)]"
+            : "border-[var(--color-border)] bg-[var(--color-card)] hover:border-[var(--color-border-strong)]"
       }`}
     >
-      <div className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-wider text-gray-600">
+      <div className="mb-2 flex items-center gap-2 text-[var(--text-micro)] font-medium uppercase tracking-wider text-[var(--color-text-dim)]">
         {/* Phase 11.6 D-14: gold star next to dominated verses. Sits before
             the "Verse N" label so it reads as a badge on the verse. */}
         {isDominated && <VerseStarIcon />}
         <span>Verse {verse.verse_number}</span>
         {isFiller && (
-          <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[9px] text-gray-500">
+          <span className="rounded-[var(--radius-sm)] bg-[var(--color-card-2)] px-1.5 py-0.5 text-[var(--text-nano)] text-[var(--color-text-dim)]">
             placeholder
           </span>
         )}
@@ -88,14 +88,14 @@ export default function VerseBlock({
 
       {/* Romaji (suppress for filler — surface already renders as romaji text) */}
       {showRomaji && !isFiller && (
-        <p className="mb-2 text-xs leading-relaxed text-gray-500">
+        <p className="mb-2 text-xs leading-relaxed text-[var(--color-text-dim)]">
           {verse.tokens.map((t) => t.romaji).join(" ")}
         </p>
       )}
 
       {/* Translation — filler verses skip the placeholder gloss */}
       {!isFiller && (
-        <p className="mb-1.5 text-sm leading-relaxed text-gray-300">
+        <p className="mb-1.5 text-sm leading-relaxed text-[var(--color-text-muted)]">
           {translation}
         </p>
       )}
@@ -103,7 +103,7 @@ export default function VerseBlock({
       {/* Collapsible word-by-word breakdown — skipped for filler verses */}
       {!isFiller && (
       <details className="group">
-        <summary className="cursor-pointer text-xs text-gray-600 hover:text-gray-400">
+        <summary className="cursor-pointer text-xs text-[var(--color-text-dim)] hover:text-[var(--color-text-muted)]">
           Word-by-word breakdown
         </summary>
         <div className="mt-2 space-y-1">
@@ -116,23 +116,23 @@ export default function VerseBlock({
                 >
                   {token.surface}
                 </span>
-                <span className="text-gray-500">
+                <span className="text-[var(--color-text-dim)]">
                   {token.reading !== token.surface ? token.reading + " = " : ""}
                   {token.romaji}
                 </span>
-                <span className="text-gray-400">
+                <span className="text-[var(--color-text-muted)]">
                   = {localize(token.meaning, translationLang)}
                 </span>
               </div>
             ))}
         </div>
         {verse.literal_meaning && (
-          <p className="mt-2 text-xs text-gray-500">
+          <p className="mt-2 text-xs text-[var(--color-text-dim)]">
             {localize(verse.literal_meaning, translationLang)}
           </p>
         )}
         {verse.cultural_context && (
-          <p className="mt-1 text-xs italic text-gray-600">
+          <p className="mt-1 text-xs italic text-[var(--color-text-dim)]">
             {localize(verse.cultural_context, translationLang)}
           </p>
         )}

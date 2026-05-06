@@ -19,7 +19,7 @@ export default function PlayerControls() {
   } = usePlayer();
 
   return (
-    <div className="flex flex-wrap items-center gap-3 rounded-lg border border-gray-800 bg-gray-900 px-4 py-3">
+    <div className="flex min-w-0 flex-wrap items-center gap-2 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 sm:gap-3 sm:px-4 sm:py-3">
       <Toggle
         label="Furigana"
         active={showFurigana}
@@ -30,15 +30,15 @@ export default function PlayerControls() {
         active={showRomaji}
         onToggle={() => setShowRomaji(!showRomaji)}
       />
-      <div className="ml-auto flex items-center gap-1">
+      <div className="flex min-w-0 flex-wrap items-center gap-1 sm:ml-auto">
         {LANGS.map((lang) => (
           <button
             key={lang.code}
             onClick={() => setTranslationLang(lang.code)}
-            className={`rounded px-2 py-1 text-xs font-medium transition-colors ${
+            className={`min-h-11 rounded-[var(--radius-sm)] px-2 py-1 text-xs font-medium transition-colors ${
               translationLang === lang.code
-                ? "bg-white text-gray-900"
-                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
             }`}
           >
             {lang.label}
@@ -61,10 +61,10 @@ function Toggle({
   return (
     <button
       onClick={onToggle}
-      className={`rounded px-2.5 py-1 text-xs font-medium transition-colors ${
+      className={`min-h-11 rounded-[var(--radius-sm)] px-3 py-1 text-xs font-medium transition-colors ${
         active
-          ? "bg-red-500/20 text-red-400"
-          : "bg-gray-800 text-gray-500 hover:bg-gray-700"
+          ? "bg-[var(--color-accent)]/15 text-[var(--color-accent-readable)]"
+          : "bg-[var(--color-card-2)] text-[var(--color-text-dim)] hover:text-[var(--color-text-muted)]"
       }`}
     >
       {label} {active ? "ON" : "OFF"}

@@ -143,15 +143,15 @@ export default function ExerciseSession({
     return (
       <div ref={sessionRef} className="flex flex-col gap-4 scroll-mt-16">
         {/* Progress bar + counter stay in place so users see they haven't advanced */}
-        <div className="h-1.5 w-full overflow-hidden rounded-full bg-gray-800">
+        <div className="h-2 w-full overflow-hidden rounded-[var(--radius-pill)] bg-[var(--color-card-2)]">
           <div
-            className="h-full rounded-full bg-red-600 transition-all duration-500"
+            className="h-full rounded-[var(--radius-pill)] bg-[var(--color-accent)] transition-all duration-500"
             style={{ width: `${progressPct}%` }}
           />
         </div>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-[var(--color-text-muted)]">
           Question{" "}
-          <span className="font-semibold text-white">{currentIndex + 1}</span> /{" "}
+          <span className="font-semibold text-[var(--color-text)]">{currentIndex + 1}</span> /{" "}
           {total}
         </p>
         <LearnCard
@@ -234,20 +234,27 @@ export default function ExerciseSession({
 
   return (
     <div ref={sessionRef} className="flex flex-col gap-4 scroll-mt-16">
-      {/* Progress bar */}
-      <div className="h-1.5 w-full overflow-hidden rounded-full bg-gray-800">
-        <div
-          className="h-full rounded-full bg-red-600 transition-all duration-500"
-          style={{ width: `${progressPct}%` }}
-        />
+      <div className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring)]">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+              Question {currentIndex + 1}
+            </p>
+            <p className="text-sm text-[var(--color-text-muted)]">
+              {total - currentIndex} round{total - currentIndex === 1 ? "" : "s"} left
+            </p>
+          </div>
+          <span className="rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-3 py-1 text-sm font-semibold text-[var(--color-text)]">
+            {currentIndex + 1}/{total}
+          </span>
+        </div>
+        <div className="h-2 w-full overflow-hidden rounded-[var(--radius-pill)] bg-[var(--color-card-2)]">
+          <div
+            className="h-full rounded-[var(--radius-pill)] bg-[var(--color-accent)] transition-all duration-500"
+            style={{ width: `${progressPct}%` }}
+          />
+        </div>
       </div>
-
-      {/* Question counter */}
-      <p className="text-sm text-gray-400">
-        Question{" "}
-        <span className="font-semibold text-white">{currentIndex + 1}</span> /{" "}
-        {total}
-      </p>
 
       {/* Question card with opacity transition */}
       <div

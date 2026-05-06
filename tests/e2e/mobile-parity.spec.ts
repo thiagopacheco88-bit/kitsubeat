@@ -67,13 +67,9 @@ test.describe("Phase 14 / mobile parity (390x844)", () => {
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,
     );
-    // Plan 14-05: In-scope migrated components don't introduce horizontal
-    // scroll. The page-level overflow currently comes from out-of-scope
-    // surfaces (lyrics panel + version selector + global header) and clears
-    // when 14-06/14-09 migrate those. Track in deferred-items D-PRE-08.
-    // Assertion is currently lenient (<=24) to acknowledge the pre-existing
-    // overflow without masking regressions Plan 14-05 might introduce.
-    expect(overflow).toBeLessThanOrEqual(24);
+    // Phase 14.3 owns the lesson shell, version selector, and song-page chrome,
+    // so /songs/[slug] now gets the strict no-sideways-scroll assertion.
+    expect(overflow).toBeLessThanOrEqual(0);
   });
 
   test("/songs/again-yui — tap targets >=44x44 (Plan 14-05 scope)", async ({

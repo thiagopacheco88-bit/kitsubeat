@@ -19,7 +19,7 @@ export default function GrammarSection({
       <div className="mb-3 flex items-center justify-between">
         <button
           onClick={() => setSectionOpen(!sectionOpen)}
-          className="flex items-center gap-2 text-lg font-semibold text-white hover:text-gray-300 transition-colors"
+          className="flex items-center gap-2 text-lg font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-text-muted)]"
         >
           <svg
             className={`h-4 w-4 shrink-0 transition-transform ${sectionOpen ? "rotate-90" : ""}`}
@@ -33,16 +33,16 @@ export default function GrammarSection({
             />
           </svg>
           Grammar Points
-          <span className="text-sm font-normal text-gray-500">
+          <span className="text-sm font-normal text-[var(--color-text-dim)]">
             {points.length}
           </span>
         </button>
         <button
           onClick={() => setShowRomaji(!showRomaji)}
-          className={`rounded px-2 py-1 text-xs font-medium transition-colors ${
+          className={`min-h-11 rounded-[var(--radius-sm)] px-2 py-1 text-xs font-medium transition-colors ${
             showRomaji
-              ? "bg-red-500/20 text-red-400"
-              : "bg-gray-800 text-gray-500 hover:bg-gray-700"
+              ? "bg-[var(--color-accent)]/15 text-[var(--color-accent-readable)]"
+              : "bg-[var(--color-card-2)] text-[var(--color-text-dim)] hover:text-[var(--color-text-muted)]"
           }`}
         >
           Romaji {showRomaji ? "ON" : "OFF"}
@@ -72,13 +72,13 @@ function GrammarCard({
   const explanation = showRomaji ? rawExplanation : stripRomaji(rawExplanation);
 
   return (
-    <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)] p-4">
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-start gap-2 text-left"
       >
         <svg
-          className={`mt-1.5 h-3 w-3 shrink-0 transition-transform text-gray-500 ${open ? "rotate-90" : ""}`}
+          className={`mt-1.5 h-3 w-3 shrink-0 text-[var(--color-text-dim)] transition-transform ${open ? "rotate-90" : ""}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -94,11 +94,11 @@ function GrammarCard({
               const parts = parseRuleName(point.name);
               return (
                 <>
-                  <span className="text-base font-semibold text-white font-[family-name:var(--font-noto-jp)]">
+                  <span className="text-base font-semibold text-[var(--color-text)] font-[family-name:var(--font-noto-jp)]">
                     {parts.romaji}
                   </span>
                   {parts.kana && (
-                    <span className="text-sm text-gray-400 font-[family-name:var(--font-noto-jp)]">
+                    <span className="text-sm text-[var(--color-text-muted)] font-[family-name:var(--font-noto-jp)]">
                       {parts.kana}
                     </span>
                   )}
@@ -109,18 +109,18 @@ function GrammarCard({
           {(() => {
             const parts = parseRuleName(point.name);
             return parts.translation ? (
-              <span className="text-xs text-gray-400">{parts.translation}</span>
+              <span className="text-xs text-[var(--color-text-muted)]">{parts.translation}</span>
             ) : null;
           })()}
         </div>
-        <span className="rounded bg-gray-800 px-1.5 py-0.5 text-[10px] text-gray-400 shrink-0 mt-1.5">
+        <span className="rounded-[var(--radius-sm)] bg-[var(--color-card-2)] px-1.5 py-0.5 text-[var(--text-micro)] text-[var(--color-text-muted)] shrink-0 mt-1.5">
           {point.jlpt_reference}
         </span>
       </button>
 
       {open && (
         <>
-          <div className="mt-3 text-sm leading-relaxed text-gray-300">
+          <div className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
             {explanation.split("\n").map((line, i) => {
               if (!line.trim()) return <div key={i} className="h-2" />;
               // Lines may contain <ruby> furigana markup — render as HTML.
@@ -129,9 +129,9 @@ function GrammarCard({
                 const [label, ...rest] = line.split(":");
                 return (
                   <p key={i} className="mt-2 first:mt-0">
-                    <span className="font-medium text-gray-200">{label}:</span>
+                    <span className="font-medium text-[var(--color-text)]">{label}:</span>
                     <span
-                      className="text-gray-300"
+                      className="text-[var(--color-text-muted)]"
                       dangerouslySetInnerHTML={{ __html: rest.join(":") }}
                     />
                   </p>
@@ -141,7 +141,7 @@ function GrammarCard({
                 return (
                   <p
                     key={i}
-                    className="ml-4 text-gray-400 font-[family-name:var(--font-noto-jp)]"
+                    className="ml-4 text-[var(--color-text-muted)] font-[family-name:var(--font-noto-jp)]"
                     dangerouslySetInnerHTML={{ __html: line }}
                   />
                 );
@@ -157,9 +157,9 @@ function GrammarCard({
           </div>
 
           {point.conjugation_path && (
-            <div className="mt-3 rounded bg-gray-800/50 px-3 py-2">
-              <div className="text-xs text-gray-500 mb-1">Conjugation Path</div>
-              <p className="text-sm text-gray-300 font-[family-name:var(--font-noto-jp)]">
+            <div className="mt-3 rounded-[var(--radius-md)] bg-[var(--color-card-2)] px-3 py-2">
+              <div className="text-xs text-[var(--color-text-dim)] mb-1">Conjugation Path</div>
+              <p className="text-sm text-[var(--color-text-muted)] font-[family-name:var(--font-noto-jp)]">
                 {showRomaji ? point.conjugation_path : stripRomaji(point.conjugation_path)}
               </p>
             </div>

@@ -15,7 +15,7 @@ import { KanaCheckpointNode } from "@/app/path/components/KanaCheckpointNode";
 export function Foundations() {
   return (
     <section data-testid="foundations" className="pb-8">
-      <SectionHeader titleJp="基礎" title="Foundations" viewAll="/kana" />
+      <SectionHeader titleJp="基礎" title="Foundations" viewAll="/kana" viewAllLabel="Open Kana" />
       <div className="flex gap-3 px-4">
         <KanaCheckpointNode script="hiragana" size="home" />
         <KanaCheckpointNode script="katakana" size="home" />

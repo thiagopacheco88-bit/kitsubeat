@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { ClerkProvider, SignInButton, UserButton } from "@clerk/nextjs";
+import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { cookies } from "next/headers";
 import "./globals.css";
@@ -111,7 +111,7 @@ export default async function RootLayout({
               </svg>
               <span className="text-lg font-extrabold tracking-tight" aria-label="KitsuBeat">
                 <span className="text-[var(--color-text)]">Kitsu</span>
-                <span className="text-[var(--color-accent)]" data-testid="wordmark-emphasis">Beat</span>
+                <span className="text-[var(--color-accent-readable)]" data-testid="wordmark-emphasis">Beat</span>
               </span>
             </Link>
             <div className="flex items-center gap-4 sm:gap-6">
@@ -144,7 +144,7 @@ export default async function RootLayout({
                 {isAdmin && (
                   <Link
                     href="/admin/lyrics"
-                    className="whitespace-nowrap text-sm font-medium text-[var(--color-accent)] transition-colors hover:opacity-80"
+                    className="whitespace-nowrap text-sm font-medium text-[var(--color-accent-readable)] transition-colors hover:opacity-80"
                     data-testid="nav-admin-lyrics"
                   >
                     Admin
@@ -168,15 +168,13 @@ export default async function RootLayout({
                   <UserButton />
                 </>
               ) : (
-                <SignInButton mode="modal">
-                  <button
-                    type="button"
-                    className="whitespace-nowrap text-sm font-medium text-[var(--color-accent)] transition-colors hover:opacity-80"
-                    data-testid="nav-sign-in"
-                  >
-                    Sign in
-                  </button>
-                </SignInButton>
+                <Link
+                  href="/sign-in"
+                  className="whitespace-nowrap text-sm font-medium text-[var(--color-accent-readable)] transition-colors hover:opacity-80"
+                  data-testid="nav-sign-in"
+                >
+                  Sign in
+                </Link>
               )}
               <ThemeToggle userId={signedInUserId} />
             </div>

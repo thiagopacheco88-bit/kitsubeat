@@ -40,6 +40,7 @@ export default function KanaSessionSummaryPage() {
     try {
       const raw = sessionStorage.getItem("kitsubeat-kana-last-session");
       if (!raw) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setSnapshot(null);
         return;
       }
@@ -52,14 +53,14 @@ export default function KanaSessionSummaryPage() {
 
   if (snapshot === "loading") {
     return (
-      <main className="mx-auto max-w-2xl p-6">
-        <div className="h-64 animate-pulse rounded bg-[var(--color-card-2)]" />
+      <main className="mx-auto max-w-2xl px-4 py-6 sm:px-6">
+        <div className="h-80 animate-pulse rounded-[var(--radius-2xl)] bg-[var(--color-card-2)]" />
       </main>
     );
   }
 
   return (
-    <main className="mx-auto max-w-2xl p-6">
+    <main className="mx-auto max-w-2xl px-4 py-6 sm:px-6">
       <KanaSessionSummary snapshot={snapshot} />
     </main>
   );

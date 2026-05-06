@@ -15,7 +15,7 @@ export default function TokenSpan({ token }: { token: Token }) {
   const [showPopup, setShowPopup] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
-  const colorClass = GRAMMAR_COLOR_CLASS[token.grammar] ?? "text-gray-300";
+  const colorClass = GRAMMAR_COLOR_CLASS[token.grammar] ?? "text-[var(--color-text-muted)]";
   const needsFurigana =
     showFurigana && hasKanji(token.surface) && token.surface !== token.reading;
 
@@ -23,13 +23,13 @@ export default function TokenSpan({ token }: { token: Token }) {
     <span ref={ref} className="relative inline-block">
       <span
         onClick={() => setShowPopup(!showPopup)}
-        className={`cursor-pointer rounded px-0.5 transition-colors hover:bg-white/10 ${colorClass}`}
+        className={`cursor-pointer rounded px-0.5 transition-colors hover:bg-[var(--color-card-2)] ${colorClass}`}
       >
         {needsFurigana ? (
           <ruby>
             {token.surface}
             <rp>(</rp>
-            <rt className="text-[0.55em] font-normal text-gray-400">
+            <rt className="text-[0.55em] font-normal text-[var(--color-text-muted)]">
               {token.reading}
             </rt>
             <rp>)</rp>

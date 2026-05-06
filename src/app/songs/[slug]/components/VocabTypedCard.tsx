@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import type { Question } from "@/lib/exercises/generator";
 import { romajiEquals } from "@/lib/exercises/romaji-normalize";
+import { Button } from "@/components/ui/Button";
 import KanjiBreakdownSection from "./KanjiBreakdownSection";
 
 interface Props {
@@ -37,16 +38,19 @@ export default function VocabTypedCard({
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
-  const startTimeRef = useRef(Date.now());
+  const startTimeRef = useRef(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Reset state when the question changes (session advances to next word)
   useEffect(() => {
+    // Existing card lifecycle intentionally resets the local answer state when
+    // the session advances to a new question.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setInput("");
     setSubmitted(false);
     setIsCorrect(false);
     setImageFailed(false);
-    startTimeRef.current = Date.now();
+    startTimeRef.current = performance.now();
     // Auto-focus the input for fast typing on each new question
     inputRef.current?.focus();
   }, [question.id]);
@@ -60,7 +64,7 @@ export default function VocabTypedCard({
     const correct = romajiEquals(trimmed, question.correctAnswer);
     setIsCorrect(correct);
     setSubmitted(true);
-    onAnswered(trimmed, correct, Date.now() - startTimeRef.current);
+    onAnswered(trimmed, correct, Math.max(0, Math.round(performance.now() - startTimeRef.current)));
   }
 
   const meaningText = question.meaning_en ?? question.vocabInfo.romaji ?? "";
@@ -69,7 +73,7 @@ export default function VocabTypedCard({
     question.kanji_breakdown.characters.length > 0;
 
   return (
-    <div className="flex flex-col gap-4 rounded-xl border border-gray-700 bg-gray-900 p-6">
+    <div className="flex flex-col gap-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 shadow-[var(--shadow-card-ring)]">
       {/* Image above the prompt — Phase 11.4 D-06 pattern: plain <img loading="lazy">, NOT next/image */}
       {question.image_url && !imageFailed && (
         <div className="mb-2 flex justify-center">
@@ -90,18 +94,18 @@ export default function VocabTypedCard({
       <div className="text-center">
         <p
           data-testid="vocab-typed-surface"
-          className="text-3xl font-semibold text-white"
+          className="text-3xl font-semibold text-[var(--color-text)]"
         >
           {question.vocabInfo.surface}
         </p>
         {meaningText && (
-          <p className="mt-2 text-sm text-gray-400">{meaningText}</p>
+          <p className="mt-2 text-sm text-[var(--color-text-muted)]">{meaningText}</p>
         )}
       </div>
 
       {/* Optional kanji breakdown for Kanji track — shown inline (not accordion) */}
       {hasKanjiBreakdown && question.kanji_breakdown && (
-        <div className="rounded bg-gray-800 p-3">
+        <div className="rounded-[var(--radius-lg)] bg-[var(--color-card-2)] p-3">
           <KanjiBreakdownSection breakdown={question.kanji_breakdown} lang={lang} />
         </div>
       )}
@@ -120,32 +124,31 @@ export default function VocabTypedCard({
           autoCapitalize="off"
           autoCorrect="off"
           data-testid="vocab-typed-input"
-          className="flex-1 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-base text-white placeholder:text-gray-600 focus:border-red-500 focus:outline-none disabled:opacity-60"
+          className="min-h-11 flex-1 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-base text-[var(--color-text)] placeholder:text-[var(--color-text-dim)] focus:border-[var(--color-accent)] focus:outline-none disabled:opacity-60"
         />
-        <button
+        <Button
           type="submit"
           disabled={submitted || !input.trim()}
-          className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50"
         >
           Check
-        </button>
+        </Button>
       </form>
 
       {/* Feedback — correct / not quite, with Continue button */}
       {submitted && (
         <div
-          className={`flex flex-col gap-3 rounded-lg border bg-gray-950 p-4 ${
-            isCorrect ? "border-emerald-800" : "border-rose-900"
+          className={`flex flex-col gap-3 rounded-[var(--radius-lg)] border bg-[var(--color-bg)] p-4 ${
+            isCorrect ? "border-[var(--color-jlpt-n5-ring)]" : "border-[var(--color-accent)]/40"
           }`}
           data-testid="vocab-typed-feedback"
         >
-          <div className="text-sm text-gray-300">
+          <div className="text-sm text-[var(--color-text-muted)]">
             {isCorrect ? (
-              <span className="text-emerald-400">Correct.</span>
+              <span className="text-[var(--color-jlpt-n5)]">Correct.</span>
             ) : (
-              <span className="text-red-400">
+              <span className="text-[var(--color-accent-readable)]">
                 Not quite — the answer is{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-[var(--color-text)]">
                   {question.correctAnswer}
                 </span>
                 .
@@ -154,18 +157,19 @@ export default function VocabTypedCard({
           </div>
           {/* Furigana of the correct reading for learning reinforcement */}
           {!isCorrect && (
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-[var(--color-text-dim)]">
               Reading:{" "}
-              <span className="text-gray-300">{question.vocabInfo.reading}</span>
+              <span className="text-[var(--color-text-muted)]">{question.vocabInfo.reading}</span>
             </div>
           )}
-          <button
+          <Button
             type="button"
             onClick={onContinue}
-            className="self-end rounded-md bg-red-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-red-700"
+            size="sm"
+            className="self-end"
           >
             Continue
-          </button>
+          </Button>
         </div>
       )}
     </div>

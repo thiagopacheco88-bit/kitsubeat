@@ -72,7 +72,9 @@ function MasteryBadge({ state, label, testId }: MasteryBadgeProps) {
       data-testid={testId}
       className={`inline-flex items-center gap-1 rounded-[var(--radius-pill)] px-2 py-0.5 text-xs ${stateColor(state)}`}
     >
-      <span className="text-[10px] uppercase opacity-60">{label}</span>
+      <span className="text-[length:var(--text-micro)] uppercase opacity-60">
+        {label}
+      </span>
       {stateText(state)}
     </span>
   );
@@ -92,7 +94,7 @@ function VocabRow({ row }: VocabRowProps) {
   return (
     <div
       data-testid={`vocab-row-${row.vocab_item_id}`}
-      className="flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3"
+      className="flex flex-col gap-4 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3 shadow-[var(--shadow-card-ring)] sm:flex-row sm:items-start sm:justify-between"
     >
       {/* Left: word identity */}
       <div className="min-w-0 flex-1">
@@ -122,7 +124,7 @@ function VocabRow({ row }: VocabRowProps) {
         </div>
       </div>
       {/* Right: mastery badges + review metadata + seen-in */}
-      <div className="flex shrink-0 flex-col items-end gap-1.5 text-right">
+      <div className="flex shrink-0 flex-col items-start gap-1.5 text-left sm:items-end sm:text-right">
         {/* Dual mastery indicators (Phase 11.6 Plan 11) */}
         <div className="flex flex-wrap justify-end gap-1">
           <MasteryBadge
@@ -162,7 +164,7 @@ interface BucketProps {
 function Bucket({ title, rows }: BucketProps) {
   if (rows.length === 0) return null;
   return (
-    <section className="mb-8">
+    <section className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-3 sm:p-4">
       <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--color-text-dim)]">
         {title}{" "}
         <span className="ml-1 rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-1.5 py-0.5 text-xs font-normal text-[var(--color-text-muted)]">
@@ -205,7 +207,7 @@ export default function VocabularyList({ rows }: Props) {
   const learning = rows.filter((r) => r.state === 1);
 
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <Bucket title="Mastered" rows={mastered} />
       <Bucket title="Known" rows={known} />
       <Bucket title="Learning" rows={learning} />

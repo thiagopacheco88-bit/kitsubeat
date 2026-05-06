@@ -130,7 +130,7 @@ export default function SongCard({ song }: SongCardProps) {
       href={`/songs/${song.slug}`}
       variant="flat"
       size="sm"
-      className="overflow-hidden p-0 rounded-lg"
+      className="overflow-hidden rounded-[var(--radius-lg)] p-0"
     >
       {thumbnail && (
         <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-bg-2)]">
@@ -146,7 +146,10 @@ export default function SongCard({ song }: SongCardProps) {
               scanning the catalog. */}
           {showMasteryBanner && <SongMasteredBanner />}
           {opEd && (
-            <span className="absolute top-2 right-2 rounded bg-black/70 px-1.5 py-0.5 text-[length:var(--text-micro)] font-bold text-[var(--color-text)] backdrop-blur-sm">
+            <span
+              className="absolute top-2 right-2 rounded-[var(--radius-sm)] px-1.5 py-0.5 text-[length:var(--text-micro)] font-bold text-[var(--color-text)] backdrop-blur-sm"
+              style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
+            >
               {opEd}
             </span>
           )}

@@ -53,7 +53,6 @@ export default function ReviewLanding({
 
   const { load } = useReviewSession();
 
-  const totalAvailable = dueCount + Math.min(newBudgetRemaining, dailyCap);
   const isEmpty = dueCount === 0 && newBudgetRemaining === 0;
 
   const handleStart = async () => {
@@ -112,18 +111,28 @@ export default function ReviewLanding({
   }
 
   return (
-    <div className="mx-auto max-w-lg px-4 py-12">
-      <h1 className="text-3xl font-bold text-[var(--color-text)]">Review</h1>
+    <main className="mx-auto flex max-w-2xl flex-col gap-6 px-4 py-6 sm:px-6">
+      <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          SRS
+        </p>
+        <h1 className="mt-1 text-3xl font-bold text-[var(--color-text)]">
+          Review
+        </h1>
+        <p className="mt-2 max-w-lg text-sm text-[var(--color-text-muted)]">
+          Keep words warm across every song you have practiced.
+        </p>
+      </header>
 
       {/* Card count summary */}
-      <div className="mt-6 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6">
-        <div className="flex items-center justify-between">
+      <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring)] sm:p-6">
+        <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <p className="text-sm text-[var(--color-text-muted)]">Cards due</p>
             <p className="text-4xl font-bold text-[var(--color-text)]">{dueCount}</p>
           </div>
           {isPremium && newBudgetRemaining > 0 && (
-            <div className="text-right">
+            <div className="sm:text-right">
               <p className="text-sm text-[var(--color-text-muted)]">New today</p>
               <p className="text-4xl font-bold text-[var(--color-jlpt-n4)]">
                 up to {newBudgetRemaining}
@@ -142,9 +151,9 @@ export default function ReviewLanding({
       </div>
 
       {/* CTA */}
-      <div className="mt-6">
+      <div>
         {isEmpty ? (
-          <div className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)]/50 p-6 text-center">
+          <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center shadow-[var(--shadow-card-ring)]">
             <p className="text-[var(--color-text-muted)]">
               All caught up — come back tomorrow!
             </p>
@@ -177,6 +186,6 @@ export default function ReviewLanding({
 
       {/* Upsell modal for free users */}
       <UpsellModal open={upsellOpen} onClose={() => setUpsellOpen(false)} />
-    </div>
+    </main>
   );
 }

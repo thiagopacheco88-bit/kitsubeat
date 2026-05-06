@@ -62,7 +62,7 @@ export default function LearnCard({
     <div
       data-testid="learn-card"
       onClick={onDismiss}
-      className="rounded-lg border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-4 cursor-pointer select-none"
+      className="cursor-pointer select-none rounded-[var(--radius-xl)] border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-4 shadow-[var(--shadow-card-ring)]"
     >
       {/* Header row: "New word" label + optional speaker icon */}
       <div className="mb-3 flex items-center justify-between">
@@ -158,7 +158,7 @@ export default function LearnCard({
       {isKanjiTrack && hasKanjiBreakdown && question.kanji_breakdown && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="my-3 rounded bg-gray-800 p-3"
+          className="my-3 rounded-[var(--radius-lg)] bg-[var(--color-card)] p-3"
           data-testid="learn-card-kanji-breakdown-prominent"
         >
           <KanjiBreakdownSection breakdown={question.kanji_breakdown} lang={lang} />

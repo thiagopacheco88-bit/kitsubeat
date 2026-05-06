@@ -520,7 +520,7 @@ Plans:
 ### Phase 14.3: Redesign Lesson (/songs/[slug])
 **Goal**: Apply the Phase 14.1 / 14.2 visual language to `/songs/[slug]` — the densest surface (12 components) and the core lesson + exercise experience — so the lyrics+video panel reads as a music player (not a textbook), exercise cards read as a game (not a quiz), and the transition from lyrics-mode to exercise-mode lands as a gear-shift moment rather than a page navigation. Preserves all existing mastery-moment animations (star-shine, level-pop, confetti) with reduced-motion fallbacks intact.
 **Depends on**: Phase 14.2 (carries the design language matured across 14.1 path + 14.2 home)
-**Requirements**: TBD (lock via /gsd-spec-phase 14.3-redesign-lesson)
+**Requirements**: [14.3-SPEC.md](phases/14.3-redesign-lesson/14.3-SPEC.md)
 **Success Criteria**:
   1. Lyrics + video panel reads as a music player surface (verse-scroll synced; furigana / translation / grammar pills; color-coded vocab) — not a textbook
   2. Exercise cards (LearnCard, QuestionCard, GrammarMcqCard, SentenceOrderCard, ListeningDrillCard, ConjugationCard, FeedbackPanel, SessionSummary) read as a game — not a quiz
@@ -530,7 +530,9 @@ Plans:
   6. Bundle stays under 50 KB gzipped on /songs/[slug] (Phase 13 carry-over budget; current baseline ~10 KB)
   7. Pixel-diff dark + light themes ≤2% tolerance; axe-core ≥95 in both themes
 **Source briefing**: [HUASHU-BRIEFINGS.md](../HUASHU-BRIEFINGS.md) Briefing 3
-**Plans**: TBD
+**Plans**:
+- [x] 14.3-01-PLAN.md — lesson shell + in-page Practice gear shift
+- [x] 14.3-02-PLAN.md — Practice game lobby + exercise loop polish
 
 ### Phase 14.4: Virality & Engagement
 **Goal**: Layer functional virality + retention mechanics on top of the visual foundation laid by 14.1 / 14.2 / 14.3 — visible social activity (live "now playing" signals, recently-mastered cross-user feed, opt-in leaderboards) and streak behavioral hooks (daily reminders, streak-saver token, weekly recap email). All social features opt-in by default; reduced-anxiety patterns throughout (no streak-shaming dark patterns).

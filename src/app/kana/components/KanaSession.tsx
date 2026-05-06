@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable react-hooks/refs */
+
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useKanaProgress } from "@/stores/kanaProgress";
@@ -100,15 +102,15 @@ export function KanaSession({ mode }: Props) {
 
   if (!hasHydrated) {
     return (
-      <div className="animate-pulse h-64 rounded bg-[var(--color-card-2)]" />
+      <div className="h-80 animate-pulse rounded-[var(--radius-2xl)] bg-[var(--color-card-2)]" />
     );
   }
 
   if (session.length === 0) {
     return (
-      <div className="text-center text-sm text-[var(--color-text-muted)]">
+      <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center text-sm text-[var(--color-text-muted)] shadow-[var(--shadow-card-ring)]">
         No unlocked rows for this mode.{" "}
-        <Link className="underline" href="/kana">
+        <Link className="font-semibold text-[var(--color-text)] underline" href="/kana">
           Back to grid
         </Link>
         .
@@ -121,7 +123,7 @@ export function KanaSession({ mode }: Props) {
   // effect above so the summary screen can read it.
   if (index >= SESSION_LENGTH) {
     return (
-      <div className="flex flex-col items-center gap-4 text-center">
+      <div className="flex flex-col items-center gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center shadow-[var(--shadow-card-ring-strong)]">
         <h2 className="text-2xl font-bold text-[var(--color-text)]">
           Session complete
         </h2>
@@ -130,7 +132,7 @@ export function KanaSession({ mode }: Props) {
         </p>
         <Link
           href="/kana/session/summary"
-          className="rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
+          className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-5 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
           See summary
         </Link>
@@ -294,18 +296,21 @@ function SessionFrame({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-6">
-      <header className="flex items-center justify-between text-xs text-[var(--color-text-muted)]">
+    <div className="flex flex-col gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring-strong)] sm:p-5">
+      <header className="flex items-center justify-between gap-3 text-xs font-semibold text-[var(--color-text-muted)]">
         <span>
           Question {Math.min(index + 1, total)} / {total}
         </span>
-        <Link href="/kana" className="underline">
+        <Link
+          href="/kana"
+          className="rounded-[var(--radius-pill)] border border-[var(--color-border)] px-3 py-1.5 text-[var(--color-text-muted)] no-underline transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
+        >
           Quit
         </Link>
       </header>
-      <div className="h-1 w-full rounded bg-[var(--color-card-2)]">
+      <div className="h-1.5 w-full overflow-hidden rounded-[var(--radius-pill)] bg-[var(--color-card-2)]">
         <div
-          className="h-1 rounded bg-[var(--color-accent)] transition-all"
+          className="h-full rounded-[var(--radius-pill)] bg-[var(--color-accent)] transition-all"
           style={{ width: `${(index / total) * 100}%` }}
         />
       </div>

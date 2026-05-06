@@ -19,9 +19,9 @@ Track actual deliveries to ground future pace estimates in real data.
 | Days elapsed | 20 | 2026-05-02 |
 | Active dev days | 15 | (5 idle: Apr 20-22, 25, 29) |
 | Phases closed | 24 of 33 | + Phase 14.1 verified today |
-| Hours delivered (estimated) | ~312 / 422 | **~74% of total scope** |
-| Active phases | 14.2 (SPEC'd), 14.4 (INTENT, blocked), 14.5 (roadmap), 11.6-13 (gap closure) | v3.0 redesign chain: 14.2 → 14.3 → 14.4 |
-| Total scope grew | +117h since Apr 28 | +11.6, +14.1, +14.2 NEW, +14.3 NEW, +14.4 NEW, +14.5 NEW |
+| Hours delivered (estimated) | ~322 / 430 | **~75% of total scope** |
+| Active phases | 14.2 (~56%, 9/16 plans), 11.6-13 (gap closure ~3h) | v3.0 redesign chain: 14.2 → 14.3 → 14.4 |
+| Total scope grew | +125h since Apr 28 | +11.6, +14.1, +14.2 NEW, +14.3 NEW, +14.4 NEW, +14.5 NEW |
 | Deferred | Phase 6 (Anki Export) | Merged into Phase 18 GDPR data export |
 | Current target launch | late June 2026 | beta-validated (50 signups + 20% day-7) |
 | Hard stop | October 2026 | baby due |
@@ -62,17 +62,17 @@ Track actual deliveries to ground future pace estimates in real data.
 | 13 | Performance Infrastructure | 2026-05-05 | 2026-04-30 | CI bundle budgets, lesson cache, IO-deferred YouTube iframe | ✓ Done | 12 | 12 | 100% | 3.1% |
 | 14 | UX Polish | 2026-05-04 | 2026-05-02 | VERIFIED 8/9 SPEC-REQs (a11y A1 resolved). 10 plans: Wave 0 infra, primitives, theme tokens, dark/light, motion, 11 surface migrations | ✓ Done | 33 | 33 | 100% | 8.6% |
 | 14.1 | Redesign Path | 2026-05-04 | 2026-05-03 | VERIFIED 8/8 SPEC-REQs (5 human UAT items pending). 13 plans done across 5 waves — CA-hybrid /path redesign with PathHeader, HeroProgress, ContinueAnchor, KanaCheckpointNode, LanternStreak, TierDivider, cover-art PathNode | ✓ Done | 20 | 20 | 100% | 4.9% |
-| 14.2 | Redesign Home (/) | 2026-05-05 | — | NEW — SPEC'd today, 9 reqs (home page redesign follow-on to Phase 14.1) | 🟢 Ready (deps done) | 12 | 1 | 5% | 2.9% |
-| 14.3 | Redesign Lesson (/songs/[slug]) | 2026-05-07 | — | NEW — roadmap only, no directory yet. Densest surface (12 components) — music-player feel for lyrics, game feel for exercises | 🔴 Blocked by 14.2 | 15 | 0 | 0% | 3.6% |
-| 14.4 | Virality + Engagement | 2026-05-09 | — | INTENT.md only. Depends on **14.1 ✓ + 14.2 + 14.3 + Clerk plan tier definition** — must inherit full visual vocabulary | 🔴 Blocked by 14.2, 14.3 | 15 | 0 | 1% | 3.6% |
-| 14.5 | Iconography + Brand Revamp | 2026-05-08 | — | NEW — added to roadmap today; no directory yet. Depends on Phase 14.1 ✓ — parallelizable with 14.2 / 14.3 | 🟢 Ready (deps done) | 10 | 0 | 1% | 2.4% |
-| 15 | Analytics + Error Tracking | 2026-05-11 | — | PostHog/Plausible funnel + Sentry + consent gating. Depends on Phase 14 ✓ | 🟢 Ready (deps done) | 10 | 0 | 0% | 2.5% |
-| 16 | Security Review + IR | 2026-05-13 | — | RLS audit, rate limits, secrets scan, runbook. Roadmap deps Phase 15 but RLS independent | 🟢 Ready (parallel-safe) | 12 | 0 | 0% | 2.9% |
-| 17 | Legal Research (DIY) | 2026-05-14 | — | 5/6 plans drafted; execute + 17-06 consolidation. Pure research — no code dep | 🟢 Ready (research is independent) | 10 | 3 | 30% | 2.5% |
-| 18 | Legal Implementation | 2026-05-18 | — | T&Cs, privacy, cookie consent, DMCA, WCAG 2.1 AA, Anki/GDPR export. **Needs Phase 17 research output** | 🔴 Blocked by Phase 17 | 22 | 0 | 0% | 5.4% |
-| 19 | Beta Launch + GTM | 2026-05-20† | — | Landing, 3 channels, 50 signups / 20% day-7 return. Needs Phase 18 (legal docs) + Phase 13 perf gate ✓ | 🔴 Blocked by Phase 18 | 15 | 0 | 0% | 3.7% |
-| 20 | Test Coverage Pass | 2026-06-19 | — | Critical-path integration tests + ADRs + strict types. Needs Phase 19 real-usage data | 🔴 Blocked by Phase 19 | 12 | 0 | 0% | 2.9% |
-| **TOTAL** | **33 phases** | | **24 closed + 4 active** | | | **422** | **312** | **74%** | **100%** |
+| 14.2 | Redesign Home (/) | 2026-05-04 | — | 16 plans across 8 waves. **9/16 done today** — auth-bypass harness, getContinueLearning, getHeroSong, KanaCheckpointNode home variant, SectionHeader+Carousel, ContinueCard, CoverCard+AnimeCard+HeroFeatured. Remaining: 09-15 (final compositions + mobile nav sheet) | 🟡 In flight (no blocker) | 20 | 11 | 56% | 4.6% |
+| 14.3 | Redesign Lesson (/songs/[slug]) | 2026-05-07 | — | Roadmap only, no directory yet. Densest surface (12 components) — music-player feel for lyrics, game feel for exercises | 🔴 Blocked by 14.2 | 15 | 0 | 0% | 3.5% |
+| 14.4 | Virality + Engagement | 2026-05-10 | — | INTENT.md only. Depends on **14.1 ✓ + 14.2 + 14.3 + Clerk plan tier definition** — must inherit full visual vocabulary | 🔴 Blocked by 14.2, 14.3 | 15 | 0 | 1% | 3.5% |
+| 14.5 | Iconography + Brand Revamp | 2026-05-06 | — | Roadmap only, no directory yet. Depends on Phase 14.1 ✓ — parallelizable with 14.2 / 14.3 | 🟢 Ready (deps done) | 10 | 0 | 1% | 2.3% |
+| 15 | Analytics + Error Tracking | 2026-05-12 | — | PostHog/Plausible funnel + Sentry + consent gating. Depends on Phase 14 ✓ | 🟢 Ready (deps done) | 10 | 0 | 0% | 2.3% |
+| 16 | Security Review + IR | 2026-05-14 | — | RLS audit, rate limits, secrets scan, runbook. Roadmap deps Phase 15 but RLS independent | 🟢 Ready (parallel-safe) | 12 | 0 | 0% | 2.8% |
+| 17 | Legal Research (DIY) | 2026-05-15 | — | 5/6 plans drafted; execute + 17-06 consolidation. Pure research — no code dep | 🟢 Ready (research is independent) | 10 | 3 | 30% | 2.3% |
+| 18 | Legal Implementation | 2026-05-19 | — | T&Cs, privacy, cookie consent, DMCA, WCAG 2.1 AA, Anki/GDPR export. **Needs Phase 17 research output** | 🔴 Blocked by Phase 17 | 22 | 0 | 0% | 5.1% |
+| 19 | Beta Launch + GTM | 2026-05-22† | — | Landing, 3 channels, 50 signups / 20% day-7 return. Needs Phase 18 (legal docs) + Phase 13 perf gate ✓ | 🔴 Blocked by Phase 18 | 15 | 0 | 0% | 3.5% |
+| 20 | Test Coverage Pass | 2026-06-21 | — | Critical-path integration tests + ADRs + strict types. Needs Phase 19 real-usage data | 🔴 Blocked by Phase 19 | 12 | 0 | 0% | 2.8% |
+| **TOTAL** | **33 phases** | | **24 closed + 5 active** | | | **430** | **322** | **75%** | **100%** |
 
 †Phase 19 dev finishes ~May 22; beta-validation gate is calendar-bound 4 weeks → realistic launched-and-validated date ≈ **2026-06-19**.
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { GrammarSessionQuestion } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
 import { romajiEquals } from "@/lib/exercises/romaji-normalize";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   question: GrammarSessionQuestion;
@@ -28,7 +29,7 @@ export default function GrammarWriteCard({
   const [input, setInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [startTime] = useState(() => Date.now());
+  const [startTime] = useState(() => performance.now());
 
   const translation = localize(exercise.prompt_translation, lang);
   const explanation = localize(rule.explanation, lang);
@@ -41,32 +42,32 @@ export default function GrammarWriteCard({
     const correct = romajiEquals(trimmed, exercise.correct_answer);
     setIsCorrect(correct);
     setSubmitted(true);
-    onAnswered(trimmed, correct, Date.now() - startTime);
+    onAnswered(trimmed, correct, Math.max(0, Math.round(performance.now() - startTime)));
   }
 
   return (
-    <div className="flex flex-col gap-5 rounded-xl border border-gray-800 bg-gray-900 p-5">
+    <div className="flex flex-col gap-5 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring)]">
       {/* JLPT + level only — rule name hidden so the gloss doesn't telegraph
           the answer. Same rationale as GrammarMcqCard. */}
       <div className="flex items-center justify-between">
-        <span className="text-xs uppercase tracking-wide text-gray-500">
+        <span className="text-xs uppercase tracking-wide text-[var(--color-text-dim)]">
           {rule.jlpt_reference}
         </span>
-        <span className="rounded-full bg-red-900/50 px-2 py-0.5 text-[11px] font-medium text-red-300">
+        <span className="rounded-[var(--radius-pill)] bg-[var(--color-accent)]/15 px-2 py-0.5 text-xs font-medium text-[var(--color-accent-readable)]">
           advanced
         </span>
       </div>
 
       <div
-        className="text-2xl leading-relaxed text-white"
+        className="text-2xl leading-relaxed text-[var(--color-text)]"
         dangerouslySetInnerHTML={{ __html: exercise.prompt_jp_furigana }}
       />
 
       {/* Translation is the only hint; advanced never shows romaji. */}
-      <div className="text-sm text-gray-400">{translation}</div>
+      <div className="text-sm text-[var(--color-text-muted)]">{translation}</div>
 
       {exercise.hint && !submitted && (
-        <div className="text-xs text-gray-500">hint: {exercise.hint}</div>
+        <div className="text-xs text-[var(--color-text-dim)]">hint: {exercise.hint}</div>
       )}
 
       <form onSubmit={handleSubmit} className="flex items-center gap-2">
@@ -80,40 +81,40 @@ export default function GrammarWriteCard({
           spellCheck={false}
           autoCapitalize="off"
           autoCorrect="off"
-          className="flex-1 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-base text-white placeholder:text-gray-600 focus:border-red-500 focus:outline-none disabled:opacity-60"
+          className="min-h-11 flex-1 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-base text-[var(--color-text)] placeholder:text-[var(--color-text-dim)] focus:border-[var(--color-accent)] focus:outline-none disabled:opacity-60"
         />
-        <button
+        <Button
           type="submit"
           disabled={submitted || !input.trim()}
-          className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50"
         >
           Check
-        </button>
+        </Button>
       </form>
 
       {submitted && (
-        <div className="flex flex-col gap-3 rounded-lg border border-gray-800 bg-gray-950 p-4">
-          <div className="text-sm text-gray-300">
+        <div className="flex flex-col gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-bg)] p-4">
+          <div className="text-sm text-[var(--color-text-muted)]">
             {isCorrect ? (
-              <span className="text-emerald-400">Correct.</span>
+              <span className="text-[var(--color-jlpt-n5)]">Correct.</span>
             ) : (
-              <span className="text-red-400">
+              <span className="text-[var(--color-accent-readable)]">
                 Not quite — the answer is{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-[var(--color-text)]">
                   {exercise.correct_answer}
                 </span>
                 .
               </span>
             )}
           </div>
-          <div className="text-xs text-gray-400">{explanation}</div>
-          <button
+          <div className="text-xs text-[var(--color-text-muted)]">{explanation}</div>
+          <Button
             type="button"
             onClick={onContinue}
-            className="self-end rounded-md bg-red-600 px-4 py-1.5 text-sm font-medium text-white hover:bg-red-700"
+            size="sm"
+            className="self-end"
           >
             Continue
-          </button>
+          </Button>
         </div>
       )}
     </div>

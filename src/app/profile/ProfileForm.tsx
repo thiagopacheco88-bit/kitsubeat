@@ -51,7 +51,10 @@ export default function ProfileForm({
       typeof document !== "undefined"
         ? document.cookie.match(/kb_theme=(system|light|dark)/)
         : null;
-    if (m) setThemePreferenceLocal(m[1] as ThemePref);
+    if (m) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setThemePreferenceLocal(m[1] as ThemePref);
+    }
   }, []);
 
   const handleThemeChange = async (next: ThemePref) => {
@@ -63,6 +66,7 @@ export default function ProfileForm({
           : "light"
         : next;
     document.documentElement.setAttribute("data-theme", resolved);
+    // eslint-disable-next-line react-hooks/immutability
     document.cookie = `kb_theme=${next}; max-age=${COOKIE_MAX_AGE}; path=/; samesite=lax`;
     setThemePreferenceLocal(next);
 
@@ -72,7 +76,6 @@ export default function ProfileForm({
         await setThemePreference(userId, next);
       } catch (err) {
         // Non-fatal: the cookie write already kept things consistent client-side
-        // eslint-disable-next-line no-console
         console.error("setThemePreference failed:", err);
       }
     }

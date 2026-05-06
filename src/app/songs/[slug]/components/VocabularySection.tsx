@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import type { VocabEntry } from "@/lib/types/lesson";
-import { GRAMMAR_COLOR_CLASS, JLPT_COLOR_CLASS, localize } from "@/lib/types/lesson";
+import { GRAMMAR_COLOR_CLASS, localize } from "@/lib/types/lesson";
+import { Badge } from "@/components/ui/Badge";
 import { usePlayer } from "./PlayerContext";
 
 const POS_TABS = [
@@ -15,6 +16,7 @@ const POS_TABS = [
 ] as const;
 
 const JLPT_TABS = ["all", "N5", "N4", "N3", "N2", "N1", "unknown"] as const;
+const jlptLevels = new Set(["N5", "N4", "N3", "N2", "N1"]);
 
 type ViewMode = "pos" | "jlpt";
 
@@ -45,7 +47,7 @@ export default function VocabularySection({
     <div>
       <button
         onClick={() => setSectionOpen(!sectionOpen)}
-        className="mb-3 flex items-center gap-2 text-lg font-semibold text-white hover:text-gray-300 transition-colors"
+        className="mb-3 flex items-center gap-2 text-lg font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-text-muted)]"
       >
         <svg
           className={`h-4 w-4 shrink-0 transition-transform ${sectionOpen ? "rotate-90" : ""}`}
@@ -59,28 +61,28 @@ export default function VocabularySection({
           />
         </svg>
         Vocabulary
-        <span className="text-sm font-normal text-gray-500">
+        <span className="text-sm font-normal text-[var(--color-text-dim)]">
           {vocabulary.length}
         </span>
       </button>
       {sectionOpen && <>
-      <div className="mb-3 inline-flex rounded-md border border-gray-800 bg-gray-900/60 p-0.5 text-xs">
+      <div className="mb-3 inline-flex rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card)] p-1 text-xs">
         <button
           onClick={() => switchMode("pos")}
-          className={`rounded px-2 py-1 transition-colors ${
+          className={`min-h-11 rounded-[var(--radius-sm)] px-2 py-1 transition-colors ${
             viewMode === "pos"
-              ? "bg-white text-gray-900"
-              : "text-gray-400 hover:text-gray-200"
+              ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+              : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
           }`}
         >
           By type
         </button>
         <button
           onClick={() => switchMode("jlpt")}
-          className={`rounded px-2 py-1 transition-colors ${
+          className={`min-h-11 rounded-[var(--radius-sm)] px-2 py-1 transition-colors ${
             viewMode === "jlpt"
-              ? "bg-white text-gray-900"
-              : "text-gray-400 hover:text-gray-200"
+              ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+              : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
           }`}
         >
           By JLPT
@@ -101,10 +103,10 @@ export default function VocabularySection({
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`rounded px-2 py-1 text-xs capitalize transition-colors ${
+              className={`min-h-11 rounded-[var(--radius-sm)] px-2 py-1 text-xs capitalize transition-colors ${
                 tab === t
-                  ? "bg-white text-gray-900"
-                  : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                  ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                  : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
               }`}
             >
               {t === "all" ? `All (${count})` : `${t} (${count})`}
@@ -139,11 +141,11 @@ function VocabRow({
   const colorClass =
     GRAMMAR_COLOR_CLASS[
       entry.part_of_speech as keyof typeof GRAMMAR_COLOR_CLASS
-    ] ?? "text-gray-300";
+    ] ?? "text-[var(--color-text-muted)]";
 
   return (
     <div
-      className="cursor-pointer rounded-lg border border-gray-800 bg-gray-900/50 p-3 transition-colors hover:border-gray-700"
+      className="cursor-pointer rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 transition-colors hover:border-[var(--color-border-strong)]"
       onClick={onToggle}
     >
       <div className="flex items-center gap-3">
@@ -152,30 +154,30 @@ function VocabRow({
         >
           {entry.surface}
         </span>
-        <span className="text-sm text-gray-400">
+        <span className="text-sm text-[var(--color-text-muted)]">
           {entry.reading} &middot; {entry.romaji}
         </span>
-        <span className="ml-auto text-sm text-gray-300">
+        <span className="ml-auto text-sm text-[var(--color-text)]">
           {localize(entry.meaning, translationLang)}
         </span>
-        {entry.jlpt_level !== "unknown" && (
-          <span
-            className={`shrink-0 rounded px-1 py-0.5 text-[10px] font-bold text-white ${JLPT_COLOR_CLASS[entry.jlpt_level] ?? "bg-gray-600"}`}
-          >
-            {entry.jlpt_level}
-          </span>
+        {jlptLevels.has(entry.jlpt_level) && (
+          <Badge
+            variant="jlpt"
+            level={entry.jlpt_level as "N5" | "N4" | "N3" | "N2" | "N1"}
+            className="shrink-0"
+          />
         )}
       </div>
 
       {isExpanded && (
-        <div className="mt-3 border-t border-gray-800 pt-3">
-          <p className="text-xs italic text-gray-400 font-[family-name:var(--font-noto-jp)]">
+        <div className="mt-3 border-t border-[var(--color-border)] pt-3">
+          <p className="text-xs italic text-[var(--color-text-muted)] font-[family-name:var(--font-noto-jp)]">
             &ldquo;{entry.example_from_song}&rdquo;
           </p>
           {entry.additional_examples.length > 0 && (
             <ul className="mt-2 space-y-1">
               {entry.additional_examples.map((ex, i) => (
-                <li key={i} className="text-xs text-gray-500">
+                <li key={i} className="text-xs text-[var(--color-text-dim)]">
                   {ex}
                 </li>
               ))}

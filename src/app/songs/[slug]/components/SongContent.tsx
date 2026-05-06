@@ -2,7 +2,8 @@
 
 import { useState, lazy, Suspense, useRef, useEffect } from "react";
 import type { Lesson } from "@/lib/types/lesson";
-import { JLPT_COLOR_CLASS } from "@/lib/types/lesson";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { PlayerProvider, usePlayer } from "./PlayerContext";
 import YouTubeEmbed from "./YouTubeEmbed";
 import PlayerControls from "./PlayerControls";
@@ -15,6 +16,20 @@ import VerseStarIcon from "./VerseStarIcon";
 
 // Lazy-load exercise tab — avoids bundling exercise code until Practice is clicked
 const ExerciseTab = lazy(() => import("./ExerciseTab"));
+
+const contentTabs = [
+  { id: "vocabulary", label: "Words" },
+  { id: "grammar", label: "Grammar" },
+  { id: "practice", label: "Practice" },
+] as const;
+
+const jlptLevels = new Set(["N5", "N4", "N3", "N2", "N1"]);
+
+function isJlptLevel(
+  level: string | null,
+): level is "N5" | "N4" | "N3" | "N2" | "N1" {
+  return !!level && jlptLevels.has(level);
+}
 
 interface SongMeta {
   title: string;
@@ -87,7 +102,6 @@ interface SongContentInnerProps {
  */
 function SongContentInner({
   song,
-  versions,
   songId,
   userId,
   activeType,
@@ -101,6 +115,14 @@ function SongContentInner({
   const [activeTab, setActiveTab] = useState<ContentTab>("vocabulary");
 
   const active = activeType === "tv" && tvVersion ? tvVersion : fullVersion!;
+  const dominatedCount = active.dominatedVerseNumbers?.length ?? 0;
+  const totalVerseCount = active.totalVerses ?? active.lesson.verses.length;
+  const practiceButtonLabel =
+    activeTab === "practice" ? "Practice is open" : "Start practice";
+
+  const activatePractice = () => {
+    setActiveTab("practice");
+  };
 
   // Scroll the tabbed section into view on tab activation (skip first render
   // so the user still lands at the top of the page).
@@ -122,28 +144,31 @@ function SongContentInner({
   }, [activeTab, setForceMount]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6">
-      {/* Header */}
-      <div className="mb-4">
-        <h1 className="text-2xl font-bold text-[var(--color-text)]">{song.title}</h1>
-        <p className="mt-1 text-sm text-gray-400">
+    <div className="mx-auto flex max-w-7xl flex-col gap-5 px-3 py-5 sm:px-4 lg:py-6">
+      <header className="flex min-w-0 flex-col gap-4 border-b border-[var(--color-border)] pb-4 lg:flex-row lg:items-end lg:justify-between">
+        <div className="min-w-0">
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+            Now playing
+          </p>
+          <h1 className="mt-1 break-words text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
+            {song.title}
+          </h1>
+        <p className="mt-1 text-sm text-[var(--color-text-muted)]">
           {song.artist} &middot; {song.anime}
           {song.season_info && (
-            <span className="text-gray-500"> &middot; {song.season_info}</span>
+            <span className="text-[var(--color-text-dim)]"> &middot; {song.season_info}</span>
           )}
         </p>
-        <div className="mt-2 flex items-center gap-2">
-          {song.jlpt_level && (
-            <span
-              className={`rounded px-2 py-0.5 text-xs font-bold text-white ${JLPT_COLOR_CLASS[song.jlpt_level] ?? "bg-gray-600"}`}
-            >
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          {isJlptLevel(song.jlpt_level) && (
+            <Badge variant="jlpt" level={song.jlpt_level}>
               {song.jlpt_level}
-            </span>
+            </Badge>
           )}
           {song.difficulty_tier && (
-            <span className="rounded bg-gray-800 px-2 py-0.5 text-xs capitalize text-gray-400">
+            <Badge variant="mono" className="capitalize">
               {song.difficulty_tier}
-            </span>
+            </Badge>
           )}
           <KnownWordCount songId={songId} />
           {/* Phase 11.6 D-16 — verses dominated counter. Sits in the header
@@ -152,38 +177,52 @@ function SongContentInner({
               a published song). The leading star icon visually anchors the
               counter to the lyrics-view stars (same gold icon, deeper amber
               text on the counter so the lyrics stars stay brightest). */}
-          {(active.totalVerses ?? 0) > 0 && (
+          {totalVerseCount > 0 && (
             <span
-              className="inline-flex items-center text-amber-500 text-sm"
+                className="inline-flex items-center gap-1 rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-2 py-0.5 text-sm font-semibold text-[var(--color-jlpt-n3)]"
               data-testid="verses-counter"
             >
-              <VerseStarIcon className="text-amber-500" />
-              {(active.dominatedVerseNumbers?.length ?? 0)}/{active.totalVerses} verses
+                <VerseStarIcon className="text-[var(--color-jlpt-n3)]" />
+              {dominatedCount}/{totalVerseCount} verses
             </span>
           )}
         </div>
-      </div>
+        </div>
 
-      {/* Version toggle + controls */}
-      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <Button
+          type="button"
+          onClick={activatePractice}
+          disabled={activeTab === "practice"}
+          data-testid="lesson-practice-gearshift"
+          className="w-full sm:w-auto"
+        >
+          {practiceButtonLabel}
+        </Button>
+      </header>
+
+      <div className="flex min-w-0 flex-col gap-3">
         {hasMultiple && (
-          <div className="flex gap-1 rounded-lg bg-gray-900 p-1">
+          <div
+            className="inline-flex w-full gap-1 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)] p-1 sm:w-fit"
+            role="group"
+            aria-label="Song version"
+          >
             <button
               onClick={() => setActiveType("tv")}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              className={`min-h-11 flex-1 rounded-[var(--radius-md)] px-3 py-1.5 text-sm font-medium transition-colors sm:flex-none ${
                 activeType === "tv"
-                  ? "bg-red-600 text-white shadow-sm"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
+                  : "text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
               }`}
             >
               Anime Version
             </button>
             <button
               onClick={() => setActiveType("full")}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              className={`min-h-11 flex-1 rounded-[var(--radius-md)] px-3 py-1.5 text-sm font-medium transition-colors sm:flex-none ${
                 activeType === "full"
-                  ? "bg-red-600 text-white shadow-sm"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
+                  : "text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
               }`}
             >
               Full Version
@@ -194,12 +233,17 @@ function SongContentInner({
       </div>
 
       {/* Lesson heading — tells first-time users the page itself is the lesson */}
-      <div className="mb-3">
-        <h2 className="text-lg font-semibold text-white">Lesson</h2>
-        <p className="mt-0.5 text-xs text-gray-500">
-          Tap any word in the lyrics for meaning. Explore Vocabulary, Grammar, and Practice below.
+      <section className="flex flex-col gap-1" aria-labelledby="lesson-stage-title">
+        <h2
+          id="lesson-stage-title"
+          className="text-lg font-semibold text-[var(--color-text)]"
+        >
+          Listen, read, then shift into practice
+        </h2>
+        <p className="text-xs text-[var(--color-text-dim)]">
+          Tap words in the lyrics for meaning, then use Practice when the verse is in your ears.
         </p>
-      </div>
+      </section>
 
       {/* Main content: video + lyrics */}
       <SongLayout
@@ -222,24 +266,22 @@ function SongContentInner({
       />
 
       {/* Tabbed section: Vocabulary / Grammar / Practice */}
-      <div ref={tabSectionRef} className="mx-auto mt-8 max-w-3xl scroll-mt-16">
+      <div ref={tabSectionRef} className="mx-auto mt-3 w-full max-w-3xl scroll-mt-16">
         {/* Tab bar */}
-        <div className="mb-6 flex border-b border-gray-800">
-          {(["vocabulary", "grammar", "practice"] as ContentTab[]).map(
-            (tab) => (
+        <div className="mb-6 flex gap-2 border-b border-[var(--color-border)]">
+          {contentTabs.map(({ id, label }) => (
               <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`mr-6 pb-2 text-sm font-medium capitalize transition-colors ${
-                  activeTab === tab
-                    ? "border-b-2 border-red-500 text-white"
-                    : "text-gray-400 hover:text-white"
+                key={id}
+                onClick={() => setActiveTab(id)}
+                className={`min-h-11 px-1 pb-2 text-sm font-medium transition-colors ${
+                  activeTab === id
+                    ? "border-b-2 border-[var(--color-accent)] text-[var(--color-text)]"
+                    : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                 }`}
               >
-                {tab}
+                {label}
               </button>
-            )
-          )}
+          ))}
         </div>
 
         {/* Tab content */}
@@ -257,9 +299,9 @@ function SongContentInner({
           <Suspense
             fallback={
               <div className="flex flex-col gap-4 py-8 animate-pulse">
-                <div className="h-5 w-1/3 rounded bg-gray-800" />
-                <div className="h-24 w-full rounded-lg bg-gray-800" />
-                <div className="h-24 w-full rounded-lg bg-gray-800" />
+                <div className="h-5 w-1/3 rounded bg-[var(--color-card-2)]" />
+                <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
+                <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
               </div>
             }
           >

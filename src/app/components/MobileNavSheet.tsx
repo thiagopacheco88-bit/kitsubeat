@@ -23,7 +23,7 @@
  * sheet — it's visible in the desktop nav (hidden sm:contents) and accessible
  * via the /vocabulary link in the sheet.
  */
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 type Props = { isAdmin: boolean; isSignedIn: boolean };
@@ -33,22 +33,34 @@ export default function MobileNavSheet({ isAdmin }: Props) {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  const close = () => {
+  const links = [
+    { href: "/path", label: "Path" },
+    { href: "/anime-list", label: "Songs" },
+    { href: "/kana", label: "Kana" },
+    { href: "/vocabulary", label: "Progress" },
+    ...(isAdmin ? [{ href: "/admin/lyrics", label: "Admin", testId: "mobile-nav-admin" }] : []),
+    { href: "/profile", label: "Profile" },
+  ];
+
+  const close = useCallback(() => {
     setOpen(false);
     triggerRef.current?.focus();
-  };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
     closeRef.current?.focus();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
     };
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  // close is a stable function (defined inline), open is the actual dep
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open]);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [close, open]);
 
   // Hidden on sm and up — desktop uses the inline cluster from layout.tsx
   return (
@@ -80,7 +92,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
             onClick={close}
             aria-hidden="true"
             data-testid="mobile-nav-backdrop"
-            className="fixed inset-0 z-[60] bg-black/50 motion-safe:transition-opacity motion-safe:duration-150"
+            className="fixed inset-0 z-[1000] bg-black/80 backdrop-blur-sm motion-safe:transition-opacity motion-safe:duration-150"
           />
           {/* Sheet */}
           <div
@@ -89,64 +101,52 @@ export default function MobileNavSheet({ isAdmin }: Props) {
             aria-modal="true"
             aria-label="Navigation"
             data-testid="mobile-nav-sheet"
-            style={{ width: "280px" }}
-            className="fixed right-0 top-0 z-[70] flex h-full flex-col gap-2 border-l border-[var(--color-border)] bg-[var(--color-bg)] p-4 motion-safe:transition-transform motion-safe:duration-200"
+            className="fixed inset-0 z-[1010] flex min-h-dvh flex-col bg-[var(--color-bg)] px-5 py-4 shadow-[0_24px_80px_rgba(0,0,0,0.55)] motion-safe:transition-transform motion-safe:duration-200"
           >
-            <button
-              ref={closeRef}
-              type="button"
-              onClick={close}
-              aria-label="Close menu"
-              data-testid="mobile-nav-close"
-              className="self-end text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
-            >
-              Close
-            </button>
-            <Link
-              href="/path"
-              onClick={close}
-              className="py-2 text-base text-[var(--color-text)]"
-            >
-              Path
-            </Link>
-            <Link
-              href="/anime-list"
-              onClick={close}
-              className="py-2 text-base text-[var(--color-text)]"
-            >
-              Songs
-            </Link>
-            <Link
-              href="/kana"
-              onClick={close}
-              className="py-2 text-base text-[var(--color-text)]"
-            >
-              Kana
-            </Link>
-            <Link
-              href="/vocabulary"
-              onClick={close}
-              className="py-2 text-base text-[var(--color-text)]"
-            >
-              Progress
-            </Link>
-            {isAdmin && (
-              <Link
-                href="/admin/lyrics"
-                onClick={close}
-                data-testid="mobile-nav-admin"
-                className="py-2 text-base text-[var(--color-accent)]"
-              >
-                Admin
+            <div className="flex items-center justify-between border-b border-[var(--color-border-strong)] pb-4">
+              <Link href="/" onClick={close} className="flex shrink-0 items-center gap-2">
+                <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                  <ellipse cx="16" cy="20" rx="9" ry="7" fill="var(--color-grammar-adverb)" />
+                  <polygon points="9,15 4,5 13,11" fill="var(--color-grammar-adverb)" />
+                  <polygon points="23,15 28,5 19,11" fill="var(--color-grammar-adverb)" />
+                  <ellipse cx="13" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+                  <ellipse cx="19" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
+                  <ellipse cx="16" cy="23.5" rx="1.4" ry="1" fill="var(--color-accent)" />
+                </svg>
+                <span className="text-lg font-extrabold tracking-tight" aria-label="KitsuBeat">
+                  <span className="text-[var(--color-text)]">Kitsu</span>
+                  <span className="text-[var(--color-accent-readable)]">Beat</span>
+                </span>
               </Link>
-            )}
-            <Link
-              href="/profile"
-              onClick={close}
-              className="py-2 text-base text-[var(--color-text)]"
-            >
-              Profile
-            </Link>
+              <button
+                ref={closeRef}
+                type="button"
+                onClick={close}
+                aria-label="Close menu"
+                data-testid="mobile-nav-close"
+                className="rounded-[var(--radius-pill)] border border-[var(--color-border-strong)] bg-[var(--color-card)] px-4 py-2 text-sm font-medium text-[var(--color-text)] shadow-[var(--shadow-card-ring)] transition-colors hover:bg-[var(--color-card-2)]"
+              >
+                Close
+              </button>
+            </div>
+            <div className="flex flex-1 flex-col justify-center gap-3">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={close}
+                  data-testid={link.testId}
+                  className={[
+                    "rounded-[var(--radius-xl)] border border-[var(--color-border-strong)] bg-[var(--color-card)] px-5 py-4 text-xl font-semibold shadow-[var(--shadow-card-ring)] transition-colors hover:bg-[var(--color-card-2)]",
+                    link.label === "Admin"
+                      ? "text-[var(--color-accent-readable)]"
+                      : "text-[var(--color-text)]",
+                  ].join(" ")}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </>
       )}

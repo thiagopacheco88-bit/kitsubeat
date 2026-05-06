@@ -39,7 +39,7 @@ describe("Foundations", () => {
     const { getByText } = render(<Foundations />);
     expect(getByText("基礎")).toBeInTheDocument();
     expect(getByText("Foundations")).toBeInTheDocument();
-    const viewAll = getByText(/View all/i).closest("a");
+    const viewAll = getByText(/Open Kana/i).closest("a");
     expect(viewAll?.getAttribute("href")).toBe("/kana");
   });
 

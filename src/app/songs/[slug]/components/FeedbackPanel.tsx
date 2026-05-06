@@ -57,7 +57,7 @@ export default function FeedbackPanel({
   return (
     <div
       data-feedback={isCorrect ? "correct" : "wrong"}
-      className={`mt-4 rounded-lg border p-4 ${
+      className={`mt-4 rounded-[var(--radius-xl)] border p-4 shadow-[var(--shadow-card-ring)] ${
         isCorrect
           ? "border-[var(--color-jlpt-n5-ring)] bg-[var(--color-jlpt-n5-bg)]"
           : "border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10"
@@ -138,7 +138,7 @@ export default function FeedbackPanel({
       )}
 
       {/* Vocab block — always Tier 1 (forceTier1), wrapped in mastery popover */}
-      <div className="mb-3 rounded-md bg-[var(--color-card)]/60 p-3">
+      <div className="mb-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)]/60 p-3">
         <MasteryDetailPopover
           vocabItemId={question.vocabItemId}
           userId={userId}

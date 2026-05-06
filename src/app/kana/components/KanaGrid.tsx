@@ -27,19 +27,29 @@ export function KanaGrid({ script }: Props) {
   const unlocked = computeUnlockedRows(rows, mastery, script);
 
   return (
-    <section className="flex flex-col gap-4">
-      <h2 className="text-lg font-semibold">
-        {script === "hiragana" ? "Hiragana" : "Katakana"}
-      </h2>
+    <section className="flex min-w-0 flex-col gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring)] sm:p-5">
+      <div className="flex items-baseline justify-between gap-3">
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">
+          {script === "hiragana" ? "Hiragana" : "Katakana"}
+        </h2>
+        <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          {rows.length} rows
+        </span>
+      </div>
       <div className="flex flex-col gap-3">
         {rows.map((row) => {
           const isUnlocked = unlocked.has(row.id);
           return (
-            <div key={row.id} className={`${isUnlocked ? "" : "opacity-50"}`}>
-              <div className="text-xs uppercase text-[var(--color-text-dim)] mb-1">
+            <div
+              key={row.id}
+              className={`rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-3 ${
+                isUnlocked ? "" : "opacity-55"
+              }`}
+            >
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
                 {row.label}
               </div>
-              <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 gap-2">
+              <div className="grid grid-cols-5 gap-2 sm:grid-cols-7 md:grid-cols-10">
                 {row.chars.map((c) => {
                   const glyph = script === "hiragana" ? c.hiragana : c.katakana;
                   return (

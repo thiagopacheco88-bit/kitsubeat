@@ -58,6 +58,7 @@ export function KanaQuestionCard({
 
   // Reset internal feedback state on question change.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setChosen(null);
   }, [questionKey]);
 
@@ -113,7 +114,7 @@ export function KanaQuestionCard({
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
+    <div className="mx-auto flex w-full max-w-md flex-col items-center gap-6">
       <div className="flex items-center gap-3">
         <span className="text-7xl font-semibold leading-none text-[var(--color-text)]">
           {kana}
@@ -123,14 +124,14 @@ export function KanaQuestionCard({
             type="button"
             aria-label={`Play pronunciation of ${kana}`}
             onClick={() => speakJapanese(kana)}
-            className="rounded-full p-2 text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
+            className="min-h-11 min-w-11 rounded-full p-2 text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
           >
             <span aria-hidden="true">🔊</span>
           </button>
         )}
       </div>
 
-      <div className="grid grid-cols-2 gap-2 w-full">
+      <div className="grid w-full grid-cols-1 gap-2 sm:grid-cols-2">
         {options.map((option, i) => (
           <button
             key={option}
@@ -138,7 +139,7 @@ export function KanaQuestionCard({
             onClick={() => handlePick(option)}
             disabled={chosen !== null}
             aria-label={`Option ${i + 1}: ${option}`}
-            className={`rounded-[var(--radius-lg)] border px-4 py-3 text-center text-base font-medium transition-colors ${getOptionStyle(option)}`}
+            className={`min-h-14 rounded-[var(--radius-lg)] border px-4 py-3 text-center text-base font-semibold transition-colors ${getOptionStyle(option)}`}
           >
             <span className="mr-2 text-xs text-[var(--color-text-dim)]">
               {i + 1}.

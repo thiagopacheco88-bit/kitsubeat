@@ -31,7 +31,7 @@ export function ModeToggle({ value, onChange }: Props) {
     <div
       role="tablist"
       aria-label="Kana mode"
-      className="inline-flex rounded-[var(--radius-lg)] border border-[var(--color-border)] p-1 gap-1"
+      className="grid w-full grid-cols-3 gap-1 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-1 sm:inline-grid sm:w-auto"
     >
       {options.map((o) => {
         const active = o.id === value;
@@ -41,7 +41,7 @@ export function ModeToggle({ value, onChange }: Props) {
             role="tab"
             aria-selected={active}
             onClick={() => onChange(o.id)}
-            className={`px-4 py-3 text-sm font-medium rounded-[var(--radius-md)] transition-colors ${
+            className={`min-h-11 rounded-[var(--radius-md)] px-3 text-sm font-semibold transition-colors sm:px-4 ${
               active
                 ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
                 : "text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"

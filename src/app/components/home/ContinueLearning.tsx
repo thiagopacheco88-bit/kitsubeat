@@ -41,6 +41,7 @@ export async function ContinueLearning({ userId }: ContinueLearningProps) {
         titleJp="続ける"
         title="Continue Learning"
         viewAll="/path"
+        viewAllLabel="Open Path"
       />
       <Carousel testId="continue-learning-carousel" ariaLabel="Continue learning">
         {rows.map((row) => (

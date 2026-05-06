@@ -75,7 +75,6 @@ export default function SessionSummary({
   const [xpGained, setXpGained] = useState(0);
   const [xpTotal, setXpTotal] = useState(0);
   const [currentLevel, setCurrentLevel] = useState(1);
-  const [previousLevel, setPreviousLevel] = useState(1);
   const [leveledUp, setLeveledUp] = useState(false);
   const [streakCurrent, setStreakCurrent] = useState(0);
   const [graceApplied, setGraceApplied] = useState(false);
@@ -138,7 +137,6 @@ export default function SessionSummary({
         setXpGained(result.xpGained);
         setXpTotal(result.xpTotal);
         setCurrentLevel(result.currentLevel);
-        setPreviousLevel(result.previousLevel);
         setLeveledUp(result.leveledUp);
         setStreakCurrent(result.streakCurrent);
         setGraceApplied(result.graceApplied);

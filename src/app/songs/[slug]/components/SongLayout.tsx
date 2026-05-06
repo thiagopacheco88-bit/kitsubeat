@@ -19,15 +19,30 @@ export default function SongLayout({
   return (
     <div
       data-song-layout
-      className="flex flex-col gap-4 scroll-mt-16 max-lg:h-[calc(100dvh-12rem)] lg:flex-row"
+      data-testid="song-player-stage"
+      className="min-w-0 scroll-mt-16 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 shadow-[var(--shadow-card-ring-strong)] sm:p-4"
     >
-      <div className="max-lg:shrink-0 lg:w-[55%] lg:shrink-0">{video}</div>
+      <div className="flex flex-col gap-3 max-lg:h-[calc(100dvh-16rem)] lg:grid lg:min-h-[34rem] lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:gap-4">
+        <section
+          data-testid="song-video-panel"
+          className="min-w-0 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg)] max-lg:shrink-0"
+          aria-label="Video player"
+        >
+          {video}
+        </section>
 
-      <div className="max-lg:min-h-0 max-lg:flex-1 max-lg:overflow-y-auto lg:w-[45%] lg:max-h-[calc(100vh-10rem)] lg:overflow-y-auto lg:pr-2">
-        <h2 className="sticky top-0 z-10 mb-3 bg-[var(--color-bg)] pb-2 text-lg font-semibold text-[var(--color-text)]">
-          Lyrics
-        </h2>
-        {lyrics}
+        <section
+          data-testid="song-lyrics-panel"
+          className="min-w-0 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg)] max-lg:min-h-0 max-lg:flex-1 max-lg:overflow-y-auto lg:max-h-[34rem] lg:overflow-y-auto"
+          aria-label="Synced lyrics"
+        >
+          <div className="sticky top-0 z-10 border-b border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+              Synced lyrics
+            </p>
+          </div>
+          <div className="p-3 sm:p-4">{lyrics}</div>
+        </section>
       </div>
     </div>
   );

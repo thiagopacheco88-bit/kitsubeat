@@ -10,6 +10,7 @@ import {
   isSessionForSong,
 } from "@/stores/exerciseSession";
 import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
+import { Button } from "@/components/ui/Button";
 import ExerciseSession from "./ExerciseSession";
 import GrammarSessionRunner from "./GrammarSessionRunner";
 import { TrackProgressRings } from "./TrackProgressRings";
@@ -57,22 +58,36 @@ interface TrackCardProps {
 
 function TrackCard({
   title,
+  trackKind,
   description,
   lengthMode,
   onLengthChange,
   onStart,
   loading,
 }: TrackCardProps) {
+  const trackLabel = trackKind.replace(/_/g, " ");
+
   return (
-    <div className="flex flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-5">
+    <div className="flex min-h-64 flex-col gap-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring)]">
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+            {trackLabel}
+          </p>
+          <h3 className="mt-1 text-lg font-semibold text-[var(--color-text)]">
+            {title}
+          </h3>
+        </div>
+        <span className="rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-2 py-0.5 text-xs font-semibold text-[var(--color-text-muted)]">
+          {lengthMode === "short" ? "10" : "25"} rounds
+        </span>
+      </div>
       <div>
-        <h3 className="font-semibold text-[var(--color-text)]">{title}</h3>
         <p className="mt-1 text-sm text-[var(--color-text-dim)]">{description}</p>
       </div>
 
-      {/* Short / Long length toggle */}
       <div
-        className="flex gap-2"
+        className="mt-auto grid grid-cols-2 gap-2 rounded-[var(--radius-lg)] bg-[var(--color-card-2)] p-1"
         role="radiogroup"
         aria-label="Session length"
       >
@@ -80,10 +95,10 @@ function TrackCard({
           role="radio"
           aria-checked={lengthMode === "short"}
           onClick={() => onLengthChange("short")}
-          className={`px-3 py-1 text-xs rounded transition-colors ${
+          className={`min-h-11 rounded-[var(--radius-md)] px-3 py-1 text-xs font-semibold transition-colors ${
             lengthMode === "short"
-              ? "bg-[var(--color-accent)] text-white"
-              : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-border)]"
+              ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
+              : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
           }`}
         >
           Short (10)
@@ -92,23 +107,24 @@ function TrackCard({
           role="radio"
           aria-checked={lengthMode === "long"}
           onClick={() => onLengthChange("long")}
-          className={`px-3 py-1 text-xs rounded transition-colors ${
+          className={`min-h-11 rounded-[var(--radius-md)] px-3 py-1 text-xs font-semibold transition-colors ${
             lengthMode === "long"
-              ? "bg-[var(--color-accent)] text-white"
-              : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-border)]"
+              ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
+              : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
           }`}
         >
           Long (25)
         </button>
       </div>
 
-      <button
+      <Button
+        type="button"
         onClick={onStart}
         disabled={loading}
-        className="mt-auto rounded-lg bg-[var(--color-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--color-accent-hover)] disabled:opacity-50"
+        className="w-full"
       >
         {loading ? "Loading..." : "Start"}
-      </button>
+      </Button>
     </div>
   );
 }
@@ -180,15 +196,22 @@ export default function ExerciseTab({
   };
 
   const sessionView = (
-    <div className="py-4">
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-[var(--color-text)]">Practice</h2>
-        <button
+    <div className="py-4" data-testid="practice-session-stage">
+      <div className="mb-4 flex items-center justify-between gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+            Run active
+          </p>
+          <h2 className="text-lg font-semibold text-[var(--color-text)]">Practice</h2>
+        </div>
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
           onClick={handleRetry}
-          className="text-xs text-[var(--color-text-dim)] underline hover:text-[var(--color-text-muted)]"
         >
           Return
-        </button>
+        </Button>
       </div>
       <ExerciseSession
         lesson={lesson}
@@ -214,7 +237,10 @@ export default function ExerciseTab({
   if (tabState === "grammar-session") {
     return (
       <div className="py-4">
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3">
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+            Grammar run
+          </p>
           <h2 className="text-lg font-semibold text-[var(--color-text)]">Practice</h2>
         </div>
         <GrammarSessionRunner
@@ -366,8 +392,18 @@ export default function ExerciseTab({
   };
 
   return (
-    <div className="py-4">
-      <h2 className="mb-6 text-lg font-semibold text-[var(--color-text)]">Practice</h2>
+    <div className="py-4" data-testid="practice-game-lobby">
+      <div className="mb-6 flex flex-col gap-1">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          Practice lobby
+        </p>
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">
+          Choose your next run
+        </h2>
+        <p className="text-sm text-[var(--color-text-muted)]">
+          Short runs sharpen one signal. Long runs push the lesson toward mastery.
+        </p>
+      </div>
 
       {error && (
         <p className="mb-4 rounded-lg border border-[var(--color-accent)]/30 bg-[var(--color-accent)]/10 px-4 py-2 text-sm text-[var(--color-accent)]">
@@ -451,7 +487,7 @@ export default function ExerciseTab({
           : "";
 
         return (
-          <div className="mt-4 flex flex-col gap-3 rounded-xl border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5">
+          <div className="mt-4 flex flex-col gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border-strong)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring)]">
             <div>
               <h3 className="font-semibold text-[var(--color-text)]">Advanced Drills</h3>
               <p className="mt-1 text-sm text-[var(--color-text-dim)]">
@@ -471,10 +507,10 @@ export default function ExerciseTab({
                   : "Start Advanced Drills"
               }
               data-testid="advanced-drills-button"
-              className={`mt-auto rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+              className={`mt-auto min-h-11 rounded-[var(--radius-md)] px-4 py-2 text-sm font-semibold transition-colors duration-300 ${
                 drillsLocked
-                  ? "bg-gray-700 text-gray-400 cursor-not-allowed opacity-60"
-                  : "bg-gradient-to-r from-amber-500 to-amber-400 text-white hover:from-amber-600 hover:to-amber-500"
+                  ? "cursor-not-allowed border border-[var(--color-border)] bg-[var(--color-card-2)] text-[var(--color-text-dim)] opacity-70"
+                  : "bg-[var(--color-jlpt-n3)] [color:white] shadow-[var(--shadow-button-red)] hover:opacity-90"
               }`}
             >
               {loading ? "Loading..." : drillsLocked ? "Locked" : "Start"}

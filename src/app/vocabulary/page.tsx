@@ -65,14 +65,15 @@ export default async function VocabularyPage({
   const hiddenCount = premium ? 0 : Math.max(0, rows.length - FREE_PREVIEW_LIMIT);
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 text-[var(--color-text)]">
-      <header className="mb-6 flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold">Your vocabulary</h1>
-          <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-            {rows.length} {rows.length === 1 ? "word" : "words"} with mastery
-          </p>
-        </div>
+    <main className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-6 text-[var(--color-text)] sm:px-6">
+      <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          Library
+        </p>
+        <h1 className="mt-1 text-3xl font-bold">Your vocabulary</h1>
+        <p className="mt-2 text-sm text-[var(--color-text-muted)]">
+          {rows.length} {rows.length === 1 ? "word" : "words"} with mastery
+        </p>
       </header>
       <JlptGapSummary userId={userId} />
       <FilterControls
@@ -81,7 +82,7 @@ export default async function VocabularyPage({
       />
       <VocabularyList rows={displayed} />
       {!premium && hiddenCount > 0 && (
-        <div className="mt-8">
+        <div>
           <EmptyState
             heading={`Showing the first ${FREE_PREVIEW_LIMIT} of ${rows.length} words`}
             body={`Upgrade to see ${hiddenCount} more and unlock the cross-song review queue.`}

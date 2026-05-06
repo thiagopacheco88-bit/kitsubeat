@@ -45,7 +45,7 @@ export function KanaLearnCard({
   }, [onGotIt]);
 
   return (
-    <div className="flex flex-col items-center gap-6 max-w-md mx-auto">
+    <div className="mx-auto flex w-full max-w-md flex-col items-center gap-6">
       <span className="text-xs uppercase tracking-wide text-[var(--color-text-dim)]">
         {label}
       </span>
@@ -58,7 +58,7 @@ export function KanaLearnCard({
             type="button"
             aria-label={`Play pronunciation of ${kana}`}
             onClick={() => speakJapanese(kana)}
-            className="rounded-full p-2 text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
+            className="min-h-11 min-w-11 rounded-full p-2 text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
           >
             <span aria-hidden="true">🔊</span>
           </button>

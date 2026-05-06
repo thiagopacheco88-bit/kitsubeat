@@ -26,7 +26,7 @@ interface Props {
 export function KanaTile({ glyph, romaji, stars, locked }: Props) {
   return (
     <div
-      className={`flex flex-col items-center gap-1 rounded-[var(--radius-md)] border px-2 py-2 text-center ${
+      className={`flex min-h-20 flex-col items-center justify-center gap-1 rounded-[var(--radius-md)] border px-1.5 py-2 text-center ${
         locked
           ? "border-[var(--color-border)] bg-[var(--color-card-2)] text-[var(--color-text-dim)]"
           : "border-[var(--color-border-strong)] bg-[var(--color-card)] text-[var(--color-text)]"
@@ -37,7 +37,7 @@ export function KanaTile({ glyph, romaji, stars, locked }: Props) {
     >
       <span className="text-2xl font-semibold leading-none">{glyph}</span>
       <span className="text-xs text-[var(--color-text-muted)]">{romaji}</span>
-      <div className="flex gap-0.5 mt-1" aria-hidden="true">
+      <div className="mt-1 flex max-w-full flex-wrap justify-center gap-0.5" aria-hidden="true">
         {Array.from({ length: 10 }).map((_, i) => (
           <span
             key={i}

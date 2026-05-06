@@ -67,7 +67,8 @@ async function getTestSongVersions(count: number): Promise<
       )                                       AS youtube_id,
       EXISTS (
         SELECT 1 FROM song_version_grammar_rules svgr
-        WHERE svgr.song_version_id = sv.id
+        INNER JOIN song_versions sv3 ON sv3.id = svgr.song_version_id
+        WHERE sv3.song_id = s.id
       )                                       AS has_grammar
     FROM song_versions sv
     INNER JOIN songs s ON s.id = sv.song_id
@@ -314,39 +315,27 @@ describeIfTestDb("getContinueLearning() — live DB integration", () => {
   // Test 5: stars derivation matches deriveStars() helper (D-14 single-source-of-truth)
   // -------------------------------------------------------------------------
   it("Test 5: stars derivation matches deriveStars() helper (D-14 single-source-of-truth)", async () => {
-    // Find 3 vocab-only (has_grammar=false) song_versions for this test.
-    const vocabOnly = testVersions.filter((v) => !v.has_grammar);
-    if (vocabOnly.length < 3) {
-      // If not enough vocab-only versions, use any 3 and test with the actual has_grammar flag.
-      // The invariant still holds: getContinueLearning must return the same stars as deriveStars().
-    }
-
-    // Use the first 3 available versions (may be grammar or vocab).
+    // Use the first 3 distinct available versions. Row A sets the appropriate
+    // final-gate accuracy for its actual song-level grammar status.
     const vA = testVersions[0]!;
     const vB = testVersions[1]!;
     const vC = testVersions[2]!;
-
-    // Find vocab-only versions if possible (for predictable Star 3 gate via ex6).
-    const vocabA = vocabOnly[0] ?? vA;
-    const vocabB = vocabOnly[1] ?? vB;
-    const vocabC = vocabOnly[2] ?? vC;
-
     // row A: 3 stars — ex1_2_3=0.85, ex4=0.85, ex6=0.85 (vocab-only song)
     await insertProgress({
       userId: TEST_USER_ID,
-      songVersionId: vocabA.id,
+      songVersionId: vA.id,
       completionPct: 0.9,
       updatedAt: new Date(Date.now() - 1 * 60_000).toISOString(),
       ex1_2_3: 0.85,
       ex4: 0.85,
       ex6: 0.85,
-      grammarBestAccuracy: null,
+      grammarBestAccuracy: vA.has_grammar ? 0.85 : null,
     });
 
     // row B: 0 stars — all-zero accuracy
     await insertProgress({
       userId: TEST_USER_ID,
-      songVersionId: vocabB.id,
+      songVersionId: vB.id,
       completionPct: 0.1,
       updatedAt: new Date(Date.now() - 2 * 60_000).toISOString(),
       ex1_2_3: 0,
@@ -358,7 +347,7 @@ describeIfTestDb("getContinueLearning() — live DB integration", () => {
     // row C: 1 star — ex1_2_3=0.85, ex4=null
     await insertProgress({
       userId: TEST_USER_ID,
-      songVersionId: vocabC.id,
+      songVersionId: vC.id,
       completionPct: 0.5,
       updatedAt: new Date(Date.now() - 3 * 60_000).toISOString(),
       ex1_2_3: 0.85,
@@ -395,11 +384,14 @@ describeIfTestDb("getContinueLearning() — live DB integration", () => {
 
     // For the 3-star row: deriveStars returns 3 (for vocab-only with ex6=0.85).
     const threeStarsExpected = deriveStars(
-      { ex1_2_3_best_accuracy: 0.85, ex4_best_accuracy: 0.85, ex6_best_accuracy: 0.85, grammar_best_accuracy: null },
-      vocabA.has_grammar
+      {
+        ex1_2_3_best_accuracy: 0.85,
+        ex4_best_accuracy: 0.85,
+        ex6_best_accuracy: 0.85,
+        grammar_best_accuracy: vA.has_grammar ? 0.85 : null,
+      },
+      vA.has_grammar
     );
-    // If vocabA is actually a grammar song, the 3-star gate will use grammar_best_accuracy=null => 0 => returns 2.
-    // Either way, the returned stars must match deriveStars applied to the same inputs.
     expect(stars).toContain(threeStarsExpected);
   });
 });

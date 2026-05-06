@@ -122,4 +122,14 @@ describe("MobileNavSheet — a11y contract", () => {
     expect(sheet).toHaveAttribute("aria-modal", "true");
     expect(sheet).toHaveAttribute("aria-label", "Navigation");
   });
+
+  it("sheet owns the mobile viewport above page content", async () => {
+    const { getByTestId } = render(
+      <MobileNavSheet isAdmin={false} isSignedIn={false} />
+    );
+    await act(async () => { fireEvent.click(getByTestId("mobile-nav-trigger")); });
+    const sheet = getByTestId("mobile-nav-sheet");
+    expect(sheet).toHaveClass("fixed", "inset-0", "z-[1010]", "bg-[var(--color-bg)]");
+    expect(document.body.style.overflow).toBe("hidden");
+  });
 });

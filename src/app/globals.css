@@ -56,6 +56,7 @@
    * needed — same value works on both surfaces). User-picked disposition A1
    * over A2 (enlarge CTA text) and A3 (Phase 18 deferral). */
   --color-accent: #dc2626;
+  --color-accent-readable: #ef4444;
 
   /* Typography — theme-independent per CONTEXT D-01 / SPEC §A.3 */
   --font-sans: Inter, -apple-system, "SF Pro Text", system-ui, sans-serif;
@@ -147,6 +148,7 @@
   --color-text-dim: rgba(24, 24, 27, 0.45);
   /* --color-accent inherits #dc2626 from @theme (Phase 14 gap 2026-05-02
    * disposition A1 — clears 4.66:1 on white surfaces, satisfies WCAG AA). */
+  --color-accent-readable: #dc2626;
 
   /* Shadows — 30% higher opacity vs dark for visibility on light bg (CONTEXT D-04) */
   --shadow-card-ring: inset 0 0 0 1px rgba(0, 0, 0, 0.08);

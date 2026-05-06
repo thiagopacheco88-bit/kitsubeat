@@ -15,10 +15,10 @@ function SessionInner() {
 
 export default function KanaSessionPage() {
   return (
-    <main className="mx-auto max-w-2xl p-6 min-h-[80vh]">
+    <main className="mx-auto flex min-h-[80vh] max-w-2xl flex-col px-4 py-6 sm:px-6">
       <Suspense
         fallback={
-          <div className="animate-pulse h-64 rounded bg-[var(--color-card-2)]" />
+          <div className="h-80 animate-pulse rounded-[var(--radius-2xl)] bg-[var(--color-card-2)]" />
         }
       >
         <SessionInner />

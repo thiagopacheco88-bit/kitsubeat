@@ -13,16 +13,19 @@ export const dynamic = "force-dynamic";
 
 export default function TimingPage() {
   return (
-    <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "32px 24px" }}>
-      <div style={{ marginBottom: "24px" }}>
-        <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#111827", margin: 0 }}>
+    <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6">
+      <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          Admin
+        </p>
+        <h1 className="mt-1 text-3xl font-bold text-[var(--color-text)]">
           Timing Editor
         </h1>
-        <p style={{ color: "#6b7280", marginTop: "6px", fontSize: "14px" }}>
+        <p className="mt-2 max-w-2xl text-sm text-[var(--color-text-muted)]">
           Review and correct WhisperX auto-generated word timestamps for each song.
         </p>
-      </div>
+      </header>
       <SongList />
-    </div>
+    </main>
   );
 }

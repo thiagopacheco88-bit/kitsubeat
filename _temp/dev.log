@@ -9,118 +9,452 @@
 
  ✓ Starting...
  ✓ Ready in 2.5s
- ○ Compiling /middleware ...
- ✓ Compiled /middleware in 1242ms (221 modules)
- ○ Compiling /path ...
-<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (201kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
- ✓ Compiled /vocabulary in 14.8s (1542 modules)
- ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:7000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET /vocabulary 200 in 4097ms
- ○ Compiling / ...
- GET /path 200 in 15461ms
- ✓ Compiled / in 2.3s (1534 modules)
- ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:7000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET / 200 in 3550ms
- GET / 200 in 363ms
- ✓ Compiled in 993ms (403 modules)
- ✓ Compiled in 473ms (403 modules)
- ✓ Compiled in 244ms (403 modules)
- GET /path 200 in 540ms
- GET /path 200 in 342ms
- GET /path 200 in 200ms
- GET / 200 in 1222ms
- GET / 200 in 850ms
- GET / 200 in 649ms
- GET / 200 in 515ms
- GET / 200 in 354ms
- GET / 200 in 233ms
- ✓ Compiled in 793ms (1548 modules)
- ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:7000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
- GET /path 200 in 673ms
- GET / 200 in 803ms
- GET / 200 in 151ms
+ ✓ Compiled /middleware in 419ms (221 modules)
 Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
- GET / 200 in 991ms
- ✓ Compiled in 269ms (403 modules)
- ✓ Compiled in 252ms (403 modules)
- ✓ Compiled in 337ms (403 modules)
- GET /path 200 in 445ms
- ✓ Compiled in 223ms (403 modules)
- GET /path 200 in 444ms
- ✓ Compiled in 210ms (403 modules)
- ✓ Compiled in 273ms (403 modules)
- GET / 200 in 1458ms
- GET / 200 in 1075ms
- GET / 200 in 799ms
+ ○ Compiling / ...
+ ✓ Compiled / in 7.4s (1477 modules)
+ ✓ Compiled in 1388ms (383 modules)
+ GET / 200 in 9301ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /songs ...
+ ✓ Compiled /songs in 1313ms (1694 modules)
+ GET /songs 200 in 3595ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /anime-list ...
+ ✓ Compiled /anime-list in 510ms (1696 modules)
+ GET /anime-list 200 in 2888ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /songs/[slug] ...
+ ✓ Compiled /songs/[slug] in 1211ms (1995 modules)
+ GET /songs/again-yui 200 in 4923ms
+ ○ Compiling /api/review/known-count ...
+ ✓ Compiled /api/review/known-count in 771ms (2004 modules)
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 1421ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /path ...
+ ✓ Compiled /path in 873ms (2034 modules)
+ GET /path 200 in 2485ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana ...
+ ✓ Compiled /kana in 814ms (2049 modules)
+ GET /kana 200 in 1794ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session ...
+ ✓ Compiled /kana/session in 936ms (2066 modules)
+ GET /kana/session 200 in 1875ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session/summary ...
+ ✓ Compiled /kana/session/summary in 899ms (2075 modules)
+ GET /kana/session/summary 200 in 1811ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /vocabulary ...
+ ✓ Compiled /vocabulary in 1273ms (2094 modules)
+ GET /vocabulary 200 in 2417ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /review ...
+ ✓ Compiled /review in 968ms (2118 modules)
+ GET /review 200 in 1940ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 1081ms (2127 modules)
+ GET /profile 200 in 2357ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /sign-in/[[...sign-in]] ...
+ ✓ Compiled /sign-in/[[...sign-in]] in 1218ms (2113 modules)
+ GET /sign-in 200 in 4114ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778015789979 200 in 941ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /sign-up/[[...sign-up]] ...
+ ✓ Compiled /sign-up/[[...sign-up]] in 788ms (2113 modules)
+ GET /sign-up 200 in 3092ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 1230ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778015802325 200 in 14ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1021ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /%5F%5Fdev/states ...
+ ✓ Compiled /%5F%5Fdev/states in 868ms (1869 modules)
+ GET /__dev/states 200 in 1693ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1247ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778015818245 200 in 998ms
+ ✓ Compiled in 781ms (641 modules)
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled / in 320ms (1098 modules)
+ GET / 200 in 1432ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled /songs in 278ms (1215 modules)
+ GET /songs 200 in 1419ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled /anime-list in 310ms (1217 modules)
+ GET /anime-list 200 in 2178ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /songs/[slug] ...
+ ✓ Compiled /songs/[slug] in 1404ms (1412 modules)
+ GET /songs/again-yui 200 in 3725ms
+ ○ Compiling /api/review/known-count ...
+ ✓ Compiled /api/review/known-count in 813ms (1420 modules)
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 2195ms
+ GET /songs/again-yui 200 in 1022ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /path ...
+ ✓ Compiled /path in 1122ms (1442 modules)
+ GET /path 200 in 2463ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana ...
+ ✓ Compiled /kana in 701ms (1451 modules)
+ GET /kana 200 in 1446ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session ...
+ ✓ Compiled /kana/session in 567ms (1461 modules)
+ GET /kana/session 200 in 1230ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session/summary ...
+ ✓ Compiled /kana/session/summary in 972ms (1467 modules)
+ GET /kana/session/summary 200 in 1674ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /vocabulary ...
+ ✓ Compiled /vocabulary in 852ms (1483 modules)
+ GET /vocabulary 200 in 1750ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /review ...
+ ✓ Compiled /review in 769ms (1498 modules)
+ GET /review 200 in 1462ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 727ms (1505 modules)
+ GET /profile 200 in 1583ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in 200 in 1217ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778015999071 200 in 20ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /sign-up/[[...sign-up]] ...
+ ✓ Compiled /sign-up/[[...sign-up]] in 994ms (1488 modules)
+ GET /sign-up 200 in 2274ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 999ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778016009877 200 in 20ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1061ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778016015400 200 in 875ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /%5F%5Fdev/states ...
+ ✓ Compiled /%5F%5Fdev/states in 702ms (1376 modules)
+ GET /__dev/states 200 in 1275ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1202ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 1227ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1202ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled / in 453ms (1105 modules)
+ GET / 200 in 1782ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 1216ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778016089585 200 in 25ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 1023ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 1178ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778016100103 200 in 19ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET / 200 in 629ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled /songs in 280ms (1215 modules)
+ GET /songs 200 in 1886ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled /anime-list in 315ms (1217 modules)
+ GET /anime-list 200 in 2088ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled /songs/[slug] in 333ms (1412 modules)
+ GET /songs/again-yui 200 in 2690ms
+ ○ Compiling /api/review/known-count ...
+ ✓ Compiled /api/review/known-count in 921ms (1420 modules)
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 1260ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /path ...
+ ✓ Compiled /path in 968ms (1442 modules)
+ GET /path 200 in 2361ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana ...
+ ✓ Compiled /kana in 1199ms (1451 modules)
+ GET /kana 200 in 2068ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session ...
+ ✓ Compiled /kana/session in 568ms (1461 modules)
+ GET /kana/session 200 in 1249ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session/summary ...
+ ✓ Compiled /kana/session/summary in 1053ms (1467 modules)
+ GET /kana/session/summary 200 in 1777ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /vocabulary ...
+ ✓ Compiled /vocabulary in 962ms (1483 modules)
+ GET /vocabulary 200 in 1787ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /review ...
+ ✓ Compiled /review in 708ms (1498 modules)
+ GET /review 200 in 1451ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 679ms (1505 modules)
+ GET /profile 200 in 1783ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in 200 in 1208ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778016192170 200 in 872ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /sign-up/[[...sign-up]] ...
+ ✓ Compiled /sign-up/[[...sign-up]] in 719ms (1488 modules)
+ GET /sign-up 200 in 2039ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 1243ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1207ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778016208767 200 in 897ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /%5F%5Fdev/states ...
+ ✓ Compiled /%5F%5Fdev/states in 650ms (1268 modules)
+ GET /__dev/states 200 in 1484ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1224ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /__dev/states 200 in 262ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /__dev/states 200 in 254ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled /songs/[slug] in 408ms (1278 modules)
+ GET /songs/again-yui 200 in 2761ms
+ ✓ Compiled /api/review/known-count in 402ms (1284 modules)
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 998ms
+ GET /songs/again-yui 200 in 1293ms
+ ○ Compiling /api/exercises/jlpt-pool ...
+ ✓ Compiled /api/exercises/jlpt-pool in 2.3s (1927 modules)
+ GET /api/exercises/jlpt-pool?jlpt_level=N3 200 in 3582ms
+ POST /songs/again-yui 200 in 3827ms
+ POST /songs/again-yui 200 in 122ms
+ ○ Compiling /api/exercises/vocab-tiers ...
+ ✓ Compiled /api/exercises/vocab-tiers in 1644ms (1930 modules)
+ GET /api/exercises/vocab-tiers?ids=d29d18b9-490b-4636-8f58-1fdbc209f450,d0732735-4059-459f-b8d7-2f28f019a8c1,fc81c633-197c-465b-896d-e786f05e14c8,f8c06ad1-4b90-440f-a4bf-b8d44dc0d8c4,ee57ac0e-68f5-43ba-936f-9e2096854c3f,be107e67-1e4f-4354-9c47-3529f588d077,cab70214-32f1-4ef6-8614-19654789d267,4ba09afb-627a-407a-aad7-ec9099de355a,f68411f9-dd86-4ff2-8173-6c82454e79bd,ea084f8c-aa0d-48f3-b312-b664e9cbabdb,22560026-55cb-4fe4-a1d3-cff7cc15eefd,adc02262-1537-49e2-8325-a57a9fc666c8,f3d16000-2086-4b07-be50-b2718ef241fa,a71564da-3221-4c8e-8ac5-de22098c5b15,a4476f52-3b02-4c95-8450-d06d40d4d760,fabd3c4e-340f-47c0-84a9-1d43e38d8299,d6d2d2df-a275-4323-8d86-950cfe2e0900,1434375e-2052-4a15-97bc-6f39e7069374,a906deec-6f18-42ef-8795-1d3c33660eef,43d58c17-87e4-4af5-9c9f-f6893b7e18e7,f4d788d1-53c7-4af9-906d-c81b8478dece,1880f5c9-9c10-4467-a0be-0862f79a9934,03b115e9-603a-45fb-a7c9-b6fd45b2cc83,21f33e7a-1d4d-4d50-b3cc-ce5a7caae6fb,d2c6c091-704d-4499-a0ce-db078ff2e10c,2cc5248a-206a-4219-87aa-a93ff7cbbc64,ccb76f74-fa65-4c88-aec4-a23aec8a0e39,8b2acc87-6e52-48f2-9e1c-ec6592ffe8c3,a51bc793-07d3-471f-8d79-fe2a6d37c227,ab8f4575-6c26-4447-bead-41bf4bf93d5b,3f67de60-afbc-441b-a346-dcb74181726a,795b4760-86c7-465f-8f7c-e493abe6041f,b4e2b330-ae7d-439c-8d2b-7c6a99b115f6,10acfd71-c29a-4f23-85ea-0faf8c74a176,fc80b6b4-ccec-4e51-b8c3-6fba50b54402,e32c8a4c-09a5-4881-a477-0a9c894f0914,bd41585b-4f62-4689-9ad1-053473730332,02ed0198-2cac-43ee-ae25-e4fc6553a611,622f21a8-b97a-4f34-9cf6-1bf2129db5a0,6c33932a-755a-44aa-8b87-a3a52de89ab4,5699e9ce-df4c-42fe-9535-42eacc4f8568,955f4f34-72ea-4bbd-a10a-206928a22522,9db6eeb0-1335-4f69-8ee7-5a88fbaebceb,ff5ed3b8-ed8d-4374-968d-caadedc846ab,43f97ad5-71f5-4cd7-a548-45da7d40d699,07344b7f-2051-4bd3-b685-41d77d7cdd1c,0f8adc19-cc60-4599-8151-9a99cd83f3bd,e7130e4f-2021-49a4-bb3d-86bc94690d8e,5ca63659-4f20-41bc-8d3f-954e0a61c808,d842ebd9-5f9d-4463-aaab-5cdb4135d8f9,f9236aa7-3a7d-4d5a-9349-343c3f0ef05d,f4b60e33-4a6a-4ce9-ad14-d68be46ade39,15039c45-a0e0-4bc4-8967-cb220dfee11c,ad7622bc-596c-45f1-bb38-f9f53527eb6f,359912c6-cc4a-497f-bba5-a6d942584bb1&userId=test-user-e2e 200 in 2695ms
+ GET /songs/again-yui 200 in 2757ms
+ GET /songs/again-yui 200 in 305ms
+ POST /songs/again-yui 200 in 272ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 2142ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 138ms
+ GET /api/exercises/jlpt-pool?jlpt_level=N3 200 in 837ms
+ POST /songs/again-yui 200 in 930ms
+ POST /songs/again-yui 200 in 113ms
+ GET /api/exercises/vocab-tiers?ids=d29d18b9-490b-4636-8f58-1fdbc209f450,d0732735-4059-459f-b8d7-2f28f019a8c1,fc81c633-197c-465b-896d-e786f05e14c8,f8c06ad1-4b90-440f-a4bf-b8d44dc0d8c4,ee57ac0e-68f5-43ba-936f-9e2096854c3f,be107e67-1e4f-4354-9c47-3529f588d077,cab70214-32f1-4ef6-8614-19654789d267,4ba09afb-627a-407a-aad7-ec9099de355a,f68411f9-dd86-4ff2-8173-6c82454e79bd,ea084f8c-aa0d-48f3-b312-b664e9cbabdb,22560026-55cb-4fe4-a1d3-cff7cc15eefd,adc02262-1537-49e2-8325-a57a9fc666c8,f3d16000-2086-4b07-be50-b2718ef241fa,a71564da-3221-4c8e-8ac5-de22098c5b15,a4476f52-3b02-4c95-8450-d06d40d4d760,fabd3c4e-340f-47c0-84a9-1d43e38d8299,d6d2d2df-a275-4323-8d86-950cfe2e0900,1434375e-2052-4a15-97bc-6f39e7069374,a906deec-6f18-42ef-8795-1d3c33660eef,43d58c17-87e4-4af5-9c9f-f6893b7e18e7,f4d788d1-53c7-4af9-906d-c81b8478dece,1880f5c9-9c10-4467-a0be-0862f79a9934,03b115e9-603a-45fb-a7c9-b6fd45b2cc83,21f33e7a-1d4d-4d50-b3cc-ce5a7caae6fb,d2c6c091-704d-4499-a0ce-db078ff2e10c,2cc5248a-206a-4219-87aa-a93ff7cbbc64,ccb76f74-fa65-4c88-aec4-a23aec8a0e39,8b2acc87-6e52-48f2-9e1c-ec6592ffe8c3,a51bc793-07d3-471f-8d79-fe2a6d37c227,ab8f4575-6c26-4447-bead-41bf4bf93d5b,3f67de60-afbc-441b-a346-dcb74181726a,795b4760-86c7-465f-8f7c-e493abe6041f,b4e2b330-ae7d-439c-8d2b-7c6a99b115f6,10acfd71-c29a-4f23-85ea-0faf8c74a176,fc80b6b4-ccec-4e51-b8c3-6fba50b54402,e32c8a4c-09a5-4881-a477-0a9c894f0914,bd41585b-4f62-4689-9ad1-053473730332,02ed0198-2cac-43ee-ae25-e4fc6553a611,622f21a8-b97a-4f34-9cf6-1bf2129db5a0,6c33932a-755a-44aa-8b87-a3a52de89ab4,5699e9ce-df4c-42fe-9535-42eacc4f8568,955f4f34-72ea-4bbd-a10a-206928a22522,9db6eeb0-1335-4f69-8ee7-5a88fbaebceb,ff5ed3b8-ed8d-4374-968d-caadedc846ab,43f97ad5-71f5-4cd7-a548-45da7d40d699,07344b7f-2051-4bd3-b685-41d77d7cdd1c,0f8adc19-cc60-4599-8151-9a99cd83f3bd,e7130e4f-2021-49a4-bb3d-86bc94690d8e,5ca63659-4f20-41bc-8d3f-954e0a61c808,d842ebd9-5f9d-4463-aaab-5cdb4135d8f9,f9236aa7-3a7d-4d5a-9349-343c3f0ef05d,f4b60e33-4a6a-4ce9-ad14-d68be46ade39,15039c45-a0e0-4bc4-8967-cb220dfee11c,ad7622bc-596c-45f1-bb38-f9f53527eb6f,359912c6-cc4a-497f-bba5-a6d942584bb1&userId=test-user-e2e 200 in 112ms
+ POST /songs/again-yui 200 in 117ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 1826ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 142ms
+ GET /api/exercises/jlpt-pool?jlpt_level=N3 200 in 843ms
+ POST /songs/again-yui 200 in 894ms
+ POST /songs/again-yui 200 in 119ms
+ GET /api/exercises/vocab-tiers?ids=d29d18b9-490b-4636-8f58-1fdbc209f450,d0732735-4059-459f-b8d7-2f28f019a8c1,fc81c633-197c-465b-896d-e786f05e14c8,f8c06ad1-4b90-440f-a4bf-b8d44dc0d8c4,ee57ac0e-68f5-43ba-936f-9e2096854c3f,be107e67-1e4f-4354-9c47-3529f588d077,cab70214-32f1-4ef6-8614-19654789d267,4ba09afb-627a-407a-aad7-ec9099de355a,f68411f9-dd86-4ff2-8173-6c82454e79bd,ea084f8c-aa0d-48f3-b312-b664e9cbabdb,22560026-55cb-4fe4-a1d3-cff7cc15eefd,adc02262-1537-49e2-8325-a57a9fc666c8,f3d16000-2086-4b07-be50-b2718ef241fa,a71564da-3221-4c8e-8ac5-de22098c5b15,a4476f52-3b02-4c95-8450-d06d40d4d760,fabd3c4e-340f-47c0-84a9-1d43e38d8299,d6d2d2df-a275-4323-8d86-950cfe2e0900,1434375e-2052-4a15-97bc-6f39e7069374,a906deec-6f18-42ef-8795-1d3c33660eef,43d58c17-87e4-4af5-9c9f-f6893b7e18e7,f4d788d1-53c7-4af9-906d-c81b8478dece,1880f5c9-9c10-4467-a0be-0862f79a9934,03b115e9-603a-45fb-a7c9-b6fd45b2cc83,21f33e7a-1d4d-4d50-b3cc-ce5a7caae6fb,d2c6c091-704d-4499-a0ce-db078ff2e10c,2cc5248a-206a-4219-87aa-a93ff7cbbc64,ccb76f74-fa65-4c88-aec4-a23aec8a0e39,8b2acc87-6e52-48f2-9e1c-ec6592ffe8c3,a51bc793-07d3-471f-8d79-fe2a6d37c227,ab8f4575-6c26-4447-bead-41bf4bf93d5b,3f67de60-afbc-441b-a346-dcb74181726a,795b4760-86c7-465f-8f7c-e493abe6041f,b4e2b330-ae7d-439c-8d2b-7c6a99b115f6,10acfd71-c29a-4f23-85ea-0faf8c74a176,fc80b6b4-ccec-4e51-b8c3-6fba50b54402,e32c8a4c-09a5-4881-a477-0a9c894f0914,bd41585b-4f62-4689-9ad1-053473730332,02ed0198-2cac-43ee-ae25-e4fc6553a611,622f21a8-b97a-4f34-9cf6-1bf2129db5a0,6c33932a-755a-44aa-8b87-a3a52de89ab4,5699e9ce-df4c-42fe-9535-42eacc4f8568,955f4f34-72ea-4bbd-a10a-206928a22522,9db6eeb0-1335-4f69-8ee7-5a88fbaebceb,ff5ed3b8-ed8d-4374-968d-caadedc846ab,43f97ad5-71f5-4cd7-a548-45da7d40d699,07344b7f-2051-4bd3-b685-41d77d7cdd1c,0f8adc19-cc60-4599-8151-9a99cd83f3bd,e7130e4f-2021-49a4-bb3d-86bc94690d8e,5ca63659-4f20-41bc-8d3f-954e0a61c808,d842ebd9-5f9d-4463-aaab-5cdb4135d8f9,f9236aa7-3a7d-4d5a-9349-343c3f0ef05d,f4b60e33-4a6a-4ce9-ad14-d68be46ade39,15039c45-a0e0-4bc4-8967-cb220dfee11c,ad7622bc-596c-45f1-bb38-f9f53527eb6f,359912c6-cc4a-497f-bba5-a6d942584bb1&userId=test-user-e2e 200 in 115ms
+ POST /songs/again-yui 200 in 122ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 1983ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 115ms
+ GET /api/exercises/jlpt-pool?jlpt_level=N3 200 in 807ms
+ POST /songs/again-yui 200 in 870ms
+ POST /songs/again-yui 200 in 111ms
+ GET /api/exercises/vocab-tiers?ids=d29d18b9-490b-4636-8f58-1fdbc209f450,d0732735-4059-459f-b8d7-2f28f019a8c1,fc81c633-197c-465b-896d-e786f05e14c8,f8c06ad1-4b90-440f-a4bf-b8d44dc0d8c4,ee57ac0e-68f5-43ba-936f-9e2096854c3f,be107e67-1e4f-4354-9c47-3529f588d077,cab70214-32f1-4ef6-8614-19654789d267,4ba09afb-627a-407a-aad7-ec9099de355a,f68411f9-dd86-4ff2-8173-6c82454e79bd,ea084f8c-aa0d-48f3-b312-b664e9cbabdb,22560026-55cb-4fe4-a1d3-cff7cc15eefd,adc02262-1537-49e2-8325-a57a9fc666c8,f3d16000-2086-4b07-be50-b2718ef241fa,a71564da-3221-4c8e-8ac5-de22098c5b15,a4476f52-3b02-4c95-8450-d06d40d4d760,fabd3c4e-340f-47c0-84a9-1d43e38d8299,d6d2d2df-a275-4323-8d86-950cfe2e0900,1434375e-2052-4a15-97bc-6f39e7069374,a906deec-6f18-42ef-8795-1d3c33660eef,43d58c17-87e4-4af5-9c9f-f6893b7e18e7,f4d788d1-53c7-4af9-906d-c81b8478dece,1880f5c9-9c10-4467-a0be-0862f79a9934,03b115e9-603a-45fb-a7c9-b6fd45b2cc83,21f33e7a-1d4d-4d50-b3cc-ce5a7caae6fb,d2c6c091-704d-4499-a0ce-db078ff2e10c,2cc5248a-206a-4219-87aa-a93ff7cbbc64,ccb76f74-fa65-4c88-aec4-a23aec8a0e39,8b2acc87-6e52-48f2-9e1c-ec6592ffe8c3,a51bc793-07d3-471f-8d79-fe2a6d37c227,ab8f4575-6c26-4447-bead-41bf4bf93d5b,3f67de60-afbc-441b-a346-dcb74181726a,795b4760-86c7-465f-8f7c-e493abe6041f,b4e2b330-ae7d-439c-8d2b-7c6a99b115f6,10acfd71-c29a-4f23-85ea-0faf8c74a176,fc80b6b4-ccec-4e51-b8c3-6fba50b54402,e32c8a4c-09a5-4881-a477-0a9c894f0914,bd41585b-4f62-4689-9ad1-053473730332,02ed0198-2cac-43ee-ae25-e4fc6553a611,622f21a8-b97a-4f34-9cf6-1bf2129db5a0,6c33932a-755a-44aa-8b87-a3a52de89ab4,5699e9ce-df4c-42fe-9535-42eacc4f8568,955f4f34-72ea-4bbd-a10a-206928a22522,9db6eeb0-1335-4f69-8ee7-5a88fbaebceb,ff5ed3b8-ed8d-4374-968d-caadedc846ab,43f97ad5-71f5-4cd7-a548-45da7d40d699,07344b7f-2051-4bd3-b685-41d77d7cdd1c,0f8adc19-cc60-4599-8151-9a99cd83f3bd,e7130e4f-2021-49a4-bb3d-86bc94690d8e,5ca63659-4f20-41bc-8d3f-954e0a61c808,d842ebd9-5f9d-4463-aaab-5cdb4135d8f9,f9236aa7-3a7d-4d5a-9349-343c3f0ef05d,f4b60e33-4a6a-4ce9-ad14-d68be46ade39,15039c45-a0e0-4bc4-8967-cb220dfee11c,ad7622bc-596c-45f1-bb38-f9f53527eb6f,359912c6-cc4a-497f-bba5-a6d942584bb1&userId=test-user-e2e 200 in 113ms
+ POST /songs/again-yui 200 in 125ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 1985ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 115ms
+ GET /api/exercises/jlpt-pool?jlpt_level=N3 200 in 807ms
+ POST /songs/again-yui 200 in 886ms
+ POST /songs/again-yui 200 in 116ms
+ GET /api/exercises/vocab-tiers?ids=d29d18b9-490b-4636-8f58-1fdbc209f450,d0732735-4059-459f-b8d7-2f28f019a8c1,fc81c633-197c-465b-896d-e786f05e14c8,f8c06ad1-4b90-440f-a4bf-b8d44dc0d8c4,ee57ac0e-68f5-43ba-936f-9e2096854c3f,be107e67-1e4f-4354-9c47-3529f588d077,cab70214-32f1-4ef6-8614-19654789d267,4ba09afb-627a-407a-aad7-ec9099de355a,f68411f9-dd86-4ff2-8173-6c82454e79bd,ea084f8c-aa0d-48f3-b312-b664e9cbabdb,22560026-55cb-4fe4-a1d3-cff7cc15eefd,adc02262-1537-49e2-8325-a57a9fc666c8,f3d16000-2086-4b07-be50-b2718ef241fa,a71564da-3221-4c8e-8ac5-de22098c5b15,a4476f52-3b02-4c95-8450-d06d40d4d760,fabd3c4e-340f-47c0-84a9-1d43e38d8299,d6d2d2df-a275-4323-8d86-950cfe2e0900,1434375e-2052-4a15-97bc-6f39e7069374,a906deec-6f18-42ef-8795-1d3c33660eef,43d58c17-87e4-4af5-9c9f-f6893b7e18e7,f4d788d1-53c7-4af9-906d-c81b8478dece,1880f5c9-9c10-4467-a0be-0862f79a9934,03b115e9-603a-45fb-a7c9-b6fd45b2cc83,21f33e7a-1d4d-4d50-b3cc-ce5a7caae6fb,d2c6c091-704d-4499-a0ce-db078ff2e10c,2cc5248a-206a-4219-87aa-a93ff7cbbc64,ccb76f74-fa65-4c88-aec4-a23aec8a0e39,8b2acc87-6e52-48f2-9e1c-ec6592ffe8c3,a51bc793-07d3-471f-8d79-fe2a6d37c227,ab8f4575-6c26-4447-bead-41bf4bf93d5b,3f67de60-afbc-441b-a346-dcb74181726a,795b4760-86c7-465f-8f7c-e493abe6041f,b4e2b330-ae7d-439c-8d2b-7c6a99b115f6,10acfd71-c29a-4f23-85ea-0faf8c74a176,fc80b6b4-ccec-4e51-b8c3-6fba50b54402,e32c8a4c-09a5-4881-a477-0a9c894f0914,bd41585b-4f62-4689-9ad1-053473730332,02ed0198-2cac-43ee-ae25-e4fc6553a611,622f21a8-b97a-4f34-9cf6-1bf2129db5a0,6c33932a-755a-44aa-8b87-a3a52de89ab4,5699e9ce-df4c-42fe-9535-42eacc4f8568,955f4f34-72ea-4bbd-a10a-206928a22522,9db6eeb0-1335-4f69-8ee7-5a88fbaebceb,ff5ed3b8-ed8d-4374-968d-caadedc846ab,43f97ad5-71f5-4cd7-a548-45da7d40d699,07344b7f-2051-4bd3-b685-41d77d7cdd1c,0f8adc19-cc60-4599-8151-9a99cd83f3bd,e7130e4f-2021-49a4-bb3d-86bc94690d8e,5ca63659-4f20-41bc-8d3f-954e0a61c808,d842ebd9-5f9d-4463-aaab-5cdb4135d8f9,f9236aa7-3a7d-4d5a-9349-343c3f0ef05d,f4b60e33-4a6a-4ce9-ad14-d68be46ade39,15039c45-a0e0-4bc4-8967-cb220dfee11c,ad7622bc-596c-45f1-bb38-f9f53527eb6f,359912c6-cc4a-497f-bba5-a6d942584bb1&userId=test-user-e2e 200 in 109ms
+ POST /songs/again-yui 200 in 122ms
+ ○ Compiling /anime-list ...
+ ✓ Compiled /anime-list in 2.5s (1383 modules)
+ GET /songs/again-yui 200 in 960ms
+ GET /anime-list 200 in 7113ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 2176ms
+ ✓ Compiled /api/review/known-count in 449ms (1391 modules)
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 1814ms
+ GET /anime-list 200 in 1281ms
+ GET /songs/again-yui 200 in 1278ms
+ ✓ Compiled /api/exercises/jlpt-pool in 459ms (1393 modules)
+ GET /api/exercises/jlpt-pool?jlpt_level=N3 200 in 1936ms
+ POST /songs/again-yui 200 in 2162ms
+ POST /songs/again-yui 200 in 123ms
+ ○ Compiling /api/exercises/vocab-tiers ...
+ ✓ Compiled /api/exercises/vocab-tiers in 1643ms (1396 modules)
+ GET /api/exercises/vocab-tiers?ids=d29d18b9-490b-4636-8f58-1fdbc209f450,d0732735-4059-459f-b8d7-2f28f019a8c1,fc81c633-197c-465b-896d-e786f05e14c8,f8c06ad1-4b90-440f-a4bf-b8d44dc0d8c4,ee57ac0e-68f5-43ba-936f-9e2096854c3f,be107e67-1e4f-4354-9c47-3529f588d077,cab70214-32f1-4ef6-8614-19654789d267,4ba09afb-627a-407a-aad7-ec9099de355a,f68411f9-dd86-4ff2-8173-6c82454e79bd,ea084f8c-aa0d-48f3-b312-b664e9cbabdb,22560026-55cb-4fe4-a1d3-cff7cc15eefd,adc02262-1537-49e2-8325-a57a9fc666c8,f3d16000-2086-4b07-be50-b2718ef241fa,a71564da-3221-4c8e-8ac5-de22098c5b15,a4476f52-3b02-4c95-8450-d06d40d4d760,fabd3c4e-340f-47c0-84a9-1d43e38d8299,d6d2d2df-a275-4323-8d86-950cfe2e0900,1434375e-2052-4a15-97bc-6f39e7069374,a906deec-6f18-42ef-8795-1d3c33660eef,43d58c17-87e4-4af5-9c9f-f6893b7e18e7,f4d788d1-53c7-4af9-906d-c81b8478dece,1880f5c9-9c10-4467-a0be-0862f79a9934,03b115e9-603a-45fb-a7c9-b6fd45b2cc83,21f33e7a-1d4d-4d50-b3cc-ce5a7caae6fb,d2c6c091-704d-4499-a0ce-db078ff2e10c,2cc5248a-206a-4219-87aa-a93ff7cbbc64,ccb76f74-fa65-4c88-aec4-a23aec8a0e39,8b2acc87-6e52-48f2-9e1c-ec6592ffe8c3,a51bc793-07d3-471f-8d79-fe2a6d37c227,ab8f4575-6c26-4447-bead-41bf4bf93d5b,3f67de60-afbc-441b-a346-dcb74181726a,795b4760-86c7-465f-8f7c-e493abe6041f,b4e2b330-ae7d-439c-8d2b-7c6a99b115f6,10acfd71-c29a-4f23-85ea-0faf8c74a176,fc80b6b4-ccec-4e51-b8c3-6fba50b54402,e32c8a4c-09a5-4881-a477-0a9c894f0914,bd41585b-4f62-4689-9ad1-053473730332,02ed0198-2cac-43ee-ae25-e4fc6553a611,622f21a8-b97a-4f34-9cf6-1bf2129db5a0,6c33932a-755a-44aa-8b87-a3a52de89ab4,5699e9ce-df4c-42fe-9535-42eacc4f8568,955f4f34-72ea-4bbd-a10a-206928a22522,9db6eeb0-1335-4f69-8ee7-5a88fbaebceb,ff5ed3b8-ed8d-4374-968d-caadedc846ab,43f97ad5-71f5-4cd7-a548-45da7d40d699,07344b7f-2051-4bd3-b685-41d77d7cdd1c,0f8adc19-cc60-4599-8151-9a99cd83f3bd,e7130e4f-2021-49a4-bb3d-86bc94690d8e,5ca63659-4f20-41bc-8d3f-954e0a61c808,d842ebd9-5f9d-4463-aaab-5cdb4135d8f9,f9236aa7-3a7d-4d5a-9349-343c3f0ef05d,f4b60e33-4a6a-4ce9-ad14-d68be46ade39,15039c45-a0e0-4bc4-8967-cb220dfee11c,ad7622bc-596c-45f1-bb38-f9f53527eb6f,359912c6-cc4a-497f-bba5-a6d942584bb1&userId=test-user-e2e 200 in 2055ms
+ GET /anime-list 200 in 1216ms
+ GET /songs/again-yui 200 in 1325ms
+ ○ Compiling / ...
+ ✓ Compiled / in 636ms (1423 modules)
+ POST /songs/again-yui 200 in 2416ms
+ GET /songs/again-yui 200 in 132ms
+ GET / 200 in 3176ms
  GET / 200 in 523ms
- GET / 200 in 345ms
- ✓ Compiled in 151ms (403 modules)
- ✓ Compiled in 153ms (403 modules)
- ✓ Compiled in 149ms (403 modules)
- ✓ Compiled in 152ms (403 modules)
- ✓ Compiled in 147ms (403 modules)
- ✓ Compiled in 144ms (403 modules)
- ✓ Compiled in 148ms (403 modules)
- ✓ Compiled in 148ms (403 modules)
- ✓ Compiled in 146ms (403 modules)
- ✓ Compiled in 162ms (403 modules)
- ✓ Compiled in 158ms (403 modules)
- ✓ Compiled in 175ms (403 modules)
- ✓ Compiled in 144ms (403 modules)
- ✓ Compiled in 154ms (403 modules)
- ✓ Compiled in 238ms (403 modules)
- ✓ Compiled in 165ms (403 modules)
- ✓ Compiled in 178ms (403 modules)
- ✓ Compiled in 142ms (403 modules)
- ✓ Compiled in 137ms (403 modules)
- ✓ Compiled in 142ms (403 modules)
- ✓ Compiled in 135ms (403 modules)
- ✓ Compiled in 157ms (403 modules)
- ✓ Compiled in 144ms (403 modules)
- ✓ Compiled in 150ms (403 modules)
- ✓ Compiled in 150ms (403 modules)
- ✓ Compiled in 141ms (403 modules)
- ✓ Compiled in 137ms (403 modules)
- ✓ Compiled in 151ms (403 modules)
- ✓ Compiled in 135ms (403 modules)
- ✓ Compiled in 135ms (403 modules)
- ✓ Compiled in 141ms (403 modules)
- ✓ Compiled in 152ms (403 modules)
- ✓ Compiled in 163ms (403 modules)
- ✓ Compiled in 159ms (403 modules)
- ✓ Compiled in 155ms (403 modules)
- ✓ Compiled in 134ms (403 modules)
- ✓ Compiled in 149ms (403 modules)
- GET / 200 in 113ms
- ✓ Compiled in 171ms (403 modules)
- ✓ Compiled in 173ms (403 modules)
- ✓ Compiled in 139ms (403 modules)
- ✓ Compiled in 140ms (403 modules)
- ✓ Compiled in 144ms (403 modules)
- ✓ Compiled in 143ms (403 modules)
- ✓ Compiled in 146ms (403 modules)
- ✓ Compiled in 134ms (403 modules)
- ✓ Compiled in 137ms (403 modules)
- ✓ Compiled in 152ms (403 modules)
- ✓ Compiled in 137ms (403 modules)
- ✓ Compiled in 132ms (403 modules)
- ✓ Compiled in 138ms (403 modules)
- ✓ Compiled in 141ms (403 modules)
- ✓ Compiled in 142ms (403 modules)
- ✓ Compiled in 152ms (403 modules)
- ✓ Compiled in 147ms (403 modules)
- ✓ Compiled in 190ms (403 modules)
- ✓ Compiled in 141ms (403 modules)
- ✓ Compiled in 135ms (403 modules)
- ✓ Compiled in 138ms (403 modules)
- ✓ Compiled in 170ms (403 modules)
- ✓ Compiled in 166ms (403 modules)
- ✓ Compiled in 151ms (403 modules)
- ✓ Compiled in 139ms (403 modules)
- ✓ Compiled in 151ms (403 modules)
- ✓ Compiled in 152ms (403 modules)
- ✓ Compiled in 150ms (403 modules)
- ✓ Compiled in 137ms (403 modules)
- ✓ Compiled in 152ms (403 modules)
- ✓ Compiled in 135ms (403 modules)
- ✓ Compiled in 142ms (403 modules)
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 2079ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 118ms
+ GET /api/exercises/jlpt-pool?jlpt_level=N3 200 in 800ms
+ POST /songs/again-yui 200 in 864ms
+ POST /songs/again-yui 200 in 113ms
+ GET /api/exercises/vocab-tiers?ids=d29d18b9-490b-4636-8f58-1fdbc209f450,d0732735-4059-459f-b8d7-2f28f019a8c1,fc81c633-197c-465b-896d-e786f05e14c8,f8c06ad1-4b90-440f-a4bf-b8d44dc0d8c4,ee57ac0e-68f5-43ba-936f-9e2096854c3f,be107e67-1e4f-4354-9c47-3529f588d077,cab70214-32f1-4ef6-8614-19654789d267,4ba09afb-627a-407a-aad7-ec9099de355a,f68411f9-dd86-4ff2-8173-6c82454e79bd,ea084f8c-aa0d-48f3-b312-b664e9cbabdb,22560026-55cb-4fe4-a1d3-cff7cc15eefd,adc02262-1537-49e2-8325-a57a9fc666c8,f3d16000-2086-4b07-be50-b2718ef241fa,a71564da-3221-4c8e-8ac5-de22098c5b15,a4476f52-3b02-4c95-8450-d06d40d4d760,fabd3c4e-340f-47c0-84a9-1d43e38d8299,d6d2d2df-a275-4323-8d86-950cfe2e0900,1434375e-2052-4a15-97bc-6f39e7069374,a906deec-6f18-42ef-8795-1d3c33660eef,43d58c17-87e4-4af5-9c9f-f6893b7e18e7,f4d788d1-53c7-4af9-906d-c81b8478dece,1880f5c9-9c10-4467-a0be-0862f79a9934,03b115e9-603a-45fb-a7c9-b6fd45b2cc83,21f33e7a-1d4d-4d50-b3cc-ce5a7caae6fb,d2c6c091-704d-4499-a0ce-db078ff2e10c,2cc5248a-206a-4219-87aa-a93ff7cbbc64,ccb76f74-fa65-4c88-aec4-a23aec8a0e39,8b2acc87-6e52-48f2-9e1c-ec6592ffe8c3,a51bc793-07d3-471f-8d79-fe2a6d37c227,ab8f4575-6c26-4447-bead-41bf4bf93d5b,3f67de60-afbc-441b-a346-dcb74181726a,795b4760-86c7-465f-8f7c-e493abe6041f,b4e2b330-ae7d-439c-8d2b-7c6a99b115f6,10acfd71-c29a-4f23-85ea-0faf8c74a176,fc80b6b4-ccec-4e51-b8c3-6fba50b54402,e32c8a4c-09a5-4881-a477-0a9c894f0914,bd41585b-4f62-4689-9ad1-053473730332,02ed0198-2cac-43ee-ae25-e4fc6553a611,622f21a8-b97a-4f34-9cf6-1bf2129db5a0,6c33932a-755a-44aa-8b87-a3a52de89ab4,5699e9ce-df4c-42fe-9535-42eacc4f8568,955f4f34-72ea-4bbd-a10a-206928a22522,9db6eeb0-1335-4f69-8ee7-5a88fbaebceb,ff5ed3b8-ed8d-4374-968d-caadedc846ab,43f97ad5-71f5-4cd7-a548-45da7d40d699,07344b7f-2051-4bd3-b685-41d77d7cdd1c,0f8adc19-cc60-4599-8151-9a99cd83f3bd,e7130e4f-2021-49a4-bb3d-86bc94690d8e,5ca63659-4f20-41bc-8d3f-954e0a61c808,d842ebd9-5f9d-4463-aaab-5cdb4135d8f9,f9236aa7-3a7d-4d5a-9349-343c3f0ef05d,f4b60e33-4a6a-4ce9-ad14-d68be46ade39,15039c45-a0e0-4bc4-8967-cb220dfee11c,ad7622bc-596c-45f1-bb38-f9f53527eb6f,359912c6-cc4a-497f-bba5-a6d942584bb1&userId=test-user-e2e 200 in 117ms
+ POST /songs/again-yui 200 in 114ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 1989ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 124ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET / 200 in 573ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /songs ...
+ ✓ Compiled /songs in 2.1s (1420 modules)
+ GET /songs 200 in 4625ms
+ GET /songs/again-yui 200 in 2007ms
+ GET / 200 in 2049ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /anime-list 200 in 1646ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 2087ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 121ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /path ...
+ ✓ Compiled /path in 1609ms (1442 modules)
+ GET /songs/again-yui 200 in 1100ms
+ GET / 200 in 1130ms
+ GET /path 200 in 3554ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ✓ Compiled /kana in 488ms (1451 modules)
+ GET /songs/again-yui 200 in 1101ms
+ GET / 200 in 1127ms
+ GET /kana 200 in 2085ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session ...
+ ✓ Compiled /kana/session in 540ms (1461 modules)
+ GET /songs/again-yui 200 in 1011ms
+ GET / 200 in 1031ms
+ GET /kana/session 200 in 2057ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session/summary ...
+ ✓ Compiled /kana/session/summary in 1172ms (1467 modules)
+ GET / 200 in 173ms
+ GET /kana/session/summary 200 in 1848ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /vocabulary ...
+ ✓ Compiled /vocabulary in 1175ms (1483 modules)
+ GET / 200 in 219ms
+ GET /vocabulary 200 in 2122ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /review ...
+ ✓ Compiled /review in 615ms (1498 modules)
+ GET / 200 in 220ms
+ GET /review 200 in 1251ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 657ms (1505 modules)
+ GET / 200 in 231ms
+ GET /profile 200 in 1556ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in 200 in 1216ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /sign-up/[[...sign-up]] ...
+ ✓ Compiled /sign-up/[[...sign-up]] in 667ms (1507 modules)
+ GET / 200 in 160ms
+ GET /sign-up 200 in 2110ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Flyrics 200 in 1173ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1134ms
+ GET /sign-in/SignIn_clerk_catchall_check_1778017051727 200 in 16ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /%5F%5Fdev/states ...
+ ✓ Compiled /%5F%5Fdev/states in 611ms (1508 modules)
+ GET /__dev/states 200 in 1290ms
+ GET / 200 in 252ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /sign-in?redirect_url=http%3A%2F%2Flocalhost%3A7000%2Fadmin%2Ftiming 200 in 1196ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET / 200 in 904ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /songs ...
+ ✓ Compiled /songs in 718ms (1474 modules)
+ GET / 200 in 214ms
+ GET /songs 200 in 2865ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 2120ms
+ ○ Compiling /api/review/known-count ...
+ ✓ Compiled /api/review/known-count in 671ms (1470 modules)
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 1336ms
+ GET / 200 in 214ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /songs/again-yui 200 in 2214ms
+ GET /api/review/known-count?songId=42f748bf-afaf-4807-9ea3-6c62696da742 200 in 124ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ GET /anime-list 200 in 1787ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana ...
+ ✓ Compiled /kana in 509ms (1436 modules)
+ GET /kana 200 in 1224ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session ...
+ ✓ Compiled /kana/session in 549ms (1446 modules)
+ GET / 200 in 199ms
+ GET /kana/session 200 in 1250ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /kana/session/summary ...
+ ✓ Compiled /kana/session/summary in 513ms (1452 modules)
+ GET /kana/session/summary 200 in 1416ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /path ...
+ ✓ Compiled /path in 591ms (1472 modules)
+ GET /path 200 in 1623ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /vocabulary ...
+ ✓ Compiled /vocabulary in 600ms (1486 modules)
+ GET /vocabulary 200 in 1405ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /review ...
+ ✓ Compiled /review in 658ms (1501 modules)
+ GET /review 200 in 1315ms
+Clerk: Refreshing the session token resulted in an infinite redirect loop. This usually means that your Clerk instance keys do not match - make sure to copy the correct publishable and secret keys from the Clerk dashboard.
+ ○ Compiling /profile ...
+ ✓ Compiled /profile in 645ms (1508 modules)
+ GET /profile 200 in 1583ms
+ ✓ Compiled in 2.2s (641 modules)
+ ✓ Compiled in 287ms (641 modules)
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 5.4s (2468 modules)
+ GET / 500 in 11506ms
+ GET / 500 in 303ms
+ GET / 500 in 1335ms
+ GET / 500 in 284ms
+ GET / 500 in 1113ms
+ GET / 500 in 274ms
+ GET / 500 in 1016ms
+ GET / 500 in 305ms
+ GET / 500 in 1160ms
+ GET / 500 in 302ms
+ GET / 500 in 1037ms
+ GET / 500 in 345ms
+[?25h

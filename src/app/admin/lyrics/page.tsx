@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { currentUser } from "@clerk/nextjs/server";
+import { eq, and } from "drizzle-orm";
 import { db } from "@/lib/db";
 import {
   songs,
@@ -8,10 +9,9 @@ import {
   lyricsDrafts,
   vocabularyItems,
 } from "@/lib/db/schema";
-import { eq, and } from "drizzle-orm";
+import type { Verse } from "@/lib/types/lesson";
 import SongSearch from "./components/SongSearch";
 import VerseEditor from "./components/VerseEditor";
-import type { Verse } from "@/lib/types/lesson";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -20,59 +20,52 @@ interface Props {
   searchParams: Promise<{ songId?: string; version?: string }>;
 }
 
+function AdminShell({
+  children,
+  description,
+}: {
+  children: React.ReactNode;
+  description?: string;
+}) {
+  return (
+    <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6">
+      <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          Admin
+        </p>
+        <h1 className="mt-1 text-3xl font-bold text-[var(--color-text)]">
+          Admin Lyrics Editor
+        </h1>
+        {description && (
+          <p className="mt-2 max-w-3xl text-sm text-[var(--color-text-muted)]">
+            {description}
+          </p>
+        )}
+      </header>
+      {children}
+    </main>
+  );
+}
+
 export default async function AdminLyricsPage({ searchParams }: Props) {
   const params = await searchParams;
   const songVersionId = params.songId ?? null;
   const versionParam = params.version ?? null;
 
-  // No songId -> render Plan 03 empty shell (search + empty-editor placeholder).
   if (!songVersionId) {
     return (
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
-        <div style={{ marginBottom: "24px" }}>
-          <h1
-            style={{
-              fontSize: "24px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              margin: 0,
-            }}
-          >
-            Admin Lyrics Editor
-          </h1>
-          <p
-            style={{
-              color: "var(--color-text-muted)",
-              marginTop: "6px",
-              fontSize: "14px",
-            }}
-          >
-            Edit per-verse lyrics fields, swap YouTube videos, flag broken songs,
-            regenerate lessons. Versioned indefinitely — every published edit becomes
-            a permanent snapshot.
-          </p>
-        </div>
+      <AdminShell description="Edit per-verse lyrics fields, swap YouTube videos, flag broken songs, and regenerate lessons. Every published edit becomes a permanent snapshot.">
         <SongSearch initialSongVersionId={null} />
         <div
           data-testid="empty-editor"
-          style={{
-            marginTop: "24px",
-            padding: "48px 32px",
-            border: "1px dashed #e5e7eb",
-            borderRadius: "8px",
-            background: "#fafafa",
-            color: "var(--color-text-muted)",
-            textAlign: "center",
-            fontSize: "14px",
-          }}
+          className="rounded-[var(--radius-2xl)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-card)] px-6 py-12 text-center text-sm text-[var(--color-text-muted)] shadow-[var(--shadow-card-ring)]"
         >
           Select a song from the search above to begin editing.
         </div>
-      </div>
+      </AdminShell>
     );
   }
 
-  // Step 1: load song_version + song
   const [songVer] = await db
     .select({
       song_version_id: songVersions.id,
@@ -97,7 +90,6 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
 
   if (!songVer) notFound();
 
-  // Step 2: load active lyrics_versions row (verses snapshot)
   let verses: Verse[] = [];
   let baseVersionId: string | null = null;
   let baseVersionNumber: number | null = null;
@@ -119,29 +111,21 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
     }
   }
 
-  // If no lyrics_versions row, surface a notice — admin should re-run the backfill
   if (!baseVersionId) {
     return (
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
-        <h1 style={{ fontSize: "24px", fontWeight: 700, color: "var(--color-text)", margin: 0 }}>
-          Admin Lyrics Editor
-        </h1>
-        <p style={{ color: "#dc2626", marginTop: "16px" }}>
+      <AdminShell>
+        <p className="rounded-[var(--radius-2xl)] border border-[var(--color-jlpt-n1-ring)] bg-[var(--color-jlpt-n1-bg)] p-5 text-sm text-[var(--color-jlpt-n1)]">
           No active lyrics version found for song version{" "}
           <code>{songVersionId}</code>. Re-run the Plan 01 backfill migration or
           manually create a lyrics_versions row before editing.
         </p>
-      </div>
+      </AdminShell>
     );
   }
 
-  // Step 3: get the current admin's editor_id from Clerk session (server-side)
-  // editor_id is ALWAYS sourced server-side — client cannot forge it (DRAFT-T-03)
   const user = await currentUser();
   const editorId = user?.id ?? "anonymous";
 
-  // Step 4: load this admin's draft if it exists (server-first per D-17)
-  // Different admin → different editor_id → different row (T-11.5-07 per-editor isolation)
   let initialDraftFromServer: {
     verses: Verse[];
     dirtyVerseNumbers: number[];
@@ -170,16 +154,9 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
         dirtyVerseNumbers: draft.dirty_verse_numbers ?? [],
         updatedAt: draft.updated_at.toISOString(),
       };
-      // Note: D-17 specifies "server first" — if draft exists on server, use it.
-      // (localStorage will be re-synced on first save.)
-      // If draft.base_version_id !== baseVersionId, the draft is stale (someone
-      // published while we were away); Plan 07 surfaces a reload modal for that case.
     }
   }
 
-  // Step 5: collect vocab_item_ids from VocabEntry list in lesson (not Token, which lacks this field).
-  // For now, vocabMap is empty — Token type in lesson.ts doesn't carry vocab_item_id yet.
-  // Plan 05/06 will extend the Token type and populate this map.
   const vocabMap: Record<
     string,
     {
@@ -189,67 +166,34 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
       kanji_breakdown: unknown;
     }
   > = {};
-  void vocabularyItems; // suppress unused import — kept for Plan 05/06 extension
+  void vocabularyItems;
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "32px 24px" }}>
-      <div style={{ marginBottom: "24px" }}>
-        <h1
-          style={{ fontSize: "24px", fontWeight: 700, color: "var(--color-text)", margin: 0 }}
-        >
-          Admin Lyrics Editor
-        </h1>
-      </div>
-
+    <AdminShell>
       <SongSearch initialSongVersionId={songVersionId} />
 
-      <div data-testid="editor-mount" style={{ marginTop: "24px" }}>
-        <div style={{ marginBottom: "16px" }}>
-          <h2
-            style={{
-              fontSize: "20px",
-              fontWeight: 700,
-              color: "var(--color-text)",
-              margin: 0,
-            }}
-          >
+      <div data-testid="editor-mount" className="flex flex-col gap-4">
+        <section className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring)]">
+          <h2 className="text-xl font-bold text-[var(--color-text)]">
             {songVer.title}
-            <span
-              style={{
-                fontSize: "14px",
-                color: "var(--color-text-muted)",
-                marginLeft: "12px",
-                fontWeight: 400,
-              }}
-            >
+            <span className="ml-0 block text-sm font-normal text-[var(--color-text-muted)] sm:ml-3 sm:inline">
               {songVer.artist ? `${songVer.artist} · ` : ""}
               {songVer.anime ?? ""} ({songVer.version_type})
             </span>
           </h2>
-          <p
-            style={{
-              color: "var(--color-text-muted)",
-              marginTop: "6px",
-              fontSize: "12px",
-            }}
-          >
-            Active version: #{baseVersionNumber ?? "—"} &middot; pipeline:{" "}
-            {songVer.pipeline_status} &middot; quality: {songVer.quality_status}
+          <p className="mt-2 text-xs text-[var(--color-text-muted)]">
+            Active version: #{baseVersionNumber ?? "-"} · pipeline:{" "}
+            {songVer.pipeline_status} · quality: {songVer.quality_status}
             {versionParam ? (
               <>
                 {" "}
-                &middot; version param: <code>{versionParam}</code>
+                · version param: <code>{versionParam}</code>
               </>
             ) : null}
           </p>
-        </div>
+        </section>
 
         <VerseEditor
-          // Force a clean remount when the admin picks a different song.
-          // VerseRow uses uncontrolled inputs (defaultValue) for translations,
-          // meanings, and timing — without this key, React preserves the same
-          // VerseRow instances across the navigation and the inputs keep
-          // showing the previous song's values even though `verse` prop changed.
           key={songVer.song_version_id}
           songVersionId={songVer.song_version_id}
           editorId={editorId}
@@ -261,7 +205,11 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           baseVersionId={baseVersionId}
           baseVersionNumber={baseVersionNumber}
           vocabMap={vocabMap}
-          songMeta={{ title: songVer.title, artist: songVer.artist, anime: songVer.anime }}
+          songMeta={{
+            title: songVer.title,
+            artist: songVer.artist,
+            anime: songVer.anime,
+          }}
           initialDraftFromServer={initialDraftFromServer}
           initialPipelineStatus={songVer.pipeline_status}
           initialPipelineStep={songVer.pipeline_step}
@@ -270,6 +218,6 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
           initialQualityNotes={songVer.quality_notes}
         />
       </div>
-    </div>
+    </AdminShell>
   );
 }

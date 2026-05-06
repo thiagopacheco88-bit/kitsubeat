@@ -54,6 +54,7 @@ export default async function HomePage() {
           titleJp="アニメ"
           title="Browse by Anime"
           viewAll="/anime-list"
+          viewAllLabel="Browse Anime"
         />
         <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse by anime">
           {topFranchises.map((franchise) => (
@@ -77,6 +78,7 @@ export default async function HomePage() {
           titleJp="特集"
           title="Featured Songs"
           viewAll="/songs"
+          viewAllLabel="Browse Songs"
         />
         <Carousel testId="featured-songs-carousel" ariaLabel="Featured songs">
           {featured.map((song) => (

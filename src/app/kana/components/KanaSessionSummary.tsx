@@ -115,7 +115,7 @@ export function KanaSessionSummary({ snapshot }: Props) {
 
   if (!snapshot) {
     return (
-      <div className="flex flex-col items-center gap-4 text-center">
+      <div className="flex flex-col items-center gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center shadow-[var(--shadow-card-ring-strong)]">
         <h2 className="text-xl font-semibold text-[var(--color-text)]">
           No session data
         </h2>
@@ -124,7 +124,7 @@ export function KanaSessionSummary({ snapshot }: Props) {
         </p>
         <Link
           href="/kana"
-          className="rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
+          className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-5 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
           Back to grid
         </Link>
@@ -143,7 +143,7 @@ export function KanaSessionSummary({ snapshot }: Props) {
   });
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
       <header className="text-center">
         <h1 className="text-3xl font-bold text-[var(--color-text)]">
           Session complete
@@ -170,14 +170,14 @@ export function KanaSessionSummary({ snapshot }: Props) {
         <h2 className="mb-3 text-base font-semibold text-[var(--color-text)]">
           Per-character changes
         </h2>
-        <ul className="divide-y divide-[var(--color-border)] rounded-[var(--radius-lg)] border border-[var(--color-border)]">
+        <ul className="divide-y divide-[var(--color-border)] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)]">
           {charSummary.map((c) => {
             const delta = c.after - c.before;
             const sign = delta > 0 ? "+" : delta < 0 ? "" : "±";
             return (
               <li
                 key={`${c.script}:${c.kana}`}
-                className="flex items-center justify-between px-3 py-2 text-sm"
+                className="flex flex-col gap-1 px-3 py-2 text-sm sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex items-center gap-2">
                   <span className="text-xl text-[var(--color-text)]">
@@ -218,7 +218,7 @@ export function KanaSessionSummary({ snapshot }: Props) {
             {weakest.map((w) => (
               <li
                 key={`${w.script}:${w.kana}`}
-                className="rounded-[var(--radius-md)] border border-[var(--color-border-strong)] px-3 py-1 text-sm"
+                className="rounded-[var(--radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-card-2)] px-3 py-1 text-sm"
               >
                 <span className="text-base text-[var(--color-text)]">
                   {w.kana}
@@ -235,13 +235,13 @@ export function KanaSessionSummary({ snapshot }: Props) {
       <div className="flex flex-col gap-3 sm:flex-row">
         <Link
           href={`/kana/session?mode=${snapshot.mode}`}
-          className="flex-1 rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-3 text-center text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
+          className="flex min-h-11 flex-1 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 text-center text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
           Next session
         </Link>
         <Link
           href="/kana"
-          className="flex-1 rounded-[var(--radius-md)] border border-[var(--color-border-strong)] px-4 py-3 text-center text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-card-2)]"
+          className="flex min-h-11 flex-1 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-strong)] px-4 text-center text-sm font-semibold text-[var(--color-text)] hover:bg-[var(--color-card-2)]"
         >
           Back to grid
         </Link>
