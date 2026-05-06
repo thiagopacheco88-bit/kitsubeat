@@ -20,9 +20,9 @@ export default function SongLayout({
     <div
       data-song-layout
       data-testid="song-player-stage"
-      className="min-w-0 scroll-mt-16 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 shadow-[var(--shadow-card-ring-strong)] sm:p-4"
+      className="min-w-0 scroll-mt-28 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 shadow-[var(--shadow-card-ring-strong)] sm:p-4"
     >
-      <div className="flex flex-col gap-3 max-lg:h-[calc(100dvh-16rem)] lg:grid lg:min-h-[34rem] lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:gap-4">
+      <div className="flex flex-col gap-3 max-lg:h-[calc(100dvh-8rem)] max-lg:min-h-[36rem] lg:grid lg:min-h-[34rem] lg:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.8fr)] lg:gap-4">
         <section
           data-testid="song-video-panel"
           className="min-w-0 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg)] max-lg:shrink-0"
