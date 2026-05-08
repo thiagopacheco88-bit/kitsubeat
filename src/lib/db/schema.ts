@@ -15,6 +15,7 @@ import {
   index,
   primaryKey,
   numeric,
+  check,
 } from "drizzle-orm/pg-core";
 import type { AnyPgColumn } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
@@ -450,6 +451,10 @@ export const users = pgTable("users", {
   hapticsEnabled: boolean("haptics_enabled").notNull().default(true),
   // Phase 14: theme preference — 'system' | 'light' | 'dark' (DB CHECK enforces enum)
   themePreference: text("theme_preference").notNull().default("system"),
+  // Phase 14.4: Virality & Engagement
+  social_activity_enabled: boolean("social_activity_enabled").notNull().default(false),
+  streak_saver_token: integer("streak_saver_token").notNull().default(0),
+  streak_saver_pending: boolean("streak_saver_pending").notNull().default(false),
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
@@ -664,6 +669,66 @@ export function deriveStars(
   if (e123 >= 0.80) return 1;
   return 0;
 }
+
+// ─── Phase 14.4: Virality & Engagement ───────────────────────────────────────
+
+/**
+ * activity_events table — song-mastery events for the home "Recently Mastered" ticker.
+ *
+ * One row per (user_id, song_id) — UNIQUE constraint prevents duplicate mastery events.
+ * Emitted by applyGamificationUpdate when previousStars < 3 && newStars === 3 (D-07).
+ * Only users with social_activity_enabled=true appear in the ticker (D-10).
+ */
+export const activityEvents = pgTable(
+  "activity_events",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    user_id: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    event_type: text("event_type").notNull(),
+    song_id: uuid("song_id")
+      .notNull()
+      .references(() => songs.id, { onDelete: "cascade" }),
+    song_version_id: uuid("song_version_id")
+      .notNull()
+      .references(() => songVersions.id, { onDelete: "cascade" }),
+    created_at: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => [
+    unique("activity_events_user_song_unique").on(table.user_id, table.song_id),
+    index("activity_events_created_at_idx").on(table.created_at),
+    index("activity_events_user_id_idx").on(table.user_id),
+    check("activity_events_event_type_check", sql`event_type = 'song_mastered'`),
+  ]
+);
+
+export type ActivityEvent = typeof activityEvents.$inferSelect;
+
+/**
+ * email_sent_log table — idempotency guard for all transactional emails.
+ *
+ * Composite PK (user_id, kind, period_key) prevents double-sending per period.
+ * period_key = YYYY-MM-DD for daily_reminder; YYYY-Www for weekly_recap (D-02/D-05).
+ */
+export const emailSentLog = pgTable(
+  "email_sent_log",
+  {
+    user_id: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    kind: text("kind").notNull(),
+    period_key: text("period_key").notNull(),
+    sent_at: timestamp("sent_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [
+    primaryKey({ columns: [table.user_id, table.kind, table.period_key] }),
+  ]
+);
+
+export type EmailSentLog = typeof emailSentLog.$inferSelect;
 
 /**
  * deriveBonusBadge — Phase 10 bonus mastery badge predicate.
