@@ -610,14 +610,15 @@ Plans:
   5. Emerging regulation: EU AI Act disclosure for WhisperX content; EAA / WCAG 2.1 AA accessibility baseline
   6. Output: requirements checklist Phase 18 implements against, with explicit "requires lawyer" flags on out-of-scope items
 **Context captured**: [.planning/phases/17-legal-copyright-deep-dive-research/17-CONTEXT.md](phases/17-legal-copyright-deep-dive-research/17-CONTEXT.md)
-**Plans:** 5/6 plans executed
+**Plans:** 6/6 plans complete
+**Deliverable:** [17-ANALYSIS.md](phases/17-legal-copyright-deep-dive-research/17-ANALYSIS.md) — 3048 lines, 238 REQ-* items, 21 lawyer-flag rows (completed 2026-05-08)
 Plans:
-- [ ] 17-01-PLAN.md — Copyright section: YouTube ToS clause-by-clause, LRCLIB/Musixmatch v. Genius deep-dive, WhisperX derivative analysis, anime-clip v4.0 lawyer-gate
-- [ ] 17-02-PLAN.md — Privacy & data protection: four-jurisdiction parallel treatment (UK-GDPR, EU-GDPR, LGPD, CCPA), data-field inventory, DSAR/breach/cookies
-- [ ] 17-03-PLAN.md — Consumer law + tax: UK CCRs, EU CRD, BR CDC, CA ARL, refund template (activate-at-monetization), UK VAT + EU OSS/IOSS (MOSS-rename flag), Stripe Tax config
-- [ ] 17-04-PLAN.md — EU AI Act Art. 50 for WhisperX AND Claude-generated lesson content + full WCAG 2.1 AA checklist + EAA applicability lawyer-flag
-- [ ] 17-05-PLAN.md — Age gating: full UK ICO AADC 15-standards analysis + 13+ signup gate + minor-account privacy defaults + LGPD/CCPA minors
-- [ ] 17-06-PLAN.md — Consolidate into single 17-ANALYSIS.md + Pre-Monetization Legal Review lawyer index + Phase 18 Requirements Checklist (human-verify)
+- [x] 17-01-PLAN.md — Copyright section: YouTube ToS clause-by-clause, LRCLIB/Musixmatch v. Genius deep-dive, WhisperX derivative analysis, anime-clip v4.0 lawyer-gate
+- [x] 17-02-PLAN.md — Privacy & data protection: four-jurisdiction parallel treatment (UK-GDPR, EU-GDPR, LGPD, CCPA), data-field inventory, DSAR/breach/cookies
+- [x] 17-03-PLAN.md — Consumer law + tax: UK CCRs, EU CRD, BR CDC, CA ARL, refund template (activate-at-monetization), UK VAT + EU OSS/IOSS (MOSS-rename flag), Stripe Tax config
+- [x] 17-04-PLAN.md — EU AI Act Art. 50 for WhisperX AND Claude-generated lesson content + full WCAG 2.1 AA checklist + EAA applicability lawyer-flag
+- [x] 17-05-PLAN.md — Age gating: full UK ICO AADC 15-standards analysis + 13+ signup gate + minor-account privacy defaults + LGPD/CCPA minors
+- [x] 17-06-PLAN.md — Consolidate into single 17-ANALYSIS.md + Pre-Monetization Legal Review lawyer index + Phase 18 Requirements Checklist (human-verify)
 
 ### Phase 18: Legal & Compliance Implementation
 **Goal**: Every item identified in Phase 17 is implemented — T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, accessibility baseline, age gating, support channel all live.
