@@ -1,5 +1,6 @@
 /**
  * Phase 11.5: Admin route gate.
+ * Phase 18: Terms version gate (SC1 — T&Cs accepted at signup; changes require re-acceptance).
  *
  * Per D-01 (LOCKED): /admin/* is localhost-only. Public catalog (/, /songs/*) is on Vercel
  * and MUST NOT be touched by this middleware — config.matcher is scoped to /admin/:path* ONLY
@@ -12,35 +13,70 @@
 import { clerkMiddleware, createRouteMatcher, clerkClient } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
+import { CURRENT_TERMS_VERSION } from "@/lib/legal/versions";
 
 const isAdminRoute = createRouteMatcher(["/admin(.*)", "/api/admin(.*)"]);
 
+/**
+ * Phase 18: Routes excluded from the terms version gate (Pitfall 2 guard).
+ * Skipping /legal/*, /onboarding/*, /sign-in/*, /sign-up/*, /api/* prevents
+ * redirect loops and broken unauthenticated browsing.
+ */
+const isLegalOrOnboardingRoute = createRouteMatcher([
+  "/legal(.*)",
+  "/onboarding(.*)",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
+  "/api(.*)",
+]);
+
 export default clerkMiddleware(async (auth, req) => {
-  if (!isAdminRoute(req)) return; // pass-through for everything outside /admin/*
+  // 1. Admin gate (existing — unchanged logic, restructured from early-return)
+  if (isAdminRoute(req)) {
+    const session = await auth();
+    if (!session.userId) {
+      // Logged-out → redirect to /sign-in with redirect_url back to the admin route.
+      // (Per D-04 we don't 401 — funneling through the generic sign-in flow doesn't reveal
+      // which route triggered the redirect.)
+      const signIn = new URL("/sign-in", req.url);
+      signIn.searchParams.set("redirect_url", req.url);
+      return NextResponse.redirect(signIn);
+    }
 
-  const session = await auth();
-  if (!session.userId) {
-    // Logged-out → redirect to /sign-in with redirect_url back to the admin route.
-    // (Per D-04 we don't 401 — funneling through the generic sign-in flow doesn't reveal
-    // which route triggered the redirect.)
-    const signIn = new URL("/sign-in", req.url);
-    signIn.searchParams.set("redirect_url", req.url);
-    return NextResponse.redirect(signIn);
+    // currentUser() is not allowed in middleware in Clerk 7.x — use the backend client.
+    const client = await clerkClient();
+    const user = await client.users.getUser(session.userId);
+    const email =
+      user.primaryEmailAddress?.emailAddress ??
+      user.emailAddresses?.[0]?.emailAddress;
+    const allowlist = parseAdminEmails(process.env.CLERK_ADMIN_EMAILS);
+
+    if (!isAdminEmail(email, allowlist)) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+
+    // Allowed — let request through
+    return;
   }
 
-  // currentUser() is not allowed in middleware in Clerk 7.x — use the backend client.
-  const client = await clerkClient();
-  const user = await client.users.getUser(session.userId);
-  const email =
-    user.primaryEmailAddress?.emailAddress ??
-    user.emailAddresses?.[0]?.emailAddress;
-  const allowlist = parseAdminEmails(process.env.CLERK_ADMIN_EMAILS);
-
-  if (!isAdminEmail(email, allowlist)) {
-    return NextResponse.redirect(new URL("/", req.url));
+  // 2. Terms version gate (Phase 18 addition — SC1 re-acceptance on T&Cs change).
+  //
+  // Skips: /legal/*, /onboarding/*, /sign-in/*, /sign-up/*, /api/* (Pitfall 2 guard).
+  // Only runs for authenticated users — anonymous visitors always pass through (T-18-04-02).
+  // Reads terms_version from Clerk JWT publicMetadata — 0ms DB query (T-18-04-03 mitigation;
+  // RESEARCH Open Question 2 resolution: completeOnboarding() caches version in JWT claims).
+  if (!isLegalOrOnboardingRoute(req)) {
+    const session = await auth();
+    if (session.userId) {
+      const publicMeta = session.sessionClaims?.publicMetadata as
+        | Record<string, string>
+        | undefined;
+      const termsVersion = publicMeta?.terms_version;
+      if (!termsVersion || termsVersion !== CURRENT_TERMS_VERSION) {
+        return NextResponse.redirect(new URL("/onboarding/age-gate", req.url));
+      }
+    }
   }
-
-  // Allowed — let request through
 });
 
 export const config = {
