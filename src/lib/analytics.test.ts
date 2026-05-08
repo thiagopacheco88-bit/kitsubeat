@@ -11,28 +11,23 @@
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-// Mock posthog-node (used internally by posthog-server.ts)
-vi.mock("posthog-node", () => {
-  const captureMock = vi.fn();
-  const PostHog = vi.fn(() => ({ capture: captureMock }));
-  return { PostHog };
-});
-
-// Mock posthog-server.ts to return a controlled mock
-const mockCapture = vi.fn();
-const mockGetPostHogServer = vi.fn(() => ({ capture: mockCapture }));
-
+// Mock posthog-server.ts — factory must be self-contained (vi.mock is hoisted)
 vi.mock("./posthog-server", () => ({
-  getPostHogServer: mockGetPostHogServer,
+  getPostHogServer: vi.fn(),
 }));
 
+// Import after mock registration
 import { trackGamification } from "./analytics";
+import { getPostHogServer } from "./posthog-server";
+
+const mockGetPostHogServer = vi.mocked(getPostHogServer);
 
 describe("trackGamification", () => {
+  const mockCapture = vi.fn();
+
   beforeEach(() => {
     vi.clearAllMocks();
-    // Re-wire capture mock after clearAllMocks
-    mockGetPostHogServer.mockReturnValue({ capture: mockCapture });
+    mockGetPostHogServer.mockReturnValue({ capture: mockCapture } as unknown as ReturnType<typeof getPostHogServer>);
   });
 
   it("calls posthog.capture with event name and correct properties for xp_gained", () => {
