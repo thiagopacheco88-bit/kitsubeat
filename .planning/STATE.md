@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: planning
-stopped_at: Completed 14.4-04-PLAN.md — checkpoint approved, plan complete
-last_updated: "2026-05-08T20:33:26.463Z"
+stopped_at: Completed 15-01-PLAN.md — PostHog SDK install + posthog-server singleton + analytics body swap + instrumentation-client init
+last_updated: "2026-05-08T20:40:36.162Z"
 last_activity: 2026-05-08
 progress:
   total_phases: 27
   completed_phases: 21
   total_plans: 167
-  completed_plans: 159
-  percent: 95
+  completed_plans: 160
+  percent: 96
 ---
 
 # Project State
@@ -53,7 +53,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-05-08
 
-Progress: [██████████] 95%
+Progress: [██████████] 96%
 
 ## Performance Metrics
 
@@ -162,6 +162,7 @@ Progress: [██████████] 95%
 | Phase 14.4 P03 | 12 | 2 tasks | 15 files |
 | Phase 14.4 P04 | 7 | 2 tasks | 11 files |
 | Phase 14.4 P04 | 7min | 3 tasks | 11 files |
+| Phase 15 P01 | 311 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -453,6 +454,9 @@ Progress: [██████████] 95%
 - toast mounted in home page.tsx not layout.tsx — simpler auth-dependent client island
 - CoverCard chip positioned bottom-left to avoid collision with star-aura bottom-right element
 - useEffect gate for SSR hydration safety on StreakSaverToast — client-only mount per RESEARCH Pitfall 7
+- posthog-server flushAt:1/flushInterval:0 for Vercel serverless immediate flush
+- trackGamification wrapped in try/catch — analytics non-fatal to gamification path
+- instrumentation-client.ts: PostHog init only, no Sentry.init to avoid double-init
 
 ### Pending Todos
 
@@ -479,8 +483,8 @@ Progress: [██████████] 95%
 
 ## Session Continuity
 
-Last session: 2026-05-08T20:33:26.448Z
-Stopped at: Completed 14.4-04-PLAN.md — checkpoint approved, plan complete
+Last session: 2026-05-08T20:40:36.140Z
+Stopped at: Completed 15-01-PLAN.md — PostHog SDK install + posthog-server singleton + analytics body swap + instrumentation-client init
 Resume file: None
 
 **Planned Phase:** 14.4 (virality-engagement) — 5 plans — 2026-05-08T07:50:19.802Z
