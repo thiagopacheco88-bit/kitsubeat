@@ -455,6 +455,13 @@ export const users = pgTable("users", {
   social_activity_enabled: boolean("social_activity_enabled").notNull().default(false),
   streak_saver_token: integer("streak_saver_token").notNull().default(0),
   streak_saver_pending: boolean("streak_saver_pending").notNull().default(false),
+  // ─── Phase 18: Legal & Compliance ────────────────────────────────────────────
+  date_of_birth: date("date_of_birth"),
+  is_minor: boolean("is_minor"),
+  terms_accepted_at: timestamp("terms_accepted_at", { withTimezone: true }),
+  terms_version: text("terms_version"),
+  minor_defaults_applied: boolean("minor_defaults_applied").default(false),
+  marketing_email_opt_in: boolean("marketing_email_opt_in").default(false),
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
 });
@@ -941,3 +948,55 @@ export const animeMetadata = pgTable("anime_metadata", {
 });
 
 export type AnimeMetadata = typeof animeMetadata.$inferSelect;
+
+// ─── Phase 18: Legal & Compliance ────────────────────────────────────────────
+
+/**
+ * cookie_consent_record table — PECR audit log for cookie consent decisions.
+ *
+ * One row per consent interaction. user_id is nullable so anonymous visitor
+ * decisions are recorded before sign-up. decision IN ('accepted','rejected','partial').
+ * categories is a JSONB object keyed by category slug (analytics, marketing, etc.)
+ * with boolean values reflecting the user's per-category choice.
+ */
+export const cookieConsentRecord = pgTable(
+  "cookie_consent_record",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    user_id: text("user_id"),
+    consent_timestamp: timestamp("consent_timestamp", { withTimezone: true }).defaultNow().notNull(),
+    consent_version: text("consent_version").notNull(),
+    categories: jsonb("categories").notNull(),
+    decision: text("decision").notNull(),
+    ip_hash: text("ip_hash"),
+    user_agent: text("user_agent"),
+  },
+  (table) => [
+    index("cookie_consent_record_user_id_idx").on(table.user_id),
+    index("cookie_consent_record_timestamp_idx").on(table.consent_timestamp),
+  ]
+);
+export type CookieConsentRecord = typeof cookieConsentRecord.$inferSelect;
+
+/**
+ * sar_log table — Subject Access Request accountability log for ICO/DPA audit trail.
+ *
+ * One row per SAR received. response_date and outcome are nullable until the
+ * request is resolved. notes can contain handling notes for the DPO.
+ * The ICO requires SAR responses within 30 days — this log tracks that SLA.
+ */
+export const sarLog = pgTable(
+  "sar_log",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    user_id_or_email: text("user_id_or_email").notNull(),
+    request_date: timestamp("request_date", { withTimezone: true }).defaultNow().notNull(),
+    response_date: timestamp("response_date", { withTimezone: true }),
+    outcome: text("outcome"),
+    notes: text("notes"),
+  },
+  (table) => [
+    index("sar_log_user_id_idx").on(table.user_id_or_email),
+  ]
+);
+export type SarLog = typeof sarLog.$inferSelect;
