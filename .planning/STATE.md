@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: planning
-stopped_at: "Completed 14.4-04-PLAN.md — UI surfaces: CoverCard chip + ticker + toast + ProfileForm toggle + E2E stubs"
-last_updated: "2026-05-08T08:34:09.775Z"
+stopped_at: Completed 14.4-04-PLAN.md — checkpoint approved, plan complete
+last_updated: "2026-05-08T20:33:26.463Z"
 last_activity: 2026-05-08
 progress:
   total_phases: 27
@@ -53,7 +53,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-05-08
 
-Progress: [█████████░] 93%
+Progress: [██████████] 95%
 
 ## Performance Metrics
 
@@ -161,6 +161,7 @@ Progress: [█████████░] 93%
 | Phase 14.4 P02 | 596 | 2 tasks | 8 files |
 | Phase 14.4 P03 | 12 | 2 tasks | 15 files |
 | Phase 14.4 P04 | 7 | 2 tasks | 11 files |
+| Phase 14.4 P04 | 7min | 3 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -449,6 +450,9 @@ Progress: [█████████░] 93%
 - Idempotency log write skipped in dry-run mode to prevent phantom log rows in dev
 - toast mounted in page.tsx not layout.tsx — simpler for auth-dependent client island
 - CoverCard chip bottom-left of cover panel; no collision with star-aura bottom-right
+- toast mounted in home page.tsx not layout.tsx — simpler auth-dependent client island
+- CoverCard chip positioned bottom-left to avoid collision with star-aura bottom-right element
+- useEffect gate for SSR hydration safety on StreakSaverToast — client-only mount per RESEARCH Pitfall 7
 
 ### Pending Todos
 
@@ -475,8 +479,8 @@ Progress: [█████████░] 93%
 
 ## Session Continuity
 
-Last session: 2026-05-08T08:33:55.258Z
-Stopped at: Completed 14.4-04-PLAN.md — UI surfaces: CoverCard chip + ticker + toast + ProfileForm toggle + E2E stubs
-Resume file: Human verification of visual surfaces required before Plan 05
+Last session: 2026-05-08T20:33:26.448Z
+Stopped at: Completed 14.4-04-PLAN.md — checkpoint approved, plan complete
+Resume file: None
 
 **Planned Phase:** 14.4 (virality-engagement) — 5 plans — 2026-05-08T07:50:19.802Z
