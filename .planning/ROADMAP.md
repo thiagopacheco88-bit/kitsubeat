@@ -577,14 +577,19 @@ Plans:
 ### Phase 15: Analytics & Error Tracking
 **Goal**: Every meaningful user event captured in product analytics; every exception surfaces in Sentry with debugging context; funnel metrics are queryable before beta opens.
 **Depends on**: Phase 14
-**Requirements**: TBD
+**Requirements**: SC-1, SC-2, SC-3, SC-4, SC-5
 **Success Criteria**:
-  1. PostHog or Plausible tracks: signup, first song opened, first exercise completed, first star, streak start/break, session duration
-  2. Sentry captures client + server exceptions with source maps; release tagging wired via CI
-  3. Core funnel dashboard exists: signup → first session → first star → day-7 return; queryable by cohort
-  4. All tracking respects Phase 18 cookie consent (no events fire before consent on first visit)
-  5. Data minimization: no PII in event payloads beyond user ID; IPs truncated at ingest
-**Plans**: TBD
+  1. PostHog tracks 7 specified funnel events (signup, song_opened, exercise_started, first_star_earned, day_7_return, premium_gate_hit, subscription_started)
+  2. Sentry captures client + server + edge exceptions with source maps; stack traces resolve to TypeScript source
+  3. Core funnel dashboard exists in PostHog Cloud UI: signup → first star → day-7 return; queryable by cohort
+  4. No PostHog events fire before user gives consent (opt_out_capturing_by_default: true; banner shows on first visit)
+  5. No PII in event payloads: no email, name, or raw user data; only userId/distinct_id allowed
+**Plans:** 4 plans (3 autonomous + 1 human-verify checkpoint)
+Plans:
+- [ ] 15-01-PLAN.md -- Wave 0 test stubs + posthog-server.ts singleton + analytics.ts body swap + instrumentation-client.ts init
+- [ ] 15-02-PLAN.md -- ConsentBanner component + layout.tsx integration + PostHog identify() wired to Clerk session
+- [ ] 15-03-PLAN.md -- Sentry runtime configs + instrumentation.ts + next.config.ts withSentryConfig + error boundary augmentation
+- [ ] 15-04-PLAN.md -- .env.example documentation + Vercel env var checklist + smoke test checkpoint
 
 ### Phase 16: Security Review & Incident Response
 **Goal**: Every authenticated endpoint is correctly authorized at the data layer; secrets are audited; rate limits exist on writes; a written incident response plan exists before user data arrives.
