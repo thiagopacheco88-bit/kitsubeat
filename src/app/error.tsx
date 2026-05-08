@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import * as Sentry from "@sentry/nextjs";
 
 export default function RouteError({
   error,
@@ -10,6 +11,7 @@ export default function RouteError({
   reset: () => void;
 }) {
   useEffect(() => {
+    Sentry.captureException(error); // Phase 15 — rich stack frames + source maps
     try {
       void fetch("/api/client-errors", {
         method: "POST",

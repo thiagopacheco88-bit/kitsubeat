@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import withBundleAnalyzer from "@next/bundle-analyzer";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -17,4 +18,18 @@ const enableAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-export default enableAnalyzer(nextConfig);
+// Phase 15: Sentry error monitoring — wraps enableAnalyzer so Sentry's webpack plugin
+// runs outermost, injecting source map upload + tunnel route at build time.
+export default withSentryConfig(enableAnalyzer(nextConfig), {
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  // Bypass ad-blockers via a tunneled Next.js route
+  tunnelRoute: "/sentry-tunnel",
+  sourcemaps: {
+    // Delete .map files from public bundle after upload — maps stay in Sentry, not served publicly
+    deleteSourcemapsAfterUpload: true,
+  },
+  // Suppress output in local dev; show in CI for debugging
+  silent: !process.env.CI,
+});
