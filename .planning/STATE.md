@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
-status: ready_to_plan
-stopped_at: Completed 14.4-03-PLAN.md — email + cron infrastructure (resend + auth + routes + vercel.json)
-last_updated: "2026-05-08T08:24:29.781Z"
-last_activity: 2026-05-03 -- Phase --phase execution started
+status: planning
+stopped_at: "Completed 14.4-04-PLAN.md — UI surfaces: CoverCard chip + ticker + toast + ProfileForm toggle + E2E stubs"
+last_updated: "2026-05-08T08:34:09.775Z"
+last_activity: 2026-05-08
 progress:
   total_phases: 27
-  completed_phases: 22
+  completed_phases: 21
   total_plans: 167
-  completed_plans: 158
-  percent: 81
+  completed_plans: 159
+  percent: 95
 ---
 
 # Project State
@@ -160,6 +160,7 @@ Progress: [█████████░] 93%
 | Phase 14.4 P01 | 6 | 2 tasks | 17 files |
 | Phase 14.4 P02 | 596 | 2 tasks | 8 files |
 | Phase 14.4 P03 | 12 | 2 tasks | 15 files |
+| Phase 14.4 P04 | 7 | 2 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -446,6 +447,8 @@ Progress: [█████████░] 93%
 - p-limit(1) default concurrency — conservative Resend rate limit adherence
 - clerkClient() must be awaited before .users in Clerk v5 (async client)
 - Idempotency log write skipped in dry-run mode to prevent phantom log rows in dev
+- toast mounted in page.tsx not layout.tsx — simpler for auth-dependent client island
+- CoverCard chip bottom-left of cover panel; no collision with star-aura bottom-right
 
 ### Pending Todos
 
@@ -472,8 +475,8 @@ Progress: [█████████░] 93%
 
 ## Session Continuity
 
-Last session: 2026-05-08T08:24:29.768Z
-Stopped at: Completed 14.4-03-PLAN.md — email + cron infrastructure (resend + auth + routes + vercel.json)
-Resume file: None
+Last session: 2026-05-08T08:33:55.258Z
+Stopped at: Completed 14.4-04-PLAN.md — UI surfaces: CoverCard chip + ticker + toast + ProfileForm toggle + E2E stubs
+Resume file: Human verification of visual surfaces required before Plan 05
 
 **Planned Phase:** 14.4 (virality-engagement) — 5 plans — 2026-05-08T07:50:19.802Z
