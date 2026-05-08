@@ -12,9 +12,18 @@ ALTER TABLE "users"
   ADD COLUMN IF NOT EXISTS "streak_saver_token" integer NOT NULL DEFAULT 0,
   ADD COLUMN IF NOT EXISTS "streak_saver_pending" boolean NOT NULL DEFAULT false;
 
-ALTER TABLE "users"
-  ADD CONSTRAINT IF NOT EXISTS "users_streak_saver_token_check"
-    CHECK (streak_saver_token IN (0, 1));
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint
+    WHERE conname = 'users_streak_saver_token_check'
+      AND conrelid = 'users'::regclass
+  ) THEN
+    ALTER TABLE "users"
+      ADD CONSTRAINT "users_streak_saver_token_check"
+        CHECK (streak_saver_token IN (0, 1));
+  END IF;
+END $$;
 
 --> statement-breakpoint
 
