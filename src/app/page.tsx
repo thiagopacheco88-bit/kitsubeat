@@ -15,7 +15,14 @@
  * per-request render. Beginner / Recent / TopArtists queries dropped from
  * imports per SPEC §Req 6 (no longer consumed on /).
  */
-import { getHeroSong, getFeaturedSongs, getTopAnimeFranchises } from "@/lib/db/queries";
+import {
+  getHeroSong,
+  getFeaturedSongs,
+  getTopAnimeFranchises,
+  getNowPlayingCounts,
+  getRecentMasteryEvents,
+  getTickerFirstName,
+} from "@/lib/db/queries";
 import { getCurrentUserId, PLACEHOLDER_USER_ID } from "@/lib/user-prefs";
 import { HeroFeatured } from "./components/home/HeroFeatured";
 import { ContinueLearning } from "./components/home/ContinueLearning";
@@ -24,6 +31,7 @@ import { SectionHeader } from "./components/home/SectionHeader";
 import { Carousel } from "./components/home/Carousel";
 import { CoverCard } from "./components/home/CoverCard";
 import { AnimeCard } from "./components/home/AnimeCard";
+import { RecentlyMasteredTicker, type MasteryEvent } from "./components/home/RecentlyMasteredTicker";
 
 export const dynamic = "force-dynamic";
 
@@ -31,11 +39,21 @@ export default async function HomePage() {
   const userId = await getCurrentUserId();
   const isSignedIn = userId !== PLACEHOLDER_USER_ID;
 
-  const [hero, topFranchises, featured] = await Promise.all([
+  const [hero, topFranchises, featured, nowPlayingCounts, masteryEventsRaw] = await Promise.all([
     getHeroSong(isSignedIn ? userId : null),
     getTopAnimeFranchises(20),
     getFeaturedSongs(12),
+    getNowPlayingCounts(),
+    getRecentMasteryEvents(10),
   ]);
+
+  // Resolve first-names for ticker rows (unstable_cache 1h per user, D-09)
+  const masteryEvents: MasteryEvent[] = await Promise.all(
+    masteryEventsRaw.map(async (ev) => ({
+      ...ev,
+      firstName: await getTickerFirstName(ev.user_id),
+    }))
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-4">
@@ -44,6 +62,9 @@ export default async function HomePage() {
 
       {/* Section 2 — Continue Learning (auth-only; wrapper returns null when unauth or empty) */}
       {isSignedIn && <ContinueLearning userId={userId} />}
+
+      {/* Section 2.5 — Recently Mastered ticker (opt-in users; renders null when empty) */}
+      <RecentlyMasteredTicker events={masteryEvents} />
 
       {/* Section 3 — Foundations (always) */}
       <Foundations />
@@ -94,6 +115,7 @@ export default async function HomePage() {
               }}
               stars={0}
               showMastery={isSignedIn}
+              nowPlayingCount={nowPlayingCounts.get(song.id)}
             />
           ))}
         </Carousel>

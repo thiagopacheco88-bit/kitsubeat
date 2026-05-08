@@ -36,6 +36,8 @@ interface CoverCardProps {
   stars?: number;
   showMastery: boolean;
   opEd?: "OP" | "ED" | null;
+  /** Phase 14.4 REQ-1 — "X listening now" chip. Only passed by home page. Absent → chip suppressed. */
+  nowPlayingCount?: number;
 }
 
 // Spec dimensions (CONTEXT §Specifics line 258):
@@ -46,7 +48,7 @@ const COVER_CARD_W = 154; // px
 const COVER_CARD_H = 196; // px
 const COVER_PANEL_H = 116; // px (~60%)
 
-export function CoverCard({ song, stars = 0, showMastery, opEd }: CoverCardProps) {
+export function CoverCard({ song, stars = 0, showMastery, opEd, nowPlayingCount }: CoverCardProps) {
   // Anonymous-catalog gate (D-14) — mirrors SongCard's showProgress precedent.
   const showMasteryBanner = showMastery && stars === 3;
   const showAura = showMastery && stars > 0;
@@ -126,6 +128,15 @@ export function CoverCard({ song, stars = 0, showMastery, opEd }: CoverCardProps
             <span className="text-xs" style={{ color: "white" }}>
               ★
             </span>
+          </span>
+        )}
+        {nowPlayingCount !== undefined && nowPlayingCount >= 3 && (
+          <span
+            className="absolute bottom-2 left-2 rounded-[var(--radius-sm)] px-1.5 py-0.5 text-[length:var(--text-micro)] font-semibold text-[var(--color-text)] backdrop-blur-sm"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
+            aria-label={`${nowPlayingCount} people listening now`}
+          >
+            {nowPlayingCount} listening now
           </span>
         )}
       </div>
