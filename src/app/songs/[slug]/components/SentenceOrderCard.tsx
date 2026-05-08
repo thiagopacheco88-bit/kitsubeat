@@ -232,7 +232,8 @@ export default function SentenceOrderCard({
             data-token-uuid={token.uuid}
             disabled={submitted || disabled}
             onClick={() => moveToPool(question.id, token.uuid)}
-            className={`rounded-md border px-3 py-2 text-sm font-medium transition-colors disabled:opacity-80 ${tokenClassName(
+            aria-pressed={true}
+            className={`min-h-[44px] rounded-md border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/40 disabled:opacity-80 ${tokenClassName(
               "answer",
               wrongPositions.has(i)
             )}`}
@@ -254,7 +255,8 @@ export default function SentenceOrderCard({
             data-token-uuid={token.uuid}
             disabled={submitted || disabled}
             onClick={() => moveToAnswer(question.id, token.uuid)}
-            className={`rounded-md border px-3 py-2 text-sm font-medium transition-colors disabled:opacity-60 ${tokenClassName("pool")}`}
+            aria-pressed={false}
+            className={`min-h-[44px] rounded-md border px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/40 disabled:opacity-60 ${tokenClassName("pool")}`}
           >
             {renderTokenLabel(token.surface)}
           </button>
