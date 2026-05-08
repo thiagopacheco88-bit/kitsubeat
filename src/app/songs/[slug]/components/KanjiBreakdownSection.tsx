@@ -2,6 +2,7 @@
 
 import type { KanjiBreakdown } from "@/lib/types/lesson";
 import { localize } from "@/lib/types/lesson";
+import { AiBadge } from "@/components/ui/AiBadge";
 
 interface Props {
   breakdown: KanjiBreakdown;
@@ -12,7 +13,11 @@ export default function KanjiBreakdownSection({ breakdown, lang }: Props) {
   if (!breakdown.characters || breakdown.characters.length === 0) return null;
 
   return (
-    <div className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)]/60 p-3">
+    <div
+      data-ai-generated="true"
+      className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)]/60 p-3"
+    >
+      <AiBadge label="AI-assisted" className="mb-1" />
       <p className="mb-2 text-xs uppercase tracking-wider text-[var(--color-text-dim)]">Kanji breakdown</p>
       <div className="flex flex-col gap-1.5">
         {breakdown.characters.map((c) => (
