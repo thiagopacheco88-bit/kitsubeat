@@ -79,4 +79,4 @@ Users can watch an anime song and understand exactly what every word means — w
 | AI-generated lyrics (not database-sourced) | Cheaper, more flexible, covers niche songs databases may miss | — Pending |
 
 ---
-*Last updated: 2026-05-02 — Phase 14 (UX Polish) complete: tokenized design system, 6 UI primitives (Button/Card/Badge/Modal/EmptyState/Skeleton), theme persistence (light/dark/system), motion catalog, CI lint gate. Class A a11y blocker closed via A1 (--color-accent #ef4444 → #dc2626); Class B/C deferred to Phase 18 as D-PRE-11. Bundle delta on /songs/[slug]: +0.29 kB gzipped.*
+*Last updated: 2026-05-08 — Phase 14.5 (Iconography & Brand Revamp) complete: TierDivider SVGs redrawn to Heroicons quality (bamboo/torii/mountain with currentColor, strokeWidth=2, rect node bands), metadata.twitter wired in layout.tsx (card=summary_large_image), brand-prompts.md created with ComfyUI + Gemini prompts for all 5 raster assets, verify-brand-assets.ts and synthesize-favicon.ts scripts ready. Raster assets (logo.png, apple-touch-icon.png, og-image.png, twitter-image.png) pending user generation — tracked in 14.5-HUMAN-UAT.md.*
