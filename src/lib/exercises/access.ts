@@ -25,6 +25,7 @@ import {
 } from "./feature-flags";
 import { isPremium } from "@/app/actions/userPrefs";
 import { getSongCountForFamily, userHasTouchedSong } from "./counters";
+import { getPostHogServer } from "@/lib/posthog-server";
 
 export interface CheckExerciseAccessResult {
   allowed: boolean;
@@ -85,10 +86,38 @@ export async function checkExerciseAccess(
       return { allowed: true, quotaRemaining: limit - count };
     }
 
+    // Phase 15 SC-1: funnel event — premium_gate_hit (quota exhausted)
+    try {
+      const ph = getPostHogServer();
+      ph.capture({
+        distinctId: userId,
+        event: "premium_gate_hit",
+        properties: {
+          song_slug: opts?.songVersionId ?? "unknown",
+          reason: "quota_exhausted",
+        },
+      });
+    } catch {
+      // Non-fatal
+    }
     return { allowed: false, reason: "quota_exhausted", quotaRemaining: 0 };
   }
 
   // Default / "premium" path — unchanged from Phase 8.
   // TODO: replace with Clerk userId + real subscription check when auth is added.
+  // Phase 15 SC-1: funnel event — premium_gate_hit (premium required)
+  try {
+    const ph = getPostHogServer();
+    ph.capture({
+      distinctId: userId,
+      event: "premium_gate_hit",
+      properties: {
+        song_slug: opts?.songVersionId ?? "unknown",
+        reason: "premium_required",
+      },
+    });
+  } catch {
+    // Non-fatal
+  }
   return { allowed: false, reason: "premium_required" };
 }
