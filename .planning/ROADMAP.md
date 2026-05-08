@@ -537,7 +537,7 @@ Plans:
 ### Phase 14.4: Virality & Engagement
 **Goal**: Layer functional virality + retention mechanics on top of the visual foundation laid by 14.1 / 14.2 / 14.3 — visible social activity (live "now playing" signals, recently-mastered cross-user feed, opt-in leaderboards) and streak behavioral hooks (daily reminders, streak-saver token, weekly recap email). All social features opt-in by default; reduced-anxiety patterns throughout (no streak-shaming dark patterns).
 **Depends on**: Phase 14.1, Phase 14.2, Phase 14.3 (must inherit visual vocabulary; cannot ship before all three redesigns land), Clerk plan tier definition (premium vs free for streak-saver gating)
-**Requirements**: TBD (lock via /gsd-spec-phase 14.4-virality-engagement)
+**Requirements**: REQ-1, REQ-2, REQ-3, REQ-4, REQ-5, REQ-6, REQ-7, REQ-8 (locked in 14.4-SPEC.md)
 **Success Criteria**:
   1. "Now playing" live signal renders on home for popular songs (e.g. "12 learners on this song right now") — anonymized OK for MVP
   2. Recently-mastered cross-user feed (anonymized OK for MVP) on home or `/path`
@@ -545,8 +545,16 @@ Plans:
   4. Streak-saver token: one-time streak recovery earned via X-day milestone (free vs premium gating to be locked in spec-phase)
   5. Weekly recap email: vocab learned, songs touched, streak status, next-up nudge
   6. All social features opt-in by default; privacy-by-default; reduced-motion + reduced-anxiety patterns honored
-**Intent captured**: [.planning/phases/14.4-virality-engagement/INTENT.md](phases/14.4-virality-engagement/INTENT.md) (stub — formalize via /gsd-spec-phase)
-**Plans**: TBD
+**Spec captured**: [.planning/phases/14.4-virality-engagement/14.4-SPEC.md](phases/14.4-virality-engagement/14.4-SPEC.md)
+**Context captured**: [.planning/phases/14.4-virality-engagement/14.4-CONTEXT.md](phases/14.4-virality-engagement/14.4-CONTEXT.md)
+**Research captured**: [.planning/phases/14.4-virality-engagement/14.4-RESEARCH.md](phases/14.4-virality-engagement/14.4-RESEARCH.md)
+**Plans:** 5 plans
+Plans:
+- [ ] 14.4-01-PLAN.md — Migration 0018 + schema.ts + all 14 Wave 0 test stubs
+- [ ] 14.4-02-PLAN.md — Data layer: queries, streak-saver pure module, session-integration extension, userPrefs round-trip
+- [ ] 14.4-03-PLAN.md — Email + cron infra: resend install, auth helper, templates, both cron routes, vercel.json
+- [ ] 14.4-04-PLAN.md — UI surfaces: CoverCard chip, RecentlyMasteredTicker, StreakSaverToast, ProfileForm social toggle
+- [ ] 14.4-05-PLAN.md — Schema push + full test suite + build/lint verification + Vercel plan pre-flight
 
 ### Phase 14.5: Iconography & Brand Revamp
 **Goal**: Replace the brand chrome (logo, favicon, apple-touch-icon, og-image, twitter-image), `/path` tier icons (bamboo / torii / mountain SVGs in TierDivider), and reward/cosmetic badge icons with a unified, locally-generated set using the existing ComfyUI pipeline (FLUX.1-schnell / SDXL — already wired for Phase 11.6 kanji mnemonic images, so zero API spend). Establishes a single iconographic vocabulary across the app while preserving the lantern + fox-mark that just shipped in 14.1.
