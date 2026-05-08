@@ -32,6 +32,13 @@ const ROUTES = [
   "/vocabulary",
   "/review",
   "/profile",
+  // Phase 18: Legal & Compliance routes (audited from Wave 5 onward)
+  "/legal/terms",
+  "/legal/privacy",
+  "/legal/cookie-policy",
+  "/legal/ai-transparency",
+  "/legal/refund",
+  "/onboarding/age-gate",
 ];
 const THEMES = ["dark", "light"] as const;
 
