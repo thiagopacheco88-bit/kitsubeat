@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: Phase 17 complete — 17-ANALYSIS.md delivered (238 REQs, 21 lawyer flags)
-last_updated: "2026-05-08T10:00:00.000Z"
-last_activity: 2026-05-08 -- Phase 17 plan 06 complete (human-verify approved)
+stopped_at: Completed 14.4-01-PLAN.md — migration 0018 + 14 Wave 0 test stubs
+last_updated: "2026-05-08T08:01:52.712Z"
+last_activity: 2026-05-03 -- Phase --phase execution started
 progress:
-  total_phases: 26
+  total_phases: 27
   completed_phases: 20
-  total_plans: 161
-  completed_plans: 158
-  percent: 98
+  total_plans: 165
+  completed_plans: 154
+  percent: 93
 ---
 
 # Project State
@@ -53,7 +53,7 @@ Plan 10-06 complete — Advanced Drills integration end-to-end. AdvancedDrillsUp
 
 Last activity: 2026-05-03 -- Phase --phase execution started
 
-Progress: [█████████░] 89%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
@@ -156,6 +156,7 @@ Progress: [█████████░] 89%
 | Phase 14-ux-polish P07 | 13min | 3 tasks | 11 files |
 | Phase 14 P08 | 23 | 3 tasks | 13 files |
 | Phase 14-ux-polish P09 | 75min | 3 tasks | 18 files |
+| Phase 14.4 P01 | 6 | 2 tasks | 17 files |
 
 ## Accumulated Context
 
@@ -436,6 +437,8 @@ Progress: [█████████░] 89%
 - Modal primitive consumer count: 4 (every inline modal in codebase now consumes the primitive)
 - Plan 14-09: scope-expanded to D-PRE-10 surfaces (4 chrome files, 68 violations -> 0); EXCLUDED D-PRE-08 lesson chrome (231 violations) per CONTEXT D-22 + parent agent handoff
 - Plan 14-09: a11y triage per WARNING 2 — surfaced 3 disposition options (A1 darken accent / A2 enlarge CTA text / A3 user-approved Phase 18 deferral) instead of unilateral defer; phase merge held NEEDS-USER-DECISION
+- check() from drizzle-orm/pg-core verified available at v0.41.0 — used in activityEvents schema
+- Playwright 1.59.1 lacks test.todo() — Wave 0 E2E stubs use test.fixme() instead
 
 ### Pending Todos
 
@@ -462,8 +465,8 @@ Progress: [█████████░] 89%
 
 ## Session Continuity
 
-Last session: --stopped-at
-Stopped at: Phase 14.4 context gathered
-Resume file: --resume-file: .planning/phases/14.5-iconography-brand-revamp/14.5-CONTEXT.md
+Last session: 2026-05-08T08:01:52.687Z
+Stopped at: Completed 14.4-01-PLAN.md — migration 0018 + 14 Wave 0 test stubs
+Resume file: None
 
 **Planned Phase:** 14.4 (virality-engagement) — 5 plans — 2026-05-08T07:50:19.802Z
