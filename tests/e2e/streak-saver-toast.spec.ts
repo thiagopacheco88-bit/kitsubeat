@@ -2,8 +2,16 @@
 import { test, expect } from "../support/fixtures";
 
 test.describe("Phase 14.4 / streak saver toast", () => {
-  test.todo("toast renders when streak_saver_pending=true on page load");
-  test.todo("toast does not render on subsequent page load (pending cleared)");
-  test.todo("reduced-motion: toast stays visible without auto-dismiss");
-  test.todo("dismiss button (×) removes the toast");
+  test.fixme("toast renders when streak_saver_pending=true on page load", async ({ page }) => {
+    // TODO: implement in plan 04
+  });
+  test.fixme("toast does not render on subsequent page load (pending cleared)", async ({ page }) => {
+    // TODO: implement in plan 04
+  });
+  test.fixme("reduced-motion: toast stays visible without auto-dismiss", async ({ page }) => {
+    // TODO: implement in plan 04
+  });
+  test.fixme("dismiss button (x) removes the toast", async ({ page }) => {
+    // TODO: implement in plan 04
+  });
 });
