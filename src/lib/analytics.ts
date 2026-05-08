@@ -37,6 +37,27 @@ export type GamificationEvent =
  *
  * Non-fatal: any capture error is swallowed so analytics never throws into callers.
  */
+/**
+ * Stub export for the subscription_started SC-1 funnel event.
+ *
+ * Billing not yet integrated — this function is a named call site placeholder.
+ * Call this from the payment webhook handler when Phase 19 (Stripe/billing) lands.
+ *
+ * Usage: trackSubscriptionStarted({ userId: clerkUserId })
+ *
+ * Phase 19 integration note: replace the console.debug with a posthog-node capture:
+ *   getPostHogServer().capture({ distinctId: userId, event: 'subscription_started', properties: {} })
+ */
+export function trackSubscriptionStarted({ userId }: { userId: string }): void {
+  if (process.env.NODE_ENV === "development") {
+    // eslint-disable-next-line no-console
+    console.debug("[analytics:subscription_started] stub — wire to billing webhook in Phase 19", { userId });
+  }
+  // Intentionally no-op: billing route does not exist in Phase 15.
+  // Removing this stub in Phase 19 will cause a TypeScript error at all call sites,
+  // forcing explicit wiring before the release.
+}
+
 export function trackGamification(e: GamificationEvent, userId?: string): void {
   if (process.env.NODE_ENV === "development") {
     // eslint-disable-next-line no-console

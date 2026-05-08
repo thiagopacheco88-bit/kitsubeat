@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import type { Lesson, VocabEntry } from "@/lib/types/lesson";
 import type { TrackKind, LengthMode } from "@/lib/exercises/generator";
 import { buildQuestions } from "@/lib/exercises/generator";
@@ -155,6 +156,10 @@ export default function ExerciseTab({
   // Passed to ExerciseSession so it can use the correct cardKind for FSRS upserts.
   const [activeTrackKind, setActiveTrackKind] = useState<TrackKind>("vocab");
 
+  // Phase 15 SC-1: dedup ref so exercise_started fires at most once per tab activation.
+  // Reset to false whenever tabState returns to "config" (new activation cycle).
+  const hasTrackedExerciseStartRef = useRef(false);
+
   // Per-track length preferences (independent within the session)
   const [vocabLength, setVocabLength] = useState<LengthMode>("short");
   const [grammarLength, setGrammarLength] = useState<LengthMode>("short");
@@ -175,6 +180,25 @@ export default function ExerciseTab({
       cancelled = true;
     };
   }, [_hasHydrated, hasActiveSession, userId]);
+
+  // Phase 15 SC-1: funnel event — exercise_started
+  // Fires once per tab activation (when tabState transitions to "session" or
+  // "grammar-session"). hasTrackedExerciseStartRef prevents double-fire on
+  // StrictMode double-mount or resume from active session.
+  useEffect(() => {
+    const isActive = tabState === "session" || tabState === "grammar-session";
+    if (isActive && !hasTrackedExerciseStartRef.current) {
+      hasTrackedExerciseStartRef.current = true;
+      posthog.capture("exercise_started", {
+        song_slug: songSlug,
+        exercise_types: [activeTrackKind],
+      });
+    }
+    if (!isActive) {
+      // Reset dedup when returning to config so the next activation fires again
+      hasTrackedExerciseStartRef.current = false;
+    }
+  }, [tabState, songSlug, activeTrackKind]);
 
   // --- Hydration guard (after hooks — React rules require all hooks called unconditionally) ---
   if (!_hasHydrated) {

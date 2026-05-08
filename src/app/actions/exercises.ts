@@ -23,6 +23,7 @@ import { and } from "drizzle-orm";
 import { applyGamificationUpdate } from "@/lib/gamification/session-integration";
 import type { GamificationResult } from "@/lib/gamification/session-integration";
 import { STARTER_SONG_SLUGS } from "@/lib/gamification/starter-songs";
+import { getPostHogServer } from "@/lib/posthog-server";
 
 // ---------------------------------------------------------------------------
 // Phase 10 Plan 06 — Advanced Drills access summary (server action).
@@ -392,6 +393,24 @@ export async function saveSessionResults(
     ex5_best_accuracy: updated.ex5_best_accuracy,
     ex7_best_accuracy: updated.ex7_best_accuracy,
   });
+
+  // Phase 15 SC-1: funnel event — first_star_earned
+  // Fires only when user transitions from 0 stars to >= 1 star for the first time.
+  if (previousStars < 1 && stars >= 1) {
+    try {
+      const ph = getPostHogServer();
+      ph.capture({
+        distinctId: userId,
+        event: "first_star_earned",
+        properties: {
+          song_slug: songSlug,
+          star_number: 1,
+        },
+      });
+    } catch {
+      // Non-fatal: analytics must never throw into the session save path
+    }
+  }
 
   // --- Step 7: FSRS per-vocab upsert (one row per unique vocab_item_id) ---
   //
