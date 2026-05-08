@@ -1,10 +1,11 @@
 ---
 phase: 18
 slug: legal-compliance-implementation
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-05-08
+approved: 2026-05-08
 ---
 
 # Phase 18 — UI Design Contract
@@ -40,20 +41,28 @@ registry entries needed. Safety gate: not required.
 
 ## Spacing Scale
 
-All values from existing `--space-*` tokens in `globals.css`. No exceptions for Phase 18.
+All values from existing `--space-*` tokens in `globals.css` (Phase 14 locked scale).
 
 | Token | Value | Phase 18 Usage |
 |-------|-------|----------------|
 | `--space-1` | 4px | Icon-to-text gap in AiBadge; inline consent link padding |
 | `--space-2` | 8px | Button gap in consent banner; checkbox + label gap |
-| `--space-3` | 12px | Consent banner internal padding (horizontal, mobile) |
+| `--space-3` | 12px | Consent banner horizontal padding (mobile) — see exception below |
 | `--space-4` | 16px | Legal page section padding; form field spacing |
-| `--space-5` | 20px | Consent banner internal padding (horizontal, desktop) |
+| `--space-5` | 20px | Consent banner horizontal padding (desktop) — see exception below |
 | `--space-6` | 24px | Legal page paragraph top margin; profile nudge banner padding |
 | `--space-7` | 32px | Legal page section breaks |
-| `--space-8` | 40px | Legal page `py-10` equivalent |
+| `--space-8` | 40px | Legal page vertical section padding (`py-10` equivalent) — see exception below |
 | `--space-9` | 48px | Legal page top/bottom page padding |
 | `--space-10` | 64px | Not used in Phase 18 |
+
+**Exceptions (Phase 14 inherited tokens — not newly introduced):**
+
+| Token | Value | Justification |
+|-------|-------|---------------|
+| `--space-3` | 12px | Consent banner mobile horizontal padding. 16px (`--space-4`) would consume 8% of a 375px viewport; 12px is the Phase 14 locked step between 8px and 16px — already in globals.css, not a new value. |
+| `--space-5` | 20px | Consent banner desktop horizontal padding. 24px (`--space-6`) is already used for section padding; a distinct desktop step between 16px and 24px avoids visual conflict with surrounding layout whitespace. |
+| `--space-8` | 40px | Legal page section vertical padding. Legal pages use `py-10` (40px) — a Tailwind default that maps cleanly to the locked `--space-8` token. 48px is too large for legal page section breaks relative to the 32px inter-H2 spacing. |
 
 **Touch targets:** All interactive elements (banner buttons, checkboxes, CTA buttons) must meet
 44×44px minimum tap target per WCAG 2.5.5. Use `min-h-[44px]` on all `<button>` elements —
@@ -68,16 +77,16 @@ of viewport height on any screen size.
 
 ## Typography
 
-All roles use `--font-sans` (Inter) except Japanese content. These are pre-existing type ramp
-values from the Phase 14 SPEC — no new sizes declared.
+All roles use `--font-sans` (Inter) except Japanese content. Exactly 4 sizes, 2 weights declared.
 
 | Role | Size | Weight | Line Height | Usage in Phase 18 |
 |------|------|--------|-------------|-------------------|
 | Body | 16px | 400 | 1.6 | Legal page prose content (elevated from 1.5 to 1.6 for long-form readability) |
-| Small / Label | 14px | 400 | 1.5 | Consent banner body text; form labels; version/date line on legal pages |
-| Heading (H2) | 20px | 600 | 1.3 | Legal page section headings |
+| Small / Label | 14px | 400 | 1.5 | Consent banner body text; form labels; version/date line on legal pages; AiBadge text |
+| Heading (H2) | 20px | 700 | 1.3 | Legal page section headings |
 | Display (H1) | 28px | 700 | 1.2 | Legal page titles; age-gate page title |
-| Micro | 10px (`--text-micro`) | 500 | 1.4 | AiBadge label text |
+
+**AiBadge size note:** AiBadge uses `text-[14px] opacity-60` (the Small/Label role) rather than a distinct 10px micro step. The combination of 14px + 40% opacity already creates sufficient visual subordination without adding a 5th font size. No `--text-micro` token used in Phase 18.
 
 **Legal page prose contract (trust + readability focus):**
 - Container: `mx-auto max-w-3xl px-4 py-12` — 672px max content width
@@ -86,7 +95,7 @@ values from the Phase 14 SPEC — no new sizes declared.
 - List items: `mt-2 ml-6` with `list-disc` or `list-decimal`
 - `<h1>`: 28px, weight 700, `--color-text`, `mb-2`
 - Version/date line: 14px, `--color-text-muted`, immediately below H1, `mb-8`
-- `<h2>`: 20px, weight 600, `--color-text`, `mt-8 mb-3`
+- `<h2>`: 20px, weight 700, `--color-text`, `mt-8 mb-3`
 - Body text: 16px, weight 400, `--color-text`, `leading-[1.6]`
 - Links: `--color-accent-readable` (`#ef4444` dark / `#dc2626` light), underline on hover
 
@@ -187,7 +196,7 @@ The banner renders on `--color-card` background. Text contrast verified:
 1. `<h1>` — 28px, weight 700, `--color-text` — page title
 2. Version/date line — 14px, `--color-text-muted` — "Version 1.0.0 · Effective YYYY-MM-DD"
 3. Horizontal rule: `<hr className="border-[var(--color-border)] my-6">`
-4. Section headings `<h2>` — 20px, weight 600, `--color-text`, `mt-8 mb-3`
+4. Section headings `<h2>` — 20px, weight 700, `--color-text`, `mt-8 mb-3`
 5. Body paragraphs — 16px, weight 400, `--color-text`, `leading-[1.6]`, `mt-4`
 6. Legal inter-page nav footer (see below)
 
@@ -213,6 +222,8 @@ The banner renders on `--color-card` background. Text contrast verified:
 
 **Route:** `/onboarding/age-gate`
 
+**Focal point:** The primary CTA button ("Continue to KitsuBeat") is the visual anchor — placed last in the form, full-width, accent-red. All other elements build toward it.
+
 **Layout:**
 - Centered single-column card: `<main className="min-h-screen flex items-center justify-center px-4 py-12">`
 - Card: `rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-8 w-full max-w-md`
@@ -221,7 +232,7 @@ The banner renders on `--color-card` background. Text contrast verified:
 1. `<h1>` — 28px, weight 700, `--color-text` — "Complete your profile"
 2. Body — 14px, `--color-text-muted`, `mt-2 mb-6` — "We need your date of birth and agreement to our Terms to continue."
 3. DOB field:
-   - `<label>` — 14px, weight 600, `--color-text`, `mb-1 block`
+   - `<label>` — 14px, weight 400, `--color-text`, `mb-1 block`
    - `<input type="date">` — full width, `rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 focus:border-[var(--color-border-strong)] min-h-[44px] w-full`
    - Aria: `aria-describedby="dob-error"` (linked to error region)
 4. Terms checkbox row:
@@ -230,7 +241,7 @@ The banner renders on `--color-card` background. Text contrast verified:
    - Links: `--color-accent-readable`, underline
    - Checkbox: native HTML checkbox, `accent-[var(--color-accent)]` via Tailwind `accent-` utility
    - Wrapper: `flex items-start gap-2 mt-4` with `py-2` on the label for 44px tap target
-5. Submit button: `Button` variant=primary size=md, full width — "Continue"
+5. Submit button: `Button` variant=primary size=md, full width — "Continue to KitsuBeat"
 6. Error region: `<div id="dob-error" role="alert" aria-live="assertive">` (always in DOM, empty when no error)
 
 **Under-13 blocker state:**
@@ -242,7 +253,7 @@ The banner renders on `--color-card` background. Text contrast verified:
 - Shown inline below the DOB field, after client-side age detection — still requires server validation
 - `<section aria-live="polite">` (announced when it appears)
 - Background: `rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-4 mt-4`
-- H3: 16px, weight 600, "Heads up — your account is configured for privacy"
+- H3: 16px, weight 700, "Heads up — your account is configured for privacy"
 - Body: 14px, `--color-text-muted`, 3 bullet points on minor defaults (no social activity, no marketing emails)
 - Additional checkbox: "I understand my account settings are pre-configured for privacy" — required before Continue
 - Aria: `role="group"` `aria-labelledby` on the section container
@@ -254,10 +265,10 @@ The banner renders on `--color-card` background. Text contrast verified:
 **Component:** `src/components/ui/AiBadge.tsx` (new)
 
 **Visual contract:**
-- Text: `--text-micro` (10px), weight 500, `--color-text-dim opacity-60`
+- Text: 14px (`text-sm`), weight 400, `--color-text-dim opacity-60` (Small/Label role at reduced opacity)
 - No background, no border, no pill shape — pure inline text label
 - Display: `inline-flex items-center gap-1`
-- Optional icon: Lucide `Cpu` or `Sparkles` icon at 10px — only if designer confirms; default is text-only
+- No icon — text-only to stay legible at reduced opacity
 
 **Variants:**
 
@@ -310,19 +321,19 @@ Covered in Surface 3 (age-gate page). No separate surface.
 **Placement:** `/profile` page, below `<ProfileHud>` and above the main profile form — in a "Account" section.
 
 **Anatomy:**
-- Section heading `<h2>` — 20px, weight 600, `--color-text` — "Account"
+- Section heading `<h2>` — 20px, weight 700, `--color-text` — "Account"
 - Row: `flex items-center justify-between border-t border-[var(--color-border)] pt-4`
-  - Left: label 14px `--color-text` "Download my data"; subline 12px `--color-text-muted` "Export all your KitsuBeat data as JSON (GDPR/LGPD right of access)"
+  - Left: label 14px `--color-text` "Download my data"; subline 14px `--color-text-muted` "Export all your KitsuBeat data as JSON (GDPR/LGPD right of access)"
   - Right: `Button` variant=secondary size=sm — "Download"
 
 **States:**
 
 | State | Visual |
 |-------|--------|
-| Idle | "Download" button, secondary variant |
+| Idle | "Download my data" button, secondary variant |
 | Loading | Button disabled, Lucide `Loader2` spin icon replacing label, `aria-busy="true"` |
 | Success | Button re-enables; browser download starts automatically via `Content-Disposition` header |
-| Error | `<p role="alert" aria-live="assertive">` appears below button: "Download failed. Try again or contact support@kitsubeat.com." Text: 12px `--color-accent` (red for error signal) |
+| Error | `<p role="alert" aria-live="assertive">` appears below button: "Download failed. Try again or contact support@kitsubeat.com." Text: 14px `--color-accent` (red for error signal) |
 
 **No confirmation dialog required** — data export is not destructive.
 
@@ -347,7 +358,8 @@ Covered in Surface 3 (age-gate page). No separate surface.
 | Page subtitle | "We need your date of birth and agreement to our Terms to continue." |
 | DOB label | "Date of birth" |
 | Terms checkbox | "I have read and agree to the Terms & Conditions and Privacy Policy." |
-| Primary CTA | "Continue" |
+| Primary CTA | "Continue to KitsuBeat" |
+| DOB validation error | "Please enter a valid date of birth (day, month, year)." |
 | Under-13 H2 | "Age requirement not met" |
 | Under-13 body | "KitsuBeat requires users to be at least 13 years old. If you believe this is an error, contact support@kitsubeat.com." |
 | Under-13 link | "Return to home" |
@@ -382,7 +394,7 @@ Covered in Surface 3 (age-gate page). No separate surface.
 | Section heading | "Account" |
 | Row label | "Download my data" |
 | Row subline | "Export all your KitsuBeat data as JSON (GDPR/LGPD right of access)" |
-| CTA | "Download" |
+| CTA | "Download my data" |
 | Loading CTA | "Downloading…" |
 | Error | "Download failed. Try again or contact support@kitsubeat.com." |
 
@@ -517,7 +529,7 @@ on any future modal, but Phase 18 does not introduce new modal dialogs.
 |----------|--------|---------------|
 | Color tokens | `src/app/globals.css` (Phase 14 locked) | All 8 color roles |
 | Spacing tokens | `src/app/globals.css` (Phase 14 locked) | All 10 space tokens |
-| Typography ramp | Phase 14 SPEC §A.3 | 4 type sizes declared |
+| Typography ramp | Phase 14 SPEC §A.3 | 4 type sizes (14/16/20/28px), 2 weights (400/700) |
 | Button primitive | `src/components/ui/Button.tsx` | variant/size API reused |
 | Badge primitive | `src/components/ui/Badge.tsx` | AiBadge is NEW (distinct) |
 | Radix availability | `package.json` verified | Dialog ^1.1.15 confirmed |
@@ -526,7 +538,7 @@ on any future modal, but Phase 18 does not introduce new modal dialogs.
 | RootLayout cookie read pattern | `layout.tsx` `cookies()` | consent banner SSR pattern |
 | Profile page location | `src/app/profile/ProfileHud.tsx` | nudge + export go on /profile |
 | No settings page exists | glob scan | data export placed on /profile |
-| `--text-micro` (10px) | globals.css Phase 14 | AiBadge font size |
+| AiBadge uses `text-sm opacity-60` | Phase 18 decision | no distinct micro size needed |
 | `--color-accent-readable` | globals.css Phase 14 | in-prose links, accept CTA |
 | Focus ring token | Button.tsx `focus-visible:ring-[var(--color-accent)]/40` | all new form elements |
 
@@ -534,11 +546,11 @@ on any future modal, but Phase 18 does not introduce new modal dialogs.
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: FLAG (non-blocking — profile nudge dismiss X icon has no visible label)
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved 2026-05-08
