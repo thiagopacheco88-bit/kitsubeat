@@ -36,7 +36,8 @@ describe("ConsentBanner", () => {
   });
 
   it("renders null when posthog status is '' (SSR-safe, no flash)", async () => {
-    mockGetExplicitConsentStatus.mockReturnValue("");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mockGetExplicitConsentStatus.mockReturnValue("" as any);
     let container: HTMLElement;
     await act(async () => {
       const result = render(<ConsentBanner />);
