@@ -61,6 +61,7 @@ export default function LearnCard({
   return (
     <div
       data-testid="learn-card"
+      data-ai-generated="true"
       onClick={onDismiss}
       className="cursor-pointer select-none rounded-[var(--radius-xl)] border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-4 shadow-[var(--shadow-card-ring)]"
     >
