@@ -568,10 +568,10 @@ Plans:
   5. ComfyUI workflow JSON + prompts captured in `docs/icon-generation/` for reproducibility (local-only tooling per project memory; no API spend)
   6. 14.1 lantern (`<LanternStreak>`) and fox-mark wordmark remain untouched (explicitly out of scope)
   7. Pixel-diff dark + light themes still pass for `/path`; axe-core ≥95 maintained (icons get correct `alt` / `aria-label` / `aria-hidden`)
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 Plans:
-- [ ] 14.5-01-PLAN.md -- Wave 1: TierDivider SVG redraw + metadata.twitter insertion + brand-prompts.md creation (REQ-6, REQ-7, REQ-8)
-- [ ] 14.5-02-PLAN.md -- Wave 2: Raster asset verification + favicon.ico synthesis via sharp (REQ-1, REQ-2, REQ-3, REQ-4, REQ-5) [has checkpoint]
+- [x] 14.5-01-PLAN.md -- Wave 1: TierDivider SVG redraw + metadata.twitter insertion + brand-prompts.md creation (REQ-6, REQ-7, REQ-8)
+- [x] 14.5-02-PLAN.md -- Wave 2: Raster asset verification + favicon.ico synthesis via sharp (REQ-1, REQ-2, REQ-3, REQ-4, REQ-5) [has checkpoint]
 
 
 ### Phase 15: Analytics & Error Tracking
@@ -579,17 +579,18 @@ Plans:
 **Depends on**: Phase 14
 **Requirements**: SC-1, SC-2, SC-3, SC-4, SC-5
 **Success Criteria**:
-  1. PostHog tracks 7 specified funnel events (signup, song_opened, exercise_started, first_star_earned, day_7_return, premium_gate_hit, subscription_started)
+  1. PostHog tracks 7 specified funnel events (signup, song_opened, exercise_started, first_star_earned, day_7_return, premium_gate_hit, subscription_started; subscription_started exported as named stub in src/lib/analytics.ts — fires when billing route is integrated in Phase 19)
   2. Sentry captures client + server + edge exceptions with source maps; stack traces resolve to TypeScript source
   3. Core funnel dashboard exists in PostHog Cloud UI: signup → first star → day-7 return; queryable by cohort
   4. No PostHog events fire before user gives consent (opt_out_capturing_by_default: true; banner shows on first visit)
   5. No PII in event payloads: no email, name, or raw user data; only userId/distinct_id allowed
-**Plans:** 4 plans (3 autonomous + 1 human-verify checkpoint)
+**Plans:** 5 plans (4 autonomous + 1 human-verify checkpoint)
 Plans:
 - [ ] 15-01-PLAN.md -- Wave 0 test stubs + posthog-server.ts singleton + analytics.ts body swap + instrumentation-client.ts init
 - [ ] 15-02-PLAN.md -- ConsentBanner component + layout.tsx integration + PostHog identify() wired to Clerk session
 - [ ] 15-03-PLAN.md -- Sentry runtime configs + instrumentation.ts + next.config.ts withSentryConfig + error boundary augmentation
 - [ ] 15-04-PLAN.md -- .env.example documentation + Vercel env var checklist + smoke test checkpoint
+- [ ] 15-05-PLAN.md -- SC-1 funnel event instrumentation: 7 events at call sites (song_opened, exercise_started, first_star_earned, premium_gate_hit, day_7_return, signup, subscription_started stub)
 
 ### Phase 16: Security Review & Incident Response
 **Goal**: Every authenticated endpoint is correctly authorized at the data layer; secrets are audited; rate limits exist on writes; a written incident response plan exists before user data arrives.
