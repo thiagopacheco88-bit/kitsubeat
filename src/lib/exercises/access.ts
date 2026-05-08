@@ -93,7 +93,7 @@ export async function checkExerciseAccess(
         distinctId: userId,
         event: "premium_gate_hit",
         properties: {
-          song_slug: opts?.songVersionId ?? "unknown",
+          song_version_id: opts?.songVersionId ?? "unknown",
           reason: "quota_exhausted",
         },
       });
@@ -112,7 +112,7 @@ export async function checkExerciseAccess(
       distinctId: userId,
       event: "premium_gate_hit",
       properties: {
-        song_slug: opts?.songVersionId ?? "unknown",
+        song_version_id: opts?.songVersionId ?? "unknown",
         reason: "premium_required",
       },
     });

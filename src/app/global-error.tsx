@@ -22,9 +22,8 @@ export default function GlobalError({
           userAgent:
             typeof navigator !== "undefined" ? navigator.userAgent : undefined,
           digest: error.digest,
-          message: error.message,
-          stack: error.stack,
           scope: "global",
+          // message/stack omitted — Sentry captures full stack with source maps (Phase 15)
         }),
         keepalive: true,
       });

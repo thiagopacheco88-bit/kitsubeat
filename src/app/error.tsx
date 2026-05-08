@@ -22,8 +22,7 @@ export default function RouteError({
           userAgent:
             typeof navigator !== "undefined" ? navigator.userAgent : undefined,
           digest: error.digest,
-          message: error.message,
-          stack: error.stack,
+          // message/stack omitted — Sentry captures full stack with source maps (Phase 15)
         }),
         keepalive: true,
       });
