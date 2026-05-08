@@ -9,6 +9,7 @@ import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 import MobileNavSheet from "@/app/components/MobileNavSheet";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { ConsentBanner } from "@/components/ConsentBanner";
+import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { PostHogIdentify } from "@/app/components/PostHogIdentify";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
 import { LanternStreak } from "@/app/path/components/LanternStreak";
@@ -49,6 +50,8 @@ export default async function RootLayout({
   const cookieStore = await cookies();
   const stored = cookieStore.get("kb_theme")?.value;
   const initialTheme: "light" | "dark" = stored === "light" ? "light" : "dark";
+  // Phase 18 — read kb_consent cookie SSR-side to prevent CookieConsentBanner flash (Pitfall 1).
+  const consentCookie = cookieStore.get("kb_consent")?.value;
 
   // Admin nav surface: same allowlist as src/middleware.ts so the link only
   // appears for users who can actually reach /admin/*. Guarded so a Clerk
@@ -106,6 +109,13 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[family-name:var(--font-inter)] antialiased">
+        {/* Phase 18 REQ-A11Y-26 — skip-to-main link; must be first focusable element */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:bg-[var(--color-card)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-accent)]"
+        >
+          Skip to main content
+        </a>
         <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
             <Link href="/" className="flex shrink-0 items-center gap-2" data-testid="brand-wordmark">
@@ -189,8 +199,10 @@ export default async function RootLayout({
           </nav>
         </header>
         <ConsentBanner />
+        {/* Phase 18 — PECR-compliant cookie consent banner (useConsentStore + recordConsent) */}
+        <CookieConsentBanner initialConsent={consentCookie} />
         <PostHogIdentify userId={signedInUserId ?? null} />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
       </body>
     </html>
     </ClerkProvider>
