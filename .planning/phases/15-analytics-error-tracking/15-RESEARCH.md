@@ -498,22 +498,25 @@ export const onRequestError = Sentry.captureRequestError
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
 1. **Session replay consent**
    - What we know: `replaysOnErrorSampleRate: 1.0` (Sentry) captures a replay when an error occurs; this may contain PII (keystrokes, form data)
    - What's unclear: Whether UK ICO treats Sentry error replay as "strictly necessary" (legitimate interest) or "functional" (requires consent)
    - Recommendation: Default to 0.0 for safety; add to Phase 18 legal analysis; Phase 15 can wire the setting and leave it off pending Phase 17/18
+   - **RESOLVED (Phase 15 planning):** Both replaysOnErrorSampleRate and replaysSessionSampleRate set to 0.0 in sentry.client.config.ts and instrumentation-client.ts. Deferred to Phase 17/18 ICO review. T-15-04 in threat register documents this disposition.
 
 2. **PostHog EU vs US hosting**
    - What we know: PostHog Cloud EU automatically disables IP data capture by default; UK users' data staying in EU may align better with ICO interpretation
    - What's unclear: Whether UK sole trader must use EU hosting or if contractual guarantees suffice
    - Recommendation: Start with US (simpler setup, no config change); note as A4 assumption for Phase 17 review
+   - **RESOLVED (Phase 15 planning):** US hosting chosen (NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com). Captured as Assumption A4. Phase 17 legal review will determine if EU hosting is required; switching requires only an env var change, no code change.
 
 3. **trackGamification() server vs client split**
    - What we know: The existing `trackGamification()` stub is called from `src/lib/gamification/session-integration.ts` (server action context) AND potentially from client components
    - What's unclear: Whether a single function can serve both contexts or needs two variants
    - Recommendation: Verify call sites before Wave 1; most likely split into `trackGamificationServer()` (posthog-node) and keep `trackGamification()` for client
+   - **RESOLVED (Phase 15 planning):** trackGamification() uses posthog-node (server-only) because all callers in session-integration.ts are server actions. Client-side funnel events (song_opened, exercise_started, day_7_return, signup) use posthog-js directly at their call sites. Two call patterns co-exist by runtime context; no split of the existing function required.
 
 ---
 
