@@ -568,7 +568,10 @@ Plans:
   5. ComfyUI workflow JSON + prompts captured in `docs/icon-generation/` for reproducibility (local-only tooling per project memory; no API spend)
   6. 14.1 lantern (`<LanternStreak>`) and fox-mark wordmark remain untouched (explicitly out of scope)
   7. Pixel-diff dark + light themes still pass for `/path`; axe-core ≥95 maintained (icons get correct `alt` / `aria-label` / `aria-hidden`)
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 14.5-01-PLAN.md -- Wave 1: TierDivider SVG redraw + metadata.twitter insertion + brand-prompts.md creation (REQ-6, REQ-7, REQ-8)
+- [ ] 14.5-02-PLAN.md -- Wave 2: Raster asset verification + favicon.ico synthesis via sharp (REQ-1, REQ-2, REQ-3, REQ-4, REQ-5) [has checkpoint]
 
 
 ### Phase 15: Analytics & Error Tracking
