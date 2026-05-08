@@ -34,4 +34,6 @@ export interface UserPrefs {
   soundEnabled: boolean;
   /** Phase 12: Vibrate on mobile on level-up. Default ON (no effect on iOS — Web Vibration API unsupported). */
   hapticsEnabled: boolean;
+  /** Phase 14.4: Social opt-in toggle. Default OFF per SPEC REQ-3. */
+  socialActivityEnabled: boolean;
 }

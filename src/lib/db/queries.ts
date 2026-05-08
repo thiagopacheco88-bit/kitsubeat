@@ -12,6 +12,8 @@ import {
   users,
   userCosmetics,
   rewardSlotDefinitions,
+  activityEvents,
+  songPlays,
   deriveStars,
   type SongVersion,
 } from "./schema";
@@ -1544,5 +1546,119 @@ export async function getDominatedVerses(
       )
     );
   return rows.map((r) => r.verse_number);
+}
+
+// =============================================================================
+// Phase 14.4: Virality & Engagement queries
+// =============================================================================
+
+/**
+ * REQ-1: Home "X listening now" chip.
+ * Returns Map<song_id, distinct_play_count> for songs with >=3 distinct listeners in last 30 min.
+ * Anonymous plays (null user_id) counted. Authenticated plays filtered to opt-in users.
+ * Cached 60s per CONTEXT D-10.
+ */
+export const getNowPlayingCounts = unstable_cache(
+  async (): Promise<Map<string, number>> => {
+    const rows = await db.execute(sql`
+      SELECT sv.song_id::text AS song_id,
+             COUNT(DISTINCT COALESCE(sp.user_id, sp.session_key)) AS listener_count
+      FROM song_plays sp
+      JOIN song_versions sv ON sv.id = sp.song_version_id
+      LEFT JOIN users u ON u.id = sp.user_id
+      WHERE sp.played_at >= now() - interval '30 minutes'
+        AND (sp.user_id IS NULL OR u.social_activity_enabled = true)
+      GROUP BY sv.song_id
+      HAVING COUNT(DISTINCT COALESCE(sp.user_id, sp.session_key)) >= 3
+    `);
+    const rawRows = Array.isArray(rows) ? rows : ((rows as { rows?: unknown[] }).rows ?? []);
+    return new Map(
+      (rawRows as Array<{ song_id: string; listener_count: string | number }>).map((r) => [
+        r.song_id,
+        Number(r.listener_count),
+      ])
+    );
+  },
+  ["now-playing-counts"],
+  { revalidate: 60 }
+);
+
+/**
+ * REQ-2: Recently-mastered ticker.
+ * Last N song-mastered events from opt-in users. No cache (freshness required).
+ * D-09: first-name fetched separately via getTickerFirstName (unstable_cache 1h).
+ */
+export async function getRecentMasteryEvents(limit = 10) {
+  return await db
+    .select({
+      id: activityEvents.id,
+      user_id: activityEvents.user_id,
+      song_id: activityEvents.song_id,
+      created_at: activityEvents.created_at,
+      song_title: songs.title,
+      song_slug: songs.slug,
+    })
+    .from(activityEvents)
+    .innerJoin(users, eq(activityEvents.user_id, users.id))
+    .innerJoin(songs, eq(activityEvents.song_id, songs.id))
+    .where(eq(users.social_activity_enabled, true))
+    .orderBy(desc(activityEvents.created_at))
+    .limit(limit);
+}
+
+/**
+ * D-09: Ticker first-name — cached 1h per user. Fallback "Someone" when null.
+ * RESEARCH Pitfall 4: userId MUST be in keyParts for per-user cache isolation.
+ */
+export const getTickerFirstName = (userId: string) =>
+  unstable_cache(
+    async () => {
+      const { clerkClient } = await import("@clerk/nextjs/server");
+      const client = await clerkClient();
+      const user = await client.users.getUser(userId);
+      return user.firstName ?? "Someone";
+    },
+    ["ticker-firstname", userId],
+    { revalidate: 3600 }
+  )();
+
+/**
+ * REQ-4: Cron daily-reminder user query.
+ * Returns users eligible for the 19:00 local-time streak reminder.
+ * Timezone-aware: EXTRACT(HOUR FROM now() AT TIME ZONE streak_tz) = 19
+ */
+export async function getActiveOptInUsersForDailyReminder() {
+  const rows = await db.execute(sql`
+    SELECT id, streak_current, last_streak_date::text AS last_streak_date, streak_tz
+    FROM users
+    WHERE social_activity_enabled = true
+      AND streak_current > 0
+      AND (last_streak_date IS NULL
+           OR last_streak_date < (now() AT TIME ZONE COALESCE(streak_tz, 'UTC'))::date)
+      AND EXTRACT(HOUR FROM (now() AT TIME ZONE COALESCE(streak_tz, 'UTC'))) = 19
+  `);
+  const rawRows = Array.isArray(rows) ? rows : ((rows as { rows?: unknown[] }).rows ?? []);
+  return rawRows as Array<{
+    id: string;
+    streak_current: number;
+    last_streak_date: string | null;
+    streak_tz: string | null;
+  }>;
+}
+
+/**
+ * REQ-5: Cron weekly-recap user query.
+ * Returns all opt-in users with streak + path context for recap rendering.
+ */
+export async function getActiveOptInUsersForWeeklyRecap() {
+  return await db
+    .select({
+      id: users.id,
+      streakCurrent: users.streakCurrent,
+      streakBest: users.streakBest,
+      currentPathNodeSlug: users.currentPathNodeSlug,
+    })
+    .from(users)
+    .where(eq(users.social_activity_enabled, true));
 }
 

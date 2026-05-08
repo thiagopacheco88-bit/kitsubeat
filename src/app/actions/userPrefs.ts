@@ -18,7 +18,7 @@ import {
  */
 export async function getUserPrefs(userId: string): Promise<UserPrefs> {
   if (!userId) {
-    return { skipLearning: false, newCardCap: DEFAULT_NEW_CARD_CAP, soundEnabled: true, hapticsEnabled: true };
+    return { skipLearning: false, newCardCap: DEFAULT_NEW_CARD_CAP, soundEnabled: true, hapticsEnabled: true, socialActivityEnabled: false };
   }
   const rows = await db
     .select({
@@ -26,6 +26,7 @@ export async function getUserPrefs(userId: string): Promise<UserPrefs> {
       new_card_cap: users.new_card_cap,
       soundEnabled: users.soundEnabled,
       hapticsEnabled: users.hapticsEnabled,
+      social_activity_enabled: users.social_activity_enabled,
     })
     .from(users)
     .where(eq(users.id, userId))
@@ -38,7 +39,7 @@ export async function getUserPrefs(userId: string): Promise<UserPrefs> {
       .insert(users)
       .values({ id: userId })
       .onConflictDoNothing({ target: users.id });
-    return { skipLearning: false, newCardCap: DEFAULT_NEW_CARD_CAP, soundEnabled: true, hapticsEnabled: true };
+    return { skipLearning: false, newCardCap: DEFAULT_NEW_CARD_CAP, soundEnabled: true, hapticsEnabled: true, socialActivityEnabled: false };
   }
 
   return {
@@ -46,6 +47,7 @@ export async function getUserPrefs(userId: string): Promise<UserPrefs> {
     newCardCap: rows[0].new_card_cap,
     soundEnabled: rows[0].soundEnabled,
     hapticsEnabled: rows[0].hapticsEnabled,
+    socialActivityEnabled: rows[0].social_activity_enabled,
   };
 }
 
@@ -68,6 +70,7 @@ export async function updateUserPrefs(
     new_card_cap: number;
     soundEnabled: boolean;
     hapticsEnabled: boolean;
+    social_activity_enabled: boolean;
   }> = {};
 
   if (typeof patch.skipLearning === "boolean") {
@@ -90,6 +93,9 @@ export async function updateUserPrefs(
   if (typeof patch.hapticsEnabled === "boolean") {
     normalized.hapticsEnabled = patch.hapticsEnabled;
   }
+  if (typeof patch.socialActivityEnabled === "boolean") {
+    normalized.social_activity_enabled = patch.socialActivityEnabled;
+  }
 
   if (Object.keys(normalized).length === 0) return;
 
@@ -102,6 +108,7 @@ export async function updateUserPrefs(
       new_card_cap: normalized.new_card_cap ?? DEFAULT_NEW_CARD_CAP,
       soundEnabled: normalized.soundEnabled ?? true,
       hapticsEnabled: normalized.hapticsEnabled ?? true,
+      social_activity_enabled: normalized.social_activity_enabled ?? false,
     })
     .onConflictDoUpdate({
       target: users.id,
