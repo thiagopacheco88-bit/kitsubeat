@@ -10,6 +10,7 @@ import MasteryDetailPopover from "./MasteryDetailPopover";
 import KanjiBreakdownSection from "./KanjiBreakdownSection";
 import { Button } from "@/components/ui/Button";
 import VerseDominatedAnimation from "./VerseDominatedAnimation";
+import { AiBadge } from "@/components/ui/AiBadge";
 
 interface FeedbackPanelProps {
   question: Question;
@@ -189,13 +190,16 @@ export default function FeedbackPanel({
             <p className="text-sm text-[var(--color-text-muted)]">{question.detailedExplanation}</p>
           )}
           {question.mnemonic && (
-            <div className="rounded-md border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-3">
+            <div data-ai-generated="true" aria-label="AI-generated mnemonic" className="rounded-md border border-[var(--color-jlpt-n4-ring)] bg-[var(--color-jlpt-n4-bg)] p-3">
+              <AiBadge label="AI-assisted" className="mb-1" />
               <p className="mb-1 text-xs uppercase tracking-wider" style={{ color: "var(--color-jlpt-n4)" }}>Memory tip</p>
               <p className="text-sm text-[var(--color-text-muted)]">{localize(question.mnemonic, translationLang)}</p>
             </div>
           )}
           {hasKanjiBreakdown && question.kanji_breakdown && (
-            <KanjiBreakdownSection breakdown={question.kanji_breakdown} lang={translationLang} />
+            <div data-ai-generated="true" aria-label="AI-generated kanji breakdown">
+              <KanjiBreakdownSection breakdown={question.kanji_breakdown} lang={translationLang} />
+            </div>
           )}
         </div>
       )}
