@@ -14,8 +14,9 @@
  */
 
 import { db } from "../db";
-import { users, rewardSlotDefinitions, songs } from "../db/schema";
+import { users, rewardSlotDefinitions, songs, songVersions, activityEvents } from "../db/schema";
 import { eq, sql } from "drizzle-orm";
+import { applyStreakSaver } from "../streak/saver";
 import { calculateXp, XP_CONSTANTS } from "./xp";
 import { advanceStreak, localDateFromTz } from "./streak";
 import type { StreakState } from "./streak";
@@ -231,10 +232,44 @@ export async function applyGamificationUpdate(
   let newLevel = levelFromXp(newXpTotal);
 
   // -------------------------------------------------------------------------
+  // Step 4.5: Emit activity_events on first 3-star transition (D-07)
+  // Fires ONLY on the 0→3, 1→3, or 2→3 transition. ON CONFLICT covers retry/race.
+  // -------------------------------------------------------------------------
+  if (previousStars < 3 && newStars === 3) {
+    // Look up song UUID + tv-preferred song_version_id from the slug
+    const songRows = await db
+      .select({
+        id: songs.id,
+        versionId: sql<string>`(
+          SELECT sv.id FROM song_versions sv
+          WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
+          ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+          LIMIT 1
+        )`,
+      })
+      .from(songs)
+      .where(eq(songs.slug, songSlug))
+      .limit(1);
+    if (songRows[0]) {
+      await db
+        .insert(activityEvents)
+        .values({
+          user_id: userId,
+          event_type: "song_mastered",
+          song_id: songRows[0].id,
+          song_version_id: songRows[0].versionId,
+        })
+        .onConflictDoNothing();
+    }
+  }
+
+  // -------------------------------------------------------------------------
   // Step 5: advanceStreak
   // -------------------------------------------------------------------------
+  const previousStreakCurrent = userRow.streakCurrent ?? 0;
+
   const streakState: StreakState = {
-    streakCurrent: userRow.streakCurrent ?? 0,
+    streakCurrent: previousStreakCurrent,
     streakBest: userRow.streakBest ?? 0,
     lastStreakDate: userRow.lastStreakDate ?? null,
     streakTz: userRow.streakTz ?? null,
@@ -243,6 +278,23 @@ export async function applyGamificationUpdate(
   };
 
   const streakResult = advanceStreak(streakState, { tz, now });
+
+  // -------------------------------------------------------------------------
+  // Step 5.5: Streak-saver grant + consume (D-12)
+  // -------------------------------------------------------------------------
+  const saverResult = applyStreakSaver(
+    {
+      previousStreakCurrent,
+      streakSaverToken: userRow.streak_saver_token ?? 0,
+      milestoneHit: streakResult.milestoneHit,
+      graceApplied: streakResult.graceApplied,
+      todayInTz,
+    },
+    {
+      streakCurrent: streakResult.newState.streakCurrent,
+      lastStreakDate: streakResult.newState.lastStreakDate,
+    }
+  );
 
   // -------------------------------------------------------------------------
   // Step 6: Streak milestone XP bonus
@@ -288,12 +340,17 @@ export async function applyGamificationUpdate(
       level: newLevel,
       xpToday: newXpToday,
       xpTodayDate: todayInTz,
-      streakCurrent: streakResult.newState.streakCurrent,
-      streakBest: streakResult.newState.streakBest,
-      lastStreakDate: streakResult.newState.lastStreakDate,
+      // streak-saver corrected fields (D-12): use saverResult values instead of
+      // streakResult.newState directly, so consume/grant logic is applied.
+      streakCurrent: saverResult.nextStreakCurrent,
+      lastStreakDate: saverResult.nextLastStreakDate,
+      streakBest: Math.max(userRow.streakBest ?? 0, saverResult.nextStreakCurrent),
       streakTz: tz,
       graceUsedThisWeek: streakResult.newState.graceUsedThisWeek,
       streakWeekStart: streakResult.newState.streakWeekStart,
+      // new streak-saver state columns:
+      streak_saver_token: saverResult.nextToken,
+      streak_saver_pending: saverResult.nextPending,
       currentPathNodeSlug: nextPathNodeSlug,
       updated_at: sql`NOW()`,
     })
@@ -361,8 +418,9 @@ export async function applyGamificationUpdate(
     previousLevel,
     currentLevel: newLevel,
     leveledUp,
-    streakCurrent: streakResult.newState.streakCurrent,
-    streakBest: streakResult.newState.streakBest,
+    // Use saverResult values — these reflect streak-saver corrections (D-12)
+    streakCurrent: saverResult.nextStreakCurrent,
+    streakBest: Math.max(userRow.streakBest ?? 0, saverResult.nextStreakCurrent),
     graceApplied: streakResult.graceApplied,
     milestoneXp,
     rewardSlotPreview,
