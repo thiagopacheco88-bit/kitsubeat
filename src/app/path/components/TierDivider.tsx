@@ -73,18 +73,21 @@ function TierIcon({ kind }: { kind: TierMeta["iconKind"] }) {
           aria-hidden="true"
           data-testid="tier-icon-bamboo"
         >
-          {/* Dual stalks with segment joints */}
-          <path
-            d="M9 2v4m0 4v4m0 4v4M15 2v3m0 5v3m0 5v3"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          {/* Node ellipses (segment joints) */}
-          <ellipse cx="9" cy="6" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
-          <ellipse cx="9" cy="14" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
-          <ellipse cx="15" cy="9" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
-          <ellipse cx="15" cy="17" rx="2.4" ry="0.9" fill="currentColor" opacity="0.55" />
+          {/* Two parallel vertical stalks */}
+          <line x1="8" y1="2" x2="8" y2="22"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          <line x1="16" y1="2" x2="16" y2="22"
+            stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+          {/* Node bands — left stalk (rect, not ellipse — reads crisper at 16px) */}
+          <rect x="5.5" y="7" width="5" height="1.5" rx="0.75"
+            fill="currentColor" opacity="0.6" />
+          <rect x="5.5" y="15" width="5" height="1.5" rx="0.75"
+            fill="currentColor" opacity="0.6" />
+          {/* Node bands — right stalk (offset vertically for natural bamboo rhythm) */}
+          <rect x="13.5" y="10" width="5" height="1.5" rx="0.75"
+            fill="currentColor" opacity="0.6" />
+          <rect x="13.5" y="18" width="5" height="1.5" rx="0.75"
+            fill="currentColor" opacity="0.6" />
         </svg>
       );
     case "torii":
@@ -97,12 +100,22 @@ function TierIcon({ kind }: { kind: TierMeta["iconKind"] }) {
           aria-hidden="true"
           data-testid="tier-icon-torii"
         >
-          {/* Kasagi (top curved crossbeam) + shimaki (lower crossbeam) */}
-          <path d="M3 5h18M2 8h20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-          {/* Hashira (vertical pillars) */}
-          <path d="M5 8v13M19 8v13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-          {/* Nuki (tie beam) */}
-          <path d="M5 11h14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          {/* Kasagi — gently curved top crossbeam (quadratic bezier, not flat line) */}
+          <path d="M2 7 Q12 3 22 7"
+            stroke="currentColor" strokeWidth="2"
+            strokeLinecap="round" strokeLinejoin="round" />
+          {/* Shimaki — lower straight crossbeam */}
+          <path d="M3 10 L21 10"
+            stroke="currentColor" strokeWidth="2"
+            strokeLinecap="round" />
+          {/* Hashira — two vertical pillars, ground to shimaki */}
+          <path d="M5 10 L5 22 M19 10 L19 22"
+            stroke="currentColor" strokeWidth="2"
+            strokeLinecap="round" />
+          {/* Nuki — horizontal tie beam between pillars */}
+          <path d="M5 14 L19 14"
+            stroke="currentColor" strokeWidth="1.6"
+            strokeLinecap="round" />
         </svg>
       );
     case "mountain":
@@ -115,23 +128,15 @@ function TierIcon({ kind }: { kind: TierMeta["iconKind"] }) {
           aria-hidden="true"
           data-testid="tier-icon-mountain"
         >
-          {/* Main ridge line */}
-          <path
-            d="M2 20l6-10 4 6 3-4 7 8"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-          />
-          {/* Snow-cap highlights at each peak */}
-          <path
-            d="M6 14l2-3 2 3M14 12l1.5-2 1.5 2"
-            stroke="currentColor"
-            strokeWidth="1.4"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            opacity="0.5"
-          />
+          {/* Main ridge — two peaks (tall left peak, shorter right peak) */}
+          <path d="M2 20 L9 7 L16 15 L19 10 L22 20"
+            stroke="currentColor" strokeWidth="2"
+            strokeLinejoin="round" strokeLinecap="round" />
+          {/* Snow cap at main (left) peak */}
+          <path d="M7 11 L9 7 L11 11"
+            stroke="currentColor" strokeWidth="1.6"
+            strokeLinejoin="round" strokeLinecap="round"
+            opacity="0.55" />
         </svg>
       );
   }
