@@ -8,6 +8,8 @@ import "./globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 import MobileNavSheet from "@/app/components/MobileNavSheet";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { ConsentBanner } from "@/components/ConsentBanner";
+import { PostHogIdentify } from "@/app/components/PostHogIdentify";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
 import { LanternStreak } from "@/app/path/components/LanternStreak";
 import { getUserGamificationState, type GamificationState } from "@/lib/db/queries";
@@ -186,6 +188,8 @@ export default async function RootLayout({
             </div>
           </nav>
         </header>
+        <ConsentBanner />
+        <PostHogIdentify userId={signedInUserId ?? null} />
         <main>{children}</main>
       </body>
     </html>

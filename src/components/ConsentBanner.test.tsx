@@ -14,18 +14,19 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-// Mock posthog-js
-const mockGetExplicitConsentStatus = vi.fn();
-const mockOptIn = vi.fn();
-const mockOptOut = vi.fn();
-
+// Mock posthog-js — factory must not reference top-level variables (vi.mock is hoisted)
 vi.mock("posthog-js", () => ({
   default: {
-    get_explicit_consent_status: mockGetExplicitConsentStatus,
-    opt_in_capturing: mockOptIn,
-    opt_out_capturing: mockOptOut,
+    get_explicit_consent_status: vi.fn(),
+    opt_in_capturing: vi.fn(),
+    opt_out_capturing: vi.fn(),
   },
 }));
+
+import posthog from "posthog-js";
+const mockGetExplicitConsentStatus = vi.mocked(posthog.get_explicit_consent_status);
+const mockOptIn = vi.mocked(posthog.opt_in_capturing);
+const mockOptOut = vi.mocked(posthog.opt_out_capturing);
 
 import { ConsentBanner } from "@/components/ConsentBanner";
 
