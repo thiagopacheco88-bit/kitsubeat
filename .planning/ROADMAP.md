@@ -52,7 +52,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate — measurement against pages about to be redesigned in Phase 14 would be wasted work.)
  (completed 2026-05-01)
 - [x] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface (completed 2026-05-02)
-- [ ] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated
+- [x] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated (completed 2026-05-08)
 - [ ] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook
 - [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA — produces requirements checklist
 - [ ] **Phase 18: Legal & Compliance Implementation** - T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, WCAG 2.1 AA baseline, age gating, support channel
@@ -586,11 +586,11 @@ Plans:
   5. No PII in event payloads: no email, name, or raw user data; only userId/distinct_id allowed
 **Plans:** 5 plans (4 autonomous + 1 human-verify checkpoint)
 Plans:
-- [ ] 15-01-PLAN.md -- Wave 0 test stubs + posthog-server.ts singleton + analytics.ts body swap + instrumentation-client.ts init
-- [ ] 15-02-PLAN.md -- ConsentBanner component + layout.tsx integration + PostHog identify() wired to Clerk session
-- [ ] 15-03-PLAN.md -- Sentry runtime configs + instrumentation.ts + next.config.ts withSentryConfig + error boundary augmentation
-- [ ] 15-04-PLAN.md -- .env.example documentation + Vercel env var checklist + smoke test checkpoint
-- [ ] 15-05-PLAN.md -- SC-1 funnel event instrumentation: 7 events at call sites (song_opened, exercise_started, first_star_earned, premium_gate_hit, day_7_return, signup, subscription_started stub)
+- [x] 15-01-PLAN.md -- Wave 0 test stubs + posthog-server.ts singleton + analytics.ts body swap + instrumentation-client.ts init
+- [x] 15-02-PLAN.md -- ConsentBanner component + layout.tsx integration + PostHog identify() wired to Clerk session
+- [x] 15-03-PLAN.md -- Sentry runtime configs + instrumentation.ts + next.config.ts withSentryConfig + error boundary augmentation
+- [x] 15-04-PLAN.md -- .env.example documentation + Vercel env var checklist + smoke test checkpoint (human UAT deferred)
+- [x] 15-05-PLAN.md -- SC-1 funnel event instrumentation: 7 events at call sites (song_opened, exercise_started, first_star_earned, premium_gate_hit, day_7_return, signup, subscription_started stub)
 
 ### Phase 16: Security Review & Incident Response
 **Goal**: Every authenticated endpoint is correctly authorized at the data layer; secrets are audited; rate limits exist on writes; a written incident response plan exists before user data arrives.
