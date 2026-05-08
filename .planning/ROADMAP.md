@@ -639,7 +639,15 @@ Plans:
   6. WCAG 2.1 AA audit passes for catalog, song, exercise, kana, review surfaces; full keyboard nav; ARIA on custom components
   7. Age gating at signup aligned with UK ICO Age Appropriate Design Code — under-18s blocked or restricted
   8. Support channel: support@ email published with documented response-time commitment (e.g., 48h business days)
-**Plans**: TBD
+**Plans:** 7 plans (6 autonomous + 1 human-verify checkpoint)
+Plans:
+- [ ] 18-01-PLAN.md — Wave 0: Migration 0019 (users + cookie_consent_record + sar_log) + Drizzle schema + test stubs + drizzle-kit push [BLOCKING]
+- [ ] 18-02-PLAN.md — Wave 1: versions.ts + consent store + recordConsent() + completeOnboarding() + DSAR endpoint + birthday cron
+- [ ] 18-03-PLAN.md — Wave 2: 5 legal pages (/legal/terms, privacy, cookie-policy, ai-transparency, refund) with pt-BR LGPD section
+- [ ] 18-04-PLAN.md — Wave 3: Age-gate onboarding page + middleware terms version check
+- [ ] 18-05-PLAN.md — Wave 4: AiBadge + CookieConsentBanner + ProfileNudgeBanner + DataExportButton + RootLayout wiring + FeedbackPanel/LearnCard AI attrs
+- [ ] 18-06-PLAN.md — Wave 5: Profile page wiring + KanjiBreakdownSection AI attr + integration tests green + build verification
+- [ ] 18-07-PLAN.md — Wave 5: WCAG ARIA fixes (QuestionCard + SentenceOrderCard) + a11y scan + operator checklist + human-verify checkpoint
 
 ### Phase 19: Free Beta Launch & GTM
 **Goal**: Product opens to a limited external audience under the UK sole-trader name; three acquisition channels tested with tracked UTMs; validation signal from behavior, not self-report.
