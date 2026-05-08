@@ -12,6 +12,7 @@ import { userSongProgress } from "@/lib/db/schema";
 import { eq, and, inArray } from "drizzle-orm";
 import { getCurrentUserId } from "@/lib/user-prefs";
 import SongContent from "./components/SongContent";
+import { getPostHogServer } from "@/lib/posthog-server";
 
 export async function generateMetadata({
   params,
@@ -131,6 +132,24 @@ export default async function SongPlayerPage({
   // Pitfall 6 mitigation: numeric(5,2) columns come back as strings from neon-http
   // driver — parseFloat() at this boundary before passing to client components.
   const SONG_PAGE_USER_ID = await getCurrentUserId();
+
+  // Phase 15 SC-1: funnel event — song_opened
+  // Fires after song fetch succeeds and quality/version checks pass (not before,
+  // to avoid noise from 404s). Non-fatal: analytics must never block page render.
+  try {
+    const ph = getPostHogServer();
+    ph.capture({
+      distinctId: SONG_PAGE_USER_ID,
+      event: "song_opened",
+      properties: {
+        song_slug: song.slug,
+        jlpt_level: song.jlpt_level ?? "unknown",
+        difficulty_tier: song.difficulty_tier ?? "unknown",
+      },
+    });
+  } catch {
+    // Non-fatal: analytics must never throw into page render
+  }
   const versionIds = versions.map((v) => v.id);
 
   const progressRows = await db
