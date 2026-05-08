@@ -244,18 +244,21 @@ export default function QuestionCard({
       )}
 
       {/* Answer options — 2x2 grid on wide screens, single column on mobile */}
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <ul role="list" aria-label="Answer choices" className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {options.map((option) => (
-          <button
-            key={option}
-            onClick={() => handleSelect(option)}
-            disabled={chosen !== null}
-            className={`min-h-16 rounded-[var(--radius-lg)] border px-4 py-3 text-left text-sm font-semibold transition-colors ${getOptionStyle(option)}`}
-          >
-            {renderOption(option)}
-          </button>
+          <li key={option} role="listitem">
+            <button
+              type="button"
+              onClick={() => handleSelect(option)}
+              disabled={chosen !== null}
+              aria-pressed={chosen === option}
+              className={`min-h-[44px] w-full rounded-[var(--radius-lg)] border px-4 py-3 text-left text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/40 ${getOptionStyle(option)}`}
+            >
+              {renderOption(option)}
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {/* Inline feedback — shown after answering */}
       {chosen !== null && (
