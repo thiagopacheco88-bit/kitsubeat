@@ -26,6 +26,12 @@ export const metadata: Metadata = {
     description: "Learn Japanese through anime songs",
     images: ["/og-image.png"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "KitsuBeat",
+    description: "Learn Japanese through anime songs",
+    images: ["/twitter-image.png"],
+  },
 };
 
 export default async function RootLayout({
