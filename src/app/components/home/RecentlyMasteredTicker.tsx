@@ -29,6 +29,7 @@ function useReducedMotion(): boolean {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReduced(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
     mq.addEventListener("change", handler);
@@ -60,6 +61,7 @@ export function RecentlyMasteredTicker({ events }: RecentlyMasteredTickerProps) 
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

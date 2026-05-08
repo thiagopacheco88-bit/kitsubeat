@@ -235,3 +235,16 @@ export async function getThemePreference(
     .limit(1);
   return (rows[0]?.themePreference as ThemePreference) ?? "system";
 }
+
+/**
+ * Phase 14.4 D-13 — Clear streak_saver_pending after toast is shown.
+ * Called client-side from StreakSaverToast useEffect (RESEARCH Pitfall 7 pattern).
+ * Sets pending flag to false so toast does not re-render on next session.
+ */
+export async function clearStreakSaverPending(userId: string): Promise<void> {
+  if (!userId) return;
+  await db
+    .update(users)
+    .set({ streak_saver_pending: false, updated_at: new Date() })
+    .where(eq(users.id, userId));
+}

@@ -17,6 +17,8 @@ interface ProfileFormProps {
   /** Phase 12: celebration effects defaults */
   initialSoundEnabled: boolean;
   initialHapticsEnabled: boolean;
+  /** Phase 14.4: Social opt-in toggle */
+  initialSocialActivityEnabled: boolean;
 }
 
 type SaveState =
@@ -34,11 +36,13 @@ export default function ProfileForm({
   maxCap,
   initialSoundEnabled,
   initialHapticsEnabled,
+  initialSocialActivityEnabled,
 }: ProfileFormProps) {
   const [skipLearning, setSkipLearning] = useState(initialSkipLearning);
   const [newCardCap, setNewCardCap] = useState<number>(initialNewCardCap);
   const [soundEnabled, setSoundEnabled] = useState(initialSoundEnabled);
   const [hapticsEnabled, setHapticsEnabled] = useState(initialHapticsEnabled);
+  const [socialActivityEnabled, setSocialActivityEnabled] = useState(initialSocialActivityEnabled);
   const [state, setState] = useState<SaveState>({ kind: "idle" });
 
   // Phase 14 D-10 — Appearance state. Seeded from kb_theme cookie on mount
@@ -98,6 +102,7 @@ export default function ProfileForm({
         newCardCap: capToSend,
         soundEnabled,
         hapticsEnabled,
+        socialActivityEnabled,
       });
       setState({ kind: "saved" });
     } catch (err) {
@@ -217,6 +222,37 @@ export default function ProfileForm({
             <span className="mt-0.5 block text-xs text-[var(--color-text-dim)]">
               No effect on iOS — Web Vibration API unsupported.
             </span>
+          </span>
+        </label>
+      </fieldset>
+
+      {/* Phase 14.4 D-15/D-17 — Social & notifications section */}
+      <fieldset className="border-t border-[var(--color-border)] pt-4 space-y-4">
+        <legend className="mb-2 text-base font-semibold text-[var(--color-text)]">
+          Social &amp; notifications
+        </legend>
+
+        <label className="flex min-h-14 cursor-pointer items-start gap-3">
+          <input
+            type="checkbox"
+            name="socialActivityEnabled"
+            checked={socialActivityEnabled}
+            onChange={(e) => {
+              setSocialActivityEnabled(e.target.checked);
+              setState({ kind: "idle" });
+            }}
+            className="mt-1 h-4 w-4 rounded border-[var(--color-border-strong)] bg-[var(--color-card-2)] accent-[var(--color-accent)]"
+          />
+          <span>
+            <span className="block font-medium text-[var(--color-text)]">
+              Show my activity to others and email me reminders
+            </span>
+            <ul className="mt-1 list-disc pl-4 text-sm text-[var(--color-text-muted)] space-y-0.5">
+              <li>Your song mastery shows in others&apos; Recently Mastered ticker</li>
+              <li>Daily 7pm reminder if your streak hasn&apos;t been logged today</li>
+              <li>Sunday weekly recap of vocab learned and songs touched</li>
+              <li>Your listening counts toward &ldquo;X listening now&rdquo; for others</li>
+            </ul>
           </span>
         </label>
       </fieldset>

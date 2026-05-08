@@ -32,6 +32,10 @@ import { Carousel } from "./components/home/Carousel";
 import { CoverCard } from "./components/home/CoverCard";
 import { AnimeCard } from "./components/home/AnimeCard";
 import { RecentlyMasteredTicker, type MasteryEvent } from "./components/home/RecentlyMasteredTicker";
+import { StreakSaverToast } from "./components/home/StreakSaverToast";
+import { db } from "@/lib/db";
+import { users } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
 
@@ -54,6 +58,19 @@ export default async function HomePage() {
       firstName: await getTickerFirstName(ev.user_id),
     }))
   );
+
+  // Fetch streak_saver_pending for toast (D-13: client-only mount via useEffect)
+  const userRow = isSignedIn
+    ? await db
+        .select({
+          streakSaverPending: users.streak_saver_pending,
+          streakCurrent: users.streakCurrent,
+        })
+        .from(users)
+        .where(eq(users.id, userId))
+        .limit(1)
+        .then((r) => r[0] ?? null)
+    : null;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-4">
@@ -92,6 +109,15 @@ export default async function HomePage() {
           ))}
         </Carousel>
       </section>
+
+      {/* Streak-saver toast — client-only mount after streak-save event (D-13) */}
+      {isSignedIn && userRow?.streakSaverPending && (
+        <StreakSaverToast
+          userId={userId}
+          streakSavedTo={userRow.streakCurrent ?? 0}
+          isPending={true}
+        />
+      )}
 
       {/* Section 5 — Featured Songs */}
       <section data-testid="featured-songs" className="pb-12">
