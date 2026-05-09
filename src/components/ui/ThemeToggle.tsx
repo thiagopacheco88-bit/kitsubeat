@@ -148,7 +148,7 @@ export function ThemeToggle({ userId = PLACEHOLDER_USER_ID }: ThemeToggleProps =
     // set it client-side) but defensive for SSR consistency on next request.
     startTransition(async () => {
       try {
-        await setThemePreference(userId, next);
+        await setThemePreference(next);
       } catch (e) {
         // Revert optimistic state on failure
         // eslint-disable-next-line no-console

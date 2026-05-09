@@ -51,7 +51,7 @@ export function StreakSaverToast({ userId, streakSavedTo, isPending }: StreakSav
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setVisible(true);
       // Clear the pending flag so toast doesn't re-render on next session
-      clearStreakSaverPending(userId).catch(() => {});
+      clearStreakSaverPending().catch(() => {});
     }
   }, [isPending, userId]);
 

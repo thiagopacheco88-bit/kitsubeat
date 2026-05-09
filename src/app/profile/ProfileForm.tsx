@@ -75,13 +75,11 @@ export default function ProfileForm({
     setThemePreferenceLocal(next);
 
     // Server action — DB column write
-    if (userId) {
-      try {
-        await setThemePreference(userId, next);
-      } catch (err) {
-        // Non-fatal: the cookie write already kept things consistent client-side
-        console.error("setThemePreference failed:", err);
-      }
+    try {
+      await setThemePreference(next);
+    } catch (err) {
+      // Non-fatal: the cookie write already kept things consistent client-side
+      console.error("setThemePreference failed:", err);
     }
   };
 
@@ -97,7 +95,7 @@ export default function ProfileForm({
       : defaultCap;
 
     try {
-      await updateUserPrefs(userId, {
+      await updateUserPrefs({
         skipLearning,
         newCardCap: capToSend,
         soundEnabled,

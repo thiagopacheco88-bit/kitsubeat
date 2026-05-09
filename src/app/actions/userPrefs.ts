@@ -1,5 +1,11 @@
 "use server";
 
+// Security note (Phase 16): mutation functions (updateUserPrefs, setThemePreference,
+// clearStreakSaverPending) derive userId from auth() and ignore the caller-supplied
+// userId arg. Read-only helpers (isPremium, getUserPrefs, getEffectiveCap) retain
+// their userId param as they are called from already-authenticated server action contexts.
+
+import { auth } from "@clerk/nextjs/server";
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { users, subscriptions } from "@/lib/db/schema";
@@ -58,12 +64,15 @@ export async function getUserPrefs(userId: string): Promise<UserPrefs> {
  * Only premium users can actually raise the cap beyond DEFAULT_NEW_CARD_CAP;
  * getEffectiveCap() enforces that at read time regardless of what's stored
  * (pitfall 4 from research: downgrade reconciliation).
+ *
+ * Security (Phase 16 SC-2): userId is derived from Clerk auth() — caller-supplied
+ * userId is not accepted.
  */
 export async function updateUserPrefs(
-  userId: string,
   patch: Partial<UserPrefs>
 ): Promise<void> {
-  if (!userId) throw new Error("userId is required");
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
 
   const normalized: Partial<{
     skip_learning: boolean;
@@ -190,17 +199,18 @@ const VALID_THEMES = ["system", "light", "dark"] as const;
 export type ThemePreference = (typeof VALID_THEMES)[number];
 
 export async function setThemePreference(
-  userId: string,
   value: ThemePreference
 ): Promise<void> {
-  if (!userId) throw new Error("userId is required");
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
   if (!VALID_THEMES.includes(value)) {
     throw new Error(
       `themePreference must be one of: ${VALID_THEMES.join(", ")}`
     );
   }
 
-  // DB write — upsert seeds row if absent. Mirrors updateUserPrefs idiom (lines 97-112).
+  // DB write — upsert seeds row if absent. Mirrors updateUserPrefs idiom.
   await db
     .insert(users)
     .values({ id: userId, themePreference: value })
@@ -240,9 +250,13 @@ export async function getThemePreference(
  * Phase 14.4 D-13 — Clear streak_saver_pending after toast is shown.
  * Called client-side from StreakSaverToast useEffect (RESEARCH Pitfall 7 pattern).
  * Sets pending flag to false so toast does not re-render on next session.
+ *
+ * Security (Phase 16 SC-2): userId derived from auth() — non-fatal if unauthenticated
+ * (called from client on session end where user may have logged out).
  */
-export async function clearStreakSaverPending(userId: string): Promise<void> {
-  if (!userId) return;
+export async function clearStreakSaverPending(): Promise<void> {
+  const { userId } = await auth();
+  if (!userId) return; // non-fatal — called from client on session end
   await db
     .update(users)
     .set({ streak_saver_pending: false, updated_at: new Date() })

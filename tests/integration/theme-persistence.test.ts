@@ -18,6 +18,13 @@ vi.mock("next/headers", () => ({
   cookies: () => Promise.resolve({ set: vi.fn() }),
 }));
 
+// Mock Clerk auth() so setThemePreference can derive userId from server session.
+// Phase 16 SC-2: setThemePreference now derives userId from auth(), not caller-supplied arg.
+vi.mock("@clerk/nextjs/server", () => ({
+  auth: vi.fn(),
+}));
+
+import { auth } from "@clerk/nextjs/server";
 import { setThemePreference, getThemePreference } from "@/app/actions/userPrefs";
 import { getTestDb, resetTestProgress, TEST_USER_ID } from "../support/test-db";
 
@@ -26,6 +33,8 @@ const describeIfTestDb = HAS_TEST_DB ? describe : describe.skip;
 
 describeIfTestDb("theme persistence", () => {
   beforeEach(async () => {
+    // Phase 16 SC-2: inject authenticated user for setThemePreference (which now uses auth())
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER_ID } as ReturnType<typeof auth> extends Promise<infer T> ? T : never);
     await resetTestProgress(TEST_USER_ID);
     const db = getTestDb();
     // Ensure user row exists, then reset theme to default 'system' for each test
@@ -38,7 +47,7 @@ describeIfTestDb("theme persistence", () => {
   });
 
   it("setThemePreference('dark') writes the DB column", async () => {
-    await setThemePreference(TEST_USER_ID, "dark");
+    await setThemePreference("dark");
     const db = getTestDb();
     const raw = (await db.execute(
       sql`SELECT theme_preference FROM users WHERE id = ${TEST_USER_ID}`
@@ -50,14 +59,14 @@ describeIfTestDb("theme persistence", () => {
   });
 
   it("getThemePreference returns stored value", async () => {
-    await setThemePreference(TEST_USER_ID, "light");
+    await setThemePreference("light");
     const result = await getThemePreference(TEST_USER_ID);
     expect(result).toBe("light");
   });
 
   it("setThemePreference rejects invalid values with descriptive error", async () => {
     await expect(
-      setThemePreference(TEST_USER_ID, "purple" as never)
+      setThemePreference("purple" as never)
     ).rejects.toThrow(/system.*light.*dark/);
   });
 
