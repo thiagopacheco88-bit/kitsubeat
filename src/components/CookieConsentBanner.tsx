@@ -21,6 +21,7 @@
  */
 
 import { useEffect, useRef } from "react";
+import posthog from "posthog-js";
 import { useConsentStore } from "@/lib/consent/store";
 import { recordConsent } from "@/app/actions/consent";
 import { Button } from "@/components/ui/Button";
@@ -72,6 +73,7 @@ export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps
             size="sm"
             onClick={async () => {
               await recordConsent("rejected");
+              posthog.opt_out_capturing();
               setRejected();
             }}
           >
@@ -82,6 +84,7 @@ export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps
             size="sm"
             onClick={async () => {
               await recordConsent("granted");
+              posthog.opt_in_capturing();
               setGranted();
             }}
           >

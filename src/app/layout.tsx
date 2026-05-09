@@ -8,7 +8,6 @@ import "./globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 import MobileNavSheet from "@/app/components/MobileNavSheet";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { ConsentBanner } from "@/components/ConsentBanner";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { PostHogIdentify } from "@/app/components/PostHogIdentify";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
@@ -198,8 +197,7 @@ export default async function RootLayout({
             </div>
           </nav>
         </header>
-        <ConsentBanner />
-        {/* Phase 18 — PECR-compliant cookie consent banner (useConsentStore + recordConsent) */}
+        {/* Phase 18 — PECR-compliant cookie consent banner (useConsentStore + recordConsent + PostHog opt-in) */}
         <CookieConsentBanner initialConsent={consentCookie} />
         <PostHogIdentify userId={signedInUserId ?? null} />
         <main id="main-content">{children}</main>
