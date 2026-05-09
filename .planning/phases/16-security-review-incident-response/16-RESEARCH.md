@@ -1,4 +1,4 @@
-# Phase 16: Security Review & Incident Response - Research
+﻿# Phase 16: Security Review & Incident Response - Research
 
 **Researched:** 2026-05-09
 **Domain:** Security hardening — Supabase RLS, Next.js server action authorization, secrets scanning, rate limiting, IR runbook
@@ -757,23 +757,16 @@ All secrets in this project (VERIFIED: .env.example + codebase):
 
 ---
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **What Postgres role does Neon/Drizzle use?**
-   - What we know: `DATABASE_URL` connects to Neon via `@neondatabase/serverless`
-   - What's unclear: Is the role the DB owner (RLS bypass) or `authenticated` (RLS enforced)?
-   - Recommendation: Run `SELECT current_user;` in a Drizzle query during audit to determine the role. If it's the owner/admin role, RLS is bypass mode — this confirms the architecture assumption.
+1. **What Postgres role does Neon/Drizzle use?** (RESOLVED)
+   - **Resolution:** Neon/Drizzle connects via `DATABASE_URL` as the database owner/superuser. RLS is bypassed for all application traffic. Assumption A1 is CONFIRMED. RLS is defense-in-depth only for direct SQL access. No change to plans needed.
 
-2. **Are `userPrefs.ts` actions exposed via client components?**
-   - What we know: They accept `userId` as a parameter without calling `auth()`
-   - What's unclear: Whether any client component calls these directly with a user-supplied ID
-   - Recommendation: Grep for call sites: `getUserPrefs\|updateUserPrefs` in client components (`"use client"` files). If found, fix urgently.
+2. **Are `userPrefs.ts` actions exposed via client components?** (RESOLVED)
+   - **Resolution:** YES. CONFIRMED IDOR. `src/components/ui/ThemeToggle.tsx` ("use client") calls `setThemePreference(userId, next)` at line 151, passing `userId` as a caller-supplied argument without `auth()` verification. `ExerciseTab.tsx` calls `getUserPrefs(userId)` (READ-only, lower risk). Fix: Plan 03 updated to change ThemeToggle.tsx call site when `setThemePreference` gains internal `auth()`.
 
-3. **Is there an LLM/AI proxy endpoint?**
-   - What we know: `@anthropic-ai/sdk` is in dependencies; grammar exercise generation uses the Anthropic API
-   - What's unclear: Which server action/route makes the Anthropic API call; whether it's user-triggerable
-   - Recommendation: Grep for `anthropic` or `Anthropic` in `src/` to find the call sites and determine if rate limiting is needed.
-
+3. **Is there an LLM/AI proxy endpoint?** (RESOLVED)
+   - **Resolution:** YES. CONFIRMED. `src/lib/exercises/grammar-ai.ts` imports `@anthropic-ai/sdk` and is called from `src/app/actions/grammarSession.ts` via `generateOneGrammarExercise`. `grammarSession.ts` also accepts `userId` from caller input (lines 44, 119, 261, 295+). Fix: `llmRatelimit` wired to `grammarSession.ts` in Plan 04 Task 2; `grammarSession.ts` IDOR fixed in Plan 02 Task 3.
 ---
 
 ## Sources
