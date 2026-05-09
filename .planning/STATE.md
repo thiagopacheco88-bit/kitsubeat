@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: Core Learning Experience
 status: executing
-stopped_at: "Completed 16-04: Upstash rate limiting applied to 5 endpoints"
-last_updated: "2026-05-09T21:54:28.413Z"
+stopped_at: "Completed 16-05-PLAN.md: RLS enabled on all 27 public tables in Neon"
+last_updated: "2026-05-09T22:01:12.182Z"
 last_activity: 2026-05-09
 progress:
   total_phases: 28
   completed_phases: 23
   total_plans: 181
-  completed_plans: 175
+  completed_plans: 176
   percent: 97
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-14)
 ## Current Position
 
 Phase: 18 (legal-compliance-implementation) — EXECUTING
-Plan: 5 of 7
+Plan: 6 of 7
 Status: Ready to execute
 
 Plan 11.6-08 complete (closed 2026-05-02 on partial visual-verify spot-check) — Verse-domination UI surfaces + once-per-(user,verse) animation. Five visible reward signals shipped: VerseStarIcon (5-point amber-400 SVG; data-testid=verse-dominated-star) renders next to dominated verses in lyrics view AND in the song-page header X/Y counter (deeper amber-500 to keep lyrics stars loudest); SongCard "% dominated" line below stars row gated by showProgress && versesDominatedPctNum > 0 (anonymous catalog stays clean); VerseDominatedAnimation (108 LOC, "use client") subscribes to useExerciseSession.versesDominatedNow, on non-empty transition fires canvas-confetti burst (amber palette, disableForReducedMotion=true) + "Verse dominated!" overlay (1.2s, role=status aria-live=polite) + clears the slice; globals.css @keyframes verse-dominated-pulse with prefers-reduced-motion fallback (belt-and-suspenders alongside the existing global override). Three independent idempotency layers: (1) server-side ON CONFLICT (user_id, song_version_id, verse_number) DO NOTHING RETURNING from Plan 11.6-05; (2) zustand persist partialize excludes versesDominatedNow → reload always rehydrates []; (3) lastFiredRef sorted-signature guard catches in-render double-set races. SSR data path: page.tsx calls getCurrentUserId() once → SONG_PAGE_USER_ID feeds Promise.all(versionIds.map(vid => getDominatedVerses(SONG_PAGE_USER_ID, vid))); each version's dominatedVerseNumbers + totalVerses (= lesson.verses.length) attached before passing to <SongContent>. SongContentInner reads active.dominatedVerseNumbers/totalVerses for header counter and threads dominatedVerseNumbers to LyricsPanel → VerseBlock isDominated prop. Two Rule-1/2/3 auto-fixes: (Rule 2) plan said wire setVersesDominatedNow at the recordVocabAnswer call site (singular) — codebase has FOUR (ExerciseSession + QuestionCard + ListeningDrillCard + ConjugationCard); Plan 11.6-05 only wired ExerciseSession (vocab_typed path = Kanji track + Advanced Drills only); without QuestionCard/ListeningDrillCard/ConjugationCard the animation would never fire on Star 1/2/3/Bonus paths — broken SPEC-REQ-15. Fix: setter call added to all three additional sites. (Rule 3) plan's `verses_dominated_pct` denominator SQL referenced song_vocab.verse_number + song_version_grammar_rules.verse_number — neither column exists (song_vocab is not a table; song_version_grammar_rules is a song-level join table). Fix: jsonb_array_length(sv.lesson -> 'verses') against tv-preferred song_version (lesson.verses[] is canonical source of truth — what Plan 11.6-05's recordVocabAnswer compares against when deciding tipping). Drizzle neon-http boxes numeric as string → SongCard parses via parseFloat(... as unknown as string) then Math.round (Pitfall 6). Counter star uses text-amber-500 vs lyrics-view star text-amber-400 — design ladder keeps lyrics loudest; both within amber palette, no new tokens added. No SongHeader.tsx component exists — plan listed it but header lives inline in SongContent.tsx top-level JSX; counter wired there alongside JLPT badge / difficulty pill / KnownWordCount (matches existing inline-header pattern; extraction would have been a Rule 4 architectural change). VerseDominatedAnimation rendered at top of FeedbackPanel card. Stale prior SUMMARY (commit a851453, "cherry-pick from executor worktree") referenced commits 21bdd5e/360d633/270cacb that never landed on master — re-execution overwrote the SUMMARY with the actual commits in this branch. Tests: tests/e2e/verse-domination-ui.spec.ts (140 LOC, 4 tests, HAS_TEST_DB-gated) + tests/e2e/verse-dominated-animation.spec.ts (270 LOC, 4 tests, HAS_TEST_DB-gated). Self-check passed: tsc --noEmit exit 0; vitest run on src/app/songs + src/lib/db + src/stores green (57/57). Visual verify Task 4 closed on partial spot-check (user time-constrained — confirmed a subset of the 11 walkthrough signals on the dev server, did not run the full sequence; explicitly chose to close without the complete walkthrough). Signals not independently re-verified at close (page-reload idempotency, prefers-reduced-motion, catalog %-dominated line) are covered by automated e2e tests; if a regression surfaces, triage against those specs first. Commits ff21015 (Task 1 RED Wave 0 e2e stubs), e80b2b3 (Task 2 GREEN — VerseStarIcon + VerseDominatedAnimation + globals.css keyframe + setter wiring at all 4 recordVocabAnswer sites), c13ab7a (Task 3 GREEN — SongContent counter + LyricsPanel/VerseBlock star + SongCard % + queries.ts SSR), 007e5b5 (docs: SUMMARY initial check-in awaiting visual verify). Bookkeeping reconciliation note: per-plan position counter ("Plan: 1 of 11" → "10 of 11 complete") was advanced in this close because the parallel-executor wave runs for 11.6-02 through 11.6-10 had landed SUMMARYs on disk + commits in git but had skipped the STATE/ROADMAP bookkeeping commits; only 11.6-11 remains in the queue.
@@ -168,6 +168,7 @@ Progress: [██████████] 97%
 | Phase 16 P02 | 21min | 3 tasks | 25 files |
 | Phase 16 P03 | 5min | 2 tasks | 9 files |
 | Phase 16 P04 | 4min | 2 tasks | 8 files |
+| Phase 16 P05 | 15min | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -473,6 +474,8 @@ Progress: [██████████] 97%
 - Rate limits keyed by userId (not IP) for accuracy and multi-device support
 - exerciseRatelimit shared across vocab-mastery, vocab-tiers, and recordVocabAnswer endpoints
 - Upstash env vars server-only (no NEXT_PUBLIC_ prefix) documented in .env.example
+- Bare Neon Postgres lacks Supabase authenticated/anon roles; RLS uses implicit deny for user-data tables
+- auth.jwt() not available in bare Neon without pgjwt extension; per-user JWT policies replaced with implicit deny
 
 ### Pending Todos
 
@@ -499,8 +502,8 @@ Progress: [██████████] 97%
 
 ## Session Continuity
 
-Last session: 2026-05-09T21:54:28.402Z
-Stopped at: Completed 16-04: Upstash rate limiting applied to 5 endpoints
+Last session: 2026-05-09T22:01:12.172Z
+Stopped at: Completed 16-05-PLAN.md: RLS enabled on all 27 public tables in Neon
 Resume file: None
 
 **Planned Phase:** 14.4 (virality-engagement) — 5 plans — 2026-05-08T07:50:19.802Z
