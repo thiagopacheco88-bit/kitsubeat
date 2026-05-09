@@ -14,7 +14,7 @@
  */
 
 import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { completeOnboarding } from "@/app/actions/onboarding";
 import { Button } from "@/components/ui/Button";
 
@@ -30,6 +30,7 @@ function getAgeFromDob(dob: string): number {
 
 export default function OnboardingPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const blockerRef = useRef<HTMLHeadingElement>(null);
 
   const [dob, setDob] = useState("");
@@ -54,7 +55,6 @@ export default function OnboardingPage() {
     // Client-side age detection for UX guidance only — server re-validates on submit
     const age = getAgeFromDob(value);
     if (age < 13) {
-      // Show inline hint that they may be blocked, but don't block yet (server validates)
       setShowMinorStep(false);
       setIsUnder13(false);
     } else if (age < 18) {
@@ -92,9 +92,10 @@ export default function OnboardingPage() {
             : "Something went wrong. Please try again."
         );
       } else {
-        // Server action set kb_terms_done cookie — middleware checks it immediately
-        // so the redirect to "/" won't loop even before the Clerk JWT refreshes.
-        router.replace("/");
+        // Navigate to the page they were trying to visit, or home as fallback.
+        // The server action already set kb_terms_done cookie so middleware won't loop.
+        const redirectTo = searchParams.get("redirect_url") ?? "/";
+        router.replace(redirectTo);
       }
     } catch {
       setErrorMessage("Something went wrong. Please try again.");

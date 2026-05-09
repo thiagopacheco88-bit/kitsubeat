@@ -99,7 +99,7 @@ export async function completeOnboarding(
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
-      maxAge: 300, // 5 min TTL — enough for the JWT to refresh
+      maxAge: 60 * 60 * 24 * 365, // 1 year — resets when T&C version changes
       path: "/",
     });
   } catch {

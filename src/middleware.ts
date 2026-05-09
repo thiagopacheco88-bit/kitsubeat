@@ -80,7 +80,9 @@ export default clerkMiddleware(async (auth, req) => {
           | undefined;
         const termsVersion = publicMeta?.terms_version;
         if (!termsVersion || termsVersion !== CURRENT_TERMS_VERSION) {
-          return NextResponse.redirect(new URL("/onboarding/age-gate", req.url));
+          const dest = new URL("/onboarding/age-gate", req.url);
+          dest.searchParams.set("redirect_url", req.nextUrl.pathname + req.nextUrl.search);
+          return NextResponse.redirect(dest);
         }
       }
     }
