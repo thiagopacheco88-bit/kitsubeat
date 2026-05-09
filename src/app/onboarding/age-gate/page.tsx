@@ -15,6 +15,7 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
 import { completeOnboarding } from "@/app/actions/onboarding";
 import { Button } from "@/components/ui/Button";
 
@@ -30,6 +31,7 @@ function getAgeFromDob(dob: string): number {
 
 export default function OnboardingPage() {
   const router = useRouter();
+  const { getToken } = useAuth();
   const blockerRef = useRef<HTMLHeadingElement>(null);
 
   const [dob, setDob] = useState("");
@@ -92,8 +94,13 @@ export default function OnboardingPage() {
             : "Something went wrong. Please try again."
         );
       } else {
+        // Force a fresh JWT so middleware sees the updated terms_version claim
+        // before the navigation — without this, the stale JWT causes a redirect loop.
+        await getToken({ skipCache: true });
         router.replace("/");
       }
+    } catch {
+      setErrorMessage("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -252,13 +259,7 @@ export default function OnboardingPage() {
             variant="primary"
             size="md"
             className="w-full mt-4"
-            aria-disabled={isSubmitDisabled}
-            disabled={loading}
-            onClick={
-              isSubmitDisabled
-                ? (e) => e.preventDefault()
-                : undefined
-            }
+            disabled={isSubmitDisabled || loading}
           >
             {loading ? "Saving..." : "Continue to KitsuBeat"}
           </Button>
