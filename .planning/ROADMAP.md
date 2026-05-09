@@ -602,8 +602,15 @@ Plans:
   3. Secrets scan passes; no secrets in client bundle or git history; .env conventions documented
   4. Rate limits on signup, login, exercise answer submission, and any LLM-proxy endpoint
   5. IR runbook checked in: on-call (you), severity taxonomy, 72h UK-GDPR breach notification timeline, first-response checklist
-**Plans**: 7 plans (5 autonomous + 2 human-verify checkpoints)
+**Plans:** 7 plans (5 autonomous + 2 human-verify checkpoints)
 Plans:
+- [ ] 16-01-PLAN.md — Wave 0: RED test stubs (auth guards + rate-limit + RLS audit script)
+- [ ] 16-02-PLAN.md — Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess, grammarSession.ts)
+- [ ] 16-03-PLAN.md — Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes + ThemeToggle caller update
+- [ ] 16-04-PLAN.md — Rate limiting infra (Upstash ratelimit) + apply to exercise endpoints + llmRatelimit to grammarSession.ts
+- [ ] 16-05-PLAN.md — RLS migration (0020_rls_policies.sql) + audit script verification
+- [ ] 16-06-PLAN.md — Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint [has checkpoint]
+- [ ] 16-07-PLAN.md — IR runbook (docs/security/IR-RUNBOOK.md) + human approval [has checkpoint]
 - [ ] 16-01-PLAN.md -- Wave 1: test stubs (auth boundary + rate-limit unit tests) + RLS audit script
 - [ ] 16-02-PLAN.md -- Wave 2: Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess) + callers
 - [ ] 16-03-PLAN.md -- Wave 2: Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes
