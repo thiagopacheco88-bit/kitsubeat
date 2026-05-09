@@ -68,12 +68,20 @@ export default clerkMiddleware(async (auth, req) => {
   if (!isLegalOrOnboardingRoute(req)) {
     const session = await auth();
     if (session.userId) {
-      const publicMeta = session.sessionClaims?.publicMetadata as
-        | Record<string, string>
-        | undefined;
-      const termsVersion = publicMeta?.terms_version;
-      if (!termsVersion || termsVersion !== CURRENT_TERMS_VERSION) {
-        return NextResponse.redirect(new URL("/onboarding/age-gate", req.url));
+      // Check bridge cookie first — set by completeOnboarding() server action.
+      // Clerk JWT claims lag up to 60s after updateUserMetadata; the cookie is the
+      // immediate signal that the user just completed onboarding this session.
+      const termsDoneCookie = req.cookies.get("kb_terms_done");
+      const cookieMatches = termsDoneCookie?.value === CURRENT_TERMS_VERSION;
+
+      if (!cookieMatches) {
+        const publicMeta = session.sessionClaims?.publicMetadata as
+          | Record<string, string>
+          | undefined;
+        const termsVersion = publicMeta?.terms_version;
+        if (!termsVersion || termsVersion !== CURRENT_TERMS_VERSION) {
+          return NextResponse.redirect(new URL("/onboarding/age-gate", req.url));
+        }
       }
     }
   }

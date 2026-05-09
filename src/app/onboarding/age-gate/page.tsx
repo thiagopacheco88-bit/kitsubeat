@@ -15,7 +15,6 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@clerk/nextjs";
 import { completeOnboarding } from "@/app/actions/onboarding";
 import { Button } from "@/components/ui/Button";
 
@@ -31,7 +30,6 @@ function getAgeFromDob(dob: string): number {
 
 export default function OnboardingPage() {
   const router = useRouter();
-  const { getToken } = useAuth();
   const blockerRef = useRef<HTMLHeadingElement>(null);
 
   const [dob, setDob] = useState("");
@@ -94,9 +92,8 @@ export default function OnboardingPage() {
             : "Something went wrong. Please try again."
         );
       } else {
-        // Force a fresh JWT so middleware sees the updated terms_version claim
-        // before the navigation — without this, the stale JWT causes a redirect loop.
-        await getToken({ skipCache: true });
+        // Server action set kb_terms_done cookie — middleware checks it immediately
+        // so the redirect to "/" won't loop even before the Clerk JWT refreshes.
         router.replace("/");
       }
     } catch {
