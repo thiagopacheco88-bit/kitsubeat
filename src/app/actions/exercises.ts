@@ -24,6 +24,7 @@ import { applyGamificationUpdate } from "@/lib/gamification/session-integration"
 import type { GamificationResult } from "@/lib/gamification/session-integration";
 import { STARTER_SONG_SLUGS } from "@/lib/gamification/starter-songs";
 import { getPostHogServer } from "@/lib/posthog-server";
+import { auth } from "@clerk/nextjs/server";
 
 // ---------------------------------------------------------------------------
 // Phase 10 Plan 06 — Advanced Drills access summary (server action).
@@ -54,10 +55,21 @@ export interface AdvancedDrillAccess {
 }
 
 export async function getAdvancedDrillAccess(
-  userId: string,
   songVersionId: string
 ): Promise<AdvancedDrillAccess> {
-  if (!userId || !songVersionId) {
+  const { userId } = await auth();
+  if (!userId) {
+    return {
+      listeningAllowed: false,
+      advancedAllowed: false,
+      listeningQuotaRemaining: 0,
+      advancedQuotaRemaining: 0,
+      listeningQuotaLimit: QUOTA_LIMITS.listening,
+      advancedQuotaLimit: QUOTA_LIMITS.advanced_drill,
+      isPremium: false,
+    };
+  }
+  if (!songVersionId) {
     return {
       listeningAllowed: false,
       advancedAllowed: false,
@@ -119,8 +131,6 @@ interface AnswerRecord {
 }
 
 interface SaveSessionInput {
-  // TODO: replace with Clerk userId from auth()
-  userId: string;
   songVersionId: string;
   /**
    * Song slug — required for gamification path advancement (Plan 12-04).
@@ -210,7 +220,9 @@ interface SaveSessionResult {
 export async function saveSessionResults(
   input: SaveSessionInput
 ): Promise<SaveSessionResult> {
-  const { userId, songVersionId, songSlug = "", answers, mode, tz = "UTC" } = input;
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+  const { songVersionId, songSlug = "", answers, mode, tz = "UTC" } = input;
 
   // --- Step 1: Split answers by group ---
   //
@@ -674,8 +686,6 @@ const CardKindSchema = z.enum(["romaji_meaning", "kanji_kana"]);
 type CardKind = z.infer<typeof CardKindSchema>;
 
 interface RecordAnswerInput {
-  // TODO: replace with Clerk userId from auth()
-  userId: string;
   vocabItemId: string;            // target word's UUID; NEVER pass distractor IDs
   songVersionId: string | null;   // null for kana-only exercises (Phase 9)
   exerciseType: ExerciseType;
@@ -721,7 +731,9 @@ interface RecordAnswerResult {
 export async function recordVocabAnswer(
   input: RecordAnswerInput
 ): Promise<RecordAnswerResult> {
-  const { userId, vocabItemId, songVersionId, exerciseType, correct, revealedReading, responseTimeMs } = input;
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+  const { vocabItemId, songVersionId, exerciseType, correct, revealedReading, responseTimeMs } = input;
 
   // Phase 11.6: Zod-validate cardKind at server-action boundary (Threat T-11.6-05-01).
   // Default to "romaji_meaning" for backward-compat with callers that pre-date Plan 11.6-05.
