@@ -141,7 +141,7 @@ export default async function HomePage() {
               }}
               stars={0}
               showMastery={isSignedIn}
-              nowPlayingCount={nowPlayingCounts.get(song.id)}
+              nowPlayingCount={nowPlayingCounts[song.id]}
             />
           ))}
         </Carousel>

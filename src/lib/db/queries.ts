@@ -1559,7 +1559,7 @@ export async function getDominatedVerses(
  * Cached 60s per CONTEXT D-10.
  */
 export const getNowPlayingCounts = unstable_cache(
-  async (): Promise<Map<string, number>> => {
+  async (): Promise<Record<string, number>> => {
     const rows = await db.execute(sql`
       SELECT sv.song_id::text AS song_id,
              COUNT(DISTINCT COALESCE(sp.user_id, sp.session_key)) AS listener_count
@@ -1572,7 +1572,7 @@ export const getNowPlayingCounts = unstable_cache(
       HAVING COUNT(DISTINCT COALESCE(sp.user_id, sp.session_key)) >= 3
     `);
     const rawRows = Array.isArray(rows) ? rows : ((rows as { rows?: unknown[] }).rows ?? []);
-    return new Map(
+    return Object.fromEntries(
       (rawRows as Array<{ song_id: string; listener_count: string | number }>).map((r) => [
         r.song_id,
         Number(r.listener_count),
