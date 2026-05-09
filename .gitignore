@@ -35,6 +35,9 @@ yarn-error.log*
 .env.test
 .env.test.local
 .env.production.local
+# Sentry build plugin env file (auto-created by Sentry wizard — contains SENTRY_AUTH_TOKEN)
+.env.sentry-build-plugin
+.env.sentry-build-plugin.txt
 
 # vercel
 .vercel
