@@ -548,13 +548,13 @@ Plans:
 **Spec captured**: [.planning/phases/14.4-virality-engagement/14.4-SPEC.md](phases/14.4-virality-engagement/14.4-SPEC.md)
 **Context captured**: [.planning/phases/14.4-virality-engagement/14.4-CONTEXT.md](phases/14.4-virality-engagement/14.4-CONTEXT.md)
 **Research captured**: [.planning/phases/14.4-virality-engagement/14.4-RESEARCH.md](phases/14.4-virality-engagement/14.4-RESEARCH.md)
-**Plans:** 5 plans
+**Plans:** 5 plans — **Complete** (2026-05-09)
 Plans:
-- [ ] 14.4-01-PLAN.md — Migration 0018 + schema.ts + all 14 Wave 0 test stubs
-- [ ] 14.4-02-PLAN.md — Data layer: queries, streak-saver pure module, session-integration extension, userPrefs round-trip
-- [ ] 14.4-03-PLAN.md — Email + cron infra: resend install, auth helper, templates, both cron routes, vercel.json
-- [ ] 14.4-04-PLAN.md — UI surfaces: CoverCard chip, RecentlyMasteredTicker, StreakSaverToast, ProfileForm social toggle
-- [ ] 14.4-05-PLAN.md — Schema push + full test suite + build/lint verification + Vercel plan pre-flight
+- [x] 14.4-01-PLAN.md — Migration 0018 + schema.ts + all 14 Wave 0 test stubs
+- [x] 14.4-02-PLAN.md — Data layer: queries, streak-saver pure module, session-integration extension, userPrefs round-trip
+- [x] 14.4-03-PLAN.md — Email + cron infra: resend install, auth helper, templates, both cron routes, vercel.json
+- [x] 14.4-04-PLAN.md — UI surfaces: CoverCard chip, RecentlyMasteredTicker, StreakSaverToast, ProfileForm social toggle
+- [x] 14.4-05-PLAN.md — Schema push + full test suite + build/lint verification + Vercel plan pre-flight
 
 ### Phase 14.5: Iconography & Brand Revamp
 **Goal**: Replace the brand chrome (logo, favicon, apple-touch-icon, og-image, twitter-image), `/path` tier icons (bamboo / torii / mountain SVGs in TierDivider), and reward/cosmetic badge icons with a unified, locally-generated set using the existing ComfyUI pipeline (FLUX.1-schnell / SDXL — already wired for Phase 11.6 kanji mnemonic images, so zero API spend). Establishes a single iconographic vocabulary across the app while preserving the lantern + fox-mark that just shipped in 14.1.
