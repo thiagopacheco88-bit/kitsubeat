@@ -60,7 +60,7 @@ export default function MasteryDetailPopover({
     if (!open || detail !== null) return;
     setLoading(true);
     setError(false);
-    fetch(`/api/exercises/vocab-mastery/${vocabItemId}?userId=${encodeURIComponent(userId)}`)
+    fetch(`/api/exercises/vocab-mastery/${vocabItemId}`)
       .then((res) => {
         if (!res.ok) throw new Error(`${res.status}`);
         return res.json() as Promise<MasteryDetail>;

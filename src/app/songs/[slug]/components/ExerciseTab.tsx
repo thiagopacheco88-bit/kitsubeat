@@ -348,7 +348,7 @@ export default function ExerciseTab({
         for (let i = 0; i < allVocabIds.length; i += 200) {
           const chunk = allVocabIds.slice(i, i + 200);
           const res = await fetch(
-            `/api/exercises/vocab-tiers?ids=${chunk.join(",")}&userId=${encodeURIComponent(userId)}`
+            `/api/exercises/vocab-tiers?ids=${chunk.join(",")}`
           );
           if (res.ok) {
             const data = (await res.json()) as {

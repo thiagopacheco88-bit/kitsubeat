@@ -1,16 +1,20 @@
 /**
- * GET /api/exercises/vocab-tiers?ids=<uuid1>,<uuid2>,...&userId=<userId>
+ * GET /api/exercises/vocab-tiers?ids=<uuid1>,<uuid2>,...
  *
- * Batch tier loader — accepts up to 200 comma-separated vocab_item UUIDs and
- * a userId, returns { tiers: { [vocabItemId]: 1|2|3 } }.
+ * Batch tier loader — accepts up to 200 comma-separated vocab_item UUIDs,
+ * returns { tiers: { [vocabItemId]: 1|2|3 } }.
  *
  * Cold-start: any ID without a user_vocab_mastery row defaults to Tier 1 (New).
  * Per CONTEXT decision: no backfill — missing row == new word.
  *
  * Cache-Control: private, no-store — ensures paused-tab reloads always re-fetch
  * after a background session has updated mastery state.
+ *
+ * Security (Phase 16 SC-2): userId is derived from Clerk auth() — not from the
+ * query string. Returns 401 if the caller is not authenticated.
  */
 
+import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
@@ -21,14 +25,18 @@ import type { Tier } from "@/lib/fsrs/tier";
 const MAX_IDS = 200;
 
 export async function GET(request: NextRequest) {
+  const { userId } = await auth();
+  if (!userId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { searchParams } = request.nextUrl;
 
   const idsParam = searchParams.get("ids");
-  const userId = searchParams.get("userId");
 
-  if (!idsParam || !userId) {
+  if (!idsParam) {
     return NextResponse.json(
-      { error: "Missing required query parameters: ids, userId" },
+      { error: "Missing required query parameter: ids" },
       { status: 400 }
     );
   }

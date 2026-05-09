@@ -1,5 +1,5 @@
 /**
- * GET /api/exercises/vocab-mastery/[vocabItemId]?userId=<userId>
+ * GET /api/exercises/vocab-mastery/[vocabItemId]
  *
  * Single-vocab mastery detail for the tap-to-inspect feedback panel.
  *
@@ -9,8 +9,12 @@
  * Only returns 404 on a truly malformed route (future-proofed with UUID validation).
  *
  * Cache-Control: private, no-store — ensures stale tabs always re-fetch fresh data.
+ *
+ * Security (Phase 16 SC-2): userId is derived from Clerk auth() — not from the query
+ * string. Returns 401 if the caller is not authenticated.
  */
 
+import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { and, eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
@@ -39,22 +43,18 @@ export async function GET(
   request: NextRequest,
   context: { params: Promise<{ vocabItemId: string }> }
 ) {
+  const { userId } = await auth();
+  if (!userId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const { vocabItemId } = await context.params;
-  const { searchParams } = request.nextUrl;
-  const userId = searchParams.get("userId");
 
   // Validate UUID format
   if (!vocabItemId || !UUID_RE.test(vocabItemId)) {
     return NextResponse.json(
       { error: "Invalid or missing vocabItemId — must be a valid UUID" },
       { status: 404 }
-    );
-  }
-
-  if (!userId) {
-    return NextResponse.json(
-      { error: "Missing required query parameter: userId" },
-      { status: 400 }
     );
   }
 
