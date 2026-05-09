@@ -2,15 +2,18 @@ import { describe, it, expect, vi } from "vitest";
 
 // Mock Upstash before importing rate-limit module
 vi.mock("@upstash/redis", () => ({
-  Redis: vi.fn().mockImplementation(() => ({})),
+  Redis: vi.fn().mockImplementation(function () {
+    return {};
+  }),
 }));
 
-vi.mock("@upstash/ratelimit", () => ({
-  Ratelimit: vi.fn().mockImplementation(({ limiter }: { limiter: unknown }) => ({
-    limit: vi.fn(),
-    limiter,
-  })),
-}));
+vi.mock("@upstash/ratelimit", () => {
+  function MockRatelimit({ limiter }: { limiter: unknown }) {
+    return { limit: vi.fn(), limiter };
+  }
+  MockRatelimit.slidingWindow = vi.fn().mockReturnValue({ type: "slidingWindow" });
+  return { Ratelimit: MockRatelimit };
+});
 
 describe("rate-limit module", () => {
   it("exerciseRatelimit.limit resolves success:true when under threshold", async () => {
