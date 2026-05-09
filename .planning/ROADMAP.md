@@ -602,7 +602,15 @@ Plans:
   3. Secrets scan passes; no secrets in client bundle or git history; .env conventions documented
   4. Rate limits on signup, login, exercise answer submission, and any LLM-proxy endpoint
   5. IR runbook checked in: on-call (you), severity taxonomy, 72h UK-GDPR breach notification timeline, first-response checklist
-**Plans**: TBD
+**Plans**: 7 plans (5 autonomous + 2 human-verify checkpoints)
+Plans:
+- [ ] 16-01-PLAN.md -- Wave 1: test stubs (auth boundary + rate-limit unit tests) + RLS audit script
+- [ ] 16-02-PLAN.md -- Wave 2: Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess) + callers
+- [ ] 16-03-PLAN.md -- Wave 2: Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes
+- [ ] 16-04-PLAN.md -- Wave 3: Rate limiting infra (rate-limit.ts) + apply to 4 endpoints
+- [ ] 16-05-PLAN.md -- Wave 3: RLS migration (drizzle/0020) for all public tables + audit verification
+- [ ] 16-06-PLAN.md -- Wave 3: Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint
+- [ ] 16-07-PLAN.md -- Wave 3: IR runbook (docs/security/IR-RUNBOOK.md) + human approval checkpoint
 
 ### Phase 17: Legal & Copyright Deep-Dive (Research)
 **Goal**: Produce a standalone analysis covering copyright, UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, and EAA as they apply to kitsubeat — enough to implement Phase 18 without a lawyer for v1, with explicit flags on items needing legal consultation later.
