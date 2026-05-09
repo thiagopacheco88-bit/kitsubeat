@@ -93,7 +93,6 @@ export default function QuestionCard({
     void (async () => {
       try {
         const result = await recordVocabAnswer({
-          userId,
           vocabItemId: question.vocabItemId,
           songVersionId,
           exerciseType: question.type,

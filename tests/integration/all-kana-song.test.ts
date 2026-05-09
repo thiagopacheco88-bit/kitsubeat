@@ -19,7 +19,9 @@
  *   - OR runtime error on user_verse_domination / track pct columns
  */
 
-import { describe, it, expect, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
@@ -43,6 +45,10 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
   const SENTINEL = `allkana_${Date.now()}`;
 
   beforeEach(async () => {
+    // Mock Clerk auth() so recordVocabAnswer derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER } as any);
+
     pool = new Pool({ connectionString: process.env.TEST_DATABASE_URL! });
     db = drizzlePool(pool);
     hiraganaVocabIds.length = 0;
@@ -145,7 +151,6 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
       // Answer 5/5 hiragana vocab correctly on romaji_meaning card (100% vocab track)
       for (const id of hiraganaVocabIds) {
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: id,
           songVersionId,
           exerciseType: "vocab_meaning",
@@ -168,7 +173,6 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
     async () => {
       // Verse 1 has only hiragana vocab (no kanji-bearing items) — dominate after 2 vocab correct answers
       await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: hiraganaVocabIds[0],
         songVersionId,
         exerciseType: "vocab_meaning",
@@ -178,7 +182,6 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
         cardKind: "romaji_meaning",
       });
       const result = await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: hiraganaVocabIds[1],
         songVersionId,
         exerciseType: "vocab_meaning",

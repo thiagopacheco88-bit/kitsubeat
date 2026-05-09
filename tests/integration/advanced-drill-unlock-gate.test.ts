@@ -17,11 +17,13 @@
  *   - OR assertion failure: unlock timestamp is null after answering correctly
  */
 
-import { describe, it, expect, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
 import { recordVocabAnswer } from "@/app/actions/exercises";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 
 const HAS_TEST_DB = !!process.env.TEST_DATABASE_URL;
 const describeIfTestDb = HAS_TEST_DB ? describe : describe.skip;
@@ -57,6 +59,10 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
   const SENTINEL = `unlock_${Date.now()}`;
 
   beforeEach(async () => {
+    // Mock Clerk auth() so recordVocabAnswer derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER } as any);
+
     pool = new Pool({ connectionString: process.env.TEST_DATABASE_URL! });
     db = drizzlePool(pool);
     vocabIds.length = 0;
@@ -142,7 +148,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       for (let i = 0; i < 8; i++) {
   
         await recordVocabAnswer({
-          userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
+          vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
           responseTimeMs: 1000,
           cardKind: "romaji_meaning",
@@ -151,7 +157,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       for (let i = 8; i < 10; i++) {
   
         await recordVocabAnswer({
-          userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
+          vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: false, revealedReading: false,
           responseTimeMs: 1000,
           cardKind: "romaji_meaning",
@@ -162,7 +168,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       for (let i = 0; i < 5; i++) {
   
         await recordVocabAnswer({
-          userId: TEST_USER, vocabItemId: kanjiVocabIds[i], songVersionId,
+          vocabItemId: kanjiVocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
           responseTimeMs: 1000,
           cardKind: "kanji_kana",
@@ -170,7 +176,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       }
 
       await recordVocabAnswer({
-        userId: TEST_USER, vocabItemId: kanjiVocabIds[5], songVersionId,
+        vocabItemId: kanjiVocabIds[5], songVersionId,
         exerciseType: "vocab_meaning", correct: false, revealedReading: false,
         responseTimeMs: 1000,
         cardKind: "kanji_kana",
@@ -203,7 +209,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       for (let i = 0; i < 8; i++) {
   
         await recordVocabAnswer({
-          userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
+          vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
           responseTimeMs: 1000,
           cardKind: "romaji_meaning",
@@ -212,7 +218,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       for (let i = 8; i < 10; i++) {
   
         await recordVocabAnswer({
-          userId: TEST_USER, vocabItemId: vocabIds[i], songVersionId,
+          vocabItemId: vocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: false, revealedReading: false,
           responseTimeMs: 1000,
           cardKind: "romaji_meaning",
@@ -221,7 +227,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       for (let i = 0; i < 5; i++) {
   
         await recordVocabAnswer({
-          userId: TEST_USER, vocabItemId: kanjiVocabIds[i], songVersionId,
+          vocabItemId: kanjiVocabIds[i], songVersionId,
           exerciseType: "vocab_meaning", correct: true, revealedReading: false,
           responseTimeMs: 1000,
           cardKind: "kanji_kana",
@@ -230,7 +236,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       // Initial 5/6 correct = 83.33% → unlocked
 
       await recordVocabAnswer({
-        userId: TEST_USER, vocabItemId: kanjiVocabIds[5], songVersionId,
+        vocabItemId: kanjiVocabIds[5], songVersionId,
         exerciseType: "vocab_meaning", correct: false, revealedReading: false,
         responseTimeMs: 1000,
         cardKind: "kanji_kana",
@@ -250,7 +256,7 @@ describeIfTestDb("SPEC-REQ-10: advanced drills unlock gate (80%×3 threshold)", 
       // This drops kanji pct from 5/6 to 4/6 = 66.67%
 
       await recordVocabAnswer({
-        userId: TEST_USER, vocabItemId: kanjiVocabIds[4], songVersionId,
+        vocabItemId: kanjiVocabIds[4], songVersionId,
         exerciseType: "vocab_meaning", correct: false, revealedReading: false,
         responseTimeMs: 1000,
         cardKind: "kanji_kana",

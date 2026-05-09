@@ -94,7 +94,6 @@ export default function ReviewQuestionCard({
     void (async () => {
       try {
         await recordReviewAnswer({
-          userId,
           vocabItemId: question.vocabItemId,
           exerciseType, // already excludes fill_lyric at type level
           cardKind,     // Phase 11.6: thread through to keyed (user_id, vocab_item_id, card_kind) upsert

@@ -6,8 +6,10 @@
  * pattern established in Phase 08.1-03 integration tests.
  */
 
-import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { describe, it, expect, beforeAll, afterAll, vi } from "vitest";
 import { sql } from "drizzle-orm";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 
 const HAS_TEST_DB = !!process.env.TEST_DATABASE_URL;
 const describeIfTestDb = HAS_TEST_DB ? describe : describe.skip;
@@ -19,6 +21,10 @@ describeIfTestDb("recordVocabAnswer", () => {
   let db: Awaited<typeof import("@/lib/db/index")>["db"];
 
   beforeAll(async () => {
+    // Mock Clerk auth() to return our test userId so recordVocabAnswer can derive it server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId } as any);
+
     // Import db after setup.ts has swapped DATABASE_URL → TEST_DATABASE_URL
     const dbModule = await import("@/lib/db/index");
     db = dbModule.db;
@@ -59,7 +65,6 @@ describeIfTestDb("recordVocabAnswer", () => {
     const { recordVocabAnswer } = await import("../exercises");
 
     const result = await recordVocabAnswer({
-      userId,
       vocabItemId,
       songVersionId: null,
       exerciseType: "vocab_meaning",
@@ -102,7 +107,6 @@ describeIfTestDb("recordVocabAnswer", () => {
 
     await expect(
       recordVocabAnswer({
-        userId,
         vocabItemId: "",
         songVersionId: null,
         exerciseType: "vocab_meaning",
@@ -116,7 +120,6 @@ describeIfTestDb("recordVocabAnswer", () => {
     const { recordVocabAnswer } = await import("../exercises");
 
     const result = await recordVocabAnswer({
-      userId,
       vocabItemId,
       songVersionId: null,
       exerciseType: "meaning_vocab",

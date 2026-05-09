@@ -13,7 +13,9 @@
  *   - OR runtime error: "column card_kind does not exist"
  */
 
-import { describe, it, expect, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
@@ -36,6 +38,10 @@ describeIfTestDb("SPEC-REQ-4: dual FSRS cards per vocab item (cardKind branching
   const TEST_USER = "test-user-cardkind-11-6";
 
   beforeEach(async () => {
+    // Mock Clerk auth() so recordVocabAnswer derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER } as any);
+
     pool = new Pool({ connectionString: process.env.TEST_DATABASE_URL! });
     db = drizzlePool(pool);
     fixtures = await seedDualCardFixtures(db, TEST_USER);
@@ -64,7 +70,6 @@ describeIfTestDb("SPEC-REQ-4: dual FSRS cards per vocab item (cardKind branching
     async () => {
       // GREEN (11.6-05): cardKind is now part of RecordAnswerInput
       await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",
@@ -75,7 +80,6 @@ describeIfTestDb("SPEC-REQ-4: dual FSRS cards per vocab item (cardKind branching
       });
 
       await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",

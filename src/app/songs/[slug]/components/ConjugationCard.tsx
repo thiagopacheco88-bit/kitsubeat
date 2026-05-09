@@ -91,7 +91,6 @@ export default function ConjugationCard({
     void (async () => {
       try {
         const result = await recordVocabAnswer({
-          userId,
           vocabItemId: question.vocabItemId,
           songVersionId,
           exerciseType: question.type,

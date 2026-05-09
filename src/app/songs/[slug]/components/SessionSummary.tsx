@@ -119,7 +119,6 @@ export default function SessionSummary({
           }));
 
         const result = await saveSessionResults({
-          userId,
           songVersionId,
           songSlug,
           answers: answerArray,

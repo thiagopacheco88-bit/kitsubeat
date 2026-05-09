@@ -156,7 +156,6 @@ export default function ListeningDrillCard({
     void (async () => {
       try {
         const result = await recordVocabAnswer({
-          userId,
           vocabItemId: question.vocabItemId,
           songVersionId,
           exerciseType: question.type,

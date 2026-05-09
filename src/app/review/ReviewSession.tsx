@@ -288,7 +288,6 @@ export default function ReviewSession({ userId, vocabData, jlptPools = {}, onBac
             void (async () => {
               try {
                 await recordReviewAnswer({
-                  userId,
                   vocabItemId: currentItem.vocab_item_id,
                   exerciseType: currentItem.exerciseType,
                   cardKind: currentItem.card_kind,

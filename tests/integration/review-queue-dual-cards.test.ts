@@ -11,7 +11,9 @@
  *   - getDueReviewQueue SELECT includes card_kind
  */
 
-import { describe, it, expect, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
@@ -39,6 +41,10 @@ describeIfTestDb(
     let fixtures: DualCardFixtures;
 
     beforeEach(async () => {
+      // Mock Clerk auth() so recordReviewAnswer derives userId from auth() server-side
+      const { auth } = await import("@clerk/nextjs/server");
+      vi.mocked(auth).mockResolvedValue({ userId: TEST_USER } as any);
+
       pool = new Pool({ connectionString: process.env.TEST_DATABASE_URL! });
       db = drizzlePool(pool);
       fixtures = await seedDualCardFixtures(db, TEST_USER);
@@ -130,7 +136,6 @@ describeIfTestDb(
         for (let i = 0; i < 5; i++) {
           const cardKind = i % 2 === 0 ? "romaji_meaning" : "kanji_kana";
           await recordReviewAnswer({
-            userId: TEST_USER,
             vocabItemId: fixtures.kanjiVocabId,
             exerciseType: "vocab_meaning",
             cardKind,
@@ -151,7 +156,6 @@ describeIfTestDb(
         // 6th call with isNew=true should be rejected
         await expect(
           recordReviewAnswer({
-            userId: TEST_USER,
             vocabItemId: fixtures.kanjiVocabId,
             exerciseType: "vocab_meaning",
             cardKind: "kanji_kana",
@@ -174,7 +178,6 @@ describeIfTestDb(
         `);
 
         await recordReviewAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           exerciseType: "vocab_meaning",
           cardKind: "kanji_kana",

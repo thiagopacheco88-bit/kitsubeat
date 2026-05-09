@@ -15,11 +15,13 @@
  * Run: TEST_DATABASE_URL=... npm run test:integration -- tests/integration/gamification.test.ts
  */
 
-import { describe, it, expect, beforeAll, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeAll, beforeEach, afterAll, vi } from "vitest";
 import { sql } from "drizzle-orm";
 import { saveSessionResults } from "@/app/actions/exercises";
 import { setStarterSong } from "@/app/actions/gamification";
 import { getTestDb, resetTestProgress, TEST_USER_ID } from "../support/test-db";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 
 const HAS_TEST_DB = !!process.env.TEST_DATABASE_URL;
 const describeIfTestDb = HAS_TEST_DB ? describe : describe.skip;
@@ -146,6 +148,10 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
   let songSlugBasicSecond: string; // the slug that follows songSlugBasic in path order
 
   beforeAll(async () => {
+    // Mock Clerk auth() so saveSessionResults derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: GAMIFICATION_TEST_USER } as any);
+
     const db = getTestDb();
 
     // Acquire a song_version row with lesson data for FK-valid calls.
@@ -209,7 +215,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
 
   it("TC1 — XP increment: session writes xp_total > 0 and matches calculateXp math", async () => {
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",
@@ -253,7 +258,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
     });
 
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",
@@ -287,7 +291,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
     });
 
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",
@@ -319,7 +322,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
     });
 
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",
@@ -352,7 +354,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
     // dailyFirst=true → 21 * 1.5 = 31 (floor)
     // 31 XP pushes 95 + 31 = 126 → level 2 (threshold at 100)
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",
@@ -389,7 +390,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
 
     // Call with a DIFFERENT slug → no path advance
     const result1 = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasicSecond, // NOT the current node
       mode: "short",
@@ -406,7 +406,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
 
     // Call with the CURRENT node → should advance
     const result2 = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic, // the current node
       mode: "short",
@@ -423,7 +422,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
 
     // Call AGAIN with the OLD current node → no advance (M7 idempotent)
     const result3 = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic, // no longer the current node
       mode: "short",
@@ -454,7 +452,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
     // Headroom to cap: 250 - 240 = 10 → first 10 XP at 100%, remaining 21 at 25% = 5
     // xpAfterCap = 10 + floor(21 * 0.25) = 10 + 5 = 15
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",
@@ -504,7 +501,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
     await db.execute(sql`DELETE FROM reward_slot_definitions`);
 
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",
@@ -546,7 +542,6 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
     });
 
     const result = await saveSessionResults({
-      userId: GAMIFICATION_TEST_USER,
       songVersionId,
       songSlug: songSlugBasic,
       mode: "short",

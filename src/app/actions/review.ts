@@ -22,6 +22,7 @@
 import { z } from "zod";
 import { sql } from "drizzle-orm";
 import { db } from "@/lib/db";
+import { auth } from "@clerk/nextjs/server";
 import { recordVocabAnswer } from "@/app/actions/exercises";
 import { isPremium } from "@/app/actions/userPrefs";
 import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
@@ -136,7 +137,6 @@ export async function startReviewSession(userId: string): Promise<
  * @param input.isNew  true = this card came from the new-card bucket; triggers budget accounting.
  */
 export async function recordReviewAnswer(input: {
-  userId: string;
   vocabItemId: string;
   exerciseType: Exclude<ExerciseType, "fill_lyric">;
   /** Phase 11.6 NEW (SPEC R17): which FSRS card track is being answered.
@@ -148,7 +148,10 @@ export async function recordReviewAnswer(input: {
   responseTimeMs: number;
   isNew: boolean;
 }) {
-  const premium = await isPremium(input.userId);
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+
+  const premium = await isPremium(userId);
   if (!premium) throw new Error("premium_required");
 
   // Phase 11.6: Zod-validate cardKind at server-action boundary (T-11.6-10-01).
@@ -161,7 +164,7 @@ export async function recordReviewAnswer(input: {
   // A race-safe server-side check — the UI should stop serving new cards
   // once budget hits zero, but this is the source of truth.
   if (input.isNew) {
-    const budget = await consumeNewCardBudget(input.userId);
+    const budget = await consumeNewCardBudget(userId);
     if (!budget.allowed) {
       throw new Error("daily_new_card_cap_reached");
     }
@@ -171,7 +174,6 @@ export async function recordReviewAnswer(input: {
   // songVersionId=null is explicitly supported by recordVocabAnswer.
   // cardKind is threaded through to key the (user_id, vocab_item_id, card_kind) upsert.
   return recordVocabAnswer({
-    userId: input.userId,
     vocabItemId: input.vocabItemId,
     songVersionId: null,
     exerciseType: input.exerciseType,

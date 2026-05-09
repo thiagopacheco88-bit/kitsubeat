@@ -219,7 +219,6 @@ test.describe("Regression: premium gate bypass attempts", () => {
     let threw: unknown = null;
     try {
       await recordVocabAnswer({
-        userId: testUser,
         vocabItemId,
         songVersionId: song.songVersionId,
         exerciseType: "listening_drill",

@@ -31,7 +31,9 @@
  *      feature flags directly"
  */
 
-import { describe, it, expect, beforeAll } from "vitest";
+import { describe, it, expect, beforeAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { readdir, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
@@ -257,6 +259,10 @@ describeIfTestDb(
     let songVersionId: string;
 
     beforeAll(async () => {
+      // Mock Clerk auth() so saveSessionResults derives userId from auth() server-side
+      const { auth } = await import("@clerk/nextjs/server");
+      vi.mocked(auth).mockResolvedValue({ userId: TEST_USER_ID } as any);
+
       const db = getTestDb();
       const raw = (await db.execute(sql`
         SELECT id::text AS id
@@ -286,7 +292,6 @@ describeIfTestDb(
         const ORPHAN = "99999999-9999-9999-9999-999999999999";
 
         const result = await saveSessionResults({
-          userId: TEST_USER_ID,
           songVersionId,
           mode: "short",
           durationMs: 30_000,

@@ -11,7 +11,9 @@
  *   - The verse-domination tipping logic is implemented
  */
 
-import { describe, it, expect, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
@@ -33,6 +35,10 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
   const TEST_USER = "test-user-versedom-11-6";
 
   beforeEach(async () => {
+    // Mock Clerk auth() so recordVocabAnswer derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER } as any);
+
     pool = new Pool({ connectionString: process.env.TEST_DATABASE_URL! });
     db = drizzlePool(pool);
     fixtures = await seedDualCardFixtures(db, TEST_USER);
@@ -68,7 +74,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
       // We answer only the vocab card (romaji_meaning) — not the grammar, not the kanji card
 
       await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",
@@ -101,7 +106,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
       // (no song_version_grammar_rules row for the lesson JSONB grammar point)
 
       const result1 = await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",
@@ -112,7 +116,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
       });
 
       const result2 = await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",
@@ -149,7 +152,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
     async () => {
       // First dominate the verse
       await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",
@@ -159,7 +161,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
         cardKind: "romaji_meaning",
       });
       await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",
@@ -183,7 +184,6 @@ describeIfTestDb("SPEC-REQ-13 + SPEC-REQ-15: verse domination idempotency", () =
 
       // Now re-answer one of the items
       const reResult = await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: fixtures.kanjiVocabId,
         songVersionId: fixtures.songVersionId,
         exerciseType: "vocab_meaning",

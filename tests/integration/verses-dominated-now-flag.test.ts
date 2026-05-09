@@ -20,7 +20,9 @@
  *   - OR assertion failure: response shape missing new fields
  */
 
-import { describe, it, expect, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
@@ -73,6 +75,10 @@ describeIfTestDb(
     const TEST_USER = "test-user-vdnow-11-6";
 
     beforeEach(async () => {
+      // Mock Clerk auth() so recordVocabAnswer derives userId from auth() server-side
+      const { auth } = await import("@clerk/nextjs/server");
+      vi.mocked(auth).mockResolvedValue({ userId: TEST_USER } as any);
+
       pool = new Pool({ connectionString: process.env.TEST_DATABASE_URL! });
       db = drizzlePool(pool);
       fixtures = await seedDualCardFixtures(db, TEST_USER);
@@ -125,7 +131,6 @@ describeIfTestDb(
         // Answering only hiraganaVocabId romaji_meaning should NOT dominate verse 1
 
         const response = (await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -151,7 +156,6 @@ describeIfTestDb(
 
         // Step 1: answer hiraganaVocabId romaji_meaning correctly
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -163,7 +167,6 @@ describeIfTestDb(
 
         // Step 2: answer kanjiVocabId romaji_meaning correctly
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -175,7 +178,6 @@ describeIfTestDb(
 
         // Step 3: tipping answer — kanjiVocabId kanji_kana correctly (completes verse 1)
         const tippingResult = (await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -207,7 +209,6 @@ describeIfTestDb(
       async () => {
         // First dominate verse 1
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -217,7 +218,6 @@ describeIfTestDb(
           cardKind: "romaji_meaning",
         });
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -227,7 +227,6 @@ describeIfTestDb(
           cardKind: "romaji_meaning",
         });
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -239,7 +238,6 @@ describeIfTestDb(
 
         // Now revisit — re-answer the same vocab
         const revisitResult = (await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -260,7 +258,6 @@ describeIfTestDb(
       async () => {
         // Answer hiraganaVocabId correctly but kanjiVocabId incorrectly
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -271,7 +268,6 @@ describeIfTestDb(
         });
 
         const incorrectResult = (await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.kanjiVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",
@@ -359,7 +355,6 @@ describeIfTestDb(
           // Answer 4/5 vocab correctly → 80% vocab track → should unlock
           for (let i = 0; i < 4; i++) {
                 await recordVocabAnswer({
-              userId: TEST_USER,
               vocabItemId: vocabIds[i],
               songVersionId: testSongVersionId,
               exerciseType: "vocab_meaning",
@@ -374,7 +369,6 @@ describeIfTestDb(
           // Since grammar=null→100% auto-pass, kanji=null→100% auto-pass,
           // and this brings vocab to 100%, unlock should fire.
             const tippingResult = (await recordVocabAnswer({
-            userId: TEST_USER,
             vocabItemId: vocabIds[4],
             songVersionId: testSongVersionId,
             exerciseType: "vocab_meaning",
@@ -393,7 +387,6 @@ describeIfTestDb(
 
           // Re-answer after unlock — must be false (already unlocked, no transition)
             const reResult = (await recordVocabAnswer({
-            userId: TEST_USER,
             vocabItemId: vocabIds[0],
             songVersionId: testSongVersionId,
             exerciseType: "vocab_meaning",
@@ -437,7 +430,6 @@ describeIfTestDb(
       "Test 6: trackPct return matches live user_song_progress row after answer",
       async () => {
         const response = (await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: fixtures.hiraganaVocabId,
           songVersionId: fixtures.songVersionId,
           exerciseType: "vocab_meaning",

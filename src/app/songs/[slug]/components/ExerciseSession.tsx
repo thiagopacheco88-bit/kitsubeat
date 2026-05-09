@@ -205,7 +205,6 @@ export default function ExerciseSession({
     void (async () => {
       try {
         const result = await recordVocabAnswer({
-          userId,
           vocabItemId: current.vocabItemId,
           songVersionId,
           exerciseType: current.type,

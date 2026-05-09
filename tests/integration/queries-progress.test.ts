@@ -24,7 +24,9 @@
  *   - TEST_DATABASE_URL must be set (DB redirect happens in tests/integration/setup.ts)
  */
 
-import { describe, it, expect, beforeAll, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeAll, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import {
   getUserSongProgress,
@@ -72,7 +74,6 @@ async function primeProgress(opts: {
         }));
 
   await saveSessionResults({
-    userId: TEST_USER_ID,
     songVersionId: opts.songVersionId,
     mode: "short",
     durationMs: 60_000,
@@ -85,6 +86,10 @@ describeIfTestDb("queries.ts — progress reads + star derivation", () => {
   let secondSongVersionId: string;
 
   beforeAll(async () => {
+    // Mock Clerk auth() so saveSessionResults derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER_ID } as any);
+
     const db = getTestDb();
     const raw = (await db.execute(sql`
       SELECT id::text AS id

@@ -21,7 +21,9 @@
  *   - TEST_DATABASE_URL must be set (DB redirect happens in tests/integration/setup.ts)
  */
 
-import { describe, it, expect, beforeAll, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeAll, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { saveSessionResults } from "@/app/actions/exercises";
 import {
@@ -64,6 +66,10 @@ describeIfTestDb("saveSessionResults", () => {
   let songVersionId: string;
 
   beforeAll(async () => {
+    // Mock Clerk auth() so saveSessionResults derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER_ID } as any);
+
     // Pick any seeded song_versions row that has lesson data — saveSessionResults
     // does not actually consume the lesson, but using a real id keeps the FK
     // constraint happy and lines up with how the app calls it.
@@ -94,7 +100,6 @@ describeIfTestDb("saveSessionResults", () => {
 
   it("first call: all-correct vocab + fill_lyric → stars=2, completion=15", async () => {
     const result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,
@@ -121,7 +126,6 @@ describeIfTestDb("saveSessionResults", () => {
   it("second call with LOWER accuracy: GREATEST keeps prior best, sessions++, completion=30", async () => {
     // First: perfect run.
     await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,
@@ -134,7 +138,6 @@ describeIfTestDb("saveSessionResults", () => {
 
     // Second: 50% on each group — must NOT lower the stored best accuracy.
     const result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,
@@ -160,7 +163,6 @@ describeIfTestDb("saveSessionResults", () => {
 
   it("first call with ONLY ex1_2_3 answers (no fill_lyric) → stars=1, ex4=NULL", async () => {
     const result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,
@@ -181,7 +183,6 @@ describeIfTestDb("saveSessionResults", () => {
   it("second call adds 90% fill_lyric → stars 1→2, previousStars=1, ex4=0.9", async () => {
     // First: only ex1_2_3 (perfect) — earns 1 star.
     await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,
@@ -200,7 +201,6 @@ describeIfTestDb("saveSessionResults", () => {
     }));
 
     const result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,
@@ -227,7 +227,6 @@ describeIfTestDb("saveSessionResults", () => {
 
     // 1st call: 30
     let result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "full",
       durationMs: 60_000,
@@ -237,7 +236,6 @@ describeIfTestDb("saveSessionResults", () => {
 
     // 2nd call: 60
     result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "full",
       durationMs: 60_000,
@@ -247,7 +245,6 @@ describeIfTestDb("saveSessionResults", () => {
 
     // 3rd call: 90
     result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "full",
       durationMs: 60_000,
@@ -257,7 +254,6 @@ describeIfTestDb("saveSessionResults", () => {
 
     // 4th call: would be 120 — cap to 100.
     result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "full",
       durationMs: 60_000,
@@ -267,7 +263,6 @@ describeIfTestDb("saveSessionResults", () => {
 
     // 5th call: stays at 100.
     result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "full",
       durationMs: 60_000,
@@ -300,7 +295,6 @@ describeIfTestDb("saveSessionResults", () => {
     ];
 
     const result = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,
@@ -324,7 +318,6 @@ describeIfTestDb("saveSessionResults", () => {
     // ONLY unknown-type answers → both group accuracies stay NULL, stars=0,
     // but the row still gets inserted (sessions_completed=1, completion_pct=15).
     const onlyUnknown = await saveSessionResults({
-      userId: TEST_USER_ID,
       songVersionId,
       mode: "short",
       durationMs: 60_000,

@@ -18,7 +18,9 @@
  *   - OR assertion failure: values are null after recording answers
  */
 
-import { describe, it, expect, beforeEach, afterAll } from "vitest";
+import { describe, it, expect, beforeEach, afterAll, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 import { sql } from "drizzle-orm";
 import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
@@ -68,6 +70,10 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
   const SENTINEL = `3ring_${Date.now()}`;
 
   beforeEach(async () => {
+    // Mock Clerk auth() so recordVocabAnswer derives userId from auth() server-side
+    const { auth } = await import("@clerk/nextjs/server");
+    vi.mocked(auth).mockResolvedValue({ userId: TEST_USER } as any);
+
     pool = new Pool({ connectionString: process.env.TEST_DATABASE_URL! });
     db = drizzlePool(pool);
 
@@ -174,7 +180,6 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
       for (let i = 0; i < 8; i++) {
 
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: vocabIds[i],
           songVersionId,
           exerciseType: "vocab_meaning",
@@ -188,7 +193,6 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
       for (let i = 8; i < 10; i++) {
 
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: vocabIds[i],
           songVersionId,
           exerciseType: "vocab_meaning",
@@ -203,7 +207,6 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
       for (let i = 0; i < 5; i++) {
 
         await recordVocabAnswer({
-          userId: TEST_USER,
           vocabItemId: kanjiVocabIds[i],
           songVersionId,
           exerciseType: "vocab_meaning",
@@ -216,7 +219,6 @@ describeIfTestDb("SPEC-REQ-10/11: three-ring per-track-pct server-side recompute
       // 1 kanji incorrect
 
       await recordVocabAnswer({
-        userId: TEST_USER,
         vocabItemId: kanjiVocabIds[5],
         songVersionId,
         exerciseType: "vocab_meaning",
