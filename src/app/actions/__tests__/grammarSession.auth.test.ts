@@ -19,7 +19,7 @@ describe("grammarSession - auth boundary", () => {
     // After Wave 2 fix: startGrammarSession derives userId from auth() and throws Unauthorized if null.
     // Currently FAILS because function uses caller-supplied userId param.
     await expect(
-      startGrammarSession("test-song-version-id", "rule-1")
+      startGrammarSession("test-song-version-id")
     ).rejects.toThrow("Unauthorized");
   });
 });

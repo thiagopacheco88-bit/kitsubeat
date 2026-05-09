@@ -63,7 +63,7 @@ export default function GrammarSessionRunner({
     let cancelled = false;
     (async () => {
       try {
-        const questions = await startGrammarSession(userId, songVersionId, 10);
+        const questions = await startGrammarSession(songVersionId, 10);
         if (cancelled) return;
         if (questions.length === 0) {
           setState({
@@ -100,7 +100,6 @@ export default function GrammarSessionRunner({
       try {
         const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
         const result = await saveGrammarSessionResults({
-          userId,
           songVersionId,
           songSlug,
           answers: finalAnswers,

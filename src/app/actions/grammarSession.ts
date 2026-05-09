@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "@clerk/nextjs/server";
 import { and, asc, eq, inArray, notInArray, sql } from "drizzle-orm";
 import { db } from "@/lib/db/index";
 import {
@@ -116,10 +117,11 @@ function serializeExercise(
  * bank has nothing new to offer.
  */
 export async function startGrammarSession(
-  userId: string,
   songVersionId: string,
   limit: number = DEFAULT_QUESTION_COUNT
 ): Promise<GrammarSessionQuestion[]> {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
   const rulesForSong = await getGrammarSessionRules(userId, songVersionId);
   if (rulesForSong.length === 0) return [];
 
@@ -258,7 +260,6 @@ export interface GrammarAnswerRecord {
 }
 
 export interface SaveGrammarSessionInput {
-  userId: string;
   songVersionId: string;
   songSlug: string;
   answers: GrammarAnswerRecord[];
@@ -292,7 +293,9 @@ export interface SaveGrammarSessionResult {
 export async function saveGrammarSessionResults(
   input: SaveGrammarSessionInput
 ): Promise<SaveGrammarSessionResult> {
-  const { userId, songVersionId, songSlug, answers, tz = "UTC" } = input;
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
+  const { songVersionId, songSlug, answers, tz = "UTC" } = input;
 
   // --- 1. Accuracy ---
   const correct = answers.filter((a) => a.correct).length;
