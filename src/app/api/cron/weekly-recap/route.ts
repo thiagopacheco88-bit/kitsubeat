@@ -22,14 +22,15 @@ import { clerkClient } from "@clerk/nextjs/server";
 export const dynamic = "force-dynamic";
 export const maxDuration = 300; // D-04: explicit budget declaration
 
+// ISO 8601: week 1 is the week containing the first Thursday of the year.
+// Shift to Thursday-based reckoning, then divide by 7.
 function getISOWeekKey(date: Date): string {
-  const year = date.getUTCFullYear();
-  const startOfYear = new Date(Date.UTC(year, 0, 1));
-  const dayOfYear = Math.ceil(
-    (date.getTime() - startOfYear.getTime()) / 86400000
-  );
-  const weekNum = Math.ceil((dayOfYear + startOfYear.getUTCDay()) / 7);
-  return `${year}-W${String(weekNum).padStart(2, "0")}`;
+  const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  // Thursday of the current week (ISO week starts Monday, Thursday is day 4)
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const weekNum = Math.ceil(((d.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
+  return `${d.getUTCFullYear()}-W${String(weekNum).padStart(2, "0")}`;
 }
 
 export async function GET(request: NextRequest) {
