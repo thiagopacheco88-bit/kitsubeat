@@ -25,6 +25,7 @@ import type { GamificationResult } from "@/lib/gamification/session-integration"
 import { STARTER_SONG_SLUGS } from "@/lib/gamification/starter-songs";
 import { getPostHogServer } from "@/lib/posthog-server";
 import { auth } from "@clerk/nextjs/server";
+import { exerciseRatelimit, sessionRatelimit } from "@/lib/rate-limit";
 
 // ---------------------------------------------------------------------------
 // Phase 10 Plan 06 — Advanced Drills access summary (server action).
@@ -222,6 +223,11 @@ export async function saveSessionResults(
 ): Promise<SaveSessionResult> {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
+
+  // Rate limit: 10 session saves/min per user (Phase 16 SC-4)
+  const { success: rlSuccess } = await sessionRatelimit.limit(userId);
+  if (!rlSuccess) throw new Error("Rate limit exceeded. Please slow down.");
+
   const { songVersionId, songSlug = "", answers, mode, tz = "UTC" } = input;
 
   // --- Step 1: Split answers by group ---
@@ -733,6 +739,11 @@ export async function recordVocabAnswer(
 ): Promise<RecordAnswerResult> {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
+
+  // Rate limit: 120 answers/min per user (Phase 16 SC-4)
+  const { success: rlSuccess } = await exerciseRatelimit.limit(userId);
+  if (!rlSuccess) throw new Error("Rate limit exceeded. Please slow down.");
+
   const { vocabItemId, songVersionId, exerciseType, correct, revealedReading, responseTimeMs } = input;
 
   // Phase 11.6: Zod-validate cardKind at server-action boundary (Threat T-11.6-05-01).

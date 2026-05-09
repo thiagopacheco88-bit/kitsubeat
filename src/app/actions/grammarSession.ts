@@ -1,6 +1,7 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
+import { llmRatelimit } from "@/lib/rate-limit";
 import { and, asc, eq, inArray, notInArray, sql } from "drizzle-orm";
 import { db } from "@/lib/db/index";
 import {
@@ -122,6 +123,11 @@ export async function startGrammarSession(
 ): Promise<GrammarSessionQuestion[]> {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
+
+  // Rate limit: 10 LLM calls/min per user (Phase 16 SC-4)
+  const { success } = await llmRatelimit.limit(userId);
+  if (!success) throw new Error("AI rate limit exceeded - try again in a moment");
+
   const rulesForSong = await getGrammarSessionRules(userId, songVersionId);
   if (rulesForSong.length === 0) return [];
 

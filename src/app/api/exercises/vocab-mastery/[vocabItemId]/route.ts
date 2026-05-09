@@ -16,6 +16,7 @@
 
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
+import { exerciseRatelimit } from "@/lib/rate-limit";
 import { and, eq, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { userVocabMastery, userExerciseLog } from "@/lib/db/schema";
@@ -46,6 +47,23 @@ export async function GET(
   const { userId } = await auth();
   if (!userId) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  // Rate limit: 120/min per user (Phase 16 SC-4)
+  const { success, limit, remaining, reset } = await exerciseRatelimit.limit(userId);
+  if (!success) {
+    return NextResponse.json(
+      { error: "Too many requests" },
+      {
+        status: 429,
+        headers: {
+          "X-RateLimit-Limit": limit.toString(),
+          "X-RateLimit-Remaining": remaining.toString(),
+          "X-RateLimit-Reset": reset.toString(),
+          "Retry-After": Math.ceil((reset - Date.now()) / 1000).toString(),
+        },
+      }
+    );
   }
 
   const { vocabItemId } = await context.params;
