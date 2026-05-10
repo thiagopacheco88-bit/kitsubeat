@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import type { Metadata } from 'next';
 import {
   getAllArticles,
@@ -29,10 +30,16 @@ export async function generateMetadata({
 
   const { frontmatter } = await compileMDX<ArticleFrontmatter>({
     source,
-    options: { parseFrontmatter: true },
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
   });
 
   const canonicalUrl = `${BASE_URL}/journal/${slug}`;
+
+  const coverImageUrl = frontmatter.coverImage
+    ? frontmatter.coverImage.startsWith('/')
+      ? `${BASE_URL}${frontmatter.coverImage}`
+      : frontmatter.coverImage
+    : undefined;
 
   return {
     title: `${frontmatter.title} | KitsuBeat Journal`,
@@ -42,17 +49,15 @@ export async function generateMetadata({
       title: frontmatter.title,
       description: frontmatter.summary,
       url: canonicalUrl,
-      images: frontmatter.coverImage
-        ? [
-            {
-              url: frontmatter.coverImage.startsWith('/')
-                ? `${BASE_URL}${frontmatter.coverImage}`
-                : frontmatter.coverImage,
-            },
-          ]
-        : [],
+      images: coverImageUrl ? [{ url: coverImageUrl }] : [],
       type: 'article',
       publishedTime: frontmatter.date,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.title,
+      description: frontmatter.summary,
+      images: coverImageUrl ? [coverImageUrl] : [],
     },
   };
 }
@@ -72,7 +77,87 @@ export default async function ArticlePage({
   // parseFrontmatter: true avoids a separate gray-matter call here.
   const { content, frontmatter } = await compileMDX<ArticleFrontmatter>({
     source,
-    options: { parseFrontmatter: true },
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+    components: {
+      h2: (props) => (
+        <h2
+          style={{
+            fontSize: '1.45rem',
+            fontWeight: 700,
+            lineHeight: 1.3,
+            marginTop: '2.5rem',
+            marginBottom: '0.75rem',
+            color: 'var(--color-text)',
+            borderLeft: '3px solid var(--color-accent)',
+            paddingLeft: '0.75rem',
+          }}
+          {...props}
+        />
+      ),
+      h3: (props) => (
+        <h3
+          style={{
+            fontSize: '1.1rem',
+            fontWeight: 700,
+            lineHeight: 1.4,
+            marginTop: '1.75rem',
+            marginBottom: '0.5rem',
+            color: 'var(--color-accent-readable)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+          }}
+          {...props}
+        />
+      ),
+      p: (props) => (
+        <p style={{ marginBottom: '1rem' }} {...props} />
+      ),
+      table: (props) => (
+        <div className="overflow-x-auto my-6">
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.95em' }} {...props} />
+        </div>
+      ),
+      thead: (props) => (
+        <thead style={{ backgroundColor: 'var(--color-surface, rgba(255,255,255,0.06))' }} {...props} />
+      ),
+      th: (props) => (
+        <th style={{ padding: '10px 16px', textAlign: 'left', fontWeight: 600, border: '1px solid var(--color-border, rgba(255,255,255,0.15))' }} {...props} />
+      ),
+      td: (props) => (
+        <td style={{ padding: '8px 16px', border: '1px solid var(--color-border, rgba(255,255,255,0.15))' }} {...props} />
+      ),
+      img: (props) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          alt={props.alt ?? ''}
+          style={{ width: '100%', height: 'auto', borderRadius: '8px', margin: '24px 0', display: 'block' }}
+          {...props}
+        />
+      ),
+      blockquote: (props) => (
+        <blockquote
+          style={{
+            borderLeft: '4px solid var(--color-accent)',
+            margin: '2rem 0',
+            padding: '1rem 1.25rem',
+            backgroundColor: 'var(--color-surface, rgba(255,255,255,0.04))',
+            borderRadius: '0 8px 8px 0',
+            fontStyle: 'normal',
+          }}
+          {...props}
+        />
+      ),
+      a: ({ href, children, ...props }) => (
+        <a
+          href={href}
+          style={{ color: 'var(--color-accent-readable)', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+          {...(href?.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          {...props}
+        >
+          {children}
+        </a>
+      ),
+    },
   });
 
   // Build ArticleMeta for ArticleHero (readingTimeComputed may come from frontmatter)
@@ -81,6 +166,12 @@ export default async function ArticlePage({
     readingTimeComputed: frontmatter.readingTime ?? '5 min read',
   };
 
+  const coverImageUrl = frontmatter.coverImage
+    ? frontmatter.coverImage.startsWith('/')
+      ? `${BASE_URL}${frontmatter.coverImage}`
+      : frontmatter.coverImage
+    : undefined;
+
   // JSON-LD: schema.org/Article structured data for search engines
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -88,21 +179,54 @@ export default async function ArticlePage({
     headline: frontmatter.title,
     description: frontmatter.summary,
     datePublished: frontmatter.date,
-    image: frontmatter.coverImage
-      ? frontmatter.coverImage.startsWith('/')
-        ? `${BASE_URL}${frontmatter.coverImage}`
-        : frontmatter.coverImage
-      : undefined,
+    dateModified: frontmatter.date,
+    inLanguage: 'en',
+    articleSection: frontmatter.category,
+    image: coverImageUrl,
     url: `${BASE_URL}/journal/${slug}`,
     author: {
       '@type': 'Organization',
       name: frontmatter.author ?? 'KitsuBeat',
+      url: BASE_URL,
     },
     publisher: {
       '@type': 'Organization',
       name: 'KitsuBeat',
       url: BASE_URL,
     },
+    ...(frontmatter.about && frontmatter.about.length > 0
+      ? { about: frontmatter.about.map((e) => ({ '@type': 'Thing', name: e.name, ...(e.sameAs ? { sameAs: e.sameAs } : {}) })) }
+      : {}),
+    ...(frontmatter.mentions && frontmatter.mentions.length > 0
+      ? { mentions: frontmatter.mentions.map((e) => ({ '@type': 'Thing', name: e.name, ...(e.sameAs ? { sameAs: e.sameAs } : {}) })) }
+      : {}),
+    keywords: frontmatter.keywords?.join(', '),
+  };
+
+  const faqJsonLd =
+    frontmatter.faq && frontmatter.faq.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: frontmatter.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer,
+            },
+          })),
+        }
+      : null;
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Journal', item: `${BASE_URL}/journal` },
+      { '@type': 'ListItem', position: 3, name: frontmatter.title, item: `${BASE_URL}/journal/${slug}` },
+    ],
   };
 
   return (
@@ -112,6 +236,20 @@ export default async function ArticlePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
+          }}
+        />
+      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c'),
         }}
       />
       <ArticleHero article={articleMeta} />

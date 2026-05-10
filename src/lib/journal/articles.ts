@@ -8,6 +8,16 @@ const CONTENT_DIR = path.join(process.cwd(), 'src/content/journal');
 
 export type ArticleCategory = 'lore' | 'language' | 'translation';
 
+export interface ArticleFaq {
+  question: string;
+  answer: string;
+}
+
+export interface ArticleEntity {
+  name: string;
+  sameAs?: string; // Wikipedia or authoritative URL for knowledge graph linking
+}
+
 export interface ArticleFrontmatter {
   title: string;
   slug: string;
@@ -16,8 +26,12 @@ export interface ArticleFrontmatter {
   category: ArticleCategory;
   summary: string;
   tags?: string[];
+  keywords?: string[];
   author?: string;
   readingTime?: string;   // optional override in frontmatter
+  faq?: ArticleFaq[];
+  about?: ArticleEntity[];    // primary topics — used in Article JSON-LD `about`
+  mentions?: ArticleEntity[]; // franchises, works, people cited — used in `mentions`
 }
 
 export interface ArticleMeta extends ArticleFrontmatter {
