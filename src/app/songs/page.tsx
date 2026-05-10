@@ -1,6 +1,6 @@
-import { getAllSongs } from "@/lib/db/queries";
+import { Suspense } from "react";
 import { getCurrentUserId } from "@/lib/user-prefs";
-import SongGrid from "./components/SongGrid";
+import { SongGridLoader } from "./components/SongGridLoader";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +14,6 @@ export default async function SongsPage({
   searchParams: Promise<{ search?: string }>;
 }) {
   const userId = await getCurrentUserId();
-  const songs = await getAllSongs(userId);
   const params = await searchParams;
 
   return (
@@ -30,7 +29,27 @@ export default async function SongsPage({
           Browse openings, endings, and full tracks by level, difficulty, artist, or anime.
         </p>
       </header>
-      <SongGrid songs={songs} view="all" initialSearch={params.search ?? ""} />
+      <Suspense fallback={
+        <div className="flex flex-col gap-3">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="animate-pulse rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+              <div className="flex items-center gap-3">
+                <div className="h-14 w-14 shrink-0 rounded-[var(--radius-lg)] bg-[var(--color-card-2)]" />
+                <div className="flex flex-1 flex-col gap-2">
+                  <div className="h-4 w-3/4 rounded bg-[var(--color-card-2)]" />
+                  <div className="h-3 w-1/2 rounded bg-[var(--color-card-2)]" />
+                  <div className="flex gap-2">
+                    <div className="h-4 w-10 rounded-full bg-[var(--color-card-2)]" />
+                    <div className="h-4 w-14 rounded-full bg-[var(--color-card-2)]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      }>
+        <SongGridLoader userId={userId} initialSearch={params.search ?? ""} view="all" />
+      </Suspense>
     </div>
   );
 }

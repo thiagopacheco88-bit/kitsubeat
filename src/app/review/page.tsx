@@ -1,58 +1,29 @@
 /**
  * /review — cross-song SRS review queue landing page.
- *
- * Server component: fetches due count + new-card budget + premium status
- * in parallel, then renders ReviewLanding with the data.
- *
- * Free users see the "X cards due" count but cannot start a session —
- * the Start CTA triggers UpsellModal (handled in ReviewLanding).
- *
- * Premium users see the Start button which loads the queue and begins the session.
+ * Data fetching delegated to ReviewContent so the page shell renders
+ * immediately and the stats stream in via Suspense.
  */
-
 export const dynamic = "force-dynamic";
 
-import { sql } from "drizzle-orm";
-import { db } from "@/lib/db";
-import { isPremium } from "@/app/actions/userPrefs";
-import { getCurrentUserId, REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
-import { getNewCardBudget } from "@/lib/db/queries";
-import ReviewLanding from "./ReviewLanding";
-
-/**
- * Counts how many vocabulary cards are currently due for this user.
- * "Due" = FSRS state IN (1,2,3) AND due <= NOW().
- * State 0 (New/unseen) cards are NOT counted here — they're handled via the
- * new-card budget (newBudgetRemaining).
- */
-async function countDue(userId: string): Promise<number> {
-  const rows = await db.execute<{ count: number }>(sql`
-    SELECT COUNT(*)::int AS count
-    FROM user_vocab_mastery
-    WHERE user_id = ${userId}
-      AND state IN (1, 2, 3)
-      AND due <= NOW()
-  `);
-  const raw = Array.isArray(rows) ? rows : (rows.rows ?? []);
-  return Number(raw[0]?.count ?? 0);
-}
+import { Suspense } from "react";
+import { getCurrentUserId } from "@/lib/user-prefs";
+import { ReviewContent } from "./ReviewContent";
 
 export default async function ReviewPage() {
   const userId = await getCurrentUserId();
 
-  const [premium, dueCount, newBudget] = await Promise.all([
-    isPremium(userId),
-    countDue(userId),
-    getNewCardBudget(userId),
-  ]);
-
   return (
-    <ReviewLanding
-      isPremium={premium}
-      dueCount={dueCount}
-      newBudgetRemaining={newBudget}
-      dailyCap={REVIEW_NEW_DAILY_CAP}
-      userId={userId}
-    />
+    <Suspense fallback={
+      <div className="mx-auto flex max-w-lg flex-col gap-6 px-4 py-12 sm:px-6">
+        <div className="animate-pulse rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-8 flex flex-col gap-5">
+          <div className="h-8 w-48 rounded bg-[var(--color-card-2)]" />
+          <div className="h-4 w-72 rounded bg-[var(--color-card-2)]" />
+          <div className="h-4 w-56 rounded bg-[var(--color-card-2)]" />
+          <div className="h-12 w-full rounded-[var(--radius-md)] bg-[var(--color-card-2)]" />
+        </div>
+      </div>
+    }>
+      <ReviewContent userId={userId} />
+    </Suspense>
   );
 }

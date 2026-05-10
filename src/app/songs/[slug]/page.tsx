@@ -1,18 +1,7 @@
-import { notFound } from "next/navigation";
-import {
-  getSongBySlug,
-  getVocabularyEnrichmentForSong,
-  getDominatedVerses,
-} from "@/lib/db/queries";
-import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/types/lesson";
-import { localize } from "@/lib/types/lesson";
-import { hasKanji } from "@/lib/exercises/kanji";
-import { db } from "@/lib/db/index";
-import { userSongProgress } from "@/lib/db/schema";
-import { eq, and, inArray } from "drizzle-orm";
+import { Suspense } from "react";
+import { getSongBySlug } from "@/lib/db/queries";
 import { getCurrentUserId } from "@/lib/user-prefs";
-import SongContent from "./components/SongContent";
-import { getPostHogServer } from "@/lib/posthog-server";
+import { SongPlayerLoader } from "./SongPlayerLoader";
 
 export async function generateMetadata({
   params,
@@ -31,213 +20,24 @@ export default async function SongPlayerPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const song = await getSongBySlug(slug);
-  if (!song) notFound();
-
-  // Phase 11.5 SPEC #22 + D-13: flagged or rerunning songs return 404 on the
-  // public song page. This mirrors the catalog filter in src/lib/db/queries.ts.
-  // getSongBySlug fetches the full songs row (including quality_status) and all
-  // song_versions rows (including pipeline_status). The check here is explicit
-  // and greppable; it does NOT mutate getSongBySlug so admin/debug paths still work.
-  if (song.quality_status !== "active") notFound();
-  const hasIdleVersion = song.versions.some((v) => v.pipeline_status === "idle");
-  if (!hasIdleVersion) notFound();
-
-  // Collect unique vocab_item_ids from every lesson's vocabulary across all versions
-  const vocabIds = new Set<string>();
-  for (const v of song.versions) {
-    const lesson = v.lesson as Lesson | null;
-    if (!lesson) continue;
-    for (const entry of lesson.vocabulary) {
-      if (entry.vocab_item_id) vocabIds.add(entry.vocab_item_id);
-    }
-  }
-
-  // Phase 13 CR-01 fix: enrichment SELECT is wrapped in unstable_cache and
-  // tagged with `song:${slug}` so it survives across requests and is busted in
-  // lockstep with the song body when revalidateSongCache(slug) is called.
-  const enrichRows = await getVocabularyEnrichmentForSong(
-    slug,
-    Array.from(vocabIds),
-  );
-
-  // Single batch SELECT for enrichment fields — one extra DB round trip per page load
-  const enrichMap = new Map<
-    string,
-    {
-      mnemonic?: Localizable;
-      kanji_breakdown?: KanjiBreakdown | null;
-      image_url?: string;
-    }
-  >(
-    enrichRows.map((r) => [
-      r.id,
-      {
-        mnemonic: (r.mnemonic ?? undefined) as Localizable | undefined,
-        kanji_breakdown: (r.kanji_breakdown ?? null) as KanjiBreakdown | null,
-        image_url: r.image_url ?? undefined,
-      },
-    ])
-  );
-
-  // Build version data — only include versions that have a lesson, with enrichment merged
-  const versions = song.versions
-    .filter((v) => v.lesson)
-    .map((v) => {
-      const lesson = v.lesson as Lesson;
-      const enrichedLesson: Lesson = {
-        ...lesson,
-        vocabulary: lesson.vocabulary.map((entry): VocabEntry => {
-          if (!entry.vocab_item_id) return entry;
-          const extra = enrichMap.get(entry.vocab_item_id);
-          if (!extra) return entry;
-          return {
-            ...entry,
-            mnemonic: extra.mnemonic ?? entry.mnemonic,
-            kanji_breakdown: extra.kanji_breakdown ?? entry.kanji_breakdown,
-            image_url: extra.image_url ?? entry.image_url,
-            meaning_en: localize(entry.meaning as Localizable, "en"),
-          };
-        }),
-      };
-
-      // Phase 11.6 SPEC-REQ-16: Compute whether this song version has any
-      // kanji-bearing vocabulary at SSR time (RESEARCH Pitfall 7 — must NOT run
-      // on every client render). Used by ExerciseTab to conditionally render the
-      // Kanji track card.
-      const hasKanjiBearingVocab = enrichedLesson.vocabulary.some(
-        (entry) => hasKanji(entry.surface)
-      );
-
-      return {
-        id: v.id,
-        type: v.version_type as "tv" | "full",
-        youtube_id: v.youtube_id,
-        lesson: enrichedLesson,
-        synced_lrc: v.synced_lrc as { startMs: number; text: string }[] | null,
-        lyrics_offset_ms: v.lyrics_offset_ms,
-        hasKanjiBearingVocab,
-      };
-    });
-
-  if (versions.length === 0) notFound();
-
-  // Phase 11.6 SPEC-REQ-10 + SPEC-REQ-11: SSR-load per-track progress percentages
-  // from user_song_progress for all versions of this song.
-  //
-  // getCurrentUserId() returns Clerk's auth().userId when signed in, falls back
-  // to PLACEHOLDER_USER_ID for anonymous traffic — same helper used by every
-  // other reader/writer in the app so all metrics agree.
-  //
-  // Pitfall 6 mitigation: numeric(5,2) columns come back as strings from neon-http
-  // driver — parseFloat() at this boundary before passing to client components.
-  const SONG_PAGE_USER_ID = await getCurrentUserId();
-
-  // Phase 15 SC-1: funnel event — song_opened
-  // Fires after song fetch succeeds and quality/version checks pass (not before,
-  // to avoid noise from 404s). Non-fatal: analytics must never block page render.
-  try {
-    const ph = getPostHogServer();
-    ph.capture({
-      distinctId: SONG_PAGE_USER_ID,
-      event: "song_opened",
-      properties: {
-        song_slug: song.slug,
-        jlpt_level: song.jlpt_level ?? "unknown",
-        difficulty_tier: song.difficulty_tier ?? "unknown",
-      },
-    });
-  } catch {
-    // Non-fatal: analytics must never throw into page render
-  }
-  const versionIds = versions.map((v) => v.id);
-
-  const progressRows = await db
-    .select({
-      song_version_id: userSongProgress.song_version_id,
-      vocab_track_pct: userSongProgress.vocab_track_pct,
-      grammar_track_pct: userSongProgress.grammar_track_pct,
-      kanji_track_pct: userSongProgress.kanji_track_pct,
-      advanced_drills_unlocked_at: userSongProgress.advanced_drills_unlocked_at,
-    })
-    .from(userSongProgress)
-    .where(
-      and(
-        eq(userSongProgress.user_id, SONG_PAGE_USER_ID),
-        inArray(userSongProgress.song_version_id, versionIds)
-      )
-    )
-    .limit(versionIds.length);
-
-  // Build per-version pct map (keyed by song_version_id)
-  const progressMap = new Map(
-    progressRows.map((row) => [
-      row.song_version_id,
-      {
-        vocab: row.vocab_track_pct != null
-          ? parseFloat(row.vocab_track_pct as unknown as string)
-          : 0,
-        grammar: row.grammar_track_pct != null
-          ? parseFloat(row.grammar_track_pct as unknown as string)
-          : 0,
-        kanji: row.kanji_track_pct != null
-          ? parseFloat(row.kanji_track_pct as unknown as string)
-          : 0,
-        advancedDrillsUnlocked: row.advanced_drills_unlocked_at != null,
-      },
-    ])
-  );
-
-  // Phase 11.6 SPEC-REQ-14 — dominated verses per song_version. One DB query
-  // per version is fine; song_versions per song is typically 1-2 (tv + full).
-  // The result feeds the lyrics-view star (LyricsPanel → VerseBlock) and the
-  // header X/Y verses counter. Empty array for the anonymous placeholder user
-  // OR for users who haven't dominated any verses yet.
-  const dominatedByVersion = new Map<string, number[]>(
-    await Promise.all(
-      versionIds.map(async (vid) => {
-        const arr = await getDominatedVerses(SONG_PAGE_USER_ID, vid);
-        return [vid, arr] as [string, number[]];
-      })
-    )
-  );
-
-  // Attach track pcts + dominated verse numbers to each version.
-  const versionsWithPcts = versions.map((v) => {
-    const progress = progressMap.get(v.id);
-    // SPEC R16: all-kana songs auto-pass kanji (kanji: 100 for hasKanjiBearingVocab=false)
-    const kanjiPct = progress?.kanji ?? (v.hasKanjiBearingVocab === false ? 100 : 0);
-    const dominatedVerseNumbers = dominatedByVersion.get(v.id) ?? [];
-    return {
-      ...v,
-      trackPcts: {
-        vocab: progress?.vocab ?? 0,
-        grammar: progress?.grammar ?? 0,
-        kanji: kanjiPct,
-      },
-      advancedDrillsUnlocked: progress?.advancedDrillsUnlocked ?? false,
-      // Phase 11.6 D-14: SSR-loaded dominated verse list. The lyrics view
-      // renders <VerseStarIcon /> for any verse whose number is in this
-      // array; the header counter renders "<dom>/<total> verses".
-      dominatedVerseNumbers,
-      totalVerses: v.lesson.verses.length,
-    };
-  });
+  const userId = await getCurrentUserId();
 
   return (
-    <SongContent
-      song={{
-        title: song.title,
-        slug: song.slug,
-        artist: song.artist,
-        anime: song.anime,
-        season_info: song.season_info,
-        jlpt_level: song.jlpt_level,
-        difficulty_tier: song.difficulty_tier,
-      }}
-      versions={versionsWithPcts}
-      songId={song.id}
-      userId={SONG_PAGE_USER_ID}
-    />
+    <Suspense fallback={
+      <div className="mx-auto flex max-w-4xl flex-col gap-4 px-4 py-6 sm:px-6">
+        <div className="animate-pulse rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 sm:p-6">
+          <div className="h-3 w-20 rounded bg-[var(--color-card-2)]" />
+          <div className="mt-2 h-8 w-64 rounded bg-[var(--color-card-2)]" />
+          <div className="mt-2 h-4 w-48 rounded bg-[var(--color-card-2)]" />
+          <div className="mt-4 flex gap-2">
+            <div className="h-9 w-24 rounded-[var(--radius-md)] bg-[var(--color-card-2)]" />
+            <div className="h-9 w-24 rounded-[var(--radius-md)] bg-[var(--color-card-2)]" />
+          </div>
+        </div>
+        <div className="animate-pulse rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)]" style={{ height: 420 }} />
+      </div>
+    }>
+      <SongPlayerLoader slug={slug} userId={userId} />
+    </Suspense>
   );
 }
