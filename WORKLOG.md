@@ -16,17 +16,18 @@ Track actual deliveries to ground future pace estimates in real data.
 | Metric | Value | As of |
 |---|---|---|
 | Project start | 2026-04-12 | filesystem |
-| Days elapsed | 20 | 2026-05-02 |
-| Active dev days | 15 | (5 idle: Apr 20-22, 25, 29) |
-| Phases closed | 24 of 33 | + Phase 14.1 verified today |
-| Hours delivered (estimated) | ~322 / 430 | **~75% of total scope** |
-| Active phases | 14.2 (~56%, 9/16 plans), 11.6-13 (gap closure ~3h) | v3.0 redesign chain: 14.2 → 14.3 → 14.4 |
-| Total scope grew | +125h since Apr 28 | +11.6, +14.1, +14.2 NEW, +14.3 NEW, +14.4 NEW, +14.5 NEW |
+| Days elapsed | 27 | 2026-05-09 |
+| Active dev days | 19 | (7 idle: Apr 20-22, 25, 29, May 4-5) |
+| Phases closed (to launch) | 31 of 33 | 16 plans written today (ready to execute); 18 at 92% |
+| Hours delivered (to launch) | ~405 / 428 | **~95% to beta launch** |
+| Hours delivered (incl v4.0) | ~405 / 500 | ~81% of total product scope |
+| Active phases | 16 (plans written, execute now), 18 (plan 07 bugs) | 19 blocked until 18 closes |
+| Remaining to launch | ~32h dev + 4-wk beta wait | Phases 16 (12h), 18 (~2h), 19 (15h + wait), 20 (12h) |
 | Deferred | Phase 6 (Anki Export) | Merged into Phase 18 GDPR data export |
-| Current target launch | late June 2026 | beta-validated (50 signups + 20% day-7) |
+| Revised target launch | **mid-June 2026** | beta-validated (50 signups + 20% day-7) |
 | Hard stop | October 2026 | baby due |
 
-**Velocity:** ~11-13 hours/active-day; 21 phases closed in 20 calendar days. Scope keeps growing alongside delivery — % done stable around 67% as new decimals appear (11.5, 11.6).
+**Velocity (May 7-8 burst):** 5 phases closed in 48h — 14.3, 14.4 (virality), 14.5 (brand), 15 (analytics), 17 (legal research). Scope nearly exhausted for pre-launch work. Only 16 (security) + 18 (legal impl) + 19 (beta) + 20 (tests) remain.
 
 ---
 
@@ -62,19 +63,26 @@ Track actual deliveries to ground future pace estimates in real data.
 | 13 | Performance Infrastructure | 2026-05-05 | 2026-04-30 | CI bundle budgets, lesson cache, IO-deferred YouTube iframe | ✓ Done | 12 | 12 | 100% | 3.1% |
 | 14 | UX Polish | 2026-05-04 | 2026-05-02 | VERIFIED 8/9 SPEC-REQs (a11y A1 resolved). 10 plans: Wave 0 infra, primitives, theme tokens, dark/light, motion, 11 surface migrations | ✓ Done | 33 | 33 | 100% | 8.6% |
 | 14.1 | Redesign Path | 2026-05-04 | 2026-05-03 | VERIFIED 8/8 SPEC-REQs (5 human UAT items pending). 13 plans done across 5 waves — CA-hybrid /path redesign with PathHeader, HeroProgress, ContinueAnchor, KanaCheckpointNode, LanternStreak, TierDivider, cover-art PathNode | ✓ Done | 20 | 20 | 100% | 4.9% |
-| 14.2 | Redesign Home (/) | 2026-05-04 | — | 16 plans across 8 waves. **9/16 done today** — auth-bypass harness, getContinueLearning, getHeroSong, KanaCheckpointNode home variant, SectionHeader+Carousel, ContinueCard, CoverCard+AnimeCard+HeroFeatured. Remaining: 09-15 (final compositions + mobile nav sheet) | 🟡 In flight (no blocker) | 20 | 11 | 56% | 4.6% |
-| 14.3 | Redesign Lesson (/songs/[slug]) | 2026-05-07 | — | Roadmap only, no directory yet. Densest surface (12 components) — music-player feel for lyrics, game feel for exercises | 🔴 Blocked by 14.2 | 15 | 0 | 0% | 3.5% |
-| 14.4 | Virality + Engagement | 2026-05-10 | — | INTENT.md only. Depends on **14.1 ✓ + 14.2 + 14.3 + Clerk plan tier definition** — must inherit full visual vocabulary | 🔴 Blocked by 14.2, 14.3 | 15 | 0 | 1% | 3.5% |
-| 14.5 | Iconography + Brand Revamp | 2026-05-06 | — | Roadmap only, no directory yet. Depends on Phase 14.1 ✓ — parallelizable with 14.2 / 14.3 | 🟢 Ready (deps done) | 10 | 0 | 1% | 2.3% |
-| 15 | Analytics + Error Tracking | 2026-05-12 | — | PostHog/Plausible funnel + Sentry + consent gating. Depends on Phase 14 ✓ | 🟢 Ready (deps done) | 10 | 0 | 0% | 2.3% |
-| 16 | Security Review + IR | 2026-05-14 | — | RLS audit, rate limits, secrets scan, runbook. Roadmap deps Phase 15 but RLS independent | 🟢 Ready (parallel-safe) | 12 | 0 | 0% | 2.8% |
-| 17 | Legal Research (DIY) | 2026-05-15 | — | 5/6 plans drafted; execute + 17-06 consolidation. Pure research — no code dep | 🟢 Ready (research is independent) | 10 | 3 | 30% | 2.3% |
-| 18 | Legal Implementation | 2026-05-19 | — | T&Cs, privacy, cookie consent, DMCA, WCAG 2.1 AA, Anki/GDPR export. **Needs Phase 17 research output** | 🔴 Blocked by Phase 17 | 22 | 0 | 0% | 5.1% |
-| 19 | Beta Launch + GTM | 2026-05-22† | — | Landing, 3 channels, 50 signups / 20% day-7 return. Needs Phase 18 (legal docs) + Phase 13 perf gate ✓ | 🔴 Blocked by Phase 18 | 15 | 0 | 0% | 3.5% |
-| 20 | Test Coverage Pass | 2026-06-21 | — | Critical-path integration tests + ADRs + strict types. Needs Phase 19 real-usage data | 🔴 Blocked by Phase 19 | 12 | 0 | 0% | 2.8% |
-| **TOTAL** | **33 phases** | | **24 closed + 5 active** | | | **430** | **322** | **75%** | **100%** |
+| 14.2 | Redesign Home (/) | 2026-05-04 | 2026-05-03 | All 16 plans done — auth-bypass harness, getContinueLearning, getHeroSong, KanaCheckpointNode home variant, SectionHeader+Carousel, ContinueCard, CoverCard+AnimeCard+HeroFeatured, ContinueLearning+Foundations, 5-section keystone composition, global header wordmark+LanternStreak+MobileNavSheet, PathHeader removal, behavioral + visual-diff e2e | ✓ Done | 20 | 20 | 100% | 4.6% |
+| 14.3 | Redesign Lesson (/songs/[slug]) | 2026-05-07 | 2026-05-08 | 2 plans done — music-player feel for lyrics panel, mobile lesson layout + lyrics-scroll clearance | ✓ Done | 10 | 10 | 100% | 2.0% |
+| 14.4 | Virality + Engagement | 2026-05-10 | 2026-05-08 | VERIFIED — 5 plans: migration 0018, streak-saver, email+cron (Resend), social signals (RecentlyMasteredTicker), gate validation + Vercel Hobby fix | ✓ Done | 15 | 15 | 100% | 3.0% |
+| 14.5 | Iconography + Brand Revamp | 2026-05-08 | 2026-05-08 | VERIFIED — 2 plans: TierDivider SVG redraw, twitter metadata, brand-prompts.md (ComfyUI + Gemini), favicon synthesis + verify scripts | ✓ Done | 8 | 8 | 100% | 1.6% |
+| 15 | Analytics + Error Tracking | 2026-05-12 | 2026-05-08 | VERIFIED — PostHog consent-gated + PostHogIdentify, Sentry 3-runtime init + error boundaries, env vars, SC-1 funnel events (song_opened → exercise_started → first_star → day_7_return + signup stub). CR-01/CR-02 resolved | ✓ Done | 10 | 10 | 100% | 2.0% |
+| 16 | Security Review + IR | 2026-05-10 | — | 7 plans created today across 3 waves. RLS audit, authz audit, secrets scan, rate limits, IR runbook. Plans revised after checker feedback | 🟢 Ready (plans written, execute now) | 12 | 1 | 5% | 2.4% |
+| 17 | Legal Research (DIY) | 2026-05-15 | 2026-05-08 | 17-ANALYSIS.md: copyright, UK-GDPR/LGPD/CCPA, consumer law, tax, EU AI Act, EAA. Human-verify passed | ✓ Done | 10 | 10 | 100% | 2.0% |
+| 18 | Legal Implementation | 2026-05-09 | — | 6/7 plans done, plan 07 bug fixes today (cookie bridge, JWT refresh, redirect_url). Plans: migration 0019, consent/DSAR infra, 5 legal pages (T&Cs/Privacy/Cookie/AI/Refund), age-gate middleware, UI components (CookieConsentBanner/AiBadge/DataExportButton), profile+AI disclosure | 🟡 In flight (plan 07 bugs) | 25 | 23 | 92% | 5.0% |
+| 19 | Beta Launch + GTM | 2026-05-10† | — | Landing page, 3 acquisition channels + UTMs, 50 signups / 20% day-7 return validation gate. Needs Phase 18 ✓ | 🔴 Blocked by Phase 18 | 15 | 0 | 0% | 3.0% |
+| 20 | Test Coverage Pass | 2026-06-10 | — | Integration tests on critical paths, strict types, ADRs checked in, deferred-items backlog closed. Needs Phase 19 real-usage data | 🔴 Blocked by Phase 19 | 12 | 0 | 0% | 2.4% |
+| **v4.0 (post-launch)** | | | | | | | | | |
+| 21 | Anime Scenes + Cultural Vocab | post-launch | — | Pain, AoT pre-battle, One Piece narrator intros — same exercise + vocab mechanics as songs, distributed as Phase 12 unlock rewards | 🔴 Post-launch | 25 | 0 | 0% | 5.0% |
+| 22 | Monetization | post-launch | — | Stripe/Lemon Squeezy checkout, webhooks, UK Ltd entity migration. **Gated on Phase 19 MRR signal** — only if beta validates | 🔴 Gated on Phase 19 signal | 20 | 0 | 0% | 4.0% |
+| 23 | Native App Decision | post-launch | — | Evidence-based go/no-go on iOS/Android. Decision doc only (not a build). Gate: ≥500 MAU + ≥20% day-30 return | 🔴 Gated on 3-month data | 5 | 0 | 0% | 1.0% |
+| 24 | Impeccable Design System | post-launch | — | Per-surface /impeccable polish pass — bespoke typography/color/motion on player, exercises, kana, dashboard, gamification HUD | 🔴 Post-launch | 20 | 0 | 0% | 4.0% |
+| **TOTAL** | **37 phases** | | **31 closed + 3 active** | | | **500** | **405** | **81%** | **100%** |
 
-†Phase 19 dev finishes ~May 22; beta-validation gate is calendar-bound 4 weeks → realistic launched-and-validated date ≈ **2026-06-19**.
+†Phase 18 closes today → Phase 19 starts ~May 10; beta-validation gate is 4 weeks → realistic launched-and-validated ≈ **2026-06-09**.
+
+**To beta launch only (Phases 1-20):** 404/428h = **94% complete. ~24h dev remaining.**
 
 ## Status legend
 
