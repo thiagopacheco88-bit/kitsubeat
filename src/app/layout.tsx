@@ -148,6 +148,12 @@ export default async function RootLayout({
                 >
                   Kana
                 </Link>
+                <Link
+                  href="/journal"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  Journal
+                </Link>
                 <GlobalLearnedCounter />
                 {isAdmin && (
                   <Link
