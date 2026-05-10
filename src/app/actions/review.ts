@@ -59,9 +59,9 @@ function todayIsoDate(): string {
  * - allowed: false if the cap was already at REVIEW_NEW_DAILY_CAP before this call.
  * - remaining: how many new slots are left after this call (0 = limit reached).
  */
-export async function consumeNewCardBudget(
-  userId: string
-): Promise<{ allowed: boolean; remaining: number }> {
+export async function consumeNewCardBudget(): Promise<{ allowed: boolean; remaining: number }> {
+  const { userId } = await auth();
+  if (!userId) return { allowed: false, remaining: 0 };
   const today = todayIsoDate();
   const cap = REVIEW_NEW_DAILY_CAP;
 
@@ -166,7 +166,7 @@ export async function recordReviewAnswer(input: {
   // A race-safe server-side check — the UI should stop serving new cards
   // once budget hits zero, but this is the source of truth.
   if (input.isNew) {
-    const budget = await consumeNewCardBudget(userId);
+    const budget = await consumeNewCardBudget();
     if (!budget.allowed) {
       throw new Error("daily_new_card_cap_reached");
     }
