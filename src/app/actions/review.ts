@@ -106,10 +106,12 @@ export async function consumeNewCardBudget(
  * Returns { gated: true, reason: "premium_required" } for free users, or
  * { gated: false } for premium users.
  */
-export async function startReviewSession(userId: string): Promise<
+export async function startReviewSession(): Promise<
   | { gated: true; reason: "premium_required" }
   | { gated: false }
 > {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized");
   const premium = await isPremium(userId);
   if (!premium) return { gated: true as const, reason: "premium_required" };
   return { gated: false as const };
