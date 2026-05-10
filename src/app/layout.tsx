@@ -13,6 +13,8 @@ import { PostHogIdentify } from "@/app/components/PostHogIdentify";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
 import { LanternStreak } from "@/app/path/components/LanternStreak";
 import { getUserGamificationState, type GamificationState } from "@/lib/db/queries";
+import NextTopLoader from "nextjs-toploader";
+import { PageTransitionWrapper } from "@/app/components/PageTransitionWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -108,6 +110,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[family-name:var(--font-inter)] antialiased">
+        <NextTopLoader color="#dc2626" showSpinner={false} height={2} />
         {/* Phase 18 REQ-A11Y-26 — skip-to-main link; must be first focusable element */}
         <a
           href="#main-content"
@@ -118,14 +121,8 @@ export default async function RootLayout({
         <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
             <Link href="/" className="flex shrink-0 items-center gap-2" data-testid="brand-wordmark">
-              <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                <ellipse cx="16" cy="20" rx="9" ry="7" fill="var(--color-grammar-adverb)" />
-                <polygon points="9,15 4,5 13,11" fill="var(--color-grammar-adverb)" />
-                <polygon points="23,15 28,5 19,11" fill="var(--color-grammar-adverb)" />
-                <ellipse cx="13" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
-                <ellipse cx="19" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
-                <ellipse cx="16" cy="23.5" rx="1.4" ry="1" fill="var(--color-accent)" />
-              </svg>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" width={26} height={26} alt="" aria-hidden="true" className="rounded-sm" />
               <span className="text-lg font-extrabold tracking-tight" aria-label="KitsuBeat">
                 <span className="text-[var(--color-text)]">Kitsu</span>
                 <span className="text-[var(--color-accent-readable)]" data-testid="wordmark-emphasis">Beat</span>
@@ -150,12 +147,6 @@ export default async function RootLayout({
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
                   Kana
-                </Link>
-                <Link
-                  href="/vocabulary"
-                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-                >
-                  Progress
                 </Link>
                 <GlobalLearnedCounter />
                 {isAdmin && (
@@ -200,7 +191,9 @@ export default async function RootLayout({
         {/* Phase 18 — PECR-compliant cookie consent banner (useConsentStore + recordConsent + PostHog opt-in) */}
         <CookieConsentBanner initialConsent={consentCookie} />
         <PostHogIdentify userId={signedInUserId ?? null} />
-        <main id="main-content">{children}</main>
+        <main id="main-content">
+          <PageTransitionWrapper>{children}</PageTransitionWrapper>
+        </main>
       </body>
     </html>
     </ClerkProvider>

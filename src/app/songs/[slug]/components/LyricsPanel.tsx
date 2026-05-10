@@ -1,9 +1,11 @@
 "use client";
 
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect, useMemo, useState } from "react";
 import type { Verse } from "@/lib/types/lesson";
 import { usePlayer } from "./PlayerContext";
 import VerseBlock from "./VerseBlock";
+
+const LS_KEY = "kitsubeat_lyrics_autoscroll";
 
 interface SyncedLine {
   startMs: number;
@@ -99,6 +101,11 @@ export default function LyricsPanel({
 }) {
   const { currentTimeMs } = usePlayer();
   const verseRefs = useRef<Map<number, HTMLDivElement>>(new Map());
+  const [autoScroll, setAutoScroll] = useState(() => {
+    if (typeof window === "undefined") return true;
+    const stored = localStorage.getItem(LS_KEY);
+    return stored === null ? true : stored === "true";
+  });
 
   const verseTiming = useMemo(() => {
     // Primary path: align verses to LRCLIB synced lyrics by text matching.
@@ -172,7 +179,7 @@ export default function LyricsPanel({
 
   // Auto-scroll to active verse
   useEffect(() => {
-    if (activeVerse === null) return;
+    if (!autoScroll || activeVerse === null) return;
     const el = verseRefs.current.get(activeVerse);
     if (el) {
       const panel = el.closest<HTMLElement>("[data-testid='song-lyrics-panel']");
@@ -190,10 +197,45 @@ export default function LyricsPanel({
         behavior: "smooth",
       });
     }
-  }, [activeVerse]);
+  }, [activeVerse, autoScroll]);
+
+  function toggleAutoScroll() {
+    const next = !autoScroll;
+    setAutoScroll(next);
+    localStorage.setItem(LS_KEY, String(next));
+  }
 
   return (
     <div className="flex flex-col gap-3">
+      <div className="flex justify-end">
+        <button
+          onClick={toggleAutoScroll}
+          title="Auto-scroll · Still a work in progress — timing may be off on some songs"
+          aria-label={autoScroll ? "Disable auto-scroll" : "Enable auto-scroll"}
+          className={`group flex items-center gap-1 rounded px-1.5 py-0.5 text-xs transition-colors ${
+            autoScroll
+              ? "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+              : "text-[var(--color-text-faint,#888)] opacity-50 hover:opacity-75"
+          }`}
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6 1v10M3 8l3 3 3-3M3 4l3-3 3 3" />
+          </svg>
+          <span className="hidden sm:inline opacity-60 text-[10px]">
+            {autoScroll ? "auto-scroll" : "auto-scroll off"}
+          </span>
+        </button>
+      </div>
       {verses.map((verse) => (
         <div
           key={verse.verse_number}
