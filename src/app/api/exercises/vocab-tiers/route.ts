@@ -17,6 +17,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { exerciseRatelimit } from "@/lib/rate-limit";
+import { UUID_RE } from "@/lib/uuid";
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { userVocabMastery } from "@/lib/db/schema";
@@ -74,6 +75,16 @@ export async function GET(request: NextRequest) {
   if (idArray.length > MAX_IDS) {
     return NextResponse.json(
       { error: `ids must contain at most ${MAX_IDS} UUIDs; got ${idArray.length}` },
+      { status: 400 }
+    );
+  }
+
+  // Validate UUID format — Drizzle's parameterized queries prevent injection,
+  // but non-UUID strings cause Postgres type-cast errors (unhandled 500).
+  const invalidIds = idArray.filter((id) => !UUID_RE.test(id));
+  if (invalidIds.length > 0) {
+    return NextResponse.json(
+      { error: `${invalidIds.length} id(s) are not valid UUIDs` },
       { status: 400 }
     );
   }
