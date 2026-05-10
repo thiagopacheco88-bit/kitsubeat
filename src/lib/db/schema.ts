@@ -289,6 +289,10 @@ export const vocabularyItems = pgTable("vocabulary_items", {
   // Phase 11.4 enrichment field — nullable. Populated by scripts/seed/19b-load-vocab-images.ts.
   image_url: text("image_url"),
 
+  // Admin exercise review — flag problematic vocab items for follow-up.
+  admin_flagged: boolean("admin_flagged").default(false).notNull(),
+  admin_flag_note: text("admin_flag_note"),
+
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 }, (table) => [
   unique("vocabulary_items_form_reading_unique").on(table.dictionary_form, table.reading),
