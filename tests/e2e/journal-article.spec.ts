@@ -1,0 +1,138 @@
+/**
+ * tests/e2e/journal-article.spec.ts — Journal article page smoke + rendering tests.
+ *
+ * Covers the magikarp-gyarados-legend article specifically because it introduced
+ * custom MDX component overrides (table, img) that previously caused a 500 error
+ * when the server hadn't hot-reloaded after changes to page.tsx.
+ *
+ * Assertions:
+ *   - Page loads without a 500 error
+ *   - Article H2 headings render (content structure intact)
+ *   - Vocab table renders as a proper HTML <table>, NOT raw markdown pipes
+ *   - Article body contains <img> elements (image component override working)
+ *   - FAQ section is visible
+ *   - New cross-franchise sections (Shenron, Momonosuke, Shinryu) are present
+ *
+ * No DB fixtures needed — journal is static MDX content.
+ */
+
+import { test, expect } from "../support/fixtures";
+
+const SLUG = "magikarp-gyarados-legend";
+const URL = `/journal/${SLUG}`;
+
+// MDX route needs a first-hit compilation by the dev server; allow 90s for that.
+test.describe.configure({ timeout: 90_000 });
+
+test.describe("Journal article — magikarp-gyarados-legend", () => {
+  // Warm up the route before the parallel tests run so only one compilation happens.
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Magikarp", { timeout: 10_000 });
+
+    // Hero cover image must load successfully
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab table renders as HTML table, not raw markdown pipes", async ({ page }) => {
+    await page.goto(URL);
+
+    // The table must be present as a real <table> element
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    // Must have at least one <td> with content — not raw pipe characters
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    // Raw markdown artifact check — if table failed to render, the page would
+    // contain the separator row "---|---" as visible text
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+
+      // Must have non-empty alt text
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+
+      // Must be visible in the viewport / layout
+      await expect(img).toBeVisible();
+
+      // Must have loaded successfully — naturalWidth > 0 means the browser decoded the image
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("Is the legend of a koi becoming a dragon a real myth?");
+    expect(articleText).toContain("Did the legend involve demons raising the waterfall?");
+    expect(articleText).toContain("Is Magikarp");
+  });
+
+  test("cross-franchise sections render — Shenron, Momonosuke, Shinryu", async ({ page }) => {
+    await page.goto(URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("Shenron");
+    expect(articleText).toContain("Momonosuke");
+    expect(articleText).toContain("Shinry");
+    expect(articleText).toContain("Final Fantasy");
+    expect(articleText).toContain("One Piece");
+    expect(articleText).toContain("Dragon Ball");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(URL);
+
+    // Article schema
+    const articleLd = await page.locator('script[type="application/ld+json"]').first().innerText();
+    const articleData = JSON.parse(articleLd);
+    expect(articleData["@type"]).toBe("Article");
+    expect(articleData.headline).toContain("Magikarp");
+
+    // FAQPage schema — second ld+json block
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const count = await allLdBlocks.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    const faqLd = await allLdBlocks.nth(1).innerText();
+    const faqData = JSON.parse(faqLd);
+    expect(faqData["@type"]).toBe("FAQPage");
+    expect(faqData.mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
