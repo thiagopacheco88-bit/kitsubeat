@@ -609,14 +609,14 @@ Plans:
 - [ ] 16-03-PLAN.md — Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes + ThemeToggle caller update
 - [ ] 16-04-PLAN.md — Rate limiting infra (Upstash ratelimit) + apply to exercise endpoints + llmRatelimit to grammarSession.ts
 - [ ] 16-05-PLAN.md — RLS migration (0020_rls_policies.sql) + audit script verification
-- [ ] 16-06-PLAN.md — Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint [has checkpoint]
+- [x] 16-06-PLAN.md — Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint [has checkpoint]
 - [ ] 16-07-PLAN.md — IR runbook (docs/security/IR-RUNBOOK.md) + human approval [has checkpoint]
 - [ ] 16-01-PLAN.md -- Wave 1: test stubs (auth boundary + rate-limit unit tests) + RLS audit script
 - [ ] 16-02-PLAN.md -- Wave 2: Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess) + callers
 - [ ] 16-03-PLAN.md -- Wave 2: Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes
 - [ ] 16-04-PLAN.md -- Wave 3: Rate limiting infra (rate-limit.ts) + apply to 4 endpoints
 - [ ] 16-05-PLAN.md -- Wave 3: RLS migration (drizzle/0020) for all public tables + audit verification
-- [ ] 16-06-PLAN.md -- Wave 3: Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint
+- [x] 16-06-PLAN.md -- Wave 3: Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint
 - [ ] 16-07-PLAN.md -- Wave 3: IR runbook (docs/security/IR-RUNBOOK.md) + human approval checkpoint
 
 ### Phase 17: Legal & Copyright Deep-Dive (Research)
