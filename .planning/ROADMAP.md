@@ -53,7 +53,7 @@ Decimal phases appear between their surrounding integers in numeric order.
  (completed 2026-05-01)
 - [x] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface (completed 2026-05-02)
 - [x] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated (completed 2026-05-08)
-- [ ] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook
+- [x] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook (completed 2026-05-10)
 - [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA — produces requirements checklist
 - [ ] **Phase 18: Legal & Compliance Implementation** - T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, WCAG 2.1 AA baseline, age gating, support channel
 - [ ] **Phase 19: Free Beta Launch & GTM** - Landing page, 3 acquisition channels with UTMs, 50+ signups / 20+ complete-session / 20%+ day-7 return; entity-formation decision point
@@ -604,20 +604,20 @@ Plans:
   5. IR runbook checked in: on-call (you), severity taxonomy, 72h UK-GDPR breach notification timeline, first-response checklist
 **Plans:** 7 plans (5 autonomous + 2 human-verify checkpoints)
 Plans:
-- [ ] 16-01-PLAN.md — Wave 0: RED test stubs (auth guards + rate-limit + RLS audit script)
-- [ ] 16-02-PLAN.md — Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess, grammarSession.ts)
-- [ ] 16-03-PLAN.md — Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes + ThemeToggle caller update
-- [ ] 16-04-PLAN.md — Rate limiting infra (Upstash ratelimit) + apply to exercise endpoints + llmRatelimit to grammarSession.ts
-- [ ] 16-05-PLAN.md — RLS migration (0020_rls_policies.sql) + audit script verification
+- [x] 16-01-PLAN.md — Wave 0: RED test stubs (auth guards + rate-limit + RLS audit script)
+- [x] 16-02-PLAN.md — Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess, grammarSession.ts)
+- [x] 16-03-PLAN.md — Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes + ThemeToggle caller update
+- [x] 16-04-PLAN.md — Rate limiting infra (Upstash ratelimit) + apply to exercise endpoints + llmRatelimit to grammarSession.ts
+- [x] 16-05-PLAN.md — RLS migration (0020_rls_policies.sql) + audit script verification
 - [x] 16-06-PLAN.md — Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint [has checkpoint]
-- [ ] 16-07-PLAN.md — IR runbook (docs/security/IR-RUNBOOK.md) + human approval [has checkpoint]
-- [ ] 16-01-PLAN.md -- Wave 1: test stubs (auth boundary + rate-limit unit tests) + RLS audit script
-- [ ] 16-02-PLAN.md -- Wave 2: Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess) + callers
-- [ ] 16-03-PLAN.md -- Wave 2: Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes
-- [ ] 16-04-PLAN.md -- Wave 3: Rate limiting infra (rate-limit.ts) + apply to 4 endpoints
-- [ ] 16-05-PLAN.md -- Wave 3: RLS migration (drizzle/0020) for all public tables + audit verification
+- [x] 16-07-PLAN.md — IR runbook (docs/security/IR-RUNBOOK.md) + human approval [has checkpoint]
+- [x] 16-01-PLAN.md -- Wave 1: test stubs (auth boundary + rate-limit unit tests) + RLS audit script
+- [x] 16-02-PLAN.md -- Wave 2: Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess) + callers
+- [x] 16-03-PLAN.md -- Wave 2: Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes
+- [x] 16-04-PLAN.md -- Wave 3: Rate limiting infra (rate-limit.ts) + apply to 4 endpoints
+- [x] 16-05-PLAN.md -- Wave 3: RLS migration (drizzle/0020) for all public tables + audit verification
 - [x] 16-06-PLAN.md -- Wave 3: Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint
-- [ ] 16-07-PLAN.md -- Wave 3: IR runbook (docs/security/IR-RUNBOOK.md) + human approval checkpoint
+- [x] 16-07-PLAN.md -- Wave 3: IR runbook (docs/security/IR-RUNBOOK.md) + human approval checkpoint
 
 ### Phase 17: Legal & Copyright Deep-Dive (Research)
 **Goal**: Produce a standalone analysis covering copyright, UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, and EAA as they apply to kitsubeat — enough to implement Phase 18 without a lawyer for v1, with explicit flags on items needing legal consultation later.
