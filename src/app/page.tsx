@@ -1,20 +1,16 @@
 /**
- * /  —  Phase 14.2 home redesign.
+ * /  —  Phase 14.2 home redesign + lazy carousel streaming.
  *
- * 5-section CA-hybrid narrative replacing the flat 5-carousel catalog:
- *   1. HeroFeatured (always — auth-aware via getHeroSong)
- *   2. Continue Learning (auth-only — wrapper handles the gate)
- *   3. Foundations (always)
- *   4. Browse by Anime (always)
- *   5. Featured Songs (always)
+ * Above-fold sections (Hero, Continue Learning, Ticker, Foundations, Browse by
+ * Anime, Featured Songs) are fetched eagerly in Promise.all so the page feels
+ * instant. Below-fold skill + era carousels are each independent async Server
+ * Components wrapped in <Suspense>, so they stream in one by one without
+ * blocking the visible content.
  *
- * SPEC §Req 6 + AC #13 — exact DOM order with stable data-testid selectors.
- * CONTEXT D-14 — CoverCard receives showMastery={isSignedIn} for anonymous-clean.
- *
- * force-dynamic preserved (CONTEXT line 224) — auth-aware fetch needs fresh
- * per-request render. Beginner / Recent / TopArtists queries dropped from
- * imports per SPEC §Req 6 (no longer consumed on /).
+ * SPEC §Req 6 + AC #13 — stable data-testid selectors preserved.
+ * CONTEXT D-14 — CoverCard receives showMastery={isSignedIn}.
  */
+import { Suspense } from "react";
 import {
   getHeroSong,
   getFeaturedSongs,
@@ -33,6 +29,14 @@ import { CoverCard } from "./components/home/CoverCard";
 import { AnimeCard } from "./components/home/AnimeCard";
 import { RecentlyMasteredTicker, type MasteryEvent } from "./components/home/RecentlyMasteredTicker";
 import { StreakSaverToast } from "./components/home/StreakSaverToast";
+import { CarouselSkeleton } from "./components/home/CarouselSkeleton";
+import {
+  BeginnerCarousel,
+  IntermediateCarousel,
+  AdvancedCarousel,
+  ClassicsCarousel,
+  ModernCarousel,
+} from "./components/home/SongCarousels";
 import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
@@ -51,7 +55,6 @@ export default async function HomePage() {
     getRecentMasteryEvents(10),
   ]);
 
-  // Resolve first-names for ticker rows (unstable_cache 1h per user, D-09)
   const masteryEvents: MasteryEvent[] = await Promise.all(
     masteryEventsRaw.map(async (ev) => ({
       ...ev,
@@ -59,7 +62,6 @@ export default async function HomePage() {
     }))
   );
 
-  // Fetch streak_saver_pending for toast (D-13: client-only mount via useEffect)
   const userRow = isSignedIn
     ? await db
         .select({
@@ -77,13 +79,13 @@ export default async function HomePage() {
       {/* Section 1 — HeroFeatured (always) */}
       <HeroFeatured hero={hero} />
 
-      {/* Section 2 — Continue Learning (auth-only; wrapper returns null when unauth or empty) */}
+      {/* Section 2 — Continue Learning (auth-only) */}
       {isSignedIn && <ContinueLearning userId={userId} />}
 
-      {/* Section 2.5 — Recently Mastered ticker (opt-in users; renders null when empty) */}
+      {/* Section 2.5 — Recently Mastered ticker */}
       <RecentlyMasteredTicker events={masteryEvents} />
 
-      {/* Section 3 — Foundations (always) */}
+      {/* Section 3 — Foundations */}
       <Foundations />
 
       {/* Section 4 — Browse by Anime */}
@@ -96,8 +98,6 @@ export default async function HomePage() {
         />
         <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse by anime">
           {topFranchises.map((franchise) => (
-            // Per revision: confirmed mapping count->songCount, English-as-eyebrow for v1.
-            // anime_metadata.name_jp does not exist in current schema; defer JOIN to 14.4.
             <AnimeCard
               key={franchise.anime}
               anime={franchise.anime}
@@ -110,7 +110,7 @@ export default async function HomePage() {
         </Carousel>
       </section>
 
-      {/* Streak-saver toast — client-only mount after streak-save event (D-13) */}
+      {/* Streak-saver toast */}
       {isSignedIn && userRow?.streakSaverPending && (
         <StreakSaverToast
           userId={userId}
@@ -120,7 +120,7 @@ export default async function HomePage() {
       )}
 
       {/* Section 5 — Featured Songs */}
-      <section data-testid="featured-songs" className="pb-12">
+      <section data-testid="featured-songs" className="pb-8">
         <SectionHeader
           titleJp="特集"
           title="Featured Songs"
@@ -146,6 +146,28 @@ export default async function HomePage() {
           ))}
         </Carousel>
       </section>
+
+      {/* ── Below-fold carousels — streamed independently via Suspense ── */}
+
+      <Suspense fallback={<CarouselSkeleton />}>
+        <BeginnerCarousel showMastery={isSignedIn} />
+      </Suspense>
+
+      <Suspense fallback={<CarouselSkeleton />}>
+        <IntermediateCarousel showMastery={isSignedIn} />
+      </Suspense>
+
+      <Suspense fallback={<CarouselSkeleton />}>
+        <AdvancedCarousel showMastery={isSignedIn} />
+      </Suspense>
+
+      <Suspense fallback={<CarouselSkeleton />}>
+        <ClassicsCarousel showMastery={isSignedIn} />
+      </Suspense>
+
+      <Suspense fallback={<CarouselSkeleton />}>
+        <ModernCarousel showMastery={isSignedIn} />
+      </Suspense>
     </div>
   );
 }

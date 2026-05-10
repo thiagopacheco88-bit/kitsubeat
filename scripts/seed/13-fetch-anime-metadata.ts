@@ -30,6 +30,14 @@ query ($search: String) {
     title { english native romaji }
     bannerImage
     coverImage { extraLarge large }
+    startDate { year }
+    genres
+    tags { name rank isMediaSpoiler }
+    description(asHtml: false)
+    season
+    seasonYear
+    averageScore
+    popularity
   }
 }
 `;
@@ -39,6 +47,14 @@ type AniListMedia = {
   title: { english: string | null; native: string | null; romaji: string | null };
   bannerImage: string | null;
   coverImage: { extraLarge: string | null; large: string | null };
+  startDate: { year: number | null } | null;
+  genres: string[] | null;
+  tags: Array<{ name: string; rank: number; isMediaSpoiler: boolean }> | null;
+  description: string | null;
+  season: string | null;
+  seasonYear: number | null;
+  averageScore: number | null;
+  popularity: number | null;
 };
 
 async function fetchAnime(search: string): Promise<AniListMedia | null> {
@@ -97,27 +113,36 @@ async function main() {
       console.log("NOT FOUND");
       miss++;
     } else {
+      const topTags = (media.tags ?? [])
+        .filter((t) => !t.isMediaSpoiler && t.rank >= 60)
+        .sort((a, b) => b.rank - a.rank)
+        .slice(0, 10)
+        .map((t) => t.name);
+
+      const values = {
+        anime,
+        anilist_id: media.id,
+        title_english: media.title.english ?? media.title.romaji,
+        title_native: media.title.native,
+        banner_image: media.bannerImage,
+        cover_image: media.coverImage.extraLarge ?? media.coverImage.large,
+        start_year: media.startDate?.year ?? null,
+        genres: media.genres ?? [],
+        tags: topTags,
+        description: media.description,
+        season: media.season,
+        season_year: media.seasonYear,
+        average_score: media.averageScore,
+        popularity: media.popularity,
+        fetched_at: new Date(),
+      };
+
       await db
         .insert(animeMetadata)
-        .values({
-          anime,
-          anilist_id: media.id,
-          title_english: media.title.english ?? media.title.romaji,
-          title_native: media.title.native,
-          banner_image: media.bannerImage,
-          cover_image: media.coverImage.extraLarge ?? media.coverImage.large,
-          fetched_at: new Date(),
-        })
+        .values(values)
         .onConflictDoUpdate({
           target: animeMetadata.anime,
-          set: {
-            anilist_id: media.id,
-            title_english: media.title.english ?? media.title.romaji,
-            title_native: media.title.native,
-            banner_image: media.bannerImage,
-            cover_image: media.coverImage.extraLarge ?? media.coverImage.large,
-            fetched_at: new Date(),
-          },
+          set: values,
         });
       console.log(
         `ok (banner=${media.bannerImage ? "Y" : "n"} cover=${media.coverImage.extraLarge ? "Y" : "n"})`,

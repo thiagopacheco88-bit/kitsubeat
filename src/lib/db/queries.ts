@@ -346,6 +346,72 @@ export async function getFeaturedSongs(limit: number = 6) {
     .limit(limit);
 }
 
+// Shared select shape for home page song carousels (mirrors getFeaturedSongs).
+const HOME_SONG_SELECT = {
+  id: songs.id,
+  slug: songs.slug,
+  title: songs.title,
+  artist: songs.artist,
+  anime: songs.anime,
+  youtube_id: sql<string | null>`(
+    SELECT sv.youtube_id FROM song_versions sv
+    WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
+    ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+    LIMIT 1
+  )`,
+  jlpt_level: songs.jlpt_level,
+};
+
+// Shared active-song filter fragments reused by home carousel queries.
+const activeSongWhere = () => and(
+  sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL)`,
+  eq(songs.language, "ja"),
+  eq(songs.quality_status, "active"),
+  sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle')`
+);
+
+export const getSongsBySkillLevel = unstable_cache(
+  async (level: "beginner" | "intermediate" | "advanced", limit = 12) => {
+    const jlptLevels: string[] =
+      level === "beginner" ? ["N5", "N4"] :
+      level === "intermediate" ? ["N3", "N2"] : ["N1"];
+    return db
+      .select(HOME_SONG_SELECT)
+      .from(songs)
+      .where(and(activeSongWhere(), inArray(songs.jlpt_level, jlptLevels as ("N1" | "N2" | "N3" | "N4" | "N5")[])))
+      .orderBy(asc(songs.popularity_rank))
+      .limit(limit);
+  },
+  ["songs-by-skill-level"],
+  { revalidate: 3600 }
+);
+
+export const getClassicSongs = unstable_cache(
+  async (limit = 12) => {
+    return db
+      .select(HOME_SONG_SELECT)
+      .from(songs)
+      .where(and(activeSongWhere(), sql`${songs.year_launched} IS NOT NULL AND ${songs.year_launched} <= 2005`))
+      .orderBy(asc(songs.popularity_rank))
+      .limit(limit);
+  },
+  ["songs-classics"],
+  { revalidate: 3600 }
+);
+
+export const getModernSongs = unstable_cache(
+  async (limit = 12) => {
+    return db
+      .select(HOME_SONG_SELECT)
+      .from(songs)
+      .where(and(activeSongWhere(), sql`${songs.year_launched} IS NOT NULL AND ${songs.year_launched} >= 2019`))
+      .orderBy(asc(songs.popularity_rank))
+      .limit(limit);
+  },
+  ["songs-modern"],
+  { revalidate: 3600 }
+);
+
 /**
  * Phase 14.2 SPEC §Req 4 — Continue Learning carousel data path.
  *

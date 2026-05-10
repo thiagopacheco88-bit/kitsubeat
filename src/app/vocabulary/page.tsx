@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import { Suspense } from "react";
 import { sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { getVocabularyDashboard } from "@/lib/db/queries";
@@ -75,7 +76,24 @@ export default async function VocabularyPage({
           {rows.length} {rows.length === 1 ? "word" : "words"} with mastery
         </p>
       </header>
-      <JlptGapSummary userId={userId} />
+      <Suspense fallback={
+        <div className="animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 mb-6">
+          <div className="mb-4 h-5 w-32 rounded bg-[var(--color-card-2)]" />
+          <ul className="space-y-4">
+            {["N5","N4","N3","N2","N1"].map((l) => (
+              <li key={l} className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <div className="h-5 w-10 rounded-full bg-[var(--color-card-2)]" />
+                  <div className="h-4 w-28 rounded bg-[var(--color-card-2)]" />
+                </div>
+                <div className="h-2 w-full rounded-full bg-[var(--color-card-2)]" />
+              </li>
+            ))}
+          </ul>
+        </div>
+      }>
+        <JlptGapSummary userId={userId} />
+      </Suspense>
       <FilterControls
         initial={{ tier: sp.tier, song: sp.song, sort: sp.sort }}
         sources={sources}

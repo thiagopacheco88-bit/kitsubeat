@@ -944,6 +944,14 @@ export const animeMetadata = pgTable("anime_metadata", {
   title_native: text("title_native"),
   banner_image: text("banner_image"),
   cover_image: text("cover_image"),
+  start_year: integer("start_year"),
+  genres: text("genres").array().default([]).notNull(),
+  tags: text("tags").array().default([]).notNull(),
+  description: text("description"),
+  season: text("season"),
+  season_year: integer("season_year"),
+  average_score: integer("average_score"),
+  popularity: integer("popularity"),
   fetched_at: timestamp("fetched_at", { withTimezone: true }).defaultNow().notNull(),
 });
 

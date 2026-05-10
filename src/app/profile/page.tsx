@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getUserPrefs, isPremium } from "@/app/actions/userPrefs";
 import {
   DEFAULT_NEW_CARD_CAP,
@@ -33,9 +34,27 @@ export default async function ProfilePage() {
           Tune your learning defaults, daily limits, and interface preferences.
         </p>
       </header>
-      <ProfileHud userId={userId} />
+      <Suspense fallback={
+        <div className="animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 flex items-center gap-6 mb-6">
+          <div className="shrink-0 rounded-full bg-[var(--color-card-2)]" style={{ width: 72, height: 72 }} />
+          <div className="flex-1 flex flex-col gap-3">
+            <div className="h-5 w-24 rounded bg-[var(--color-card-2)]" />
+            <div className="h-2 w-full rounded-full bg-[var(--color-card-2)]" />
+            <div className="h-4 w-40 rounded bg-[var(--color-card-2)]" />
+          </div>
+        </div>
+      }>
+        <ProfileHud userId={userId} />
+      </Suspense>
       <div>
-        <GlobalLearnedCounter variant="profile" />
+        <Suspense fallback={
+          <div className="animate-pulse rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 flex items-center justify-between">
+            <div className="h-5 w-36 rounded bg-[var(--color-card-2)]" />
+            <div className="h-7 w-16 rounded bg-[var(--color-card-2)]" />
+          </div>
+        }>
+          <GlobalLearnedCounter variant="profile" />
+        </Suspense>
       </div>
       <section aria-labelledby="account-section-heading" className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring)] sm:p-6">
         <h2 id="account-section-heading" className="text-[20px] font-bold text-[var(--color-text)]">Account</h2>
