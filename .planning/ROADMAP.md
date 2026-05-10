@@ -52,7 +52,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate — measurement against pages about to be redesigned in Phase 14 would be wasted work.)
  (completed 2026-05-01)
 - [x] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface (completed 2026-05-02)
-- [ ] **Phase 14.6: Journal — Organic Traffic & Content Hub** - INSERTED 2026-05-10 - MDX-backed `/journal` section for anime culture lore, song translations, and Japanese language explainers; session-14 design system; full SEO layer (OG tags, sitemap, schema.org/Article); Subutai-compatible MDX pipeline in `src/content/journal/`
+- [x] **Phase 14.6: Journal — Organic Traffic & Content Hub** - INSERTED 2026-05-10 - MDX-backed `/journal` section for anime culture lore, song translations, and Japanese language explainers; session-14 design system; full SEO layer (OG tags, sitemap, schema.org/Article); Subutai-compatible MDX pipeline in `src/content/journal/` (completed 2026-05-10)
 - [x] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated (completed 2026-05-08)
 - [x] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook (completed 2026-05-10)
 - [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA — produces requirements checklist
@@ -583,9 +583,9 @@ Plans:
 **Research captured**: [.planning/phases/14.6-journal/14.6-RESEARCH.md](phases/14.6-journal/14.6-RESEARCH.md)
 **Plans:** 3 plans
 Plans:
-- [ ] 14.6-01-PLAN.md — Wave 1: Install next-mdx-remote + gray-matter + reading-time; src/lib/journal/articles.ts utility; sample article MDX; unit tests (JOUR-01 to JOUR-04)
-- [ ] 14.6-02-PLAN.md — Wave 2: JournalCard + ArticleHero components; /journal index page; /journal/[slug] article page with compileMDX render and notFound (JOUR-05, JOUR-06)
-- [ ] 14.6-03-PLAN.md — Wave 3: generateMetadata + JSON-LD on article page; src/app/sitemap.ts; NEXT_PUBLIC_SITE_URL env var (JOUR-07, JOUR-08)
+- [x] 14.6-01-PLAN.md — Wave 1: Install next-mdx-remote + gray-matter + reading-time; src/lib/journal/articles.ts utility; sample article MDX; unit tests (JOUR-01 to JOUR-04)
+- [x] 14.6-02-PLAN.md — Wave 2: JournalCard + ArticleHero components; /journal index page; /journal/[slug] article page with compileMDX render and notFound (JOUR-05, JOUR-06)
+- [x] 14.6-03-PLAN.md — Wave 3: generateMetadata + JSON-LD on article page; src/app/sitemap.ts; NEXT_PUBLIC_SITE_URL env var (JOUR-07, JOUR-08)
 
 
 ### Phase 15: Analytics & Error Tracking
