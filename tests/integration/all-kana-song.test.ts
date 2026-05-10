@@ -161,7 +161,7 @@ describeIfTestDb("SPEC-REQ-16: all-kana song (no kanji vocab, kanji clause auto-
         });
       }
 
-      const unlocked = await getAdvancedDrillUnlock(songVersionId, TEST_USER);
+      const unlocked = await getAdvancedDrillUnlock(songVersionId);
 
       // With all-kana song: vocab=100%, grammar≥80% (auto from fixture), kanji auto-passes
       expect(unlocked).toBe(true);

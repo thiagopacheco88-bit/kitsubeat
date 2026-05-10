@@ -1145,10 +1145,10 @@ export async function recordVocabAnswer(
 // ---------------------------------------------------------------------------
 
 export async function getAdvancedDrillUnlock(
-  songVersionId: string,
-  userId: string
+  songVersionId: string
 ): Promise<boolean> {
-  if (!songVersionId || !userId) return false;
+  const { userId } = await auth();
+  if (!userId || !songVersionId) return false;
   const rows = await db.execute<{ unlocked: boolean }>(sql`
     SELECT (advanced_drills_unlocked_at IS NOT NULL) AS unlocked
     FROM user_song_progress
