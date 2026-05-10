@@ -686,12 +686,7 @@ export async function getHeroSong(userId: string | null): Promise<HeroSongResult
 export async function getTopAnimeFranchises(limit: number = 10) {
   return db
     .select({
-      anime: sql<string>`regexp_replace(
-        ${songs.anime},
-        '( Season\\s.*| Final Season.*|:\\s.*|\\sII$|\\sIII$|\\sIV$| the Movie.*| Alternative.*| Extra.*)',
-        '',
-        'i'
-      )`,
+      anime: songs.anime,
       count: sql<number>`count(*)::int`,
       youtube_id: sql<string | null>`(array_agg(
         (SELECT sv.youtube_id FROM song_versions sv
@@ -730,12 +725,7 @@ export async function getTopAnimeFranchises(limit: number = 10) {
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
     )`)
-    .groupBy(sql`regexp_replace(
-      ${songs.anime},
-      '( Season\\s.*| Final Season.*|:\\s.*|\\sII$|\\sIII$|\\sIV$| the Movie.*| Alternative.*| Extra.*)',
-      '',
-      'i'
-    )`)
+    .groupBy(songs.anime)
     .orderBy(sql`count(*) desc`)
     .limit(limit);
 }
