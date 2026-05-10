@@ -212,15 +212,15 @@ export default function LyricsPanel({
           onClick={toggleAutoScroll}
           title="Auto-scroll · Still a work in progress — timing may be off on some songs"
           aria-label={autoScroll ? "Disable auto-scroll" : "Enable auto-scroll"}
-          className={`group flex items-center gap-1 rounded px-1.5 py-0.5 text-xs transition-colors ${
+          className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
             autoScroll
-              ? "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
-              : "text-[var(--color-text-faint,#888)] opacity-50 hover:opacity-75"
+              ? "border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+              : "border-transparent bg-transparent text-[var(--color-text-faint,#888)] opacity-50 hover:opacity-70"
           }`}
         >
           <svg
-            width="12"
-            height="12"
+            width="13"
+            height="13"
             viewBox="0 0 12 12"
             fill="none"
             stroke="currentColor"
@@ -231,9 +231,7 @@ export default function LyricsPanel({
           >
             <path d="M6 1v10M3 8l3 3 3-3M3 4l3-3 3 3" />
           </svg>
-          <span className="hidden sm:inline opacity-60 text-[10px]">
-            {autoScroll ? "auto-scroll" : "auto-scroll off"}
-          </span>
+          Auto-scroll
         </button>
       </div>
       {verses.map((verse) => (

@@ -18,6 +18,7 @@ import { songs, songVersions } from "@/lib/db/schema";
 import type { TimingData, WordTiming } from "@/lib/timing-types";
 import TimingEditor from "../components/TimingEditor";
 import TimingSaveHandler from "../components/TimingSaveHandler";
+import ToolSwitcher from "@/app/admin/ToolSwitcher";
 
 export const dynamic = "force-dynamic";
 
@@ -78,6 +79,8 @@ export default async function TimingEditorPage({ params }: PageProps) {
           {song.artist} - <em>{song.anime}</em>
         </p>
       </header>
+
+      <ToolSwitcher songVersionId={songId} active="timing" />
 
       <div className="flex flex-wrap gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 text-sm text-[var(--color-text-muted)] shadow-[var(--shadow-card-ring)]">
         <span>

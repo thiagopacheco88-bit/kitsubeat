@@ -12,6 +12,7 @@ import {
 import type { Verse } from "@/lib/types/lesson";
 import SongSearch from "./components/SongSearch";
 import VerseEditor from "./components/VerseEditor";
+import ToolSwitcher from "@/app/admin/ToolSwitcher";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -171,6 +172,7 @@ export default async function AdminLyricsPage({ searchParams }: Props) {
   return (
     <AdminShell>
       <SongSearch initialSongVersionId={songVersionId} />
+      <ToolSwitcher songVersionId={songVersionId} active="lyrics" />
 
       <div data-testid="editor-mount" className="flex flex-col gap-4">
         <section className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring)]">

@@ -50,6 +50,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => (
     <button
       ref={ref}
+      suppressHydrationWarning
       className={twMerge(clsx(button({ variant, size }), className))}
       {...props}
     />
