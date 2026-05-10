@@ -1178,16 +1178,17 @@ export async function getAdvancedDrillUnlock(
 // ---------------------------------------------------------------------------
 
 export async function recordAdvancedDrillAttempt(
-  userId: string,
   songVersionId: string,
   exerciseType: ExerciseType
 ): Promise<{ ok: true } | { ok: false; reason: "quota_exhausted"; family: QuotaFamily }> {
+  const { userId } = await auth();
+  if (!userId) return { ok: true }; // unauthenticated — no quota to consume
   const family = QUOTA_FAMILY[exerciseType] as QuotaFamily | undefined;
   if (!family) {
     // Non-gated type — nothing to do.
     return { ok: true };
   }
-  if (!userId || !songVersionId) return { ok: true };
+  if (!songVersionId) return { ok: true };
 
   try {
     await recordSongAttempt(userId, family, songVersionId);
