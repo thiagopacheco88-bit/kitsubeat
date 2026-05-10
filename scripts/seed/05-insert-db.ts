@@ -56,6 +56,9 @@ const LYRICS_CACHE_DIR = join(PROJECT_ROOT, "data/lyrics-cache");
 const REJECTED_LYRICS_DIR = join(LYRICS_CACHE_DIR, "_rejected");
 const TIMING_CACHE_DIR = join(PROJECT_ROOT, "data/timing-cache");
 const TIMING_STEM_DIR = join(PROJECT_ROOT, "data/timing-cache-stem");
+// Merged = official lyrics text + WhisperX timing. Preferred over stem when present.
+// To rollback: delete or rename data/timing-cache-merged/ and re-run this script.
+const TIMING_MERGED_DIR = join(PROJECT_ROOT, "data/timing-cache-merged");
 
 const CANONICAL_SOURCES = new Set<string>([
   "lrclib",
@@ -149,9 +152,21 @@ function buildCanonicalLyrics(slug: string): CanonicalLyricsJson | null {
   return null;
 }
 
-/** Build the whisper_lyrics jsonb from disk. Prefers Demucs+stem timing when
- *  present (higher kCov), falls back to original raw-audio Whisper. */
+/** Build the whisper_lyrics jsonb from disk.
+ *  Preference order: merged (official text + WhisperX timing) → stem → orig.
+ *  Rollback: remove data/timing-cache-merged/ and re-run to revert to stem. */
 function buildWhisperLyrics(slug: string): WhisperLyricsJson | null {
+  const mergedPath = join(TIMING_MERGED_DIR, `${slug}.json`);
+  const merged = readJsonOrNull<TimingCacheEntry>(mergedPath);
+  if (merged && merged.words && merged.words.length > 0) {
+    return {
+      model: "lrclib+demucs+whisperx-large-v3",
+      raw_lyrics: merged.words.map((w) => w.word).join(" "),
+      words: merged.words,
+      kcov_against_canonical: null,
+      transcribed_at: fileMTime(mergedPath),
+    };
+  }
   const stemPath = join(TIMING_STEM_DIR, `${slug}.json`);
   const stem = readJsonOrNull<TimingCacheEntry>(stemPath);
   if (stem && stem.words && stem.words.length > 0) {

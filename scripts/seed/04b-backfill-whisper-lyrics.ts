@@ -89,7 +89,7 @@ interface LyricsCacheEntry {
   artist: string;
   source: LyricsSource;
   raw_lyrics: string;
-  synced_lrc: unknown | null;
+  synced_lrc: Array<{ startMs: number; text: string }> | null;
   tokens: LyricsToken[];
 }
 
@@ -188,8 +188,16 @@ function deriveAdaptiveThresholds(
   return { lineGapS, verseGapS: adjustedVerse, source: "adaptive" };
 }
 
+interface ReconstructResult {
+  raw_lyrics: string;
+  synced_lrc: Array<{ startMs: number; text: string }>;
+}
+
 /**
  * Reconstruct plain-text lyrics from WhisperX word-level timestamps.
+ * Also produces a synced_lrc array (line-level timestamps) so that
+ * restore-verse-order.ts can expand chorus repetitions for WhisperX-
+ * sourced songs the same way it does for LRCLIB songs.
  *
  * Two-tier gap classification (replaces the old single 500ms rule):
  *   gap < lineGapS           → word separator (same line)
@@ -202,8 +210,8 @@ function deriveAdaptiveThresholds(
  * a singer's breath pause mid-phrase from creating a line break, because
  * mid-phrase breaths don't land on beats.
  */
-function reconstructLyricsFromWords(words: WordTiming[], beats: BeatCache | null): string {
-  if (words.length === 0) return "";
+function reconstructLyricsFromWords(words: WordTiming[], beats: BeatCache | null): ReconstructResult {
+  if (words.length === 0) return { raw_lyrics: "", synced_lrc: [] };
 
   const { lineGapS, verseGapS, source } = deriveAdaptiveThresholds(words, beats);
   const beatGrid = beats?.beats_s ?? [];
@@ -215,7 +223,23 @@ function reconstructLyricsFromWords(words: WordTiming[], beats: BeatCache | null
   );
 
   const parts: string[] = [];
+  const syncedLines: Array<{ startMs: number; text: string }> = [];
   let prevEnd: number | null = null;
+
+  // Track the current line being built for synced_lrc.
+  let lineStartMs: number | null = null;
+  const lineWords: string[] = [];
+
+  function flushLine() {
+    if (lineStartMs !== null && lineWords.length > 0) {
+      syncedLines.push({
+        startMs: Math.round(lineStartMs * 1000),
+        text: lineWords.join(" ").trim(),
+      });
+    }
+    lineStartMs = null;
+    lineWords.length = 0;
+  }
 
   for (const w of words) {
     const wordText = w.word.trim();
@@ -234,20 +258,27 @@ function reconstructLyricsFromWords(words: WordTiming[], beats: BeatCache | null
       }
 
       if (breakAllowed && gapSeconds >= verseGapS) {
+        flushLine();
         parts.push("\n\n");
       } else if (breakAllowed && gapSeconds >= lineGapS) {
+        flushLine();
         parts.push("\n");
       } else {
         parts.push(" ");
       }
     }
 
+    if (lineStartMs === null) lineStartMs = w.start;
+    lineWords.push(wordText);
     parts.push(wordText);
     prevEnd = w.end;
   }
 
+  flushLine();
+
   // Normalize runs of >2 newlines down to exactly 2 (single blank line).
-  return parts.join("").replace(/\n{3,}/g, "\n\n").trim();
+  const raw_lyrics = parts.join("").replace(/\n{3,}/g, "\n\n").trim();
+  return { raw_lyrics, synced_lrc: syncedLines };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -367,24 +398,27 @@ async function backfillWhisperLyrics(): Promise<void> {
     }
 
     try {
-      // Reconstruct raw_lyrics from WhisperX words (uses beat-cache when present)
+      // Reconstruct raw_lyrics and synced_lrc from WhisperX words
       const beats = readBeatCache(slug);
       console.log(`  [timing-source] ${timingSource}`);
-      const raw_lyrics = reconstructLyricsFromWords(timingEntry.words, beats);
+      const { raw_lyrics, synced_lrc } = reconstructLyricsFromWords(timingEntry.words, beats);
       console.log(
         `  [reconstruct] ${timingEntry.words.length} words → ` +
-          `${raw_lyrics.split("\n").length} lines, ${raw_lyrics.length} chars`
+          `${raw_lyrics.split("\n").length} lines, ${raw_lyrics.length} chars, ` +
+          `${synced_lrc.length} synced_lrc lines`
       );
 
       // Re-tokenize via kuroshiro
       const tokens = await tokenizeLyrics(raw_lyrics);
       console.log(`  [tokenize] ${tokens.length} tokens generated`);
 
-      // Write updated lyrics-cache
+      // Write updated lyrics-cache (synced_lrc enables restore-verse-order.ts
+      // to expand chorus repetitions, same as LRCLIB songs)
       const updated: LyricsCacheEntry = {
         ...lyricsEntry,
         source: "whisper",
         raw_lyrics,
+        synced_lrc: synced_lrc.length > 0 ? synced_lrc : null,
         tokens,
       };
       writeLyricsCache(slug, updated);

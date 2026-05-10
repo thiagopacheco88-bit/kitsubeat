@@ -79,14 +79,14 @@ export function buildBatchRequests(
       custom_id: song.slug,
       params: {
         model: "claude-sonnet-4-6",
-        max_tokens: 8192,
+        max_tokens: 64000,
         messages: [{ role: "user", content: prompt }],
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         output_config: {
           format: {
             type: "json_schema",
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            json_schema: LESSON_JSON_SCHEMA as any,
+            schema: LESSON_JSON_SCHEMA as any,
           },
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,

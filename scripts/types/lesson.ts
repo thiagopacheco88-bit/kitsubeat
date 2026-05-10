@@ -52,7 +52,7 @@ export type Token = z.infer<typeof TokenSchema>;
  * Contains tokens (word-level breakdown), timestamps, translations, and explanations.
  */
 export const VerseSchema = z.object({
-  verse_number: z.number().int().min(1).describe("1-based verse index"),
+  verse_number: z.number().int().describe("1-based verse index"),
   start_time_ms: z
     .number()
     .describe("Verse start time in milliseconds (from WhisperX timing pipeline)"),
@@ -185,17 +185,50 @@ export const LessonSchema = z.object({
 
 export type Lesson = z.infer<typeof LessonSchema>;
 
+// Keywords the Anthropic structured-output API does not support
+const UNSUPPORTED_KEYWORDS = new Set([
+  "minimum", "maximum", "exclusiveMinimum", "exclusiveMaximum", "multipleOf",
+  "minItems", "maxItems",
+  "minLength", "maxLength", "pattern", "format",
+  "minProperties", "maxProperties",
+]);
+
+/**
+ * Recursively walks a JSON Schema object and enforces Anthropic structured-output
+ * constraints:
+ *   - Every object node gets additionalProperties: false
+ *   - Unsupported validation keywords are stripped
+ */
+function enforceStrictSchema(node: unknown): unknown {
+  if (Array.isArray(node)) return node.map(enforceStrictSchema);
+  if (node === null || typeof node !== "object") return node;
+  const obj = node as Record<string, unknown>;
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(obj)) {
+    if (UNSUPPORTED_KEYWORDS.has(k)) continue;
+    out[k] = enforceStrictSchema(v);
+  }
+  if (out["type"] === "object") {
+    out["additionalProperties"] = false;
+  }
+  return out;
+}
+
 /**
  * JSON Schema derived from LessonSchema — used as output_config.format.schema
  * in the Anthropic Batch API call for structured output generation.
  *
  * $refStrategy: "none" inlines all $ref definitions for compatibility with Claude's
  * JSON schema validator which does not resolve external $ref pointers.
+ * enforceStrictSchema sets additionalProperties:false on every object node,
+ * which is required by the Anthropic structured-output API.
  */
-export const LESSON_JSON_SCHEMA = zodToJsonSchema(LessonSchema, {
-  $refStrategy: "none",
-  name: "Lesson",
-});
+export const LESSON_JSON_SCHEMA = enforceStrictSchema(
+  zodToJsonSchema(LessonSchema, {
+    $refStrategy: "none",
+    name: "Lesson",
+  })
+) as ReturnType<typeof zodToJsonSchema>;
 
 // Allow direct execution for type-check verification
 // Usage: npx tsx scripts/types/lesson.ts
