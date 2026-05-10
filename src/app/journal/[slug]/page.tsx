@@ -42,13 +42,15 @@ export async function generateMetadata({
       title: frontmatter.title,
       description: frontmatter.summary,
       url: canonicalUrl,
-      images: [
-        {
-          url: frontmatter.coverImage.startsWith('/')
-            ? `${BASE_URL}${frontmatter.coverImage}`
-            : frontmatter.coverImage,
-        },
-      ],
+      images: frontmatter.coverImage
+        ? [
+            {
+              url: frontmatter.coverImage.startsWith('/')
+                ? `${BASE_URL}${frontmatter.coverImage}`
+                : frontmatter.coverImage,
+            },
+          ]
+        : [],
       type: 'article',
       publishedTime: frontmatter.date,
     },
@@ -86,9 +88,11 @@ export default async function ArticlePage({
     headline: frontmatter.title,
     description: frontmatter.summary,
     datePublished: frontmatter.date,
-    image: frontmatter.coverImage.startsWith('/')
-      ? `${BASE_URL}${frontmatter.coverImage}`
-      : frontmatter.coverImage,
+    image: frontmatter.coverImage
+      ? frontmatter.coverImage.startsWith('/')
+        ? `${BASE_URL}${frontmatter.coverImage}`
+        : frontmatter.coverImage
+      : undefined,
     url: `${BASE_URL}/journal/${slug}`,
     author: {
       '@type': 'Organization',
