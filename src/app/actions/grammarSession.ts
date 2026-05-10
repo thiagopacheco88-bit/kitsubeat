@@ -1,7 +1,7 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
-import { llmRatelimit } from "@/lib/rate-limit";
+import { llmRatelimit, sessionRatelimit } from "@/lib/rate-limit";
 import { and, asc, eq, inArray, notInArray, sql } from "drizzle-orm";
 import { db } from "@/lib/db/index";
 import {
@@ -301,6 +301,11 @@ export async function saveGrammarSessionResults(
 ): Promise<SaveGrammarSessionResult> {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
+
+  // Rate limit: 10 session saves/min per user (mirrors saveSessionResults — Phase 16 SC-4)
+  const { success: rlSuccess } = await sessionRatelimit.limit(userId);
+  if (!rlSuccess) throw new Error("Rate limit exceeded. Please slow down.");
+
   const { songVersionId, songSlug, answers, tz = "UTC" } = input;
 
   // --- 1. Accuracy ---
