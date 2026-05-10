@@ -11,6 +11,12 @@ import { sql } from "drizzle-orm";
 
 vi.mock("@clerk/nextjs/server", () => ({ auth: vi.fn() }));
 
+vi.mock("@/lib/rate-limit", () => ({
+  exerciseRatelimit: { limit: vi.fn().mockResolvedValue({ success: true, limit: 120, remaining: 119, reset: Date.now() + 60000, pending: Promise.resolve() }) },
+  sessionRatelimit: { limit: vi.fn().mockResolvedValue({ success: true, limit: 10, remaining: 9, reset: Date.now() + 60000, pending: Promise.resolve() }) },
+  llmRatelimit: { limit: vi.fn().mockResolvedValue({ success: true, limit: 10, remaining: 9, reset: Date.now() + 60000, pending: Promise.resolve() }) },
+}));
+
 const HAS_TEST_DB = !!process.env.TEST_DATABASE_URL;
 const describeIfTestDb = HAS_TEST_DB ? describe : describe.skip;
 
