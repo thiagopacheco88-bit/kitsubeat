@@ -1,6 +1,11 @@
 // @vitest-environment node
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 
+// Mock server-only so it does not throw in the vitest Node environment.
+// In production Next.js, this module prevents accidental client-side import.
+// In tests, the RSC enforcement is irrelevant — we test the utility logic only.
+vi.mock('server-only', () => ({}));
+
 // Mock fs BEFORE importing the module under test so the module picks up mocks
 vi.mock('node:fs');
 import * as fs from 'node:fs';
