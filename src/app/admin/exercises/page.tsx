@@ -4,9 +4,12 @@ import { eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { songs, songVersions, vocabularyItems } from "@/lib/db/schema";
 import type { Lesson, VocabEntry, Verse } from "@/lib/types/lesson";
+import { Suspense } from "react";
 import { localize } from "@/lib/types/lesson";
 import SongSearch from "@/app/admin/lyrics/components/SongSearch";
 import ExercisesReview from "./components/ExercisesReview";
+import GrammarSection from "./components/GrammarSection";
+import CollapsableSection from "./components/CollapsableSection";
 import ToolSwitcher from "@/app/admin/ToolSwitcher";
 
 export const dynamic = "force-dynamic";
@@ -169,16 +172,56 @@ export default async function AdminExercisesPage({ searchParams }: Props) {
 
   const songLabel = [songVer.title, songVer.artist].filter(Boolean).join(" — ");
 
+  // Warn when lesson has vocab but none are linked to vocabulary_items (backfill not run)
+  const unlinkedCount = lesson.vocabulary.length - vocabEntries.length;
+
   return (
     <AdminShell>
       <SongSearch initialSongVersionId={songVersionId} />
       <ToolSwitcher songVersionId={songVersionId} active="exercises" />
-      <ExercisesReview
-        songVersionId={songVersionId}
-        songLabel={songLabel}
-        rows={rows}
-        totalVerses={verses.length}
-      />
+      {unlinkedCount > 0 && (
+        <div style={{
+          padding: "12px 16px",
+          borderRadius: "var(--radius-xl)",
+          border: "1px solid #f59e0b",
+          background: "#fefce8",
+          fontSize: "13px",
+          color: "#92400e",
+        }}>
+          <strong>{unlinkedCount} vocab item{unlinkedCount !== 1 ? "s" : ""}</strong> in the lesson JSON have no <code>vocab_item_id</code> — the vocabulary backfill hasn't been run for this song version. Run <code>scripts/backfill-vocab-ids</code> to link them, then vocab exercises will appear here.
+        </div>
+      )}
+      <CollapsableSection
+        title="Vocabulary Exercises"
+        badge={`${rows.length} items · ${verses.length} verses`}
+      >
+        <ExercisesReview
+          songVersionId={songVersionId}
+          songLabel={songLabel}
+          rows={rows}
+          totalVerses={verses.length}
+        />
+      </CollapsableSection>
+
+      <Suspense fallback={
+        <div style={{
+          padding: "16px 18px",
+          borderRadius: "var(--radius-2xl)",
+          border: "1px solid var(--color-border)",
+          background: "var(--color-card)",
+          fontSize: "13px",
+          color: "var(--color-text-muted)",
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+        }}>
+          <span style={{ display: "inline-block", width: "14px", height: "14px", border: "2px solid var(--color-border)", borderTopColor: "var(--color-accent)", borderRadius: "50%", animation: "spin 0.6s linear infinite" }} />
+          Loading grammar rules…
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </div>
+      }>
+        <GrammarSection songVersionId={songVersionId} />
+      </Suspense>
     </AdminShell>
   );
 }

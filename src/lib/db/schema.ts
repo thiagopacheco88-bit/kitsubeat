@@ -779,7 +779,7 @@ export const vocabGlobal = pgMaterializedView("vocab_global", {
   reading: text("reading"),
   jlpt_level: text("jlpt_level"),
 }).as(sql`
-  SELECT
+  SELECT DISTINCT
     vi.id AS vocab_item_id,
     sv.song_id,
     sv.version_type,
