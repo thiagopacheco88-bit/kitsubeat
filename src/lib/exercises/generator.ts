@@ -36,10 +36,11 @@ export type ExerciseType =
   | "meaning_vocab"
   | "reading_match"
   | "fill_lyric"
-  | "grammar_conjugation"  // Ex 5 — Grammar Conjugation
-  | "listening_drill"      // Ex 6 — Listening Drill (drives Star 3)
-  | "sentence_order"       // Ex 7 — Sentence Order
-  | "vocab_typed";         // Phase 11.6 SPEC-REQ-7 — Kanji track romaji typed input
+  | "grammar_conjugation"    // Ex 5 — Grammar Conjugation
+  | "listening_drill"        // Ex 6 — Listening Drill (drives Star 3)
+  | "sentence_order"         // Ex 7 — Sentence Order
+  | "vocab_typed"            // Kanji track production — see kanji, type romaji (gated)
+  | "meaning_romaji_typed";  // Vocab track production — see meaning, type romaji (gated)
 
 // ---------------------------------------------------------------------------
 // Phase 11.6 — Track kinds + length modes (SPEC-REQ-3, SPEC-REQ-7, SPEC-REQ-12)
@@ -65,10 +66,14 @@ const MIN_INTRO_TO_TEST_GAP = 3;
 // reading_match (kanji surface → pick romaji) is a kanji-recognition test
 // and belongs in the Kanji track, NOT the Vocab track. The Vocab track is
 // romaji ↔ meaning recognition only.
+// Kanji track: recognition first (vocab_meaning, meaning_vocab, reading_match),
+// then vocab_typed unlocked via masteryGate.kanjiTyped.
+// Vocab track: recognition (vocab_meaning, meaning_vocab),
+// then meaning_romaji_typed unlocked via masteryGate.vocabTyped.
 const TRACK_TYPES: Record<TrackKind, ExerciseType[]> = {
   vocab: ["vocab_meaning", "meaning_vocab"],
   grammar: ["grammar_conjugation"],
-  kanji: ["vocab_typed", "reading_match"],
+  kanji: ["vocab_meaning", "meaning_vocab", "reading_match"],
   advanced_drills: [
     "vocab_meaning",
     "meaning_vocab",
@@ -209,6 +214,9 @@ function extractField(vocab: VocabEntry, type: ExerciseType): string {
       // Phase 11.6: vocab_typed is a typed-input exercise (no MC distractors).
       // extractField returns the romaji reading used as the correct answer.
       return vocab.reading;
+    case "meaning_romaji_typed":
+      // Vocab track production: correctAnswer is the romaji (explicit latin field).
+      return vocab.romaji;
   }
 }
 
@@ -376,6 +384,8 @@ function makeExplanation(vocab: VocabEntry, type: ExerciseType): string {
     case "vocab_typed":
       // Phase 11.6: typed romaji input exercise — explanation shows the correct reading.
       return `「${surface}」 is read as "${romaji}". Type the romaji reading.`;
+    case "meaning_romaji_typed":
+      return `"${meaning}" is read as "${romaji}" (${surface}).`;
   }
 }
 
@@ -484,6 +494,11 @@ function makeQuestion(
       // branch covers ad-hoc callers invoking makeQuestion directly with vocab_typed.
       prompt = vocab.surface;
       correctAnswer = vocab.reading;
+      break;
+    case "meaning_romaji_typed":
+      // Vocab track production: prompt is the English meaning, answer is romaji.
+      prompt = localize(vocab.meaning, "en");
+      correctAnswer = vocab.romaji;
       break;
   }
 
@@ -659,6 +674,41 @@ function makeVocabTypedQuestion(vocab: VocabEntry): Question {
 }
 
 // ---------------------------------------------------------------------------
+// Vocab track production — meaning_romaji_typed question factory
+// ---------------------------------------------------------------------------
+//
+// Prompt = English meaning. CorrectAnswer = vocab.romaji (explicit latin field).
+// No distractors — typed input, same romajiEquals comparator as vocab_typed.
+// Unlocked only when masteryGate.vocabTyped is true (caller pre-checks trackPct).
+
+function makeMeaningRomajiTypedQuestion(vocab: VocabEntry): Question {
+  const meaning = localize(vocab.meaning, "en");
+  const vocabInfo: VocabInfo = {
+    surface: vocab.surface,
+    reading: vocab.reading,
+    romaji: vocab.romaji,
+    vocab_item_id: vocab.vocab_item_id,
+  };
+
+  return {
+    id: crypto.randomUUID(),
+    type: "meaning_romaji_typed",
+    vocabItemId: vocab.vocab_item_id ?? "",
+    jlpt_level: vocab.jlpt_level === "unknown" ? null : vocab.jlpt_level,
+    prompt: meaning,
+    correctAnswer: vocab.romaji,
+    distractors: [],
+    explanation: `"${meaning}" is read as "${vocab.romaji}" (${vocab.surface}).`,
+    detailedExplanation: makeDetailedExplanation(vocab),
+    mnemonic: vocab.mnemonic,
+    kanji_breakdown: vocab.kanji_breakdown ?? null,
+    image_url: vocab.image_url,
+    meaning_en: meaning,
+    vocabInfo,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Phase 11.6 — buildQuestionsFromPool: new object-parameter form
 // ---------------------------------------------------------------------------
 //
@@ -689,6 +739,16 @@ export interface BuildQuestionsPoolInput {
   trackKind?: TrackKind;
   lengthMode?: LengthMode;
   dueReviews?: VocabEntry[];
+  /**
+   * Production-tier mastery gates. When true, the corresponding typed exercise
+   * is appended to the question pool after the recognition exercises.
+   * vocabTyped  — adds meaning_romaji_typed to Vocab track (trackPct.vocab >= 80).
+   * kanjiTyped  — adds vocab_typed to Kanji track (trackPct.kanji >= 80).
+   */
+  masteryGate?: {
+    vocabTyped: boolean;
+    kanjiTyped: boolean;
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -962,6 +1022,7 @@ function buildQuestionsFromPool(input: BuildQuestionsPoolInput): Question[] {
     trackKind,
     lengthMode,
     dueReviews = [],
+    masteryGate,
   } = input;
 
   // Only include vocab entries with a UUID identity
@@ -1000,53 +1061,66 @@ function buildQuestionsFromPool(input: BuildQuestionsPoolInput): Question[] {
   }
 
   // -------------------------------------------------------------------------
-  // Step 3b: Kanji track — emit vocab_typed for every kanji-bearing vocab
+  // Step 3b: Recognition exercises — standard per-vocab loop for all tracks.
+  // Kanji track now includes vocab_meaning + meaning_vocab + reading_match
+  // (recognition) before production exercises are unlocked via masteryGate.
   // -------------------------------------------------------------------------
-  if (trackKind === "kanji") {
-    for (const vocab of eligibleVocab) {
-      questions.push(makeVocabTypedQuestion(vocab));
+  const hasTimedVerses = verses.some((v) => v.start_time_ms > 0);
+  const ALL_VOCAB_LOOP_TYPES: ExerciseType[] = [
+    "vocab_meaning",
+    "meaning_vocab",
+    "reading_match",
+    "fill_lyric",
+    "listening_drill",
+  ];
+  const activeTypes = ALL_VOCAB_LOOP_TYPES.filter(typeAllowed);
+
+  for (const vocab of eligibleVocab) {
+    for (const type of activeTypes) {
+      if ((type === "fill_lyric" || type === "listening_drill") && eligibleVocab.length < 3) continue;
+      if (type === "listening_drill" && !hasTimedVerses) continue;
+
+      const distractorEntries = pickDistractorsWithVocab(vocab, type, eligibleVocab, jlptPool);
+      const distractors = distractorEntries.map((d) => d.field);
+      const question = makeQuestion(vocab, type, distractors, verses, distractorEntries);
+      if (question) questions.push(question);
     }
-  } else {
-    // -----------------------------------------------------------------------
-    // Step 3c: Vocab / Grammar / other tracks — use standard per-vocab loop
-    // -----------------------------------------------------------------------
-    const hasTimedVerses = verses.some((v) => v.start_time_ms > 0);
-    const ALL_VOCAB_LOOP_TYPES: ExerciseType[] = [
-      "vocab_meaning",
-      "meaning_vocab",
-      "reading_match",
-      "fill_lyric",
-      "listening_drill",
-    ];
-    const activeTypes = ALL_VOCAB_LOOP_TYPES.filter(typeAllowed);
+  }
 
-    for (const vocab of eligibleVocab) {
-      for (const type of activeTypes) {
-        if ((type === "fill_lyric" || type === "listening_drill") && eligibleVocab.length < 3) continue;
-        if (type === "listening_drill" && !hasTimedVerses) continue;
-
-        const distractorEntries = pickDistractorsWithVocab(vocab, type, eligibleVocab, jlptPool);
-        const distractors = distractorEntries.map((d) => d.field);
-        const question = makeQuestion(vocab, type, distractors, verses, distractorEntries);
-        if (question) questions.push(question);
-      }
+  // Grammar conjugation
+  if (typeAllowed("grammar_conjugation")) {
+    for (const gp of grammarPoints) {
+      const q = makeGrammarConjugationQuestion(gp, eligibleVocab, verses, jlptPool);
+      if (q) questions.push(q);
     }
+  }
 
-    // Grammar conjugation
-    if (typeAllowed("grammar_conjugation")) {
-      for (const gp of grammarPoints) {
-        const q = makeGrammarConjugationQuestion(gp, eligibleVocab, verses, jlptPool);
-        if (q) questions.push(q);
-      }
+  // -------------------------------------------------------------------------
+  // Step 3c: Production tier — typed exercises, unlocked by mastery gate.
+  // These are kept SEPARATE from recognition questions so the scheduler
+  // doesn't consume their slots (scheduler allocates 2 per vocab: intro+test,
+  // so a 3rd or 4th question per vocab would be silently dropped). Production
+  // questions are appended after the scheduled recognition block.
+  // -------------------------------------------------------------------------
+  const productionQuestions: Question[] = [];
+  if (trackKind === "kanji" && masteryGate?.kanjiTyped) {
+    for (const vocab of eligibleVocab) {
+      productionQuestions.push(makeVocabTypedQuestion(vocab));
+    }
+  }
+  if (trackKind === "vocab" && masteryGate?.vocabTyped) {
+    for (const vocab of eligibleVocab) {
+      productionQuestions.push(makeMeaningRomajiTypedQuestion(vocab));
     }
   }
 
   // -------------------------------------------------------------------------
   // Step 4: Lag-test + JLPT sort wrap via buildSessionSequence (D-17, D-18)
+  // Recognition questions only. Production questions are appended after.
   // -------------------------------------------------------------------------
   const lengthCap = lengthMode ? LENGTH_CAP[lengthMode] : Number.MAX_SAFE_INTEGER;
 
-  // Build SessionItem[] from emitted questions — ONE per unique vocab.
+  // Build SessionItem[] from recognition questions — ONE per unique vocab.
   // The per-vocab × per-type loop emits multiple Questions per vocab; the
   // scheduler must see each vocab once or it treats duplicates as separate
   // intros and lands the same vocab in adjacent slots.
@@ -1077,18 +1151,14 @@ function buildQuestionsFromPool(input: BuildQuestionsPoolInput): Question[] {
     minIntroToTestGap: MIN_INTRO_TO_TEST_GAP,
   });
 
-  // Reorder questions to match the sequenced output.
+  // Reorder recognition questions to match the sequenced output.
   //
-  // The per-vocab × per-type loop above can emit multiple Question objects
-  // for the same vocab (e.g., Vocab track emits both vocab_meaning and
-  // meaning_vocab per word). Each Question has a unique id. The scheduler
-  // emits up to 2 slots per new vocab (intro + test) — we fill those slots
-  // with DIFFERENT Question objects from the same vocab's queue so the
-  // intro slot and the test slot don't share the same question id (which
-  // would short-circuit React's `key={current.id}` and leak component state
-  // between slots, plus feel like a literal repeat).
+  // Shuffle questions before building the per-vocab queue so exercise types
+  // are distributed evenly across scheduler slots (prevents the same type,
+  // e.g. vocab_meaning, from always winning the intro slot for every vocab).
+  const shuffledForQueue = shuffle(questions);
   const questionsByVocabId = new Map<string, Question[]>();
-  for (const q of questions) {
+  for (const q of shuffledForQueue) {
     if (!q.vocabItemId) continue;
     const arr = questionsByVocabId.get(q.vocabItemId) ?? [];
     arr.push(q);
@@ -1109,10 +1179,13 @@ function buildQuestionsFromPool(input: BuildQuestionsPoolInput): Question[] {
 
   // Fallback: if sequencer skipped items (e.g., vocabItemId mismatch), return shuffled
   if (reordered.length === 0 && questions.length > 0) {
-    return shuffle(questions).slice(0, lengthCap);
+    const combined = [...shuffle(questions), ...shuffle(productionQuestions)];
+    return combined.slice(0, lengthCap);
   }
 
-  return reordered;
+  // Production questions appended after recognition (recognition-first pedagogy).
+  // Both blocks are capped together so a short session stays short.
+  return [...reordered, ...shuffle(productionQuestions)].slice(0, lengthCap);
 }
 
 // ---------------------------------------------------------------------------

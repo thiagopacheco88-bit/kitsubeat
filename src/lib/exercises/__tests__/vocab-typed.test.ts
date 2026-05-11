@@ -82,58 +82,25 @@ describe("romajiEquals normalization (SPEC-REQ-7)", () => {
 });
 
 // ---------------------------------------------------------------------------
-// buildQuestions vocab_typed + trackKind tests (SPEC-REQ-7)
-// These will FAIL until Task 2 extends buildQuestions with trackKind.
+// Kanji track — recognition exercises (no masteryGate)
 // ---------------------------------------------------------------------------
 
-describe("buildQuestions vocab_typed with trackKind=kanji (SPEC-REQ-7)", () => {
-  it("buildQuestions emits vocab_typed type when trackKind=kanji", () => {
-    // This test MUST FAIL until generator.ts is extended in Task 2.
-    // trackKind is not yet a valid parameter on buildQuestions.
+describe("Kanji track — recognition exercises (no masteryGate)", () => {
+  it("emits vocab_meaning, meaning_vocab, reading_match — not vocab_typed", () => {
     const questions = buildQuestions({
       vocab: fixtureVocab,
       verses: [],
       trackKind: "kanji",
       lengthMode: "short",
     });
-    const typedQs = questions.filter((q: Question) => q.type === "vocab_typed");
-    expect(typedQs.length).toBeGreaterThan(0);
+    const types = new Set(questions.map((q: Question) => q.type));
+    expect(types.has("vocab_meaning")).toBe(true);
+    expect(types.has("meaning_vocab")).toBe(true);
+    expect(types.has("reading_match")).toBe(true);
+    expect(types.has("vocab_typed")).toBe(false);
   });
 
-  it("vocab_typed question has correctAnswer equal to the romaji reading", () => {
-    // This test MUST FAIL until Task 2 implements makeVocabTypedQuestion.
-    const questions = buildQuestions({
-      vocab: fixtureVocab,
-      verses: [],
-      trackKind: "kanji",
-      lengthMode: "short",
-    });
-    const typedQs = questions.filter((q: Question) => q.type === "vocab_typed");
-    expect(typedQs.length).toBeGreaterThan(0);
-    for (const q of typedQs) {
-      // The correctAnswer must be a non-empty romaji string
-      expect(q.correctAnswer).toBeTruthy();
-      expect(typeof q.correctAnswer).toBe("string");
-    }
-  });
-
-  it("vocab_typed questions have empty distractors array (typed input, no MC)", () => {
-    // This test MUST FAIL until Task 2 implements makeVocabTypedQuestion.
-    const questions = buildQuestions({
-      vocab: fixtureVocab,
-      verses: [],
-      trackKind: "kanji",
-      lengthMode: "short",
-    });
-    const typedQs = questions.filter((q: Question) => q.type === "vocab_typed");
-    expect(typedQs.length).toBeGreaterThan(0);
-    for (const q of typedQs) {
-      expect(q.distractors).toEqual([]);
-    }
-  });
-
-  it("kanji track only emits questions for vocab with kanji codepoints", () => {
-    // This test MUST FAIL until Task 2 implements hasKanji filter.
+  it("only emits questions for vocab with kanji codepoints", () => {
     const mixedVocab: VocabEntry[] = [
       ...fixtureVocab,
       makeVocabEntry({ surface: "のむ", reading: "nomu", meaning_en: "drink (kana)", vocab_item_id: "kana1" }),
@@ -145,12 +112,103 @@ describe("buildQuestions vocab_typed with trackKind=kanji (SPEC-REQ-7)", () => {
       trackKind: "kanji",
       lengthMode: "short",
     });
-    // All emitted questions must come from kanji-bearing vocab
     for (const q of questions) {
-      // vocabInfo.surface should contain at least one kanji codepoint
       const surface = q.vocabInfo.surface;
       const hasKanjiChar = /[一-鿿㐀-䶿]/.test(surface);
       expect(hasKanjiChar).toBe(true);
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Kanji track — production tier (masteryGate.kanjiTyped=true)
+// ---------------------------------------------------------------------------
+
+describe("Kanji track — production tier (masteryGate.kanjiTyped=true)", () => {
+  it("emits vocab_typed when kanjiTyped gate is open", () => {
+    const questions = buildQuestions({
+      vocab: fixtureVocab,
+      verses: [],
+      trackKind: "kanji",
+      lengthMode: "long",
+      masteryGate: { kanjiTyped: true, vocabTyped: false },
+    });
+    const typedQs = questions.filter((q: Question) => q.type === "vocab_typed");
+    expect(typedQs.length).toBeGreaterThan(0);
+  });
+
+  it("vocab_typed questions have empty distractors and non-empty correctAnswer", () => {
+    const questions = buildQuestions({
+      vocab: fixtureVocab,
+      verses: [],
+      trackKind: "kanji",
+      lengthMode: "long",
+      masteryGate: { kanjiTyped: true, vocabTyped: false },
+    });
+    const typedQs = questions.filter((q: Question) => q.type === "vocab_typed");
+    expect(typedQs.length).toBeGreaterThan(0);
+    for (const q of typedQs) {
+      expect(q.distractors).toEqual([]);
+      expect(q.correctAnswer).toBeTruthy();
+      expect(typeof q.correctAnswer).toBe("string");
+    }
+  });
+
+  it("does not emit vocab_typed when kanjiTyped gate is closed", () => {
+    const questions = buildQuestions({
+      vocab: fixtureVocab,
+      verses: [],
+      trackKind: "kanji",
+      lengthMode: "long",
+    });
+    const typedQs = questions.filter((q: Question) => q.type === "vocab_typed");
+    expect(typedQs.length).toBe(0);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Vocab track — production tier (masteryGate.vocabTyped=true)
+// ---------------------------------------------------------------------------
+
+describe("Vocab track — production tier (masteryGate.vocabTyped=true)", () => {
+  it("emits meaning_romaji_typed when vocabTyped gate is open", () => {
+    const questions = buildQuestions({
+      vocab: fixtureVocab,
+      verses: [],
+      trackKind: "vocab",
+      lengthMode: "long",
+      masteryGate: { vocabTyped: true, kanjiTyped: false },
+    });
+    const typedQs = questions.filter((q: Question) => q.type === "meaning_romaji_typed");
+    expect(typedQs.length).toBeGreaterThan(0);
+  });
+
+  it("meaning_romaji_typed has prompt=meaning, correctAnswer=romaji, empty distractors", () => {
+    const questions = buildQuestions({
+      vocab: fixtureVocab,
+      verses: [],
+      trackKind: "vocab",
+      lengthMode: "long",
+      masteryGate: { vocabTyped: true, kanjiTyped: false },
+    });
+    const typedQs = questions.filter((q: Question) => q.type === "meaning_romaji_typed");
+    expect(typedQs.length).toBeGreaterThan(0);
+    for (const q of typedQs) {
+      expect(q.distractors).toEqual([]);
+      expect(q.prompt).toBeTruthy();
+      expect(typeof q.prompt).toBe("string");
+      expect(q.correctAnswer).toBeTruthy();
+    }
+  });
+
+  it("does not emit meaning_romaji_typed when vocabTyped gate is closed", () => {
+    const questions = buildQuestions({
+      vocab: fixtureVocab,
+      verses: [],
+      trackKind: "vocab",
+      lengthMode: "long",
+    });
+    const typedQs = questions.filter((q: Question) => q.type === "meaning_romaji_typed");
+    expect(typedQs.length).toBe(0);
   });
 });

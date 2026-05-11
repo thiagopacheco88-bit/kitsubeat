@@ -68,6 +68,7 @@ export default function VocabTypedCard({
   }
 
   const meaningText = question.meaning_en ?? question.vocabInfo.romaji ?? "";
+  const isMeaningPrompt = question.type === "meaning_romaji_typed";
   const hasKanjiBreakdown =
     question.kanji_breakdown != null &&
     question.kanji_breakdown.characters.length > 0;
@@ -90,16 +91,34 @@ export default function VocabTypedCard({
         </div>
       )}
 
-      {/* Prompt: kanji surface + meaning hint */}
+      {/* Prompt layout:
+          vocab_typed        → kanji surface (big) + meaning hint below
+          meaning_romaji_typed → English meaning (big) + kanji surface below as context */}
       <div className="text-center">
-        <p
-          data-testid="vocab-typed-surface"
-          className="text-3xl font-semibold text-[var(--color-text)]"
-        >
-          {question.vocabInfo.surface}
-        </p>
-        {meaningText && (
-          <p className="mt-2 text-sm text-[var(--color-text-muted)]">{meaningText}</p>
+        {isMeaningPrompt ? (
+          <>
+            <p
+              data-testid="vocab-typed-meaning"
+              className="text-2xl font-semibold text-[var(--color-text)]"
+            >
+              {question.prompt}
+            </p>
+            <p className="mt-2 text-lg text-[var(--color-text-muted)]">
+              {question.vocabInfo.surface}
+            </p>
+          </>
+        ) : (
+          <>
+            <p
+              data-testid="vocab-typed-surface"
+              className="text-3xl font-semibold text-[var(--color-text)]"
+            >
+              {question.vocabInfo.surface}
+            </p>
+            {meaningText && (
+              <p className="mt-2 text-sm text-[var(--color-text-muted)]">{meaningText}</p>
+            )}
+          </>
         )}
       </div>
 

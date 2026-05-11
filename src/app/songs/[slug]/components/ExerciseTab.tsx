@@ -378,7 +378,8 @@ export default function ExerciseTab({
         return true;
       });
 
-      // Phase 11.6 Plan 04: pool-based buildQuestions with trackKind + lengthMode
+      // Phase 11.6 Plan 04: pool-based buildQuestions with trackKind + lengthMode.
+      // masteryGate unlocks production exercises once recognition tracks hit 80%.
       const questions = buildQuestions({
         vocab: filteredVocab,
         verses: lesson.verses,
@@ -386,6 +387,10 @@ export default function ExerciseTab({
         jlptPool,
         trackKind,
         lengthMode,
+        masteryGate: {
+          vocabTyped: trackPcts.vocab >= 80,
+          kanjiTyped: trackPcts.kanji >= 80,
+        },
       });
 
       if (questions.length === 0) {

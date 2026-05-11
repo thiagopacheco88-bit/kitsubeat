@@ -328,14 +328,11 @@ export default function ExerciseSession({
               />
             );
           }
-          if (current.type === "vocab_typed") {
-            // Plan 11.6-09 — Kanji track typed romaji input.
-            //
-            // Dispatches to VocabTypedCard. FSRS persistence uses the
-            // track-aware cardKind: kanji track → "kanji_kana",
-            // vocab / advanced_drills → "romaji_meaning".
-            // Verse-domination is triggered via handleVocabTypedAnswered
-            // (Plan 11.6-05 return contract).
+          if (current.type === "vocab_typed" || current.type === "meaning_romaji_typed") {
+            // vocab_typed: Kanji track production — see kanji, type romaji.
+            // meaning_romaji_typed: Vocab track production — see meaning, type romaji.
+            // Both use VocabTypedCard; prompt layout differs by question.type.
+            // cardKind: kanji track → "kanji_kana", vocab/advanced → "romaji_meaning".
             return (
               <VocabTypedCard
                 key={current.id}
