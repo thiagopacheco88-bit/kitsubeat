@@ -16,7 +16,6 @@ import { eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { songs, songVersions } from "@/lib/db/schema";
 import type { TimingData, WordTiming } from "@/lib/timing-types";
-import TimingEditor from "../components/TimingEditor";
 import TimingSaveHandler from "../components/TimingSaveHandler";
 import ToolSwitcher from "@/app/admin/ToolSwitcher";
 
@@ -121,16 +120,12 @@ export default async function TimingEditorPage({ params }: PageProps) {
           </pre>
         </div>
       ) : (
-        <TimingSaveHandler songId={songId} timingVerified={song.timing_verified}>
-          {(handleSave) => (
-            <TimingEditor
-              audioUrl={audioUrl}
-              words={words}
-              songId={songId}
-              onSave={handleSave}
-            />
-          )}
-        </TimingSaveHandler>
+        <TimingSaveHandler
+          songId={songId}
+          timingVerified={song.timing_verified}
+          audioUrl={audioUrl}
+          words={words}
+        />
       )}
     </main>
   );

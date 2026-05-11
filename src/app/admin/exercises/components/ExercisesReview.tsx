@@ -13,7 +13,7 @@ interface Props {
 
 type Filter = "all" | "flagged" | "no_image";
 
-export default function ExercisesReview({ songLabel, rows, totalVerses }: Props) {
+export default function ExercisesReview({ rows }: Props) {
   const [filter, setFilter] = useState<Filter>("all");
   const [query, setQuery] = useState("");
 
@@ -70,29 +70,22 @@ export default function ExercisesReview({ songLabel, rows, totalVerses }: Props)
   );
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      {/* Stats bar */}
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "16px",
-        padding: "14px 18px",
-        borderRadius: "var(--radius-xl)",
-        border: "1px solid var(--color-border)",
-        background: "var(--color-card)",
-        fontSize: "13px",
-        color: "var(--color-text-muted)",
-      }}>
-        <span style={{ fontWeight: 700, color: "var(--color-text)" }}>{songLabel}</span>
-        <span>{rows.length} vocab items</span>
-        <span>{totalVerses} verses</span>
-        {flaggedCount > 0 && (
-          <span style={{ color: "#ef4444", fontWeight: 600 }}>🚩 {flaggedCount} flagged</span>
-        )}
-        {noImageCount > 0 && (
-          <span style={{ color: "var(--color-text-dim)" }}>⚠ {noImageCount} without image</span>
-        )}
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      {/* Inline warnings — only shown when there's something to flag */}
+      {(flaggedCount > 0 || noImageCount > 0) && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", fontSize: "12px" }}>
+          {flaggedCount > 0 && (
+            <span style={{ padding: "3px 10px", borderRadius: "999px", background: "rgba(239,68,68,0.1)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.25)", fontWeight: 600 }}>
+              🚩 {flaggedCount} flagged
+            </span>
+          )}
+          {noImageCount > 0 && (
+            <span style={{ padding: "3px 10px", borderRadius: "999px", background: "var(--color-card-2)", color: "var(--color-text-muted)", border: "1px solid var(--color-border)" }}>
+              ⚠ {noImageCount} without image
+            </span>
+          )}
+        </div>
+      )}
 
       {/* Filters + search */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
