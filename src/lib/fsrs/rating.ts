@@ -49,8 +49,9 @@ export const RATING_WEIGHTS: Record<ExerciseType, FSRSRating> = {
   grammar_conjugation: 4,  // Production-flavored — user produces the form
   listening_drill: 3,      // Recognition + ear
   sentence_order: 4,       // Production-flavored — user assembles structure
-  // Phase 11.6 addition
+  // Phase 11.6 additions
   vocab_typed: 4,          // Production-flavored — user types the romaji reading
+  meaning_romaji_typed: 4, // Production-flavored — see meaning, type romaji
 };
 
 /**
