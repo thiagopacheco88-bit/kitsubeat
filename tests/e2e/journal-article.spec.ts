@@ -254,6 +254,116 @@ test.describe("Journal article — famous-kanji-anime-games", () => {
 });
 
 // ---------------------------------------------------------------------------
+// One Piece admirals real actors article
+// ---------------------------------------------------------------------------
+
+const ADMIRALS_SLUG = "one-piece-admirals-real-actors";
+const ADMIRALS_URL = `/journal/${ADMIRALS_SLUG}`;
+
+test.describe("Journal article — one-piece-admirals-real-actors", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(ADMIRALS_URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(ADMIRALS_URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Admiral", { timeout: 10_000 });
+
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab table renders as HTML table, not raw markdown pipes", async ({ page }) => {
+    await page.goto(ADMIRALS_URL);
+
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(ADMIRALS_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+      await expect(img).toBeVisible();
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(ADMIRALS_URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("Are One Piece's admirals based on real actors?");
+    expect(articleText).toContain("Who is Akainu based on in real life?");
+    expect(articleText).toContain("What does Seigi mean in One Piece");
+  });
+
+  test("admiral sections render - Akainu, Aokiji, Kizaru, actors, yakuza", async ({ page }) => {
+    await page.goto(ADMIRALS_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("Akainu");
+    expect(articleText).toContain("Aokiji");
+    expect(articleText).toContain("Kizaru");
+    expect(articleText).toContain("Bunta Sugawara");
+    expect(articleText).toContain("Yusaku Matsuda");
+    expect(articleText).toContain("Kunie Tanaka");
+    expect(articleText).toContain("Jingi naki tatakai");
+    expect(articleText).toContain("Battles Without Honor");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(ADMIRALS_URL);
+
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
+
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Uchiha jutsu Shinto mythology article
 // ---------------------------------------------------------------------------
 
