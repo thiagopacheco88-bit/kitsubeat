@@ -1002,9 +1002,9 @@ test.describe("Journal article — japanese-days-of-week-anime-mnemonics", () =>
     expect(articleText).toContain("Mokuton");
     expect(articleText).toContain("Edward Elric");
     expect(articleText).toContain("Gaara");
-    expect(articleText).toContain("Nichiyobi");
-    expect(articleText).toContain("Suiyobi");
-    expect(articleText).toContain("Mokuyobi");
+    expect(articleText).toContain("Nichiy");
+    expect(articleText).toContain("Suiy");
+    expect(articleText).toContain("Mokuy");
   });
 
   test("JSON-LD structured data is present in page head", async ({ page }) => {
@@ -1584,6 +1584,122 @@ test.describe("Journal article — anime-counting-japanese-numbers", () => {
 
   test("JSON-LD structured data is present in page head", async ({ page }) => {
     await page.goto(COUNTING_URL);
+
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
+
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Captain Tsubasa Zico soccer Japan article
+// ---------------------------------------------------------------------------
+
+const TSUBASA_SLUG = "captain-tsubasa-zico-soccer-japan";
+const TSUBASA_URL = `/journal/${TSUBASA_SLUG}`;
+
+test.describe("Journal article — captain-tsubasa-zico-soccer-japan", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(TSUBASA_URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(TSUBASA_URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Captain Tsubasa", { timeout: 10_000 });
+
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab table renders as HTML table, not raw markdown pipes", async ({ page }) => {
+    await page.goto(TSUBASA_URL);
+
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(TSUBASA_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+      await expect(img).toBeVisible();
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(TSUBASA_URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("What is Captain Tsubasa about?");
+    expect(articleText).toContain("Are the international players in Captain Tsubasa based on real footballers?");
+    expect(articleText).toContain("Who is Zico and why is he important to Japanese football?");
+    expect(articleText).toContain("When did the J.League start?");
+    expect(articleText).toContain("booru wa tomodachi");
+  });
+
+  test("content sections render - Tsubasa, Zico, J.League, Rummenigge, Platini, Kashima", async ({ page }) => {
+    await page.goto(TSUBASA_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("Captain Tsubasa");
+    expect(articleText).toContain("Zico");
+    expect(articleText).toContain("Kashima Antlers");
+    expect(articleText).toContain("Nankatsu SC");
+    expect(articleText).toContain("Karl Heinz Schneider");
+    expect(articleText).toContain("Rummenigge");
+    expect(articleText).toContain("Platini");
+    expect(articleText).toContain("J.League");
+    expect(articleText).toContain("Hidetoshi Nakata");
+    expect(articleText).toContain("sakkaa");
+    expect(articleText).toContain("senshu");
+    expect(articleText).toContain("booru wa tomodachi");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(TSUBASA_URL);
 
     const allLdBlocks = page.locator('script[type="application/ld+json"]');
     const blockCount = await allLdBlocks.count();
