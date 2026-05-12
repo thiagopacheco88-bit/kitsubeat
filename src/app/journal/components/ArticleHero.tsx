@@ -53,11 +53,19 @@ export function ArticleHero({ article }: ArticleHeroProps) {
           {CATEGORY_LABELS[article.category] ?? article.category}
         </span>
         <h1
-          className="text-2xl font-extrabold leading-tight sm:text-3xl"
-          style={{ color: 'white', textShadow: '0 2px 6px rgba(0,0,0,0.6)' }}
+          className="text-3xl font-black leading-tight sm:text-4xl lg:text-5xl"
+          style={{ color: 'white', textShadow: '0 2px 8px rgba(0,0,0,0.7)' }}
         >
           {article.title}
         </h1>
+        {article.subtitle && (
+          <p
+            className="mt-1 text-base font-medium sm:text-lg"
+            style={{ color: 'rgba(255,255,255,0.85)', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}
+          >
+            {article.subtitle}
+          </p>
+        )}
         <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>
           {article.readingTimeComputed}
           {' · '}

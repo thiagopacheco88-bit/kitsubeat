@@ -20,6 +20,7 @@ export interface ArticleEntity {
 
 export interface ArticleFrontmatter {
   title: string;
+  subtitle?: string;       // hook sub-headline rendered below the main title in ArticleHero
   slug: string;
   date: string;           // ISO date string e.g. "2026-05-10"
   coverImage: string;
