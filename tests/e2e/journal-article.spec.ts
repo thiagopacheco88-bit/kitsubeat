@@ -1023,3 +1023,118 @@ test.describe("Journal article — oden-one-piece-real-history", () => {
     expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
   });
 });
+
+// ---------------------------------------------------------------------------
+// Anime counting Japanese numbers article
+// ---------------------------------------------------------------------------
+
+const COUNTING_SLUG = "anime-counting-japanese-numbers";
+const COUNTING_URL = `/journal/${COUNTING_SLUG}`;
+
+test.describe("Journal article — anime-counting-japanese-numbers", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(COUNTING_URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(COUNTING_URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Count", { timeout: 10_000 });
+
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab tables render as HTML tables, not raw markdown pipes", async ({ page }) => {
+    await page.goto(COUNTING_URL);
+
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(COUNTING_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+      await expect(img).toBeVisible();
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(COUNTING_URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("What does sandaime mean in Naruto?");
+    expect(articleText).toContain("What does sannin mean in Japanese?");
+    expect(articleText).toContain("What does Yonko mean in One Piece?");
+    expect(articleText).toContain("What does nanadaime mean in Naruto?");
+  });
+
+  test("counting sections render - Hokage, Sannin, Yonko, Shichibukai, Nanatsu, Junikizuki", async ({ page }) => {
+    await page.goto(COUNTING_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("sandaime");
+    expect(articleText).toContain("nanadaime");
+    expect(articleText).toContain("sannin");
+    expect(articleText).toContain("Yonko");
+    expect(articleText).toContain("Shichibukai");
+    expect(articleText).toContain("Gorosei");
+    expect(articleText).toContain("nanatsu");
+    expect(articleText).toContain("Junikizuki");
+    expect(articleText).toContain("Shichi-Go-San");
+    expect(articleText).toContain("One Piece");
+    expect(articleText).toContain("Naruto");
+    expect(articleText).toContain("Demon Slayer");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(COUNTING_URL);
+
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
+
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
