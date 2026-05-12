@@ -15,7 +15,8 @@ export interface ArticleFaq {
 
 export interface ArticleEntity {
   name: string;
-  sameAs?: string; // Wikipedia or authoritative URL for knowledge graph linking
+  sameAs?: string;  // Wikipedia or authoritative URL for knowledge graph linking
+  type?: string;    // schema.org type — e.g. "Person", "Manga", "TVSeries", "VideoGame", "Movie"
 }
 
 export interface ArticleFrontmatter {
@@ -23,6 +24,7 @@ export interface ArticleFrontmatter {
   subtitle?: string;       // hook sub-headline rendered below the main title in ArticleHero
   slug: string;
   date: string;           // ISO date string e.g. "2026-05-10"
+  dateModified?: string;  // ISO date string — set when article is updated after first publish
   coverImage: string;
   category: ArticleCategory;
   summary: string;

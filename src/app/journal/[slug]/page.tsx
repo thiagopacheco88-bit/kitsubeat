@@ -44,14 +44,17 @@ export async function generateMetadata({
   return {
     title: `${frontmatter.title} | KitsuBeat Journal`,
     description: frontmatter.summary,
+    keywords: frontmatter.keywords,
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title: frontmatter.title,
       description: frontmatter.summary,
       url: canonicalUrl,
+      siteName: 'KitsuBeat',
       images: coverImageUrl ? [{ url: coverImageUrl }] : [],
       type: 'article',
       publishedTime: frontmatter.date,
+      modifiedTime: frontmatter.dateModified ?? frontmatter.date,
     },
     twitter: {
       card: 'summary_large_image',
@@ -175,32 +178,56 @@ export default async function ArticlePage({
   // JSON-LD: schema.org/Article structured data for search engines
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/journal/${slug}`,
+    },
     headline: frontmatter.title,
     description: frontmatter.summary,
     datePublished: frontmatter.date,
-    dateModified: frontmatter.date,
+    dateModified: frontmatter.dateModified ?? frontmatter.date,
     inLanguage: 'en',
     articleSection: frontmatter.category,
     image: coverImageUrl,
     url: `${BASE_URL}/journal/${slug}`,
-    author: {
-      '@type': 'Organization',
-      name: frontmatter.author ?? 'KitsuBeat',
-      url: BASE_URL,
-    },
-    publisher: {
-      '@type': 'Organization',
+    isPartOf: {
+      '@type': 'WebSite',
       name: 'KitsuBeat',
       url: BASE_URL,
     },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', 'h2'],
+    },
+    author: {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
+      name: frontmatter.author ?? 'KitsuBeat',
+      url: BASE_URL,
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo.png` },
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
+      name: 'KitsuBeat',
+      url: BASE_URL,
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/logo.png` },
+    },
     ...(frontmatter.about && frontmatter.about.length > 0
-      ? { about: frontmatter.about.map((e) => ({ '@type': 'Thing', name: e.name, ...(e.sameAs ? { sameAs: e.sameAs } : {}) })) }
+      ? { about: frontmatter.about.map((e) => ({ '@type': e.type ?? 'Thing', name: e.name, ...(e.sameAs ? { sameAs: e.sameAs } : {}) })) }
       : {}),
     ...(frontmatter.mentions && frontmatter.mentions.length > 0
-      ? { mentions: frontmatter.mentions.map((e) => ({ '@type': 'Thing', name: e.name, ...(e.sameAs ? { sameAs: e.sameAs } : {}) })) }
+      ? { mentions: frontmatter.mentions.map((e) => ({ '@type': e.type ?? 'Thing', name: e.name, ...(e.sameAs ? { sameAs: e.sameAs } : {}) })) }
       : {}),
     keywords: frontmatter.keywords?.join(', '),
+    ...(frontmatter.about?.some((e) => e.sameAs)
+      ? {
+          citation: frontmatter.about
+            .filter((e) => e.sameAs)
+            .map((e) => ({ '@type': 'CreativeWork', name: e.name, url: e.sameAs })),
+        }
+      : {}),
   };
 
   const faqJsonLd =

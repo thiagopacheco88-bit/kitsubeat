@@ -119,21 +119,23 @@ test.describe("Journal article — magikarp-gyarados-legend", () => {
   test("JSON-LD structured data is present in page head", async ({ page }) => {
     await page.goto(URL);
 
-    // Article schema
-    const articleLd = await page.locator('script[type="application/ld+json"]').first().innerText();
-    const articleData = JSON.parse(articleLd);
-    expect(articleData["@type"]).toBe("Article");
-    expect(articleData.headline).toContain("Magikarp");
-
-    // FAQPage schema — second ld+json block
     const allLdBlocks = page.locator('script[type="application/ld+json"]');
-    const count = await allLdBlocks.count();
-    expect(count).toBeGreaterThanOrEqual(2);
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
 
-    const faqLd = await allLdBlocks.nth(1).innerText();
-    const faqData = JSON.parse(faqLd);
-    expect(faqData["@type"]).toBe("FAQPage");
-    expect(faqData.mainEntity.length).toBeGreaterThanOrEqual(5);
+    let articleData: Record<string, unknown> | null = null;
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "BlogPosting") articleData = parsed;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(articleData).not.toBeNull();
+    expect((articleData as Record<string, unknown>).headline).toContain("Magikarp");
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
   });
 });
 
@@ -784,19 +786,23 @@ test.describe("Journal article — uchiha-jutsu-shinto-mythology", () => {
   test("JSON-LD structured data is present in page head", async ({ page }) => {
     await page.goto(UCHIHA_URL);
 
-    const articleLd = await page.locator('script[type="application/ld+json"]').first().innerText();
-    const articleData = JSON.parse(articleLd);
-    expect(articleData["@type"]).toBe("Article");
-    expect(articleData.headline).toContain("Uchiha");
-
     const allLdBlocks = page.locator('script[type="application/ld+json"]');
-    const count = await allLdBlocks.count();
-    expect(count).toBeGreaterThanOrEqual(2);
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
 
-    const faqLd = await allLdBlocks.nth(1).innerText();
-    const faqData = JSON.parse(faqLd);
-    expect(faqData["@type"]).toBe("FAQPage");
-    expect(faqData.mainEntity.length).toBeGreaterThanOrEqual(5);
+    let articleData: Record<string, unknown> | null = null;
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "BlogPosting") articleData = parsed;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(articleData).not.toBeNull();
+    expect((articleData as Record<string, unknown>).headline).toContain("Uchiha");
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
   });
 });
 

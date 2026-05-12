@@ -18,7 +18,10 @@ import { PageTransitionWrapper } from "@/app/components/PageTransitionWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kitsubeat.vercel.app';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "KitsuBeat",
   description: "Learn Japanese through anime songs",
   icons: {
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "KitsuBeat",
     description: "Learn Japanese through anime songs",
+    siteName: "KitsuBeat",
     images: ["/og-image.png"],
   },
   twitter: {
@@ -107,6 +111,34 @@ export default async function RootLayout({
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              '@id': `${SITE_URL}/#organization`,
+              name: 'KitsuBeat',
+              url: SITE_URL,
+              logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
+              description: 'Learn Japanese through anime songs',
+            }).replace(/</g, '\\u003c'),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              '@id': `${SITE_URL}/#website`,
+              name: 'KitsuBeat',
+              url: SITE_URL,
+              description: 'Learn Japanese vocabulary through anime songs with spaced repetition',
+              publisher: { '@id': `${SITE_URL}/#organization` },
+            }).replace(/</g, '\\u003c'),
+          }}
         />
       </head>
       <body className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[family-name:var(--font-inter)] antialiased">

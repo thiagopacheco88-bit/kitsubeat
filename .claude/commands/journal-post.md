@@ -25,24 +25,29 @@ Every article needs this exact shape:
 ```yaml
 ---
 title: "..."                        # Include both the topic AND the angle in the title
+subtitle: "..."                     # Smaller hook line below title — rendered in ArticleHero
 slug: "kebab-case-url"
-date: "YYYY-MM-DD"
+date: "YYYY-MM-DD"                  # ISO publish date
+dateModified: "YYYY-MM-DD"         # Set to date on first publish; update when article changes
 coverImage: "https://..."           # External Wikimedia CDN URL — never a local path (see §4)
 category: "lore" | "language" | "translation"
 summary: "..."                      # 150-160 chars, keyword-rich, both proper nouns if relevant
 tags: ["tag1", "tag2"]
-keywords: ["keyword phrase 1", "keyword phrase 2"]
+keywords: ["keyword phrase 1", "keyword phrase 2"]   # 5-8 phrases, include one in Japanese if relevant
 author: "KitsuBeat"
 readingTime: "N min read"
 about:                              # Primary topics — used in Article JSON-LD `about` with sameAs
   - name: "Topic name"
     sameAs: "https://en.wikipedia.org/wiki/..."
+    type: "Thing"                   # Optional schema.org type — see entity type list below
   - name: "Topic without Wikipedia page"
 mentions:                           # Franchises, works, people cited — used in JSON-LD `mentions`
   - name: "Dragon Ball"
     sameAs: "https://en.wikipedia.org/wiki/Dragon_Ball"
-  - name: "Character Name"
-    sameAs: "https://en.wikipedia.org/wiki/..."
+    type: "Manga"                   # Always set type for known entity classes (see list below)
+  - name: "Eiichiro Oda"
+    sameAs: "https://en.wikipedia.org/wiki/Eiichiro_Oda"
+    type: "Person"
 faq:
   - question: "...?"
     answer: "..."                   # Plain text only — no markdown. Goes into FAQPage JSON-LD.
@@ -50,6 +55,21 @@ faq:
     answer: "..."
 ---
 ```
+
+**Entity `type` values** (use these in `about` and `mentions` — omitting defaults to `Thing`):
+
+| Entity class | `type` value |
+|---|---|
+| Anime / manga series | `"Manga"` |
+| Live-action film | `"Movie"` |
+| TV series (not anime) | `"TVSeries"` |
+| Video game | `"VideoGame"` |
+| Real person (author, actor, creator) | `"Person"` |
+| Fictional character | `"Person"` |
+| Mythology / religion concept | `"Thing"` |
+| Organisation / studio | `"Organization"` |
+| Song / musical work | `"MusicRecording"` |
+| Book / chronicle | `"Book"` |
 
 **faq rules:**
 - Minimum 5 entries. Target the exact phrasing people search for.
@@ -207,12 +227,13 @@ const { content, frontmatter } = await compileMDX<ArticleFrontmatter>({
 
 ### What the page already outputs (do not duplicate)
 
-- `Article` JSON-LD with `headline`, `description`, `datePublished`, `dateModified`, `inLanguage: "en"`, `articleSection`, `image`, `url`, `author`, `publisher`, `keywords`, `about`, `mentions`
+- `BlogPosting` JSON-LD with `mainEntityOfPage`, `headline`, `description`, `datePublished`, `dateModified`, `inLanguage: "en"`, `articleSection`, `image`, `url`, `author` (Organization with `@id` + logo), `publisher`, `keywords`, `about`, `mentions`, `speakable`, `citation`
 - `FAQPage` JSON-LD — auto-generated from the `faq` frontmatter array
 - `BreadcrumbList` JSON-LD — auto-generated as Home > Journal > Article
-- OpenGraph tags (title, description, url, image, type: article, publishedTime)
+- OpenGraph tags (title, description, url, image, type: article, publishedTime, **modifiedTime**)
 - Twitter/X `summary_large_image` card with article `coverImage`
 - Canonical URL
+- `metadataBase` set globally — relative image paths resolve correctly
 
 ### Your job per article
 
@@ -225,7 +246,9 @@ Fill the frontmatter fields that feed these systems:
 | `faq` (5+ entries) | Drives FAQPage JSON-LD — eligible for Google FAQ rich results |
 | `about` with `sameAs` | Connects article to Wikipedia knowledge graph — key for AI citation |
 | `mentions` with `sameAs` | Same — tells Perplexity/ChatGPT what entities are discussed |
-| `keywords` | Included in Article JSON-LD keywords field |
+| `keywords` | Included in Article JSON-LD keywords field — target 5-8 phrases |
+| `dateModified` | Drives `dateModified` in JSON-LD and OG `modifiedTime` — update on revision |
+| `subtitle` | Rendered in ArticleHero below the `<h1>` — not in meta tags |
 
 ### Links required in every article
 
@@ -251,6 +274,8 @@ Fill the frontmatter fields that feed these systems:
 3. **FAQ in both places** — the `faq` frontmatter drives the JSON-LD machine-readable version; the `## FAQ` body section drives the human-readable and text-scraping version. Keep them in sync.
 4. **Clear entity definitions** — introduce terms as "Dragon Gate (龍門, *Ryūmon*)" not just "Dragon Gate". The parenthetical kanji + romanization is picked up by AI engines as an entity alias.
 5. **Citable factual claims** — every section should have at least one sentence that is a standalone, verifiable fact (a date, a name, a specific quote). These are what AI engines extract to cite the page.
+6. **Specific entity types** — use `type: "Person"` / `"Manga"` / `"Movie"` etc. in `about` and `mentions`. Omitting `type` defaults to generic `Thing`, which carries less weight in AI knowledge graphs.
+7. **OG image dimensions** — prefer landscape images at least 1200px wide. The `coverImage` becomes the `og:image` and Twitter card — portrait images get cropped in social previews.
 
 ---
 
@@ -311,10 +336,13 @@ Images
 
 Frontmatter
 [ ] summary is 150-160 chars
+[ ] subtitle filled — rendered under the h1 in ArticleHero
+[ ] date and dateModified both set (same value on first publish)
 [ ] faq has 5+ entries, plain text answers
 [ ] about array covers the 2-4 core topics with sameAs Wikipedia URLs
 [ ] mentions array covers every franchise/character/work with sameAs URLs
-[ ] coverImage is an external URL (never /images/journal/...)
+[ ] type field set on every about/mentions entity (Person, Manga, Movie, etc.)
+[ ] coverImage is an external URL, landscape, ≥1200px wide (never /images/journal/...)
 
 Links
 [ ] Internal link to /songs
