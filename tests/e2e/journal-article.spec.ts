@@ -1025,6 +1025,126 @@ test.describe("Journal article — oden-one-piece-real-history", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Ninja vs Samurai article
+// ---------------------------------------------------------------------------
+
+const NINJA_SLUG = "ninja-vs-samurai-japanese-history";
+const NINJA_URL = `/journal/${NINJA_SLUG}`;
+
+test.describe("Journal article — ninja-vs-samurai-japanese-history", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(NINJA_URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(NINJA_URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Ninja", { timeout: 10_000 });
+
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab table renders as HTML table, not raw markdown pipes", async ({ page }) => {
+    await page.goto(NINJA_URL);
+
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(NINJA_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+      await expect(img).toBeVisible();
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(NINJA_URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("Were ninja real historical figures?");
+    expect(articleText).toContain("What does shinobi mean in Japanese?");
+    expect(articleText).toContain("What is the difference between ninja and samurai?");
+    expect(articleText).toContain("Is Naruto a realistic portrayal of ninja?");
+    expect(articleText).toContain("Is Tanjiro from Demon Slayer following Bushido?");
+  });
+
+  test("content sections render - shinobi, Naruto, Demon Slayer, Sekiro, Bleach, vocab", async ({ page }) => {
+    await page.goto(NINJA_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("shinobi");
+    expect(articleText).toContain("bushido");
+    expect(articleText).toContain("Naruto");
+    expect(articleText).toContain("Hokage");
+    expect(articleText).toContain("Demon Slayer");
+    expect(articleText).toContain("Tanjiro");
+    expect(articleText).toContain("Sekiro");
+    expect(articleText).toContain("Bleach");
+    expect(articleText).toContain("ninjutsu");
+    expect(articleText).toContain("shuriken");
+    expect(articleText).toContain("katana");
+    expect(articleText).toContain("Iga");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(NINJA_URL);
+
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
+
+    let articleData: Record<string, unknown> | null = null;
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "BlogPosting") articleData = parsed;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(articleData).not.toBeNull();
+    expect((articleData as Record<string, unknown>).headline).toContain("Ninja");
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Sun Wukong Monkey King - Goku Luffy article
 // ---------------------------------------------------------------------------
 
@@ -1120,6 +1240,122 @@ test.describe("Journal article — sun-wukong-monkey-king-goku-luffy", () => {
 
   test("JSON-LD structured data is present in page head", async ({ page }) => {
     await page.goto(WUKONG_URL);
+
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
+
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Naruto jutsu names Japanese meaning article
+// ---------------------------------------------------------------------------
+
+const JUTSU_SLUG = "naruto-jutsu-names-japanese-meaning";
+const JUTSU_URL = `/journal/${JUTSU_SLUG}`;
+
+test.describe("Journal article — naruto-jutsu-names-japanese-meaning", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(JUTSU_URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(JUTSU_URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Jutsu", { timeout: 10_000 });
+
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab table renders as HTML table, not raw markdown pipes", async ({ page }) => {
+    await page.goto(JUTSU_URL);
+
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(JUTSU_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+      await expect(img).toBeVisible();
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(JUTSU_URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("What does Rasengan mean in Japanese?");
+    expect(articleText).toContain("Why is Chidori called One Thousand Birds?");
+    expect(articleText).toContain("What does Sharingan mean in Japanese?");
+    expect(articleText).toContain("Is the Edo in Edo Tensei the same as Tokyo");
+    expect(articleText).toContain("What does Rinnegan mean in Japanese?");
+  });
+
+  test("jutsu sections render - Rasengan, Chidori, Sharingan, Rinnegan, Edo Tensei, Kage Bunshin", async ({ page }) => {
+    await page.goto(JUTSU_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("Rasengan");
+    expect(articleText).toContain("Chidori");
+    expect(articleText).toContain("Raikiri");
+    expect(articleText).toContain("Sharingan");
+    expect(articleText).toContain("Byakugan");
+    expect(articleText).toContain("Rinnegan");
+    expect(articleText).toContain("Edo Tensei");
+    expect(articleText).toContain("Kage Bunshin");
+    expect(articleText).toContain("Ninjutsu");
+    expect(articleText).toContain("Kakashi");
+    expect(articleText).toContain("Minato");
+    expect(articleText).toContain("samsara");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(JUTSU_URL);
 
     const allLdBlocks = page.locator('script[type="application/ld+json"]');
     const blockCount = await allLdBlocks.count();
