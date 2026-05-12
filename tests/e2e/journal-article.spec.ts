@@ -801,6 +801,119 @@ test.describe("Journal article — uchiha-jutsu-shinto-mythology", () => {
 });
 
 // ---------------------------------------------------------------------------
+// Bushido samurai philosophy article
+// ---------------------------------------------------------------------------
+
+const BUSHIDO_SLUG = "bushido-samurai-philosophy-code";
+const BUSHIDO_URL = `/journal/${BUSHIDO_SLUG}`;
+
+test.describe("Journal article — bushido-samurai-philosophy-code", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(BUSHIDO_URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(BUSHIDO_URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Bushido", { timeout: 10_000 });
+
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab table renders as HTML table, not raw markdown pipes", async ({ page }) => {
+    await page.goto(BUSHIDO_URL);
+
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(BUSHIDO_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+      await expect(img).toBeVisible();
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(BUSHIDO_URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("What is Bushido?");
+    expect(articleText).toContain("What are the seven virtues of Bushido?");
+    expect(articleText).toContain("What does the Hagakure say about Bushido?");
+    expect(articleText).toContain("Is Tanjiro from Demon Slayer following Bushido?");
+    expect(articleText).toContain("Does Zoro from One Piece follow Bushido?");
+  });
+
+  test("content sections render - virtues, Hagakure, Musashi, anime connections", async ({ page }) => {
+    await page.goto(BUSHIDO_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("Hagakure");
+    expect(articleText).toContain("Yamamoto Tsunetomo");
+    expect(articleText).toContain("Miyamoto Musashi");
+    expect(articleText).toContain("Demon Slayer");
+    expect(articleText).toContain("Tanjiro");
+    expect(articleText).toContain("Zoro");
+    expect(articleText).toContain("Byakuya");
+    expect(articleText).toContain("Ghost of Tsushima");
+    expect(articleText).toContain("Bushido");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(BUSHIDO_URL);
+
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
+
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Oden One Piece real history article
 // ---------------------------------------------------------------------------
 
