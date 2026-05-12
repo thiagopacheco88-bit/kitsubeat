@@ -66,15 +66,15 @@ def find_words_in_window(words: list[dict], start_s: float, end_s: float) -> lis
     return [w for w in words if start_s <= w["start"] < end_s]
 
 
-def is_romaji_text(synced_lrc: list[dict], threshold: float = 0.6) -> bool:
+def is_romaji_text(synced_lrc: list[dict], threshold: float = 0.5) -> bool:
     """
-    Return True if the majority of synced_lrc text is Latin characters (romaji).
-    Genius sometimes returns romanized lyrics instead of Japanese — those should
-    not be used as the official text source since the lesson tokens are kanji/kana.
+    Return True if the majority of synced_lrc text is Latin characters (romaji
+    or English). Samples ALL lines so songs with a Japanese intro but English
+    chorus are also caught. Threshold 0.5: majority Latin = skip.
     """
     total_chars = 0
     latin_chars = 0
-    for line in synced_lrc[:10]:  # sample first 10 lines
+    for line in synced_lrc:  # all lines, not just first 10
         for ch in line.get("text", ""):
             if ch.strip():
                 total_chars += 1
@@ -173,23 +173,34 @@ def merge_one(slug: str) -> dict | None:
         return None
 
     whisper_words: list[dict] = stem.get("words", [])
-    if not whisper_words:
-        print(f"  [skip] stem timing has no words")
-        return None
+    no_whisper = len(whisper_words) == 0
+
+    if no_whisper:
+        print(f"  [info] stem has 0 words — using synced_lrc timing only")
+
+    source = lyrics.get("source", "")
+    raw_lyrics_lines: list[str] = []  # reserved for future clean lyrics source
 
     # Build merged word list
     merged_words: list[dict] = []
-    song_end_s = whisper_words[-1]["end"] if whisper_words else 0.0
+    song_end_s = whisper_words[-1]["end"] if whisper_words else (synced_lrc[-1]["startMs"] / 1000.0 + 30.0)
 
     for i, line in enumerate(synced_lrc):
         line_start_s = line["startMs"] / 1000.0
-        # End of this line = start of next line (or song end)
         if i + 1 < len(synced_lrc):
             line_end_s = synced_lrc[i + 1]["startMs"] / 1000.0
         else:
-            line_end_s = song_end_s + 1.0  # small buffer for last line
+            line_end_s = song_end_s + 1.0
 
-        line_text = line.get("text", "").strip()
+        # Prefer raw_lyrics line if available (Genius songs), else synced_lrc text
+        if raw_lyrics_lines:
+            # Map synced_lrc index → raw_lyrics index proportionally
+            raw_idx = round(i * len(raw_lyrics_lines) / len(synced_lrc))
+            raw_idx = min(raw_idx, len(raw_lyrics_lines) - 1)
+            line_text = raw_lyrics_lines[raw_idx]
+        else:
+            line_text = line.get("text", "").strip()
+
         if not line_text:
             continue
 
@@ -203,11 +214,14 @@ def merge_one(slug: str) -> dict | None:
         print(f"  [warn] {slug}: produced 0 merged words — check synced_lrc/timing alignment")
         return None
 
-    # Compute quality metrics
     low_confidence_threshold = 0.6
     low_confidence_count = sum(1 for w in merged_words if w.get("score", 1.0) < low_confidence_threshold)
     total_words = len(merged_words)
     avg_score = round(sum(w.get("score", 0.0) for w in merged_words) / total_words, 4) if total_words > 0 else 0.0
+
+    merge_source = "synced_lrc_only" if no_whisper else (
+        "genius+synced_lrc" if raw_lyrics_lines else "lrclib+demucs+whisperx"
+    )
 
     return {
         "song_slug": slug,
@@ -216,7 +230,7 @@ def merge_one(slug: str) -> dict | None:
         "low_confidence_count": low_confidence_count,
         "total_words": total_words,
         "avg_confidence_score": avg_score,
-        "merge_source": "lrclib+demucs+whisperx",
+        "merge_source": merge_source,
     }
 
 
