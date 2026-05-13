@@ -87,6 +87,7 @@ faq:
 | Mythology / religion concept | `"Thing"` |
 | Organisation / studio | `"Organization"` |
 | Song / musical work | `"MusicRecording"` |
+| Band / music project | `"MusicGroup"` |
 | Book / chronicle | `"Book"` |
 
 **faq rules:**
@@ -370,4 +371,66 @@ Links
 Playwright
 [ ] npx playwright test tests/e2e/journal-article.spec.ts passes 6/6
 [ ] Test updated with article-specific proper nouns and FAQ questions
+
+YouTube
+[ ] Checked embed decision (EMBED or SKIP) using criteria in §9
+[ ] If EMBED: video ID verified, placed correctly, uses official upload
 ```
+
+---
+
+## 9. YouTube Embeds
+
+### When to EMBED vs SKIP
+
+**EMBED when:**
+- The article discusses a specific scene, fight, technique, or moment that is more powerful in motion than in text (evolution scene, jutsu reveal, execution speech, iconic fight moment)
+- An official upload exists from a rights holder (Crunchyroll, VIZ, Funimation, official anime channel, official studio distributor like Arrow Video)
+- The embed adds something the text and images cannot — showing the thing, not describing it
+
+**SKIP when:**
+- The article is a song lesson — embedding the song removes the reason to visit `/songs` (the whole conversion funnel)
+- The article is a reference table or mnemonic system that spans many franchises — no single clip serves the whole
+- Only fan compilations exist and no official clip is available (gray area copyright risk)
+- The embed would cannibalize a CTA or internal link target
+
+### Finding video IDs
+
+Use WebSearch with the scene description + "YouTube official" or channel name:
+
+```
+WebSearch: "[Scene description] [anime name] YouTube official Crunchyroll"
+```
+
+Prefer in order:
+1. Official anime channel uploads (Crunchyroll, VIZ, Funimation, Toei)
+2. Official distributor uploads (Arrow Video, Criterion for films)
+3. Official trailer from studio
+4. Skip fan uploads — fan compilations are gray area
+
+### Placement rules
+
+- **One embed per article** — more than one breaks the reading flow
+- Place it immediately after the Key Takeaways blockquote if it shows the central topic ("see it before reading about it")
+- OR place it at the end of the first section that introduces the specific anime/scene, if the hook is more text-driven
+- Never place mid-section — always between `##` headings or right after the takeaways box
+
+### MDX syntax
+
+The `YouTube` component is registered in `page.tsx`. Use it as:
+
+```mdx
+<YouTube id="VIDEO_ID_HERE" />
+```
+
+No caption needed — the surrounding paragraph provides context.
+
+### Copyright quick-reference
+
+| Source | Status |
+|---|---|
+| Crunchyroll / VIZ / Funimation official channel | ✅ Clean |
+| Official anime studio channel (Toei, etc.) | ✅ Clean |
+| Official film distributor (Arrow Video, etc.) | ✅ Clean |
+| Fan compilation / AMV / reaction video | ⚠️ Gray area — skip |
+| Clip ripped from streaming service | ❌ Skip |
