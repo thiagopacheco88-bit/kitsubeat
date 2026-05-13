@@ -2,12 +2,14 @@ import { notFound } from 'next/navigation';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import type { Metadata } from 'next';
+import { currentUser } from '@clerk/nextjs/server';
 import {
   getAllArticles,
   getArticleSource,
   type ArticleFrontmatter,
   type ArticleMeta,
 } from '@/lib/journal/articles';
+import { isAdminEmail, parseAdminEmails } from '@/lib/admin/admin-allowlist';
 import { ArticleHero } from '../components/ArticleHero';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kitsubeat.vercel.app';
@@ -75,6 +77,12 @@ export default async function ArticlePage({
 
   const source = getArticleSource(slug);
   if (!source) notFound();
+
+  const user = await currentUser();
+  const email =
+    user?.primaryEmailAddress?.emailAddress ??
+    user?.emailAddresses?.[0]?.emailAddress;
+  const isAdmin = isAdminEmail(email, parseAdminEmails(process.env.CLERK_ADMIN_EMAILS));
 
   // compileMDX parses frontmatter AND returns the rendered React content tree.
   // parseFrontmatter: true avoids a separate gray-matter call here.
@@ -149,6 +157,17 @@ export default async function ArticlePage({
           }}
           {...props}
         />
+      ),
+      YouTube: ({ id }: { id: string }) => (
+        <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, margin: '28px 0' }}>
+          <iframe
+            src={`https://www.youtube.com/embed/${id}`}
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '8px', border: 'none' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="YouTube video player"
+          />
+        </div>
       ),
       a: ({ href, children, ...props }) => (
         <a
@@ -279,6 +298,27 @@ export default async function ArticlePage({
           __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, '\\u003c'),
         }}
       />
+      {isAdmin && (
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '12px' }}>
+          <a
+            href={`/admin/journal/${slug}`}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '5px 14px',
+              fontSize: '12px',
+              fontWeight: 600,
+              borderRadius: '999px',
+              border: '1px solid var(--color-accent)',
+              color: 'var(--color-accent-readable)',
+              textDecoration: 'none',
+            }}
+          >
+            ✏ Edit Article
+          </a>
+        </div>
+      )}
       <ArticleHero article={articleMeta} />
 
       {/* MDX prose body — manual typography wrapper (@tailwindcss/typography not installed) */}
