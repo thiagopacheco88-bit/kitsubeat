@@ -44,14 +44,14 @@ const mockStore = (state: {
   katakana?: MasteryMap;
 }) => {
   // useKanaProgress is called with a selector; the mock returns selector(store)
-  vi.mocked(useKanaProgress).mockImplementation(
-    (sel: (s: MockKanaStore) => unknown) =>
-      sel({
-        _hasHydrated: state._hasHydrated,
-        hiragana: state.hiragana ?? {},
-        katakana: state.katakana ?? {},
-        sessionsCompleted: 0,
-      }),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  vi.mocked(useKanaProgress).mockImplementation((sel: (s: any) => unknown) =>
+    sel({
+      _hasHydrated: state._hasHydrated,
+      hiragana: state.hiragana ?? {},
+      katakana: state.katakana ?? {},
+      sessionsCompleted: 0,
+    }),
   );
 };
 

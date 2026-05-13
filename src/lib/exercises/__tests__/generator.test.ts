@@ -367,6 +367,7 @@ describe("buildQuestions", () => {
         listening_drill: 0,
         sentence_order: 0,
         vocab_typed: 0,
+        meaning_romaji_typed: 0,
       };
       for (const q of r) counts[q.type]++;
       return counts;
@@ -405,6 +406,7 @@ describe("buildQuestions", () => {
       listening_drill: 0,
       sentence_order: 0,
       vocab_typed: 0,
+      meaning_romaji_typed: 0,
     };
     for (const q of questions) counts[q.type]++;
 

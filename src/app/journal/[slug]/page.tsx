@@ -208,10 +208,11 @@ export default async function ArticlePage({
     dateModified: frontmatter.dateModified ?? frontmatter.date,
     inLanguage: 'en',
     articleSection: frontmatter.category,
-    image: coverImageUrl,
+    image: coverImageUrl ? { '@type': 'ImageObject', url: coverImageUrl } : undefined,
     url: `${BASE_URL}/journal/${slug}`,
     isPartOf: {
       '@type': 'WebSite',
+      '@id': `${BASE_URL}/#website`,
       name: 'KitsuBeat',
       url: BASE_URL,
     },

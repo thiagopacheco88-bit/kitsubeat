@@ -1,5 +1,21 @@
 export const dynamic = "force-dynamic";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kitsubeat.vercel.app';
+
+export const metadata = {
+  title: "Learning Path | KitsuBeat",
+  description: "Your personalised Japanese learning path through anime songs. Study songs ordered by JLPT level and track your progress.",
+  alternates: { canonical: `${SITE_URL}/path` },
+  openGraph: {
+    title: "Learning Path | KitsuBeat",
+    description: "Your personalised Japanese learning path through anime songs.",
+    url: `${SITE_URL}/path`,
+    siteName: "KitsuBeat",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    type: "website",
+  },
+};
+
 import { Suspense } from "react";
 import { getUserGamificationState } from "@/lib/db/queries";
 import { getNextRewardPreview } from "@/lib/gamification/reward-slots";

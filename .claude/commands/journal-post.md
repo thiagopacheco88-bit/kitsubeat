@@ -273,6 +273,8 @@ Fill the frontmatter fields that feed these systems:
 
 - Internal link to `/songs` — at least one, in the closing CTA paragraph
 - Internal link to `/journal` — at least one, in the closing paragraph or a related-article mention
+- **For song lesson articles:** link to the specific song page `/songs/[song-slug]` (not just `/songs`) — this connects the article to the song's structured data and drives users directly to the learning experience
+- **Cross-link to at least one related article** — scan `src/content/journal/` for articles covering the same anime, same grammar pattern, or same vocabulary theme; link naturally in the body or in the closing section. If no related article exists yet, skip and note it.
 - Outbound links to Wikipedia or authoritative sources when citing historical texts, artworks, or specific anime/game entries
 - `[anchor text](URL)` syntax in MDX — the `a` component override auto-adds `target="_blank"` for external URLs
 
@@ -280,8 +282,8 @@ Fill the frontmatter fields that feed these systems:
 
 | Link text | Destination |
 |-----------|-------------|
+| [specific song name] | `/songs/[song-slug]` — prefer this over generic `/songs` for song lessons |
 | song library / explore songs | `/songs` |
-| Japanese vocabulary | `/vocabulary` |
 | Kana basics | `/kana` |
 | your learning path | `/path` |
 | other Journal articles | `/journal/[slug]` |
@@ -366,6 +368,8 @@ Frontmatter
 Links
 [ ] Internal link to /songs
 [ ] Internal link to /journal
+[ ] If song lesson: internal link to /songs/[specific-slug] for this song
+[ ] Cross-link to at least one related /journal/[slug] article (or noted as none exists yet)
 [ ] Outbound links to Wikipedia for any historical source cited
 
 Playwright

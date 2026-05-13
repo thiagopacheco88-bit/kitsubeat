@@ -112,6 +112,13 @@ export type SongWithVersions = NonNullable<Awaited<ReturnType<typeof getSongBySl
 // Browse / list pages
 // ---------------------------------------------------------------------------
 
+export async function getAllSongSlugsForSitemap() {
+  return db
+    .select({ slug: songs.slug, updated_at: songs.updated_at })
+    .from(songs)
+    .orderBy(asc(songs.slug));
+}
+
 /**
  * Get all songs with metadata for the browse page.
  * Includes the preferred youtube_id (tv > full) for thumbnails.

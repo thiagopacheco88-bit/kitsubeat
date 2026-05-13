@@ -1,0 +1,45 @@
+# KitsuBeat
+
+> KitsuBeat is a Japanese language learning app that teaches vocabulary and grammar through real anime songs. Users study lyrics interactively, then reinforce retention with spaced-repetition (FSRS) flashcard exercises.
+
+## What KitsuBeat does
+
+- Interactive lyric reader with word-by-word Japanese vocabulary breakdowns
+- Spaced repetition flashcards (FSRS algorithm) for vocabulary from songs the user has studied
+- Kana trainer (hiragana and katakana)
+- Learning path that sequences songs by JLPT level and difficulty
+- Journal with articles explaining Japanese language concepts through anime songs
+
+## Content
+
+KitsuBeat covers hundreds of Japanese anime songs across genres, including songs from Naruto, Attack on Titan, Fullmetal Alchemist, Demon Slayer, Bleach, One Piece, and many others. Each song includes:
+- Timestamped lyrics with vocabulary annotations
+- JLPT level classification (N5–N1)
+- Grammar rules with explanations and example sentences
+- Mnemonic memory aids for vocabulary
+
+## Audience
+
+Beginner to intermediate Japanese learners (JLPT N5–N3) who learn best through music and pop-culture content.
+
+## Pages
+
+- /songs — Browse the full song catalog
+- /anime-list — Browse songs organised by anime series
+- /kana — Hiragana and katakana trainer
+- /path — Personalised learning path
+- /journal — Articles on Japanese language through anime songs
+- /review — Spaced-repetition review session
+
+## Journal
+
+The KitsuBeat Journal publishes articles explaining Japanese vocabulary, grammar, and cultural context using anime songs as the teaching anchor. Each article includes structured FAQ content and example sentences.
+
+## Contact
+
+support@kitsubeat.com
+
+## AI Usage Disclosure
+
+Some content on KitsuBeat (vocabulary mnemonics, kanji breakdowns, grammar explanations) is generated with AI assistance (Claude by Anthropic). All AI-generated content is reviewed and contextualised by the KitsuBeat team.
+See /legal/ai-transparency for full disclosure.

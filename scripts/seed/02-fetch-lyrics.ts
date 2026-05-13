@@ -29,6 +29,7 @@ import { join } from "path";
 import pLimit from "p-limit";
 import { SongManifestSchema, type SongManifestEntry } from "../types/manifest.ts";
 import { fetchFromLrclib, type LrcLine } from "../lib/lrclib.ts";
+import { fetchFromUtaNet, sleep as utaNetSleep } from "../lib/uta-net.ts";
 import { searchGenius, fetchGeniusLyrics } from "../lib/genius.ts";
 import { initKuroshiro, tokenizeLyrics, type LyricsToken } from "../lib/kuroshiro-tokenizer.ts";
 
@@ -42,7 +43,7 @@ const LYRICS_CACHE_DIR = "data/lyrics-cache";
 // Output schema
 // ──────────────────────────────────────────────────────────────────────────────
 
-export type LyricsSource = "lrclib" | "genius" | "pending_whisper";
+export type LyricsSource = "lrclib" | "uta-net" | "genius" | "pending_whisper";
 
 export interface LyricsCacheEntry {
   slug: string;
@@ -81,6 +82,7 @@ async function fetchAllLyrics() {
 
   // Track stats
   let fromLrclib = 0;
+  let fromUtaNet = 0;
   let fromGenius = 0;
   let pendingWhisper = 0;
   let skipped = 0;
@@ -106,6 +108,7 @@ async function fetchAllLyrics() {
 
       // Update stats
       if (result.source === "lrclib") fromLrclib++;
+      else if (result.source === "uta-net") fromUtaNet++;
       else if (result.source === "genius") fromGenius++;
       else pendingWhisper++;
 
@@ -113,6 +116,8 @@ async function fetchAllLyrics() {
       const icon =
         result.source === "lrclib"
           ? "L"
+          : result.source === "uta-net"
+          ? "U"
           : result.source === "genius"
           ? "G"
           : "W";
@@ -130,6 +135,7 @@ async function fetchAllLyrics() {
   console.log(`Songs processed (new): ${total}`);
   console.log(`Songs skipped (cached): ${skipped}`);
   console.log(`  LRCLIB (synced):       ${fromLrclib}`);
+  console.log(`  Uta-Net (plain text):  ${fromUtaNet}`);
   console.log(`  Genius (plain text):   ${fromGenius}`);
   console.log(`  Pending Whisper:       ${pendingWhisper}`);
   console.log("=".repeat(60));
@@ -172,7 +178,27 @@ async function fetchLyricsForSong(
     console.error(`\n[LRCLIB] Error for "${song.title}": ${err instanceof Error ? err.message : err}`);
   }
 
-  // Step 2: Try Genius (plain text, requires API key)
+  // Step 2: Try Uta-Net (Japanese lyrics database — plain text, no timestamps)
+  try {
+    await utaNetSleep(1000); // 1 req/s — be polite
+    const utaNetResult = await fetchFromUtaNet(song.title, song.artist);
+    if (utaNetResult) {
+      const tokens = await tokenizeLyrics(utaNetResult.plain);
+      return {
+        slug: song.slug,
+        title: song.title,
+        artist: song.artist,
+        source: "uta-net" as LyricsSource,
+        raw_lyrics: utaNetResult.plain,
+        synced_lrc: null,
+        tokens,
+      };
+    }
+  } catch (err) {
+    console.error(`\n[Uta-Net] Error for "${song.title}": ${err instanceof Error ? err.message : err}`);
+  }
+
+  // Step 3: Try Genius (plain text, requires API key)
   if (process.env.GENIUS_API_KEY) {
     try {
       const geniusUrl = await searchGenius(song.title, song.artist);

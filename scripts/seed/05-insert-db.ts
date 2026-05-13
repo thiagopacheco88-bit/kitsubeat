@@ -100,7 +100,7 @@ interface CanonicalLyricsJson {
 }
 
 interface WhisperLyricsJson {
-  model: "whisperx-large-v3" | "demucs+whisperx-large-v3";
+  model: "whisperx-large-v3" | "demucs+whisperx-large-v3" | "lrclib+demucs+whisperx-large-v3";
   raw_lyrics: string;
   words: Array<{ word: string; start: number; end: number; score?: number }>;
   kcov_against_canonical: number | null;

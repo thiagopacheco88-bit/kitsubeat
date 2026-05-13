@@ -32,7 +32,10 @@ export const metadata: Metadata = {
     title: "KitsuBeat",
     description: "Learn Japanese through anime songs",
     siteName: "KitsuBeat",
-    images: ["/og-image.png"],
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
@@ -137,6 +140,24 @@ export default async function RootLayout({
               url: SITE_URL,
               description: 'Learn Japanese vocabulary through anime songs with spaced repetition',
               publisher: { '@id': `${SITE_URL}/#organization` },
+            }).replace(/</g, '\\u003c'),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              '@id': `${SITE_URL}/#application`,
+              name: 'KitsuBeat',
+              url: SITE_URL,
+              description: 'Learn Japanese vocabulary through anime songs with interactive lyrics and spaced-repetition flashcards.',
+              applicationCategory: 'EducationalApplication',
+              operatingSystem: 'Web',
+              inLanguage: ['en', 'ja'],
+              offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+              provider: { '@id': `${SITE_URL}/#organization` },
             }).replace(/</g, '\\u003c'),
           }}
         />

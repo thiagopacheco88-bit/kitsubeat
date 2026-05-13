@@ -205,10 +205,16 @@ Check each item against the assembled MDX. Fix inline if failing.
 | mentions entries | every franchise/character cited in body has `sameAs` | cross-ref body text |
 | Key Takeaways | `> **Key Takeaways**` blockquote present after hook | grep for `Key Takeaways` |
 | keywords | ≥ 5 keyword phrases in frontmatter | count entries |
+| specific song link | link to `/songs/[exact-slug]` for this song in body | grep for `(/songs/` |
 | /songs link | at least one internal link to `/songs` in body | grep for `(/songs` |
 | /journal link | at least one internal link to `/journal` in body | grep for `(/journal` |
+| related article link | link to at least one other `/journal/[slug]` article on a related topic | grep for `(/journal/` |
 | title format | starts with "Learning Japanese with " | check frontmatter title |
 | subtitle | different from title, contains specific grammar/vocab claim | read and verify |
+
+**To find the exact song slug:** `ls src/content/journal/` will not help — instead check the database slug from the songs catalog or use the song name converted to kebab-case (e.g. "Gurren no Yumiya" → `guren-no-yumiya-linked-horizon`).
+
+**To find related articles for cross-linking:** `ls src/content/journal/` and scan titles for articles covering the same anime, same grammar pattern, or same vocabulary theme. Pick the closest match. If none exists yet, skip this check and note it in the report.
 
 If all pass: proceed to Phase 7.
 If any fail: fix and re-run only the failing checks.

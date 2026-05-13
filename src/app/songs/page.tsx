@@ -4,8 +4,26 @@ import { SongGridLoader } from "./components/SongGridLoader";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kitsubeat.vercel.app';
+
 export const metadata = {
   title: "Songs | KitsuBeat",
+  description: "Browse hundreds of anime songs and learn Japanese vocabulary from real lyrics. Filter by anime, JLPT level, and difficulty.",
+  alternates: { canonical: `${SITE_URL}/songs` },
+  openGraph: {
+    title: "Songs | KitsuBeat",
+    description: "Browse hundreds of anime songs and learn Japanese vocabulary from real lyrics.",
+    url: `${SITE_URL}/songs`,
+    siteName: "KitsuBeat",
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Songs | KitsuBeat",
+    description: "Browse hundreds of anime songs and learn Japanese vocabulary from real lyrics.",
+    images: [`${SITE_URL}/og-image.png`],
+  },
 };
 
 export default async function SongsPage({

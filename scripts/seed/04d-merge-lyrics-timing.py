@@ -151,15 +151,16 @@ def merge_one(slug: str) -> dict | None:
     stem_path = os.path.join(STEM_DIR, f"{slug}.json")
     lyrics_path = os.path.join(LYRICS_DIR, f"{slug}.json")
 
-    if not os.path.exists(stem_path):
-        print(f"  [skip] no stem timing: {stem_path}")
-        return None
     if not os.path.exists(lyrics_path):
         print(f"  [skip] no lyrics cache: {lyrics_path}")
         return None
 
-    with open(stem_path, "r", encoding="utf-8") as f:
-        stem = json.load(f)
+    # Stem file is optional: songs with synced_lrc but no stem timing (never ran
+    # WhisperX) can still get line-level timing from synced_lrc alone.
+    stem: dict = {}
+    if os.path.exists(stem_path):
+        with open(stem_path, "r", encoding="utf-8") as f:
+            stem = json.load(f)
     with open(lyrics_path, "r", encoding="utf-8") as f:
         lyrics = json.load(f)
 
@@ -239,14 +240,28 @@ def merge_one(slug: str) -> dict | None:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def collect_all_slugs() -> list[str]:
-    """Return all slugs that have stem timing."""
-    if not os.path.isdir(STEM_DIR):
-        return []
-    return sorted(
-        f.replace(".json", "")
-        for f in os.listdir(STEM_DIR)
-        if f.endswith(".json")
-    )
+    """Return all slugs that have stem timing OR synced_lrc in lyrics cache."""
+    slugs = set()
+    if os.path.isdir(STEM_DIR):
+        for f in os.listdir(STEM_DIR):
+            if f.endswith(".json"):
+                slugs.add(f.replace(".json", ""))
+    # Also include songs with synced_lrc but no stem (never ran WhisperX)
+    if os.path.isdir(LYRICS_DIR):
+        for f in os.listdir(LYRICS_DIR):
+            if not f.endswith(".json") or f.startswith("_"):
+                continue
+            slug = f.replace(".json", "")
+            if slug in slugs:
+                continue
+            try:
+                with open(os.path.join(LYRICS_DIR, f), "r", encoding="utf-8") as fh:
+                    data = json.load(fh)
+                if data.get("synced_lrc") and len(data["synced_lrc"]) > 0:
+                    slugs.add(slug)
+            except Exception:
+                pass
+    return sorted(slugs)
 
 
 def main() -> None:
