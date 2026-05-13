@@ -3,12 +3,15 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  // Phase 14 D-17: lint runs as a separate CI gate (`npm run lint`), not during build.
-  // Avoids build-time false-positives from kitsubeat-tokens/no-raw-tokens flagging
-  // pre-Wave-1 palette utilities that Wave 1+ migrations land fixes for.
+  // Phase 14 D-17: lint runs as a separate CI gate, not during build.
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  // Tell Next.js file-tracing to bundle the MDX content files so that
+  // fs.readFileSync calls in the journal admin pages work on Vercel.
+  outputFileTracingIncludes: {
+    "/admin/journal": ["./src/content/journal/**/*.mdx"],
+    "/admin/journal/[slug]": ["./src/content/journal/**/*.mdx"],
   },
 };
 
