@@ -12,7 +12,7 @@ v3.0 takes the feature-complete product to launch: a curated beginner→advanced
 
 - 🚧 **v1.0 Core Learning Experience** - Phases 1-6 (in progress)
 - 🚧 **v2.0 Exercise & Learning System** - Phases 7-11 (Phase 12 moved to v4.0)
-- 📋 **v3.0 Launch Readiness** - Phases 12-20 (planned — gamified learning path, legal/security hardening, free beta launch under UK sole trader)
+- 📋 **v3.0 Launch Readiness** - Phases 12-20 (planned — gamified learning path, legal/security hardening, UI internationalization PT-BR/ES, free beta launch under UK sole trader)
 - 📋 **v4.0 Content Expansion** - Phase 21+ (post-launch — anime scenes, cultural vocabulary, community, monetization if not already live)
 
 ## Phases
@@ -678,9 +678,25 @@ Plans:
 - [ ] 18-06-PLAN.md — Wave 5: Profile page wiring + KanjiBreakdownSection AI attr + integration tests green + build verification
 - [ ] 18-07-PLAN.md — Wave 5: WCAG ARIA fixes (QuestionCard + SentenceOrderCard) + a11y scan + operator checklist + human-verify checkpoint
 
+### Phase 18.1: UI Internationalization — INSERTED 2026-05-13
+**Goal**: Add PT-BR and ES UI language support via next-intl — URL prefix locale routing (/pt-BR/, /es/), full UI string extraction and translation, globe-icon nav picker persisted to cookie (unauthed) and Clerk user metadata (authed), song language filter chip wired to the existing DB `language` column, and all 28 journal articles translated inline to PT-BR and ES for maximum SEO reach before beta launch.
+**Depends on**: Phase 18 (legal pages include pt-BR LGPD section — i18n must land after)
+**Requirements**: I18N-01 through I18N-08
+**Success Criteria** (what must be TRUE):
+  1. User landing on kitsubeat.com/pt-BR/ sees the full app UI in Brazilian Portuguese — nav, buttons, error states, exercise instructions, and feedback messages all translated
+  2. User landing on kitsubeat.com/es/ sees the full app UI in Spanish
+  3. English stays at the root / with no /en/ prefix — no existing indexed URLs break
+  4. Globe icon dropdown in top nav lets any user (logged in or not) switch language; choice persists to cookie; authenticated users' preference syncs to Clerk user metadata
+  5. Browser Accept-Language auto-detects locale on first visit — no language picker modal
+  6. Songs page has a language filter chip (JA / EN / PT-BR / ES) wired to the existing DB `language` column
+  7. All 28 journal articles exist in PT-BR and ES versions at /pt-BR/journal/[slug] and /es/journal/[slug]; PT-BR/ES articles appear first on the listing page for their respective locales
+  8. next-intl hreflang tags are correct — no duplicate-content SEO penalty
+**Context captured**: [.planning/phases/18.1-ui-internationalization/18.1-CONTEXT.md](phases/18.1-ui-internationalization/18.1-CONTEXT.md)
+**Plans:** TBD
+
 ### Phase 19: Free Beta Launch & GTM
 **Goal**: Product opens to a limited external audience under the UK sole-trader name; three acquisition channels tested with tracked UTMs; validation signal from behavior, not self-report.
-**Depends on**: Phase 18
+**Depends on**: Phase 18.1
 **Requirements**: TBD
 **Entry Gate (Phase 13 performance validation — deferred here so measurement runs against the final Phase 14 UX)**:
   - Lighthouse mobile performance >=85 on home, catalog, and song pages

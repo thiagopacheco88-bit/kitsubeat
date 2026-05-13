@@ -15,6 +15,7 @@
 | 4 | AI Search and Payments | Not started |
 | 5 | Exercises and Gamification | Not started |
 | 6 | Export and Polish | Not started |
+| 18.1 | UI Internationalization (PT-BR + ES) | Not started |
 
 **Requirements covered:** CONT-01 through CONT-11, PLAY-01 through PLAY-11, USER-01 through USER-06, DISC-01 through DISC-04, MONE-01 through MONE-04, EXER-01 through EXER-04, GAME-01 through GAME-03, EXPO-01 through EXPO-02
 
