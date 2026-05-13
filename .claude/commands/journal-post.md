@@ -16,6 +16,24 @@ KitsuBeat's audience is otakus who are learning Japanese. Write like a knowledge
 - Bold only the first mention of a key term or name, not for decoration
 - *Italics* for Japanese romanization and emphasis, sparingly
 
+### Title rules
+
+**Match the title style to the article type.** Not every article needs a hook in the title.
+
+**For song lesson articles** (language category, TV opening/ending breakdown):
+- Title is neutral and descriptive: `"Learning Japanese with [Song Name] ([Anime] Opening)"`
+- Examples: `"Learning Japanese with Blue Bird (Naruto Shippuden Opening)"`, `"Learning Japanese with Gurenge (Demon Slayer Opening)"`
+- The hook goes in the **subtitle** - one specific, interesting claim about the grammar or vocabulary: `"Mama, todoku, and the precise vocabulary for chasing someone who keeps getting further away"`
+
+**For lore/culture/translation articles** (higher novelty, reader may not know the connection):
+- Title can carry the angle when the topic itself needs the hook to make sense: `"One Piece's Admirals Are All Based on Real Yakuza Movie Actors"`
+- But don't force a hook if the subject is clear on its own. When in doubt, lean neutral.
+
+**Never write:**
+- Superlative titles: "The Most...", "The Best...", "The Darkest..."
+- "[Song] Is a [Thing] Nobody Told You About" - forced revelation framing
+- Rhetorical questions in titles
+
 ---
 
 ## 2. MDX frontmatter
@@ -24,8 +42,8 @@ Every article needs this exact shape:
 
 ```yaml
 ---
-title: "..."                        # Include both the topic AND the angle in the title
-subtitle: "..."                     # Smaller hook line below title — rendered in ArticleHero
+title: "..."                        # See title rules below — topic and type, NOT a hook sentence
+subtitle: "..."                     # THIS is where the hook goes — one specific, interesting claim
 slug: "kebab-case-url"
 date: "YYYY-MM-DD"                  # ISO publish date
 dateModified: "YYYY-MM-DD"         # Set to date on first publish; update when article changes
