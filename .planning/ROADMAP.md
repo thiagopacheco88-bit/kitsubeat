@@ -679,7 +679,7 @@ Plans:
 - [ ] 18-07-PLAN.md — Wave 5: WCAG ARIA fixes (QuestionCard + SentenceOrderCard) + a11y scan + operator checklist + human-verify checkpoint
 
 ### Phase 18.1: UI Internationalization — INSERTED 2026-05-13
-**Goal**: Add PT-BR and ES UI language support via next-intl — URL prefix locale routing (/pt-BR/, /es/), full UI string extraction and translation, globe-icon nav picker persisted to cookie (unauthed) and Clerk user metadata (authed), song language filter chip wired to the existing DB `language` column, and all 28 journal articles translated inline to PT-BR and ES for maximum SEO reach before beta launch.
+**Goal**: Add PT-BR and ES UI language support via next-intl — URL prefix locale routing (/pt-BR/, /es/), full UI string extraction and translation, globe-icon nav picker persisted to cookie (unauthed) and Clerk user metadata (authed), song language filter chip wired to the existing DB `language` column, and all 29 journal articles translated inline to PT-BR and ES for maximum SEO reach before beta launch.
 **Depends on**: Phase 18 (legal pages include pt-BR LGPD section — i18n must land after)
 **Requirements**: I18N-01 through I18N-08
 **Success Criteria** (what must be TRUE):
@@ -689,10 +689,23 @@ Plans:
   4. Globe icon dropdown in top nav lets any user (logged in or not) switch language; choice persists to cookie; authenticated users' preference syncs to Clerk user metadata
   5. Browser Accept-Language auto-detects locale on first visit — no language picker modal
   6. Songs page has a language filter chip (JA / EN / PT-BR / ES) wired to the existing DB `language` column
-  7. All 28 journal articles exist in PT-BR and ES versions at /pt-BR/journal/[slug] and /es/journal/[slug]; PT-BR/ES articles appear first on the listing page for their respective locales
+  7. All 29 journal articles exist in PT-BR and ES versions at /pt-BR/journal/[slug] and /es/journal/[slug]; PT-BR/ES articles appear first on the listing page for their respective locales
   8. next-intl hreflang tags are correct — no duplicate-content SEO penalty
 **Context captured**: [.planning/phases/18.1-ui-internationalization/18.1-CONTEXT.md](phases/18.1-ui-internationalization/18.1-CONTEXT.md)
-**Plans:** TBD
+**Plans:** 12 plans (11 autonomous + 1 human-verify checkpoint)
+Plans:
+- [ ] 18.1-01-PLAN.md — Wave 1: Install next-intl, i18n config files, 18 message JSON files, 4 test stubs
+- [ ] 18.1-02-PLAN.md — Wave 2: next.config.ts plugin, middleware chaining, [locale]/layout.tsx, syncLocaleToClerk
+- [ ] 18.1-03-PLAN.md — Wave 3a: LanguagePicker globe dropdown, LanguageBadge, MobileNavSheet
+- [ ] 18.1-04-PLAN.md — Wave 3b: getAllSongs language column, SongGrid filter chips, articles.ts locale extension
+- [ ] 18.1-05-PLAN.md — Wave 4: Pages under [locale], journal locale ordering, sitemap hreflang
+- [ ] 18.1-06-PLAN.md — Wave 5a: PT-BR articles 1-10
+- [ ] 18.1-07-PLAN.md — Wave 6a: PT-BR articles 11-20
+- [ ] 18.1-08-PLAN.md — Wave 7a: PT-BR articles 21-29
+- [ ] 18.1-09-PLAN.md — Wave 5b: ES articles 1-10
+- [ ] 18.1-10-PLAN.md — Wave 6b: ES articles 11-20
+- [ ] 18.1-11-PLAN.md — Wave 7b: ES articles 21-29
+- [ ] 18.1-12-PLAN.md — Wave 8: E2e tests + build verification + human-verify checkpoint
 
 ### Phase 19: Free Beta Launch & GTM
 **Goal**: Product opens to a limited external audience under the UK sole-trader name; three acquisition channels tested with tracked UTMs; validation signal from behavior, not self-report.
