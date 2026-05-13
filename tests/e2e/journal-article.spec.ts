@@ -1841,6 +1841,124 @@ test.describe("Journal article — anime-character-names-japanese-meanings", () 
 });
 
 // ---------------------------------------------------------------------------
+// Anime character names Japanese part 2 article
+// ---------------------------------------------------------------------------
+
+const NAMES2_SLUG = "anime-character-names-japanese-part-2";
+const NAMES2_URL = `/journal/${NAMES2_SLUG}`;
+
+test.describe("Journal article — anime-character-names-japanese-part-2", () => {
+  test.describe.configure({ timeout: 90_000 });
+
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage();
+    await page.goto(NAMES2_URL, { waitUntil: "domcontentloaded", timeout: 80_000 });
+    await page.close();
+  });
+
+  test("loads without 500 error, shows heading, and hero image is visible", async ({ page }) => {
+    const response = await page.goto(NAMES2_URL);
+    expect(response?.status()).not.toBe(500);
+    expect(response?.status()).toBe(200);
+
+    await expect(
+      page.getByRole("heading", { level: 1 })
+    ).toContainText("Part 2", { timeout: 10_000 });
+
+    const hero = page.locator(".relative img").first();
+    await expect(hero).toBeVisible();
+    const heroLoaded = await hero.evaluate(
+      (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+    );
+    expect(heroLoaded, "Hero cover image failed to load").toBe(true);
+  });
+
+  test("vocab table renders as HTML table, not raw markdown pipes", async ({ page }) => {
+    await page.goto(NAMES2_URL);
+
+    const table = page.locator("article table").first();
+    await expect(table).toBeVisible({ timeout: 10_000 });
+
+    const firstCell = table.locator("td").first();
+    await expect(firstCell).toBeVisible();
+    await expect(firstCell).not.toContainText("|");
+
+    const bodyText = await page.locator("article").innerText();
+    expect(bodyText).not.toMatch(/\|[-]+\|/);
+  });
+
+  test("article body images are visible and load successfully", async ({ page }) => {
+    await page.goto(NAMES2_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const images = page.locator("article img");
+    const count = await images.count();
+    expect(count).toBeGreaterThanOrEqual(2);
+
+    for (let i = 0; i < count; i++) {
+      const img = images.nth(i);
+      const alt = await img.getAttribute("alt");
+      expect(alt).toBeTruthy();
+      await expect(img).toBeVisible();
+      const loaded = await img.evaluate(
+        (el: HTMLImageElement) => el.complete && el.naturalWidth > 0
+      );
+      expect(loaded, `Image ${i} failed to load (src: ${await img.getAttribute("src")})`).toBe(true);
+    }
+  });
+
+  test("FAQ section renders with expected questions", async ({ page }) => {
+    await page.goto(NAMES2_URL);
+
+    const articleText = await page.locator("article").innerText({ timeout: 10_000 });
+    expect(articleText).toContain("What does Nami's name mean in Japanese?");
+    expect(articleText).toContain("What do the One Piece admiral names mean in Japanese?");
+    expect(articleText).toContain("What does Usopp's name mean in Japanese?");
+    expect(articleText).toContain("What does Kaminari mean in Japanese?");
+    expect(articleText).toContain("What does Usagi mean in Japanese?");
+  });
+
+  test("vocab sections render - colors, nature, everyday words", async ({ page }) => {
+    await page.goto(NAMES2_URL);
+    await page.locator("article").waitFor({ timeout: 10_000 });
+
+    const articleText = await page.locator("article").innerText();
+    expect(articleText).toContain("Akainu");
+    expect(articleText).toContain("Aokiji");
+    expect(articleText).toContain("Kizaru");
+    expect(articleText).toContain("Shirohige");
+    expect(articleText).toContain("Kurohige");
+    expect(articleText).toContain("Midoriya");
+    expect(articleText).toContain("Nami");
+    expect(articleText).toContain("Usopp");
+    expect(articleText).toContain("Kaminari");
+    expect(articleText).toContain("Usagi");
+    expect(articleText).toContain("Hotaru");
+    expect(articleText).toContain("Ochaco");
+    expect(articleText).toContain("Shinobu");
+    expect(articleText).toContain("ninja");
+  });
+
+  test("JSON-LD structured data is present in page head", async ({ page }) => {
+    await page.goto(NAMES2_URL);
+
+    const allLdBlocks = page.locator('script[type="application/ld+json"]');
+    const blockCount = await allLdBlocks.count();
+    expect(blockCount).toBeGreaterThanOrEqual(2);
+
+    let faqData: Record<string, unknown> | null = null;
+    for (let i = 0; i < blockCount; i++) {
+      const text = await allLdBlocks.nth(i).innerText();
+      const parsed = JSON.parse(text) as Record<string, unknown>;
+      if (parsed["@type"] === "FAQPage") faqData = parsed;
+    }
+
+    expect(faqData).not.toBeNull();
+    expect((faqData as { mainEntity: unknown[] }).mainEntity.length).toBeGreaterThanOrEqual(5);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Gurenge Demon Slayer Japanese lesson article
 // ---------------------------------------------------------------------------
 
