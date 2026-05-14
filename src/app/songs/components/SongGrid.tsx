@@ -9,12 +9,8 @@ import SongCard from "./SongCard";
 
 const JLPT_LEVELS = ["N5", "N4", "N3", "N2", "N1"] as const;
 const DIFFICULTY_TIERS = ["basic", "intermediate", "advanced"] as const;
-const LANGUAGE_OPTIONS = [
-  { value: "ja", label: "JA" },
-  { value: "en", label: "EN" },
-  { value: "pt", label: "PT" },
-  { value: "es", label: "ES" },
-] as const;
+const LANGUAGE_KEYS = ["ja", "en", "pt", "es"] as const;
+const LANGUAGE_I18N_KEY = { ja: "filter.langJa", en: "filter.langEn", pt: "filter.langPt", es: "filter.langEs" } as const;
 
 type ViewMode = "by-anime" | "all";
 
@@ -146,21 +142,21 @@ export default function SongGrid({
 
           {/* Language filter chips — identical pattern to JLPT/difficulty chips */}
           <div className="flex min-w-0 flex-wrap gap-1.5">
-            {LANGUAGE_OPTIONS.map((option) => (
+            {LANGUAGE_KEYS.map((lang) => (
               <button
                 suppressHydrationWarning
-                key={option.value}
+                key={lang}
                 onClick={() =>
-                  setLanguageFilter(languageFilter === option.value ? null : option.value)
+                  setLanguageFilter(languageFilter === lang ? null : lang)
                 }
-                aria-pressed={languageFilter === option.value}
+                aria-pressed={languageFilter === lang}
                 className={`min-h-11 rounded-[var(--radius-md)] px-3 text-xs font-semibold transition-colors ${
-                  languageFilter === option.value
+                  languageFilter === lang
                     ? "bg-[var(--color-text)] text-[var(--color-bg)]"
                     : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
                 }`}
               >
-                {option.label}
+                {t(LANGUAGE_I18N_KEY[lang])}
               </button>
             ))}
           </div>
@@ -200,7 +196,7 @@ export default function SongGrid({
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin snap-x snap-mandatory">
                 {animeSongs.map((song) => (
                   <div key={song.id} className="w-56 shrink-0 snap-start">
-                    <SongCard song={song} difficultyLabel={song.difficulty_tier ? t(`difficulty.${song.difficulty_tier as 'basic' | 'intermediate' | 'advanced'}`) : undefined} />
+                    <SongCard song={song} difficultyLabel={song.difficulty_tier ? t(`difficulty.${song.difficulty_tier as 'basic' | 'intermediate' | 'advanced'}`) : undefined} learnersLabel={t('learners', { n: '{n}' })} dominatedLabel={t('dominated')} />
                   </div>
                 ))}
               </div>
@@ -212,7 +208,7 @@ export default function SongGrid({
       {view === "all" && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((song) => (
-            <SongCard key={song.id} song={song} difficultyLabel={song.difficulty_tier ? t(`difficulty.${song.difficulty_tier as 'basic' | 'intermediate' | 'advanced'}`) : undefined} />
+            <SongCard key={song.id} song={song} difficultyLabel={song.difficulty_tier ? t(`difficulty.${song.difficulty_tier as 'basic' | 'intermediate' | 'advanced'}`) : undefined} learnersLabel={t('learners', { n: '{n}' })} dominatedLabel={t('dominated')} />
           ))}
         </div>
       )}

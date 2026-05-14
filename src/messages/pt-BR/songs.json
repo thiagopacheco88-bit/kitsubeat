@@ -5,10 +5,10 @@
     "search": "Pesquisar músicas, artistas, anime...",
     "language": "Idioma",
     "clear": "Limpar",
-    "langJa": "JA",
-    "langEn": "EN",
-    "langPt": "PT",
-    "langEs": "ES"
+    "langJa": "Japonês",
+    "langEn": "Inglês",
+    "langPt": "Português",
+    "langEs": "Espanhol"
   },
   "difficulty": {
     "basic": "Básico",
@@ -19,6 +19,8 @@
     "anime": "Anime",
     "songs": "Músicas"
   },
+  "learners": "{n} alunos",
+  "dominated": "% dominados",
   "count": {
     "song": "{n} música",
     "songs": "{n} músicas",

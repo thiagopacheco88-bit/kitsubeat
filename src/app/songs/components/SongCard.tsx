@@ -49,6 +49,8 @@ function formatLearnerCount(count: number): string {
 interface SongCardProps {
   song: SongListItem;
   difficultyLabel?: string;
+  learnersLabel?: string;
+  dominatedLabel?: string;
 }
 
 /**
@@ -70,7 +72,7 @@ interface SongCardProps {
  * This is the CONTEXT-locked "don't show mastery decorations to signed-out
  * users" contract.
  */
-export default function SongCard({ song, difficultyLabel }: SongCardProps) {
+export default function SongCard({ song, difficultyLabel, learnersLabel, dominatedLabel }: SongCardProps) {
   const thumbnailId = song.youtube_id;
   const thumbnail = thumbnailId
     ? `https://img.youtube.com/vi/${thumbnailId}/mqdefault.jpg`
@@ -186,7 +188,7 @@ export default function SongCard({ song, difficultyLabel }: SongCardProps) {
             className="mt-0.5 text-xs text-[var(--color-text-muted)]"
             data-testid="verses-dominated-pct"
           >
-            {Math.round(versesDominatedPctNum!)}% dominated
+            {Math.round(versesDominatedPctNum!)}{dominatedLabel ?? "% dominated"}
           </p>
         )}
         <p className="mt-1 truncate text-xs text-[var(--color-text-muted)]">
@@ -207,7 +209,7 @@ export default function SongCard({ song, difficultyLabel }: SongCardProps) {
           )}
           {showLearnerCount && (
             <span className="ml-auto text-[length:var(--text-micro)] text-[var(--color-text-dim)]">
-              {formatLearnerCount(learnerCount)} learners
+              {learnersLabel ? learnersLabel.replace('{n}', String(formatLearnerCount(learnerCount))) : `${formatLearnerCount(learnerCount)} learners`}
             </span>
           )}
         </div>

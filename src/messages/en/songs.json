@@ -19,6 +19,8 @@
     "anime": "Anime",
     "songs": "Songs"
   },
+  "learners": "{n} learners",
+  "dominated": "% dominated",
   "count": {
     "song": "{n} song",
     "songs": "{n} songs",
