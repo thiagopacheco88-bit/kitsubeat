@@ -109,6 +109,7 @@ export default function SongGrid({
           <div className="flex min-w-0 flex-wrap gap-1.5">
             {JLPT_LEVELS.map((level) => (
               <button
+                suppressHydrationWarning
                 key={level}
                 onClick={() =>
                   setJlptFilter(jlptFilter === level ? null : level)
@@ -127,6 +128,7 @@ export default function SongGrid({
           <div className="flex min-w-0 flex-wrap gap-1.5">
             {DIFFICULTY_TIERS.map((tier) => (
               <button
+                suppressHydrationWarning
                 key={tier}
                 onClick={() =>
                   setDifficultyFilter(difficultyFilter === tier ? null : tier)
@@ -146,6 +148,7 @@ export default function SongGrid({
           <div className="flex min-w-0 flex-wrap gap-1.5">
             {LANGUAGE_OPTIONS.map((option) => (
               <button
+                suppressHydrationWarning
                 key={option.value}
                 onClick={() =>
                   setLanguageFilter(languageFilter === option.value ? null : option.value)
