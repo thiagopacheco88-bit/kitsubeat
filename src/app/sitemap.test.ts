@@ -27,6 +27,15 @@ describe('sitemap()', () => {
     expect(entries[0].priority).toBe(1);
   });
 
+  it('homepage entry includes alternates.languages for pt-BR and es', async () => {
+    vi.mocked(getAllArticles).mockReturnValue([]);
+    vi.mocked(getAllSongSlugsForSitemap).mockResolvedValue([]);
+    const entries = await sitemap();
+    const home = entries[0];
+    expect(home.alternates?.languages?.['pt-BR']).toBe(`${BASE}/pt-BR`);
+    expect(home.alternates?.languages?.['es']).toBe(`${BASE}/es`);
+  });
+
   it('includes /journal and /songs static entries', async () => {
     vi.mocked(getAllArticles).mockReturnValue([]);
     vi.mocked(getAllSongSlugsForSitemap).mockResolvedValue([]);
@@ -54,6 +63,36 @@ describe('sitemap()', () => {
     expect(articleEntry).toBeDefined();
     expect(articleEntry?.changeFrequency).toBe('monthly');
     expect(articleEntry?.priority).toBe(0.7);
+  });
+
+  it('article entry includes alternates.languages for pt-BR and es', async () => {
+    vi.mocked(getAllArticles).mockReturnValue([
+      {
+        slug: 'test-article',
+        title: 'Test',
+        date: '2026-05-10',
+        coverImage: '/img.jpg',
+        category: 'lore' as const,
+        summary: 'summary',
+        readingTimeComputed: '3 min read',
+      },
+    ]);
+    vi.mocked(getAllSongSlugsForSitemap).mockResolvedValue([]);
+    const entries = await sitemap();
+    const articleEntry = entries.find((e) => e.url === `${BASE}/journal/test-article`);
+    expect(articleEntry?.alternates?.languages?.['pt-BR']).toBe(`${BASE}/pt-BR/journal/test-article`);
+    expect(articleEntry?.alternates?.languages?.['es']).toBe(`${BASE}/es/journal/test-article`);
+  });
+
+  it('song entry includes alternates.languages for pt-BR and es', async () => {
+    vi.mocked(getAllArticles).mockReturnValue([]);
+    vi.mocked(getAllSongSlugsForSitemap).mockResolvedValue([
+      { slug: 'guren-no-yumiya', updated_at: new Date('2026-01-01') },
+    ]);
+    const entries = await sitemap();
+    const songEntry = entries.find((e) => e.url === `${BASE}/songs/guren-no-yumiya`);
+    expect(songEntry?.alternates?.languages?.['pt-BR']).toBe(`${BASE}/pt-BR/songs/guren-no-yumiya`);
+    expect(songEntry?.alternates?.languages?.['es']).toBe(`${BASE}/es/songs/guren-no-yumiya`);
   });
 
   it('includes one entry per song', async () => {
