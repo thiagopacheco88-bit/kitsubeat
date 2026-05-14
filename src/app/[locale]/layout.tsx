@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
 import Link from "next/link";
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { cookies } from "next/headers";
-import "./globals.css";
+import "../globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 import MobileNavSheet from "@/app/components/MobileNavSheet";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -17,41 +15,31 @@ import { LanternStreak } from "@/app/path/components/LanternStreak";
 import { getUserGamificationState, type GamificationState } from "@/lib/db/queries";
 import NextTopLoader from "nextjs-toploader";
 import { PageTransitionWrapper } from "@/app/components/PageTransitionWrapper";
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kitsubeat.vercel.app';
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: "KitsuBeat",
-  description: "Learn Japanese through anime songs",
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    title: "KitsuBeat",
-    description: "Learn Japanese through anime songs",
-    siteName: "KitsuBeat",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
-    type: "website",
-    locale: "en_US",
-    url: SITE_URL,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "KitsuBeat",
-    description: "Learn Japanese through anime songs",
-    images: ["/twitter-image.png"],
-  },
-};
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  // MUST be before any getTranslations() call — enables static rendering
+  setRequestLocale(locale);
+
   // Phase 14 D-09 — read kb_theme cookie SSR-side. The inline <script> below
   // resolves 'system' against prefers-color-scheme on the client BEFORE first
   // paint (zero-flash). When the stored value is 'light' or 'dark' we use it
@@ -94,11 +82,9 @@ export default async function RootLayout({
     signedInUserId = undefined;
   }
 
-  const locale = await getLocale();
-
   return (
     <ClerkProvider>
-    <html lang="en" className={inter.variable} data-theme={initialTheme}>
+    <html lang={locale} className={inter.variable} data-theme={initialTheme}>
       <head>
         {/*
           Phase 14 D-09 zero-flash script — runs before first paint to resolve 'system' theme.
@@ -255,9 +241,11 @@ export default async function RootLayout({
         <CookieConsentBanner initialConsent={consentCookie} />
         <PostHogIdentify userId={signedInUserId ?? null} />
         <main id="main-content">
-          <NextIntlClientProvider locale={locale}>
-            <PageTransitionWrapper>{children}</PageTransitionWrapper>
-          </NextIntlClientProvider>
+          <PageTransitionWrapper>
+            <NextIntlClientProvider>
+              {children}
+            </NextIntlClientProvider>
+          </PageTransitionWrapper>
         </main>
       </body>
     </html>
