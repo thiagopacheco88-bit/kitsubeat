@@ -25,6 +25,8 @@
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
+import { LanguagePicker } from "@/components/ui/LanguagePicker";
 
 type Props = { isAdmin: boolean; isSignedIn: boolean };
 
@@ -32,6 +34,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const locale = useLocale() as "en" | "pt-BR" | "es";
 
   const links = [
     { href: "/path", label: "Path" },
@@ -147,6 +150,10 @@ export default function MobileNavSheet({ isAdmin }: Props) {
                   {link.label}
                 </Link>
               ))}
+              {/* Language picker — global settings at foot of nav link list */}
+              <div className="flex items-center px-1 pt-2 border-t border-[var(--color-border-strong)]">
+                <LanguagePicker currentLocale={locale} />
+              </div>
             </div>
           </div>
         </>
