@@ -103,6 +103,7 @@ export default function SongGrid({
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="min-h-11 min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 text-sm text-[var(--color-text)] outline-none transition-colors placeholder:text-[var(--color-text-dim)] focus:border-[var(--color-border-strong)] lg:w-72"
+            suppressHydrationWarning
           />
 
           <div className="flex min-w-0 flex-wrap gap-1.5">
