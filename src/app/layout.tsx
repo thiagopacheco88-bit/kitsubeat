@@ -98,7 +98,7 @@ export default async function RootLayout({
 
   return (
     <ClerkProvider>
-    <html lang="en" className={inter.variable} data-theme={initialTheme}>
+    <html lang={locale} className={inter.variable} data-theme={initialTheme}>
       <head>
         {/*
           Phase 14 D-09 zero-flash script — runs before first paint to resolve 'system' theme.
