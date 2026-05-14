@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "path": "Path",
+    "songs": "Songs",
+    "kana": "Kana",
+    "journal": "Journal",
+    "profile": "Profile",
+    "admin": "Admin",
+    "signIn": "Sign in",
+    "changeLanguage": "Change language",
+    "selectLanguage": "Select language"
+  },
+  "language": {
+    "en": "English",
+    "ptBR": "Português",
+    "es": "Español"
+  },
+  "skip": {
+    "toMain": "Skip to main content"
+  }
+}

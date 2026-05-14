@@ -1,0 +1,23 @@
+{
+  "heading": "Perfil",
+  "language": {
+    "label": "Idioma",
+    "description": "Escolha o idioma da interface do aplicativo."
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "account": {
+    "heading": "Conta",
+    "email": "E-mail",
+    "signOut": "Sair"
+  },
+  "data": {
+    "heading": "Seus Dados",
+    "export": "Exportar meus dados",
+    "exporting": "Exportando..."
+  }
+}

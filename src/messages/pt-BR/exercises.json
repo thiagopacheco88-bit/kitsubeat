@@ -1,0 +1,44 @@
+{
+  "session": {
+    "start": "Iniciar Sessão",
+    "resume": "Retomar Sessão",
+    "finish": "Concluir",
+    "skip": "Pular",
+    "next": "Próximo",
+    "correct": "Correto!",
+    "incorrect": "Incorreto",
+    "rating": {
+      "again": "Novamente",
+      "hard": "Difícil",
+      "good": "Bom",
+      "easy": "Fácil"
+    }
+  },
+  "types": {
+    "vocabMeaning": "Vocabulário → Significado",
+    "meaningVocab": "Significado → Vocabulário",
+    "readingMatch": "Correspondência de Leitura",
+    "fillLyric": "Complete a Letra",
+    "conjugation": "Conjugação Gramatical",
+    "listeningDrill": "Treino de Audição",
+    "sentenceOrder": "Ordem das Palavras"
+  },
+  "instructions": {
+    "fillLyric": "Ouça o verso e escolha a palavra que falta.",
+    "listeningDrill": "Ouça o verso sem a letra e identifique a palavra.",
+    "sentenceOrder": "Toque nas palavras para reconstruir a frase na ordem correta.",
+    "conjugation": "Escolha a forma conjugada correta do verbo destacado."
+  },
+  "summary": {
+    "heading": "Sessão Concluída",
+    "stars": "{count} estrela conquistada",
+    "starsPlural": "{count} estrelas conquistadas",
+    "mastered": "Você ganhou 3 estrelas — música dominada!",
+    "bonusUnlocked": "Maestria bônus desbloqueada!"
+  },
+  "premium": {
+    "upsellHeading": "Desbloqueie os Treinos Avançados",
+    "upsellBody": "Os treinos avançados incluem Treino de Audição, Conjugação Gramatical e Ordem das Palavras.",
+    "upgrade": "Assinar Premium"
+  }
+}

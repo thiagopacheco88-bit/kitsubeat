@@ -1,0 +1,14 @@
+{
+  "heading": "Blog",
+  "subheading": "Lengua y cultura japonesa a través del anime.",
+  "readMore": "Leer más",
+  "readingTime": "Lectura de {time}",
+  "badge": {
+    "en": "EN"
+  },
+  "article": {
+    "backToJournal": "Volver al Blog",
+    "publishedOn": "Publicado el {date}",
+    "tags": "Etiquetas"
+  }
+}

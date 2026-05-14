@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "path": "Trilha",
+    "songs": "Músicas",
+    "kana": "Kana",
+    "journal": "Blog",
+    "profile": "Perfil",
+    "admin": "Admin",
+    "signIn": "Entrar",
+    "changeLanguage": "Alterar idioma",
+    "selectLanguage": "Selecionar idioma"
+  },
+  "language": {
+    "en": "English",
+    "ptBR": "Português",
+    "es": "Español"
+  },
+  "skip": {
+    "toMain": "Pular para o conteúdo principal"
+  }
+}

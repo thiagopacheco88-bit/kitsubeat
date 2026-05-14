@@ -1,0 +1,24 @@
+{
+  "heading": "Canciones",
+  "subheading": "Explora aperturas, cierres y pistas completas por nivel, dificultad, artista o anime.",
+  "filter": {
+    "search": "Buscar canciones, artistas, anime...",
+    "language": "Idioma",
+    "clear": "Limpiar",
+    "langJa": "JA",
+    "langEn": "EN",
+    "langPt": "PT",
+    "langEs": "ES"
+  },
+  "empty": {
+    "noLanguage": {
+      "heading": "No hay canciones en este idioma",
+      "body": "Prueba con otro idioma o limpia el filtro para ver todas las canciones.",
+      "cta": "Limpiar filtro"
+    },
+    "noFilters": {
+      "heading": "No hay canciones que coincidan",
+      "body": "Intenta limpiar los filtros de JLPT o dificultad, o busca otro artista o anime."
+    }
+  }
+}

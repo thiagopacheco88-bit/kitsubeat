@@ -1,0 +1,22 @@
+{
+  "generic": {
+    "heading": "Something went wrong",
+    "body": "Please try again. If the problem persists, contact support.",
+    "retry": "Try again"
+  },
+  "notFound": {
+    "heading": "Page not found",
+    "body": "The page you are looking for does not exist.",
+    "backHome": "Back to home"
+  },
+  "locale": {
+    "switchFailed": "Couldn't save your language preference. Your selection will be remembered for this session."
+  },
+  "song": {
+    "notFound": "Song not found.",
+    "noLesson": "This song doesn't have a lesson yet."
+  },
+  "exercise": {
+    "listeningUnavailable": "Listening Drill unavailable for this song (video not playable). Star 3 is unreachable until the video works."
+  }
+}

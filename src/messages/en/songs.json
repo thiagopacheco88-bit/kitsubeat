@@ -1,0 +1,24 @@
+{
+  "heading": "Songs",
+  "subheading": "Browse openings, endings, and full tracks by level, difficulty, artist, or anime.",
+  "filter": {
+    "search": "Search songs, artists, anime...",
+    "language": "Language",
+    "clear": "Clear",
+    "langJa": "JA",
+    "langEn": "EN",
+    "langPt": "PT",
+    "langEs": "ES"
+  },
+  "empty": {
+    "noLanguage": {
+      "heading": "No songs in this language",
+      "body": "Try a different language or clear the filter to see all songs.",
+      "cta": "Clear filter"
+    },
+    "noFilters": {
+      "heading": "No songs match your filters",
+      "body": "Try clearing JLPT or difficulty filters, or searching for a different artist or anime."
+    }
+  }
+}
