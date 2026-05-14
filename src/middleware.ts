@@ -14,8 +14,11 @@ import { clerkMiddleware, createRouteMatcher, clerkClient } from "@clerk/nextjs/
 import { NextResponse } from "next/server";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
 import { CURRENT_TERMS_VERSION } from "@/lib/legal/versions";
+import createIntlMiddleware from 'next-intl/middleware';
+import { routing } from '@/i18n/routing';
 
 const isAdminRoute = createRouteMatcher(["/admin(.*)", "/api/admin(.*)"]);
+const intlMiddleware = createIntlMiddleware(routing);
 
 /**
  * Phase 18: Routes excluded from the terms version gate (Pitfall 2 guard).
@@ -87,6 +90,10 @@ export default clerkMiddleware(async (auth, req) => {
       }
     }
   }
+
+  // 3. Locale routing — runs last; handles all non-admin, non-redirect routes.
+  // next-intl manages Accept-Language detection, kb_locale cookie, and /pt-BR/ /es/ prefixes.
+  return intlMiddleware(req);
 });
 
 export const config = {
