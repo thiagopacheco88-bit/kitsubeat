@@ -124,8 +124,12 @@ export function LanguagePicker({ currentLocale }: LanguagePickerProps) {
 
   function switchLocale(newLocale: string) {
     setIsOpen(false);
-    // Build the target URL directly — next-intl middleware will set kb_locale cookie
-    // on the resulting request. Middleware reads the locale prefix from the URL.
+    // Write kb_locale cookie BEFORE navigating. When switching back to English
+    // (no URL prefix), the middleware cannot infer the locale from the URL and
+    // falls back to the cookie — if the cookie still says pt-BR it redirects
+    // back to the prefixed URL, causing an infinite loop. Updating the cookie
+    // first prevents that. 1-year TTL matches next-intl's own cookie behaviour.
+    document.cookie = `kb_locale=${newLocale}; path=/; SameSite=Lax; max-age=${60 * 60 * 24 * 365}`;
     const prefix = newLocale !== "en" ? `/${newLocale}` : "";
     const targetPath = `${prefix}${strippedPathname}`;
     window.location.href = targetPath;
