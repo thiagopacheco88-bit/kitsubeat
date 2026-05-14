@@ -18,6 +18,13 @@
   "skip": {
     "toMain": "Skip to main content"
   },
+  "hero": {
+    "featuredThisWeek": "Featured this week",
+    "verses": "verses",
+    "startLearning": "Start Learning",
+    "resumeLesson": "Resume Lesson",
+    "tryFreeLesson": "Try Free Lesson"
+  },
   "wordsCounter": {
     "singular": "word",
     "plural": "words"

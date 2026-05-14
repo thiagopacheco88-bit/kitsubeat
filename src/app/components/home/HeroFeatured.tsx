@@ -34,15 +34,23 @@
  * pointer-events: none. Tap target ≥56px via h-14 (CONTEXT D-15).
  */
 import Link from "next/link";
-import type { HeroSongResult } from "@/lib/db/queries";
+import { getTranslations } from "next-intl/server";
+import type { HeroSongResult, HeroCtaLabel } from "@/lib/db/queries";
 import { HeroCoverImage } from "./HeroCoverImage";
 
 interface HeroFeaturedProps {
   hero: HeroSongResult;
 }
 
-export function HeroFeatured({ hero }: HeroFeaturedProps) {
+const CTA_KEY: Record<HeroCtaLabel, 'hero.startLearning' | 'hero.resumeLesson' | 'hero.tryFreeLesson'> = {
+  "Start Learning": "hero.startLearning",
+  "Resume Lesson": "hero.resumeLesson",
+  "Try Free Lesson": "hero.tryFreeLesson",
+};
+
+export async function HeroFeatured({ hero }: HeroFeaturedProps) {
   const { song, ctaLabel, ctaHref } = hero;
+  const t = await getTranslations('common');
   // h-[280px] — exact dimension per SPEC §Req 3 (rendered via inline style below)
   const coverSrc = song.youtube_id
     ? `https://img.youtube.com/vi/${song.youtube_id}/maxresdefault.jpg`
@@ -53,7 +61,7 @@ export function HeroFeatured({ hero }: HeroFeaturedProps) {
 
   const metaParts = [song.artist, song.anime];
   if (song.verse_count > 0) {
-    metaParts.push(`${song.verse_count} verses`);
+    metaParts.push(`${song.verse_count} ${t('hero.verses')}`);
   }
   const metaLine = metaParts.join(" · ");
 
@@ -101,7 +109,7 @@ export function HeroFeatured({ hero }: HeroFeaturedProps) {
           style={{ color: "white" }}
           data-testid="hero-eyebrow"
         >
-          ★ Featured this week
+          ★ {t('hero.featuredThisWeek')}
         </span>
         {song.jlpt_level && (
           <span
@@ -149,7 +157,7 @@ export function HeroFeatured({ hero }: HeroFeaturedProps) {
           data-testid="hero-cta"
         >
           <span aria-hidden="true">▶</span>
-          {ctaLabel}
+          {t(CTA_KEY[ctaLabel])}
         </Link>
       </div>
     </section>

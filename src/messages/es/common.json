@@ -18,6 +18,13 @@
   "skip": {
     "toMain": "Ir al contenido principal"
   },
+  "hero": {
+    "featuredThisWeek": "Destacado de la semana",
+    "verses": "versos",
+    "startLearning": "Comenzar a Aprender",
+    "resumeLesson": "Retomar Lección",
+    "tryFreeLesson": "Prueba Gratis"
+  },
   "wordsCounter": {
     "singular": "palabra",
     "plural": "palabras"
