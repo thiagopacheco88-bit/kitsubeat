@@ -175,6 +175,7 @@ export default async function RootLayout({
         >
           Skip to main content
         </a>
+        <NextIntlClientProvider locale={locale}>
         <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
             <Link href="/" className="flex shrink-0 items-center gap-2" data-testid="brand-wordmark">
@@ -255,10 +256,9 @@ export default async function RootLayout({
         <CookieConsentBanner initialConsent={consentCookie} />
         <PostHogIdentify userId={signedInUserId ?? null} />
         <main id="main-content">
-          <NextIntlClientProvider locale={locale}>
             <PageTransitionWrapper>{children}</PageTransitionWrapper>
-          </NextIntlClientProvider>
         </main>
+        </NextIntlClientProvider>
       </body>
     </html>
     </ClerkProvider>
