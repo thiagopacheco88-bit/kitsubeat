@@ -18,6 +18,10 @@
   "skip": {
     "toMain": "Pular para o conteúdo principal"
   },
+  "wordsCounter": {
+    "singular": "palavra",
+    "plural": "palavras"
+  },
   "home": {
     "continueLearning": "Continuar Aprendendo",
     "openPath": "Abrir Trilha",

@@ -22,6 +22,7 @@
  */
 
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import { getGlobalLearnedCount } from "@/lib/db/queries";
 import { getCurrentUserId } from "@/lib/user-prefs";
 
@@ -32,6 +33,7 @@ interface Props {
 export default async function GlobalLearnedCounter({ variant = "nav" }: Props) {
   const userId = await getCurrentUserId();
   const count = await getGlobalLearnedCount(userId);
+  const t = await getTranslations('common');
 
   if (variant === "profile") {
     return (
@@ -64,7 +66,7 @@ export default async function GlobalLearnedCounter({ variant = "nav" }: Props) {
       className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
       aria-label={`${count} unique Japanese words learned`}
     >
-      {count} {count === 1 ? "word" : "words"}
+      {count} {count === 1 ? t('wordsCounter.singular') : t('wordsCounter.plural')}
     </Link>
   );
 }
