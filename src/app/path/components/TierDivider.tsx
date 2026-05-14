@@ -17,6 +17,10 @@
  * Server component — no client interactivity.
  */
 
+"use client";
+
+import { useTranslations } from "next-intl";
+
 type Tier = "basic" | "intermediate" | "advanced";
 
 interface TierDividerProps {
@@ -143,6 +147,7 @@ function TierIcon({ kind }: { kind: TierMeta["iconKind"] }) {
 }
 
 export function TierDivider({ tier }: TierDividerProps) {
+  const t = useTranslations('path');
   const meta = TIER_META[tier as Tier];
 
   // Defensive fallback: unknown tier -> render input as label, no icon
@@ -162,7 +167,11 @@ export function TierDivider({ tier }: TierDividerProps) {
     );
   }
 
-  const fullLabel = `${meta.sideLabel} · ${meta.jpLabel} · ${meta.enLabel}`;
+  const sideKey = { basic: 'tier.sideA', intermediate: 'tier.sideB', advanced: 'tier.sideC' }[tier as Tier] as 'tier.sideA' | 'tier.sideB' | 'tier.sideC';
+  const diffKey = { basic: 'tier.beginner', intermediate: 'tier.intermediate', advanced: 'tier.advanced' }[tier as Tier] as 'tier.beginner' | 'tier.intermediate' | 'tier.advanced';
+  const sideLabel = t(sideKey);
+  const diffLabel = t(diffKey);
+  const fullLabel = `${sideLabel} · ${meta.jpLabel} · ${diffLabel}`;
 
   return (
     <div
@@ -173,14 +182,14 @@ export function TierDivider({ tier }: TierDividerProps) {
       <div className="flex-1 border-t border-[var(--color-border)]" />
       <span className="inline-flex items-center gap-1.5 rounded-[var(--radius-pill)] border border-[var(--color-border-strong)] bg-[var(--color-card-2)] px-3 py-0.5 text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wide">
         <TierIcon kind={meta.iconKind} />
-        <span>{meta.sideLabel}</span>
+        <span>{sideLabel}</span>
         <span
           style={{ fontFamily: "var(--font-jp)" }}
           className="normal-case"
         >
           {meta.jpLabel}
         </span>
-        <span>{meta.enLabel}</span>
+        <span>{diffLabel}</span>
       </span>
       <div className="flex-1 border-t border-[var(--color-border)]" />
     </div>

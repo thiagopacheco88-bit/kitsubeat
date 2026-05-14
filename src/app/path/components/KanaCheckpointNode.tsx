@@ -26,6 +26,7 @@
  *   size="path" (default) — byte-equivalent to 14.1 callers (h-16, horizontal).
  *   size="home" — 130×124 vertical dashed-border card for Foundations section.
  */
+import { useTranslations } from "next-intl";
 import { useKanaProgress } from "@/stores/kanaProgress";
 import { computeCheckpointState } from "@/lib/kana/checkpoint-state";
 import { CardLink } from "@/components/ui/Card";
@@ -48,6 +49,7 @@ const SCRIPT_NAME: Record<Script, string> = {
 };
 
 export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNodeProps) {
+  const t = useTranslations('path');
   const hasHydrated = useKanaProgress((s) => s._hasHydrated);
   const map = useKanaProgress((s) =>
     script === "hiragana" ? s.hiragana : s.katakana,
@@ -66,7 +68,7 @@ export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNode
 
   const result = computeCheckpointState(map, script);
   const glyph = SCRIPT_GLYPH[script];
-  const name = SCRIPT_NAME[script];
+  const name = t(`kana.${script}` as 'kana.hiragana' | 'kana.katakana');
   const href = `/kana?script=${script}`;
 
   // State-specific bits
@@ -78,7 +80,7 @@ export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNode
   let ariaState: string;
 
   if (result.state === "mastered") {
-    pillText = "Mastered";
+    pillText = t('mastered');
     pillClass = "bg-[var(--color-accent)] text-white";
     glyphClass = "text-[var(--color-accent)]";
     ariaState = "mastered";
@@ -100,7 +102,7 @@ export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNode
     ariaState = `${result.progressPercent}% complete`;
   } else {
     // locked
-    pillText = "霧 · Locked";
+    pillText = t('locked');
     pillClass =
       "bg-[var(--color-card-2)] text-[var(--color-text-muted)]";
     mistOverlay = (

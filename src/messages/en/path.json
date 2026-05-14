@@ -1,0 +1,25 @@
+{
+  "level": "Level",
+  "nowLearning": "Now Learning",
+  "xpToLevel": "{xp} / {total} XP to Level {next}",
+  "nextRewardAt": "Next reward at Lv {level}: {label}",
+  "mastered": "Mastered",
+  "locked": "霧 · Locked",
+  "startHere": "Start here",
+  "settingUp": "Setting up…",
+  "moreSongsHeading": "More starter songs coming soon",
+  "moreSongsBody": "Pick something from the full catalog while we restock your starter list.",
+  "exploreCatalog": "Explore the catalog",
+  "tier": {
+    "sideA": "Side A",
+    "sideB": "Side B",
+    "sideC": "Side C",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "kana": {
+    "hiragana": "Hiragana",
+    "katakana": "Katakana"
+  }
+}

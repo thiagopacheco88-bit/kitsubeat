@@ -15,6 +15,7 @@
  * Server component — no client interactivity; pure render of server-fetched
  * gamification state.
  */
+import { getTranslations } from "next-intl/server";
 import { xpWithinCurrentLevel } from "@/lib/gamification/level-curve";
 import type { GamificationState } from "@/lib/db/queries";
 
@@ -38,11 +39,12 @@ export interface HeroProgressProps {
   } | null;
 }
 
-export function HeroProgress({
+export async function HeroProgress({
   state,
   currentSongTitle,
   nextReward,
 }: HeroProgressProps) {
+  const t = await getTranslations('path');
   const { xpInLevel, xpToNext } = xpWithinCurrentLevel(state.xp_total);
 
   return (
@@ -55,7 +57,7 @@ export function HeroProgress({
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
-            Level
+            {t('level')}
           </div>
           <div
             className="font-bold tabular-nums text-[var(--color-text)] leading-none mt-1"
@@ -67,7 +69,7 @@ export function HeroProgress({
         {currentSongTitle && (
           <div className="min-w-0 text-right">
             <div className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
-              Now Learning
+              {t('nowLearning')}
             </div>
             <div
               className="text-sm font-semibold text-[var(--color-text)] truncate mt-1"
@@ -89,7 +91,7 @@ export function HeroProgress({
           className="w-full h-2 rounded-full overflow-hidden [&::-webkit-progress-bar]:bg-[var(--color-card-2)] [&::-webkit-progress-value]:bg-[var(--color-accent)] [&::-moz-progress-bar]:bg-[var(--color-accent)]"
         />
         <div className="text-xs text-[var(--color-text-muted)]">
-          {xpInLevel} / {xpToNext} XP to Level {state.level + 1}
+          {t('xpToLevel', { xp: xpInLevel, total: xpToNext, next: state.level + 1 })}
         </div>
       </div>
 
@@ -99,10 +101,7 @@ export function HeroProgress({
           className="rounded-[var(--radius-md)] bg-[var(--color-card-2)] px-3 py-2 text-xs text-[var(--color-text-muted)]"
           data-testid="next-reward-chip"
         >
-          Next reward at Lv {nextReward.level_threshold}:{" "}
-          <span className="font-medium text-[var(--color-text)]">
-            {nextReward.label}
-          </span>
+          {t('nextRewardAt', { level: nextReward.level_threshold, label: nextReward.label })}
         </div>
       )}
     </section>

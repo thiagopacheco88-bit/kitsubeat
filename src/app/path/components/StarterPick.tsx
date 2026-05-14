@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { setStarterSong } from "@/app/actions/gamification";
 import type { StarterSongRow } from "@/lib/gamification/starter-songs";
@@ -39,6 +40,7 @@ interface StarterPickProps {
  * orange-to-red precedent reused.
  */
 export function StarterPick({ candidates, userId }: StarterPickProps) {
+  const t = useTranslations('path');
   const router = useRouter();
   const [selecting, setSelecting] = useState<string | null>(null);
 
@@ -49,9 +51,9 @@ export function StarterPick({ candidates, userId }: StarterPickProps) {
   if (candidates.length === 0) {
     return (
       <EmptyState
-        heading="More starter songs coming soon"
-        body="Pick something from the full catalog while we restock your starter list."
-        ctaLabel="Explore the catalog"
+        heading={t('moreSongsHeading')}
+        body={t('moreSongsBody')}
+        ctaLabel={t('exploreCatalog')}
         ctaHref="/songs"
         aria-label="No starter songs available"
         className="my-6"
@@ -141,7 +143,7 @@ export function StarterPick({ candidates, userId }: StarterPickProps) {
                 className="mt-auto w-full"
                 data-testid={`starter-pick-${song.slug}`}
               >
-                {isSelecting ? "Setting up…" : "Start here"}
+                {isSelecting ? t('settingUp') : t('startHere')}
               </Button>
             </div>
           );

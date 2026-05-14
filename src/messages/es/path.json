@@ -1,0 +1,25 @@
+{
+  "level": "Nivel",
+  "nowLearning": "Aprendiendo Ahora",
+  "xpToLevel": "{xp} / {total} XP para el Nivel {next}",
+  "nextRewardAt": "Próxima recompensa en el Nivel {level}: {label}",
+  "mastered": "Dominado",
+  "locked": "霧 · Bloqueado",
+  "startHere": "Empezar aquí",
+  "settingUp": "Configurando…",
+  "moreSongsHeading": "Más canciones iniciales próximamente",
+  "moreSongsBody": "Elige algo del catálogo completo mientras reabastecemos tu lista inicial.",
+  "exploreCatalog": "Explorar el catálogo",
+  "tier": {
+    "sideA": "Lado A",
+    "sideB": "Lado B",
+    "sideC": "Lado C",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado"
+  },
+  "kana": {
+    "hiragana": "Hiragana",
+    "katakana": "Katakana"
+  }
+}
