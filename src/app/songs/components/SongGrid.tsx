@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import type { SongListItem } from "@/lib/db/queries";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -22,6 +23,11 @@ export default function SongGrid({
   initialSearch?: string;
 }) {
   const t = useTranslations("songs");
+  const pathname = usePathname();
+  // Preserve locale prefix on toggle links (e.g. /pt-BR/songs → /pt-BR/anime-list)
+  const localePrefix = pathname.startsWith('/pt-BR') ? '/pt-BR'
+    : pathname.startsWith('/es') ? '/es'
+    : '';
   const [search, setSearch] = useState(initialSearch);
   const [jlptFilter, setJlptFilter] = useState<string | null>(null);
   const [difficultyFilter, setDifficultyFilter] = useState<string | null>(null);
@@ -66,7 +72,7 @@ export default function SongGrid({
         <div className="flex flex-wrap gap-3 items-center">
           <div className="flex w-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-1 lg:order-last lg:ml-auto lg:w-auto">
             <Link
-              href="/anime-list"
+              href={`${localePrefix}/anime-list`}
               className={`flex min-h-11 flex-1 items-center justify-center rounded-[var(--radius-md)] px-4 text-sm font-semibold transition-colors lg:flex-none ${
                 view === "by-anime"
                   ? "bg-[var(--color-accent)] text-white shadow-sm"
@@ -76,7 +82,7 @@ export default function SongGrid({
               {t('view.anime')}
             </Link>
             <Link
-              href="/songs"
+              href={`${localePrefix}/songs`}
               className={`flex min-h-11 flex-1 items-center justify-center rounded-[var(--radius-md)] px-4 text-sm font-semibold transition-colors lg:flex-none ${
                 view === "all"
                   ? "bg-[var(--color-accent)] text-white shadow-sm"
