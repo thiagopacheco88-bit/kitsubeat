@@ -69,7 +69,7 @@ export default function SongGrid({
   return (
     <div className="flex flex-col gap-5">
       <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 shadow-[var(--shadow-card-ring)] sm:p-4">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
+        <div className="flex flex-wrap gap-3 items-center">
           <div className="flex w-full overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-1 lg:order-last lg:ml-auto lg:w-auto">
             <Link
               href="/anime-list"
