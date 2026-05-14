@@ -5,10 +5,10 @@
     "search": "Buscar canciones, artistas, anime...",
     "language": "Idioma",
     "clear": "Limpiar",
-    "langJa": "Japonés",
-    "langEn": "Inglés",
-    "langPt": "Portugués",
-    "langEs": "Español"
+    "langJa": "JA",
+    "langEn": "EN",
+    "langPt": "PT",
+    "langEs": "ES"
   },
   "difficulty": {
     "basic": "Básico",
