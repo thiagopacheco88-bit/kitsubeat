@@ -8,11 +8,11 @@ import type { StarterSongRow } from "@/lib/gamification/starter-songs";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
 
-// Hardcoded vibe descriptors per slug — user-approved at Plan 03 decision checkpoint.
+// Hardcoded vibe descriptors per slug — updated 2026-05-14 after JLPT reclassification.
 const VIBE_MAP: Record<string, string> = {
-  "under-the-tree-sim": "Emotional & atmospheric",
+  "shinkokyuu-super-beaver": "Melancholic & heartfelt",
+  "distance-long-shot-party": "Dramatic & powerful",
   "misa-no-uta-aya-hirano": "Haunting & lyrical",
-  "yume-wo-kanaete-doraemon-mao": "Upbeat & cheerful (N5 beginner-friendly)",
 };
 
 interface StarterPickProps {
@@ -93,7 +93,7 @@ export function StarterPick({ candidates, userId }: StarterPickProps) {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-stretch sm:justify-center">
         {candidates.map((song) => {
           const vibeKey = `vibes.${song.slug}` as `vibes.${keyof typeof VIBE_MAP}`;
-          const vibe = song.slug in VIBE_MAP ? t(vibeKey as 'vibes.under-the-tree-sim') : song.anime;
+          const vibe = song.slug in VIBE_MAP ? t(vibeKey as 'vibes.shinkokyuu-super-beaver') : song.anime;
           const isSelecting = selecting === song.slug;
           const isDisabled = selecting !== null && !isSelecting;
 

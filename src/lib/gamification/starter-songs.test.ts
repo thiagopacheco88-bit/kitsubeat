@@ -87,10 +87,10 @@ describe("getStarterSongs() — filter + warn behavior (Phase 14.1 D-01)", () =>
   });
 
   // Test 2 — 1 slug missing from DB rows → returns 2 rows; console.warn emitted
-  // exactly once with text matching `under-the-tree-sim missing or lessonless`
+  // exactly once with text matching `misa-no-uta-aya-hirano missing or lessonless`
   it("Test 2: returns 2 rows and emits one per-slug warn when 1 slug is DB-missing", async () => {
     const [s0, s1, _s2] = STARTER_SONG_SLUGS;
-    // s2 (Doraemon) is absent from DB rows
+    // s2 (Misa no Uta) is absent from DB rows
     _mockRows = [makeRow(s0!), makeRow(s1!)];
 
     const result = await getStarterSongs();
@@ -128,7 +128,7 @@ describe("getStarterSongs() — filter + warn behavior (Phase 14.1 D-01)", () =>
   // lessonless one filtered), one warn line per filtered slug.
   it("Test 4: filters lessonless row and emits one warn per filtered slug", async () => {
     const [s0, s1, s2] = STARTER_SONG_SLUGS;
-    // s0 (under-the-tree-sim) has no lesson
+    // s0 (shinkokyuu-super-beaver) has no lesson
     _mockRows = [
       makeRow(s0!, { has_lesson: null }),
       makeRow(s1!),

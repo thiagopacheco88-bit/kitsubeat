@@ -3,11 +3,12 @@
  *
  * Three starter songs shown to new learners in the first-visit StarterPick modal.
  *
- * Slugs were USER-APPROVED at Plan 03 Task 2 (checkpoint:decision):
- *   - Distinct anime franchises: Attack on Titan, Death Note, Doraemon
- *   - Distinct moods: emotional/atmospheric, haunting/lyrical, upbeat/cheerful
- *   - JLPT spread: N4 / N4 / N5 (true beginner on-ramp via Doraemon)
- *   - All verified `difficulty_tier='basic'` with non-null lesson at DB-verify time
+ * Slugs selected 2026-05-14 after catalog-wide JLPT reclassification (80th-pct
+ * vocab algorithm). Chosen from the 5 N4 songs remaining, ranked by popularity:
+ *   - Shinkokyuu (深呼吸) – Naruto Shippuden, N4, rank #19
+ *   - distance – Naruto, N4, rank #33
+ *   - Misa no Uta – Death Note, N4, rank #51
+ *   - All verified with non-null lesson and YouTube ID at selection time
  *
  * Used by: Plan 06 StarterPick client component via a server action wrapper.
  */
@@ -26,9 +27,9 @@ import { inArray, sql } from "drizzle-orm";
  * .planning/phases/12-learning-path-and-gamification/12-03-SUMMARY.md.
  */
 export const STARTER_SONG_SLUGS = [
-  "under-the-tree-sim",           // UNDER THE TREE – Attack on Titan Final Season, N4
-  "misa-no-uta-aya-hirano",       // Misa no Uta – Death Note, N4
-  "yume-wo-kanaete-doraemon-mao", // Yume wo Kanaete Doraemon – Doraemon, N5
+  "shinkokyuu-super-beaver",  // Shinkokyuu (深呼吸) – Naruto Shippuden, N4, rank #19
+  "distance-long-shot-party", // distance – Naruto, N4, rank #33
+  "misa-no-uta-aya-hirano",   // Misa no Uta – Death Note, N4, rank #51
 ] as const satisfies readonly string[];
 
 export type StarterSongSlug = (typeof STARTER_SONG_SLUGS)[number];

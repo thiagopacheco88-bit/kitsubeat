@@ -479,7 +479,7 @@ describeIfTestDb("gamification integration — saveSessionResults", () => {
   // ─── Test 8: setStarterSong persists + path-order bonus on first play (M8) ─
 
   it("TC8 — setStarterSong persists current_path_node_slug before first session", async () => {
-    const starterSlug = "yume-wo-kanaete-doraemon-mao"; // From STARTER_SONG_SLUGS
+    const starterSlug = "misa-no-uta-aya-hirano"; // From STARTER_SONG_SLUGS
 
     // Call setStarterSong before any session
     const setResult = await setStarterSong(GAMIFICATION_TEST_USER, starterSlug);

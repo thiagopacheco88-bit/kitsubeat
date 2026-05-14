@@ -36,9 +36,9 @@ const HAS_TEST_DB = Boolean(process.env.TEST_DATABASE_URL);
 
 // Starter songs that should appear (from STARTER_SONG_SLUGS in starter-songs.ts)
 const STARTER_SLUGS = [
-  "under-the-tree-sim",
+  "shinkokyuu-super-beaver",
+  "distance-long-shot-party",
   "misa-no-uta-aya-hirano",
-  "yume-wo-kanaete-doraemon-mao",
 ];
 
 // Use the known seeded slug for exercise sessions

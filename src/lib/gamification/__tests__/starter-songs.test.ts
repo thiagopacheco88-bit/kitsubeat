@@ -38,9 +38,9 @@ function makeDbRow(overrides: Partial<{
   has_lesson: number | null;
 }> = {}) {
   return {
-    slug: "under-the-tree-sim",
-    title: "UNDER THE TREE",
-    anime: "Attack on Titan Final Season",
+    slug: "shinkokyuu-super-beaver",
+    title: "Shinkokyuu (深呼吸)",
+    anime: "Naruto Shippuden",
     jlpt_level: "N4",
     youtube_id: "abc123",
     has_lesson: 1,
@@ -50,11 +50,19 @@ function makeDbRow(overrides: Partial<{
 
 const THREE_ROWS = [
   makeDbRow({
-    slug: "under-the-tree-sim",
-    title: "UNDER THE TREE",
-    anime: "Attack on Titan Final Season",
+    slug: "shinkokyuu-super-beaver",
+    title: "Shinkokyuu (深呼吸)",
+    anime: "Naruto Shippuden",
     jlpt_level: "N4",
-    youtube_id: "yt_aot",
+    youtube_id: "yt_shin",
+    has_lesson: 1,
+  }),
+  makeDbRow({
+    slug: "distance-long-shot-party",
+    title: "distance",
+    anime: "Naruto",
+    jlpt_level: "N4",
+    youtube_id: "yt_dist",
     has_lesson: 1,
   }),
   makeDbRow({
@@ -63,14 +71,6 @@ const THREE_ROWS = [
     anime: "Death Note",
     jlpt_level: "N4",
     youtube_id: "yt_dn",
-    has_lesson: 1,
-  }),
-  makeDbRow({
-    slug: "yume-wo-kanaete-doraemon-mao",
-    title: "Yume wo Kanaete Doraemon",
-    anime: "Doraemon",
-    jlpt_level: "N5",
-    youtube_id: "yt_dora",
     has_lesson: 1,
   }),
 ];
@@ -97,17 +97,17 @@ describe("STARTER_SONG_SLUGS", () => {
   });
 
   it("contains the 3 user-approved slugs in the correct order", () => {
-    expect(STARTER_SONG_SLUGS[0]).toBe("under-the-tree-sim");
-    expect(STARTER_SONG_SLUGS[1]).toBe("misa-no-uta-aya-hirano");
-    expect(STARTER_SONG_SLUGS[2]).toBe("yume-wo-kanaete-doraemon-mao");
+    expect(STARTER_SONG_SLUGS[0]).toBe("shinkokyuu-super-beaver");
+    expect(STARTER_SONG_SLUGS[1]).toBe("distance-long-shot-party");
+    expect(STARTER_SONG_SLUGS[2]).toBe("misa-no-uta-aya-hirano");
   });
 
-  it("covers 3 distinct franchises (Attack on Titan, Death Note, Doraemon)", () => {
+  it("covers 3 distinct franchises (Naruto Shippuden, Naruto, Death Note)", () => {
     // This is a documentation test — if slugs change the test name should change too.
     const slugs = [...STARTER_SONG_SLUGS];
-    expect(slugs.some((s) => s.includes("tree"))).toBe(true);        // AoT
+    expect(slugs.some((s) => s.includes("shinkokyuu"))).toBe(true);  // Naruto Shippuden
+    expect(slugs.some((s) => s.includes("distance"))).toBe(true);    // Naruto
     expect(slugs.some((s) => s.includes("misa"))).toBe(true);        // Death Note
-    expect(slugs.some((s) => s.includes("doraemon"))).toBe(true);    // Doraemon
   });
 });
 
@@ -130,9 +130,9 @@ describe("getStarterSongs", () => {
     // DB returns rows in reverse order — result should still be canonical order
     mockDbSelect([...THREE_ROWS].reverse());
     const result = await getStarterSongs();
-    expect(result[0].slug).toBe("under-the-tree-sim");
-    expect(result[1].slug).toBe("misa-no-uta-aya-hirano");
-    expect(result[2].slug).toBe("yume-wo-kanaete-doraemon-mao");
+    expect(result[0].slug).toBe("shinkokyuu-super-beaver");
+    expect(result[1].slug).toBe("distance-long-shot-party");
+    expect(result[2].slug).toBe("misa-no-uta-aya-hirano");
   });
 
   it("returns rows matching StarterSongRow shape", async () => {
@@ -153,13 +153,13 @@ describe("getStarterSongs", () => {
     mockDbSelect(THREE_ROWS);
     const result = await getStarterSongs();
     expect(result[0].thumbnail_url).toBe(
-      "https://img.youtube.com/vi/yt_aot/hqdefault.jpg"
+      "https://img.youtube.com/vi/yt_shin/hqdefault.jpg"
     );
     expect(result[1].thumbnail_url).toBe(
-      "https://img.youtube.com/vi/yt_dn/hqdefault.jpg"
+      "https://img.youtube.com/vi/yt_dist/hqdefault.jpg"
     );
     expect(result[2].thumbnail_url).toBe(
-      "https://img.youtube.com/vi/yt_dora/hqdefault.jpg"
+      "https://img.youtube.com/vi/yt_dn/hqdefault.jpg"
     );
   });
 
@@ -167,10 +167,10 @@ describe("getStarterSongs", () => {
     mockDbSelect([
       ...THREE_ROWS.slice(0, 2),
       makeDbRow({
-        slug: "yume-wo-kanaete-doraemon-mao",
-        title: "Yume wo Kanaete Doraemon",
-        anime: "Doraemon",
-        jlpt_level: "N5",
+        slug: "misa-no-uta-aya-hirano",
+        title: "Misa no Uta",
+        anime: "Death Note",
+        jlpt_level: "N4",
         youtube_id: null,
         has_lesson: 1,
       }),
