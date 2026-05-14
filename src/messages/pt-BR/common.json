@@ -3,7 +3,7 @@
     "path": "Trilha",
     "songs": "Músicas",
     "kana": "Kana",
-    "journal": "Blog",
+    "journal": "Artigos",
     "profile": "Perfil",
     "admin": "Admin",
     "signIn": "Entrar",
@@ -17,5 +17,20 @@
   },
   "skip": {
     "toMain": "Pular para o conteúdo principal"
+  },
+  "home": {
+    "continueLearning": "Continuar Aprendendo",
+    "openPath": "Abrir Trilha",
+    "foundations": "Fundamentos",
+    "openKana": "Abrir Kana",
+    "browseByAnime": "Explorar por Anime",
+    "browseAnime": "Explorar Anime",
+    "featuredSongs": "Músicas em Destaque",
+    "browseSongs": "Ver Músicas",
+    "beginner": "Iniciante",
+    "intermediate": "Intermediário",
+    "advanced": "Avançado",
+    "classics": "Clássicos",
+    "modern": "Moderno"
   }
 }

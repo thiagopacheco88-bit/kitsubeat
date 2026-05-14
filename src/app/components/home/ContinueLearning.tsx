@@ -20,9 +20,11 @@ import { ContinueCard } from "./ContinueCard";
 
 interface ContinueLearningProps {
   userId: string;
+  title?: string;
+  viewAllLabel?: string;
 }
 
-export async function ContinueLearning({ userId }: ContinueLearningProps) {
+export async function ContinueLearning({ userId, title = "Continue Learning", viewAllLabel = "Open Path" }: ContinueLearningProps) {
   // D-14 — anonymous-catalog clean: short-circuit BEFORE the DB call.
   if (userId === PLACEHOLDER_USER_ID) {
     return null;
@@ -39,9 +41,9 @@ export async function ContinueLearning({ userId }: ContinueLearningProps) {
     <section data-testid="continue-learning" className="pb-8">
       <SectionHeader
         titleJp="続ける"
-        title="Continue Learning"
+        title={title}
         viewAll="/path"
-        viewAllLabel="Open Path"
+        viewAllLabel={viewAllLabel}
       />
       <Carousel testId="continue-learning-carousel" ariaLabel="Continue learning">
         {rows.map((row) => (

@@ -12,10 +12,15 @@
 import { SectionHeader } from "./SectionHeader";
 import { KanaCheckpointNode } from "@/app/path/components/KanaCheckpointNode";
 
-export function Foundations() {
+interface FoundationsProps {
+  title?: string;
+  viewAllLabel?: string;
+}
+
+export function Foundations({ title = "Foundations", viewAllLabel = "Open Kana" }: FoundationsProps) {
   return (
     <section data-testid="foundations" className="pb-8">
-      <SectionHeader titleJp="基礎" title="Foundations" viewAll="/kana" viewAllLabel="Open Kana" />
+      <SectionHeader titleJp="基礎" title={title} viewAll="/kana" viewAllLabel={viewAllLabel} />
       <div className="flex gap-3 px-4">
         <KanaCheckpointNode script="hiragana" size="home" />
         <KanaCheckpointNode script="katakana" size="home" />

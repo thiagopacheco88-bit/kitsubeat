@@ -17,5 +17,20 @@
   },
   "skip": {
     "toMain": "Skip to main content"
+  },
+  "home": {
+    "continueLearning": "Continue Learning",
+    "openPath": "Open Path",
+    "foundations": "Foundations",
+    "openKana": "Open Kana",
+    "browseByAnime": "Browse by Anime",
+    "browseAnime": "Browse Anime",
+    "featuredSongs": "Featured Songs",
+    "browseSongs": "Browse Songs",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "classics": "Classics",
+    "modern": "Modern"
   }
 }

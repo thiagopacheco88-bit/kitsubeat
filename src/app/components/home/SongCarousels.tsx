@@ -13,6 +13,7 @@ import { CoverCard } from "./CoverCard";
 
 interface CarouselProps {
   showMastery: boolean;
+  title?: string;
 }
 
 type SongRow = {
@@ -56,12 +57,12 @@ function SongCarouselShell({
   );
 }
 
-export async function BeginnerCarousel({ showMastery }: CarouselProps) {
+export async function BeginnerCarousel({ showMastery, title = "Beginner" }: CarouselProps) {
   const songs = await getSongsBySkillLevel("beginner");
   return (
     <SongCarouselShell
       titleJp="初心者"
-      title="Beginner"
+      title={title}
       songs={songs}
       showMastery={showMastery}
       testId="beginner-songs"
@@ -69,12 +70,12 @@ export async function BeginnerCarousel({ showMastery }: CarouselProps) {
   );
 }
 
-export async function IntermediateCarousel({ showMastery }: CarouselProps) {
+export async function IntermediateCarousel({ showMastery, title = "Intermediate" }: CarouselProps) {
   const songs = await getSongsBySkillLevel("intermediate");
   return (
     <SongCarouselShell
       titleJp="中級者"
-      title="Intermediate"
+      title={title}
       songs={songs}
       showMastery={showMastery}
       testId="intermediate-songs"
@@ -82,12 +83,12 @@ export async function IntermediateCarousel({ showMastery }: CarouselProps) {
   );
 }
 
-export async function AdvancedCarousel({ showMastery }: CarouselProps) {
+export async function AdvancedCarousel({ showMastery, title = "Advanced" }: CarouselProps) {
   const songs = await getSongsBySkillLevel("advanced");
   return (
     <SongCarouselShell
       titleJp="上級者"
-      title="Advanced"
+      title={title}
       songs={songs}
       showMastery={showMastery}
       testId="advanced-songs"
@@ -95,12 +96,12 @@ export async function AdvancedCarousel({ showMastery }: CarouselProps) {
   );
 }
 
-export async function ClassicsCarousel({ showMastery }: CarouselProps) {
+export async function ClassicsCarousel({ showMastery, title = "Classics" }: CarouselProps) {
   const songs = await getClassicSongs();
   return (
     <SongCarouselShell
       titleJp="クラシック"
-      title="Classics"
+      title={title}
       songs={songs}
       showMastery={showMastery}
       testId="classic-songs"
@@ -108,12 +109,12 @@ export async function ClassicsCarousel({ showMastery }: CarouselProps) {
   );
 }
 
-export async function ModernCarousel({ showMastery }: CarouselProps) {
+export async function ModernCarousel({ showMastery, title = "Modern" }: CarouselProps) {
   const songs = await getModernSongs();
   return (
     <SongCarouselShell
       titleJp="最新"
-      title="Modern"
+      title={title}
       songs={songs}
       showMastery={showMastery}
       testId="modern-songs"

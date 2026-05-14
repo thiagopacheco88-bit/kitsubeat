@@ -11,7 +11,7 @@
  * BLAST RADIUS: new file only — src/app/page.tsx (EN canonical) UNCHANGED.
  */
 import { Suspense } from "react";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import {
   getHeroSong,
   getFeaturedSongs,
@@ -52,6 +52,7 @@ export default async function LocaleHomePage({
   const { locale } = await params;
   // MUST be first — enables static rendering for locale segment
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'common' });
 
   const userId = await getCurrentUserId();
   const isSignedIn = userId !== PLACEHOLDER_USER_ID;
@@ -89,21 +90,21 @@ export default async function LocaleHomePage({
       <HeroFeatured hero={hero} />
 
       {/* Section 2 — Continue Learning (auth-only) */}
-      {isSignedIn && <ContinueLearning userId={userId} />}
+      {isSignedIn && <ContinueLearning userId={userId} title={t('home.continueLearning')} viewAllLabel={t('home.openPath')} />}
 
       {/* Section 2.5 — Recently Mastered ticker */}
       <RecentlyMasteredTicker events={masteryEvents} />
 
       {/* Section 3 — Foundations */}
-      <Foundations />
+      <Foundations title={t('home.foundations')} viewAllLabel={t('home.openKana')} />
 
       {/* Section 4 — Browse by Anime */}
       <section data-testid="browse-by-anime" className="pb-8">
         <SectionHeader
           titleJp="アニメ"
-          title="Browse by Anime"
+          title={t('home.browseByAnime')}
           viewAll="/anime-list"
-          viewAllLabel="Browse Anime"
+          viewAllLabel={t('home.browseAnime')}
         />
         <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse by anime">
           {topFranchises.map((franchise) => (
@@ -132,9 +133,9 @@ export default async function LocaleHomePage({
       <section data-testid="featured-songs" className="pb-8">
         <SectionHeader
           titleJp="特集"
-          title="Featured Songs"
+          title={t('home.featuredSongs')}
           viewAll="/songs"
-          viewAllLabel="Browse Songs"
+          viewAllLabel={t('home.browseSongs')}
         />
         <Carousel testId="featured-songs-carousel" ariaLabel="Featured songs">
           {featured.map((song) => (
@@ -158,23 +159,23 @@ export default async function LocaleHomePage({
 
       {/* Below-fold carousels — streamed independently via Suspense */}
       <Suspense fallback={<CarouselSkeleton />}>
-        <BeginnerCarousel showMastery={isSignedIn} />
+        <BeginnerCarousel showMastery={isSignedIn} title={t('home.beginner')} />
       </Suspense>
 
       <Suspense fallback={<CarouselSkeleton />}>
-        <IntermediateCarousel showMastery={isSignedIn} />
+        <IntermediateCarousel showMastery={isSignedIn} title={t('home.intermediate')} />
       </Suspense>
 
       <Suspense fallback={<CarouselSkeleton />}>
-        <AdvancedCarousel showMastery={isSignedIn} />
+        <AdvancedCarousel showMastery={isSignedIn} title={t('home.advanced')} />
       </Suspense>
 
       <Suspense fallback={<CarouselSkeleton />}>
-        <ClassicsCarousel showMastery={isSignedIn} />
+        <ClassicsCarousel showMastery={isSignedIn} title={t('home.classics')} />
       </Suspense>
 
       <Suspense fallback={<CarouselSkeleton />}>
-        <ModernCarousel showMastery={isSignedIn} />
+        <ModernCarousel showMastery={isSignedIn} title={t('home.modern')} />
       </Suspense>
     </div>
   );
