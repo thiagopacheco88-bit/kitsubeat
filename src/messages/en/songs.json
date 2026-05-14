@@ -10,6 +10,25 @@
     "langPt": "PT",
     "langEs": "ES"
   },
+  "difficulty": {
+    "basic": "Basic",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "view": {
+    "anime": "Anime",
+    "songs": "Songs"
+  },
+  "count": {
+    "song": "{n} song",
+    "songs": "{n} songs",
+    "acrossAnime": "across {n} anime"
+  },
+  "animeIndex": {
+    "label": "Anime Index",
+    "heading": "Browse by Anime",
+    "subheading": "Pick a series, then jump into the songs attached to it."
+  },
   "empty": {
     "noLanguage": {
       "heading": "No songs in this language",

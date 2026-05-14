@@ -10,6 +10,25 @@
     "langPt": "PT",
     "langEs": "ES"
   },
+  "difficulty": {
+    "basic": "Básico",
+    "intermediate": "Intermediário",
+    "advanced": "Avançado"
+  },
+  "view": {
+    "anime": "Anime",
+    "songs": "Músicas"
+  },
+  "count": {
+    "song": "{n} música",
+    "songs": "{n} músicas",
+    "acrossAnime": "em {n} anime"
+  },
+  "animeIndex": {
+    "label": "Índice de Anime",
+    "heading": "Explorar por Anime",
+    "subheading": "Escolha uma série e mergulhe nas músicas associadas a ela."
+  },
   "empty": {
     "noLanguage": {
       "heading": "Nenhuma música neste idioma",

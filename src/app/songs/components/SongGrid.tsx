@@ -83,7 +83,7 @@ export default function SongGrid({
                   : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
               }`}
             >
-              Anime
+              {t('view.anime')}
             </Link>
             <Link
               href="/songs"
@@ -93,13 +93,13 @@ export default function SongGrid({
                   : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
               }`}
             >
-              Songs
+              {t('view.songs')}
             </Link>
           </div>
 
           <input
             type="text"
-            placeholder="Search songs, artists, anime..."
+            placeholder={t('filter.search')}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="min-h-11 min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 text-sm text-[var(--color-text)] outline-none transition-colors placeholder:text-[var(--color-text-dim)] focus:border-[var(--color-border-strong)] lg:w-72"
@@ -131,13 +131,13 @@ export default function SongGrid({
                 onClick={() =>
                   setDifficultyFilter(difficultyFilter === tier ? null : tier)
                 }
-                className={`min-h-11 rounded-[var(--radius-md)] px-3 text-xs font-semibold capitalize transition-colors ${
+                className={`min-h-11 rounded-[var(--radius-md)] px-3 text-xs font-semibold transition-colors ${
                   difficultyFilter === tier
                     ? "bg-[var(--color-text)] text-[var(--color-bg)]"
                     : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
                 }`}
               >
-                {tier}
+                {t(`difficulty.${tier}`)}
               </button>
             ))}
           </div>
@@ -173,15 +173,15 @@ export default function SongGrid({
               }}
               className="min-h-11 rounded-[var(--radius-md)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
             >
-              Clear
+              {t('filter.clear')}
             </button>
           )}
         </div>
       </div>
 
       <p className="px-1 text-sm text-[var(--color-text-dim)]">
-        {filtered.length} song{filtered.length !== 1 ? "s" : ""}
-        {view === "by-anime" && ` across ${groupedByAnime.length} anime`}
+        {filtered.length === 1 ? t('count.song', { n: filtered.length }) : t('count.songs', { n: filtered.length })}
+        {view === "by-anime" && ` ${t('count.acrossAnime', { n: groupedByAnime.length })}`}
       </p>
 
       {view === "by-anime" && (
@@ -191,7 +191,7 @@ export default function SongGrid({
               <h3 className="mb-3 flex min-w-0 items-baseline gap-2 px-1 text-lg font-semibold text-[var(--color-text)]">
                 <span className="truncate">{anime}</span>
                 <span className="shrink-0 text-sm font-normal text-[var(--color-text-dim)]">
-                  {animeSongs.length} song{animeSongs.length !== 1 ? "s" : ""}
+                  {animeSongs.length === 1 ? t('count.song', { n: animeSongs.length }) : t('count.songs', { n: animeSongs.length })}
                 </span>
               </h3>
               <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin snap-x snap-mandatory">
@@ -234,8 +234,8 @@ export default function SongGrid({
 
       {filtered.length === 0 && !(languageFilter !== null && !search && !jlptFilter && !difficultyFilter) && (
         <EmptyState
-          heading="No songs match your filters"
-          body="Try clearing JLPT or difficulty filters, or searching for a different artist or anime."
+          heading={t('empty.noFilters.heading')}
+          body={t('empty.noFilters.body')}
           className="my-12"
         />
       )}

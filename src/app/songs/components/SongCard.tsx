@@ -1,3 +1,4 @@
+import { getTranslations } from "next-intl/server";
 import type { SongListItem } from "@/lib/db/queries";
 import { deriveStars, deriveBonusBadge } from "@/lib/db/schema";
 import { CardLink } from "@/components/ui/Card";
@@ -69,7 +70,8 @@ interface SongCardProps {
  * This is the CONTEXT-locked "don't show mastery decorations to signed-out
  * users" contract.
  */
-export default function SongCard({ song }: SongCardProps) {
+export default async function SongCard({ song }: SongCardProps) {
+  const t = await getTranslations('songs');
   const thumbnailId = song.youtube_id;
   const thumbnail = thumbnailId
     ? `https://img.youtube.com/vi/${thumbnailId}/mqdefault.jpg`
@@ -202,7 +204,7 @@ export default function SongCard({ song }: SongCardProps) {
             />
           )}
           {song.difficulty_tier && (
-            <Badge variant="mono">{song.difficulty_tier}</Badge>
+            <Badge variant="mono">{t(`difficulty.${song.difficulty_tier as 'basic' | 'intermediate' | 'advanced'}`)}</Badge>
           )}
           {showLearnerCount && (
             <span className="ml-auto text-[length:var(--text-micro)] text-[var(--color-text-dim)]">
