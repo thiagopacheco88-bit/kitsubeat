@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   // Phase 14 D-17: lint runs as a separate CI gate, not during build.
@@ -12,6 +15,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/admin/journal": ["./src/content/journal/**/*.mdx"],
     "/admin/journal/[slug]": ["./src/content/journal/**/*.mdx"],
+    "/**": ["./src/messages/**/*.json"],
   },
 };
 
@@ -23,7 +27,7 @@ const enableAnalyzer = withBundleAnalyzer({
 
 // Phase 15: Sentry error monitoring — wraps enableAnalyzer so Sentry's webpack plugin
 // runs outermost, injecting source map upload + tunnel route at build time.
-export default withSentryConfig(enableAnalyzer(nextConfig), {
+export default withSentryConfig(enableAnalyzer(withNextIntl(nextConfig)), {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
   authToken: process.env.SENTRY_AUTH_TOKEN,
