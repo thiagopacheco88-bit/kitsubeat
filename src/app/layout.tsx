@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import Link from "next/link";
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
@@ -96,6 +96,7 @@ export default async function RootLayout({
   }
 
   const locale = await getLocale();
+  const t = await getTranslations({ locale, namespace: 'common' });
 
   return (
     <ClerkProvider>
@@ -193,25 +194,25 @@ export default async function RootLayout({
                   href="/path"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
-                  Path
+                  {t('nav.path')}
                 </Link>
                 <Link
                   href="/anime-list"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
-                  Songs
+                  {t('nav.songs')}
                 </Link>
                 <Link
                   href="/kana"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
-                  Kana
+                  {t('nav.kana')}
                 </Link>
                 <Link
                   href="/journal"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
-                  Journal
+                  {t('nav.journal')}
                 </Link>
                 <GlobalLearnedCounter />
                 {isAdmin && (
@@ -220,14 +221,14 @@ export default async function RootLayout({
                     className="whitespace-nowrap text-sm font-medium text-[var(--color-accent-readable)] transition-colors hover:opacity-80"
                     data-testid="nav-admin-lyrics"
                   >
-                    Admin
+                    {t('nav.admin')}
                   </Link>
                 )}
                 <Link
                   href="/profile"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
-                  Profile
+                  {t('nav.profile')}
                 </Link>
               </div>
               <MobileNavSheet isAdmin={isAdmin} isSignedIn={isSignedIn} />

@@ -26,7 +26,6 @@
  */
 import { useState, useTransition, useRef, useEffect } from "react";
 import { Button } from "./Button";
-import { useRouter } from "@/i18n/navigation";
 import { usePathname } from "next/navigation";
 import { syncLocaleToClerk } from "@/app/actions/locale";
 
@@ -85,7 +84,6 @@ interface LanguagePickerProps {
 export function LanguagePicker({ currentLocale }: LanguagePickerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [, startTransition] = useTransition();
-  const router = useRouter();
   const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -126,9 +124,11 @@ export function LanguagePicker({ currentLocale }: LanguagePickerProps) {
 
   function switchLocale(newLocale: string) {
     setIsOpen(false);
-    // next-intl's locale-aware router.replace sets the kb_locale cookie via middleware
-    // on the next request — no manual document.cookie write needed (RESEARCH Pattern 5)
-    router.replace(strippedPathname, { locale: newLocale as "en" | "pt-BR" | "es" });
+    // Build the target URL directly — next-intl middleware will set kb_locale cookie
+    // on the resulting request. Middleware reads the locale prefix from the URL.
+    const prefix = newLocale !== "en" ? `/${newLocale}` : "";
+    const targetPath = `${prefix}${strippedPathname}`;
+    window.location.href = targetPath;
     // Fire-and-forget Clerk sync — fail silently if unauthenticated or network error
     startTransition(async () => {
       try {

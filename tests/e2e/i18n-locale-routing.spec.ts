@@ -26,7 +26,7 @@ test.describe('i18n locale routing', () => {
     await page.goto('/songs');
     const lang = await page.locator('html').getAttribute('lang');
     expect(lang).toBe('en');
-    await expect(page.getByRole('link', { name: 'Songs' })).toBeVisible();
+    await expect(page.getByRole('navigation').getByRole('link', { name: 'Songs' })).toBeVisible();
   });
 
   test('invalid locale segment returns 404', async ({ page }) => {
