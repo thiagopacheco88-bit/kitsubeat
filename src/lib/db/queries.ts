@@ -139,7 +139,7 @@ export async function getAllSongSlugsForSitemap() {
  * SongCard short-circuits to the zero-star / no-bonus branch (no ribbon, no
  * badge).
  */
-export async function getAllSongs(userId?: string | null) {
+export async function getAllSongs(userId?: string | null, languageFilter?: string | null) {
   const userIdParam = userId ?? null;
   return db
     .select({
@@ -158,6 +158,7 @@ export async function getAllSongs(userId?: string | null) {
       year_launched: songs.year_launched,
       jlpt_level: songs.jlpt_level,
       difficulty_tier: songs.difficulty_tier,
+      language: songs.language,
       genre_tags: songs.genre_tags,
       mood_tags: songs.mood_tags,
       // Phase 10 Plan 07 — per-user accuracy fields for the SongCard stars +
@@ -304,7 +305,7 @@ export async function getAllSongs(userId?: string | null) {
     .where(sql`EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
-    ) AND ${songs.language} = 'ja'
+    ) ${languageFilter ? sql`AND ${songs.language} = ${languageFilter}` : sql``}
     AND ${songs.quality_status} = 'active'
     AND EXISTS (
       SELECT 1 FROM song_versions sv

@@ -2,12 +2,19 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { SongListItem } from "@/lib/db/queries";
 import { EmptyState } from "@/components/ui/EmptyState";
 import SongCard from "./SongCard";
 
 const JLPT_LEVELS = ["N5", "N4", "N3", "N2", "N1"] as const;
 const DIFFICULTY_TIERS = ["basic", "intermediate", "advanced"] as const;
+const LANGUAGE_OPTIONS = [
+  { value: "ja", label: "JA" },
+  { value: "en", label: "EN" },
+  { value: "pt", label: "PT" },
+  { value: "es", label: "ES" },
+] as const;
 
 type ViewMode = "by-anime" | "all";
 
@@ -20,11 +27,13 @@ export default function SongGrid({
   view: ViewMode;
   initialSearch?: string;
 }) {
+  const t = useTranslations("songs");
   const [search, setSearch] = useState(initialSearch);
   const [jlptFilter, setJlptFilter] = useState<string | null>(null);
   const [difficultyFilter, setDifficultyFilter] = useState<string | null>(null);
+  const [languageFilter, setLanguageFilter] = useState<string | null>(null);
   const hasFilters =
-    search !== "" || jlptFilter !== null || difficultyFilter !== null;
+    search !== "" || jlptFilter !== null || difficultyFilter !== null || languageFilter !== null;
 
   const filtered = useMemo(() => {
     let result = songs;
@@ -43,8 +52,11 @@ export default function SongGrid({
     if (difficultyFilter) {
       result = result.filter((s) => s.difficulty_tier === difficultyFilter);
     }
+    if (languageFilter) {
+      result = result.filter((s) => s.language === languageFilter);
+    }
     return result;
-  }, [songs, search, jlptFilter, difficultyFilter]);
+  }, [songs, search, jlptFilter, difficultyFilter, languageFilter]);
 
   const groupedByAnime = useMemo(() => {
     const groups = new Map<string, SongListItem[]>();
@@ -129,6 +141,26 @@ export default function SongGrid({
             ))}
           </div>
 
+          {/* Language filter chips — identical pattern to JLPT/difficulty chips */}
+          <div className="flex min-w-0 flex-wrap gap-1.5">
+            {LANGUAGE_OPTIONS.map((option) => (
+              <button
+                key={option.value}
+                onClick={() =>
+                  setLanguageFilter(languageFilter === option.value ? null : option.value)
+                }
+                aria-pressed={languageFilter === option.value}
+                className={`min-h-11 rounded-[var(--radius-md)] px-3 text-xs font-semibold transition-colors ${
+                  languageFilter === option.value
+                    ? "bg-[var(--color-text)] text-[var(--color-bg)]"
+                    : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+
           {hasFilters && (
             <button
               type="button"
@@ -136,6 +168,7 @@ export default function SongGrid({
                 setSearch("");
                 setJlptFilter(null);
                 setDifficultyFilter(null);
+                setLanguageFilter(null);
               }}
               className="min-h-11 rounded-[var(--radius-md)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
             >
@@ -180,7 +213,25 @@ export default function SongGrid({
         </div>
       )}
 
-      {filtered.length === 0 && (
+      {/* Language filter empty-state: shown when language filter active but no results (D-07) */}
+      {languageFilter !== null && filtered.length === 0 && !search && !jlptFilter && !difficultyFilter && (
+        <div className="flex flex-col items-center gap-3 py-16 text-center">
+          <p className="text-[var(--color-text)] font-semibold">
+            {t("empty.noLanguage.heading")}
+          </p>
+          <p className="text-sm text-[var(--color-text-muted)]">
+            {t("empty.noLanguage.body")}
+          </p>
+          <button
+            onClick={() => setLanguageFilter(null)}
+            className="min-h-11 rounded-[var(--radius-md)] px-4 text-sm font-semibold bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)] transition-colors"
+          >
+            {t("empty.noLanguage.cta")}
+          </button>
+        </div>
+      )}
+
+      {filtered.length === 0 && !(languageFilter !== null && !search && !jlptFilter && !difficultyFilter) && (
         <EmptyState
           heading="No songs match your filters"
           body="Try clearing JLPT or difficulty filters, or searching for a different artist or anime."

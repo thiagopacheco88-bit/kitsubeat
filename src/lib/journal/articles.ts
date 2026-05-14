@@ -66,3 +66,43 @@ export function getArticleSource(slug: string): string | null {
   if (!fs.existsSync(filepath)) return null;
   return fs.readFileSync(filepath, 'utf8');
 }
+
+/**
+ * Returns articles from the locale-specific content directory.
+ * For 'en', reads from the root CONTENT_DIR.
+ * For 'pt-BR'/'es', reads from CONTENT_DIR/locale subdir.
+ * Returns [] if the locale directory does not exist yet.
+ */
+export function getArticlesByLocale(locale: 'en' | 'pt-BR' | 'es'): ArticleMeta[] {
+  const dir = locale === 'en' ? CONTENT_DIR : path.join(CONTENT_DIR, locale);
+  if (!fs.existsSync(dir)) return [];
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.mdx'));
+  return files
+    .map((filename) => {
+      const raw = fs.readFileSync(path.join(dir, filename), 'utf8');
+      const { data, content } = matter(raw);
+      const rt = readingTime(content);
+      return {
+        ...(data as ArticleFrontmatter),
+        readingTimeComputed: (data as ArticleFrontmatter).readingTime ?? rt.text,
+      } as ArticleMeta;
+    })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+/**
+ * Returns the raw MDX source for a specific article in the given locale.
+ * Falls back to EN content if the locale file doesn't exist yet.
+ * Returns null if slug is invalid (SAFE_SLUG_RE guard).
+ */
+export function getArticleSourceByLocale(slug: string, locale: 'en' | 'pt-BR' | 'es'): string | null {
+  if (!SAFE_SLUG_RE.test(slug)) return null;
+  const dir = locale === 'en' ? CONTENT_DIR : path.join(CONTENT_DIR, locale);
+  const filepath = path.join(dir, `${slug}.mdx`);
+  if (!fs.existsSync(filepath)) {
+    // Fallback to EN content when locale translation doesn't exist yet
+    if (locale !== 'en') return getArticleSource(slug);
+    return null;
+  }
+  return fs.readFileSync(filepath, 'utf8');
+}
