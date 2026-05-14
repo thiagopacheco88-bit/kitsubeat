@@ -9,8 +9,6 @@ import SongCard from "./SongCard";
 
 const JLPT_LEVELS = ["N5", "N4", "N3", "N2", "N1"] as const;
 const DIFFICULTY_TIERS = ["basic", "intermediate", "advanced"] as const;
-const LANGUAGE_KEYS = ["ja", "en", "pt", "es"] as const;
-const LANGUAGE_I18N_KEY = { ja: "filter.langJa", en: "filter.langEn", pt: "filter.langPt", es: "filter.langEs" } as const;
 
 type ViewMode = "by-anime" | "all";
 
@@ -27,9 +25,8 @@ export default function SongGrid({
   const [search, setSearch] = useState(initialSearch);
   const [jlptFilter, setJlptFilter] = useState<string | null>(null);
   const [difficultyFilter, setDifficultyFilter] = useState<string | null>(null);
-  const [languageFilter, setLanguageFilter] = useState<string | null>(null);
   const hasFilters =
-    search !== "" || jlptFilter !== null || difficultyFilter !== null || languageFilter !== null;
+    search !== "" || jlptFilter !== null || difficultyFilter !== null;
 
   const filtered = useMemo(() => {
     let result = songs;
@@ -48,11 +45,8 @@ export default function SongGrid({
     if (difficultyFilter) {
       result = result.filter((s) => s.difficulty_tier === difficultyFilter);
     }
-    if (languageFilter) {
-      result = result.filter((s) => s.language === languageFilter);
-    }
     return result;
-  }, [songs, search, jlptFilter, difficultyFilter, languageFilter]);
+  }, [songs, search, jlptFilter, difficultyFilter]);
 
   const groupedByAnime = useMemo(() => {
     const groups = new Map<string, SongListItem[]>();
@@ -141,26 +135,6 @@ export default function SongGrid({
           </div>
 
           {/* Language filter chips — identical pattern to JLPT/difficulty chips */}
-          <div className="flex min-w-0 flex-wrap gap-1.5">
-            {LANGUAGE_KEYS.map((lang) => (
-              <button
-                suppressHydrationWarning
-                key={lang}
-                onClick={() =>
-                  setLanguageFilter(languageFilter === lang ? null : lang)
-                }
-                aria-pressed={languageFilter === lang}
-                className={`min-h-11 rounded-[var(--radius-md)] px-3 text-xs font-semibold transition-colors ${
-                  languageFilter === lang
-                    ? "bg-[var(--color-text)] text-[var(--color-bg)]"
-                    : "bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
-                }`}
-              >
-                {t(LANGUAGE_I18N_KEY[lang])}
-              </button>
-            ))}
-          </div>
-
           {hasFilters && (
             <button
               type="button"
@@ -168,7 +142,6 @@ export default function SongGrid({
                 setSearch("");
                 setJlptFilter(null);
                 setDifficultyFilter(null);
-                setLanguageFilter(null);
               }}
               className="min-h-11 rounded-[var(--radius-md)] border border-[var(--color-border)] px-3 text-xs font-semibold text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
             >
@@ -213,25 +186,7 @@ export default function SongGrid({
         </div>
       )}
 
-      {/* Language filter empty-state: shown when language filter active but no results (D-07) */}
-      {languageFilter !== null && filtered.length === 0 && !search && !jlptFilter && !difficultyFilter && (
-        <div className="flex flex-col items-center gap-3 py-16 text-center">
-          <p className="text-[var(--color-text)] font-semibold">
-            {t("empty.noLanguage.heading")}
-          </p>
-          <p className="text-sm text-[var(--color-text-muted)]">
-            {t("empty.noLanguage.body")}
-          </p>
-          <button
-            onClick={() => setLanguageFilter(null)}
-            className="min-h-11 rounded-[var(--radius-md)] px-4 text-sm font-semibold bg-[var(--color-card-2)] text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)] transition-colors"
-          >
-            {t("empty.noLanguage.cta")}
-          </button>
-        </div>
-      )}
-
-      {filtered.length === 0 && !(languageFilter !== null && !search && !jlptFilter && !difficultyFilter) && (
+      {filtered.length === 0 && (
         <EmptyState
           heading={t('empty.noFilters.heading')}
           body={t('empty.noFilters.body')}
