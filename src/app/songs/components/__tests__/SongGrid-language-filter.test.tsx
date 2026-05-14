@@ -29,7 +29,9 @@ vi.mock('@/components/ui/EmptyState', () => ({
   EmptyState: ({ heading }: { heading: string }) => <div data-testid="empty-state">{heading}</div>,
 }));
 
-const makeSong = (id: string, language: string) => ({
+import type { SongListItem } from '@/lib/db/queries';
+
+const makeSong = (id: string, language: string): SongListItem => ({
   id,
   slug: `song-${id}`,
   title: `Song ${id}`,
@@ -38,8 +40,8 @@ const makeSong = (id: string, language: string) => ({
   season_info: null,
   youtube_id: null,
   year_launched: null,
-  jlpt_level: 'N4',
-  difficulty_tier: 'basic',
+  jlpt_level: 'N4' as const,
+  difficulty_tier: 'basic' as const,
   genre_tags: [],
   mood_tags: [],
   language,
