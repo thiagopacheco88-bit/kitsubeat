@@ -26,7 +26,8 @@
  */
 import { useState, useTransition, useRef, useEffect } from "react";
 import { Button } from "./Button";
-import { useRouter, usePathname } from "@/i18n/navigation";
+import { useRouter } from "@/i18n/navigation";
+import { usePathname } from "next/navigation";
 import { syncLocaleToClerk } from "@/app/actions/locale";
 
 // Inline SVG globe icon — no lucide-react, no icon library (project constraint)
@@ -113,11 +114,21 @@ export function LanguagePicker({ currentLocale }: LanguagePickerProps) {
     return () => document.removeEventListener("pointerdown", onPointer);
   }, [isOpen]);
 
+  // Strip the locale prefix from the raw Next.js pathname so router.replace
+  // receives a locale-neutral path. usePathname() here is next/navigation (raw),
+  // which includes the prefix (e.g. "/pt-BR/songs"). next-intl's router.replace
+  // then re-adds the correct prefix for the target locale.
+  const localePrefix = currentLocale !== "en" ? `/${currentLocale}` : "";
+  const strippedPathname =
+    localePrefix && pathname.startsWith(localePrefix)
+      ? pathname.slice(localePrefix.length) || "/"
+      : pathname;
+
   function switchLocale(newLocale: string) {
     setIsOpen(false);
     // next-intl's locale-aware router.replace sets the kb_locale cookie via middleware
     // on the next request — no manual document.cookie write needed (RESEARCH Pattern 5)
-    router.replace(pathname, { locale: newLocale as "en" | "pt-BR" | "es" });
+    router.replace(strippedPathname, { locale: newLocale as "en" | "pt-BR" | "es" });
     // Fire-and-forget Clerk sync — fail silently if unauthenticated or network error
     startTransition(async () => {
       try {
