@@ -5,6 +5,13 @@
   "nextRewardAt": "Próxima recompensa no Nível {level}: {label}",
   "mastered": "Dominado",
   "locked": "霧 · Bloqueado",
+  "welcomeHeading": "Bem-vindo à sua Trilha de Aprendizado!",
+  "welcomeBody": "Escolha uma música que combine com você. Você pode sempre voltar e explorar o resto do catálogo.",
+  "vibes": {
+    "under-the-tree-sim": "Emocional & atmosférico",
+    "misa-no-uta-aya-hirano": "Sombrio & lírico",
+    "yume-wo-kanaete-doraemon-mao": "Animado & alegre (N5 para iniciantes)"
+  },
   "startHere": "Começar aqui",
   "settingUp": "Configurando…",
   "moreSongsHeading": "Mais músicas iniciais em breve",

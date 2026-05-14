@@ -84,16 +84,16 @@ export function StarterPick({ candidates, userId }: StarterPickProps) {
         {"🦊"}
       </div>
       <h2 className="mb-1 text-xl font-bold text-[var(--color-text)]">
-        Welcome to your Learning Path!
+        {t('welcomeHeading')}
       </h2>
       <p className="mb-6 text-sm text-[var(--color-text-muted)]">
-        Pick a song that feels right for you. You can always come back and
-        explore the rest of the catalog.
+        {t('welcomeBody')}
       </p>
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-stretch sm:justify-center">
         {candidates.map((song) => {
-          const vibe = VIBE_MAP[song.slug] ?? song.anime;
+          const vibeKey = `vibes.${song.slug}` as `vibes.${keyof typeof VIBE_MAP}`;
+          const vibe = song.slug in VIBE_MAP ? t(vibeKey as 'vibes.under-the-tree-sim') : song.anime;
           const isSelecting = selecting === song.slug;
           const isDisabled = selecting !== null && !isSelecting;
 
