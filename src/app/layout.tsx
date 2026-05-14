@@ -10,6 +10,7 @@ import "./globals.css";
 import GlobalLearnedCounter from "@/app/components/GlobalLearnedCounter";
 import MobileNavSheet from "@/app/components/MobileNavSheet";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { LanguagePicker } from "@/components/ui/LanguagePicker";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { PostHogIdentify } from "@/app/components/PostHogIdentify";
 import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
@@ -249,6 +250,7 @@ export default async function RootLayout({
                 </Link>
               )}
               <ThemeToggle userId={signedInUserId} />
+              <LanguagePicker currentLocale={locale as "en" | "pt-BR" | "es"} />
             </div>
           </nav>
         </header>
