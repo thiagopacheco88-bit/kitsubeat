@@ -1,0 +1,44 @@
+{
+  "session": {
+    "start": "Start Session",
+    "resume": "Resume Session",
+    "finish": "Finish",
+    "skip": "Skip",
+    "next": "Next",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "rating": {
+      "again": "Again",
+      "hard": "Hard",
+      "good": "Good",
+      "easy": "Easy"
+    }
+  },
+  "types": {
+    "vocabMeaning": "Vocabulary → Meaning",
+    "meaningVocab": "Meaning → Vocabulary",
+    "readingMatch": "Reading Match",
+    "fillLyric": "Fill the Lyric",
+    "conjugation": "Grammar Conjugation",
+    "listeningDrill": "Listening Drill",
+    "sentenceOrder": "Sentence Order"
+  },
+  "instructions": {
+    "fillLyric": "Listen to the verse and pick the missing word.",
+    "listeningDrill": "Listen to the verse without lyrics and identify the word.",
+    "sentenceOrder": "Tap the words to rebuild the sentence in the correct order.",
+    "conjugation": "Pick the correct conjugated form of the highlighted verb."
+  },
+  "summary": {
+    "heading": "Session Complete",
+    "stars": "{count} star earned",
+    "starsPlural": "{count} stars earned",
+    "mastered": "You earned 3 stars — song mastered!",
+    "bonusUnlocked": "Bonus mastery unlocked!"
+  },
+  "premium": {
+    "upsellHeading": "Unlock Advanced Drills",
+    "upsellBody": "Advanced drills include Listening Drill, Grammar Conjugation, and Sentence Order exercises.",
+    "upgrade": "Upgrade to Premium"
+  }
+}

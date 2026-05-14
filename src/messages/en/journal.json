@@ -1,0 +1,14 @@
+{
+  "heading": "Journal",
+  "subheading": "Japanese language and culture through the lens of anime.",
+  "readMore": "Read more",
+  "readingTime": "{time} read",
+  "badge": {
+    "en": "EN"
+  },
+  "article": {
+    "backToJournal": "Back to Journal",
+    "publishedOn": "Published on {date}",
+    "tags": "Tags"
+  }
+}

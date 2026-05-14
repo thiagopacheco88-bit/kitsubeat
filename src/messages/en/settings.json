@@ -1,0 +1,23 @@
+{
+  "heading": "Profile",
+  "language": {
+    "label": "Language",
+    "description": "Choose the language for the app interface."
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "account": {
+    "heading": "Account",
+    "email": "Email",
+    "signOut": "Sign out"
+  },
+  "data": {
+    "heading": "Your Data",
+    "export": "Export my data",
+    "exporting": "Exporting..."
+  }
+}

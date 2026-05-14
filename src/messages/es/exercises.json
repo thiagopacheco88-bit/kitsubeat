@@ -1,0 +1,44 @@
+{
+  "session": {
+    "start": "Iniciar Sesión",
+    "resume": "Reanudar Sesión",
+    "finish": "Finalizar",
+    "skip": "Omitir",
+    "next": "Siguiente",
+    "correct": "¡Correcto!",
+    "incorrect": "Incorrecto",
+    "rating": {
+      "again": "De nuevo",
+      "hard": "Difícil",
+      "good": "Bien",
+      "easy": "Fácil"
+    }
+  },
+  "types": {
+    "vocabMeaning": "Vocabulario → Significado",
+    "meaningVocab": "Significado → Vocabulario",
+    "readingMatch": "Correspondencia de Lectura",
+    "fillLyric": "Completa la Letra",
+    "conjugation": "Conjugación Gramatical",
+    "listeningDrill": "Práctica de Escucha",
+    "sentenceOrder": "Orden de Palabras"
+  },
+  "instructions": {
+    "fillLyric": "Escucha el verso y elige la palabra que falta.",
+    "listeningDrill": "Escucha el verso sin letra e identifica la palabra.",
+    "sentenceOrder": "Toca las palabras para reconstruir la oración en el orden correcto.",
+    "conjugation": "Elige la forma conjugada correcta del verbo resaltado."
+  },
+  "summary": {
+    "heading": "Sesión Completada",
+    "stars": "{count} estrella ganada",
+    "starsPlural": "{count} estrellas ganadas",
+    "mastered": "¡Ganaste 3 estrellas — canción dominada!",
+    "bonusUnlocked": "¡Dominio adicional desbloqueado!"
+  },
+  "premium": {
+    "upsellHeading": "Desbloquea los Ejercicios Avanzados",
+    "upsellBody": "Los ejercicios avanzados incluyen Práctica de Escucha, Conjugación Gramatical y Orden de Palabras.",
+    "upgrade": "Actualizar a Premium"
+  }
+}

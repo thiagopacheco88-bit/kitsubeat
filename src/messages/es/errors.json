@@ -1,0 +1,22 @@
+{
+  "generic": {
+    "heading": "Algo salió mal",
+    "body": "Inténtalo de nuevo. Si el problema persiste, contacta al soporte.",
+    "retry": "Intentar de nuevo"
+  },
+  "notFound": {
+    "heading": "Página no encontrada",
+    "body": "La página que buscas no existe.",
+    "backHome": "Volver al inicio"
+  },
+  "locale": {
+    "switchFailed": "No se pudo guardar tu preferencia de idioma. Tu selección se recordará durante esta sesión."
+  },
+  "song": {
+    "notFound": "Canción no encontrada.",
+    "noLesson": "Esta canción aún no tiene una lección."
+  },
+  "exercise": {
+    "listeningUnavailable": "Práctica de Escucha no disponible para esta canción (el video no se puede reproducir). La Estrella 3 no estará disponible hasta que el video funcione."
+  }
+}

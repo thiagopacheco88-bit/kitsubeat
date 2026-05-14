@@ -1,0 +1,24 @@
+{
+  "heading": "Músicas",
+  "subheading": "Explore aberturas, encerramentos e faixas completas por nível, dificuldade, artista ou anime.",
+  "filter": {
+    "search": "Pesquisar músicas, artistas, anime...",
+    "language": "Idioma",
+    "clear": "Limpar",
+    "langJa": "JA",
+    "langEn": "EN",
+    "langPt": "PT",
+    "langEs": "ES"
+  },
+  "empty": {
+    "noLanguage": {
+      "heading": "Nenhuma música neste idioma",
+      "body": "Tente outro idioma ou limpe o filtro para ver todas as músicas.",
+      "cta": "Limpar filtro"
+    },
+    "noFilters": {
+      "heading": "Nenhuma música encontrada",
+      "body": "Tente limpar os filtros de JLPT ou dificuldade, ou pesquise por outro artista ou anime."
+    }
+  }
+}
