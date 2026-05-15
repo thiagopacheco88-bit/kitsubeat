@@ -239,7 +239,23 @@ export async function getAllSongs(userId?: string | null, languageFilter?: strin
         SELECT ROUND(
           (
             COALESCE(p.vocab_track_pct, 0) +
-            COALESCE(p.grammar_track_pct, 0) +
+            CASE
+              WHEN p.grammar_track_pct >= 100
+                AND NOT EXISTS (
+                  SELECT 1 FROM user_exercise_log uel
+                  WHERE uel.user_id = p.user_id
+                    AND uel.song_version_id = p.song_version_id
+                    AND uel.exercise_type = 'grammar_conjugation'
+                )
+              THEN 0
+              WHEN p.grammar_track_pct >= 100
+                AND NOT EXISTS (
+                  SELECT 1 FROM song_version_grammar_rules svgr
+                  WHERE svgr.song_version_id = p.song_version_id
+                )
+              THEN 0
+              ELSE COALESCE(p.grammar_track_pct, 0)
+            END +
             COALESCE(p.kanji_track_pct, 0)
           ) / 3.0,
           0
