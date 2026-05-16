@@ -33,7 +33,8 @@ test.describe('i18n-nav-locale-matrix — D-01', () => {
       for (const { label, path } of NAV_DESTINATIONS) {
         // Per-test timeout of 60 s covers the locale redirect chain compile time in dev mode.
         // In CI (pre-built) these resolve well under 10 s.
-        test(`${label} (${path}) is reachable with kb_locale=${locale}`, { timeout: 60_000 }, async ({ page, context }) => {
+        test(`${label} (${path}) is reachable with kb_locale=${locale}`, async ({ page, context }) => {
+          test.setTimeout(60_000);
           await context.addCookies([{
             name: 'kb_locale',
             value: locale,
@@ -48,7 +49,8 @@ test.describe('i18n-nav-locale-matrix — D-01', () => {
         });
       }
 
-      test(`song player entry is reachable with kb_locale=${locale}`, { timeout: 60_000 }, async ({ page, context }) => {
+      test(`song player entry is reachable with kb_locale=${locale}`, async ({ page, context }) => {
+        test.setTimeout(60_000);
         await context.addCookies([{
           name: 'kb_locale',
           value: locale,
