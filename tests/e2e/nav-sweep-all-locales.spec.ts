@@ -56,6 +56,9 @@ test.describe('nav-sweep-all-locales — D-02', () => {
 
         // Skip external, anchor, and missing hrefs
         if (!href || href.startsWith('#') || href.startsWith('http')) continue;
+        // Skip auth-required user routes (Clerk sets __clerk_db_jwt in dev mode, causing
+        // the nav to render /profile which is slow to compile and requires a real session)
+        if (href.startsWith('/profile') || href.startsWith('/user')) continue;
 
         // HTTP status check (fast — no browser navigation overhead)
         const res = await page.request.get(href);

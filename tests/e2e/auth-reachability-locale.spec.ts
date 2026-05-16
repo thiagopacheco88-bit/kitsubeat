@@ -32,7 +32,7 @@ test.describe('auth-reachability-locale — D-03 regression guard', () => {
         path: '/',
       }]);
       // Navigate directly to the locale-prefixed home to avoid the / → /pt-BR redirect chain
-      await page.goto(`/${prefix}`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+      await page.goto(`/${prefix}`, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       // Regression guard: assert href attribute directly — avoids Clerk dev-browser
       // redirect interference that occurs when actually clicking and waiting for navigation.
       const signInLink = page.getByRole('link', { name: /sign in/i }).first();

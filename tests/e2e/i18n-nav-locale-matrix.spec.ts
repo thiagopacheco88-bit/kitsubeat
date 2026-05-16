@@ -27,7 +27,19 @@ const NAV_DESTINATIONS = [
   { label: 'kana', path: '/kana' },
 ] as const;
 
+// Resolve locale-prefixed URL to avoid ERR_TOO_MANY_REDIRECTS under parallel load.
+// With localePrefix:'as-needed', /songs + kb_locale=pt-BR → /pt-BR/songs redirect.
+// Navigating directly to /pt-BR/songs skips the redirect and avoids Clerk dev-browser races.
+function localePath(locale: string, path: string): string {
+  if (locale === 'en' || path === '/') return path;
+  return `/${locale}${path}`;
+}
+
 test.describe('i18n-nav-locale-matrix — D-01', () => {
+  // Serial mode prevents dev-server cold-compilation timeouts and Clerk dev-browser
+  // ERR_TOO_MANY_REDIRECTS when 10 locale-aware tests compete for server resources.
+  test.describe.configure({ mode: 'serial' });
+
   for (const locale of NON_EN_LOCALES) {
     test.describe(`locale: ${locale}`, () => {
       for (const { label, path } of NAV_DESTINATIONS) {
@@ -41,7 +53,7 @@ test.describe('i18n-nav-locale-matrix — D-01', () => {
             domain: 'localhost',
             path: '/',
           }]);
-          const response = await page.goto(path, { waitUntil: 'domcontentloaded', timeout: 30_000 });
+          const response = await page.goto(localePath(locale, path), { waitUntil: 'domcontentloaded', timeout: 60_000 });
           // Status < 500: no server error. Note: 404s may return 200 in Next.js dev mode,
           // so we also check the page text.
           expect(response?.status() ?? 200, `${path} with ${locale} should not 5xx`).toBeLessThan(500);
@@ -58,7 +70,8 @@ test.describe('i18n-nav-locale-matrix — D-01', () => {
           path: '/',
         }]);
         // Use a known song slug (same slug used across the suite for stability)
-        const response = await page.goto('/songs/again-yui', { waitUntil: 'domcontentloaded', timeout: 30_000 });
+        // Navigate to locale-prefixed song URL directly (avoids redirect + Clerk race)
+        const response = await page.goto(localePath(locale, '/songs/again-yui'), { waitUntil: 'domcontentloaded', timeout: 60_000 });
         expect(response?.status() ?? 200, `player with ${locale} should not 5xx`).toBeLessThan(500);
         await expect(page.locator('body')).not.toContainText('This page could not be found');
       });

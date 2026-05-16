@@ -37,9 +37,13 @@ test.describe('onboarding-terms-gate — D-04', () => {
     await expect(page.locator('body')).not.toContainText('This page could not be found');
   });
 
-  test('/onboarding/age-gate is not redirected further — loop prevention', async ({ page }) => {
+  test('/onboarding/age-gate is not redirected further — loop prevention', async ({ page, context }) => {
     // The isLegalOrOnboardingRoute matcher in middleware excludes /onboarding/* from the gate.
     // If this protection breaks, navigating here would cause an infinite redirect loop.
+    //
+    // Clear Clerk dev-browser cookies before navigation — parallel tests can set __clerk_db_jwt
+    // which triggers auth-related redirects that mask the actual loop-prevention behavior.
+    await context.clearCookies();
     const response = await page.goto('/onboarding/age-gate', { waitUntil: 'domcontentloaded', timeout: 30_000 });
 
     // Must stay on the age-gate route (not redirect to itself or any other route).
