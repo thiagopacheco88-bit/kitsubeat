@@ -42,7 +42,10 @@ test.describe('nav-sweep-all-locales — D-02', () => {
     test(`all header nav links reachable — ${localeConfig.name}`, async ({ page }) => {
       // Load home page to get the rendered nav with locale-aware hrefs
       const homeResponse = await page.goto(localeConfig.homeUrl, { waitUntil: 'domcontentloaded' });
-      expect(homeResponse?.status() ?? 200, 'home page itself should load').toBeLessThan(500);
+      // Do not use ?? 200 fallback — a null response means navigation was blocked, which
+      // would mask a real failure and make all subsequent link extractions vacuously pass.
+      expect(homeResponse, 'home page navigation must not be blocked').not.toBeNull();
+      expect(homeResponse!.status(), 'home page itself should load').toBeLessThan(500);
 
       // Extract all nav links from the rendered header
       const navLinks = page.getByRole('navigation').getByRole('link');

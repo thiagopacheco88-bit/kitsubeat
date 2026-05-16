@@ -30,6 +30,8 @@ test.describe('auth-reachability-locale — D-03 regression guard', () => {
         value: locale,
         domain: 'localhost',
         path: '/',
+        secure: false,
+        httpOnly: false,
       }]);
       // Navigate directly to the locale-prefixed home to avoid the / → /pt-BR redirect chain
       await page.goto(`/${prefix}`, { waitUntil: 'domcontentloaded', timeout: 60_000 });
@@ -46,13 +48,16 @@ test.describe('auth-reachability-locale — D-03 regression guard', () => {
         value: locale,
         domain: 'localhost',
         path: '/',
+        secure: false,
+        httpOnly: false,
       }]);
       // Navigate directly to /sign-in with locale cookie — middleware must NOT redirect to
       // /${locale}/sign-in (which would 404 because Clerk's page is at root only).
       const response = await page.goto('/sign-in', { waitUntil: 'domcontentloaded', timeout: 30_000 });
       expect(response?.status() ?? 200, `/sign-in must not 5xx with ${locale} cookie`).toBeLessThan(500);
       await expect(page.locator('body')).not.toContainText('This page could not be found');
-      await expect(page).toHaveURL('/sign-in', { timeout: 10_000 });
+      // Use regex to tolerate Clerk appending ?__clerk_db_jwt=... in dev mode
+      await expect(page).toHaveURL(/\/sign-in/, { timeout: 10_000 });
     });
   }
 });

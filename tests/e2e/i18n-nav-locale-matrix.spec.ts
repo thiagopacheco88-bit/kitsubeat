@@ -52,6 +52,8 @@ test.describe('i18n-nav-locale-matrix — D-01', () => {
             value: locale,
             domain: 'localhost',
             path: '/',
+            secure: false,
+            httpOnly: false,
           }]);
           const response = await page.goto(localePath(locale, path), { waitUntil: 'domcontentloaded', timeout: 60_000 });
           // Status < 500: no server error. Note: 404s may return 200 in Next.js dev mode,
