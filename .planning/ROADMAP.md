@@ -57,6 +57,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook (completed 2026-05-10)
 - [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA — produces requirements checklist
 - [ ] **Phase 18: Legal & Compliance Implementation** - T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, WCAG 2.1 AA baseline, age gating, support channel
+- [x] **Phase 18.2: Pre-Launch QA Safety Net** - INSERTED 2026-05-16 - Locale-journey matrix (all 3 locales × key nav actions), full nav sweep spec, onboarding/terms gate smoke, API health checks, parallel runner config — gives a single `npm run test:qa` command with reliable signal before any major change (completed 2026-05-16)
 - [ ] **Phase 19: Free Beta Launch & GTM** - Landing page, 3 acquisition channels with UTMs, 50+ signups / 20+ complete-session / 20%+ day-7 return; entity-formation decision point
 - [ ] **Phase 20: Code Quality & Test Coverage Pass** - Integration tests on critical paths, strict types across shared modules, ADRs, resolve deferred-items backlog
 
@@ -707,9 +708,22 @@ Plans:
 - [ ] 18.1-11-PLAN.md — Wave 7b: ES articles 21-29
 - [ ] 18.1-12-PLAN.md — Wave 8: E2e tests + build verification + human-verify checkpoint
 
+### Phase 18.2: Pre-Launch QA Safety Net — INSERTED 2026-05-16
+**Goal**: A single `npm run test:qa` command that gives reliable signal across all user journeys — locale-aware, multi-surface, parallelized — so any significant change can be validated before it ships.
+**Depends on**: Phase 18.1
+**Requirements**: TBD
+**Success Criteria**:
+  1. Locale-journey matrix: key nav actions (sign-in link, sign-up link, path nav, kana nav, player nav) each tested with `kb_locale=pt-BR` and `kb_locale=es` cookies set — no 404s
+  2. Full nav sweep spec: every header link (Trilha, Músicas, Kana, Artigos, Perfil, Sign in) clicks through and destination returns <500, tested for all 3 locales
+  3. Onboarding/terms gate smoke: middleware redirect fires correctly and does not loop
+  4. API health spec: key `/api/*` routes return expected status codes
+  5. `npm run test:qa` script runs the full suite in parallel (max workers) and completes in <5 minutes on CI
+  6. Zero locale-related 404s across the test matrix
+**Plans**: TBD
+
 ### Phase 19: Free Beta Launch & GTM
 **Goal**: Product opens to a limited external audience under the UK sole-trader name; three acquisition channels tested with tracked UTMs; validation signal from behavior, not self-report.
-**Depends on**: Phase 18.1
+**Depends on**: Phase 18.2
 **Requirements**: TBD
 **Entry Gate (Phase 13 performance validation — deferred here so measurement runs against the final Phase 14 UX)**:
   - Lighthouse mobile performance >=85 on home, catalog, and song pages
