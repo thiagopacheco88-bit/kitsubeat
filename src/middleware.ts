@@ -18,6 +18,7 @@ import createIntlMiddleware from 'next-intl/middleware';
 import { routing } from '@/i18n/routing';
 
 const isAdminRoute = createRouteMatcher(["/admin(.*)", "/api/admin(.*)"]);
+const isAuthRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)"]);
 const intlMiddleware = createIntlMiddleware(routing);
 
 /**
@@ -91,7 +92,19 @@ export default clerkMiddleware(async (auth, req) => {
     }
   }
 
-  // 3. Locale routing — runs last; handles all non-admin, non-redirect routes.
+  // 3. Auth routes — Clerk's sign-in/sign-up live at root (not under [locale]),
+  // so skip intl middleware to prevent /pt-BR/sign-in 404s.
+  if (isAuthRoute(req)) {
+    return NextResponse.next();
+  }
+
+  // 4. API routes — pass through without locale prefixing.
+  // intlMiddleware rewrites /api/* → /en/api/* which has no route match → 404.
+  if (req.nextUrl.pathname.startsWith('/api/')) {
+    return NextResponse.next();
+  }
+
+  // 5. Locale routing — runs last; handles all non-admin, non-auth, non-API routes.
   // next-intl manages Accept-Language detection, kb_locale cookie, and /pt-BR/ /es/ prefixes.
   return intlMiddleware(req);
 });
