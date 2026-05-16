@@ -3,5 +3,13 @@
     { "path": "/api/cron/daily-reminder", "schedule": "0 19 * * *" },
     { "path": "/api/cron/weekly-recap",   "schedule": "0 18 * * 0" },
     { "path": "/api/cron/birthday-transitions", "schedule": "0 2 * * *" }
+  ],
+  "headers": [
+    {
+      "source": "/audio/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
   ]
 }
