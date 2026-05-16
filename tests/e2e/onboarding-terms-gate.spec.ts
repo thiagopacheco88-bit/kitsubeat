@@ -29,7 +29,7 @@ import { test, expect } from '@playwright/test';
 test.describe('onboarding-terms-gate — D-04', () => {
   test('anonymous user navigating to /songs is not redirected to /onboarding/age-gate', async ({ page }) => {
     // No auth cookie, no session — anonymous visitor
-    const response = await page.goto('/songs', { waitUntil: 'domcontentloaded', timeout: 10_000 });
+    const response = await page.goto('/songs', { waitUntil: 'domcontentloaded', timeout: 30_000 });
 
     // Anonymous users must pass through the terms gate entirely (gate is auth-only)
     expect(response?.status() ?? 200, '/songs should not 5xx for anonymous').toBeLessThan(500);
@@ -40,7 +40,7 @@ test.describe('onboarding-terms-gate — D-04', () => {
   test('/onboarding/age-gate is not redirected further — loop prevention', async ({ page }) => {
     // The isLegalOrOnboardingRoute matcher in middleware excludes /onboarding/* from the gate.
     // If this protection breaks, navigating here would cause an infinite redirect loop.
-    const response = await page.goto('/onboarding/age-gate', { waitUntil: 'domcontentloaded', timeout: 10_000 });
+    const response = await page.goto('/onboarding/age-gate', { waitUntil: 'domcontentloaded', timeout: 30_000 });
 
     // Must stay on the age-gate route (not redirect to itself or any other route).
     // Note: the route may return a 404 in some environments if the page is under a locale

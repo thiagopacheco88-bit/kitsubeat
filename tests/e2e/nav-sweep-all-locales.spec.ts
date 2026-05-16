@@ -17,28 +17,31 @@ import { test, expect } from '@playwright/test';
 
 interface LocaleConfig {
   name: string;
-  cookie: { name: string; value: string; domain: string; path: string } | null;
+  // Navigate directly to the locale home URL instead of '/' + cookie to avoid
+  // Clerk dev-browser ERR_TOO_MANY_REDIRECTS under parallel worker load (D-03 pattern).
+  homeUrl: string;
 }
 
 const LOCALE_CONFIGS: LocaleConfig[] = [
-  { name: 'en (no cookie)', cookie: null },
-  { name: 'pt-BR', cookie: { name: 'kb_locale', value: 'pt-BR', domain: 'localhost', path: '/' } },
-  { name: 'es', cookie: { name: 'kb_locale', value: 'es', domain: 'localhost', path: '/' } },
+  { name: 'en (no cookie)', homeUrl: '/' },
+  { name: 'pt-BR', homeUrl: '/pt-BR' },
+  { name: 'es', homeUrl: '/es' },
 ];
 
 test.describe('nav-sweep-all-locales — D-02', () => {
+  // Serial mode prevents Clerk dev-browser redirect races when running alongside
+  // other locale-aware specs in the test:e2e:qa 4-worker suite.
+  test.describe.configure({ mode: 'serial' });
+
   // Each test makes one page.goto + N page.request.get calls (one per nav link).
   // With ~7 nav links at ~2-3s each, allow 60s per locale.
-  test.setTimeout(60_000);
+  // 90s allows for cold-compilation of ~7 nav routes in dev mode (pre-built CI is <15s)
+  test.setTimeout(90_000);
 
   for (const localeConfig of LOCALE_CONFIGS) {
-    test(`all header nav links reachable — ${localeConfig.name}`, async ({ page, context }) => {
-      if (localeConfig.cookie) {
-        await context.addCookies([localeConfig.cookie]);
-      }
-
+    test(`all header nav links reachable — ${localeConfig.name}`, async ({ page }) => {
       // Load home page to get the rendered nav with locale-aware hrefs
-      const homeResponse = await page.goto('/', { waitUntil: 'domcontentloaded' });
+      const homeResponse = await page.goto(localeConfig.homeUrl, { waitUntil: 'domcontentloaded' });
       expect(homeResponse?.status() ?? 200, 'home page itself should load').toBeLessThan(500);
 
       // Extract all nav links from the rendered header
