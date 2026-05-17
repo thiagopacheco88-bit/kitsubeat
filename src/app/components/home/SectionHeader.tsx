@@ -28,29 +28,27 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div
-      className="mb-4 flex items-center justify-between gap-3 px-4"
+      className="mb-4 flex items-baseline gap-2 px-4"
       data-testid={testId}
     >
-      <div className="flex items-baseline gap-2 min-w-0">
-        <span
-          className="text-base font-bold text-[var(--color-text)]"
-          style={{ fontFamily: "var(--font-jp)" }}
-          data-testid="section-header-title-jp"
-        >
-          {titleJp}
-        </span>
-        <h2 className="text-xl font-semibold text-[var(--color-text)] truncate">
-          {title}
-        </h2>
-      </div>
-      {viewAll && (
+      <span
+        className="text-base font-bold text-[var(--color-text)]"
+        style={{ fontFamily: "var(--font-jp)" }}
+        data-testid="section-header-title-jp"
+      >
+        {titleJp}
+      </span>
+      {viewAll ? (
         <Link
           href={viewAll}
           aria-label={viewAllLabel}
-          className="inline-flex min-h-11 shrink-0 items-center rounded-[var(--radius-pill)] border border-[var(--color-border)] bg-[var(--color-card)] px-3 text-sm font-semibold text-[var(--color-text-muted)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
+          className="group flex items-center gap-1 text-xl font-semibold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
         >
-          {viewAllLabel}
+          <h2>{title}</h2>
+          <span className="text-base text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors">›</span>
         </Link>
+      ) : (
+        <h2 className="text-xl font-semibold text-[var(--color-text)]">{title}</h2>
       )}
     </div>
   );
