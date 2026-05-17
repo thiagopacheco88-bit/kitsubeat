@@ -103,16 +103,14 @@ export default async function RootLayout({
     <html lang={locale} className={inter.variable} data-theme={initialTheme}>
       <head>
         {/*
-          Phase 14 D-09 zero-flash script — runs before first paint to resolve 'system' theme.
+          Phase 14 D-09 zero-flash script — runs before first paint.
           SECURITY (T-14-03-01): __html is a LITERAL string. NO USER INPUT IS EVER INTERPOLATED.
           Do NOT add ${} expressions inside this script — that would create an XSS surface.
-          The regex (kb_theme=(system|light|dark)) constrains the cookie value to the enum
-          BEFORE setting the data-theme attribute — even a maliciously-set kb_theme=<script>
-          cookie value falls back to 'system' (regex doesn't match).
+          Only 'light' is accepted; everything else (including legacy 'system' cookies) → 'dark'.
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var p=document.cookie.match(/kb_theme=(system|light|dark)/);var v=p?p[1]:'system';if(v==='system')v=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',v);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
+            __html: `(function(){try{var p=document.cookie.match(/kb_theme=(light|dark)/);document.documentElement.setAttribute('data-theme',p&&p[1]==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
           }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

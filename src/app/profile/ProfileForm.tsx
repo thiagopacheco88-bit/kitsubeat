@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { updateUserPrefs, setThemePreference } from "@/app/actions/userPrefs";
 import { Button } from "@/components/ui/Button";
 
-type ThemePref = "system" | "light" | "dark";
+type ThemePref = "light" | "dark";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year (matches setThemePreference D-08)
 
 interface ProfileFormProps {
@@ -49,11 +49,11 @@ export default function ProfileForm({
   // (the layout.tsx inline script + SSR cookie read have already settled the
   // visual state; this just mirrors it into the form's local state).
   const [themePreference, setThemePreferenceLocal] =
-    useState<ThemePref>("system");
+    useState<ThemePref>("dark");
   useEffect(() => {
     const m =
       typeof document !== "undefined"
-        ? document.cookie.match(/kb_theme=(system|light|dark)/)
+        ? document.cookie.match(/kb_theme=(light|dark)/)
         : null;
     if (m) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -62,14 +62,7 @@ export default function ProfileForm({
   }, []);
 
   const handleThemeChange = async (next: ThemePref) => {
-    // Optimistic UI: apply data-theme + cookie immediately
-    const resolved =
-      next === "system"
-        ? window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light"
-        : next;
-    document.documentElement.setAttribute("data-theme", resolved);
+    document.documentElement.setAttribute("data-theme", next);
     // eslint-disable-next-line react-hooks/immutability
     document.cookie = `kb_theme=${next}; max-age=${COOKIE_MAX_AGE}; path=/; samesite=lax`;
     setThemePreferenceLocal(next);
@@ -273,7 +266,7 @@ export default function ProfileForm({
           role="radiogroup"
           aria-label="Theme preference"
         >
-          {(["system", "light", "dark"] as const).map((opt) => (
+          {(["dark", "light"] as const).map((opt) => (
             <label
               key={opt}
               className="flex min-h-11 cursor-pointer items-center gap-2"

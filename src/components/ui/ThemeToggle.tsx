@@ -29,53 +29,22 @@ import { Button } from "./Button";
 import { setThemePreference } from "@/app/actions/userPrefs";
 import { PLACEHOLDER_USER_ID } from "@/lib/user-prefs-shared";
 
-type ThemePref = "system" | "light" | "dark";
-const ORDER: readonly ThemePref[] = ["system", "light", "dark"] as const;
+type ThemePref = "light" | "dark";
+const ORDER: readonly ThemePref[] = ["dark", "light"] as const;
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year (matches server action D-08)
 
 function readCookie(): ThemePref {
-  if (typeof document === "undefined") return "system";
-  const m = document.cookie.match(/kb_theme=(system|light|dark)/);
-  return (m?.[1] as ThemePref) ?? "system";
-}
-
-function resolveSystem(value: ThemePref): "light" | "dark" {
-  if (value === "light" || value === "dark") return value;
-  // system → resolve via prefers-color-scheme
-  if (typeof window === "undefined") return "dark";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  if (typeof document === "undefined") return "dark";
+  const m = document.cookie.match(/kb_theme=(light|dark)/);
+  return (m?.[1] as ThemePref) ?? "dark";
 }
 
 function applyOptimistic(value: ThemePref): void {
-  const resolved = resolveSystem(value);
-  document.documentElement.setAttribute("data-theme", resolved);
+  document.documentElement.setAttribute("data-theme", value);
   document.cookie = `kb_theme=${value}; max-age=${COOKIE_MAX_AGE}; path=/; samesite=lax`;
 }
 
 // Inline SVG icons — no extra deps, ~150B each gzipped.
-function MonitorIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-      <line x1="8" y1="21" x2="16" y2="21" />
-      <line x1="12" y1="17" x2="12" y2="21" />
-    </svg>
-  );
-}
-
 function SunIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -128,7 +97,7 @@ interface ThemeToggleProps {
 }
 
 export function ThemeToggle({ userId = PLACEHOLDER_USER_ID }: ThemeToggleProps = {}) {
-  const [pref, setPref] = useState<ThemePref>("system");
+  const [pref, setPref] = useState<ThemePref>("dark");
   const [isPending, startTransition] = useTransition();
 
   // Read cookie on mount (avoids SSR/CSR mismatch — server didn't see this state).
@@ -159,7 +128,7 @@ export function ThemeToggle({ userId = PLACEHOLDER_USER_ID }: ThemeToggleProps =
     });
   };
 
-  const Icon = pref === "system" ? MonitorIcon : pref === "light" ? SunIcon : MoonIcon;
+  const Icon = pref === "light" ? SunIcon : MoonIcon;
   const label = `Theme: ${pref}. Click to change.`;
 
   return (

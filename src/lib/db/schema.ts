@@ -453,8 +453,8 @@ export const users = pgTable("users", {
   // Phase 12: Audio + haptics preferences (default ON per CONTEXT)
   soundEnabled: boolean("sound_enabled").notNull().default(true),
   hapticsEnabled: boolean("haptics_enabled").notNull().default(true),
-  // Phase 14: theme preference — 'system' | 'light' | 'dark' (DB CHECK enforces enum)
-  themePreference: text("theme_preference").notNull().default("system"),
+  // theme preference — 'light' | 'dark'; default dark
+  themePreference: text("theme_preference").notNull().default("dark"),
   // Phase 14.4: Virality & Engagement
   social_activity_enabled: boolean("social_activity_enabled").notNull().default(false),
   streak_saver_token: integer("streak_saver_token").notNull().default(0),

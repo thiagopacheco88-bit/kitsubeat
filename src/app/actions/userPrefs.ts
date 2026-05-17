@@ -195,7 +195,7 @@ export async function isPremium(userId: string): Promise<boolean> {
  *   (b) this server action's VALID_THEMES check throws on invalid input
  *   (c) DB CHECK constraint enforces enum at the data layer
  */
-const VALID_THEMES = ["system", "light", "dark"] as const;
+const VALID_THEMES = ["light", "dark"] as const;
 export type ThemePreference = (typeof VALID_THEMES)[number];
 
 export async function setThemePreference(
@@ -239,13 +239,14 @@ export async function setThemePreference(
 export async function getThemePreference(
   userId: string
 ): Promise<ThemePreference> {
-  if (!userId) return "system";
+  if (!userId) return "dark";
   const rows = await db
     .select({ themePreference: users.themePreference })
     .from(users)
     .where(eq(users.id, userId))
     .limit(1);
-  return (rows[0]?.themePreference as ThemePreference) ?? "system";
+  const val = rows[0]?.themePreference;
+  return val === "light" ? "light" : "dark";
 }
 
 /**
