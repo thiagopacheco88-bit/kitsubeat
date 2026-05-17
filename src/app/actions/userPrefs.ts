@@ -202,7 +202,9 @@ export async function setThemePreference(
   value: ThemePreference
 ): Promise<void> {
   const { userId } = await auth();
-  if (!userId) throw new Error("Unauthorized");
+  // Unauthenticated users: cookie already written client-side via applyOptimistic.
+  // Skip DB write but don't throw — theme persists via cookie.
+  if (!userId) return;
 
   if (!VALID_THEMES.includes(value)) {
     throw new Error(
