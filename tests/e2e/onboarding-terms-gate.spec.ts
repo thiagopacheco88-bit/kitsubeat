@@ -46,11 +46,11 @@ test.describe('onboarding-terms-gate — D-04', () => {
     await context.clearCookies();
     const response = await page.goto('/onboarding/age-gate', { waitUntil: 'domcontentloaded', timeout: 30_000 });
 
-    // Must stay on the age-gate route (not redirect to itself or any other route).
-    // Note: the route may return a 404 in some environments if the page is under a locale
-    // segment not included in the intl middleware rewrite — that is a separate concern.
-    // Loop prevention is verified purely by the URL not changing to a different path.
-    expect(response?.status() ?? 200, '/onboarding/age-gate should not 5xx').toBeLessThan(500);
+    // Must stay on the age-gate route and return 200 — a 404 here means the page
+    // is unreachable (e.g. intlMiddleware rewriting to [locale]/onboarding/age-gate
+    // which has no matching file). Loop prevention is also verified by URL not changing.
+    expect(response?.status(), '/onboarding/age-gate must return 200').toBe(200);
     await expect(page).toHaveURL(/\/onboarding\/age-gate/, { timeout: 10_000 });
+    await expect(page.locator('h1')).toContainText('Complete your profile');
   });
 });

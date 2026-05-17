@@ -123,5 +123,11 @@ test.describe("Phase 14 / theme persistence (cookie round-trip)", () => {
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark", {
       timeout: 500,
     });
+
+    // Persistence: theme must NOT revert after the server action responds.
+    // Previously, setThemePreference threw "Unauthorized" for unauthenticated
+    // users, causing the catch block to call applyOptimistic(prev) and snap back.
+    await page.waitForTimeout(3000);
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   });
 });
