@@ -5,11 +5,39 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { completeOnboarding } from "@/app/actions/onboarding";
 import { Button } from "@/components/ui/Button";
 
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+const CURRENT_YEAR = new Date().getFullYear();
+const YEARS = Array.from({ length: CURRENT_YEAR - 1919 }, (_, i) => CURRENT_YEAR - i);
+const DAYS = Array.from({ length: 31 }, (_, i) => i + 1);
+
 function getAgeFromDob(dob: string): number {
   const d = new Date(dob);
   const now = new Date();
   return (now.getTime() - d.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
 }
+
+// Parse YYYY-MM-DD into {year, month, day} parts for pre-filling selects
+function parseDob(dob: string): { year: string; month: string; day: string } {
+  const [y, m, d] = dob.split("-");
+  return {
+    year: y ?? "",
+    month: m ? String(parseInt(m, 10)) : "",
+    day: d ? String(parseInt(d, 10)) : "",
+  };
+}
+
+// Build YYYY-MM-DD from parts, returns "" if any part is missing
+function buildDob(year: string, month: string, day: string): string {
+  if (!year || !month || !day) return "";
+  return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+}
+
+const selectClass =
+  "rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 focus:border-[var(--color-border-strong)] min-h-[44px] w-full";
 
 interface AgeGateFormProps {
   initialDob?: string; // pre-filled from DB for returning users (YYYY-MM-DD)
@@ -20,28 +48,48 @@ export function AgeGateForm({ initialDob }: AgeGateFormProps) {
   const searchParams = useSearchParams();
   const blockerRef = useRef<HTMLHeadingElement>(null);
 
-  const [dob, setDob] = useState(initialDob ?? "");
+  const parsed = initialDob ? parseDob(initialDob) : null;
+  const [dobDay, setDobDay] = useState(parsed?.day ?? "");
+  const [dobMonth, setDobMonth] = useState(parsed?.month ?? "");
+  const [dobYear, setDobYear] = useState(parsed?.year ?? "");
   const [termsChecked, setTermsChecked] = useState(false);
-  const [showMinorStep, setShowMinorStep] = useState(() =>
-    initialDob ? getAgeFromDob(initialDob) < 18 && getAgeFromDob(initialDob) >= 13 : false
-  );
+  const [showMinorStep, setShowMinorStep] = useState(() => {
+    if (!initialDob) return false;
+    const age = getAgeFromDob(initialDob);
+    return age >= 13 && age < 18;
+  });
   const [minorConfirmed, setMinorConfirmed] = useState(false);
   const [isUnder13, setIsUnder13] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  function onDobChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const value = e.target.value;
-    setDob(value);
+  function onSelectChange(
+    field: "day" | "month" | "year",
+    value: string,
+    currentDay = dobDay,
+    currentMonth = dobMonth,
+    currentYear = dobYear
+  ) {
+    const next = {
+      day: field === "day" ? value : currentDay,
+      month: field === "month" ? value : currentMonth,
+      year: field === "year" ? value : currentYear,
+    };
+
+    if (field === "day") setDobDay(value);
+    if (field === "month") setDobMonth(value);
+    if (field === "year") setDobYear(value);
+
     setErrorMessage("");
 
-    if (!value) {
+    const dob = buildDob(next.year, next.month, next.day);
+    if (!dob) {
       setShowMinorStep(false);
       setIsUnder13(false);
       return;
     }
 
-    const age = getAgeFromDob(value);
+    const age = getAgeFromDob(dob);
     if (age < 13) {
       setShowMinorStep(false);
       setIsUnder13(false);
@@ -58,6 +106,7 @@ export function AgeGateForm({ initialDob }: AgeGateFormProps) {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    const dob = buildDob(dobYear, dobMonth, dobDay);
     if (!dob || !termsChecked) return;
     if (showMinorStep && !minorConfirmed) return;
 
@@ -75,7 +124,7 @@ export function AgeGateForm({ initialDob }: AgeGateFormProps) {
       } else if (result.error) {
         setErrorMessage(
           result.error === "invalid_date"
-            ? "Please enter a valid date of birth (day, month, year)."
+            ? "Please select a valid date of birth."
             : "Something went wrong. Please try again."
         );
       } else {
@@ -89,6 +138,7 @@ export function AgeGateForm({ initialDob }: AgeGateFormProps) {
     }
   }
 
+  const dob = buildDob(dobYear, dobMonth, dobDay);
   const isSubmitDisabled =
     !dob || !termsChecked || (showMinorStep && !minorConfirmed);
 
@@ -131,24 +181,58 @@ export function AgeGateForm({ initialDob }: AgeGateFormProps) {
         </p>
 
         <form onSubmit={onSubmit} noValidate>
-          <div>
-            <label
-              htmlFor="dob"
-              className="block text-sm font-medium text-[var(--color-text)] mb-1"
-            >
+          <fieldset>
+            <legend className="block text-sm font-medium text-[var(--color-text)] mb-2">
               Date of birth
-            </label>
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              value={dob}
-              onChange={onDobChange}
-              aria-describedby="dob-error"
-              className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/40 focus:border-[var(--color-border-strong)] min-h-[44px] w-full"
-              required
-            />
-          </div>
+            </legend>
+            <div className="grid grid-cols-3 gap-2" aria-describedby="dob-error">
+              <div>
+                <label htmlFor="dob-day" className="sr-only">Day</label>
+                <select
+                  id="dob-day"
+                  value={dobDay}
+                  onChange={(e) => onSelectChange("day", e.target.value)}
+                  className={selectClass}
+                  required
+                >
+                  <option value="">Day</option>
+                  {DAYS.map((d) => (
+                    <option key={d} value={String(d)}>{d}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="dob-month" className="sr-only">Month</label>
+                <select
+                  id="dob-month"
+                  value={dobMonth}
+                  onChange={(e) => onSelectChange("month", e.target.value)}
+                  className={selectClass}
+                  required
+                >
+                  <option value="">Month</option>
+                  {MONTHS.map((name, i) => (
+                    <option key={name} value={String(i + 1)}>{name}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="dob-year" className="sr-only">Year</label>
+                <select
+                  id="dob-year"
+                  value={dobYear}
+                  onChange={(e) => onSelectChange("year", e.target.value)}
+                  className={selectClass}
+                  required
+                >
+                  <option value="">Year</option>
+                  {YEARS.map((y) => (
+                    <option key={y} value={String(y)}>{y}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </fieldset>
 
           <label
             htmlFor="terms-accept"
