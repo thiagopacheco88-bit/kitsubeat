@@ -92,9 +92,12 @@ export default clerkMiddleware(async (auth, req) => {
     }
   }
 
-  // 3. Auth routes — Clerk's sign-in/sign-up live at root (not under [locale]),
-  // so skip intl middleware to prevent /pt-BR/sign-in 404s.
+  // 3. Auth + onboarding routes live at root (not under [locale]),
+  // so skip intl middleware to prevent /pt-BR/sign-in or /en/onboarding 404s.
   if (isAuthRoute(req)) {
+    return NextResponse.next();
+  }
+  if (req.nextUrl.pathname.startsWith("/onboarding")) {
     return NextResponse.next();
   }
 
