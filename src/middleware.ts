@@ -107,7 +107,13 @@ export default clerkMiddleware(async (auth, req) => {
     return NextResponse.next();
   }
 
-  // 5. Locale routing — runs last; handles all non-admin, non-auth, non-API routes.
+  // 5. Legal pages live at root (not under [locale]) — pass through without locale prefixing.
+  // intlMiddleware would create a redirect loop: /legal/terms → /en/legal/terms → /legal/terms.
+  if (req.nextUrl.pathname.startsWith('/legal')) {
+    return NextResponse.next();
+  }
+
+  // 6. Locale routing — runs last; handles all non-admin, non-auth, non-API routes.
   // next-intl manages Accept-Language detection, kb_locale cookie, and /pt-BR/ /es/ prefixes.
   return intlMiddleware(req);
 });
