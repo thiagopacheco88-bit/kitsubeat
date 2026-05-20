@@ -38,7 +38,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
 
   const links = [
     { href: "/path", label: "Path" },
-    { href: "/anime-list", label: "Songs" },
+    { href: "/songs", label: "Songs" },
     { href: "/kana", label: "Kana" },
     { href: "/journal", label: "Journal" },
     { href: "/vocabulary", label: "Progress" },

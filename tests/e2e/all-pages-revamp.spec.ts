@@ -59,6 +59,9 @@ test.describe("revamp all pages smoke", () => {
 });
 
 test.describe("locale prefixed routes smoke", () => {
+  // Serial: locale home pages are SSR-heavy; parallel compilation in dev
+  // causes 30s+ timeouts. Same pattern as i18n-nav-locale-matrix.spec.ts.
+  test.describe.configure({ mode: "serial" });
   for (const locale of nonDefaultLocales) {
     for (const route of localizedRoutes) {
       const fullRoute = `/${locale}${route === "/" ? "" : route}`;

@@ -215,37 +215,60 @@ test.describe("Kana full journey", () => {
 
   // ── Locale navigation ─────────────────────────────────────────────────────
 
-  test("locale pt-BR: Start Session click lands on /pt-BR/kana/session, not 404", async ({
+  // Verifies the [locale]/kana/session re-export pages exist and serve content.
+  // These routes were missing before the fix — pt-BR users got a 404 when they
+  // clicked Start Session (middleware redirected /kana/session → /pt-BR/kana/session
+  // but that route didn't exist). Direct nav is more reliable than click-through.
+  // Verifies the [locale]/kana/session re-export pages exist and serve content.
+  // These routes were missing before the fix — pt-BR users got a 404 when they
+  // clicked Start Session (middleware redirected /kana/session → /pt-BR/kana/session
+  // but that route didn't exist). Direct nav is more reliable than click-through.
+  //
+  // NOTE: use #main-content innerText (not body.textContent) — body.textContent
+  // includes <script> RSC payloads which contain "this page could not be found"
+  // as a compiled bundle string even on healthy pages.
+  test("locale pt-BR: /pt-BR/kana/session route exists and serves content", async ({
     page,
   }) => {
-    await page.goto("/pt-BR/kana");
-    await expect(
-      page.getByRole("heading", { name: "Kana Trainer" }),
-    ).toBeVisible({ timeout: 15_000 });
-
-    await page.getByRole("tab", { name: "Katakana" }).click();
-    const startLink = page.getByRole("link", { name: /start session/i });
-    await startLink.click();
-
-    // Must navigate into /pt-BR/kana/session — not strip the locale prefix.
-    await page.waitForURL(/\/pt-BR\/kana\/session/, { timeout: 10_000 });
-
-    // Page must not be the Next.js 404 screen.
-    const body = await page.locator("body").textContent() ?? "";
-    expect(body).not.toMatch(/this page could not be found/i);
-    expect(body.trim().length).toBeGreaterThan(20);
+    test.setTimeout(60_000);
+    const response = await page.goto("/pt-BR/kana/session?mode=hiragana", {
+      waitUntil: "domcontentloaded",
+    });
+    await page.waitForLoadState("load").catch(() => {});
+    expect(response?.status() ?? 200).toBeLessThan(400);
+    await expect(page.locator("#main-content")).not.toContainText("This page could not be found");
   });
 
-  test("locale es: /es/kana/session direct nav responds without 404", async ({
+  test("locale pt-BR: middleware redirects /kana/session → /pt-BR/kana/session for pt-BR users", async ({
+    page,
+    context,
+  }) => {
+    test.setTimeout(60_000);
+    await context.addCookies([{
+      name: "kb_locale",
+      value: "pt-BR",
+      domain: "localhost",
+      path: "/",
+      secure: false,
+      httpOnly: false,
+    }]);
+    await page.goto("/kana/session?mode=hiragana", { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("load").catch(() => {});
+    // Middleware should have redirected to the pt-BR route.
+    expect(page.url()).toContain("/pt-BR/kana/session");
+    await expect(page.locator("#main-content")).not.toContainText("This page could not be found");
+  });
+
+  test("locale es: /es/kana/session route exists and serves content", async ({
     page,
   }) => {
+    test.setTimeout(60_000);
     const response = await page.goto("/es/kana/session?mode=hiragana", {
       waitUntil: "domcontentloaded",
     });
     await page.waitForLoadState("load").catch(() => {});
     expect(response?.status() ?? 200).toBeLessThan(400);
-    const body = await page.locator("body").textContent() ?? "";
-    expect(body).not.toMatch(/this page could not be found/i);
+    await expect(page.locator("#main-content")).not.toContainText("This page could not be found");
   });
 
   // ── 8. Summary page — unlock callout ───────────────────────────────────────

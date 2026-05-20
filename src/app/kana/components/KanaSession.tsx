@@ -2,7 +2,7 @@
 
 /* eslint-disable react-hooks/refs */
 
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useKanaProgress } from "@/stores/kanaProgress";
 import {

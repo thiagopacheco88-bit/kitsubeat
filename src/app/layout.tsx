@@ -195,7 +195,7 @@ export default async function RootLayout({
                   {t('nav.path')}
                 </Link>
                 <Link
-                  href="/anime-list"
+                  href="/songs"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
                   {t('nav.songs')}

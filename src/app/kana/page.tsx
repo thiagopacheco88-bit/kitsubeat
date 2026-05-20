@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useKanaProgress } from "@/stores/kanaProgress";

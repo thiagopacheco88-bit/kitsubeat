@@ -31,7 +31,7 @@
  * - Next session + Back to grid CTAs tokenized; primary uses --color-accent.
  */
 
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { useEffect, useMemo, useRef } from "react";
 import { useKanaProgress } from "@/stores/kanaProgress";
 import { HIRAGANA_ROWS, KATAKANA_ROWS } from "@/lib/kana/chart";
