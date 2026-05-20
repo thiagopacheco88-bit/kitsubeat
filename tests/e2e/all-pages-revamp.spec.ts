@@ -21,6 +21,24 @@ const staticRoutes = [
   "/__dev/states",
 ] as const;
 
+// Routes that have [locale] variants. Excludes admin, dev, auth (no locale prefix),
+// and dynamic [slug] routes that require a known slug at test time.
+const localizedRoutes = [
+  "/",
+  "/kana",
+  "/kana/session",
+  "/kana/session/summary",
+  "/songs",
+  "/vocabulary",
+  "/path",
+  "/review",
+  "/profile",
+  "/anime-list",
+  "/journal",
+] as const;
+
+const nonDefaultLocales = ["pt-BR", "es"] as const;
+
 test.describe("revamp all pages smoke", () => {
   for (const route of staticRoutes) {
     test(`${route} renders without page-level mobile overflow`, async ({
@@ -38,6 +56,26 @@ test.describe("revamp all pages smoke", () => {
     });
   }
 
+});
+
+test.describe("locale prefixed routes smoke", () => {
+  for (const locale of nonDefaultLocales) {
+    for (const route of localizedRoutes) {
+      const fullRoute = `/${locale}${route === "/" ? "" : route}`;
+      test(`${fullRoute} responds without error`, async ({ page }) => {
+        const response = await page.goto(fullRoute, {
+          waitUntil: "domcontentloaded",
+        });
+        await page.waitForLoadState("load").catch(() => {});
+        // Must not be a 4xx or 5xx — redirects (3xx) are fine (auth-gated pages
+        // redirect to sign-in, which Playwright follows and resolves to 200).
+        expect(response?.status() ?? 200).toBeLessThan(400);
+      });
+    }
+  }
+});
+
+test.describe("revamp all pages smoke — admin", () => {
   test("/admin/timing/[songId] renders when a timing row is available", async ({
     page,
   }) => {

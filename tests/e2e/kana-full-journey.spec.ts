@@ -213,6 +213,41 @@ test.describe("Kana full journey", () => {
     expect(bodyText).toMatch(/4\s*\/\s*5/);
   });
 
+  // ── Locale navigation ─────────────────────────────────────────────────────
+
+  test("locale pt-BR: Start Session click lands on /pt-BR/kana/session, not 404", async ({
+    page,
+  }) => {
+    await page.goto("/pt-BR/kana");
+    await expect(
+      page.getByRole("heading", { name: "Kana Trainer" }),
+    ).toBeVisible({ timeout: 15_000 });
+
+    await page.getByRole("tab", { name: "Katakana" }).click();
+    const startLink = page.getByRole("link", { name: /start session/i });
+    await startLink.click();
+
+    // Must navigate into /pt-BR/kana/session — not strip the locale prefix.
+    await page.waitForURL(/\/pt-BR\/kana\/session/, { timeout: 10_000 });
+
+    // Page must not be the Next.js 404 screen.
+    const body = await page.locator("body").textContent() ?? "";
+    expect(body).not.toMatch(/this page could not be found/i);
+    expect(body.trim().length).toBeGreaterThan(20);
+  });
+
+  test("locale es: /es/kana/session direct nav responds without 404", async ({
+    page,
+  }) => {
+    const response = await page.goto("/es/kana/session?mode=hiragana", {
+      waitUntil: "domcontentloaded",
+    });
+    await page.waitForLoadState("load").catch(() => {});
+    expect(response?.status() ?? 200).toBeLessThan(400);
+    const body = await page.locator("body").textContent() ?? "";
+    expect(body).not.toMatch(/this page could not be found/i);
+  });
+
   // ── 8. Summary page — unlock callout ───────────────────────────────────────
 
   test("summary page: shows unlock callout when rows unlocked during session [kb-quarantine]", async ({

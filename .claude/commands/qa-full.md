@@ -38,8 +38,9 @@ Run the complete Playwright end-to-end test suite and report results. Covers all
 | Loading & transitions | `loading-transitions`, `reduced-motion`, `home-reduced-motion`, `path-reduced-motion` |
 | Admin (all tools) | `admin-auth`, `admin-lyrics-shell`, `admin-deep` |
 | Kana full journey | `kana-full-journey`, `path-kana-checkpoint-nav` |
+| Locale routing (all languages) | `all-pages-revamp` (locale prefixed suite), `kana-full-journey` (locale nav tests), `i18n-language-picker`, `i18n-locale-routing`, `i18n-text-deep` |
 | Path / Trilha | `path-deep-journey`, `path-visual-light`, `path-visual-dark`, `path-a11y`, `path-continue-anchor`, `gamification-path` |
-| Token popup & exercises | `token-popup-exercises`, `exercise-session-full`, `exercise-tab-tracks`, `exercise-progress-fsrs` |
+| Token popup & exercises | `token-popup-exercises`, `exercise-session-full`, `exercise-tab-tracks`, `exercise-progress-fsrs`, `exercise-audio` |
 | Player | `player-load`, `player-panels`, `player-sync-and-seek`, `player-lesson-toggles`, `iframe-defer` |
 | Home | `home-and-browse`, `home-above-fold-auth`, `home-above-fold-unauth`, `home-foundations`, `home-section-narrative` |
 | Regression | `regression-geo-fallback`, `regression-cross-song-leak`, `regression-premium-gate`, `flagged-song-404` |
