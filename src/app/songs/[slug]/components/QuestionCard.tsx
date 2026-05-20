@@ -7,6 +7,7 @@ import { recordVocabAnswer } from "@/app/actions/exercises";
 import TierText from "./TierText";
 import FeedbackPanel from "./FeedbackPanel";
 import type { Tier } from "@/lib/fsrs/tier";
+import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "@/lib/tts";
 
 interface QuestionCardProps {
   question: Question;
@@ -28,6 +29,14 @@ interface QuestionCardProps {
 }
 
 
+function SpeakerIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+      <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.241 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 01-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06zM15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.06 4.5 4.5 0 000-6.366.75.75 0 010-1.06z" />
+    </svg>
+  );
+}
+
 export default function QuestionCard({
   question,
   onAnswered,
@@ -40,6 +49,11 @@ export default function QuestionCard({
   const [isCorrect, setIsCorrect] = useState(false);
   const startTimeRef = useRef<number>(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
+  // Tracks the last question ID we auto-played, so React StrictMode's double-effect
+  // invocation doesn't cancel+restart the utterance and produce garbled audio.
+  const lastAutoPlayedRef = useRef<string | null>(null);
+  // SSR-safe: false on server, set to real value on first client effect.
+  const [voiceReady, setVoiceReady] = useState(false);
 
   // Pull tier state from the session store
   const { tiers, revealedQuestionIds, markRevealed, setTier } =
@@ -70,6 +84,36 @@ export default function QuestionCard({
   useEffect(() => {
     startTimeRef.current = performance.now();
   }, [question.id]);
+
+  useEffect(() => {
+    // Check immediately on client mount, then update if voices load async (Chromium)
+    setVoiceReady(hasJapaneseVoice());
+    return onVoicesChanged(() => setVoiceReady(hasJapaneseVoice()));
+  }, []);
+
+  // Auto-play when question is Japanese (vocab_meaning, reading_match).
+  // voiceReady included so the play fires when voices load async on first mount.
+  // lastAutoPlayedRef gates against React StrictMode's double-effect invocation,
+  // which would cancel+restart the utterance and produce garbled audio.
+  useEffect(() => {
+    if (!voiceReady) return;
+    if (question.type === "vocab_meaning") {
+      if (lastAutoPlayedRef.current !== question.id) {
+        lastAutoPlayedRef.current = question.id;
+        speakJapanese(question.vocabInfo.reading);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [question.id, voiceReady]);
+
+  // Auto-play correct answer when answer is Japanese (meaning_vocab, fill_lyric)
+  useEffect(() => {
+    if (!voiceReady || chosen === null) return;
+    if (question.type === "meaning_vocab" || question.type === "fill_lyric") {
+      speakJapanese(question.vocabInfo.reading);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chosen]);
 
   // Shuffle options ONCE per question ID (stable across re-renders)
   const options = useMemo(
@@ -226,8 +270,20 @@ export default function QuestionCard({
         <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
           {question.type.replace(/_/g, " ")}
         </p>
-        <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
-          {renderPrompt()}
+        <div className="flex items-start justify-between gap-2">
+          <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
+            {renderPrompt()}
+          </div>
+          {chosen !== null && voiceReady && (question.type === "vocab_meaning" || question.type === "reading_match") && (
+            <button
+              type="button"
+              onClick={() => speakJapanese(question.vocabInfo.reading)}
+              aria-label="Play pronunciation"
+              className="inline-flex h-11 w-11 min-h-11 min-w-11 flex-shrink-0 items-center justify-center rounded-full text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
+            >
+              <SpeakerIcon />
+            </button>
+          )}
         </div>
       </div>
 
@@ -258,6 +314,19 @@ export default function QuestionCard({
           </li>
         ))}
       </ul>
+
+      {/* Repeat button for Japanese-answer types — visible after answering */}
+      {chosen !== null && voiceReady && (question.type === "meaning_vocab" || question.type === "fill_lyric") && (
+        <button
+          type="button"
+          onClick={() => speakJapanese(question.vocabInfo.reading)}
+          aria-label="Hear answer"
+          className="inline-flex items-center gap-2 self-start rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+        >
+          <SpeakerIcon />
+          Hear answer
+        </button>
+      )}
 
       {/* Inline feedback — shown after answering */}
       {chosen !== null && (
