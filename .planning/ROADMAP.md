@@ -1,19 +1,19 @@
-# Roadmap: KitsuBeat
+﻿# Roadmap: KitsuBeat
 
 ## Overview
 
-KitsuBeat is built in six phases that follow strict dependency order: content must exist before the player can render it, the player must prove its learning value before auth adds friction, auth must gate access before payments can charge for it, and exercises layer on top of a proven player. The pipeline is: pre-generate all 200 lessons offline → build the synced player → add accounts and catalog → add AI search and billing → add exercises and gamification → add Anki export. Every phase delivers a complete, independently verifiable capability before the next begins.
+KitsuBeat is built in six phases that follow strict dependency order: content must exist before the player can render it, the player must prove its learning value before auth adds friction, auth must gate access before payments can charge for it, and exercises layer on top of a proven player. The pipeline is: pre-generate all 200 lessons offline â†’ build the synced player â†’ add accounts and catalog â†’ add AI search and billing â†’ add exercises and gamification â†’ add Anki export. Every phase delivers a complete, independently verifiable capability before the next begins.
 
 v2.0 adds 5 phases (7-11) that transform KitsuBeat from a passive listening tool into an active learning platform: a normalized vocabulary identity layer enables all progress tracking; the exercise engine delivers the core learning loop; a standalone kana trainer runs in parallel; advanced exercises unlock the full 3-star mastery system; cross-song vocabulary tracking becomes the platform differentiator.
 
-v3.0 takes the feature-complete product to launch: a curated beginner→advanced learning path with XP/streaks/levels (gamification replaces the old Phase 12 anime-scene slot); performance, UX polish, analytics/Sentry, security review, and a DIY legal deep-dive (no lawyer for v1); then free beta under a UK sole-trader with tracked GTM channels. v4.0 restores anime scenes as unlock rewards and expands content/community once the product has validated.
+v3.0 takes the feature-complete product to launch: a curated beginnerâ†’advanced learning path with XP/streaks/levels (gamification replaces the old Phase 12 anime-scene slot); performance, UX polish, analytics/Sentry, security review, and a DIY legal deep-dive (no lawyer for v1); then free beta under a UK sole-trader with tracked GTM channels. v4.0 restores anime scenes as unlock rewards and expands content/community once the product has validated.
 
 ## Milestones
 
-- 🚧 **v1.0 Core Learning Experience** - Phases 1-6 (in progress)
-- 🚧 **v2.0 Exercise & Learning System** - Phases 7-11 (Phase 12 moved to v4.0)
-- 📋 **v3.0 Launch Readiness** - Phases 12-20 (planned — gamified learning path, legal/security hardening, UI internationalization PT-BR/ES, free beta launch under UK sole trader)
-- 📋 **v4.0 Content Expansion** - Phase 21+ (post-launch — anime scenes, cultural vocabulary, community, monetization if not already live)
+- ðŸš§ **v1.0 Core Learning Experience** - Phases 1-6 (in progress)
+- ðŸš§ **v2.0 Exercise & Learning System** - Phases 7-11 (Phase 12 moved to v4.0)
+- ðŸ“‹ **v3.0 Launch Readiness** - Phases 12-20 (planned â€” gamified learning path, legal/security hardening, UI internationalization PT-BR/ES, free beta launch under UK sole trader)
+- ðŸ“‹ **v4.0 Content Expansion** - Phase 21+ (post-launch â€” anime scenes, cultural vocabulary, community, monetization if not already live)
 
 ## Phases
 
@@ -39,25 +39,26 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 9: Kana Trainer** - Deliver a standalone hiragana/katakana trainer with row-by-row unlock and SRS-lite 10-star mastery
 - [x] **Phase 10: Advanced Exercises & Full Mastery** - Add grammar conjugation, listening drill, and sentence order exercises to complete the 3-star system (completed 2026-04-18)
 - [x] **Phase 11: Cross-Song Vocabulary** - Surface vocabulary mastery across all songs and deliver the premium cross-song review dashboard (completed 2026-04-18)
-- [x] **Phase 11.1: Add-Song Pipeline** - INSERTED 2026-04-19 - Durable CLI pipeline for adding new songs end-to-end (discovery → lyrics/timing → lesson → DB) with validation gates surfaced by the TV backfill. Decimal-shifted from "Phase 12" to free the slot for v3.0 gamification. Draft CONTEXT at [.planning/phases/11.1-add-song-pipeline/11.1-CONTEXT.md](phases/11.1-add-song-pipeline/11.1-CONTEXT.md)
-- [x] **Phase 11.2: TV-Derive Rework with Demucs + Needleman-Wunsch** - INSERTED 2026-04-26 - Catalog-wide repair of all 60 TV-version song lessons. Replace 10b's per-verse romaji LCS (which scatters matches and trips MAX_SPAN_RATIO even on clean Demucs-stem WhisperX input) with Needleman-Wunsch global alignment. Adds TV Demucs+WhisperX pipeline (yt-dlp → htdemucs → WhisperX large-v3 ja → NW vs full lesson → segment-anchored verse projection → 10c-load). Surfaced after sign-flow TV cut shipped broken on Vercel. Draft CONTEXT at [.planning/phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md](phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md) — Completed 2026-04-27
+- [x] **Phase 11.1: Add-Song Pipeline** - INSERTED 2026-04-19 - Durable CLI pipeline for adding new songs end-to-end (discovery â†’ lyrics/timing â†’ lesson â†’ DB) with validation gates surfaced by the TV backfill. Decimal-shifted from "Phase 12" to free the slot for v3.0 gamification. Draft CONTEXT at [.planning/phases/11.1-add-song-pipeline/11.1-CONTEXT.md](phases/11.1-add-song-pipeline/11.1-CONTEXT.md)
+- [x] **Phase 11.2: TV-Derive Rework with Demucs + Needleman-Wunsch** - INSERTED 2026-04-26 - Catalog-wide repair of all 60 TV-version song lessons. Replace 10b's per-verse romaji LCS (which scatters matches and trips MAX_SPAN_RATIO even on clean Demucs-stem WhisperX input) with Needleman-Wunsch global alignment. Adds TV Demucs+WhisperX pipeline (yt-dlp â†’ htdemucs â†’ WhisperX large-v3 ja â†’ NW vs full lesson â†’ segment-anchored verse projection â†’ 10c-load). Surfaced after sign-flow TV cut shipped broken on Vercel. Draft CONTEXT at [.planning/phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md](phases/11.2-tv-derive-rework-demucs-nw/11.2-CONTEXT.md) â€” Completed 2026-04-27
 - [x] **Phase 11.3: Fix Untranslated JP Verses** - INSERTED 2026-04-26 - Catalog-wide retranslation of 970 broken JP verses across 102 of 274 songs (likely a side effect of bec890c's lesson-prompt coverage rule causing the LLM to emit single-token "(untranslated lyric line)" stubs instead of tokenising/translating filler lines). Local-LLM (Ollama) drafts using whole-song context + neighbour-verse translations as anchors, inline review for high-difficulty verses, splice via existing verse-patch infrastructure. Draft CONTEXT at [.planning/phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md](phases/11.3-fix-untranslated-jp-verses/11.3-CONTEXT.md) (completed 2026-04-27)
-- [ ] **Phase 11.4: Visual Vocabulary Foundation** - INSERTED 2026-04-28 - Add `image_url` infrastructure to `vocabulary_items` and conditionally render images on LearnCard (first encounter) and FeedbackPanel (after answer) when present. Curate 50 Unsplash CC0 images for top-frequency concrete vocab as the validation set. Foundation only — full 1,409-word rollout deferred to v4.0.
-- [ ] **Phase 11.6: Beginner-Focused Practice Redesign** - INSERTED 2026-05-01 - Restructure practice into three parallel tracks (Vocabulary / Grammar / Kanji), strip furigana-teaching from Vocab+Grammar (romaji + translation focus), add Kanji track with ComfyUI-batched mnemonic images, split per-word progress into dual FSRS cards (romaji-meaning + kanji-kana), JLPT-ordered queue (N5→N1), lag-tested scheduling (no immediate-recall tests), romaji-typing exercise variant, 80% per-song unlock for Advanced Drills with three-ring UI, per-verse "domination" state with star badge + inline animation. Spec to be locked in 11.6-SPEC.md.
-- ➡️ **Phase 12: Anime Scenes & Cultural Vocabulary** - **MOVED** to v4.0 as Phase 21 (deferred until after v3.0 launch)
+- [ ] **Phase 11.4: Visual Vocabulary Foundation** - INSERTED 2026-04-28 - Add `image_url` infrastructure to `vocabulary_items` and conditionally render images on LearnCard (first encounter) and FeedbackPanel (after answer) when present. Curate 50 Unsplash CC0 images for top-frequency concrete vocab as the validation set. Foundation only â€” full 1,409-word rollout deferred to v4.0.
+- [ ] **Phase 11.6: Beginner-Focused Practice Redesign** - INSERTED 2026-05-01 - Restructure practice into three parallel tracks (Vocabulary / Grammar / Kanji), strip furigana-teaching from Vocab+Grammar (romaji + translation focus), add Kanji track with ComfyUI-batched mnemonic images, split per-word progress into dual FSRS cards (romaji-meaning + kanji-kana), JLPT-ordered queue (N5â†’N1), lag-tested scheduling (no immediate-recall tests), romaji-typing exercise variant, 80% per-song unlock for Advanced Drills with three-ring UI, per-verse "domination" state with star badge + inline animation. Spec to be locked in 11.6-SPEC.md.
+- âž¡ï¸ **Phase 12: Anime Scenes & Cultural Vocabulary** - **MOVED** to v4.0 as Phase 21 (deferred until after v3.0 launch)
 
 ### v3.0 Launch Readiness
 
-- [x] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginner→advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0 (completed 2026-04-19)
-- [x] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate — measurement against pages about to be redesigned in Phase 14 would be wasted work.)
+- [x] **Phase 12: Learning Path & Gamification** - Replace "any song, any time" with a curated beginnerâ†’advanced path; XP, streaks, levels, unlock gates; scene-reward slots scaffolded for v4.0 (completed 2026-04-19)
+- [x] **Phase 13: Performance Infrastructure** - Bundle budgets in CI; lesson cache on repeat visits; deferred YouTube iframe. (Lighthouse/LCP/TTI targets moved to Phase 19 entry gate â€” measurement against pages about to be redesigned in Phase 14 would be wasted work.)
  (completed 2026-05-01)
 - [x] **Phase 14: UX Polish** - Design system tokenized; mobile parity; purposeful microinteractions; empty/loading/error states across every surface (completed 2026-05-02)
-- [x] **Phase 14.6: Journal — Organic Traffic & Content Hub** - INSERTED 2026-05-10 - MDX-backed `/journal` section for anime culture lore, song translations, and Japanese language explainers; session-14 design system; full SEO layer (OG tags, sitemap, schema.org/Article); Subutai-compatible MDX pipeline in `src/content/journal/` (completed 2026-05-10)
-- [x] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup → first star → day-7 return); Sentry client+server with source maps; consent-gated (completed 2026-05-08)
+- [x] **Phase 14.6: Journal â€” Organic Traffic & Content Hub** - INSERTED 2026-05-10 - MDX-backed `/journal` section for anime culture lore, song translations, and Japanese language explainers; session-14 design system; full SEO layer (OG tags, sitemap, schema.org/Article); Subutai-compatible MDX pipeline in `src/content/journal/` (completed 2026-05-10)
+- [x] **Phase 15: Analytics & Error Tracking** - PostHog/Plausible on the funnel (signup â†’ first star â†’ day-7 return); Sentry client+server with source maps; consent-gated (completed 2026-05-08)
 - [x] **Phase 16: Security Review & Incident Response** - Supabase RLS audit; server-action authz audit; secrets scan; rate limits on writes; written IR runbook (completed 2026-05-10)
-- [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA — produces requirements checklist
+- [ ] **Phase 17: Legal & Copyright Deep-Dive (Research)** - DIY analysis of copyright (YouTube/LRCLIB/WhisperX), UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, EAA â€” produces requirements checklist
 - [ ] **Phase 18: Legal & Compliance Implementation** - T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, WCAG 2.1 AA baseline, age gating, support channel
-- [x] **Phase 18.2: Pre-Launch QA Safety Net** - INSERTED 2026-05-16 - Locale-journey matrix (all 3 locales × key nav actions), full nav sweep spec, onboarding/terms gate smoke, API health checks, parallel runner config — gives a single `npm run test:qa` command with reliable signal before any major change (completed 2026-05-16)
+- [x] **Phase 18.2: Pre-Launch QA Safety Net** - INSERTED 2026-05-16 - Locale-journey matrix (all 3 locales Ã— key nav actions), full nav sweep spec, onboarding/terms gate smoke, API health checks, parallel runner config â€” gives a single `npm run test:qa` command with reliable signal before any major change
+ (completed 2026-05-16)
 - [ ] **Phase 19: Free Beta Launch & GTM** - Landing page, 3 acquisition channels with UTMs, 50+ signups / 20+ complete-session / 20%+ day-7 return; entity-formation decision point
 - [ ] **Phase 20: Code Quality & Test Coverage Pass** - Integration tests on critical paths, strict types across shared modules, ADRs, resolve deferred-items backlog
 
@@ -65,7 +66,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 21: Anime Scenes & Cultural Vocabulary** - Extend the content universe with iconic anime scenes and anime-anchored cultural vocabulary drills, distributed as Phase 12 unlock rewards (was v2.0 Phase 12)
 - [ ] **Phase 23: Native App Decision Point** - Retention-gated go/no-go on a native app (iOS/Android via React Native or PWA-first); decision only, not build. (Phase 22 reserved for Monetization per Phase 19 exit criteria.)
-- [ ] **Phase 24: UX Polish via Impeccable Design System** - Run [pbakaus/impeccable](https://github.com/pbakaus/impeccable) skill + commands (`/impeccable critique`, `/impeccable audit`, `/impeccable polish`) over the high-traffic surfaces individually (player, song detail, exercises, learn card, kana trainer, dashboard, gamification HUD) to fight LLM design defaults — bespoke typography/color/motion that match KitsuBeat's anime/learning identity. Element-by-element pass once Impeccable stabilizes; not a rewrite.
+- [ ] **Phase 24: UX Polish via Impeccable Design System** - Run [pbakaus/impeccable](https://github.com/pbakaus/impeccable) skill + commands (`/impeccable critique`, `/impeccable audit`, `/impeccable polish`) over the high-traffic surfaces individually (player, song detail, exercises, learn card, kana trainer, dashboard, gamification HUD) to fight LLM design defaults â€” bespoke typography/color/motion that match KitsuBeat's anime/learning identity. Element-by-element pass once Impeccable stabilizes; not a rewrite.
 
 ## Phase Details
 
@@ -95,7 +96,7 @@ Plans:
 **Depends on**: Phase 1
 **Requirements**: PLAY-01, PLAY-02, PLAY-03, PLAY-04, PLAY-05, PLAY-06, PLAY-07, PLAY-08, PLAY-09, PLAY-10, PLAY-11
 **Success Criteria** (what must be TRUE):
-  1. User opens a song page and sees the YouTube player (left on desktop, top on mobile) with the lesson panel beside/below it — never overlaid on the video
+  1. User opens a song page and sees the YouTube player (left on desktop, top on mobile) with the lesson panel beside/below it â€” never overlaid on the video
   2. As the song plays, the current verse is highlighted and scrolled into view within ~250ms of the actual playback position
   3. User can toggle furigana (ruby text over kanji), romaji, and translation language from within the player without reloading
   4. User can click any word in the lyrics to see a dictionary popup with reading, meaning, part of speech, and example usage
@@ -103,7 +104,7 @@ Plans:
 **Plans**: TBD
 
 ### Phase 3: Auth, Catalog, and Freemium Gate
-**Goal**: Users can create accounts, browse the full 200-song catalog with filters, and access one complete lesson without signing in — while premium content is gated at the database layer
+**Goal**: Users can create accounts, browse the full 200-song catalog with filters, and access one complete lesson without signing in â€” while premium content is gated at the database layer
 **Depends on**: Phase 2
 **Requirements**: USER-01, USER-02, USER-03, USER-04, USER-05, USER-06, DISC-01, DISC-04
 **Success Criteria** (what must be TRUE):
@@ -149,34 +150,34 @@ Plans:
 
 ## v2.0 Exercise & Learning System
 
-**Milestone Goal:** Transform KitsuBeat from a passive listening tool into an active learning platform. Users can drill vocabulary and grammar from any song, train hiragana and katakana to mastery, see how words they have learned appear across multiple songs, study iconic anime scenes, and explore vocabulary anchored to anime cultural references — all gated by a clean freemium architecture enforced at the data layer.
+**Milestone Goal:** Transform KitsuBeat from a passive listening tool into an active learning platform. Users can drill vocabulary and grammar from any song, train hiragana and katakana to mastery, see how words they have learned appear across multiple songs, study iconic anime scenes, and explore vocabulary anchored to anime cultural references â€” all gated by a clean freemium architecture enforced at the data layer.
 
 **Depends on:** v1.0 Phases 1-4 complete (content pipeline, player, auth/catalog, payments)
 
 ### Phase 7: Data Foundation
 **Goal**: A normalized vocabulary identity layer exists and grammar conjugation data is machine-parseable, enabling all downstream progress tracking and exercise generation to work from stable UUIDs rather than fragile text keys
-**Depends on**: Phase 6 (v1.0 complete — auth, schema, player all exist)
+**Depends on**: Phase 6 (v1.0 complete â€” auth, schema, player all exist)
 **Requirements**: DATA-01, DATA-02
 **Success Criteria** (what must be TRUE):
-  1. Every distinct (surface, reading) vocabulary pair across all song lessons has a stable UUID row in the vocabulary_items table — content corrections do not orphan existing progress rows
+  1. Every distinct (surface, reading) vocabulary pair across all song lessons has a stable UUID row in the vocabulary_items table â€” content corrections do not orphan existing progress rows
   2. The vocab_global materialized view aggregates vocabulary across all song_versions.lesson JSONB and can be refreshed without downtime
   3. Grammar conjugation paths for all songs with grammar data have been audited; structured question/answer pairs can be derived programmatically for at least 80% of conjugation entries
   4. A Drizzle migration creates user_vocab_mastery, user_exercise_log, and subscriptions tables with FSRS scalar columns indexed for due-date queries
 **Plans:** 2/2 plans complete
 Plans:
-- [ ] 07-01-PLAN.md — Schema additions (vocabulary_items, user_vocab_mastery, user_exercise_log, subscriptions, vocab_global mat view), FSRS presets, lesson type updates, and migration generation
-- [ ] 07-02-PLAN.md — Conjugation path parser and idempotent vocabulary backfill script (extract, deduplicate, patch JSONB, audit conjugations, refresh mat view)
+- [ ] 07-01-PLAN.md â€” Schema additions (vocabulary_items, user_vocab_mastery, user_exercise_log, subscriptions, vocab_global mat view), FSRS presets, lesson type updates, and migration generation
+- [ ] 07-02-PLAN.md â€” Conjugation path parser and idempotent vocabulary backfill script (extract, deduplicate, patch JSONB, audit conjugations, refresh mat view)
 
 ### Phase 8: Exercise Engine & Star Mastery
 **Goal**: Users can complete four core exercise types for any song, receive immediate explanatory feedback, resume sessions across browser refreshes, and earn up to 2 stars per song as mastery is demonstrated
 **Depends on**: Phase 7
 **Requirements**: EXER-01, EXER-02, EXER-03, EXER-04, EXER-08, EXER-09, EXER-10, STAR-01, STAR-02, STAR-03, STAR-05, FREE-01, FREE-02, FREE-06
 **Success Criteria** (what must be TRUE):
-  1. User can open any song's exercise page and complete Vocab→Meaning, Meaning→Vocab, Reading Match, and Fill-the-Lyric exercises in sequence — all answer options drawn from same-song vocabulary or same-JLPT-level words, never random
+  1. User can open any song's exercise page and complete Vocabâ†’Meaning, Meaningâ†’Vocab, Reading Match, and Fill-the-Lyric exercises in sequence â€” all answer options drawn from same-song vocabulary or same-JLPT-level words, never random
   2. After each answer the user sees immediate feedback explaining why the correct answer is correct, regardless of whether they chose right or wrong
   3. User can close the browser mid-session and return to find their progress exactly where they left it
   4. Song card and song page display a per-song completion percentage that updates after each session
-  5. User earns Star 1 when vocab recognition exercises (Ex 1+2+3) pass at >=80%, and Star 2 when Fill-the-Lyric (Ex 4) passes at >=80% — stars are visible on the song card
+  5. User earns Star 1 when vocab recognition exercises (Ex 1+2+3) pass at >=80%, and Star 2 when Fill-the-Lyric (Ex 4) passes at >=80% â€” stars are visible on the song card
   6. Premium gate abstraction is in place: feature flags can toggle any exercise type free/premium without code changes; enforcement happens at the data access layer, not the UI
 **Plans:** 3/4 plans executed
 Plans:
@@ -185,9 +186,9 @@ Plans:
 - [ ] 08-03-PLAN.md -- Zustand session store, JLPT pool API, exercise UI (config screen, question card, feedback panel, Practice tab)
 - [ ] 08-04-PLAN.md -- Session summary, star display with confetti, circular progress ring, SongCard/SongPage integration
 
-### Phase 08.4: Learn phase + session pacing for new vocabulary — presentation step before first exercise, skip_learning user preset, new-card cap per session (INSERTED)
+### Phase 08.4: Learn phase + session pacing for new vocabulary â€” presentation step before first exercise, skip_learning user preset, new-card cap per session (INSERTED)
 
-**Goal:** Insert a just-in-time learn card before the first exercise for any New or Relearning vocabulary word (with mnemonic + kanji_breakdown behind a single tap-to-reveal and tap-to-play Japanese TTS), expose a global `skip_learning` user preset (default ON — cards show), and enforce a per-session new-card cap (default 10) gated by a premium-only cap-raising ceiling (30) — all wired into the existing Phase 8 exercise engine with a new `/profile` settings surface.
+**Goal:** Insert a just-in-time learn card before the first exercise for any New or Relearning vocabulary word (with mnemonic + kanji_breakdown behind a single tap-to-reveal and tap-to-play Japanese TTS), expose a global `skip_learning` user preset (default ON â€” cards show), and enforce a per-session new-card cap (default 10) gated by a premium-only cap-raising ceiling (30) â€” all wired into the existing Phase 8 exercise engine with a new `/profile` settings surface.
 **Depends on:** Phase 8, Phase 08.2 (FSRS state), Phase 08.3 (KanjiBreakdownSection + mnemonic column)
 **Plans:** 5/5 plans complete
 
@@ -200,7 +201,7 @@ Plans:
 
 ### Phase 08.3: Mnemonic and kanji breakdown for vocabulary feedback (INSERTED)
 
-**Goal:** Extend `vocabulary_items` with `mnemonic` and `kanji_breakdown` jsonb columns, enrich all ~705 existing rows via inline LLM generation, and render both inside the FeedbackPanel "More" accordion with cross-question persistence. Future songs ship enriched by updating the shared generation prompt. Surgical enrichment only — existing lesson JSONB is untouched.
+**Goal:** Extend `vocabulary_items` with `mnemonic` and `kanji_breakdown` jsonb columns, enrich all ~705 existing rows via inline LLM generation, and render both inside the FeedbackPanel "More" accordion with cross-question persistence. Future songs ship enriched by updating the shared generation prompt. Surgical enrichment only â€” existing lesson JSONB is untouched.
 **Depends on:** Phase 7 (vocabulary_items UUID identity), Phase 8 (exercise engine UI)
 **Plans:** 5/5 plans complete
 
@@ -213,14 +214,14 @@ Plans:
 
 ### Phase 08.2: FSRS progressive disclosure (INSERTED)
 
-**Goal:** Wire the dead `user_vocab_mastery` and `user_exercise_log` tables (Phase 7 schema) so each Phase 8 exercise answer persists per-vocab FSRS state, then derive a 3-tier display per word (kanji+furigana+romaji → kanji+furigana → kanji-only) driven by FSRS state — exercise flow only.
+**Goal:** Wire the dead `user_vocab_mastery` and `user_exercise_log` tables (Phase 7 schema) so each Phase 8 exercise answer persists per-vocab FSRS state, then derive a 3-tier display per word (kanji+furigana+romaji â†’ kanji+furigana â†’ kanji-only) driven by FSRS state â€” exercise flow only.
 **Depends on:** Phase 8
 **Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 08.2-01-PLAN.md — FSRS core: ratingFor + scheduleReview + tierFor (TDD, pure)
-- [ ] 08.2-02-PLAN.md — Server: recordVocabAnswer action + vocab-tiers / vocab-mastery API routes
-- [ ] 08.2-03-PLAN.md — UI: TierText, MasteryDetailPopover, ExerciseTab/QuestionCard/FeedbackPanel wiring with leak-override + reveal-reading hatch
+- [ ] 08.2-01-PLAN.md â€” FSRS core: ratingFor + scheduleReview + tierFor (TDD, pure)
+- [ ] 08.2-02-PLAN.md â€” Server: recordVocabAnswer action + vocab-tiers / vocab-mastery API routes
+- [ ] 08.2-03-PLAN.md â€” UI: TierText, MasteryDetailPopover, ExerciseTab/QuestionCard/FeedbackPanel wiring with leak-override + reveal-reading hatch
 
 ### Phase 08.1: End-to-End QA Suite (INSERTED)
 
@@ -240,19 +241,19 @@ Plans:
 
 ### Phase 11.1: Add-Song Pipeline (INSERTED 2026-04-19)
 
-**Goal:** Close three concrete gaps in the existing add-song pipeline so adding a new song to KitsuBeat is reliable enough that no song ships a streak-killer (broken karaoke, half-written DB row, duplicate YouTube ID), and operator overhead is reduced via a single-page README. The pipeline itself (the 8 gates documented in docs/SONG_INGESTION_SOP.md) is not rewritten — only the three gaps are filled.
-**Depends on:** Phase 11 (Cross-Song Vocabulary — schema dependency only; the songs/song_versions tables this phase wraps in transactions were finalized there)
+**Goal:** Close three concrete gaps in the existing add-song pipeline so adding a new song to KitsuBeat is reliable enough that no song ships a streak-killer (broken karaoke, half-written DB row, duplicate YouTube ID), and operator overhead is reduced via a single-page README. The pipeline itself (the 8 gates documented in docs/SONG_INGESTION_SOP.md) is not rewritten â€” only the three gaps are filled.
+**Depends on:** Phase 11 (Cross-Song Vocabulary â€” schema dependency only; the songs/song_versions tables this phase wraps in transactions were finalized there)
 **Requirements:** None mapped to REQUIREMENTS.md REQ-IDs (operational tooling phase). The 11 falsifiable acceptance criteria locked in 11.1-SPEC.md are the coverage requirement.
 **Plans:** 3/3 plans complete
 Plans:
-- [x] 11.1-01-PLAN.md — Cross-song youtube_id audit script + wiring into both batch shells
-- [x] 11.1-02-PLAN.md — Per-song transactional DB write (script-local WebSocket pool) + Vitest rollback test
-- [x] 11.1-03-PLAN.md — Operator quick-start README (docs/README-adding-songs.md, ≤ 100 lines, 5 locked scenarios)
+- [x] 11.1-01-PLAN.md â€” Cross-song youtube_id audit script + wiring into both batch shells
+- [x] 11.1-02-PLAN.md â€” Per-song transactional DB write (script-local WebSocket pool) + Vitest rollback test
+- [x] 11.1-03-PLAN.md â€” Operator quick-start README (docs/README-adding-songs.md, â‰¤ 100 lines, 5 locked scenarios)
 
 ### Phase 11.2: TV-Derive Rework with Demucs + Needleman-Wunsch (INSERTED 2026-04-26)
 
 **Goal:** Replace the LCS-based TV-lesson derivation (which fails on clean Demucs-stem WhisperX input) with a Demucs+WhisperX+Needleman-Wunsch pipeline; re-derive and reload all 60 TV lessons (including the 4 currently-failing stragglers); ship a regression-guarding audit script for loaded-but-degenerate TV lessons. Gated by an objective per-verse onset spot-check (8 adversarial songs across JLPT N5/N4/N3/N2; sign-flow MUST be in the set as the trigger case for the phase).
-**Depends on:** Phase 11.1 (Add-Song Pipeline conventions — likely false-positive coupling per CONTEXT.md deferred note)
+**Depends on:** Phase 11.1 (Add-Song Pipeline conventions â€” likely false-positive coupling per CONTEXT.md deferred note)
 **Requirements:** SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6 (locked in 11.2-SPEC.md; no upstream REQUIREMENTS.md REQ-IDs map to this phase)
 **Plans:** 7 plans
 
@@ -260,31 +261,31 @@ Plans:
 - [x] 11.2-01-PLAN.md -- TV Demucs+WhisperX pipeline scripts (tv-demucs-isolate.py + tv-transcribe-stems.py mirroring ab-* shape)
 - [x] 11.2-02-PLAN.md -- NW-based derive script (10b-derive-tv-lessons-nw.ts; replaces per-verse romaji LCS with global Needleman-Wunsch)
 - [x] 11.2-03-PLAN.md -- Audit script (audit-tv-lessons.ts; D-07 thresholds) + DB snapshot/restore escape hatch (D-09)
-- [~] 11.2-04-PLAN.md -- Pre-batch fixes: D-04 mountain-a-go-go full-lesson regen + D-02 archive old LCS scripts to _attic/ (PARTIAL: Task 2 archive shipped; Task 1 regen deferred — upstream lyrics-cache itself is romaji)
-- [x] 11.2-05-PLAN.md -- 60-song NW batch run + per-straggler D-05 ladder triage — 47 lessons kept, 9 dropped (manifest dupes / English-only / NW-fail), 4 pre-excluded; ~2.5h actual
-- [x] 11.2-06-PLAN.md -- 8-song spot-check (+/-500ms onset; sign-flow + 7 adversarial picks) + audit gate against data/lessons-cache-tv-nw/ — SHIP-WITH-FLAGS: 29 lessons (26 passing + 3 flagged); Plan 07 unblocked
+- [~] 11.2-04-PLAN.md -- Pre-batch fixes: D-04 mountain-a-go-go full-lesson regen + D-02 archive old LCS scripts to _attic/ (PARTIAL: Task 2 archive shipped; Task 1 regen deferred â€” upstream lyrics-cache itself is romaji)
+- [x] 11.2-05-PLAN.md -- 60-song NW batch run + per-straggler D-05 ladder triage â€” 47 lessons kept, 9 dropped (manifest dupes / English-only / NW-fail), 4 pre-excluded; ~2.5h actual
+- [x] 11.2-06-PLAN.md -- 8-song spot-check (+/-500ms onset; sign-flow + 7 adversarial picks) + audit gate against data/lessons-cache-tv-nw/ â€” SHIP-WITH-FLAGS: 29 lessons (26 passing + 3 flagged); Plan 07 unblocked
 - [ ] 11.2-07-PLAN.md -- Snapshot + directory swap + 10c-load-tv-lessons.ts + final production-DB audit (catalog rollout)
 
 ### Phase 11.3: Fix Untranslated JP Verses (INSERTED 2026-04-26)
 
-**Goal:** Replace stub-translated JP verses with proper tokenized translations (en + pt-BR + es) across the 6 worst-offender songs in the catalog — 159 broken verses total — and ship the cleaned lessons to Neon with a verifiable zero-stub gate. Stub signature: single-token verse where `tokens[0].surface` is Japanese and `translations.en` starts with `(`. Local-LLM (Ollama) drafts using whole-song context + 2-verse-window neighbour translations as anchors; inline Claude Code review absorbs every Ollama fail; splice via existing verse-patch infrastructure extended with `replace_verse_number` mode.
-**Depends on:** Phase 11.1 (Add-Song Pipeline conventions — `05-insert-db.ts --slug=` filter and per-slug DB-push pattern shipped 2026-04-26)
+**Goal:** Replace stub-translated JP verses with proper tokenized translations (en + pt-BR + es) across the 6 worst-offender songs in the catalog â€” 159 broken verses total â€” and ship the cleaned lessons to Neon with a verifiable zero-stub gate. Stub signature: single-token verse where `tokens[0].surface` is Japanese and `translations.en` starts with `(`. Local-LLM (Ollama) drafts using whole-song context + 2-verse-window neighbour translations as anchors; inline Claude Code review absorbs every Ollama fail; splice via existing verse-patch infrastructure extended with `replace_verse_number` mode.
+**Depends on:** Phase 11.1 (Add-Song Pipeline conventions â€” `05-insert-db.ts --slug=` filter and per-slug DB-push pattern shipped 2026-04-26)
 **Requirements:** SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7 (locked in 11.3-SPEC.md; no upstream REQUIREMENTS.md REQ-IDs map to this phase)
 **Plans:** 8/8 plans complete
 
 Plans:
-- [x] 11.3-01-PLAN.md — Ollama install + 2-model pull + JP→multi-locale JSON smoke (SPEC-REQ-1)
-- [x] 11.3-02-PLAN.md — audit-untranslated-verses.ts + queue TSV + --verify cache+DB gate (SPEC-REQ-2, SPEC-REQ-7)
-- [x] 11.3-03-PLAN.md — apply-verse-patch.ts replace-mode + Vitest fixture (D-11 ordering, SPEC-REQ-5)
-- [x] 11.3-04-PLAN.md — qwen vs llama pilot + MODEL-PILOT.md + LOCKED_OLLAMA_MODEL lock (D-01, SPEC-REQ-1/3)
-- [x] 11.3-05-PLAN.md — Ollama drafter (whole-song + 2-verse window, schema-validate, INLINE-REVIEW-QUEUE on flag) (SPEC-REQ-3)
-- [x] 11.3-06-PLAN.md — Inline Claude Code review of every flagged verse (SPEC-REQ-4)
-- [x] 11.3-07-PLAN.md — Smoke: yellow-moon-akeboshi end-to-end + Vercel play-through (D-09, D-10, SPEC-REQ-5/6)
-- [x] 11.3-08-PLAN.md — Catalog rollout: remaining 5 slugs + final 6-slug --verify gate (SPEC-REQ-6, SPEC-REQ-7)
+- [x] 11.3-01-PLAN.md â€” Ollama install + 2-model pull + JPâ†’multi-locale JSON smoke (SPEC-REQ-1)
+- [x] 11.3-02-PLAN.md â€” audit-untranslated-verses.ts + queue TSV + --verify cache+DB gate (SPEC-REQ-2, SPEC-REQ-7)
+- [x] 11.3-03-PLAN.md â€” apply-verse-patch.ts replace-mode + Vitest fixture (D-11 ordering, SPEC-REQ-5)
+- [x] 11.3-04-PLAN.md â€” qwen vs llama pilot + MODEL-PILOT.md + LOCKED_OLLAMA_MODEL lock (D-01, SPEC-REQ-1/3)
+- [x] 11.3-05-PLAN.md â€” Ollama drafter (whole-song + 2-verse window, schema-validate, INLINE-REVIEW-QUEUE on flag) (SPEC-REQ-3)
+- [x] 11.3-06-PLAN.md â€” Inline Claude Code review of every flagged verse (SPEC-REQ-4)
+- [x] 11.3-07-PLAN.md â€” Smoke: yellow-moon-akeboshi end-to-end + Vercel play-through (D-09, D-10, SPEC-REQ-5/6)
+- [x] 11.3-08-PLAN.md â€” Catalog rollout: remaining 5 slugs + final 6-slug --verify gate (SPEC-REQ-6, SPEC-REQ-7)
 
 ### Phase 11.4: Visual Vocabulary Foundation (INSERTED 2026-04-28)
 
-**Goal:** Add `image_url` infrastructure to `vocabulary_items` and conditionally render images on LearnCard (first encounter) and FeedbackPanel (after answer) when present. Curate 50 Unsplash CC0 images for top-frequency concrete vocab as the validation set. Foundation only — full 1,409-word rollout deferred to v4.0.
+**Goal:** Add `image_url` infrastructure to `vocabulary_items` and conditionally render images on LearnCard (first encounter) and FeedbackPanel (after answer) when present. Curate 50 Unsplash CC0 images for top-frequency concrete vocab as the validation set. Foundation only â€” full 1,409-word rollout deferred to v4.0.
 **Depends on:** Phase 8.3 (FeedbackPanel + mnemonic/kanji_breakdown surfaces), Phase 8.4 (LearnCard surface)
 **Estimated:** 4 hours
 **Success Criteria** (what must be TRUE):
@@ -298,9 +299,9 @@ Plans:
   8. 50 images populated in DB with Unsplash CDN URLs (CC0 license)
 **Plans:** 1/3 plans complete
 Plans:
-- [x] 11.4-01-PLAN.md — Schema migration 0014 + Drizzle column + VocabEntrySchema passthrough + Wave 0 test stubs (AC-1, AC-2)
-- [ ] 11.4-02-PLAN.md — page.tsx merge + Question type + LearnCard/FeedbackPanel <img> rendering + JSDOM tests (AC-3, AC-4, AC-5, AC-6)
-- [ ] 11.4-03-PLAN.md — 19-curate + 19b-load seed scripts + integration tests + 50-row operator curation + DB load (AC-7, AC-8)
+- [x] 11.4-01-PLAN.md â€” Schema migration 0014 + Drizzle column + VocabEntrySchema passthrough + Wave 0 test stubs (AC-1, AC-2)
+- [ ] 11.4-02-PLAN.md â€” page.tsx merge + Question type + LearnCard/FeedbackPanel <img> rendering + JSDOM tests (AC-3, AC-4, AC-5, AC-6)
+- [ ] 11.4-03-PLAN.md â€” 19-curate + 19b-load seed scripts + integration tests + 50-row operator curation + DB load (AC-7, AC-8)
 
 ### Phase 11.5: Admin Lyrics Editor (INSERTED 2026-05-01)
 
@@ -308,16 +309,16 @@ Plans:
 **Depends on:** Phase 11.1 (add-song pipeline), Phase 11.2 (TV-derive), Phase 11.3 (untranslated verses)
 **Plans:** 10 plans
 Plans:
-- [ ] 11.5-01-schema-migration-PLAN.md — drizzle/0015 migration: lyrics_versions + lyrics_drafts + song_video_history tables; pipeline_status + quality_status columns; backfill source=auto rows (SPEC-14, 16, 17, 19, 20, 22)
-- [ ] 11.5-02-clerk-admin-gate-PLAN.md — @clerk/nextjs install + src/middleware.ts + admin-allowlist.ts + require-admin.ts + ClerkProvider wrap + sensei README + Playwright e2e (SPEC-1)
-- [ ] 11.5-03-route-shell-PLAN.md — /admin/lyrics route shell + SongSearch (incl. flagged) + URL state preservation (SPEC-2, 3, 22)
-- [ ] 11.5-04-verse-editor-PLAN.md — VerseEditor + VerseRow + AdminPlayerEmbed + timing-overlap.ts + verse-renumber.ts (SPEC-4 to 9, 12, 13, 14)
-- [ ] 11.5-05-draft-store-PLAN.md — useAdminLyricsStore zustand + saveDraft action + 5s debounce + localStorage mirror + load handshake (SPEC-15, 18, D-16, 17, 21)
-- [ ] 11.5-06-ai-fill-PLAN.md — claude-cli.ts subprocess wrapper + verse-fill-prompt.ts + verse-fill-zod.ts + aiFillVerse action with ai-assist snapshot BEFORE return (SPEC-10, 11, D-5, 6, 8, 20)
-- [ ] 11.5-07-publish-flow-PLAN.md — publish-tx.ts atomic db.batch + publish action with kuromoji re-tokenize + StalePublishModal + revalidate (SPEC-15 to 18, D-15, 18, 19)
-- [ ] 11.5-08-swap-video-PLAN.md — swap-video-pipeline.ts orchestrator + swap action (URL allowlist + spawn detached) + pipeline-status polling endpoint + SwapVideoModal + retry-from-failed-step (SPEC-19, 20, 21, D-9, 10, 11, 12)
-- [ ] 11.5-09-flag-broken-PLAN.md — public catalog filter (quality_status=active AND pipeline_status=idle) + /songs/[slug] 404 + flagSong/clearFlag actions + FlagControls UI (SPEC-22, D-13)
-- [ ] 11.5-10-regenerate-lessons-PLAN.md — regenerateLessons action looping AI fill per dirty verse + RegenerateLessonsModal + single regen snapshot via publishLyricsVersion (SPEC-23, D-7)
+- [ ] 11.5-01-schema-migration-PLAN.md â€” drizzle/0015 migration: lyrics_versions + lyrics_drafts + song_video_history tables; pipeline_status + quality_status columns; backfill source=auto rows (SPEC-14, 16, 17, 19, 20, 22)
+- [ ] 11.5-02-clerk-admin-gate-PLAN.md â€” @clerk/nextjs install + src/middleware.ts + admin-allowlist.ts + require-admin.ts + ClerkProvider wrap + sensei README + Playwright e2e (SPEC-1)
+- [ ] 11.5-03-route-shell-PLAN.md â€” /admin/lyrics route shell + SongSearch (incl. flagged) + URL state preservation (SPEC-2, 3, 22)
+- [ ] 11.5-04-verse-editor-PLAN.md â€” VerseEditor + VerseRow + AdminPlayerEmbed + timing-overlap.ts + verse-renumber.ts (SPEC-4 to 9, 12, 13, 14)
+- [ ] 11.5-05-draft-store-PLAN.md â€” useAdminLyricsStore zustand + saveDraft action + 5s debounce + localStorage mirror + load handshake (SPEC-15, 18, D-16, 17, 21)
+- [ ] 11.5-06-ai-fill-PLAN.md â€” claude-cli.ts subprocess wrapper + verse-fill-prompt.ts + verse-fill-zod.ts + aiFillVerse action with ai-assist snapshot BEFORE return (SPEC-10, 11, D-5, 6, 8, 20)
+- [ ] 11.5-07-publish-flow-PLAN.md â€” publish-tx.ts atomic db.batch + publish action with kuromoji re-tokenize + StalePublishModal + revalidate (SPEC-15 to 18, D-15, 18, 19)
+- [ ] 11.5-08-swap-video-PLAN.md â€” swap-video-pipeline.ts orchestrator + swap action (URL allowlist + spawn detached) + pipeline-status polling endpoint + SwapVideoModal + retry-from-failed-step (SPEC-19, 20, 21, D-9, 10, 11, 12)
+- [ ] 11.5-09-flag-broken-PLAN.md â€” public catalog filter (quality_status=active AND pipeline_status=idle) + /songs/[slug] 404 + flagSong/clearFlag actions + FlagControls UI (SPEC-22, D-13)
+- [ ] 11.5-10-regenerate-lessons-PLAN.md â€” regenerateLessons action looping AI fill per dirty verse + RegenerateLessonsModal + single regen snapshot via publishLyricsVersion (SPEC-23, D-7)
 
 ### Phase 11.6: Beginner-Focused Practice Redesign (INSERTED 2026-05-01)
 
@@ -326,14 +327,14 @@ Plans:
 **Requirements:** SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7, SPEC-REQ-8, SPEC-REQ-9, SPEC-REQ-10, SPEC-REQ-11, SPEC-REQ-12, SPEC-REQ-13, SPEC-REQ-14, SPEC-REQ-15, SPEC-REQ-16, SPEC-REQ-17, SPEC-REQ-18 (locked in 11.6-SPEC.md)
 **Plans:** 11 plans (7 waves)
 Plans:
-- [x] 11.6-01-PLAN.md -- Schema migration 0017 (DELETE+ALTER user_vocab_mastery card_kind enum, new user_verse_domination, denormalized track_pct columns) + Wave 0 integration test stubs (SPEC-REQ-4, 10, 13, 16) — number drifted from 0016 (now Phase 14 theme prefs)
-- [x] 11.6-02-PLAN.md -- v2 (2026-05-02 SPEC pivot): scripts/seed/19c-fetch-vocab-images.ts (Unsplash API auto-search, free demo tier, idempotent per-row commit, dedup by meaning_en, rate-limit-aware) + revert of v1 ComfyUI artifacts (script + workflow JSON + .gitignore line + gen-image npm script + COMFYUI_* env vars) (SPEC-REQ-8, 9). v1 = ComfyUI batch (commits ff30935 + 1e32e42) — superseded.
+- [x] 11.6-01-PLAN.md -- Schema migration 0017 (DELETE+ALTER user_vocab_mastery card_kind enum, new user_verse_domination, denormalized track_pct columns) + Wave 0 integration test stubs (SPEC-REQ-4, 10, 13, 16) â€” number drifted from 0016 (now Phase 14 theme prefs)
+- [x] 11.6-02-PLAN.md -- v2 (2026-05-02 SPEC pivot): scripts/seed/19c-fetch-vocab-images.ts (Unsplash API auto-search, free demo tier, idempotent per-row commit, dedup by meaning_en, rate-limit-aware) + revert of v1 ComfyUI artifacts (script + workflow JSON + .gitignore line + gen-image npm script + COMFYUI_* env vars) (SPEC-REQ-8, 9). v1 = ComfyUI batch (commits ff30935 + 1e32e42) â€” superseded.
 - [x] 11.6-03-PLAN.md -- Pure modules: kanji.ts (extract isKanji) + scheduler.ts (lag-test + JLPT sort) + Wave 0 unit tests (SPEC-REQ-3, 5, 6)
 - [x] 11.6-04-PLAN.md -- generator.ts: vocab_typed type + trackKind/lengthMode params + scheduler integration + Advanced Drills 1:1:1 mix + Wave 0 tests (SPEC-REQ-3, 7, 12)
 - [x] 11.6-05-PLAN.md -- recordVocabAnswer extension: cardKind branching + per-track-pct recompute + verse-domination atomic insert + versesDominatedNow return (SPEC-REQ-4, 10, 13, 15, 16)
 - [x] 11.6-06-PLAN.md -- ExerciseTab four-card restructure + Short/Long toggle + SSR all-kana detection + tier.ts trackKind bypass + Wave 0 tests (SPEC-REQ-1, 2, 16)
 - [x] 11.6-07-PLAN.md -- TrackProgressRings + Advanced Drills lock/unlock affordance + page.tsx track_pct threading + e2e test (SPEC-REQ-10, 11, 12)
-- [x] 11.6-08-PLAN.md -- VerseStarIcon + VerseDominatedAnimation + SongHeader counter + lyrics star + SongCard %-dominated catalog line + queries.ts getDominatedVerses + globals.css keyframe (SPEC-REQ-14, 15) — closed 2026-05-02 on partial visual-verify spot-check
+- [x] 11.6-08-PLAN.md -- VerseStarIcon + VerseDominatedAnimation + SongHeader counter + lyrics star + SongCard %-dominated catalog line + queries.ts getDominatedVerses + globals.css keyframe (SPEC-REQ-14, 15) â€” closed 2026-05-02 on partial visual-verify spot-check
 - [x] 11.6-09-PLAN.md -- VocabTypedCard romaji-input + ExerciseSession dispatch + LearnCard trackKind-aware (SPEC-REQ-3, 7)
 - [x] 11.6-10-PLAN.md -- /review queue dual-card extension + recordReviewAnswer cardKind + ReviewSession dispatch (SPEC-REQ-17)
 - [x] 11.6-11-PLAN.md -- /vocabulary dashboard dual-progress display (GROUP BY card_kind + dual MasteryBadge + tier grouping by romaji_meaning) (SPEC-REQ-18)
@@ -341,120 +342,120 @@ Plans:
 - [ ] 11.6-13-PLAN.md -- GAP CLOSURE (operator-driven): Unsplash app registration + overnight batch run + SQL acceptance verification (SPEC-REQ-8)
 
 ### Phase 9: Kana Trainer
-**Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection — available free to all users
+**Goal**: Users can train hiragana and katakana recognition through a standalone drill interface with row-by-row unlocking, a 10-star per-character mastery system, and weighted random session selection â€” available free to all users
 **Depends on**: Phase 7
 **Requirements**: KANA-01, KANA-02, KANA-03, KANA-04, KANA-05, KANA-06, KANA-07, KANA-08, FREE-03
 **Success Criteria** (what must be TRUE):
   1. User can navigate to /kana and drill hiragana recognition (see kana, pick correct romaji from 4 options) without being signed in
   2. User can switch between hiragana and katakana modes in the same trainer interface
   3. Each character tracks a 10-star mastery level: correct answers add 1 star, wrong answers subtract 2 (floor 0); characters at 0 stars show the answer pre-revealed and award 1 star for acknowledgment; characters at 10 stars appear at 1/5th normal frequency
-  4. Kana rows unlock sequentially — user must reach the star threshold on the a-row before the ka-row appears; dakuten, handakuten, and combo rows unlock the same way
+  4. Kana rows unlock sequentially â€” user must reach the star threshold on the a-row before the ka-row appears; dakuten, handakuten, and combo rows unlock the same way
   5. Each session is exactly 20 questions with weighted random selection: lower-star characters appear more frequently than higher-star characters
 **Plans:** 6 plans
 Plans:
-- [x] 09-01-PLAN.md — Kana reference data module (chart.ts + types + invariant tests)
-- [x] 09-02-PLAN.md — Pure logic: weighted selection + mastery + row-unlock predicate (TDD)
-- [x] 09-03-PLAN.md — kanaProgress Zustand store with persist + hydration + test hook
-- [x] 09-04-PLAN.md — /kana landing grid + mode toggle + sign-up nudge banner
-- [x] 09-05-PLAN.md — Drill session UI: KanaSession + KanaQuestionCard + KanaLearnCard + RowUnlockModal
-- [ ] 09-06-PLAN.md — Post-session summary screen + manual end-to-end checkpoint
+- [x] 09-01-PLAN.md â€” Kana reference data module (chart.ts + types + invariant tests)
+- [x] 09-02-PLAN.md â€” Pure logic: weighted selection + mastery + row-unlock predicate (TDD)
+- [x] 09-03-PLAN.md â€” kanaProgress Zustand store with persist + hydration + test hook
+- [x] 09-04-PLAN.md â€” /kana landing grid + mode toggle + sign-up nudge banner
+- [x] 09-05-PLAN.md â€” Drill session UI: KanaSession + KanaQuestionCard + KanaLearnCard + RowUnlockModal
+- [ ] 09-06-PLAN.md â€” Post-session summary screen + manual end-to-end checkpoint
 
 ### Phase 10: Advanced Exercises & Full Mastery
 **Goal**: Users can complete grammar conjugation, listening drill, and sentence order exercises, earning Star 3 mastery for a song when listening drills pass at >=80%, with bonus mastery recognition for conjugation and sentence order work
 **Depends on**: Phase 8
 **Requirements**: EXER-05, EXER-06, EXER-07, STAR-04, STAR-06, FREE-05
 **Success Criteria** (what must be TRUE):
-  1. User can complete Grammar Conjugation exercises for songs with audited conjugation data — given a base form and context, picking the correct conjugated form from 4 options
+  1. User can complete Grammar Conjugation exercises for songs with audited conjugation data â€” given a base form and context, picking the correct conjugated form from 4 options
   2. User can complete Fill-the-Lyric Listening Drill exercises where the verse audio plays without lyrics shown and the user identifies the target word by ear
   3. User can complete Sentence Order exercises by tapping scrambled verse tokens into the correct sequence
   4. User earns Star 3 when Listening Drill (Ex 6) passes at >=80%; Sentence Order and Grammar Conjugation contribute to a bonus mastery badge visible on the song page but do not gate stars
   5. Listening drills are free for a user's first 10 songs; Grammar Conjugation + Sentence Order share a 3-song free quota (reshapes FREE-05); subsequent access is premium-gated and enforced at the data access layer
 **Plans:** 7/7 plans complete
 Plans:
-- [x] 10-01-PLAN.md — Data layer foundation: migration (ex5/6/7 accuracy cols + user_exercise_song_counters table), ExerciseType union, deriveStars 0-3, deriveBonusBadge, song_quota gate in feature-flags, checkExerciseAccess(songVersionId), counters module
-- [x] 10-02-PLAN.md — PlayerContext imperative API (seekTo/play/pause/isReady) wired from YouTubeEmbed; test-only __kbPlayer hook preserved
-- [ ] 10-03-PLAN.md — Grammar Conjugation exercise: conjugation audit + pickConjugationOptions + makeQuestion branch + ConjugationCard + ExerciseSession dispatch
-- [ ] 10-04-PLAN.md — Listening Drill exercise: makeQuestion branch + ListeningDrillCard wired to PlayerContext + YT watchdog fallback + session replay counter
-- [ ] 10-05-PLAN.md — Sentence Order exercise: verse-token audit + makeQuestion branch + SentenceOrderCard tap-to-build + reveal-hatch hint + session store slices
-- [ ] 10-06-PLAN.md — Premium gate wiring: ExerciseTab Advanced Drills mode + upsell modal + saveSessionResults ex5/6/7 persistence + counter increment on first answer + unfix Phase 08.1-07 test.fixme
-- [ ] 10-07-PLAN.md — Mastery surface: StarDisplay 0-3 + Star 3 confetti reuse + SongMasteredBanner on SongCard + BonusBadgeIcon on SongCard + catalog query extension
+- [x] 10-01-PLAN.md â€” Data layer foundation: migration (ex5/6/7 accuracy cols + user_exercise_song_counters table), ExerciseType union, deriveStars 0-3, deriveBonusBadge, song_quota gate in feature-flags, checkExerciseAccess(songVersionId), counters module
+- [x] 10-02-PLAN.md â€” PlayerContext imperative API (seekTo/play/pause/isReady) wired from YouTubeEmbed; test-only __kbPlayer hook preserved
+- [ ] 10-03-PLAN.md â€” Grammar Conjugation exercise: conjugation audit + pickConjugationOptions + makeQuestion branch + ConjugationCard + ExerciseSession dispatch
+- [ ] 10-04-PLAN.md â€” Listening Drill exercise: makeQuestion branch + ListeningDrillCard wired to PlayerContext + YT watchdog fallback + session replay counter
+- [ ] 10-05-PLAN.md â€” Sentence Order exercise: verse-token audit + makeQuestion branch + SentenceOrderCard tap-to-build + reveal-hatch hint + session store slices
+- [ ] 10-06-PLAN.md â€” Premium gate wiring: ExerciseTab Advanced Drills mode + upsell modal + saveSessionResults ex5/6/7 persistence + counter increment on first answer + unfix Phase 08.1-07 test.fixme
+- [ ] 10-07-PLAN.md â€” Mastery surface: StarDisplay 0-3 + Star 3 confetti reuse + SongMasteredBanner on SongCard + BonusBadgeIcon on SongCard + catalog query extension
 
 ### Phase 11: Cross-Song Vocabulary
-**Goal**: Users can see how vocabulary they have mastered in one song carries across other songs, track their total unique Japanese words learned, and access a full vocabulary dashboard — with the cross-song SRS review queue as a premium differentiator
+**Goal**: Users can see how vocabulary they have mastered in one song carries across other songs, track their total unique Japanese words learned, and access a full vocabulary dashboard â€” with the cross-song SRS review queue as a premium differentiator
 **Depends on**: Phase 08.2 (per-vocab FSRS mastery must be persisted before cross-song aggregation is possible)
 **Requirements**: CROSS-01, CROSS-02, CROSS-03, CROSS-04, CROSS-05, FREE-04
 **Success Criteria** (what must be TRUE):
   1. When a user views a song page they have not yet completed, they see a count of words they already know from other songs ("You know 8/12 words in this song")
   2. When a user views vocabulary details for any word, they see which other songs contain that word ("Seen in: Attack on Titan OP, Demon Slayer OP")
   3. User sees a global counter of unique Japanese words learned across all songs on their profile or dashboard
-  4. Mastering a word in one song automatically reflects in all other songs sharing that vocabulary item — mastery is stored against the vocabulary_items UUID, not per-song
+  4. Mastering a word in one song automatically reflects in all other songs sharing that vocabulary item â€” mastery is stored against the vocabulary_items UUID, not per-song
   5. Premium users can open a vocabulary dashboard listing all learned words with mastery level and source songs; the cross-song SRS review queue is premium-gated with free users seeing word counts but not the review queue
 **Plans:** 6/6 plans complete
 Plans:
-- [x] 11-01-PLAN.md — Schema migration (review_new_today cols) + five read queries (known-count, global counter, seen-in-songs, dashboard, due-queue) + REVIEW_NEW_DAILY_CAP constant
-- [x] 11-02-PLAN.md — Song-page "You know X/Y words" pill: SSR in page.tsx, client refresh component, /api/review/known-count route
-- [x] 11-03-PLAN.md — Seen-in-songs on MasteryDetailPopover + global learned counter in header nav and profile page
-- [x] 11-04-PLAN.md — /vocabulary dashboard: tier-grouped list, searchParams filters, SeenInExpander, free-tier 20-row preview
-- [x] 11-05-PLAN.md — /review route: queue builder (TDD), server actions (startReviewSession/recordReviewAnswer/consumeNewCardBudget), review Zustand store, ReviewLanding + ReviewSession + UpsellModal
+- [x] 11-01-PLAN.md â€” Schema migration (review_new_today cols) + five read queries (known-count, global counter, seen-in-songs, dashboard, due-queue) + REVIEW_NEW_DAILY_CAP constant
+- [x] 11-02-PLAN.md â€” Song-page "You know X/Y words" pill: SSR in page.tsx, client refresh component, /api/review/known-count route
+- [x] 11-03-PLAN.md â€” Seen-in-songs on MasteryDetailPopover + global learned counter in header nav and profile page
+- [x] 11-04-PLAN.md â€” /vocabulary dashboard: tier-grouped list, searchParams filters, SeenInExpander, free-tier 20-row preview
+- [x] 11-05-PLAN.md â€” /review route: queue builder (TDD), server actions (startReviewSession/recordReviewAnswer/consumeNewCardBudget), review Zustand store, ReviewLanding + ReviewSession + UpsellModal
 
 ---
 
 ## v3.0 Launch Readiness
 
-**Milestone Goal:** Take the working product from "feature complete" to "launch ready" — harden security, add gamification that makes the learning loop sticky, polish UX to match the product's depth, instrument observability, clear legal/copyright/compliance blockers from the UK (sole-trader), and run a free beta that produces real validation signal before any monetization work. Target exit: free beta live under UK Sole Trader; entity upgrade (UK Ltd) and payments deferred until validation signal justifies them.
+**Milestone Goal:** Take the working product from "feature complete" to "launch ready" â€” harden security, add gamification that makes the learning loop sticky, polish UX to match the product's depth, instrument observability, clear legal/copyright/compliance blockers from the UK (sole-trader), and run a free beta that produces real validation signal before any monetization work. Target exit: free beta live under UK Sole Trader; entity upgrade (UK Ltd) and payments deferred until validation signal justifies them.
 
 **Depends on:** v2.0 Phases 7-11 complete.
 
 **Founder context (drives several phase choices):**
-- Founder lives in London — UK tax resident, so entity lives in UK regardless of target market
-- UK Sole Trader for free beta (£0, HMRC self-assessment); migrate to UK Ltd when revenue approaches ~£30-50k/yr
-- Not hiring a lawyer for v1 — Phase 17 does DIY analysis with explicit "requires lawyer later" flags
+- Founder lives in London â€” UK tax resident, so entity lives in UK regardless of target market
+- UK Sole Trader for free beta (Â£0, HMRC self-assessment); migrate to UK Ltd when revenue approaches ~Â£30-50k/yr
+- Not hiring a lawyer for v1 â€” Phase 17 does DIY analysis with explicit "requires lawyer later" flags
 - LGPD still in scope (Brazilian audience via creator background and Portuguese translation support)
 
 ### Phase 12: Learning Path & Gamification
-**Goal**: Replace "any song, any time" with a curated beginner→advanced path; users see XP, streaks, levels, and diegetic celebrations that make every session feel like measurable forward motion. Scaffolds reward slots that v4.0 Phase 21 fills with anime scenes.
+**Goal**: Replace "any song, any time" with a curated beginnerâ†’advanced path; users see XP, streaks, levels, and diegetic celebrations that make every session feel like measurable forward motion. Scaffolds reward slots that v4.0 Phase 21 fills with anime scenes.
 **Depends on**: Phase 11
 **Requirements**: TBD
 **Success Criteria** (what must be TRUE):
-  1. A new learner picks one of 3 starter songs and lands on a curated stepped path that groups songs by the existing `difficulty_tier` ENUM (basic → intermediate → advanced); the recommended next song is highlighted with a path-order XP bonus, but no song is locked by level (existing freemium quotas remain the only access barrier)
+  1. A new learner picks one of 3 starter songs and lands on a curated stepped path that groups songs by the existing `difficulty_tier` ENUM (basic â†’ intermediate â†’ advanced); the recommended next song is highlighted with a path-order XP bonus, but no song is locked by level (existing freemium quotas remain the only access barrier)
   2. Every session ends with XP gained, current streak, level progress, and (when applicable) a preview of the next reward slot to unlock
   3. Streak tracking persists with timezone-aware day rollovers (device timezone, auto-detected) and one auto-applied grace day per week; broken streaks reset silently while the user's all-time best is preserved
   4. Level-ups trigger a full-screen celebratory moment with sound + haptic (configurable) and unlock cosmetic content (avatar borders, profile color themes, badges); reward-slot infrastructure for v4.0 Phase 21 cultural content is scaffolded but invisible until populated
   5. A JLPT mastery + gap-analysis view extends the existing `/vocabulary` dashboard from day 1, surfacing per-tier vocabulary gaps (e.g., "87/180 N5 words mastered")
-  6. Song tier (`difficulty_tier`) and vocabulary tier (JLPT `N5–N1`) remain parallel taxonomies — no re-tagging of either; songs use B/I/A on the path, vocab uses JLPT in the gap dashboard
+  6. Song tier (`difficulty_tier`) and vocabulary tier (JLPT `N5â€“N1`) remain parallel taxonomies â€” no re-tagging of either; songs use B/I/A on the path, vocab uses JLPT in the gap dashboard
 **Decisions captured**: [.planning/phases/12-learning-path-and-gamification/12-CONTEXT.md](phases/12-learning-path-and-gamification/12-CONTEXT.md)
 **Research captured**: [.planning/phases/12-learning-path-and-gamification/12-RESEARCH.md](phases/12-learning-path-and-gamification/12-RESEARCH.md)
 **Plans:** 6/6 plans complete
 Plans:
-- [ ] 12-01-PLAN.md — Schema + migration (0008_gamification.sql) + reward-slot seed + starter-pick verification script
-- [ ] 12-02-PLAN.md — TDD: XP calculator + level curve + streak state machine + reward-slot filter + analytics stub (pure functions)
-- [ ] 12-03-PLAN.md — RewardSlotContent discriminated-union types + cosmetic catalog + starter-song decision checkpoint
-- [ ] 12-04-PLAN.md — Extend saveSessionResults (single write boundary) + setStarterSong + SessionSummary XP/streak/level UI + integration tests
-- [ ] 12-05-PLAN.md — JLPT gap dashboard on /vocabulary + /profile HUD + sound/haptic settings toggles
-- [ ] 12-06-PLAN.md — /path route + StarterPick + LevelUpTakeover + CosmeticsProvider + SFX + E2E spec + human-verify checkpoint
+- [ ] 12-01-PLAN.md â€” Schema + migration (0008_gamification.sql) + reward-slot seed + starter-pick verification script
+- [ ] 12-02-PLAN.md â€” TDD: XP calculator + level curve + streak state machine + reward-slot filter + analytics stub (pure functions)
+- [ ] 12-03-PLAN.md â€” RewardSlotContent discriminated-union types + cosmetic catalog + starter-song decision checkpoint
+- [ ] 12-04-PLAN.md â€” Extend saveSessionResults (single write boundary) + setStarterSong + SessionSummary XP/streak/level UI + integration tests
+- [ ] 12-05-PLAN.md â€” JLPT gap dashboard on /vocabulary + /profile HUD + sound/haptic settings toggles
+- [ ] 12-06-PLAN.md â€” /path route + StarterPick + LevelUpTakeover + CosmeticsProvider + SFX + E2E spec + human-verify checkpoint
 
 ### Phase 13: Performance Infrastructure
-**Goal**: Ship the performance infrastructure whose shape is independent of visual design — caching, deferred loading, CI bundle budgets. Actual Lighthouse/LCP/TTI scoring is deferred to Phase 19 entry gate (after Phase 14 UX polish lands), so we don't score pages we're about to redesign.
+**Goal**: Ship the performance infrastructure whose shape is independent of visual design â€” caching, deferred loading, CI bundle budgets. Actual Lighthouse/LCP/TTI scoring is deferred to Phase 19 entry gate (after Phase 14 UX polish lands), so we don't score pages we're about to redesign.
 **Depends on**: Phase 12
 **Requirements**: TBD
 **Success Criteria**:
   1. Already-visited song lessons serve from cache on repeat visit (no cold DB hit)
   2. YouTube iframe deferred until in view; lesson panel renders independently of video load
-  3. Bundle size budget enforced in CI (song page JS <=50KB gzipped on /songs/[slug]) — tightened from 200KB ROADMAP target to 50KB SPEC budget (~25% headroom over 2026-04-24 baseline of ~40KB)
+  3. Bundle size budget enforced in CI (song page JS <=50KB gzipped on /songs/[slug]) â€” tightened from 200KB ROADMAP target to 50KB SPEC budget (~25% headroom over 2026-04-24 baseline of ~40KB)
 **Plans:** 4/4 plans complete
 Plans:
-- [x] 13-01-PLAN.md — Lesson cache: remove force-dynamic from /songs/[slug], decouple KnownWordCount to client-fetch, instrumented Neon counter, integration test, revalidateTag hooks in seed scripts (R1)
-- [x] 13-02-PLAN.md — Iframe defer: IntersectionObserver lazy-mount in YouTubeEmbed, skeleton placeholder, force-mount on Practice tab, e2e spec for defer + Listening Drill regression (R2)
-- [x] 13-03-PLAN.md — Bundle CI: size-limit + @next/bundle-analyzer + .size-limit.cjs (50 KB gzipped on /songs/[slug]), pr-checks workflow extension with size-limit-action (R3)
-- [x] 13-04-PLAN.md — Lighthouse baseline (informational, AC #11): pick-median-song script, mobile+desktop runs against home/catalog/song, 13-SUMMARY.md baseline table (depends on 01/02/03)
+- [x] 13-01-PLAN.md â€” Lesson cache: remove force-dynamic from /songs/[slug], decouple KnownWordCount to client-fetch, instrumented Neon counter, integration test, revalidateTag hooks in seed scripts (R1)
+- [x] 13-02-PLAN.md â€” Iframe defer: IntersectionObserver lazy-mount in YouTubeEmbed, skeleton placeholder, force-mount on Practice tab, e2e spec for defer + Listening Drill regression (R2)
+- [x] 13-03-PLAN.md â€” Bundle CI: size-limit + @next/bundle-analyzer + .size-limit.cjs (50 KB gzipped on /songs/[slug]), pr-checks workflow extension with size-limit-action (R3)
+- [x] 13-04-PLAN.md â€” Lighthouse baseline (informational, AC #11): pick-median-song script, mobile+desktop runs against home/catalog/song, 13-SUMMARY.md baseline table (depends on 01/02/03)
 
 ### Phase 14: UX Polish
 **Goal**: Every learner-facing surface in KitsuBeat (11 surfaces) renders against a single tokenized design system in two colorways (dark + light), uses shared Button/Card/Badge/Modal primitives instead of inline implementations, ships designed empty/loading/error states for every async surface, honors a 12-entry microinteraction catalog with prefers-reduced-motion fallbacks, and passes a CI-enforced token-compliance lint gate plus axe/Lighthouse accessibility >=95.
 **Depends on**: Phase 12, Phase 13 (size-limit budget carry-forward; baseline ~16 KB on /songs/[slug])
 **Requirements**: SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7, SPEC-REQ-8, SPEC-REQ-9 (locked in 14-SPEC.md; no upstream REQUIREMENTS.md REQ-IDs map to this phase)
 **Success Criteria**:
-  1. Design system documented and tokenized: colors, type, spacing, radii, shadows, motion — applied consistently
-  2. Mobile layout reviewed end-to-end (home, catalog, song, exercise, kana, vocabulary, review, profile) — no horizontal scroll, tap targets >=44px
+  1. Design system documented and tokenized: colors, type, spacing, radii, shadows, motion â€” applied consistently
+  2. Mobile layout reviewed end-to-end (home, catalog, song, exercise, kana, vocabulary, review, profile) â€” no horizontal scroll, tap targets >=44px
   3. Key transitions have purposeful motion (verse highlighting, star unlocks, correct/incorrect feedback) with prefers-reduced-motion honored
   4. Empty, loading, and error states designed for every major surface
   5. Dark mode coherent across all custom components (not just CSS var flipping)
@@ -463,20 +464,20 @@ Plans:
 **Research captured**: [.planning/phases/14-ux-polish/14-RESEARCH.md](phases/14-ux-polish/14-RESEARCH.md)
 **Plans:** 10/10 plans complete
 Plans:
-- [x] 14-00-PLAN.md — Wave 0 scaffolding: ESLint flat config + custom kitsubeat-tokens plugin, audit scripts, Playwright spec shells, Vitest test shells, drizzle/0016 migration + DB column, bundle baseline (Wave 0)
-- [x] 14-01-PLAN.md — Tokens: expand globals.css @theme block (color/typography/spacing/radii/shadow/motion) + :root[data-theme=light] override + reduced-motion @media block (Wave 1)
-- [x] 14-02-PLAN.md — Primitives: Button/Card/Badge/Modal/EmptyState/Skeleton in src/components/ui/ + GRAMMAR_COLOR_CLASS map + 5 unit-test fills (Wave 1)
-- [x] 14-03-PLAN.md — Theme persistence: setThemePreference/getThemePreference server actions + RootLayout cookie read + inline no-flash script + ThemeToggle component + Profile Appearance radio + integration + E2E test fills (Wave 1)
-- [x] 14-04-PLAN.md — Motion catalog (docs/motion-catalog.md, 12 entries) + /__dev/states route (24 cards) + delete /dashboard route + qa-suite.yml extension (lint + audit steps; a11y nightly-only) (Wave 1)
-- [x] 14-05-PLAN.md — /songs/[slug] surface migration (~12 files, densest surface; AdvancedDrillsUpsellModal becomes Modal primitive consumer) (Wave 2)
-- [x] 14-06-PLAN.md — Catalog tier: /, /songs, /anime-list (SongCard becomes CardLink + Badge primitive consumer) (Wave 2)
-- [x] 14-07-PLAN.md — /review + /vocabulary + /profile surfaces + cross-cutting modals (LevelUpTakeover, components/UpsellModal) become Modal primitive consumers (Wave 3)
-- [x] 14-08-PLAN.md — /kana x3 surfaces + RowUnlockModal rewrite (eliminates the only dark: variant in codebase) (Wave 3)
-- [x] 14-09-PLAN.md — /path surface + a11y.spec.ts fill (22 cases) + final phase verification gate (Wave 4)
+- [x] 14-00-PLAN.md â€” Wave 0 scaffolding: ESLint flat config + custom kitsubeat-tokens plugin, audit scripts, Playwright spec shells, Vitest test shells, drizzle/0016 migration + DB column, bundle baseline (Wave 0)
+- [x] 14-01-PLAN.md â€” Tokens: expand globals.css @theme block (color/typography/spacing/radii/shadow/motion) + :root[data-theme=light] override + reduced-motion @media block (Wave 1)
+- [x] 14-02-PLAN.md â€” Primitives: Button/Card/Badge/Modal/EmptyState/Skeleton in src/components/ui/ + GRAMMAR_COLOR_CLASS map + 5 unit-test fills (Wave 1)
+- [x] 14-03-PLAN.md â€” Theme persistence: setThemePreference/getThemePreference server actions + RootLayout cookie read + inline no-flash script + ThemeToggle component + Profile Appearance radio + integration + E2E test fills (Wave 1)
+- [x] 14-04-PLAN.md â€” Motion catalog (docs/motion-catalog.md, 12 entries) + /__dev/states route (24 cards) + delete /dashboard route + qa-suite.yml extension (lint + audit steps; a11y nightly-only) (Wave 1)
+- [x] 14-05-PLAN.md â€” /songs/[slug] surface migration (~12 files, densest surface; AdvancedDrillsUpsellModal becomes Modal primitive consumer) (Wave 2)
+- [x] 14-06-PLAN.md â€” Catalog tier: /, /songs, /anime-list (SongCard becomes CardLink + Badge primitive consumer) (Wave 2)
+- [x] 14-07-PLAN.md â€” /review + /vocabulary + /profile surfaces + cross-cutting modals (LevelUpTakeover, components/UpsellModal) become Modal primitive consumers (Wave 3)
+- [x] 14-08-PLAN.md â€” /kana x3 surfaces + RowUnlockModal rewrite (eliminates the only dark: variant in codebase) (Wave 3)
+- [x] 14-09-PLAN.md â€” /path surface + a11y.spec.ts fill (22 cases) + final phase verification gate (Wave 4)
 
 
 ### Phase 14.1: Redesign /path
-**Goal**: Apply the locked CA-hybrid design language (cover-art-as-background nodes + lantern-streak header + hero-progress block + visual-only locked treatment + Japanese-co-headed tier dividers + sticky Continue CTA + first-class kana checkpoints) to the /path surface, using only the Phase 14 token system extended with 2 new tokens (--mist-fill + --aura-color; --shadow-cta-red already authored in Phase 14-01) — and unblock visual verification by repairing the existing getStarterSongs() runtime error.
+**Goal**: Apply the locked CA-hybrid design language (cover-art-as-background nodes + lantern-streak header + hero-progress block + visual-only locked treatment + Japanese-co-headed tier dividers + sticky Continue CTA + first-class kana checkpoints) to the /path surface, using only the Phase 14 token system extended with 2 new tokens (--mist-fill + --aura-color; --shadow-cta-red already authored in Phase 14-01) â€” and unblock visual verification by repairing the existing getStarterSongs() runtime error.
 **Depends on**: Phase 14
 **Requirements**: SPEC-REQ-1, SPEC-REQ-2, SPEC-REQ-3, SPEC-REQ-4, SPEC-REQ-5, SPEC-REQ-6, SPEC-REQ-7, SPEC-REQ-8 (locked in 14.1-SPEC.md; no upstream REQUIREMENTS.md REQ-IDs map to this phase)
 **Success Criteria**:
@@ -489,59 +490,59 @@ Plans:
 **Context captured**: [.planning/phases/14.1-redesign-path/14.1-CONTEXT.md](phases/14.1-redesign-path/14.1-CONTEXT.md) (19 decisions D-01..D-19)
 **Plans:** 13/13 plans complete
 Plans:
-- [x] 14.1-00-PLAN.md — Wave 0: capture light-theme reference PNG (D-11) + pre-Wave-1 /path bundle baseline (D-12)
-- [x] 14.1-01-PLAN.md — Wave 1: 2 new tokens (--mist-fill, --aura-color) for both themes + 3 keyframes (ka-pulse, ka-flicker, ka-aura) + motion-catalog entries
-- [x] 14.1-02-PLAN.md — Wave 1: getStarterSongs() filter+warn repair (SPEC-REQ-1) + StarterPick EmptyState fallback + integration + unit tests
-- [x] 14.1-03-PLAN.md — Wave 1: src/lib/kana/checkpoint-state.ts pure helper (D-04) + Vitest fixtures
-- [x] 14.1-04-PLAN.md — Wave 2: <LanternStreak> SVG component (SPEC-REQ-3) + opacity-tier vitest
-- [x] 14.1-05-PLAN.md — Wave 2: <PathHeader> wordmark + LanternStreak composition (SPEC-REQ-2) + structural vitest
-- [x] 14.1-06-PLAN.md — Wave 2: <HeroProgress> Level + XP + Now Learning + next-reward chip (SPEC-REQ-4 + D-09) + structural vitest
-- [x] 14.1-07-PLAN.md — Wave 2: <TierDivider> bilingual co-heading + 3 tier SVG icons (SPEC-REQ-7) + per-tier vitest
-- [x] 14.1-08-PLAN.md — Wave 2: <KanaCheckpointNode> client island reading useKanaProgress (SPEC-REQ-6 + D-03) + 3-state + M1 vitest
-- [x] 14.1-09-PLAN.md — Wave 2: <PathNode> cover-art-as-background rewrite (SPEC-REQ-5) + 4 states + M1 invariant + ka-* keyframe hooks + vitest
-- [x] 14.1-10-PLAN.md — Wave 2: <ContinueAnchor> sticky bottom CTA (SPEC-REQ-8) + visibility + position + tap navigation vitest
-- [x] 14.1-11-PLAN.md — Wave 3: page.tsx integration + DELETE PathHud + PathMap composes TierDivider + KanaCheckpointNode + /kana ?script param (D-05/D-06)
-- [x] 14.1-12-PLAN.md — Wave 4: 8 Playwright specs covering AC #1-#10 + axe dark+light + bundle delta report (D-10/D-11/D-12/D-15/D-18)
+- [x] 14.1-00-PLAN.md â€” Wave 0: capture light-theme reference PNG (D-11) + pre-Wave-1 /path bundle baseline (D-12)
+- [x] 14.1-01-PLAN.md â€” Wave 1: 2 new tokens (--mist-fill, --aura-color) for both themes + 3 keyframes (ka-pulse, ka-flicker, ka-aura) + motion-catalog entries
+- [x] 14.1-02-PLAN.md â€” Wave 1: getStarterSongs() filter+warn repair (SPEC-REQ-1) + StarterPick EmptyState fallback + integration + unit tests
+- [x] 14.1-03-PLAN.md â€” Wave 1: src/lib/kana/checkpoint-state.ts pure helper (D-04) + Vitest fixtures
+- [x] 14.1-04-PLAN.md â€” Wave 2: <LanternStreak> SVG component (SPEC-REQ-3) + opacity-tier vitest
+- [x] 14.1-05-PLAN.md â€” Wave 2: <PathHeader> wordmark + LanternStreak composition (SPEC-REQ-2) + structural vitest
+- [x] 14.1-06-PLAN.md â€” Wave 2: <HeroProgress> Level + XP + Now Learning + next-reward chip (SPEC-REQ-4 + D-09) + structural vitest
+- [x] 14.1-07-PLAN.md â€” Wave 2: <TierDivider> bilingual co-heading + 3 tier SVG icons (SPEC-REQ-7) + per-tier vitest
+- [x] 14.1-08-PLAN.md â€” Wave 2: <KanaCheckpointNode> client island reading useKanaProgress (SPEC-REQ-6 + D-03) + 3-state + M1 vitest
+- [x] 14.1-09-PLAN.md â€” Wave 2: <PathNode> cover-art-as-background rewrite (SPEC-REQ-5) + 4 states + M1 invariant + ka-* keyframe hooks + vitest
+- [x] 14.1-10-PLAN.md â€” Wave 2: <ContinueAnchor> sticky bottom CTA (SPEC-REQ-8) + visibility + position + tap navigation vitest
+- [x] 14.1-11-PLAN.md â€” Wave 3: page.tsx integration + DELETE PathHud + PathMap composes TierDivider + KanaCheckpointNode + /kana ?script param (D-05/D-06)
+- [x] 14.1-12-PLAN.md â€” Wave 4: 8 Playwright specs covering AC #1-#10 + axe dark+light + bundle delta report (D-10/D-11/D-12/D-15/D-18)
 
 
 ### Phase 14.2: Redesign Home (/)
-**Goal**: Apply the Phase 14.1 CA-hybrid visual language to `/` (home / catalog entry) so it reads as an anime-music streaming service rather than a flashcard app — hero / featured-songs block above the fold with one clear CTA, celebratory mastery overlays at-a-glance for authenticated users, a value-prop empty state for unauthenticated visitors that lands in 1–2 seconds, and a mobile-first thumb-zone-audited layout. Inherits the lantern-streak header, cover-art-as-background card treatment, and sticky CTA pattern from 14.1.
+**Goal**: Apply the Phase 14.1 CA-hybrid visual language to `/` (home / catalog entry) so it reads as an anime-music streaming service rather than a flashcard app â€” hero / featured-songs block above the fold with one clear CTA, celebratory mastery overlays at-a-glance for authenticated users, a value-prop empty state for unauthenticated visitors that lands in 1â€“2 seconds, and a mobile-first thumb-zone-audited layout. Inherits the lantern-streak header, cover-art-as-background card treatment, and sticky CTA pattern from 14.1.
 **Depends on**: Phase 14.1
 **Requirements**: TBD (lock via /gsd-spec-phase 14.2-redesign-home)
 **Success Criteria**:
-  1. Hero / featured-songs treatment renders above the fold (top 3–5 picks: trending, newly released, picks-for-your-level)
+  1. Hero / featured-songs treatment renders above the fold (top 3â€“5 picks: trending, newly released, picks-for-your-level)
   2. SongCard gains a `featured` variant (large, cover-art-bleed) alongside the existing catalog grid; both inherit 14.1 token system
-  3. Unauthenticated visitors see a value-prop hero comprehensible in 1–2s (no flat catalog-only fallback)
+  3. Unauthenticated visitors see a value-prop hero comprehensible in 1â€“2s (no flat catalog-only fallback)
   4. Authenticated users see mastery overlays (3-star ribbon, bonus-badge sparkle) without scroll
-  5. Persistent header chip from 14.1 (KitsuBeat wordmark + LanternStreak) carries to `/` (virality goal #5 — streak visible on every surface)
+  5. Persistent header chip from 14.1 (KitsuBeat wordmark + LanternStreak) carries to `/` (virality goal #5 â€” streak visible on every surface)
   6. Global header nav exposes a `Path` entry as a first-class destination (provisional inline link added 2026-05-03; 14.2 absorbs its design treatment + ordering as part of the home-redesign chrome update)
-  7. Pixel-diff dark + light themes pass against demo references at ≤2% tolerance; axe-core ≥95 in both themes; reduced-motion honored
+  7. Pixel-diff dark + light themes pass against demo references at â‰¤2% tolerance; axe-core â‰¥95 in both themes; reduced-motion honored
 **Source briefing**: [HUASHU-BRIEFINGS.md](../HUASHU-BRIEFINGS.md) Briefing 2
 **Plans**: TBD
 
 ### Phase 14.3: Redesign Lesson (/songs/[slug])
-**Goal**: Apply the Phase 14.1 / 14.2 visual language to `/songs/[slug]` — the densest surface (12 components) and the core lesson + exercise experience — so the lyrics+video panel reads as a music player (not a textbook), exercise cards read as a game (not a quiz), and the transition from lyrics-mode to exercise-mode lands as a gear-shift moment rather than a page navigation. Preserves all existing mastery-moment animations (star-shine, level-pop, confetti) with reduced-motion fallbacks intact.
+**Goal**: Apply the Phase 14.1 / 14.2 visual language to `/songs/[slug]` â€” the densest surface (12 components) and the core lesson + exercise experience â€” so the lyrics+video panel reads as a music player (not a textbook), exercise cards read as a game (not a quiz), and the transition from lyrics-mode to exercise-mode lands as a gear-shift moment rather than a page navigation. Preserves all existing mastery-moment animations (star-shine, level-pop, confetti) with reduced-motion fallbacks intact.
 **Depends on**: Phase 14.2 (carries the design language matured across 14.1 path + 14.2 home)
 **Requirements**: [14.3-SPEC.md](phases/14.3-redesign-lesson/14.3-SPEC.md)
 **Success Criteria**:
-  1. Lyrics + video panel reads as a music player surface (verse-scroll synced; furigana / translation / grammar pills; color-coded vocab) — not a textbook
-  2. Exercise cards (LearnCard, QuestionCard, GrammarMcqCard, SentenceOrderCard, ListeningDrillCard, ConjugationCard, FeedbackPanel, SessionSummary) read as a game — not a quiz
-  3. Lyrics → exercise transition is a single gear-shift moment (not a route navigation)
+  1. Lyrics + video panel reads as a music player surface (verse-scroll synced; furigana / translation / grammar pills; color-coded vocab) â€” not a textbook
+  2. Exercise cards (LearnCard, QuestionCard, GrammarMcqCard, SentenceOrderCard, ListeningDrillCard, ConjugationCard, FeedbackPanel, SessionSummary) read as a game â€” not a quiz
+  3. Lyrics â†’ exercise transition is a single gear-shift moment (not a route navigation)
   4. Mastery moments preserved with reduced-motion fallback: star-shine, level-pop, confetti
   5. Mobile parity for primary content; desktop adds peripheral info (e.g. mastered-vocab sidebar) but never has primary content the mobile lacks
   6. Bundle stays under 50 KB gzipped on /songs/[slug] (Phase 13 carry-over budget; current baseline ~10 KB)
-  7. Pixel-diff dark + light themes ≤2% tolerance; axe-core ≥95 in both themes
+  7. Pixel-diff dark + light themes â‰¤2% tolerance; axe-core â‰¥95 in both themes
 **Source briefing**: [HUASHU-BRIEFINGS.md](../HUASHU-BRIEFINGS.md) Briefing 3
 **Plans**:
-- [x] 14.3-01-PLAN.md — lesson shell + in-page Practice gear shift
-- [x] 14.3-02-PLAN.md — Practice game lobby + exercise loop polish
+- [x] 14.3-01-PLAN.md â€” lesson shell + in-page Practice gear shift
+- [x] 14.3-02-PLAN.md â€” Practice game lobby + exercise loop polish
 
 ### Phase 14.4: Virality & Engagement
-**Goal**: Layer functional virality + retention mechanics on top of the visual foundation laid by 14.1 / 14.2 / 14.3 — visible social activity (live "now playing" signals, recently-mastered cross-user feed, opt-in leaderboards) and streak behavioral hooks (daily reminders, streak-saver token, weekly recap email). All social features opt-in by default; reduced-anxiety patterns throughout (no streak-shaming dark patterns).
+**Goal**: Layer functional virality + retention mechanics on top of the visual foundation laid by 14.1 / 14.2 / 14.3 â€” visible social activity (live "now playing" signals, recently-mastered cross-user feed, opt-in leaderboards) and streak behavioral hooks (daily reminders, streak-saver token, weekly recap email). All social features opt-in by default; reduced-anxiety patterns throughout (no streak-shaming dark patterns).
 **Depends on**: Phase 14.1, Phase 14.2, Phase 14.3 (must inherit visual vocabulary; cannot ship before all three redesigns land), Clerk plan tier definition (premium vs free for streak-saver gating)
 **Requirements**: REQ-1, REQ-2, REQ-3, REQ-4, REQ-5, REQ-6, REQ-7, REQ-8 (locked in 14.4-SPEC.md)
 **Success Criteria**:
-  1. "Now playing" live signal renders on home for popular songs (e.g. "12 learners on this song right now") — anonymized OK for MVP
+  1. "Now playing" live signal renders on home for popular songs (e.g. "12 learners on this song right now") â€” anonymized OK for MVP
   2. Recently-mastered cross-user feed (anonymized OK for MVP) on home or `/path`
   3. Daily reminder system: web push (where supported) OR transactional email fallback
   4. Streak-saver token: one-time streak recovery earned via X-day milestone (free vs premium gating to be locked in spec-phase)
@@ -550,16 +551,16 @@ Plans:
 **Spec captured**: [.planning/phases/14.4-virality-engagement/14.4-SPEC.md](phases/14.4-virality-engagement/14.4-SPEC.md)
 **Context captured**: [.planning/phases/14.4-virality-engagement/14.4-CONTEXT.md](phases/14.4-virality-engagement/14.4-CONTEXT.md)
 **Research captured**: [.planning/phases/14.4-virality-engagement/14.4-RESEARCH.md](phases/14.4-virality-engagement/14.4-RESEARCH.md)
-**Plans:** 5 plans — **Complete** (2026-05-09)
+**Plans:** 5 plans â€” **Complete** (2026-05-09)
 Plans:
-- [x] 14.4-01-PLAN.md — Migration 0018 + schema.ts + all 14 Wave 0 test stubs
-- [x] 14.4-02-PLAN.md — Data layer: queries, streak-saver pure module, session-integration extension, userPrefs round-trip
-- [x] 14.4-03-PLAN.md — Email + cron infra: resend install, auth helper, templates, both cron routes, vercel.json
-- [x] 14.4-04-PLAN.md — UI surfaces: CoverCard chip, RecentlyMasteredTicker, StreakSaverToast, ProfileForm social toggle
-- [x] 14.4-05-PLAN.md — Schema push + full test suite + build/lint verification + Vercel plan pre-flight
+- [x] 14.4-01-PLAN.md â€” Migration 0018 + schema.ts + all 14 Wave 0 test stubs
+- [x] 14.4-02-PLAN.md â€” Data layer: queries, streak-saver pure module, session-integration extension, userPrefs round-trip
+- [x] 14.4-03-PLAN.md â€” Email + cron infra: resend install, auth helper, templates, both cron routes, vercel.json
+- [x] 14.4-04-PLAN.md â€” UI surfaces: CoverCard chip, RecentlyMasteredTicker, StreakSaverToast, ProfileForm social toggle
+- [x] 14.4-05-PLAN.md â€” Schema push + full test suite + build/lint verification + Vercel plan pre-flight
 
 ### Phase 14.5: Iconography & Brand Revamp
-**Goal**: Replace the brand chrome (logo, favicon, apple-touch-icon, og-image, twitter-image), `/path` tier icons (bamboo / torii / mountain SVGs in TierDivider), and reward/cosmetic badge icons with a unified, locally-generated set using the existing ComfyUI pipeline (FLUX.1-schnell / SDXL — already wired for Phase 11.6 kanji mnemonic images, so zero API spend). Establishes a single iconographic vocabulary across the app while preserving the lantern + fox-mark that just shipped in 14.1.
+**Goal**: Replace the brand chrome (logo, favicon, apple-touch-icon, og-image, twitter-image), `/path` tier icons (bamboo / torii / mountain SVGs in TierDivider), and reward/cosmetic badge icons with a unified, locally-generated set using the existing ComfyUI pipeline (FLUX.1-schnell / SDXL â€” already wired for Phase 11.6 kanji mnemonic images, so zero API spend). Establishes a single iconographic vocabulary across the app while preserving the lantern + fox-mark that just shipped in 14.1.
 **Depends on**: Phase 14.1 (visual language locked); parallelizable with Phase 14.2 / 14.3
 **Requirements**: TBD (lock via /gsd-spec-phase 14.5-iconography-brand-revamp)
 **Success Criteria**:
@@ -569,14 +570,14 @@ Plans:
   4. All generated raster assets shipped at @1x + @2x with consistent canvas / padding; SVGs hand-cleaned (no inline base64, no embedded raster)
   5. ComfyUI workflow JSON + prompts captured in `docs/icon-generation/` for reproducibility (local-only tooling per project memory; no API spend)
   6. 14.1 lantern (`<LanternStreak>`) and fox-mark wordmark remain untouched (explicitly out of scope)
-  7. Pixel-diff dark + light themes still pass for `/path`; axe-core ≥95 maintained (icons get correct `alt` / `aria-label` / `aria-hidden`)
+  7. Pixel-diff dark + light themes still pass for `/path`; axe-core â‰¥95 maintained (icons get correct `alt` / `aria-label` / `aria-hidden`)
 **Plans:** 2/2 plans complete
 Plans:
 - [x] 14.5-01-PLAN.md -- Wave 1: TierDivider SVG redraw + metadata.twitter insertion + brand-prompts.md creation (REQ-6, REQ-7, REQ-8)
 - [x] 14.5-02-PLAN.md -- Wave 2: Raster asset verification + favicon.ico synthesis via sharp (REQ-1, REQ-2, REQ-3, REQ-4, REQ-5) [has checkpoint]
 
 
-### Phase 14.6: Journal — Organic Traffic & Content Hub
+### Phase 14.6: Journal â€” Organic Traffic & Content Hub
 **Goal**: Ship a file-based MDX content section at /journal that drives organic traffic via SEO-optimised articles covering anime culture, song translations, and Japanese language explainers. Articles are auto-discovered from src/content/journal/ where Subutai drops .mdx files. The section must feel native to the session-14 design system and carry a full SEO layer.
 **Depends on**: Phase 14 (design tokens + Card primitive)
 **Requirements**: JOUR-01, JOUR-02, JOUR-03, JOUR-04, JOUR-05, JOUR-06, JOUR-07, JOUR-08
@@ -584,9 +585,9 @@ Plans:
 **Research captured**: [.planning/phases/14.6-journal/14.6-RESEARCH.md](phases/14.6-journal/14.6-RESEARCH.md)
 **Plans:** 3 plans
 Plans:
-- [x] 14.6-01-PLAN.md — Wave 1: Install next-mdx-remote + gray-matter + reading-time; src/lib/journal/articles.ts utility; sample article MDX; unit tests (JOUR-01 to JOUR-04)
-- [x] 14.6-02-PLAN.md — Wave 2: JournalCard + ArticleHero components; /journal index page; /journal/[slug] article page with compileMDX render and notFound (JOUR-05, JOUR-06)
-- [x] 14.6-03-PLAN.md — Wave 3: generateMetadata + JSON-LD on article page; src/app/sitemap.ts; NEXT_PUBLIC_SITE_URL env var (JOUR-07, JOUR-08)
+- [x] 14.6-01-PLAN.md â€” Wave 1: Install next-mdx-remote + gray-matter + reading-time; src/lib/journal/articles.ts utility; sample article MDX; unit tests (JOUR-01 to JOUR-04)
+- [x] 14.6-02-PLAN.md â€” Wave 2: JournalCard + ArticleHero components; /journal index page; /journal/[slug] article page with compileMDX render and notFound (JOUR-05, JOUR-06)
+- [x] 14.6-03-PLAN.md â€” Wave 3: generateMetadata + JSON-LD on article page; src/app/sitemap.ts; NEXT_PUBLIC_SITE_URL env var (JOUR-07, JOUR-08)
 
 
 ### Phase 15: Analytics & Error Tracking
@@ -594,9 +595,9 @@ Plans:
 **Depends on**: Phase 14
 **Requirements**: SC-1, SC-2, SC-3, SC-4, SC-5
 **Success Criteria**:
-  1. PostHog tracks 7 specified funnel events (signup, song_opened, exercise_started, first_star_earned, day_7_return, premium_gate_hit, subscription_started; subscription_started exported as named stub in src/lib/analytics.ts — fires when billing route is integrated in Phase 19)
+  1. PostHog tracks 7 specified funnel events (signup, song_opened, exercise_started, first_star_earned, day_7_return, premium_gate_hit, subscription_started; subscription_started exported as named stub in src/lib/analytics.ts â€” fires when billing route is integrated in Phase 19)
   2. Sentry captures client + server + edge exceptions with source maps; stack traces resolve to TypeScript source
-  3. Core funnel dashboard exists in PostHog Cloud UI: signup → first star → day-7 return; queryable by cohort
+  3. Core funnel dashboard exists in PostHog Cloud UI: signup â†’ first star â†’ day-7 return; queryable by cohort
   4. No PostHog events fire before user gives consent (opt_out_capturing_by_default: true; banner shows on first visit)
   5. No PII in event payloads: no email, name, or raw user data; only userId/distinct_id allowed
 **Plans:** 5 plans (4 autonomous + 1 human-verify checkpoint)
@@ -612,20 +613,20 @@ Plans:
 **Depends on**: Phase 15
 **Requirements**: TBD
 **Success Criteria**:
-  1. Supabase RLS policies reviewed for every table — deny-by-default; policies match each access pattern
+  1. Supabase RLS policies reviewed for every table â€” deny-by-default; policies match each access pattern
   2. Server action / API surface audited: every route confirms authenticated user matches target user_id before read/write
   3. Secrets scan passes; no secrets in client bundle or git history; .env conventions documented
   4. Rate limits on signup, login, exercise answer submission, and any LLM-proxy endpoint
   5. IR runbook checked in: on-call (you), severity taxonomy, 72h UK-GDPR breach notification timeline, first-response checklist
 **Plans:** 7 plans (5 autonomous + 2 human-verify checkpoints)
 Plans:
-- [x] 16-01-PLAN.md — Wave 0: RED test stubs (auth guards + rate-limit + RLS audit script)
-- [x] 16-02-PLAN.md — Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess, grammarSession.ts)
-- [x] 16-03-PLAN.md — Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes + ThemeToggle caller update
-- [x] 16-04-PLAN.md — Rate limiting infra (Upstash ratelimit) + apply to exercise endpoints + llmRatelimit to grammarSession.ts
-- [x] 16-05-PLAN.md — RLS migration (0020_rls_policies.sql) + audit script verification
-- [x] 16-06-PLAN.md — Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint [has checkpoint]
-- [x] 16-07-PLAN.md — IR runbook (docs/security/IR-RUNBOOK.md) + human approval [has checkpoint]
+- [x] 16-01-PLAN.md â€” Wave 0: RED test stubs (auth guards + rate-limit + RLS audit script)
+- [x] 16-02-PLAN.md â€” Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess, grammarSession.ts)
+- [x] 16-03-PLAN.md â€” Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes + ThemeToggle caller update
+- [x] 16-04-PLAN.md â€” Rate limiting infra (Upstash ratelimit) + apply to exercise endpoints + llmRatelimit to grammarSession.ts
+- [x] 16-05-PLAN.md â€” RLS migration (0020_rls_policies.sql) + audit script verification
+- [x] 16-06-PLAN.md â€” Secrets scan (gitleaks) + ENV-CONVENTIONS.md + human checkpoint [has checkpoint]
+- [x] 16-07-PLAN.md â€” IR runbook (docs/security/IR-RUNBOOK.md) + human approval [has checkpoint]
 - [x] 16-01-PLAN.md -- Wave 1: test stubs (auth boundary + rate-limit unit tests) + RLS audit script
 - [x] 16-02-PLAN.md -- Wave 2: Fix IDOR in exercises.ts (saveSessionResults, recordVocabAnswer, getAdvancedDrillAccess) + callers
 - [x] 16-03-PLAN.md -- Wave 2: Fix IDOR in userPrefs.ts mutations + vocab-mastery/vocab-tiers API routes
@@ -635,29 +636,29 @@ Plans:
 - [x] 16-07-PLAN.md -- Wave 3: IR runbook (docs/security/IR-RUNBOOK.md) + human approval checkpoint
 
 ### Phase 17: Legal & Copyright Deep-Dive (Research)
-**Goal**: Produce a standalone analysis covering copyright, UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, and EAA as they apply to kitsubeat — enough to implement Phase 18 without a lawyer for v1, with explicit flags on items needing legal consultation later.
+**Goal**: Produce a standalone analysis covering copyright, UK-GDPR/LGPD/GDPR/CCPA, UK consumer law, VAT MOSS, EU AI Act, and EAA as they apply to kitsubeat â€” enough to implement Phase 18 without a lawyer for v1, with explicit flags on items needing legal consultation later.
 **Depends on**: Phase 16
 **Requirements**: TBD
 **Success Criteria**:
   1. Copyright analysis covers: YouTube embed terms, lyrics licensing (LRCLIB history, WhisperX derivative status), synced-lyrics/karaoke precedent (Musixmatch/Genius), anime-clip liability for v4.0 scope
-  2. Jurisdiction map: UK-GDPR, GDPR, LGPD, CCPA — lawful basis per data field, data subject rights, SAR handling process
+  2. Jurisdiction map: UK-GDPR, GDPR, LGPD, CCPA â€” lawful basis per data field, data subject rights, SAR handling process
   3. Consumer law: UK Consumer Contracts Regs (14-day cancel + digital-content waiver), EU equivalents, refund policy template
   4. Tax: VAT MOSS rules, place-of-supply for digital services, Stripe Tax configuration plan
   5. Emerging regulation: EU AI Act disclosure for WhisperX content; EAA / WCAG 2.1 AA accessibility baseline
   6. Output: requirements checklist Phase 18 implements against, with explicit "requires lawyer" flags on out-of-scope items
 **Context captured**: [.planning/phases/17-legal-copyright-deep-dive-research/17-CONTEXT.md](phases/17-legal-copyright-deep-dive-research/17-CONTEXT.md)
 **Plans:** 6/6 plans complete
-**Deliverable:** [17-ANALYSIS.md](phases/17-legal-copyright-deep-dive-research/17-ANALYSIS.md) — 3048 lines, 238 REQ-* items, 21 lawyer-flag rows (completed 2026-05-08)
+**Deliverable:** [17-ANALYSIS.md](phases/17-legal-copyright-deep-dive-research/17-ANALYSIS.md) â€” 3048 lines, 238 REQ-* items, 21 lawyer-flag rows (completed 2026-05-08)
 Plans:
-- [x] 17-01-PLAN.md — Copyright section: YouTube ToS clause-by-clause, LRCLIB/Musixmatch v. Genius deep-dive, WhisperX derivative analysis, anime-clip v4.0 lawyer-gate
-- [x] 17-02-PLAN.md — Privacy & data protection: four-jurisdiction parallel treatment (UK-GDPR, EU-GDPR, LGPD, CCPA), data-field inventory, DSAR/breach/cookies
-- [x] 17-03-PLAN.md — Consumer law + tax: UK CCRs, EU CRD, BR CDC, CA ARL, refund template (activate-at-monetization), UK VAT + EU OSS/IOSS (MOSS-rename flag), Stripe Tax config
-- [x] 17-04-PLAN.md — EU AI Act Art. 50 for WhisperX AND Claude-generated lesson content + full WCAG 2.1 AA checklist + EAA applicability lawyer-flag
-- [x] 17-05-PLAN.md — Age gating: full UK ICO AADC 15-standards analysis + 13+ signup gate + minor-account privacy defaults + LGPD/CCPA minors
-- [x] 17-06-PLAN.md — Consolidate into single 17-ANALYSIS.md + Pre-Monetization Legal Review lawyer index + Phase 18 Requirements Checklist (human-verify)
+- [x] 17-01-PLAN.md â€” Copyright section: YouTube ToS clause-by-clause, LRCLIB/Musixmatch v. Genius deep-dive, WhisperX derivative analysis, anime-clip v4.0 lawyer-gate
+- [x] 17-02-PLAN.md â€” Privacy & data protection: four-jurisdiction parallel treatment (UK-GDPR, EU-GDPR, LGPD, CCPA), data-field inventory, DSAR/breach/cookies
+- [x] 17-03-PLAN.md â€” Consumer law + tax: UK CCRs, EU CRD, BR CDC, CA ARL, refund template (activate-at-monetization), UK VAT + EU OSS/IOSS (MOSS-rename flag), Stripe Tax config
+- [x] 17-04-PLAN.md â€” EU AI Act Art. 50 for WhisperX AND Claude-generated lesson content + full WCAG 2.1 AA checklist + EAA applicability lawyer-flag
+- [x] 17-05-PLAN.md â€” Age gating: full UK ICO AADC 15-standards analysis + 13+ signup gate + minor-account privacy defaults + LGPD/CCPA minors
+- [x] 17-06-PLAN.md â€” Consolidate into single 17-ANALYSIS.md + Pre-Monetization Legal Review lawyer index + Phase 18 Requirements Checklist (human-verify)
 
 ### Phase 18: Legal & Compliance Implementation
-**Goal**: Every item identified in Phase 17 is implemented — T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, accessibility baseline, age gating, support channel all live.
+**Goal**: Every item identified in Phase 17 is implemented â€” T&Cs, Privacy, cookie consent, data export, DMCA/takedown, refund policy, accessibility baseline, age gating, support channel all live.
 **Depends on**: Phase 17
 **Requirements**: TBD
 **Success Criteria**:
@@ -667,83 +668,109 @@ Plans:
   4. DMCA/takedown email published; intake process documented; content-removal workflow exists
   5. Refund policy explicit on checkout; UK 14-day cancel wording present for UK/EU buyers
   6. WCAG 2.1 AA audit passes for catalog, song, exercise, kana, review surfaces; full keyboard nav; ARIA on custom components
-  7. Age gating at signup aligned with UK ICO Age Appropriate Design Code — under-18s blocked or restricted
+  7. Age gating at signup aligned with UK ICO Age Appropriate Design Code â€” under-18s blocked or restricted
   8. Support channel: support@ email published with documented response-time commitment (e.g., 48h business days)
 **Plans:** 7 plans (6 autonomous + 1 human-verify checkpoint)
 Plans:
-- [ ] 18-01-PLAN.md — Wave 0: Migration 0019 (users + cookie_consent_record + sar_log) + Drizzle schema + test stubs + drizzle-kit push [BLOCKING]
-- [ ] 18-02-PLAN.md — Wave 1: versions.ts + consent store + recordConsent() + completeOnboarding() + DSAR endpoint + birthday cron
-- [ ] 18-03-PLAN.md — Wave 2: 5 legal pages (/legal/terms, privacy, cookie-policy, ai-transparency, refund) with pt-BR LGPD section
-- [ ] 18-04-PLAN.md — Wave 3: Age-gate onboarding page + middleware terms version check
-- [ ] 18-05-PLAN.md — Wave 4: AiBadge + CookieConsentBanner + ProfileNudgeBanner + DataExportButton + RootLayout wiring + FeedbackPanel/LearnCard AI attrs
-- [ ] 18-06-PLAN.md — Wave 5: Profile page wiring + KanjiBreakdownSection AI attr + integration tests green + build verification
-- [ ] 18-07-PLAN.md — Wave 5: WCAG ARIA fixes (QuestionCard + SentenceOrderCard) + a11y scan + operator checklist + human-verify checkpoint
+- [ ] 18-01-PLAN.md â€” Wave 0: Migration 0019 (users + cookie_consent_record + sar_log) + Drizzle schema + test stubs + drizzle-kit push [BLOCKING]
+- [ ] 18-02-PLAN.md â€” Wave 1: versions.ts + consent store + recordConsent() + completeOnboarding() + DSAR endpoint + birthday cron
+- [ ] 18-03-PLAN.md â€” Wave 2: 5 legal pages (/legal/terms, privacy, cookie-policy, ai-transparency, refund) with pt-BR LGPD section
+- [ ] 18-04-PLAN.md â€” Wave 3: Age-gate onboarding page + middleware terms version check
+- [ ] 18-05-PLAN.md â€” Wave 4: AiBadge + CookieConsentBanner + ProfileNudgeBanner + DataExportButton + RootLayout wiring + FeedbackPanel/LearnCard AI attrs
+- [ ] 18-06-PLAN.md â€” Wave 5: Profile page wiring + KanjiBreakdownSection AI attr + integration tests green + build verification
+- [ ] 18-07-PLAN.md â€” Wave 5: WCAG ARIA fixes (QuestionCard + SentenceOrderCard) + a11y scan + operator checklist + human-verify checkpoint
 
-### Phase 18.1: UI Internationalization — INSERTED 2026-05-13
-**Goal**: Add PT-BR and ES UI language support via next-intl — URL prefix locale routing (/pt-BR/, /es/), full UI string extraction and translation, globe-icon nav picker persisted to cookie (unauthed) and Clerk user metadata (authed), song language filter chip wired to the existing DB `language` column, and all 29 journal articles translated inline to PT-BR and ES for maximum SEO reach before beta launch.
-**Depends on**: Phase 18 (legal pages include pt-BR LGPD section — i18n must land after)
+### Phase 18.1: UI Internationalization â€” INSERTED 2026-05-13
+**Goal**: Add PT-BR and ES UI language support via next-intl â€” URL prefix locale routing (/pt-BR/, /es/), full UI string extraction and translation, globe-icon nav picker persisted to cookie (unauthed) and Clerk user metadata (authed), song language filter chip wired to the existing DB `language` column, and all 29 journal articles translated inline to PT-BR and ES for maximum SEO reach before beta launch.
+**Depends on**: Phase 18 (legal pages include pt-BR LGPD section â€” i18n must land after)
 **Requirements**: I18N-01 through I18N-08
 **Success Criteria** (what must be TRUE):
-  1. User landing on kitsubeat.com/pt-BR/ sees the full app UI in Brazilian Portuguese — nav, buttons, error states, exercise instructions, and feedback messages all translated
+  1. User landing on kitsubeat.com/pt-BR/ sees the full app UI in Brazilian Portuguese â€” nav, buttons, error states, exercise instructions, and feedback messages all translated
   2. User landing on kitsubeat.com/es/ sees the full app UI in Spanish
-  3. English stays at the root / with no /en/ prefix — no existing indexed URLs break
+  3. English stays at the root / with no /en/ prefix â€” no existing indexed URLs break
   4. Globe icon dropdown in top nav lets any user (logged in or not) switch language; choice persists to cookie; authenticated users' preference syncs to Clerk user metadata
-  5. Browser Accept-Language auto-detects locale on first visit — no language picker modal
+  5. Browser Accept-Language auto-detects locale on first visit â€” no language picker modal
   6. Songs page has a language filter chip (JA / EN / PT-BR / ES) wired to the existing DB `language` column
   7. All 29 journal articles exist in PT-BR and ES versions at /pt-BR/journal/[slug] and /es/journal/[slug]; PT-BR/ES articles appear first on the listing page for their respective locales
-  8. next-intl hreflang tags are correct — no duplicate-content SEO penalty
+  8. next-intl hreflang tags are correct â€” no duplicate-content SEO penalty
 **Context captured**: [.planning/phases/18.1-ui-internationalization/18.1-CONTEXT.md](phases/18.1-ui-internationalization/18.1-CONTEXT.md)
 **Plans:** 12 plans (11 autonomous + 1 human-verify checkpoint)
 Plans:
-- [ ] 18.1-01-PLAN.md — Wave 1: Install next-intl, i18n config files, 18 message JSON files, 4 test stubs
-- [ ] 18.1-02-PLAN.md — Wave 2: next.config.ts plugin, middleware chaining, [locale]/layout.tsx, syncLocaleToClerk
-- [ ] 18.1-03-PLAN.md — Wave 3a: LanguagePicker globe dropdown, LanguageBadge, MobileNavSheet
-- [ ] 18.1-04-PLAN.md — Wave 3b: getAllSongs language column, SongGrid filter chips, articles.ts locale extension
-- [ ] 18.1-05-PLAN.md — Wave 4: Pages under [locale], journal locale ordering, sitemap hreflang
-- [ ] 18.1-06-PLAN.md — Wave 5a: PT-BR articles 1-10
-- [ ] 18.1-07-PLAN.md — Wave 6a: PT-BR articles 11-20
-- [ ] 18.1-08-PLAN.md — Wave 7a: PT-BR articles 21-29
-- [ ] 18.1-09-PLAN.md — Wave 5b: ES articles 1-10
-- [ ] 18.1-10-PLAN.md — Wave 6b: ES articles 11-20
-- [ ] 18.1-11-PLAN.md — Wave 7b: ES articles 21-29
-- [ ] 18.1-12-PLAN.md — Wave 8: E2e tests + build verification + human-verify checkpoint
+- [ ] 18.1-01-PLAN.md â€” Wave 1: Install next-intl, i18n config files, 18 message JSON files, 4 test stubs
+- [ ] 18.1-02-PLAN.md â€” Wave 2: next.config.ts plugin, middleware chaining, [locale]/layout.tsx, syncLocaleToClerk
+- [ ] 18.1-03-PLAN.md â€” Wave 3a: LanguagePicker globe dropdown, LanguageBadge, MobileNavSheet
+- [ ] 18.1-04-PLAN.md â€” Wave 3b: getAllSongs language column, SongGrid filter chips, articles.ts locale extension
+- [ ] 18.1-05-PLAN.md â€” Wave 4: Pages under [locale], journal locale ordering, sitemap hreflang
+- [ ] 18.1-06-PLAN.md â€” Wave 5a: PT-BR articles 1-10
+- [ ] 18.1-07-PLAN.md â€” Wave 6a: PT-BR articles 11-20
+- [ ] 18.1-08-PLAN.md â€” Wave 7a: PT-BR articles 21-29
+- [ ] 18.1-09-PLAN.md â€” Wave 5b: ES articles 1-10
+- [ ] 18.1-10-PLAN.md â€” Wave 6b: ES articles 11-20
+- [ ] 18.1-11-PLAN.md â€” Wave 7b: ES articles 21-29
+- [ ] 18.1-12-PLAN.md â€” Wave 8: E2e tests + build verification + human-verify checkpoint
 
-### Phase 18.2: Pre-Launch QA Safety Net — INSERTED 2026-05-16
-**Goal**: A single `npm run test:qa` command that gives reliable signal across all user journeys — locale-aware, multi-surface, parallelized — so any significant change can be validated before it ships.
+### Phase 18.2: Pre-Launch QA Safety Net â€” INSERTED 2026-05-16
+**Goal**: A single `npm run test:qa` command that gives reliable signal across all user journeys â€” locale-aware, multi-surface, parallelized â€” so any significant change can be validated before it ships.
 **Depends on**: Phase 18.1
 **Requirements**: TBD
 **Success Criteria**:
-  1. Locale-journey matrix: key nav actions (sign-in link, sign-up link, path nav, kana nav, player nav) each tested with `kb_locale=pt-BR` and `kb_locale=es` cookies set — no 404s
-  2. Full nav sweep spec: every header link (Trilha, Músicas, Kana, Artigos, Perfil, Sign in) clicks through and destination returns <500, tested for all 3 locales
+  1. Locale-journey matrix: key nav actions (sign-in link, sign-up link, path nav, kana nav, player nav) each tested with `kb_locale=pt-BR` and `kb_locale=es` cookies set â€” no 404s
+  2. Full nav sweep spec: every header link (Trilha, MÃºsicas, Kana, Artigos, Perfil, Sign in) clicks through and destination returns <500, tested for all 3 locales
   3. Onboarding/terms gate smoke: middleware redirect fires correctly and does not loop
   4. API health spec: key `/api/*` routes return expected status codes
   5. `npm run test:qa` script runs the full suite in parallel (max workers) and completes in <5 minutes on CI
   6. Zero locale-related 404s across the test matrix
 **Plans**: TBD
 
+### Phase 18.3: Anime Vocabulary Carousel â€” INSERTED 2026-05-23
+**Goal**: Users can browse and study a comprehensive, thematic vocabulary list for each anime (One Piece, Naruto, Bleach, FMA, AoT, SAO) organized by difficulty â€” independent from songs, tracked in the same FSRS system, and reachable from a new `/anime` index page.
+**Depends on**: Phase 18.2
+**Requirements**: CULT-01, CULT-02, CULT-04
+**Success Criteria**:
+  1. `/anime` index page shows anime cards (cover image, word count, top JLPT level) for all 6 seeded anime
+  2. `/anime/[slug]` carousel shows all words for the anime with JLPT filter (All / N5 / N4 / N3 / N2 / N1 / Anime-specific) and category tabs
+  3. Each word card shows: kanji, hiragana reading, romaji, localized meaning, JLPT badge, category chip, anime context note, mastery state indicator
+  4. `anime_vocab_catalog` table seeded with 760+ words across 6 anime; each word upserted into `vocabulary_items`
+  5. Words practiced from the carousel are tracked in `user_vocab_mastery` via FSRS â€” mastery state dots on word cards reflect real state
+  6. "Practice these words" session uses existing exercise types (vocab_meaning, meaning_vocab) and calls existing `recordVocabAnswer` action
+  7. Dashboard vocab count includes carousel-learned words (no new counter needed â€” existing `user_vocab_mastery` count covers it)
+  8. Nav link "Anime" added to header alongside songs
+  9. Locale mirrors at `/[locale]/anime` and `/[locale]/anime/[slug]` work for all 3 locales
+**Plans:** 9 plans
+Plans:
+- [ ] 18.3-01-PLAN.md -- DB schema: animeVocabCatalog Drizzle table + migration 0025 + npx drizzle-kit push [BLOCKING]
+- [ ] 18.3-02-PLAN.md -- Seed script: scripts/seed/20-seed-anime-vocab.ts (760 words to vocabulary_items + anime_vocab_catalog)
+- [ ] 18.3-03-PLAN.md -- DB queries: getAnimeCatalog() + getAnimeVocabBySlug(slug, userId) in queries.ts
+- [ ] 18.3-04-PLAN.md -- Exercise layer: carousel-generator.ts (buildAnimeCarouselQuestions) + saveAnimeCarouselSession server action
+- [ ] 18.3-05-PLAN.md -- UI components: VocabWordCard + JlptFilterBar + CategoryTabBar + AnimeVocabCarousel
+- [ ] 18.3-06-PLAN.md -- AnimeIndexGrid client component
+- [ ] 18.3-07-PLAN.md -- Pages: /anime/page.tsx + /anime/[slug]/page.tsx + locale mirrors + next.config.ts image domains
+- [ ] 18.3-08-PLAN.md -- Nav: layout.tsx + MobileNavSheet.tsx + 3 i18n message files
+- [ ] 18.3-09-PLAN.md -- Session UI: AnimeCarouselExerciseSession + AnimeSessionSummary + AnimeVocabCarouselWrapper (full state machine)
+
 ### Phase 19: Free Beta Launch & GTM
 **Goal**: Product opens to a limited external audience under the UK sole-trader name; three acquisition channels tested with tracked UTMs; validation signal from behavior, not self-report.
 **Depends on**: Phase 18.2
 **Requirements**: TBD
-**Entry Gate (Phase 13 performance validation — deferred here so measurement runs against the final Phase 14 UX)**:
+**Entry Gate (Phase 13 performance validation â€” deferred here so measurement runs against the final Phase 14 UX)**:
   - Lighthouse mobile performance >=85 on home, catalog, and song pages
   - Song page LCP <2.5s, TTI <3.5s on throttled 4G / Moto G4 profile
   - If either target misses, loop back to Phase 13/14 before opening beta
 **Success Criteria**:
   1. Marketing landing page describes the product in one sentence, shows a 30-second demo, has a single CTA (join beta)
-  2. Three acquisition channels with trackable UTMs — e.g., r/LearnJapanese, a Japanese-learning Discord/forum, personal social; each channel's signup→first-session rate is measurable
+  2. Three acquisition channels with trackable UTMs â€” e.g., r/LearnJapanese, a Japanese-learning Discord/forum, personal social; each channel's signupâ†’first-session rate is measurable
   3. 50+ signups within first 4 weeks; 20+ complete at least one full exercise session; day-7 return >20%
   4. Every beta user has an in-product feedback channel plus email; feedback is centralized
   5. Entity-formation decision point: if MRR projection crosses the UK Ltd threshold by week 4, v4.0 Phase 22 (Monetization) unlocks; otherwise continue free beta
 **Plans**: TBD
 
 ### Phase 20: Code Quality & Test Coverage Pass
-**Goal**: Now that the product shape has stabilized under real usage, pay down tech debt — consolidate duplicate patterns, tighten types, improve critical-path test coverage, document architectural decisions.
+**Goal**: Now that the product shape has stabilized under real usage, pay down tech debt â€” consolidate duplicate patterns, tighten types, improve critical-path test coverage, document architectural decisions.
 **Depends on**: Phase 19 (real-usage patterns must be visible before hardening tests)
 **Requirements**: TBD
 **Success Criteria**:
   1. Critical paths (signup, exercise session save, star derivation, FSRS update, payment webhook if live) have integration tests in CI
-  2. Type-check is strict across shared modules — no `any`, explicit return types on exported functions
+  2. Type-check is strict across shared modules â€” no `any`, explicit return types on exported functions
   3. ADR (Architecture Decision Record) set checked in: why Supabase, FSRS, App Router, Drizzle, UK sole-trader, no-lawyer-for-v1
   4. Deferred-items backlog (08.1 deferred-items.md etc.) resolved or explicitly closed with rationale
 **Plans**: TBD
@@ -752,49 +779,50 @@ Plans:
 
 ## v4.0 Content Expansion
 
-**Milestone Goal:** With an active user base, expand the content universe — anime scenes become real rewards for Phase 12's unlock slots, cultural vocabulary ships, community features surface user progress. Monetization (Stripe + UK Ltd) lands here if it wasn't triggered at Phase 19.
+**Milestone Goal:** With an active user base, expand the content universe â€” anime scenes become real rewards for Phase 12's unlock slots, cultural vocabulary ships, community features surface user progress. Monetization (Stripe + UK Ltd) lands here if it wasn't triggered at Phase 19.
 
 **Depends on:** v3.0 complete with validated product-market signal.
 
 ### Phase 21: Anime Scenes & Cultural Vocabulary
-**Goal**: Users can study iconic anime scenes with the same exercise and vocabulary mechanics as songs, and access standalone anime cultural vocabulary drills where anime references anchor Japanese word learning — with scene vocabulary contributing to cross-song tracking and scenes distributed as Phase 12 unlock rewards.
+**Goal**: Users can study iconic anime scenes with the same exercise and vocabulary mechanics as songs, and access standalone anime cultural vocabulary drills where anime references anchor Japanese word learning â€” with scene vocabulary contributing to cross-song tracking and scenes distributed as Phase 12 unlock rewards.
 **Depends on**: Phase 20, Phase 12 (reward-slot scaffolding)
 **Requirements**: SCENE-01, SCENE-02, SCENE-03, SCENE-04, SCENE-05, CULT-01, CULT-02, CULT-03, CULT-04, DATA-03
 **Success Criteria** (what must be TRUE):
   1. User can browse anime scenes (Pain's speech, AoT pre-battle, One Piece narrator intros, etc.) alongside songs in the catalog, identified by a "Scene" content type tag
-  2. A scene page shows an embedded YouTube clip with synced text display, tokenized vocabulary, grammar breakdown, and translations — identical structure to a song lesson
+  2. A scene page shows an embedded YouTube clip with synced text display, tokenized vocabulary, grammar breakdown, and translations â€” identical structure to a song lesson
   3. All 7 exercise types work on scene content: user can earn stars from a scene the same way they earn them from a song
   4. Vocabulary mastered in anime scenes appears in the cross-song vocabulary dashboard and contributes to the global unique-words counter
   5. User can open a standalone "Anime Vocabulary" drill mode organized by anime series/theme and drill cultural vocabulary using the same multiple-choice + star mastery mechanics
-  6. When a vocabulary word has a known anime cultural reference, a contextual hint shows inline (e.g., "water — think Suiton in Naruto, Suicune in Pokemon")
+  6. When a vocabulary word has a known anime cultural reference, a contextual hint shows inline (e.g., "water â€” think Suiton in Naruto, Suicune in Pokemon")
   7. Scenes are distributed as Phase 12 unlock rewards rather than dumped into the catalog wholesale
 **Plans**: TBD (was v2.0 Phase 12)
 
 ### Phase 23: Native App Decision Point
-**Goal**: Make an evidence-based decision on whether to ship a native iOS/Android app, stay PWA-only, or defer indefinitely. This phase produces a decision doc, not an app — actual build work, if approved, would be a separate future milestone.
+**Goal**: Make an evidence-based decision on whether to ship a native iOS/Android app, stay PWA-only, or defer indefinitely. This phase produces a decision doc, not an app â€” actual build work, if approved, would be a separate future milestone.
 **Depends on**: Phase 19 (needs real beta retention data) + at least 3 months of post-launch usage
 **Requirements**: TBD
 **Gate criteria (proceed to native only if ALL true)**:
-  1. ≥500 monthly active users with ≥20% day-30 return (proves the web product has retention worth porting)
-  2. Quantified user demand: ≥10% of active users request a native app unprompted in feedback, OR measurable drop-off attributable to web-only friction (push notifications, offline study, App Store discoverability)
-  3. PWA install + web-push have been shipped and measured first — native is only considered if PWA demonstrably under-delivers
+  1. â‰¥500 monthly active users with â‰¥20% day-30 return (proves the web product has retention worth porting)
+  2. Quantified user demand: â‰¥10% of active users request a native app unprompted in feedback, OR measurable drop-off attributable to web-only friction (push notifications, offline study, App Store discoverability)
+  3. PWA install + web-push have been shipped and measured first â€” native is only considered if PWA demonstrably under-delivers
   4. Runway / capacity exists for 2-3 months of focused app work plus ongoing dual-platform maintenance (or a clear plan to fund it)
 **Success Criteria** (what must be TRUE to close this phase):
   1. A decision document checked in under `.planning/decisions/native-app.md` with one of: GO (scope + tech choice: React Native vs Expo vs native), NO-GO (stay PWA), or DEFER (revisit at next milestone with specific trigger)
   2. If GO: target platforms, MVP scope (read-only vs full parity), store-fee impact on monetization model (15-30% Apple/Google cut), and review-process risk are all documented
   3. If NO-GO or DEFER: the specific retention/demand signals that would flip the decision are written down so this isn't re-litigated on vibes
-**Plans**: TBD (placeholder — only planned if gate criteria above are met)
+**Plans**: TBD (placeholder â€” only planned if gate criteria above are met)
 
 ### Phase 24: UX Polish via Impeccable Design System
-**Goal**: Surface-by-surface UX polish pass driven by the [pbakaus/impeccable](https://github.com/pbakaus/impeccable) skill + 23 commands. Goal is not a rewrite — it's targeted application of `/impeccable critique`, `/impeccable audit`, and `/impeccable polish` to specific high-traffic elements once the upstream repo stabilizes, fighting generic LLM design defaults (Inter font, purple gradients, gray-on-color, cards-in-cards) and replacing them with choices that match KitsuBeat's anime + learning identity.
+**Goal**: Surface-by-surface UX polish pass driven by the [pbakaus/impeccable](https://github.com/pbakaus/impeccable) skill + 23 commands. Goal is not a rewrite â€” it's targeted application of `/impeccable critique`, `/impeccable audit`, and `/impeccable polish` to specific high-traffic elements once the upstream repo stabilizes, fighting generic LLM design defaults (Inter font, purple gradients, gray-on-color, cards-in-cards) and replacing them with choices that match KitsuBeat's anime + learning identity.
 **Depends on**: Phase 14 (UX Polish baseline complete), Phase 19 (real users to inform what surfaces matter), Impeccable repo declared stable by upstream
 **Requirements**: TBD (derive from Impeccable critique outputs per surface)
 **Repo location**: cloned at `velora-projects/impeccable/` as a sibling reference; do NOT vendor into kitsubeat
 **Success Criteria** (what must be TRUE):
-  1. PRODUCT.md and DESIGN.md generated for KitsuBeat via `/impeccable teach` — KitsuBeat's design language (typography, color system in OKLCH, motion vocabulary, anime/learning identity) is captured as a contract Impeccable can audit against
-  2. At least 6 high-traffic surfaces have been individually run through `/impeccable critique` → `/impeccable polish`: player page, song detail, exercise card, LearnCard, kana trainer, gamification HUD/celebrations
+  1. PRODUCT.md and DESIGN.md generated for KitsuBeat via `/impeccable teach` â€” KitsuBeat's design language (typography, color system in OKLCH, motion vocabulary, anime/learning identity) is captured as a contract Impeccable can audit against
+  2. At least 6 high-traffic surfaces have been individually run through `/impeccable critique` â†’ `/impeccable polish`: player page, song detail, exercise card, LearnCard, kana trainer, gamification HUD/celebrations
   3. Each surface pass produces a before/after diff with rationale tied to Impeccable's reference files (typography / color-and-contrast / spatial / motion / interaction / responsive / ux-writing)
   4. Anti-patterns flagged by Impeccable (Inter font, generic purple gradients, low-contrast gray-on-color, nested cards) are removed from the polished surfaces
   5. No measurable regression in Lighthouse, a11y, or Core Web Vitals on any polished surface (Phase 13 perf gates still pass)
-  6. Polish work is element-scoped, not a rewrite — each commit touches one surface so individual changes can be reverted independently
+  6. Polish work is element-scoped, not a rewrite â€” each commit touches one surface so individual changes can be reverted independently
 **Plans**: TBD (gated on Impeccable repo reaching a stable release)
+
