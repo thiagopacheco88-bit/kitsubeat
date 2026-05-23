@@ -1,6 +1,6 @@
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
-import { eq, sql, asc, desc, inArray, and } from "drizzle-orm";
+import { eq, sql, asc, desc, inArray, and, count } from "drizzle-orm";
 import { db } from "./index";
 import {
   songs,
@@ -15,6 +15,9 @@ import {
   activityEvents,
   songPlays,
   deriveStars,
+  userVocabMastery,
+  animeMetadata,
+  animeVocabCatalog,
   type SongVersion,
 } from "./schema";
 import { REVIEW_NEW_DAILY_CAP } from "@/lib/user-prefs";
@@ -1740,5 +1743,173 @@ export async function getActiveOptInUsersForWeeklyRecap() {
     })
     .from(users)
     .where(eq(users.social_activity_enabled, true));
+}
+
+// ─── Phase 18.3: Anime Vocabulary Carousel ───────────────────────────────────
+
+const ANIME_SLUG_TO_TITLE: Record<string, string> = {
+  "one-piece": "One Piece",
+  "naruto": "Naruto",
+  "bleach": "Bleach",
+  "fullmetal-alchemist": "Fullmetal Alchemist: Brotherhood",
+  "attack-on-titan": "Attack on Titan",
+  "sword-art-online": "Sword Art Online",
+};
+
+export interface AnimeVocabItem {
+  vocab_item_id: string;
+  surface: string;          // dictionary_form from vocabulary_items
+  reading: string;
+  romaji: string;
+  meaning: Record<string, string>;   // { en, "pt-BR", es }
+  jlpt_level: string | null;
+  category: string;
+  context_note: string | null;
+  display_order: number;
+  mastery_state: number;    // 0=New, 1=Learning, 2=Review, 3=Relearning; 0 for unauthenticated
+}
+
+export interface AnimeCatalogEntry {
+  anime_slug: string;
+  word_count: number;
+  top_jlpt: string | null;    // lowest-difficulty JLPT level (N5 if present, else N4, etc.)
+  cover_image: string | null;
+  title_english: string | null;
+  description: string | null;
+}
+
+export async function getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
+  const rows = await db
+    .select({
+      anime_slug: animeVocabCatalog.anime_slug,
+      word_count: count(animeVocabCatalog.vocab_item_id),
+      cover_image: animeMetadata.cover_image,
+      title_english: animeMetadata.title_english,
+      description: animeMetadata.description,
+    })
+    .from(animeVocabCatalog)
+    .leftJoin(
+      animeMetadata,
+      sql`${animeMetadata.anime} = (
+        CASE ${animeVocabCatalog.anime_slug}
+          WHEN 'one-piece' THEN 'One Piece'
+          WHEN 'naruto' THEN 'Naruto'
+          WHEN 'bleach' THEN 'Bleach'
+          WHEN 'fullmetal-alchemist' THEN 'Fullmetal Alchemist: Brotherhood'
+          WHEN 'attack-on-titan' THEN 'Attack on Titan'
+          WHEN 'sword-art-online' THEN 'Sword Art Online'
+          ELSE ''
+        END
+      )`
+    )
+    .groupBy(
+      animeVocabCatalog.anime_slug,
+      animeMetadata.cover_image,
+      animeMetadata.title_english,
+      animeMetadata.description,
+    );
+
+  // Compute top_jlpt per anime using a separate query for the min JLPT level
+  const results: AnimeCatalogEntry[] = await Promise.all(
+    rows.map(async (row) => {
+      // Find the lowest JLPT rank in this anime's words
+      const jlptRows = await db
+        .selectDistinct({ jlpt_level: vocabularyItems.jlpt_level })
+        .from(animeVocabCatalog)
+        .innerJoin(vocabularyItems, eq(animeVocabCatalog.vocab_item_id, vocabularyItems.id))
+        .where(eq(animeVocabCatalog.anime_slug, row.anime_slug));
+
+      const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1"] as const;
+      type JlptLevel = (typeof JLPT_ORDER)[number];
+      const levels = jlptRows
+        .map((r) => r.jlpt_level)
+        .filter((l): l is JlptLevel => l !== null && (JLPT_ORDER as readonly string[]).includes(l));
+      const top_jlpt = JLPT_ORDER.find((l) => levels.includes(l)) ?? null;
+
+      return {
+        anime_slug: row.anime_slug,
+        word_count: Number(row.word_count),
+        top_jlpt,
+        cover_image: row.cover_image ?? null,
+        title_english: row.title_english ?? null,
+        description: row.description ?? null,
+      };
+    })
+  );
+
+  return results;
+}
+
+export async function getAnimeVocabBySlug(
+  slug: string,
+  userId: string | null
+): Promise<{ animeMeta: typeof animeMetadata.$inferSelect | null; words: AnimeVocabItem[] }> {
+  const animeTitle = ANIME_SLUG_TO_TITLE[slug] ?? null;
+
+  // Fetch animeMeta (may be null if slug not in mapping or DB missing)
+  const metaRows = animeTitle
+    ? await db
+        .select()
+        .from(animeMetadata)
+        .where(eq(animeMetadata.anime, animeTitle))
+        .limit(1)
+    : [];
+
+  // Fetch words: JOIN anime_vocab_catalog → vocabulary_items
+  const wordRows = await db
+    .select({
+      vocab_item_id: animeVocabCatalog.vocab_item_id,
+      surface: vocabularyItems.dictionary_form,
+      reading: vocabularyItems.reading,
+      romaji: vocabularyItems.romaji,
+      meaning: vocabularyItems.meaning,
+      jlpt_level: vocabularyItems.jlpt_level,
+      category: animeVocabCatalog.category,
+      context_note: animeVocabCatalog.context_note,
+      display_order: animeVocabCatalog.display_order,
+    })
+    .from(animeVocabCatalog)
+    .innerJoin(vocabularyItems, eq(animeVocabCatalog.vocab_item_id, vocabularyItems.id))
+    .where(eq(animeVocabCatalog.anime_slug, slug))
+    .orderBy(animeVocabCatalog.display_order);
+
+  if (wordRows.length === 0) {
+    return { animeMeta: metaRows[0] ?? null, words: [] };
+  }
+
+  // Fetch mastery states for authenticated user (romaji_meaning card only)
+  let masteryMap: Record<string, number> = {};
+  if (userId) {
+    const vocabIds = wordRows.map((r) => r.vocab_item_id);
+    const masteryRows = await db
+      .select({
+        vocab_item_id: userVocabMastery.vocab_item_id,
+        state: userVocabMastery.state,
+      })
+      .from(userVocabMastery)
+      .where(
+        and(
+          eq(userVocabMastery.user_id, userId),
+          eq(userVocabMastery.card_kind, "romaji_meaning"),
+          inArray(userVocabMastery.vocab_item_id, vocabIds)
+        )
+      );
+    masteryMap = Object.fromEntries(masteryRows.map((r) => [r.vocab_item_id, r.state]));
+  }
+
+  const words: AnimeVocabItem[] = wordRows.map((row) => ({
+    vocab_item_id: row.vocab_item_id,
+    surface: row.surface,
+    reading: row.reading,
+    romaji: row.romaji,
+    meaning: row.meaning as Record<string, string>,
+    jlpt_level: row.jlpt_level ?? null,
+    category: row.category,
+    context_note: row.context_note ?? null,
+    display_order: row.display_order,
+    mastery_state: masteryMap[row.vocab_item_id] ?? 0,
+  }));
+
+  return { animeMeta: metaRows[0] ?? null, words };
 }
 
