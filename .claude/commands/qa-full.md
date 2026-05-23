@@ -262,6 +262,88 @@ Document each new feature tested with: ✅ pass / ❌ fail / ⚠️ partial — 
 
 ---
 
+## Phase 7 — Anime Vocabulary Carousel
+
+Automated gate first (must be green before any manual steps):
+
+```bash
+# Integration: DB queries against live test branch (requires DATABASE_URL / TEST_DATABASE_URL)
+npx vitest run tests/integration/anime-vocab.test.ts
+
+# Unit: carousel generator + saveAnimeCarouselSession
+npx vitest run src/lib/exercises/__tests__/carousel-generator.test.ts src/app/actions/__tests__/anime-carousel.test.ts
+```
+
+Expected: **24/24 pass** (5 integration + 14 generator + 5 server action).
+
+> **DB sync note:** If integration tests fail with `relation "anime_vocab_catalog" does not exist`, the test DB branch is stale. Fix:
+> ```bash
+> # Apply missing migrations to test branch
+> DATABASE_URL="<TEST_DATABASE_URL>" npx tsx scripts/apply-migrations.ts
+> # Seed 760 words into test branch
+> DATABASE_URL="<TEST_DATABASE_URL>" npx tsx --tsconfig tsconfig.scripts.json scripts/seed/20-seed-anime-vocab.ts
+> ```
+
+---
+
+### 7A — Index page (`/anime`)
+
+- [ ] Page renders 6 anime cards — One Piece, Naruto, Bleach, Fullmetal Alchemist, Attack on Titan, Sword Art Online
+- [ ] Each card shows: title, word count badge (> 0), at least one JLPT badge
+- [ ] Search field filters cards in real time (type "nar" → only Naruto card shows)
+- [ ] Clearing search shows all 6 cards again
+- [ ] "Anime" link in desktop nav is visible and active-highlighted on `/anime`
+- [ ] "Anime" link in mobile nav sheet is present (open hamburger → check)
+
+### 7B — Carousel page (`/anime/naruto`)
+
+- [ ] Page header shows "Naruto" title and word count
+- [ ] Vocabulary cards render with: kanji surface, reading (hiragana), romaji, English meaning, JLPT badge, category chip
+- [ ] Cards with context notes show the italicised note below the meaning
+- [ ] Mastery dots appear on cards for authenticated users (grey = unseen, yellow = learning, green = mature)
+- [ ] JLPT filter bar chips: All / N5 / N4 / N3 / N2 / N1 / Anime-specific — clicking each filters correctly
+- [ ] "All" chip restores the full word list
+- [ ] Category tab bar shows tabs for each category present in Naruto's vocabulary; clicking one filters to that category
+- [ ] JLPT filter + category filter compose correctly (both active → intersection of both)
+- [ ] "Practice these words" button is visible and labelled; clicking starts the exercise session
+
+### 7C — Exercise session flow
+
+- [ ] After clicking "Practice these words", the carousel view is replaced by the exercise session
+- [ ] Progress bar at top shows current question / total count
+- [ ] Each question card shows: prompt (kanji or English meaning) and 4 multi-choice buttons
+- [ ] `vocab_meaning` questions: prompt = kanji, answers = English meanings
+- [ ] `meaning_vocab` questions: prompt = English meaning, answers = kanji surfaces
+- [ ] Selecting the correct answer highlights it green; wrong selection highlights red + correct goes green
+- [ ] After 1.5 seconds the next question auto-advances (no manual "Next" click needed)
+- [ ] ✕ exit button returns to the carousel immediately (mid-session)
+
+### 7D — Session summary
+
+- [ ] After all questions answered, the session summary screen appears
+- [ ] Shows emoji (🎯 for ≥ 80%, 📚 for ≥ 50%, 💪 otherwise)
+- [ ] Shows "Session complete!" heading + correct / total count
+- [ ] Accuracy % stat is correct (e.g. 8/10 → 80%)
+- [ ] XP gained stat shows a non-negative number
+- [ ] Day streak stat is present
+- [ ] "Back to carousel" button returns to the carousel (browse mode restored)
+
+### 7E — Locale routing
+
+Run these for both **PT-BR** and **ES** locales:
+
+- [ ] `/pt-BR/anime` renders 6 anime cards (same data, locale context set)
+- [ ] `/es/anime/naruto` renders the Naruto carousel page without errors
+- [ ] Nav "Anime" link at `/pt-BR` prefix routes correctly to `/pt-BR/anime`
+
+### 7F — Edge cases
+
+- [ ] `/anime/nonexistent` shows Next.js "This page could not be found" content — page renders notFound() content (HTTP status may show 200 in dev but 404 in prod — this is expected Next.js dev behaviour)
+- [ ] `/anime/naruto` with no auth (signed out) still renders correctly (mastery dots absent, practice session still works)
+- [ ] Navigating directly to `/anime/naruto` and immediately back (browser back) — no hydration errors in console
+
+---
+
 ## Playwright notes
 
 - Zero-flake policy: if a test fails once, do not re-run to confirm — investigate the root cause.

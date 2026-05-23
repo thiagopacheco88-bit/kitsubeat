@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { CardLink } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -20,6 +21,16 @@ interface AnimeIndexGridProps {
 }
 
 export default function AnimeIndexGrid({ animes }: AnimeIndexGridProps) {
+  const [query, setQuery] = useState("");
+
+  const filtered = query.trim()
+    ? animes.filter((entry) => {
+        const title =
+          entry.title_english ?? SLUG_DISPLAY[entry.anime_slug] ?? entry.anime_slug;
+        return title.toLowerCase().includes(query.toLowerCase());
+      })
+    : animes;
+
   if (animes.length === 0) {
     return (
       <div className="text-center py-16 text-[var(--color-text-muted)]">
@@ -29,8 +40,25 @@ export default function AnimeIndexGrid({ animes }: AnimeIndexGridProps) {
   }
 
   return (
+    <>
+      <div className="mb-6">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search anime…"
+          aria-label="Search anime"
+          className="w-full max-w-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-2 text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+        />
+      </div>
+
+      {filtered.length === 0 ? (
+        <div className="text-center py-16 text-[var(--color-text-muted)]">
+          <p className="text-lg">No anime matches &ldquo;{query}&rdquo;.</p>
+        </div>
+      ) : (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {animes.map((entry) => {
+      {filtered.map((entry) => {
         const displayTitle =
           entry.title_english ?? SLUG_DISPLAY[entry.anime_slug] ?? entry.anime_slug;
 
@@ -91,5 +119,7 @@ export default function AnimeIndexGrid({ animes }: AnimeIndexGridProps) {
         );
       })}
     </div>
+      )}
+    </>
   );
 }
