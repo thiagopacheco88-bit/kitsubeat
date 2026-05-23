@@ -11,6 +11,8 @@ import {
   isSessionForSong,
 } from "@/stores/exerciseSession";
 import { getEffectiveCap, getUserPrefs } from "@/app/actions/userPrefs";
+import { fetchSongProgress } from "@/app/actions/exercises";
+import type { PrevSongProgress } from "@/app/actions/exercises";
 import { Button } from "@/components/ui/Button";
 import ExerciseSession from "./ExerciseSession";
 import GrammarSessionRunner from "./GrammarSessionRunner";
@@ -55,6 +57,8 @@ interface TrackCardProps {
   onLengthChange: (mode: LengthMode) => void;
   onStart: () => void;
   loading: boolean;
+  totalItems: number;
+  currentPct: number;
 }
 
 function TrackCard({
@@ -65,8 +69,20 @@ function TrackCard({
   onLengthChange,
   onStart,
   loading,
+  totalItems,
+  currentPct,
 }: TrackCardProps) {
   const trackLabel = trackKind.replace(/_/g, " ");
+
+  const itemsLeft = Math.max(0, Math.ceil((1 - currentPct / 100) * totalItems));
+  const badgeText =
+    totalItems === 0
+      ? currentPct >= 100
+        ? "Done!"
+        : "—"
+      : itemsLeft === 0
+      ? "Done!"
+      : `${itemsLeft} left`;
 
   return (
     <div className="flex min-h-64 flex-col gap-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring)]">
@@ -79,43 +95,49 @@ function TrackCard({
             {title}
           </h3>
         </div>
-        <span className="rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-2 py-0.5 text-xs font-semibold text-[var(--color-text-muted)]">
-          {lengthMode === "short" ? "10" : "25"} rounds
+        <span
+          data-testid={`track-badge-${trackKind}`}
+          className="rounded-[var(--radius-pill)] bg-[var(--color-card-2)] px-2 py-0.5 text-xs font-semibold text-[var(--color-text-muted)]"
+        >
+          {badgeText}
         </span>
       </div>
       <div>
         <p className="mt-1 text-sm text-[var(--color-text-dim)]">{description}</p>
       </div>
 
-      <div
-        className="mt-auto grid grid-cols-2 gap-2 rounded-[var(--radius-lg)] bg-[var(--color-card-2)] p-1"
-        role="radiogroup"
-        aria-label="Session length"
-      >
-        <button
-          role="radio"
-          aria-checked={lengthMode === "short"}
-          onClick={() => onLengthChange("short")}
-          className={`min-h-11 rounded-[var(--radius-md)] px-3 py-1 text-xs font-semibold transition-colors ${
-            lengthMode === "short"
-              ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
-              : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
-          }`}
+      <div className="mt-auto flex flex-col gap-1.5">
+        <p className="text-xs font-medium text-[var(--color-text-dim)]">Length</p>
+        <div
+          className="grid grid-cols-2 gap-1 rounded-[var(--radius-md)] bg-[var(--color-card-2)] p-1"
+          role="radiogroup"
+          aria-label="Session length"
         >
-          Short (10)
-        </button>
-        <button
-          role="radio"
-          aria-checked={lengthMode === "long"}
-          onClick={() => onLengthChange("long")}
-          className={`min-h-11 rounded-[var(--radius-md)] px-3 py-1 text-xs font-semibold transition-colors ${
-            lengthMode === "long"
-              ? "bg-[var(--color-accent)] [color:white] shadow-[var(--shadow-button-red)]"
-              : "text-[var(--color-text-muted)] hover:bg-[var(--color-card)] hover:text-[var(--color-text)]"
-          }`}
-        >
-          Long (25)
-        </button>
+          <button
+            role="radio"
+            aria-checked={lengthMode === "short"}
+            onClick={() => onLengthChange("short")}
+            className={`rounded py-1.5 px-3 text-xs font-semibold transition-all ${
+              lengthMode === "short"
+                ? "bg-white/[0.12] text-white shadow-sm"
+                : "text-[var(--color-text-muted)] hover:text-[var(--color-text-dim)]"
+            }`}
+          >
+            Short (10)
+          </button>
+          <button
+            role="radio"
+            aria-checked={lengthMode === "long"}
+            onClick={() => onLengthChange("long")}
+            className={`rounded py-1.5 px-3 text-xs font-semibold transition-all ${
+              lengthMode === "long"
+                ? "bg-white/[0.12] text-white shadow-sm"
+                : "text-[var(--color-text-muted)] hover:text-[var(--color-text-dim)]"
+            }`}
+          >
+            Long (25)
+          </button>
+        </div>
       </div>
 
       <Button
@@ -155,6 +177,9 @@ export default function ExerciseTab({
   // Phase 11.6-09: track kind active for the current / most-recent session.
   // Passed to ExerciseSession so it can use the correct cardKind for FSRS upserts.
   const [activeTrackKind, setActiveTrackKind] = useState<TrackKind>("vocab");
+
+  // Prefetched song progress — used by SessionSummary for optimistic star rendering.
+  const [prevProgress, setPrevProgress] = useState<PrevSongProgress | null>(null);
 
   // Phase 15 SC-1: dedup ref so exercise_started fires at most once per tab activation.
   // Reset to false whenever tabState returns to "config" (new activation cycle).
@@ -245,14 +270,43 @@ export default function ExerciseTab({
         onRetry={handleRetry}
         skipLearning={skipLearning}
         trackKind={activeTrackKind}
+        prevProgress={prevProgress}
       />
     </div>
   );
 
-  // If we just hydrated and have an active session, jump to session view
-  if (hasActiveSession && tabState === "config") {
-    return sessionView;
-  }
+  // Stale-session resume banner — shown in the lobby, not a silent jump.
+  // Navigating away mid-session is normal; user needs to see their options.
+  const resumeBanner = hasActiveSession && tabState === "config" ? (
+    <div className="mb-5 flex items-center justify-between gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-3">
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+          Session in progress
+        </p>
+        <p className="text-sm text-[var(--color-text-muted)]">
+          {store.questions.length - store.currentIndex} question{store.questions.length - store.currentIndex === 1 ? "" : "s"} remaining
+        </p>
+      </div>
+      <div className="flex gap-2">
+        <Button
+          type="button"
+          variant="ghost"
+          size="sm"
+          onClick={() => { clearSession(); router.refresh(); }}
+        >
+          Discard
+        </Button>
+        <Button
+          type="button"
+          variant="primary"
+          size="sm"
+          onClick={() => setTabState("session")}
+        >
+          Resume
+        </Button>
+      </div>
+    </div>
+  ) : null;
 
   if (tabState === "session") {
     return sessionView;
@@ -284,6 +338,12 @@ export default function ExerciseTab({
   // Config screen
   // ---------------------------------------------------------------------------
 
+  const vocabTotal = lesson.vocabulary.filter((v) => v.vocab_item_id).length;
+  const kanjiTotal = lesson.vocabulary.filter(
+    (v) => v.vocab_item_id && /[一-鿿㐀-䶿]/.test(v.surface)
+  ).length;
+  const grammarTotal = lesson.grammar_points?.length ?? 0;
+
   /**
    * handleStart — common entry point for Vocab, Kanji, and Advanced Drills tracks.
    *
@@ -298,7 +358,7 @@ export default function ExerciseTab({
     setError(null);
 
     try {
-      const [prefs, effectiveCap, jlptPool] = await Promise.all([
+      const [prefs, effectiveCap, jlptPool, progress] = await Promise.all([
         getUserPrefs(userId),
         getEffectiveCap(userId),
         (async (): Promise<VocabEntry[]> => {
@@ -332,7 +392,9 @@ export default function ExerciseTab({
             additional_examples: [],
           }));
         })(),
+        fetchSongProgress(songVersionId),
       ]);
+      setPrevProgress(progress);
 
       setSkipLearning(prefs.skipLearning);
 
@@ -422,6 +484,7 @@ export default function ExerciseTab({
 
   return (
     <div className="py-4" data-testid="practice-game-lobby">
+      {resumeBanner}
       <div className="mb-6 flex flex-col gap-1">
         <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
           Practice lobby
@@ -451,6 +514,8 @@ export default function ExerciseTab({
           onLengthChange={setVocabLength}
           onStart={() => handleStart("vocab", vocabLength)}
           loading={loading}
+          totalItems={vocabTotal}
+          currentPct={trackPcts.vocab}
         />
 
         {/* Grammar track — Phase-13 grammar_exercises bank via GrammarSessionRunner.
@@ -469,6 +534,8 @@ export default function ExerciseTab({
             setTabState("grammar-session");
           }}
           loading={loading}
+          totalItems={grammarTotal}
+          currentPct={trackPcts.grammar}
         />
 
         {/* Kanji track — conditional on song having kanji-bearing vocab (SPEC-REQ-16) */}
@@ -481,6 +548,8 @@ export default function ExerciseTab({
             onLengthChange={setKanjiLength}
             onStart={() => handleStart("kanji", kanjiLength)}
             loading={loading}
+            totalItems={kanjiTotal}
+            currentPct={trackPcts.kanji}
           />
         )}
       </div>

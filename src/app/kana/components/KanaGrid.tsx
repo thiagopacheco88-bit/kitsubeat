@@ -28,13 +28,18 @@ export function KanaGrid({ script }: Props) {
 
   return (
     <section className="flex min-w-0 flex-col gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring)] sm:p-5">
-      <div className="flex items-baseline justify-between gap-3">
-        <h2 className="text-xl font-semibold text-[var(--color-text)]">
-          {script === "hiragana" ? "Hiragana" : "Katakana"}
-        </h2>
-        <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
-          {rows.length} rows
-        </span>
+      <div className="flex flex-col gap-1">
+        <div className="flex items-baseline justify-between gap-3">
+          <h2 className="text-xl font-semibold text-[var(--color-text)]">
+            {script === "hiragana" ? "Hiragana" : "Katakana"}
+          </h2>
+          <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+            {rows.length} rows
+          </span>
+        </div>
+        <p className="text-xs text-[var(--color-text-muted)]">
+          The dots below each character show your mastery (0–10).
+        </p>
       </div>
       <div className="flex flex-col gap-3">
         {rows.map((row) => {

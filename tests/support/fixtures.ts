@@ -48,7 +48,7 @@ async function loadSeededSong(slug: SeededSlug | string): Promise<SeededSongRow>
   if (cached) return cached;
 
   const db = getTestDb();
-  const rows = (await db.execute(sql`
+  const result = await db.execute(sql`
     SELECT s.slug AS slug, s.id AS song_id, v.id AS song_version_id
       FROM songs s
       JOIN song_versions v ON v.song_id = s.id
@@ -56,7 +56,8 @@ async function loadSeededSong(slug: SeededSlug | string): Promise<SeededSongRow>
        AND v.lesson IS NOT NULL
      ORDER BY v.version_type ASC
      LIMIT 1
-  `)) as unknown as Array<{ slug: string; song_id: string; song_version_id: string }>;
+  `);
+  const rows = result.rows as Array<{ slug: string; song_id: string; song_version_id: string }>;
 
   if (rows.length === 0) {
     throw new Error(

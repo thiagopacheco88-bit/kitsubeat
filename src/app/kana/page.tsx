@@ -40,6 +40,12 @@ export default function KanaLandingPage() {
     : "hiragana";
 
   const hasHydrated = useKanaProgress((s) => s._hasHydrated);
+  const hiragana = useKanaProgress((s) => s.hiragana);
+  const katakana = useKanaProgress((s) => s.katakana);
+  const resetKana = useKanaProgress((s) => s.__resetForTests);
+  const hasProgress =
+    Object.values(hiragana).some((v) => v > 0) ||
+    Object.values(katakana).some((v) => v > 0);
   const [mode, setMode] = useState<KanaMode>(initialMode);
 
   if (!hasHydrated) {
@@ -71,13 +77,28 @@ export default function KanaLandingPage() {
 
       <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 shadow-[var(--shadow-card-ring)] sm:p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <ModeToggle value={mode} onChange={setMode} />
-        <Link
-          href={`/kana/session?mode=${mode}`}
-          className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-6 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/40"
-        >
-          Start session ({mode === "mixed" ? "20 mixed" : `20 ${mode}`})
-        </Link>
+          <ModeToggle value={mode} onChange={setMode} />
+          <div className="flex items-center gap-2">
+            {hasProgress && (
+              <button
+                type="button"
+                onClick={() => {
+                  if (window.confirm("Reset all kana progress? This cannot be undone.")) {
+                    resetKana();
+                  }
+                }}
+                className="min-h-11 rounded-[var(--radius-md)] border border-[var(--color-border-strong)] px-4 text-sm text-[var(--color-text-muted)] hover:border-[var(--color-jlpt-n1-ring)] hover:text-[var(--color-jlpt-n1)] transition-colors"
+              >
+                Reset progress
+              </button>
+            )}
+            <Link
+              href={`/kana/session?mode=${mode}`}
+              className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-6 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/40"
+            >
+              Start session ({mode === "mixed" ? "20 mixed" : `20 ${mode}`})
+            </Link>
+          </div>
         </div>
       </div>
 

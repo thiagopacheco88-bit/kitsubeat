@@ -8,8 +8,8 @@ import type { Lesson, VocabEntry, Localizable, KanjiBreakdown } from "@/lib/type
 import { localize } from "@/lib/types/lesson";
 import { hasKanji } from "@/lib/exercises/kanji";
 import { db } from "@/lib/db/index";
-import { userSongProgress } from "@/lib/db/schema";
-import { eq, and, inArray } from "drizzle-orm";
+import { userSongProgress, songVersionGrammarRules, userExerciseLog } from "@/lib/db/schema";
+import { eq, and, inArray, sql } from "drizzle-orm";
 import { getPostHogServer } from "@/lib/posthog-server";
 import SongContent from "./components/SongContent";
 
@@ -24,6 +24,7 @@ export async function SongPlayerLoader({
   if (!song) notFound();
 
   if (song.quality_status !== "active") notFound();
+  if (song.language !== "ja") notFound();
   const hasIdleVersion = song.versions.some((v) => v.pipeline_status === "idle");
   if (!hasIdleVersion) notFound();
 
@@ -105,7 +106,7 @@ export async function SongPlayerLoader({
 
   const versionIds = versions.map((v) => v.id);
 
-  const [progressRows, dominatedByVersion] = await Promise.all([
+  const [progressRows, grammarRuleCounts, grammarLogCounts, dominatedByVersion] = await Promise.all([
     db
       .select({
         song_version_id: userSongProgress.song_version_id,
@@ -122,6 +123,28 @@ export async function SongPlayerLoader({
         )
       )
       .limit(versionIds.length),
+    db
+      .select({
+        song_version_id: songVersionGrammarRules.song_version_id,
+        rule_count: sql<number>`count(*)`.as("rule_count"),
+      })
+      .from(songVersionGrammarRules)
+      .where(inArray(songVersionGrammarRules.song_version_id, versionIds))
+      .groupBy(songVersionGrammarRules.song_version_id),
+    db
+      .select({
+        song_version_id: userExerciseLog.song_version_id,
+        attempt_count: sql<number>`count(*)`.as("attempt_count"),
+      })
+      .from(userExerciseLog)
+      .where(
+        and(
+          eq(userExerciseLog.user_id, userId),
+          inArray(userExerciseLog.song_version_id, versionIds),
+          eq(userExerciseLog.exercise_type, "grammar_conjugation")
+        )
+      )
+      .groupBy(userExerciseLog.song_version_id),
     Promise.all(
       versionIds.map(async (vid) => {
         const arr = await getDominatedVerses(userId, vid);
@@ -129,6 +152,13 @@ export async function SongPlayerLoader({
       })
     ).then((entries) => new Map<string, number[]>(entries)),
   ]);
+
+  const grammarRuleCountMap = new Map(
+    grammarRuleCounts.map((row) => [row.song_version_id, Number(row.rule_count)])
+  );
+  const grammarLogCountMap = new Map(
+    grammarLogCounts.map((row) => [row.song_version_id, Number(row.attempt_count)])
+  );
 
   const progressMap = new Map(
     progressRows.map((row) => [
@@ -145,11 +175,27 @@ export async function SongPlayerLoader({
   const versionsWithPcts = versions.map((v) => {
     const progress = progressMap.get(v.id);
     const kanjiPct = progress?.kanji ?? (v.hasKanjiBearingVocab === false ? 100 : 0);
+    // Correct stale grammar_track_pct = 100% caused by the old auto-pass bug.
+    // Auto-pass wrote 100% when song_version_grammar_rules was empty (even if the
+    // lesson had grammar_points). Exercises may have since been generated, but the
+    // DB row still holds the stale 100%.
+    // Override to 0% when: DB says 100% AND the user has zero grammar exercise
+    // attempts in user_exercise_log (i.e. they never actually did grammar practice).
+    const lessonGrammarCount = v.lesson.grammar_points?.length ?? 0;
+    const grammarExercisesCount = grammarRuleCountMap.get(v.id) ?? 0;
+    const grammarLogCount = grammarLogCountMap.get(v.id) ?? 0;
+    const rawGrammarPct = progress?.grammar ?? 0;
+    const grammarPct =
+      rawGrammarPct >= 100 && lessonGrammarCount > 0 && grammarLogCount === 0
+        ? 0
+        : rawGrammarPct >= 100 && lessonGrammarCount > 0 && grammarExercisesCount === 0
+        ? 0
+        : rawGrammarPct;
     return {
       ...v,
       trackPcts: {
         vocab: progress?.vocab ?? 0,
-        grammar: progress?.grammar ?? 0,
+        grammar: grammarPct,
         kanji: kanjiPct,
       },
       advancedDrillsUnlocked: progress?.advancedDrillsUnlocked ?? false,

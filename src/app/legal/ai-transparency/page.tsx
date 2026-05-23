@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "AI Transparency & Disclosure — KitsuBeat",
+  description: "How KitsuBeat uses AI — lesson generation, transcription, and content tools — and what that means for users.",
 };
 
 function LegalNavFooter() {

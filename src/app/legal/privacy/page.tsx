@@ -4,6 +4,7 @@ import { CURRENT_PRIVACY_VERSION } from "@/lib/legal/versions";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — KitsuBeat",
+  description: "How KitsuBeat collects, uses, and protects your personal data.",
 };
 
 function LegalNavFooter() {

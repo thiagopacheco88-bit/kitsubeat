@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Refund Policy — KitsuBeat",
+  description: "KitsuBeat's refund and cancellation policy for paid plans.",
 };
 
 function LegalNavFooter() {

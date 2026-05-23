@@ -158,3 +158,10 @@ for (let i = 0; i < lesson.verses.length; i++) {
 }
 writeFileSync(lessonPath, JSON.stringify(lesson, null, 2), "utf-8");
 console.log(`[retime] wrote ${lessonPath}`);
+
+try {
+  const { revalidateSongCache } = await import("../../src/app/actions/cache.js");
+  await revalidateSongCache(slug);
+} catch {
+  // Expected to fail outside Next.js server context — not fatal.
+}

@@ -16,16 +16,15 @@
 import posthog from "posthog-js";
 import * as Sentry from "@sentry/nextjs";
 
-// PostHog — consent-gated (UK PECR compliance)
-// opt_out_capturing_by_default: true means zero events fire until user calls opt_in_capturing()
+// PostHog — cookieless by default (UK PECR: no cookies = no consent needed).
+// Full cookie mode activates only when user accepts via CookieConsentBanner.
 posthog.init(process.env.NEXT_PUBLIC_POSTHOG_TOKEN!, {
   api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com",
   defaults: "2026-01-30",
-  opt_out_capturing_by_default: true,
-  cookieless_mode: "on_reject",
+  cookieless_mode: "always",
   person_profiles: "identified_only",
   disable_session_recording: true,
-  capture_pageview: false,
+  capture_pageview: true,
 });
 
 // Phase 15 SC-1: day_7_return — fires once per session if user has been around >= 7 days
@@ -55,6 +54,8 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_TOKEN!, {
 })();
 
 // Required by @sentry/nextjs for router transition breadcrumbs.
-// This is NOT Sentry.init() — it only wires the router hook.
-// Full Sentry.init() is in sentry.client.config.ts (Plan 03).
-export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
+// Also fires PostHog $pageview on client-side navigation (App Router doesn't reload).
+export function onRouterTransitionStart(url: string, navigationType: string) {
+  Sentry.captureRouterTransitionStart(url, navigationType);
+  posthog.capture("$pageview", { $current_url: url });
+}

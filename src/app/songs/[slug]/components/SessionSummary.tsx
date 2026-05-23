@@ -8,6 +8,7 @@ import MasteryDetailPopover from "./MasteryDetailPopover";
 import { LevelUpTakeover } from "@/app/components/LevelUpTakeover";
 import type { Question } from "@/lib/exercises/generator";
 import type { AnswerRecord } from "@/stores/exerciseSession";
+import type { PrevSongProgress } from "@/app/actions/exercises";
 import { xpWithinCurrentLevel } from "@/lib/gamification/level-curve";
 import { Button } from "@/components/ui/Button";
 
@@ -28,6 +29,43 @@ interface SessionSummaryProps {
    * Falls back to 'UTC' if not provided.
    */
   tz?: string;
+  /** Prefetched previous song progress for optimistic star rendering. */
+  prevProgress?: PrevSongProgress | null;
+}
+
+// Mirrors deriveStars from schema.ts without importing server-only Drizzle deps.
+// Uses GREATEST semantics: new best = max(previous best, this session's accuracy).
+function computeOptimisticStars(
+  prevProgress: PrevSongProgress | null,
+  answers: Record<string, AnswerRecord>,
+  questions: Question[]
+): 0 | 1 | 2 | 3 {
+  const ex1_2_3Types = new Set(["vocab_meaning", "meaning_vocab", "reading_match"]);
+  const acc = (predicate: (q: Question) => boolean): number | null => {
+    const qs = questions.filter((q) => answers[q.id] && predicate(q));
+    if (qs.length === 0) return null;
+    return qs.filter((q) => answers[q.id]?.correct).length / qs.length;
+  };
+  const bestEx1_2_3 = Math.max(
+    prevProgress?.ex1_2_3_best_accuracy ?? 0,
+    acc((q) => ex1_2_3Types.has(q.type)) ?? 0
+  );
+  const bestEx4 = Math.max(
+    prevProgress?.ex4_best_accuracy ?? 0,
+    acc((q) => q.type === "fill_lyric") ?? 0
+  );
+  const songHasGrammar = prevProgress?.songHasGrammar ?? false;
+  // Grammar best is only updated by GrammarSessionRunner — use previous best here.
+  const finalGate = songHasGrammar
+    ? (prevProgress?.grammar_best_accuracy ?? 0)
+    : Math.max(
+        prevProgress?.ex6_best_accuracy ?? 0,
+        acc((q) => q.type === "listening_drill") ?? 0
+      );
+  if (bestEx1_2_3 >= 0.8 && bestEx4 >= 0.8 && finalGate >= 0.8) return 3;
+  if (bestEx1_2_3 >= 0.8 && bestEx4 >= 0.8) return 2;
+  if (bestEx1_2_3 >= 0.8) return 1;
+  return 0;
 }
 
 function formatTime(ms: number): string {
@@ -55,10 +93,18 @@ export default function SessionSummary({
   userId,
   onRetry,
   tz,
+  prevProgress = null,
 }: SessionSummaryProps) {
   const [saving, setSaving] = useState(true);
-  const [stars, setStars] = useState<0 | 1 | 2 | 3>(0);
+  // Stars are initialised optimistically so they appear before the server responds.
+  const [stars, setStars] = useState<0 | 1 | 2 | 3>(() =>
+    computeOptimisticStars(prevProgress, answers, questions)
+  );
   const [previousStars, setPreviousStars] = useState<0 | 1 | 2 | 3>(0);
+  // Tracks whether the server has confirmed the final star count.
+  // Star-earn animations are only triggered on server confirmation to avoid
+  // firing on the optimistic render.
+  const [serverConfirmed, setServerConfirmed] = useState(false);
   // Phase 10 Plan 07 — bonus badge state pair so the summary can surface the
   // subtle "Bonus mastery unlocked!" callout on false → true transition.
   const [bonusBadge, setBonusBadge] = useState(false);
@@ -129,6 +175,7 @@ export default function SessionSummary({
 
         setStars(result.stars as 0 | 1 | 2 | 3);
         setPreviousStars(result.previousStars as 0 | 1 | 2 | 3);
+        setServerConfirmed(true);
         setBonusBadge(result.bonusBadge);
         setPreviousBonusBadge(result.previousBonusBadge);
         setSongMastery(result.songMastery);
@@ -167,11 +214,13 @@ export default function SessionSummary({
         ? "text-[var(--color-jlpt-n3)]"
         : "text-[var(--color-accent)]";
 
-  const newStarEarned = !saving && stars > previousStars;
+  // Animations are gated on serverConfirmed so they only fire once the server
+  // has validated the result — not on the optimistic initial render.
+  const newStarEarned = serverConfirmed && stars > previousStars;
   // Phase 10 Plan 07 — bonus badge transition: false → true unlock. Subtle
   // one-line callout (NO confetti) per CONTEXT — stars remain the primary
   // signal; bonus badge is secondary.
-  const bonusUnlocked = !saving && bonusBadge && !previousBonusBadge;
+  const bonusUnlocked = serverConfirmed && bonusBadge && !previousBonusBadge;
   // Star 3 earns the "song mastered!" wording; Stars 1/2 keep the original
   // "You earned Star N!" wording. Also covers the edge case where a user
   // skipped from Star 1 directly to Star 3 in a single session (same
@@ -309,34 +358,29 @@ export default function SessionSummary({
         );
       })()}
 
-      {/* Stars */}
-      {!saving && (
-        <div className="flex flex-col items-center gap-2">
-          <StarDisplay stars={stars} animate={newStarEarned} />
-          {newStarEarned && (
-            <p className="text-sm font-semibold animate-pulse" style={{ color: "var(--color-jlpt-n3)" }}>
-              {masteredThisSession
-                ? "You earned 3 stars — song mastered!"
-                : `You earned Star ${stars}!`}
-            </p>
-          )}
-          {/* Phase 10 Plan 07 — subtle bonus mastery unlock callout.
-              Deliberately plain text (no animation, no confetti) so the
-              stars remain the primary signal. CONTEXT-locked. */}
-          {bonusUnlocked && (
-            <p className="text-xs font-medium" style={{ color: "var(--color-jlpt-n3)" }}>
-              Bonus mastery unlocked!
-            </p>
-          )}
-        </div>
-      )}
-      {saving && (
-        <div className="h-8 w-24 animate-pulse rounded bg-[var(--color-card-2)]" />
-      )}
+      {/* Stars — shown immediately using optimistic value, confirmed by server */}
+      <div className="flex flex-col items-center gap-2">
+        <StarDisplay stars={stars} animate={newStarEarned} />
+        {newStarEarned && (
+          <p className="text-sm font-semibold animate-pulse" style={{ color: "var(--color-jlpt-n3)" }}>
+            {masteredThisSession
+              ? "You earned 3 stars — song mastered!"
+              : `You earned Star ${stars}!`}
+          </p>
+        )}
+        {/* Phase 10 Plan 07 — subtle bonus mastery unlock callout.
+            Deliberately plain text (no animation, no confetti) so the
+            stars remain the primary signal. CONTEXT-locked. */}
+        {bonusUnlocked && (
+          <p className="text-xs font-medium" style={{ color: "var(--color-jlpt-n3)" }}>
+            Bonus mastery unlocked!
+          </p>
+        )}
+      </div>
 
       {saveError && (
-        <p className="text-xs text-[var(--color-text-dim)]">
-          Progress could not be saved this time.
+        <p className="text-xs text-[var(--color-text-dim)] rounded border border-[var(--color-border)] px-3 py-2">
+          Progress could not be saved this time. Stars shown are estimated from this session.
         </p>
       )}
 

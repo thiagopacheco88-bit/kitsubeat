@@ -17,7 +17,7 @@ export function hasJapaneseVoice(): boolean {
   if (typeof window === "undefined" || !window.speechSynthesis) return false;
   return window.speechSynthesis
     .getVoices()
-    .some((v) => v.lang.startsWith("ja"));
+    .some((v) => v.lang === "ja-JP" || v.lang === "ja");
 }
 
 /**
@@ -27,7 +27,7 @@ export function hasJapaneseVoice(): boolean {
 export function speakJapanese(text: string): void {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
   const voices = window.speechSynthesis.getVoices();
-  const jaVoice = voices.find((v) => v.lang.startsWith("ja"));
+  const jaVoice = voices.find((v) => v.lang === "ja-JP" || v.lang === "ja");
   if (!jaVoice) return;
 
   // Cancel any in-progress utterance before starting a new one.

@@ -293,6 +293,12 @@ export const vocabularyItems = pgTable("vocabulary_items", {
   admin_flagged: boolean("admin_flagged").default(false).notNull(),
   admin_flag_note: text("admin_flag_note"),
 
+  // Social quiz distractors — vetted wrong answers for the short-form video quizzes.
+  // Shape: [{ r: "romaji", e: "English meaning" }]
+  // Source of truth: videos/word-banks/<series>.json `wrong` arrays.
+  // Validation script: scripts/audit/validate-quiz-alternatives.ts
+  quiz_distractors: jsonb("quiz_distractors"),
+
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 }, (table) => [
   unique("vocabulary_items_form_reading_unique").on(table.dictionary_form, table.reading),

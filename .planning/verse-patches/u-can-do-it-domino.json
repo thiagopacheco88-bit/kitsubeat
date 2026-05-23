@@ -1,1619 +1,480 @@
 {
   "patches": [
     {
-      "after_original": 6,
+      "replace_verse_number": 2,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "何",
-            "reading": "なに",
-            "romaji": "nani",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "何",
-              "pt-BR": "何",
-              "es": "何"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "し",
-            "reading": "し",
-            "romaji": "shi",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "し",
-              "pt-BR": "し",
-              "es": "し"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "何",
-            "reading": "なに",
-            "romaji": "nani",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "何",
-              "pt-BR": "何",
-              "es": "何"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "を",
-            "reading": "を",
-            "romaji": "o",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "を",
-              "pt-BR": "を",
-              "es": "を"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "見れ",
-            "reading": "みれ",
-            "romaji": "mire",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "見れ",
-              "pt-BR": "見れ",
-              "es": "見れ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ば",
-            "reading": "ば",
-            "romaji": "ba",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "ば",
-              "pt-BR": "ば",
-              "es": "ば"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "いい",
-            "reading": "いい",
-            "romaji": "ii",
-            "grammar": "adjective",
-            "grammar_color": "green",
-            "meaning": {
-              "en": "いい",
-              "pt-BR": "いい",
-              "es": "いい"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "って",
-            "reading": "って",
-            "romaji": "tte",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "って",
-              "pt-BR": "って",
-              "es": "って"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"でも","reading":"でも","romaji":"demo","grammar":"other","grammar_color":"none","meaning":{"en":"but; even so","pt-BR":"mas; mesmo assim","es":"pero; aun así"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only; just","pt-BR":"apenas; só","es":"solo; únicamente"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este; esta","es":"este; esta"},"jlpt_level":"N5"},
+          {"surface":"一瞬","reading":"いっしゅん","romaji":"isshun","grammar":"noun","grammar_color":"blue","meaning":{"en":"a moment; an instant","pt-BR":"um momento; um instante","es":"un momento; un instante"},"jlpt_level":"N2"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 何して何を見ればいいのって",
-          "pt-BR": "(auto-coverage) 何して何を見ればいいのって",
-          "es": "(auto-coverage) 何して何を見ればいいのって"
-        },
-        "literal_meaning": {
-          "en": "何 + し + て + 何 + を + 見れ + ば + いい + の + って"
-        }
+        "translations": {"en":"But this one fleeting moment right now...","pt-BR":"Mas este único momento fugaz agora...","es":"Pero este único momento fugaz ahora..."},
+        "literal_meaning": {"en":"but + now + only + 's + this + a moment + (topic)"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 6,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "迷っ",
-            "reading": "まよっ",
-            "romaji": "mayotsu",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "迷っ",
-              "pt-BR": "迷っ",
-              "es": "迷っ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ちゃう",
-            "reading": "ちゃう",
-            "romaji": "chau",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "ちゃう",
-              "pt-BR": "ちゃう",
-              "es": "ちゃう"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "とき",
-            "reading": "とき",
-            "romaji": "toki",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "とき",
-              "pt-BR": "とき",
-              "es": "とき"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ある",
-            "reading": "ある",
-            "romaji": "aru",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "ある",
-              "pt-BR": "ある",
-              "es": "ある"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "よ",
-            "reading": "よ",
-            "romaji": "yo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "よ",
-              "pt-BR": "よ",
-              "es": "よ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ね",
-            "reading": "ね",
-            "romaji": "ne",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "ね",
-              "pt-BR": "ね",
-              "es": "ね"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "だけど",
-            "reading": "だけど",
-            "romaji": "dakedo",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "だけど",
-              "pt-BR": "だけど",
-              "es": "だけど"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"何","reading":"なに","romaji":"nani","grammar":"noun","grammar_color":"blue","meaning":{"en":"what","pt-BR":"o quê","es":"qué"},"jlpt_level":"N5"},
+          {"surface":"し","reading":"し","romaji":"shi","grammar":"verb","grammar_color":"red","meaning":{"en":"do (conjunctive stem of する)","pt-BR":"fazer (forma conjuntiva de する)","es":"hacer (forma conjuntiva de する)"},"jlpt_level":"N5"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conectivo te-form","es":"conector te-form"},"jlpt_level":"N5"},
+          {"surface":"何","reading":"なに","romaji":"nani","grammar":"noun","grammar_color":"blue","meaning":{"en":"what","pt-BR":"o quê","es":"qué"},"jlpt_level":"N5"},
+          {"surface":"を","reading":"を","romaji":"o","grammar":"particle","grammar_color":"grey","meaning":{"en":"direct object marker","pt-BR":"marcador de objeto direto","es":"marcador de objeto directo"},"jlpt_level":"N5"},
+          {"surface":"見れ","reading":"みれ","romaji":"mire","grammar":"verb","grammar_color":"red","meaning":{"en":"if (one) looks at (potential conditional of 見る)","pt-BR":"se (alguém) olhar (condicional potencial de 見る)","es":"si (uno) mira (condicional potencial de 見る)"},"jlpt_level":"N4"},
+          {"surface":"ば","reading":"ば","romaji":"ba","grammar":"particle","grammar_color":"grey","meaning":{"en":"if (conditional)","pt-BR":"se (condicional)","es":"si (condicional)"},"jlpt_level":"N4"},
+          {"surface":"いい","reading":"いい","romaji":"ii","grammar":"adjective","grammar_color":"green","meaning":{"en":"good; fine; okay","pt-BR":"bom; certo; tudo bem","es":"bueno; bien; está bien"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"nominalizer / soft question marker","pt-BR":"nominalizador / suavizador interrogativo","es":"nominalizador / suavizador interrogativo"},"jlpt_level":"N4"},
+          {"surface":"って","reading":"って","romaji":"tte","grammar":"particle","grammar_color":"grey","meaning":{"en":"quotation / hearsay marker","pt-BR":"marcador de citação / relato","es":"marcador de cita / referencia"},"jlpt_level":"N4"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 迷っちゃうときもあるよね だけど",
-          "pt-BR": "(auto-coverage) 迷っちゃうときもあるよね だけど",
-          "es": "(auto-coverage) 迷っちゃうときもあるよね だけど"
-        },
-        "literal_meaning": {
-          "en": "迷っ + ちゃう + とき + も + ある + よ + ね + だけど"
-        }
+        "translations": {"en":"What to do, what should I look at — that's what I keep asking","pt-BR":"O que fazer, o que olhar — é isso que fico me perguntando","es":"Qué hacer, qué mirar — eso es lo que sigo preguntándome"},
+        "literal_meaning": {"en":"doing what + and + looking at what + if + good + I wonder (quotation)"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 7,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "ビル",
-            "reading": "びる",
-            "romaji": "biru",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "ビル",
-              "pt-BR": "ビル",
-              "es": "ビル"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "間",
-            "reading": "ま",
-            "romaji": "ma",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "間",
-              "pt-BR": "間",
-              "es": "間"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "間",
-            "reading": "ま",
-            "romaji": "ma",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "間",
-              "pt-BR": "間",
-              "es": "間"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "まで",
-            "reading": "まで",
-            "romaji": "made",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "まで",
-              "pt-BR": "まで",
-              "es": "まで"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "探し",
-            "reading": "さがし",
-            "romaji": "sagashi",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "探し",
-              "pt-BR": "探し",
-              "es": "探し"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "み",
-            "reading": "み",
-            "romaji": "mi",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "み",
-              "pt-BR": "み",
-              "es": "み"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "よ",
-            "reading": "よ",
-            "romaji": "yo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "よ",
-              "pt-BR": "よ",
-              "es": "よ"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"迷っ","reading":"まよっ","romaji":"mayotsu","grammar":"verb","grammar_color":"red","meaning":{"en":"get lost; become confused (conjunctive)","pt-BR":"se perder; ficar confuso (conjuntivo)","es":"perderse; confundirse (conjuntivo)"},"jlpt_level":"N3"},
+          {"surface":"ちゃう","reading":"ちゃう","romaji":"chau","grammar":"verb","grammar_color":"red","meaning":{"en":"end up doing (colloquial てしまう)","pt-BR":"acabar fazendo (coloquial てしまう)","es":"terminar haciendo (coloquial てしまう)"},"jlpt_level":"N4"},
+          {"surface":"とき","reading":"とき","romaji":"toki","grammar":"noun","grammar_color":"blue","meaning":{"en":"time; when","pt-BR":"hora; quando","es":"momento; cuando"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"also; too; even","pt-BR":"também; até","es":"también; incluso"},"jlpt_level":"N5"},
+          {"surface":"ある","reading":"ある","romaji":"aru","grammar":"verb","grammar_color":"red","meaning":{"en":"there are; to exist","pt-BR":"há; existir","es":"hay; existir"},"jlpt_level":"N5"},
+          {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"emphasis / assertion marker","pt-BR":"marcador de ênfase","es":"marcador de énfasis"},"jlpt_level":"N5"},
+          {"surface":"ね","reading":"ね","romaji":"ne","grammar":"particle","grammar_color":"grey","meaning":{"en":"right? / seeking agreement","pt-BR":"né? / buscando concordância","es":"¿verdad? / buscando acuerdo"},"jlpt_level":"N5"},
+          {"surface":"だけど","reading":"だけど","romaji":"dakedo","grammar":"other","grammar_color":"none","meaning":{"en":"but; however","pt-BR":"mas; porém","es":"pero; sin embargo"},"jlpt_level":"N4"}
         ],
-        "translations": {
-          "en": "(auto-coverage) ビルの間の間まで探してみてよ",
-          "pt-BR": "(auto-coverage) ビルの間の間まで探してみてよ",
-          "es": "(auto-coverage) ビルの間の間まで探してみてよ"
-        },
-        "literal_meaning": {
-          "en": "ビル + の + 間 + の + 間 + まで + 探し + て + み + て + よ"
-        }
+        "translations": {"en":"There are times you get confused too, right? But...","pt-BR":"Tem horas que você fica perdido também, né? Mas...","es":"Hay veces en que también te confundes, ¿verdad? Pero..."},
+        "literal_meaning": {"en":"end up confused + times + there are too + right? + but"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 8,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "何",
-            "reading": "なん",
-            "romaji": "nani",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "何",
-              "pt-BR": "何",
-              "es": "何"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "度",
-            "reading": "ど",
-            "romaji": "do",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "度",
-              "pt-BR": "度",
-              "es": "度"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "落ち込ん",
-            "reading": "おちこん",
-            "romaji": "ochikon",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "落ち込ん",
-              "pt-BR": "落ち込ん",
-              "es": "落ち込ん"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "泣い",
-            "reading": "ない",
-            "romaji": "nai",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "泣い",
-              "pt-BR": "泣い",
-              "es": "泣い"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "た",
-            "reading": "た",
-            "romaji": "ta",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "た",
-              "pt-BR": "た",
-              "es": "た"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "って",
-            "reading": "って",
-            "romaji": "tte",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "って",
-              "pt-BR": "って",
-              "es": "って"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"きっと","reading":"きっと","romaji":"kitto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"surely; certainly","pt-BR":"com certeza; seguramente","es":"seguramente; con certeza"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"大事","reading":"だいじ","romaji":"daiji","grammar":"adjective","grammar_color":"green","meaning":{"en":"important; precious","pt-BR":"importante; precioso","es":"importante; precioso"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"adjectival linker (な-adj)","pt-BR":"ligador adjetival (adjetivo な)","es":"enlace adjetival (adj. な)"},"jlpt_level":"N5"},
+          {"surface":"もの","reading":"もの","romaji":"mono","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing; what","pt-BR":"coisa; o que","es":"cosa; lo que"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 何度も落ち込んで泣いたって",
-          "pt-BR": "(auto-coverage) 何度も落ち込んで泣いたって",
-          "es": "(auto-coverage) 何度も落ち込んで泣いたって"
-        },
-        "literal_meaning": {
-          "en": "何 + 度 + も + 落ち込ん + で + 泣い + た + って"
-        }
+        "translations": {"en":"(Anytime) The things that are surely important right now","pt-BR":"(Anytime) As coisas que com certeza são importantes agora","es":"(Anytime) Las cosas que seguramente son importantes ahora"},
+        "literal_meaning": {"en":"(Anytime) + surely + now + important + (linker) + things"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 9,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "(",
-            "reading": "(",
-            "romaji": "(",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "(",
-              "pt-BR": "(",
-              "es": "("
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "Anytime",
-            "reading": "Anytime",
-            "romaji": "Anytime",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "Anytime",
-              "pt-BR": "Anytime",
-              "es": "Anytime"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": ")",
-            "reading": ")",
-            "romaji": ")",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": ")",
-              "pt-BR": ")",
-              "es": ")"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "悔し涙",
-            "reading": "くやしなみだ",
-            "romaji": "kuyashinamida",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "悔し涙",
-              "pt-BR": "悔し涙",
-              "es": "悔し涙"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "流し",
-            "reading": "ながし",
-            "romaji": "nagashi",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "流し",
-              "pt-BR": "流し",
-              "es": "流し"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"きっと","reading":"きっと","romaji":"kitto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"surely; certainly","pt-BR":"com certeza; seguramente","es":"seguramente; con certeza"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"大事","reading":"だいじ","romaji":"daiji","grammar":"adjective","grammar_color":"green","meaning":{"en":"important; precious","pt-BR":"importante; precioso","es":"importante; precioso"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"adjectival linker (な-adj)","pt-BR":"ligador adjetival (adjetivo な)","es":"enlace adjetival (adj. な)"},"jlpt_level":"N5"},
+          {"surface":"もの","reading":"もの","romaji":"mono","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing; what","pt-BR":"coisa; o que","es":"cosa; lo que"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) (Anytime) 悔し涙流しても",
-          "pt-BR": "(auto-coverage) (Anytime) 悔し涙流しても",
-          "es": "(auto-coverage) (Anytime) 悔し涙流しても"
-        },
-        "literal_meaning": {
-          "en": "( + Anytime + ) + 悔し涙 + 流し + て + も"
-        }
+        "translations": {"en":"(Anytime) The things that are surely important right now","pt-BR":"(Anytime) As coisas que com certeza são importantes agora","es":"(Anytime) Las cosas que seguramente son importantes ahora"},
+        "literal_meaning": {"en":"(Anytime) + surely + now + important + (linker) + things"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 10,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "(",
-            "reading": "(",
-            "romaji": "(",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "(",
-              "pt-BR": "(",
-              "es": "("
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "Anytime",
-            "reading": "Anytime",
-            "romaji": "Anytime",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "Anytime",
-              "pt-BR": "Anytime",
-              "es": "Anytime"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": ")",
-            "reading": ")",
-            "romaji": ")",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": ")",
-              "pt-BR": ")",
-              "es": ")"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "いつも",
-            "reading": "いつも",
-            "romaji": "itsumo",
-            "grammar": "adverb",
-            "grammar_color": "orange",
-            "meaning": {
-              "en": "いつも",
-              "pt-BR": "いつも",
-              "es": "いつも"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "そば",
-            "reading": "そば",
-            "romaji": "soba",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "そば",
-              "pt-BR": "そば",
-              "es": "そば"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "に",
-            "reading": "に",
-            "romaji": "ni",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "に",
-              "pt-BR": "に",
-              "es": "に"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "いる",
-            "reading": "いる",
-            "romaji": "iru",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "いる",
-              "pt-BR": "いる",
-              "es": "いる"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "から",
-            "reading": "から",
-            "romaji": "kara",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "から",
-              "pt-BR": "から",
-              "es": "から"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglês"},"jlpt_level":"unknown"},
+          {"surface":"きっと","reading":"きっと","romaji":"kitto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"surely; certainly","pt-BR":"com certeza; seguramente","es":"seguramente; con certeza"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"大事","reading":"だいじ","romaji":"daiji","grammar":"adjective","grammar_color":"green","meaning":{"en":"important; precious","pt-BR":"importante; precioso","es":"importante; precioso"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"adjectival linker (な-adj)","pt-BR":"ligador adjetival (adjetivo な)","es":"enlace adjetival (adj. な)"},"jlpt_level":"N5"},
+          {"surface":"もの","reading":"もの","romaji":"mono","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing; what","pt-BR":"coisa; o que","es":"cosa; lo que"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) (Anytime) いつもそばにいるから",
-          "pt-BR": "(auto-coverage) (Anytime) いつもそばにいるから",
-          "es": "(auto-coverage) (Anytime) いつもそばにいるから"
-        },
-        "literal_meaning": {
-          "en": "( + Anytime + ) + いつも + そば + に + いる + から"
-        }
+        "translations": {"en":"(Anytime) The things that are surely important right now","pt-BR":"(Anytime) As coisas que com certeza são importantes agora","es":"(Anytime) Las cosas que seguramente son importantes ahora"},
+        "literal_meaning": {"en":"(Anytime) + surely + now + important + (linker) + things"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 11,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "(",
-            "reading": "(",
-            "romaji": "(",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "(",
-              "pt-BR": "(",
-              "es": "("
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "Anytime",
-            "reading": "Anytime",
-            "romaji": "Anytime",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "Anytime",
-              "pt-BR": "Anytime",
-              "es": "Anytime"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": ")",
-            "reading": ")",
-            "romaji": ")",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": ")",
-              "pt-BR": ")",
-              "es": ")"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "楽しむ",
-            "reading": "たのしむ",
-            "romaji": "tanoshimu",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "楽しむ",
-              "pt-BR": "楽しむ",
-              "es": "楽しむ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "こと",
-            "reading": "こと",
-            "romaji": "koto",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "こと",
-              "pt-BR": "こと",
-              "es": "こと"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "忘れ",
-            "reading": "わすれ",
-            "romaji": "wasure",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "忘れ",
-              "pt-BR": "忘れ",
-              "es": "忘れ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ず",
-            "reading": "ず",
-            "romaji": "zu",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "ず",
-              "pt-BR": "ず",
-              "es": "ず"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "に",
-            "reading": "に",
-            "romaji": "ni",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "に",
-              "pt-BR": "に",
-              "es": "に"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"行こう","reading":"いこう","romaji":"ikou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's go (volitional of 行く)","pt-BR":"vamos (volitivo de 行く)","es":"vamos (volitivo de 行く)"},"jlpt_level":"N5"},
+          {"surface":"信じて","reading":"しんじて","romaji":"shinjite","grammar":"verb","grammar_color":"red","meaning":{"en":"believing; trusting (te-form of 信じる)","pt-BR":"acreditando; confiando (forma -te de 信じる)","es":"creyendo; confiando (forma -te de 信じる)"},"jlpt_level":"N3"}
         ],
-        "translations": {
-          "en": "(auto-coverage) (Anytime) 楽しむこと忘れずに",
-          "pt-BR": "(auto-coverage) (Anytime) 楽しむこと忘れずに",
-          "es": "(auto-coverage) (Anytime) 楽しむこと忘れずに"
-        },
-        "literal_meaning": {
-          "en": "( + Anytime + ) + 楽しむ + こと + 忘れ + ず + に"
-        }
+        "translations": {"en":"Let's go, believing in it","pt-BR":"Vamos, acreditando nisso","es":"Vamos, creyendo en ello"},
+        "literal_meaning": {"en":"let's go + believing"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 13,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "何",
-            "reading": "なに",
-            "romaji": "nani",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "何",
-              "pt-BR": "何",
-              "es": "何"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ない",
-            "reading": "ない",
-            "romaji": "nai",
-            "grammar": "adjective",
-            "grammar_color": "green",
-            "meaning": {
-              "en": "ない",
-              "pt-BR": "ない",
-              "es": "ない"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "1",
-            "reading": "1",
-            "romaji": "1",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "1",
-              "pt-BR": "1",
-              "es": "1"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "日",
-            "reading": "にち",
-            "romaji": "hi",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "日",
-              "pt-BR": "日",
-              "es": "日"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "なんて",
-            "reading": "なんて",
-            "romaji": "nante",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "なんて",
-              "pt-BR": "なんて",
-              "es": "なんて"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ない",
-            "reading": "ない",
-            "romaji": "nai",
-            "grammar": "adjective",
-            "grammar_color": "green",
-            "meaning": {
-              "en": "ない",
-              "pt-BR": "ない",
-              "es": "ない"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"でも","reading":"でも","romaji":"demo","grammar":"other","grammar_color":"none","meaning":{"en":"but; even so","pt-BR":"mas; mesmo assim","es":"pero; aun así"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only; just","pt-BR":"apenas; só","es":"solo; únicamente"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este; esta","es":"este; esta"},"jlpt_level":"N5"},
+          {"surface":"一瞬","reading":"いっしゅん","romaji":"isshun","grammar":"noun","grammar_color":"blue","meaning":{"en":"a moment; an instant","pt-BR":"um momento; um instante","es":"un momento; un instante"},"jlpt_level":"N2"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 何もない1日なんてない",
-          "pt-BR": "(auto-coverage) 何もない1日なんてない",
-          "es": "(auto-coverage) 何もない1日なんてない"
-        },
-        "literal_meaning": {
-          "en": "何 + も + ない + 1 + 日 + なんて + ない"
-        }
+        "translations": {"en":"But this one fleeting moment right now...","pt-BR":"Mas este único momento fugaz agora...","es":"Pero este único momento fugaz ahora..."},
+        "literal_meaning": {"en":"but + now + only + 's + this + a moment + (topic)"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 19,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "同じ",
-            "reading": "おなじ",
-            "romaji": "onaji",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "同じ",
-              "pt-BR": "同じ",
-              "es": "同じ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "よう",
-            "reading": "よう",
-            "romaji": "yō",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "よう",
-              "pt-BR": "よう",
-              "es": "よう"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "に",
-            "reading": "に",
-            "romaji": "ni",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "に",
-              "pt-BR": "に",
-              "es": "に"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "目",
-            "reading": "め",
-            "romaji": "me",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "目",
-              "pt-BR": "目",
-              "es": "目"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "が",
-            "reading": "が",
-            "romaji": "ga",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "が",
-              "pt-BR": "が",
-              "es": "が"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "覚め",
-            "reading": "さめ",
-            "romaji": "same",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "覚め",
-              "pt-BR": "覚め",
-              "es": "覚め"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "た",
-            "reading": "た",
-            "romaji": "ta",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "た",
-              "pt-BR": "た",
-              "es": "た"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "として",
-            "reading": "として",
-            "romaji": "toshite",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "として",
-              "pt-BR": "として",
-              "es": "として"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"きっと","reading":"きっと","romaji":"kitto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"surely; certainly","pt-BR":"com certeza; seguramente","es":"seguramente; con certeza"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"大事","reading":"だいじ","romaji":"daiji","grammar":"adjective","grammar_color":"green","meaning":{"en":"important; precious","pt-BR":"importante; precioso","es":"importante; precioso"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"adjectival linker (な-adj)","pt-BR":"ligador adjetival (adjetivo な)","es":"enlace adjetival (adj. な)"},"jlpt_level":"N5"},
+          {"surface":"もの","reading":"もの","romaji":"mono","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing; what","pt-BR":"coisa; o que","es":"cosa; lo que"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 同じように目が覚めたとしても",
-          "pt-BR": "(auto-coverage) 同じように目が覚めたとしても",
-          "es": "(auto-coverage) 同じように目が覚めたとしても"
-        },
-        "literal_meaning": {
-          "en": "同じ + よう + に + 目 + が + 覚め + た + として + も"
-        }
+        "translations": {"en":"(Anytime) The things that are surely important right now","pt-BR":"(Anytime) As coisas que com certeza são importantes agora","es":"(Anytime) Las cosas que seguramente son importantes ahora"},
+        "literal_meaning": {"en":"(Anytime) + surely + now + important + (linker) + things"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 20,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "振り返ら",
-            "reading": "ふりかえら",
-            "romaji": "furikaera",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "振り返ら",
-              "pt-BR": "振り返ら",
-              "es": "振り返ら"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ない",
-            "reading": "ない",
-            "romaji": "nai",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "ない",
-              "pt-BR": "ない",
-              "es": "ない"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"きっと","reading":"きっと","romaji":"kitto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"surely; certainly","pt-BR":"com certeza; seguramente","es":"seguramente; con certeza"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"大事","reading":"だいじ","romaji":"daiji","grammar":"adjective","grammar_color":"green","meaning":{"en":"important; precious","pt-BR":"importante; precioso","es":"importante; precioso"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"adjectival linker (な-adj)","pt-BR":"ligador adjetival (adjetivo な)","es":"enlace adjetival (adj. な)"},"jlpt_level":"N5"},
+          {"surface":"もの","reading":"もの","romaji":"mono","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing; what","pt-BR":"coisa; o que","es":"cosa; lo que"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 振り返らないで",
-          "pt-BR": "(auto-coverage) 振り返らないで",
-          "es": "(auto-coverage) 振り返らないで"
-        },
-        "literal_meaning": {
-          "en": "振り返ら + ない + で"
-        }
+        "translations": {"en":"(Anytime) The things that are surely important right now","pt-BR":"(Anytime) As coisas que com certeza são importantes agora","es":"(Anytime) Las cosas que seguramente son importantes ahora"},
+        "literal_meaning": {"en":"(Anytime) + surely + now + important + (linker) + things"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 21,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "自分",
-            "reading": "じぶん",
-            "romaji": "jibun",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "自分",
-              "pt-BR": "自分",
-              "es": "自分"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "を",
-            "reading": "を",
-            "romaji": "o",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "を",
-              "pt-BR": "を",
-              "es": "を"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "信じ",
-            "reading": "しんじ",
-            "romaji": "shinji",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "信じ",
-              "pt-BR": "信じ",
-              "es": "信じ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"きっと","reading":"きっと","romaji":"kitto","grammar":"adverb","grammar_color":"orange","meaning":{"en":"surely; certainly","pt-BR":"com certeza; seguramente","es":"seguramente; con certeza"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"大事","reading":"だいじ","romaji":"daiji","grammar":"adjective","grammar_color":"green","meaning":{"en":"important; precious","pt-BR":"importante; precioso","es":"importante; precioso"},"jlpt_level":"N3"},
+          {"surface":"な","reading":"な","romaji":"na","grammar":"particle","grammar_color":"grey","meaning":{"en":"adjectival linker (な-adj)","pt-BR":"ligador adjetival (adjetivo な)","es":"enlace adjetival (adj. な)"},"jlpt_level":"N5"},
+          {"surface":"もの","reading":"もの","romaji":"mono","grammar":"noun","grammar_color":"blue","meaning":{"en":"thing; what","pt-BR":"coisa; o que","es":"cosa; lo que"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 自分を信じて",
-          "pt-BR": "(auto-coverage) 自分を信じて",
-          "es": "(auto-coverage) 自分を信じて"
-        },
-        "literal_meaning": {
-          "en": "自分 + を + 信じ + て"
-        }
+        "translations": {"en":"(Anytime) The things that are surely important right now","pt-BR":"(Anytime) As coisas que com certeza são importantes agora","es":"(Anytime) Las cosas que seguramente son importantes ahora"},
+        "literal_meaning": {"en":"(Anytime) + surely + now + important + (linker) + things"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 22,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "変わっ",
-            "reading": "かわっ",
-            "romaji": "kawatsu",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "変わっ",
-              "pt-BR": "変わっ",
-              "es": "変わっ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "て",
-            "reading": "て",
-            "romaji": "te",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "て",
-              "pt-BR": "て",
-              "es": "て"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "く",
-            "reading": "く",
-            "romaji": "ku",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "く",
-              "pt-BR": "く",
-              "es": "く"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "慣れ",
-            "reading": "なれ",
-            "romaji": "nare",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "慣れ",
-              "pt-BR": "慣れ",
-              "es": "慣れ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ない",
-            "reading": "ない",
-            "romaji": "nai",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "ない",
-              "pt-BR": "ない",
-              "es": "ない"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "時間",
-            "reading": "じかん",
-            "romaji": "jikan",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "時間",
-              "pt-BR": "時間",
-              "es": "時間"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "の",
-            "reading": "の",
-            "romaji": "no",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "の",
-              "pt-BR": "の",
-              "es": "の"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "中",
-            "reading": "なか",
-            "romaji": "naka",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "中",
-              "pt-BR": "中",
-              "es": "中"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"行こう","reading":"いこう","romaji":"ikou","grammar":"verb","grammar_color":"red","meaning":{"en":"let's go (volitional of 行く)","pt-BR":"vamos (volitivo de 行く)","es":"vamos (volitivo de 行く)"},"jlpt_level":"N5"},
+          {"surface":"信じて","reading":"しんじて","romaji":"shinjite","grammar":"verb","grammar_color":"red","meaning":{"en":"believing; trusting (te-form of 信じる)","pt-BR":"acreditando; confiando (forma -te de 信じる)","es":"creyendo; confiando (forma -te de 信じる)"},"jlpt_level":"N3"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 変わってく慣れない時間の中で",
-          "pt-BR": "(auto-coverage) 変わってく慣れない時間の中で",
-          "es": "(auto-coverage) 変わってく慣れない時間の中で"
-        },
-        "literal_meaning": {
-          "en": "変わっ + て + く + 慣れ + ない + 時間 + の + 中 + で"
-        }
+        "translations": {"en":"Let's go, believing in it","pt-BR":"Vamos, acreditando nisso","es":"Vamos, creyendo en ello"},
+        "literal_meaning": {"en":"let's go + believing"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 24,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "見え",
-            "reading": "みえ",
-            "romaji": "mie",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "見え",
-              "pt-BR": "見え",
-              "es": "見え"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "なく",
-            "reading": "なく",
-            "romaji": "naku",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "なく",
-              "pt-BR": "なく",
-              "es": "なく"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "なる",
-            "reading": "なる",
-            "romaji": "naru",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "なる",
-              "pt-BR": "なる",
-              "es": "なる"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "もの",
-            "reading": "もの",
-            "romaji": "mono",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "もの",
-              "pt-BR": "もの",
-              "es": "もの"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "も",
-            "reading": "も",
-            "romaji": "mo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "も",
-              "pt-BR": "も",
-              "es": "も"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "ある",
-            "reading": "ある",
-            "romaji": "aru",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "ある",
-              "pt-BR": "ある",
-              "es": "ある"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "、",
-            "reading": "、",
-            "romaji": ",",
-            "grammar": "other",
-            "grammar_color": "none",
-            "meaning": {
-              "en": "、",
-              "pt-BR": "、",
-              "es": "、"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "分かっ",
-            "reading": "わかっ",
-            "romaji": "wakatsu",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "分かっ",
-              "pt-BR": "分かっ",
-              "es": "分かっ"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "てる",
-            "reading": "てる",
-            "romaji": "teru",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "てる",
-              "pt-BR": "てる",
-              "es": "てる"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "けど",
-            "reading": "けど",
-            "romaji": "kedo",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "けど",
-              "pt-BR": "けど",
-              "es": "けど"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"でも","reading":"でも","romaji":"demo","grammar":"other","grammar_color":"none","meaning":{"en":"but; even so","pt-BR":"mas; mesmo assim","es":"pero; aun así"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only; just","pt-BR":"apenas; só","es":"solo; únicamente"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este; esta","es":"este; esta"},"jlpt_level":"N5"},
+          {"surface":"一瞬","reading":"いっしゅん","romaji":"isshun","grammar":"noun","grammar_color":"blue","meaning":{"en":"a moment; an instant","pt-BR":"um momento; um instante","es":"un momento; un instante"},"jlpt_level":"N2"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 見えなくなるものもある、分かってるけど",
-          "pt-BR": "(auto-coverage) 見えなくなるものもある、分かってるけど",
-          "es": "(auto-coverage) 見えなくなるものもある、分かってるけど"
-        },
-        "literal_meaning": {
-          "en": "見え + なく + なる + もの + も + ある + 、 + 分かっ + てる + けど"
-        }
+        "translations": {"en":"But this one fleeting moment right now...","pt-BR":"Mas este único momento fugaz agora...","es":"Pero este único momento fugaz ahora..."},
+        "literal_meaning": {"en":"but + now + only + 's + this + a moment + (topic)"}
       }
     },
     {
-      "after_original": 6,
+      "replace_verse_number": 29,
       "verse": {
-        "start_time_ms": 0,
-        "end_time_ms": 0,
+        "start_time_ms": 0, "end_time_ms": 0,
         "tokens": [
-          {
-            "surface": "全力",
-            "reading": "ぜんりょく",
-            "romaji": "zenryoku",
-            "grammar": "noun",
-            "grammar_color": "blue",
-            "meaning": {
-              "en": "全力",
-              "pt-BR": "全力",
-              "es": "全力"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "で",
-            "reading": "で",
-            "romaji": "de",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "で",
-              "pt-BR": "で",
-              "es": "で"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "進ま",
-            "reading": "すすま",
-            "romaji": "susuma",
-            "grammar": "verb",
-            "grammar_color": "red",
-            "meaning": {
-              "en": "進ま",
-              "pt-BR": "進ま",
-              "es": "進ま"
-            },
-            "jlpt_level": "unknown"
-          },
-          {
-            "surface": "なきゃ",
-            "reading": "なきゃ",
-            "romaji": "nakya",
-            "grammar": "particle",
-            "grammar_color": "grey",
-            "meaning": {
-              "en": "なきゃ",
-              "pt-BR": "なきゃ",
-              "es": "なきゃ"
-            },
-            "jlpt_level": "unknown"
-          }
+          {"surface":"何","reading":"なに","romaji":"nani","grammar":"noun","grammar_color":"blue","meaning":{"en":"nothing (何もない = nothing at all)","pt-BR":"nada (何もない = absolutamente nada)","es":"nada (何もない = absolutamente nada)"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"not even (with negative)","pt-BR":"nem sequer (com negação)","es":"ni siquiera (con negativo)"},"jlpt_level":"N5"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"there is nothing; empty","pt-BR":"não há nada; vazio","es":"no hay nada; vacío"},"jlpt_level":"N5"},
+          {"surface":"1","reading":"1","romaji":"1","grammar":"noun","grammar_color":"blue","meaning":{"en":"one (numeral)","pt-BR":"um (numeral)","es":"uno (numeral)"},"jlpt_level":"N5"},
+          {"surface":"日","reading":"にち","romaji":"nichi","grammar":"noun","grammar_color":"blue","meaning":{"en":"day","pt-BR":"dia","es":"día"},"jlpt_level":"N5"},
+          {"surface":"なんて","reading":"なんて","romaji":"nante","grammar":"particle","grammar_color":"grey","meaning":{"en":"such a thing as (dismissive)","pt-BR":"uma coisa como (dismissivo)","es":"algo como (despectivo)"},"jlpt_level":"N3"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"adjective","grammar_color":"green","meaning":{"en":"doesn't exist; there is no such thing","pt-BR":"não existe; não há tal coisa","es":"no existe; no hay tal cosa"},"jlpt_level":"N5"}
         ],
-        "translations": {
-          "en": "(auto-coverage) 全力で進まなきゃ",
-          "pt-BR": "(auto-coverage) 全力で進まなきゃ",
-          "es": "(auto-coverage) 全力で進まなきゃ"
-        },
-        "literal_meaning": {
-          "en": "全力 + で + 進ま + なきゃ"
-        }
+        "translations": {"en":"There's no such thing as a day with nothing in it","pt-BR":"Não existe um dia que não tenha nada","es":"No existe un día en el que no haya nada"},
+        "literal_meaning": {"en":"nothing + at all + one + day + such a thing as + doesn't exist"}
+      }
+    },
+    {
+      "replace_verse_number": 30,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"同じ","reading":"おなじ","romaji":"onaji","grammar":"other","grammar_color":"none","meaning":{"en":"same; identical","pt-BR":"mesmo; idêntico","es":"mismo; idéntico"},"jlpt_level":"N4"},
+          {"surface":"よう","reading":"よう","romaji":"you","grammar":"noun","grammar_color":"blue","meaning":{"en":"way; manner (like; as if)","pt-BR":"jeito; maneira (como se)","es":"manera; modo (como si)"},"jlpt_level":"N4"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"in the manner of (adverbial)","pt-BR":"da maneira de (adverbial)","es":"de la manera de (adverbial)"},"jlpt_level":"N5"},
+          {"surface":"目","reading":"め","romaji":"me","grammar":"noun","grammar_color":"blue","meaning":{"en":"eyes","pt-BR":"olhos","es":"ojos"},"jlpt_level":"N5"},
+          {"surface":"が","reading":"が","romaji":"ga","grammar":"particle","grammar_color":"grey","meaning":{"en":"subject marker","pt-BR":"marcador de sujeito","es":"marcador de sujeto"},"jlpt_level":"N5"},
+          {"surface":"覚め","reading":"さめ","romaji":"same","grammar":"verb","grammar_color":"red","meaning":{"en":"wake up; eyes open (stem of 覚める)","pt-BR":"acordar; abrir os olhos (radical de 覚める)","es":"despertar; abrir los ojos (raíz de 覚める)"},"jlpt_level":"N3"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense marker","pt-BR":"marcador de passado","es":"marcador de tiempo pasado"},"jlpt_level":"N5"},
+          {"surface":"として","reading":"として","romaji":"toshite","grammar":"particle","grammar_color":"grey","meaning":{"en":"even if; even though (hypothetical)","pt-BR":"mesmo que; mesmo se (hipotético)","es":"aunque; incluso si (hipotético)"},"jlpt_level":"N3"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even (with としても = even if)","pt-BR":"até (com としても = mesmo que)","es":"incluso (con としても = aunque)"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"Even if you wake up the same way as always","pt-BR":"Mesmo que você acorde do mesmo jeito de sempre","es":"Incluso si despiertas igual que siempre"},
+        "literal_meaning": {"en":"same + way + eyes + woke + even if"}
+      }
+    },
+    {
+      "replace_verse_number": 31,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"振り返ら","reading":"ふりかえら","romaji":"furikaera","grammar":"verb","grammar_color":"red","meaning":{"en":"look back (negative stem of 振り返る)","pt-BR":"olhar para trás (base negativa de 振り返る)","es":"mirar atrás (base negativa de 振り返る)"},"jlpt_level":"N3"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"particle","grammar_color":"grey","meaning":{"en":"not (negative)","pt-BR":"não (negativo)","es":"no (negativo)"},"jlpt_level":"N5"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"without (negative te-form: don't)","pt-BR":"sem (forma te negativa: não)","es":"sin (forma te negativa: no)"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"Don't look back","pt-BR":"Não olhe para trás","es":"No mires atrás"},
+        "literal_meaning": {"en":"look back + don't (without doing so)"}
+      }
+    },
+    {
+      "replace_verse_number": 32,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"自分","reading":"じぶん","romaji":"jibun","grammar":"noun","grammar_color":"blue","meaning":{"en":"yourself; oneself","pt-BR":"você mesmo; si mesmo","es":"tú mismo; uno mismo"},"jlpt_level":"N4"},
+          {"surface":"を","reading":"を","romaji":"o","grammar":"particle","grammar_color":"grey","meaning":{"en":"direct object marker","pt-BR":"marcador de objeto direto","es":"marcador de objeto directo"},"jlpt_level":"N5"},
+          {"surface":"信じ","reading":"しんじ","romaji":"shinji","grammar":"verb","grammar_color":"red","meaning":{"en":"believe; trust (stem of 信じる)","pt-BR":"acreditar; confiar (radical de 信じる)","es":"creer; confiar (raíz de 信じる)"},"jlpt_level":"N3"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form (imperative/request nuance)","pt-BR":"forma te (nuance imperativa/pedido)","es":"forma te (matiz imperativo/petición)"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"Believe in yourself","pt-BR":"Acredite em você mesmo","es":"Cree en ti mismo"},
+        "literal_meaning": {"en":"yourself + (object) + believe"}
+      }
+    },
+    {
+      "replace_verse_number": 34,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"でも","reading":"でも","romaji":"demo","grammar":"other","grammar_color":"none","meaning":{"en":"but; even so","pt-BR":"mas; mesmo assim","es":"pero; aun así"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only; just","pt-BR":"apenas; só","es":"solo; únicamente"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este; esta","es":"este; esta"},"jlpt_level":"N5"},
+          {"surface":"一瞬","reading":"いっしゅん","romaji":"isshun","grammar":"noun","grammar_color":"blue","meaning":{"en":"a moment; an instant","pt-BR":"um momento; um instante","es":"un momento; un instante"},"jlpt_level":"N2"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"But this one fleeting moment right now...","pt-BR":"Mas este único momento fugaz agora...","es":"Pero este único momento fugaz ahora..."},
+        "literal_meaning": {"en":"but + now + only + 's + this + a moment + (topic)"}
+      }
+    },
+    {
+      "replace_verse_number": 37,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"変わっ","reading":"かわっ","romaji":"kawatsu","grammar":"verb","grammar_color":"red","meaning":{"en":"change; shift (conjunctive)","pt-BR":"mudar; transformar (conjuntivo)","es":"cambiar; transformar (conjuntivo)"},"jlpt_level":"N4"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conectivo te-form","es":"conector te-form"},"jlpt_level":"N5"},
+          {"surface":"く","reading":"く","romaji":"ku","grammar":"verb","grammar_color":"red","meaning":{"en":"keep going; continue (ていく contracted)","pt-BR":"continuar; ir (ていく contraído)","es":"seguir; continuar (ていく contraído)"},"jlpt_level":"N4"},
+          {"surface":"慣れ","reading":"なれ","romaji":"nare","grammar":"verb","grammar_color":"red","meaning":{"en":"get used to (stem of 慣れる)","pt-BR":"acostumar-se (radical de 慣れる)","es":"acostumbrarse (raíz de 慣れる)"},"jlpt_level":"N3"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"particle","grammar_color":"grey","meaning":{"en":"can't; not (negative)","pt-BR":"não consigo; não (negativo)","es":"no puedo; no (negativo)"},"jlpt_level":"N5"},
+          {"surface":"時間","reading":"じかん","romaji":"jikan","grammar":"noun","grammar_color":"blue","meaning":{"en":"time","pt-BR":"tempo","es":"tiempo"},"jlpt_level":"N5"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"中","reading":"なか","romaji":"naka","grammar":"noun","grammar_color":"blue","meaning":{"en":"inside; midst","pt-BR":"dentro; meio","es":"dentro; en medio"},"jlpt_level":"N5"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"in; within (location of action)","pt-BR":"em; dentro de (locação de ação)","es":"en; dentro de (lugar de la acción)"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"In the midst of time that keeps changing, that I can't get used to","pt-BR":"No meio de um tempo que continua mudando e ao qual não me acostumo","es":"En medio del tiempo que sigue cambiando, al que no puedo acostumbrarme"},
+        "literal_meaning": {"en":"keep changing + can't get used to + time + in the midst of"}
+      }
+    },
+    {
+      "replace_verse_number": 38,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"見え","reading":"みえ","romaji":"mie","grammar":"verb","grammar_color":"red","meaning":{"en":"can see; be visible (stem of 見える)","pt-BR":"conseguir ver; ser visível (radical de 見える)","es":"poder ver; ser visible (raíz de 見える)"},"jlpt_level":"N4"},
+          {"surface":"なく","reading":"なく","romaji":"naku","grammar":"particle","grammar_color":"grey","meaning":{"en":"no longer; become unable (adverbial negative)","pt-BR":"não mais; tornar-se incapaz (negativo adverbial)","es":"ya no; volverse incapaz (negativo adverbial)"},"jlpt_level":"N4"},
+          {"surface":"なる","reading":"なる","romaji":"naru","grammar":"verb","grammar_color":"red","meaning":{"en":"become; turn into","pt-BR":"tornar-se; virar","es":"volverse; convertirse"},"jlpt_level":"N5"},
+          {"surface":"もの","reading":"もの","romaji":"mono","grammar":"noun","grammar_color":"blue","meaning":{"en":"things; what","pt-BR":"coisas; o que","es":"cosas; lo que"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"also; too; even","pt-BR":"também; até","es":"también; incluso"},"jlpt_level":"N5"},
+          {"surface":"ある","reading":"ある","romaji":"aru","grammar":"verb","grammar_color":"red","meaning":{"en":"there are; to exist","pt-BR":"há; existir","es":"hay; existir"},"jlpt_level":"N5"},
+          {"surface":"、","reading":"、","romaji":",","grammar":"other","grammar_color":"none","meaning":{"en":"comma (pause)","pt-BR":"vírgula (pausa)","es":"coma (pausa)"},"jlpt_level":"unknown"},
+          {"surface":"分かっ","reading":"わかっ","romaji":"wakatsu","grammar":"verb","grammar_color":"red","meaning":{"en":"understand; know (conjunctive)","pt-BR":"entender; saber (conjuntivo)","es":"entender; saber (conjuntivo)"},"jlpt_level":"N5"},
+          {"surface":"てる","reading":"てる","romaji":"teru","grammar":"verb","grammar_color":"red","meaning":{"en":"doing (ongoing; contracted ている)","pt-BR":"fazendo (contínuo; ている contraído)","es":"haciendo (continuo; ている contraído)"},"jlpt_level":"N4"},
+          {"surface":"けど","reading":"けど","romaji":"kedo","grammar":"particle","grammar_color":"grey","meaning":{"en":"but; though","pt-BR":"mas; porém","es":"pero; aunque"},"jlpt_level":"N4"}
+        ],
+        "translations": {"en":"There are things that disappear from sight too — I know, but...","pt-BR":"Tem coisas que também somem de vista — eu sei, mas...","es":"También hay cosas que desaparecen de la vista — lo sé, pero..."},
+        "literal_meaning": {"en":"become unable to see + things + there are too + I know + but"}
+      }
+    },
+    {
+      "replace_verse_number": 39,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"でも","reading":"でも","romaji":"demo","grammar":"other","grammar_color":"none","meaning":{"en":"but; even so","pt-BR":"mas; mesmo assim","es":"pero; aun así"},"jlpt_level":"N4"},
+          {"surface":"今","reading":"いま","romaji":"ima","grammar":"noun","grammar_color":"blue","meaning":{"en":"now","pt-BR":"agora","es":"ahora"},"jlpt_level":"N5"},
+          {"surface":"だけ","reading":"だけ","romaji":"dake","grammar":"particle","grammar_color":"grey","meaning":{"en":"only; just","pt-BR":"apenas; só","es":"solo; únicamente"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"この","reading":"この","romaji":"kono","grammar":"other","grammar_color":"none","meaning":{"en":"this","pt-BR":"este; esta","es":"este; esta"},"jlpt_level":"N5"},
+          {"surface":"一瞬","reading":"いっしゅん","romaji":"isshun","grammar":"noun","grammar_color":"blue","meaning":{"en":"a moment; an instant","pt-BR":"um momento; um instante","es":"un momento; un instante"},"jlpt_level":"N2"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"But this one fleeting moment right now...","pt-BR":"Mas este único momento fugaz agora...","es":"Pero este único momento fugaz ahora..."},
+        "literal_meaning": {"en":"but + now + only + 's + this + a moment + (topic)"}
+      }
+    },
+    {
+      "replace_verse_number": 40,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"全力","reading":"ぜんりょく","romaji":"zenryoku","grammar":"noun","grammar_color":"blue","meaning":{"en":"full force; all one's might","pt-BR":"força total; com toda a força","es":"fuerza total; con todas las fuerzas"},"jlpt_level":"N2"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"with; by means of","pt-BR":"com; por meio de","es":"con; por medio de"},"jlpt_level":"N5"},
+          {"surface":"進ま","reading":"すすま","romaji":"susuma","grammar":"verb","grammar_color":"red","meaning":{"en":"advance; move forward (negative stem of 進む)","pt-BR":"avançar; seguir em frente (base negativa de 進む)","es":"avanzar; seguir adelante (base negativa de 進む)"},"jlpt_level":"N3"},
+          {"surface":"なきゃ","reading":"なきゃ","romaji":"nakya","grammar":"particle","grammar_color":"grey","meaning":{"en":"have to; must (colloquial なければ)","pt-BR":"tenho que; preciso (coloquial なければ)","es":"tengo que; debo (coloquial なければ)"},"jlpt_level":"N4"}
+        ],
+        "translations": {"en":"I have to keep going with all my might","pt-BR":"Tenho que avançar com toda a minha força","es":"Tengo que seguir adelante con todas mis fuerzas"},
+        "literal_meaning": {"en":"full force + with + advance + must"}
+      }
+    },
+    {
+      "replace_verse_number": 50,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"それ","reading":"それ","romaji":"sore","grammar":"other","grammar_color":"none","meaning":{"en":"that; it","pt-BR":"isso; aquilo","es":"eso; aquello"},"jlpt_level":"N5"},
+          {"surface":"は","reading":"は","romaji":"wa","grammar":"particle","grammar_color":"grey","meaning":{"en":"topic marker","pt-BR":"marcador de tópico","es":"marcador de tema"},"jlpt_level":"N5"},
+          {"surface":"ここ","reading":"ここ","romaji":"koko","grammar":"noun","grammar_color":"blue","meaning":{"en":"here; this place","pt-BR":"aqui; este lugar","es":"aquí; este lugar"},"jlpt_level":"N5"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at; in (location)","pt-BR":"em; no (localização)","es":"en (lugar)"},"jlpt_level":"N5"},
+          {"surface":"ある","reading":"ある","romaji":"aru","grammar":"verb","grammar_color":"red","meaning":{"en":"to be; to exist","pt-BR":"estar; existir","es":"estar; existir"},"jlpt_level":"N5"},
+          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because; since","pt-BR":"porque; pois","es":"porque; ya que"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"(Anytime) Because it's right here","pt-BR":"(Anytime) Porque está bem aqui","es":"(Anytime) Porque está justo aquí"},
+        "literal_meaning": {"en":"(Anytime) + that + (topic) + here + exists + because"}
+      }
+    },
+    {
+      "replace_verse_number": 51,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"怖がら","reading":"こわがら","romaji":"kowagara","grammar":"verb","grammar_color":"red","meaning":{"en":"being afraid (negative stem of 怖がる)","pt-BR":"ter medo (base negativa de 怖がる)","es":"tener miedo (base negativa de 怖がる)"},"jlpt_level":"N3"},
+          {"surface":"ない","reading":"ない","romaji":"nai","grammar":"particle","grammar_color":"grey","meaning":{"en":"not (negative)","pt-BR":"não (negativo)","es":"no (negativo)"},"jlpt_level":"N5"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"without (doing); don't","pt-BR":"sem (fazer); não","es":"sin (hacer); no"},"jlpt_level":"N5"},
+          {"surface":"そのまま","reading":"そのまま","romaji":"sono mama","grammar":"other","grammar_color":"none","meaning":{"en":"as it is; just like that; unchanged","pt-BR":"como está; do jeito que é; sem mudar","es":"tal como está; así como es; sin cambiar"},"jlpt_level":"N3"}
+        ],
+        "translations": {"en":"(Anytime) Without being afraid, just as you are","pt-BR":"(Anytime) Sem ter medo, do jeito que você é","es":"(Anytime) Sin tener miedo, tal como eres"},
+        "literal_meaning": {"en":"(Anytime) + without being afraid + just as it is"}
+      }
+    },
+    {
+      "replace_verse_number": 52,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"悔し涙","reading":"くやしなみだ","romaji":"kuyashinamida","grammar":"noun","grammar_color":"blue","meaning":{"en":"tears of frustration; bitter tears","pt-BR":"lágrimas de frustração; lágrimas amargas","es":"lágrimas de frustración; lágrimas amargas"},"jlpt_level":"N2"},
+          {"surface":"流し","reading":"ながし","romaji":"nagashi","grammar":"verb","grammar_color":"red","meaning":{"en":"shed; pour; let flow (stem of 流す)","pt-BR":"derramar; deixar correr (radical de 流す)","es":"derramar; dejar correr (raíz de 流す)"},"jlpt_level":"N3"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conectivo te-form","es":"conector te-form"},"jlpt_level":"N5"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"even if; even though","pt-BR":"mesmo que; ainda que","es":"aunque; incluso si"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"(Anytime) Even if you shed tears of frustration","pt-BR":"(Anytime) Mesmo que você derrame lágrimas de frustração","es":"(Anytime) Aunque derrames lágrimas de frustración"},
+        "literal_meaning": {"en":"(Anytime) + tears of frustration + shed + even if"}
+      }
+    },
+    {
+      "replace_verse_number": 53,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglês"},"jlpt_level":"unknown"},
+          {"surface":"いつも","reading":"いつも","romaji":"itsumo","grammar":"adverb","grammar_color":"orange","meaning":{"en":"always; all the time","pt-BR":"sempre; o tempo todo","es":"siempre; todo el tiempo"},"jlpt_level":"N4"},
+          {"surface":"そば","reading":"そば","romaji":"soba","grammar":"noun","grammar_color":"blue","meaning":{"en":"beside; nearby; next to","pt-BR":"ao lado; perto","es":"al lado; cerca"},"jlpt_level":"N3"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"at; in (location)","pt-BR":"em; no (localização)","es":"en (lugar)"},"jlpt_level":"N5"},
+          {"surface":"いる","reading":"いる","romaji":"iru","grammar":"verb","grammar_color":"red","meaning":{"en":"to be (animate); to stay","pt-BR":"estar (animado); ficar","es":"estar (animado); quedarse"},"jlpt_level":"N5"},
+          {"surface":"から","reading":"から","romaji":"kara","grammar":"particle","grammar_color":"grey","meaning":{"en":"because; since","pt-BR":"porque; pois","es":"porque; ya que"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"(Anytime) Because I'm always by your side","pt-BR":"(Anytime) Porque estou sempre do seu lado","es":"(Anytime) Porque siempre estoy a tu lado"},
+        "literal_meaning": {"en":"(Anytime) + always + beside + I am + because"}
+      }
+    },
+    {
+      "replace_verse_number": 54,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"(Anytime)","reading":"(Anytime)","romaji":"(Anytime)","grammar":"expression","grammar_color":"none","meaning":{"en":"(Anytime) — English refrain","pt-BR":"(Anytime) — refrão em inglês","es":"(Anytime) — estribillo en inglés"},"jlpt_level":"unknown"},
+          {"surface":"楽しむ","reading":"たのしむ","romaji":"tanoshimu","grammar":"verb","grammar_color":"red","meaning":{"en":"to enjoy; to have fun","pt-BR":"aproveitar; se divertir","es":"disfrutar; divertirse"},"jlpt_level":"N3"},
+          {"surface":"こと","reading":"こと","romaji":"koto","grammar":"noun","grammar_color":"blue","meaning":{"en":"the act of (nominalizer)","pt-BR":"o ato de (nominalizador)","es":"el acto de (nominalizador)"},"jlpt_level":"N4"},
+          {"surface":"忘れ","reading":"わすれ","romaji":"wasure","grammar":"verb","grammar_color":"red","meaning":{"en":"forget (stem of 忘れる)","pt-BR":"esquecer (radical de 忘れる)","es":"olvidar (raíz de 忘れる)"},"jlpt_level":"N4"},
+          {"surface":"ず","reading":"ず","romaji":"zu","grammar":"particle","grammar_color":"grey","meaning":{"en":"without (classical negative connector)","pt-BR":"sem (conector negativo clássico)","es":"sin (conector negativo clásico)"},"jlpt_level":"N3"},
+          {"surface":"に","reading":"に","romaji":"ni","grammar":"particle","grammar_color":"grey","meaning":{"en":"(adverbial with ずに: without doing)","pt-BR":"(adverbial com ずに: sem fazer)","es":"(adverbial con ずに: sin hacer)"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"(Anytime) Don't forget to enjoy yourself","pt-BR":"(Anytime) Não esqueça de se divertir","es":"(Anytime) No olvides disfrutar"},
+        "literal_meaning": {"en":"(Anytime) + enjoy + (nominalizer) + without forgetting"}
+      }
+    },
+    {
+      "replace_verse_number": 55,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"何","reading":"なん","romaji":"nan","grammar":"noun","grammar_color":"blue","meaning":{"en":"how many (counter prefix)","pt-BR":"quantas (prefixo contador)","es":"cuántas (prefijo contador)"},"jlpt_level":"N5"},
+          {"surface":"度","reading":"ど","romaji":"do","grammar":"noun","grammar_color":"blue","meaning":{"en":"times; degrees (counter)","pt-BR":"vezes; graus (contador)","es":"veces; grados (contador)"},"jlpt_level":"N4"},
+          {"surface":"も","reading":"も","romaji":"mo","grammar":"particle","grammar_color":"grey","meaning":{"en":"many (何度も = countless times)","pt-BR":"muitas (何度も = inúmeras vezes)","es":"muchas (何度も = innumerables veces)"},"jlpt_level":"N5"},
+          {"surface":"落ち込ん","reading":"おちこん","romaji":"ochikon","grammar":"verb","grammar_color":"red","meaning":{"en":"feel down; sink into despair (conjunctive)","pt-BR":"ficar pra baixo; cair em desânimo (conjuntivo)","es":"desanimarse; caer en el desánimo (conjuntivo)"},"jlpt_level":"N3"},
+          {"surface":"で","reading":"で","romaji":"de","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector (and)","pt-BR":"conector te-form (e)","es":"conector te-form (y)"},"jlpt_level":"N5"},
+          {"surface":"泣い","reading":"ないた","romaji":"naita","grammar":"verb","grammar_color":"red","meaning":{"en":"cried; wept (past stem of 泣く)","pt-BR":"chorou (base passado de 泣く)","es":"lloró (base pasado de 泣く)"},"jlpt_level":"N5"},
+          {"surface":"た","reading":"た","romaji":"ta","grammar":"particle","grammar_color":"grey","meaning":{"en":"past tense marker","pt-BR":"marcador de passado","es":"marcador de tiempo pasado"},"jlpt_level":"N5"},
+          {"surface":"って","reading":"って","romaji":"tte","grammar":"particle","grammar_color":"grey","meaning":{"en":"even if; no matter how much","pt-BR":"mesmo que; não importa quanto","es":"aunque; no importa cuánto"},"jlpt_level":"N4"}
+        ],
+        "translations": {"en":"Even if you've fallen down and cried countless times","pt-BR":"Mesmo que você tenha caído e chorado inúmeras vezes","es":"Aunque hayas caído y llorado incontables veces"},
+        "literal_meaning": {"en":"countless times + fallen into despair + and + cried + even if"}
+      }
+    },
+    {
+      "replace_verse_number": 57,
+      "verse": {
+        "start_time_ms": 0, "end_time_ms": 0,
+        "tokens": [
+          {"surface":"ビル","reading":"ビル","romaji":"biru","grammar":"noun","grammar_color":"blue","meaning":{"en":"building (from ビルディング)","pt-BR":"prédio (de ビルディング)","es":"edificio (de ビルディング)"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"間","reading":"あいだ","romaji":"aida","grammar":"noun","grammar_color":"blue","meaning":{"en":"between; gap; space","pt-BR":"entre; espaço; lacuna","es":"entre; espacio; hueco"},"jlpt_level":"N4"},
+          {"surface":"の","reading":"の","romaji":"no","grammar":"particle","grammar_color":"grey","meaning":{"en":"'s; of (possessive)","pt-BR":"de (possessivo)","es":"de (posesivo)"},"jlpt_level":"N5"},
+          {"surface":"間","reading":"すきま","romaji":"sukima","grammar":"noun","grammar_color":"blue","meaning":{"en":"crack; gap; nook","pt-BR":"fresta; fenda; cantinho","es":"grieta; hueco; rincón"},"jlpt_level":"N3"},
+          {"surface":"まで","reading":"まで","romaji":"made","grammar":"particle","grammar_color":"grey","meaning":{"en":"even; up to; as far as","pt-BR":"até; mesmo","es":"hasta; incluso"},"jlpt_level":"N5"},
+          {"surface":"探し","reading":"さがし","romaji":"sagashi","grammar":"verb","grammar_color":"red","meaning":{"en":"search; look for (stem of 探す)","pt-BR":"procurar; buscar (radical de 探す)","es":"buscar (raíz de 探す)"},"jlpt_level":"N4"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conectivo te-form","es":"conector te-form"},"jlpt_level":"N5"},
+          {"surface":"み","reading":"み","romaji":"mi","grammar":"verb","grammar_color":"red","meaning":{"en":"try (stem of てみる: try doing)","pt-BR":"tentar (radical de てみる: tentar fazer)","es":"intentar (raíz de てみる: intentar hacer)"},"jlpt_level":"N4"},
+          {"surface":"て","reading":"て","romaji":"te","grammar":"particle","grammar_color":"grey","meaning":{"en":"te-form connector","pt-BR":"conectivo te-form","es":"conector te-form"},"jlpt_level":"N5"},
+          {"surface":"よ","reading":"よ","romaji":"yo","grammar":"particle","grammar_color":"grey","meaning":{"en":"please; go on (light request)","pt-BR":"por favor; vai lá (pedido leve)","es":"vamos; por favor (petición suave)"},"jlpt_level":"N5"}
+        ],
+        "translations": {"en":"Try looking for it, even in the cracks between buildings","pt-BR":"Tente procurar, até nas frestas entre os prédios","es":"Intenta buscarlo, incluso en los huecos entre edificios"},
+        "literal_meaning": {"en":"buildings + between + cracks + even + search + try + please"}
       }
     }
   ]

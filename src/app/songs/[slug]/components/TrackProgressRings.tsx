@@ -61,6 +61,18 @@ function TrackProgressRing({ pct, label, size = 64, stroke = 8 }: TrackProgressR
           transform={`rotate(-90 ${size / 2} ${size / 2})`}
           style={{ transition: "stroke-dashoffset 600ms ease-out, stroke 300ms" }}
         />
+        {/* Percentage label centered inside ring */}
+        <text
+          x={size / 2}
+          y={size / 2}
+          textAnchor="middle"
+          dominantBaseline="central"
+          fontSize={Math.round(size * 0.2)}
+          fill={isClosed ? "#FBBF24" : "#9CA3AF"}
+          fontWeight="600"
+        >
+          {Math.round(clamped)}%
+        </text>
       </svg>
       <span className="text-xs text-muted-foreground">{label}</span>
     </div>
@@ -79,10 +91,20 @@ export function TrackProgressRings({
   hasKanjiBearingVocab?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-center gap-6 mb-4">
-      <TrackProgressRing pct={vocab} label="Vocab" />
-      <TrackProgressRing pct={grammar} label="Grammar" />
-      {hasKanjiBearingVocab && <TrackProgressRing pct={kanji} label="Kanji" />}
+    <div
+      className={`my-6 grid gap-4 ${hasKanjiBearingVocab ? "grid-cols-3" : "grid-cols-2"}`}
+    >
+      <div className="flex justify-center">
+        <TrackProgressRing pct={vocab} label="Vocab" />
+      </div>
+      <div className="flex justify-center">
+        <TrackProgressRing pct={grammar} label="Grammar" />
+      </div>
+      {hasKanjiBearingVocab && (
+        <div className="flex justify-center">
+          <TrackProgressRing pct={kanji} label="Kanji" />
+        </div>
+      )}
     </div>
   );
 }

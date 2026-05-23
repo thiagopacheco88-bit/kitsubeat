@@ -183,10 +183,17 @@ if (isMain) {
       );
     }
   } else if (args[0]) {
-    const { before, after, skipped } = applyPatch(args[0]);
+    const slug = args[0];
+    const { before, after, skipped } = applyPatch(slug);
     console.log(
-      `[ok] ${args[0]}: ${before} → ${after} verses${skipped ? ` (${skipped} patch(es) already applied — skipped)` : ""}`,
+      `[ok] ${slug}: ${before} → ${after} verses${skipped ? ` (${skipped} patch(es) already applied — skipped)` : ""}`,
     );
+    try {
+      const { revalidateSongCache } = await import("../../src/app/actions/cache.js");
+      await revalidateSongCache(slug);
+    } catch {
+      // Expected to fail outside Next.js server context — not fatal.
+    }
   } else {
     console.error("usage: apply-verse-patch.ts <slug> | --all");
     process.exit(1);

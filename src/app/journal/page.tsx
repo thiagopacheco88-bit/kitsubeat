@@ -6,6 +6,22 @@ export const metadata: Metadata = {
   title: 'Journal | KitsuBeat',
   description:
     'Anime culture, song translations, and Japanese language guides — bridge the gap between entertainment and learning.',
+  alternates: { canonical: '/journal' },
+  openGraph: {
+    title: 'Journal | KitsuBeat',
+    description:
+      'Anime culture, song translations, and Japanese language guides — bridge the gap between entertainment and learning.',
+    type: 'website',
+    url: '/journal',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Journal | KitsuBeat',
+    description:
+      'Anime culture, song translations, and Japanese language guides — bridge the gap between entertainment and learning.',
+    images: ['/twitter-image.png'],
+  },
 };
 
 export default function JournalIndexPage() {

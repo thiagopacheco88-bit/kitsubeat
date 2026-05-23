@@ -373,6 +373,19 @@ async function backfillWhisperLyrics(): Promise<void> {
 
     // Only backfill songs marked as pending_whisper with empty raw_lyrics
     if (lyricsEntry.source !== "pending_whisper" || lyricsEntry.raw_lyrics.trim() !== "") {
+      // Flag romaji-only lyrics: lrclib sometimes returns romanised text.
+      // Lessons generated from these will have romaji token surfaces instead of Japanese.
+      if (lyricsEntry.raw_lyrics.trim() !== "") {
+        const cjkRatio = (lyricsEntry.raw_lyrics.match(/[぀-ヿ一-鿿]/g) ?? []).length
+          / Math.max(lyricsEntry.raw_lyrics.replace(/\s/g, "").length, 1);
+        if (cjkRatio < 0.15) {
+          console.warn(
+            `  [WARN-ROMAJI] ${slug} — lyrics-cache has <15% CJK characters (ratio=${cjkRatio.toFixed(2)}). ` +
+            `LRC from "${lyricsEntry.source}" may be romanized. ` +
+            `Reset source to "pending_whisper" and re-run to replace with WhisperX Japanese.`
+          );
+        }
+      }
       skipped++;
       continue;
     }

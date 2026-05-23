@@ -4,6 +4,7 @@ import { CURRENT_COOKIE_CONSENT_VERSION } from "@/lib/legal/versions";
 
 export const metadata: Metadata = {
   title: "Cookie Policy — KitsuBeat",
+  description: "Information about cookies and tracking technologies used on KitsuBeat.",
 };
 
 function LegalNavFooter() {

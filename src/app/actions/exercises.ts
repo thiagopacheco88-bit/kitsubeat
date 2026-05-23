@@ -969,12 +969,15 @@ export async function recordVocabAnswer(
       ),
       grammar_correct AS (
         -- Grammar track: song_version_grammar_rules rows vs user_exercise_log correct answers.
-        -- If song has no grammar rules in this table, returns (0, 0) → NULL → 100% auto-pass (SPEC R16).
+        -- lesson_grammar_count: number of grammar_points in the lesson JSONB (may be > 0 even
+        -- when song_version_grammar_rules is empty, i.e. exercises not yet generated).
         SELECT
           COUNT(DISTINCT log.id) FILTER (
             WHERE log.exercise_type = 'grammar_conjugation' AND log.rating >= 3
           ) AS c,
-          (SELECT COUNT(*) FROM song_version_grammar_rules WHERE song_version_id = ${songVersionId}::uuid) AS t
+          (SELECT COUNT(*) FROM song_version_grammar_rules WHERE song_version_id = ${songVersionId}::uuid) AS t,
+          (SELECT COALESCE(jsonb_array_length(v.lesson->'grammar_points'), 0)
+           FROM song_versions v WHERE v.id = ${songVersionId}::uuid) AS lesson_grammar_count
         FROM user_exercise_log log
         WHERE log.user_id = ${userId}
           AND log.song_version_id = ${songVersionId}::uuid
@@ -983,11 +986,12 @@ export async function recordVocabAnswer(
       SELECT
         ROUND((vc.c::numeric / NULLIF(vc.t, 0) * 100), 2)::text AS vocab,
         ROUND((gc.c::numeric / NULLIF(gc.t, 0) * 100), 2)::text AS grammar,
-        ROUND((kc.c::numeric / NULLIF(kc.t, 0) * 100), 2)::text AS kanji
+        ROUND((kc.c::numeric / NULLIF(kc.t, 0) * 100), 2)::text AS kanji,
+        gc.lesson_grammar_count
       FROM vocab_correct vc, grammar_correct gc, kanji_correct kc
     `);
 
-    type PctRow = { vocab: string | null; grammar: string | null; kanji: string | null };
+    type PctRow = { vocab: string | null; grammar: string | null; kanji: string | null; lesson_grammar_count: string | number | null };
     const pctRows: PctRow[] = Array.isArray(pctResult)
       ? (pctResult as unknown as PctRow[])
       : ((pctResult as unknown as { rows?: PctRow[] }).rows ?? []);
@@ -996,8 +1000,14 @@ export async function recordVocabAnswer(
     // SPEC R16: when pool is empty (NULLIF(0)=NULL → result is NULL), treat as 100%
     // (auto-pass for all-kana songs, no-grammar songs).
     const vocabPct = pctRow?.vocab != null ? parseFloat(pctRow.vocab) : 100;
-    const grammarPct = pctRow?.grammar != null ? parseFloat(pctRow.grammar) : 100;
     const kanjiPct = pctRow?.kanji != null ? parseFloat(pctRow.kanji) : 100;
+    // Grammar auto-pass: only if song_version_grammar_rules is empty AND the lesson has
+    // no grammar_points. If the lesson has points but exercises aren't generated yet,
+    // use 0% so the badge stays honest (not "Done!").
+    const lessonGrammarCount = pctRow?.lesson_grammar_count != null ? Number(pctRow.lesson_grammar_count) : 0;
+    const grammarPct = pctRow?.grammar != null
+      ? parseFloat(pctRow.grammar)
+      : lessonGrammarCount === 0 ? 100 : 0;
     trackPct = { vocab: vocabPct, grammar: grammarPct, kanji: kanjiPct };
 
     // 4b. Persist per-track pcts to user_song_progress (D-03).
@@ -1220,4 +1230,59 @@ export async function recordAdvancedDrillAttempt(
     // On transient error, allow through (the tab-open gate already approved).
     return { ok: true };
   }
+}
+
+// ---------------------------------------------------------------------------
+// fetchSongProgress — lightweight prefetch for optimistic star rendering
+// ---------------------------------------------------------------------------
+
+export interface PrevSongProgress {
+  ex1_2_3_best_accuracy: number | null;
+  ex4_best_accuracy: number | null;
+  ex6_best_accuracy: number | null;
+  grammar_best_accuracy: number | null;
+  songHasGrammar: boolean;
+}
+
+/**
+ * Fetches the current user's song progress + grammar flag for a song version.
+ * Called client-side at session start so SessionSummary can compute optimistic
+ * stars immediately without waiting for saveSessionResults to complete.
+ * Returns null if unauthenticated or no previous progress row exists.
+ */
+export async function fetchSongProgress(
+  songVersionId: string
+): Promise<PrevSongProgress | null> {
+  const { userId } = await auth();
+  if (!userId) return null;
+
+  const [progressRows, grammarCountRows] = await Promise.all([
+    db
+      .select({
+        ex1_2_3_best_accuracy: userSongProgress.ex1_2_3_best_accuracy,
+        ex4_best_accuracy: userSongProgress.ex4_best_accuracy,
+        ex6_best_accuracy: userSongProgress.ex6_best_accuracy,
+        grammar_best_accuracy: userSongProgress.grammar_best_accuracy,
+      })
+      .from(userSongProgress)
+      .where(
+        sql`${userSongProgress.user_id} = ${userId} AND ${userSongProgress.song_version_id} = ${songVersionId}::uuid`
+      )
+      .limit(1),
+    db
+      .select({ n: sql<number>`COUNT(*)::int` })
+      .from(songVersionGrammarRules)
+      .where(eq(songVersionGrammarRules.song_version_id, songVersionId)),
+  ]);
+
+  const songHasGrammar = (grammarCountRows[0]?.n ?? 0) > 0;
+  const row = progressRows[0] ?? null;
+
+  return {
+    ex1_2_3_best_accuracy: row?.ex1_2_3_best_accuracy ?? null,
+    ex4_best_accuracy: row?.ex4_best_accuracy ?? null,
+    ex6_best_accuracy: row?.ex6_best_accuracy ?? null,
+    grammar_best_accuracy: row?.grammar_best_accuracy ?? null,
+    songHasGrammar,
+  };
 }

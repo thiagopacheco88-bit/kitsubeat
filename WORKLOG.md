@@ -16,13 +16,13 @@ Track actual deliveries to ground future pace estimates in real data.
 | Metric | Value | As of |
 |---|---|---|
 | Project start | 2026-04-12 | filesystem |
-| Days elapsed | 27 | 2026-05-09 |
-| Active dev days | 19 | (7 idle: Apr 20-22, 25, 29, May 4-5) |
-| Phases closed (to launch) | 31 of 33 | 16 plans written today (ready to execute); 18 at 92% |
-| Hours delivered (to launch) | ~405 / 428 | **~95% to beta launch** |
-| Hours delivered (incl v4.0) | ~405 / 500 | ~81% of total product scope |
-| Active phases | 16 (plans written, execute now), 18 (plan 07 bugs) | 19 blocked until 18 closes |
-| Remaining to launch | ~32h dev + 4-wk beta wait | Phases 16 (12h), 18 (~2h), 19 (15h + wait), 20 (12h) |
+| Days elapsed | 34 | 2026-05-16 |
+| Active dev days | 22 | (~12 idle across the run) |
+| Phases closed | 33 of 41 | +14.6, 16 verified; 11.6 gap closure complete |
+| Hours delivered (total scope) | ~455 / 552 | **~82% of total scope** |
+| Hours delivered (to v3.0 launch) | ~450 / 470 | **~96% to beta launch** |
+| Active phases | 18 (plan 07 WCAG still open), 18.1 (11/12 plans), 18.2 (plans written) | 19 blocked until 18 + 18.2 close |
+| Remaining to launch | ~30h dev + 4-wk beta wait | 18 (~2h), 18.1 (~2h), 18.2 (15h), 19 (15h + wait), 20 (12h) |
 | Deferred | Phase 6 (Anki Export) | Merged into Phase 18 GDPR data export |
 | Revised target launch | **mid-June 2026** | beta-validated (50 signups + 20% day-7) |
 | Hard stop | October 2026 | baby due |
@@ -57,32 +57,35 @@ Track actual deliveries to ground future pace estimates in real data.
 | 11.3 | Fix Untranslated JP Verses | 2026-04-27 | 2026-04-27 | 970 broken verses re-translated (inline-Claude pivot) | ✓ Done | 10 | 10 | 100% | 2.6% |
 | 11.4 | Visual Vocabulary Foundation | 2026-04-30 | 2026-04-28 | image_url column + LearnCard/FeedbackPanel render + 50-image curate set | ✓ Done | 5 | 5 | 100% | 1.3% |
 | 11.5 | Admin Lyrics Editor | 2026-05-08 | 2026-05-02 | 10 plans: schema, clerk gate, route shell, verse editor, AI fill, publish, swap-video, flag-broken, regenerate-lessons | ✓ Done | 18 | 18 | 100% | 4.7% |
-| 11.6 | Beginner-Focused Practice Redesign | 2026-05-08 | 2026-05-02 | VERIFIED 16/18 reqs. 12/13 plans done — 3-track ExerciseTab, dual FSRS cards, ComfyUI infra, Unsplash auto-fetcher, dual-card review queue, verse-domination UI. 11.6-13 (~3h gap closure) pending | 🟡 In flight (no blocker) | 35 | 32 | 91% | 9.1% |
+| 11.6 | Beginner-Focused Practice Redesign | 2026-05-08 | 2026-05-02 | 3-track ExerciseTab (Vocab/Grammar/Kanji), dual FSRS cards, ComfyUI+Unsplash image pipeline, JLPT-ordered scheduling, verse-domination UI, dual-card /review. Plan 13 (Unsplash batch) complete | ✓ Done | 35 | 35 | 100% | 6.3% |
 | **v3.0** | | | | | | | | | |
-| 12 | Learning Path + Gamification | 2026-04-19 | 2026-04-19 | XP, streaks, levels, /path route, cosmetics | ✓ Done | 10 | 10 | 100% | 2.6% |
-| 13 | Performance Infrastructure | 2026-05-05 | 2026-04-30 | CI bundle budgets, lesson cache, IO-deferred YouTube iframe | ✓ Done | 12 | 12 | 100% | 3.1% |
-| 14 | UX Polish | 2026-05-04 | 2026-05-02 | VERIFIED 8/9 SPEC-REQs (a11y A1 resolved). 10 plans: Wave 0 infra, primitives, theme tokens, dark/light, motion, 11 surface migrations | ✓ Done | 33 | 33 | 100% | 8.6% |
-| 14.1 | Redesign Path | 2026-05-04 | 2026-05-03 | VERIFIED 8/8 SPEC-REQs (5 human UAT items pending). 13 plans done across 5 waves — CA-hybrid /path redesign with PathHeader, HeroProgress, ContinueAnchor, KanaCheckpointNode, LanternStreak, TierDivider, cover-art PathNode | ✓ Done | 20 | 20 | 100% | 4.9% |
-| 14.2 | Redesign Home (/) | 2026-05-04 | 2026-05-03 | All 16 plans done — auth-bypass harness, getContinueLearning, getHeroSong, KanaCheckpointNode home variant, SectionHeader+Carousel, ContinueCard, CoverCard+AnimeCard+HeroFeatured, ContinueLearning+Foundations, 5-section keystone composition, global header wordmark+LanternStreak+MobileNavSheet, PathHeader removal, behavioral + visual-diff e2e | ✓ Done | 20 | 20 | 100% | 4.6% |
-| 14.3 | Redesign Lesson (/songs/[slug]) | 2026-05-07 | 2026-05-08 | 2 plans done — music-player feel for lyrics panel, mobile lesson layout + lyrics-scroll clearance | ✓ Done | 10 | 10 | 100% | 2.0% |
-| 14.4 | Virality + Engagement | 2026-05-10 | 2026-05-08 | VERIFIED — 5 plans: migration 0018, streak-saver, email+cron (Resend), social signals (RecentlyMasteredTicker), gate validation + Vercel Hobby fix | ✓ Done | 15 | 15 | 100% | 3.0% |
-| 14.5 | Iconography + Brand Revamp | 2026-05-08 | 2026-05-08 | VERIFIED — 2 plans: TierDivider SVG redraw, twitter metadata, brand-prompts.md (ComfyUI + Gemini), favicon synthesis + verify scripts | ✓ Done | 8 | 8 | 100% | 1.6% |
-| 15 | Analytics + Error Tracking | 2026-05-12 | 2026-05-08 | VERIFIED — PostHog consent-gated + PostHogIdentify, Sentry 3-runtime init + error boundaries, env vars, SC-1 funnel events (song_opened → exercise_started → first_star → day_7_return + signup stub). CR-01/CR-02 resolved | ✓ Done | 10 | 10 | 100% | 2.0% |
-| 16 | Security Review + IR | 2026-05-10 | — | 7 plans created today across 3 waves. RLS audit, authz audit, secrets scan, rate limits, IR runbook. Plans revised after checker feedback | 🟢 Ready (plans written, execute now) | 12 | 1 | 5% | 2.4% |
-| 17 | Legal Research (DIY) | 2026-05-15 | 2026-05-08 | 17-ANALYSIS.md: copyright, UK-GDPR/LGPD/CCPA, consumer law, tax, EU AI Act, EAA. Human-verify passed | ✓ Done | 10 | 10 | 100% | 2.0% |
-| 18 | Legal Implementation | 2026-05-09 | — | 6/7 plans done, plan 07 bug fixes today (cookie bridge, JWT refresh, redirect_url). Plans: migration 0019, consent/DSAR infra, 5 legal pages (T&Cs/Privacy/Cookie/AI/Refund), age-gate middleware, UI components (CookieConsentBanner/AiBadge/DataExportButton), profile+AI disclosure | 🟡 In flight (plan 07 bugs) | 25 | 23 | 92% | 5.0% |
-| 19 | Beta Launch + GTM | 2026-05-10† | — | Landing page, 3 acquisition channels + UTMs, 50 signups / 20% day-7 return validation gate. Needs Phase 18 ✓ | 🔴 Blocked by Phase 18 | 15 | 0 | 0% | 3.0% |
-| 20 | Test Coverage Pass | 2026-06-10 | — | Integration tests on critical paths, strict types, ADRs checked in, deferred-items backlog closed. Needs Phase 19 real-usage data | 🔴 Blocked by Phase 19 | 12 | 0 | 0% | 2.4% |
+| 12 | Learning Path + Gamification | 2026-04-19 | 2026-04-19 | XP, streaks, levels, /path route, starter-song picker, cosmetics | ✓ Done | 10 | 10 | 100% | 1.8% |
+| 13 | Performance Infrastructure | 2026-05-05 | 2026-04-30 | CI bundle budgets, unstable_cache lesson caching, IO-deferred YouTube iframe, Lighthouse baseline | ✓ Done | 12 | 12 | 100% | 2.2% |
+| 14 | UX Polish | 2026-05-04 | 2026-05-02 | Design token ESLint plugin, dark/light themes, 11 surface migrations, motion catalog, axe ≥95 | ✓ Done | 33 | 33 | 100% | 6.0% |
+| 14.1 | Redesign /path | 2026-05-04 | 2026-05-03 | PathHeader, HeroProgress, ContinueAnchor, KanaCheckpointNode, LanternStreak, TierDivider, cover-art PathNode | ✓ Done | 20 | 20 | 100% | 3.6% |
+| 14.2 | Redesign Home (/) | 2026-05-04 | 2026-05-03 | 5-section CA-hybrid: HeroFeatured, ContinueLearning, Foundations, CoverCard+Carousel, AnimeCard. Global header + MobileNavSheet | ✓ Done | 20 | 20 | 100% | 3.6% |
+| 14.3 | Redesign Lesson (/songs/[slug]) | 2026-05-07 | 2026-05-08 | Music-player feel for lyrics panel, mobile layout, lyrics-scroll player clearance | ✓ Done | 10 | 10 | 100% | 1.8% |
+| 14.4 | Virality + Engagement | 2026-05-10 | 2026-05-08 | Streak-saver token, Resend email cron, RecentlyMasteredTicker, CoverCard live-signal chip, opt-in social toggle, ISO 8601 week-key fix | ✓ Done | 15 | 15 | 100% | 2.7% |
+| 14.5 | Iconography + Brand Revamp | 2026-05-08 | 2026-05-08 | TierDivider SVG redraw (bamboo/torii/mountain), Twitter metadata, brand-prompts.md, favicon synthesis + verify scripts | ✓ Done | 8 | 8 | 100% | 1.4% |
+| 14.6 | Journal | 2026-05-14 | 2026-05-14 | VERIFIED — 3 plans: blog/journal feature with articles in EN/PT-BR/ES | ✓ Done | 15 | 15 | 100% | 2.7% |
+| 15 | Analytics + Error Tracking | 2026-05-12 | 2026-05-08 | PostHog consent-gated + PostHogIdentify, Sentry 3-runtime, SC-1 funnel events (song_opened → exercise_started → first_star → day_7_return) | ✓ Done | 10 | 10 | 100% | 1.8% |
+| 16 | Security Review + IR | 2026-05-10 | 2026-05-10 | VERIFIED — RLS audit, authz audit, secrets scan, rate limits, written IR runbook. 7 plans across 3 waves | ✓ Done | 12 | 12 | 100% | 2.2% |
+| 17 | Legal Research (DIY) | 2026-05-15 | 2026-05-08 | 17-ANALYSIS.md: copyright, UK-GDPR/LGPD/CCPA, consumer law, tax, EU AI Act, EAA | ✓ Done | 10 | 10 | 100% | 1.8% |
+| 18 | Legal Implementation | 2026-05-09 | — | 6/7 plans done. Migration 0019, consent/DSAR, 5 legal pages, age-gate middleware, UI components (CookieConsentBanner/AiBadge/DataExportButton), profile+AI disclosure. Plan 07 (WCAG ARIA fixes) still open | 🟡 In flight (plan 07) | 25 | 23 | 92% | 4.5% |
+| 18.1 | UI Internationalization | 2026-05-14 | — | INSERTED — next-intl, locale routing (PT-BR/ES/EN), LanguagePicker, 29 PT-BR + 29 ES journal translations, UI strings across home/path/songs/kana/catalog, hreflang sitemap. 11/12 plans done | 🟡 In flight (plan 12) | 22 | 20 | 91% | 4.0% |
+| 18.2 | Pre-Launch QA Safety Net | 2026-05-19 | — | INSERTED — 6 plans, research done. Gap-filling QA specs + /qa-full skill. Needs 18 + 18.1 ✓ | 🔴 Blocked by 18, 18.1 | 15 | 1 | 5% | 2.7% |
+| 19 | Beta Launch + GTM | 2026-05-21† | — | Landing page, 3 acquisition channels + UTMs, 50 signups / 20% day-7 return. Needs 18, 18.1, 18.2 ✓ | 🔴 Blocked by 18, 18.1, 18.2 | 15 | 0 | 0% | 2.7% |
+| 20 | Test Coverage Pass | 2026-06-20 | — | Integration tests on critical paths, strict types, ADRs, deferred-items backlog. Needs Phase 19 real-usage data | 🔴 Blocked by Phase 19 | 12 | 0 | 0% | 2.2% |
 | **v4.0 (post-launch)** | | | | | | | | | |
-| 21 | Anime Scenes + Cultural Vocab | post-launch | — | Pain, AoT pre-battle, One Piece narrator intros — same exercise + vocab mechanics as songs, distributed as Phase 12 unlock rewards | 🔴 Post-launch | 25 | 0 | 0% | 5.0% |
-| 22 | Monetization | post-launch | — | Stripe/Lemon Squeezy checkout, webhooks, UK Ltd entity migration. **Gated on Phase 19 MRR signal** — only if beta validates | 🔴 Gated on Phase 19 signal | 20 | 0 | 0% | 4.0% |
-| 23 | Native App Decision | post-launch | — | Evidence-based go/no-go on iOS/Android. Decision doc only (not a build). Gate: ≥500 MAU + ≥20% day-30 return | 🔴 Gated on 3-month data | 5 | 0 | 0% | 1.0% |
-| 24 | Impeccable Design System | post-launch | — | Per-surface /impeccable polish pass — bespoke typography/color/motion on player, exercises, kana, dashboard, gamification HUD | 🔴 Post-launch | 20 | 0 | 0% | 4.0% |
-| **TOTAL** | **37 phases** | | **31 closed + 3 active** | | | **500** | **405** | **81%** | **100%** |
+| 21 | Anime Scenes + Cultural Vocab | post-launch | — | Pain, AoT pre-battle, One Piece narrator intros — same exercise + vocab mechanics, Phase 12 unlock rewards | 🔴 Post-launch | 25 | 0 | 0% | 4.5% |
+| 22 | Monetization | post-launch | — | Stripe/Lemon Squeezy, webhooks, UK Ltd entity migration. Gated on Phase 19 MRR signal | 🔴 Gated on Phase 19 | 20 | 0 | 0% | 3.6% |
+| 23 | Native App Decision | post-launch | — | Go/no-go doc only. Gate: ≥500 MAU + ≥20% day-30 return + 3-month post-launch data | 🔴 Gated on post-launch data | 5 | 0 | 0% | 0.9% |
+| 24 | Impeccable Design System | post-launch | — | /impeccable polish pass on player, exercises, kana, dashboard, gamification HUD | 🔴 Post-launch | 20 | 0 | 0% | 3.6% |
+| **TOTAL** | **41 phases** | | **33 closed + 3 active** | | | **552** | **455** | **82%** | **100%** |
 
-†Phase 18 closes today → Phase 19 starts ~May 10; beta-validation gate is 4 weeks → realistic launched-and-validated ≈ **2026-06-09**.
+†Phase 19 dev starts ~May 21 when 18/18.1/18.2 close; beta-validation gate is 4 weeks → realistic launched-and-validated ≈ **2026-06-18**.
 
-**To beta launch only (Phases 1-20):** 404/428h = **94% complete. ~24h dev remaining.**
+**To beta launch (Phases 1-20 + 18.1 + 18.2):** ~96% of pre-launch scope. ~29h dev remaining.**
 
 ## Status legend
 

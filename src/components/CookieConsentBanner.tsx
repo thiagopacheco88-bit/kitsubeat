@@ -35,6 +35,17 @@ export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps
   const { state, setGranted, setRejected } = useConsentStore();
   const rejectButtonRef = useRef<HTMLButtonElement>(null);
 
+  // Sync PostHog with stored consent on every page load for returning visitors.
+  // New visitors start in cookieless mode (from init); this restores their previous choice.
+  useEffect(() => {
+    if (initialConsent === "granted") {
+      posthog.opt_in_capturing();
+      posthog.set_config({ cookieless_mode: undefined });
+    } else if (initialConsent === "rejected") {
+      posthog.opt_out_capturing();
+    }
+  }, [initialConsent]);
+
   // Focus the "Reject" button on mount for keyboard accessibility.
   // Only runs when the banner is visible (no initialConsent + state unknown).
   useEffect(() => {
@@ -85,6 +96,7 @@ export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps
             onClick={async () => {
               await recordConsent("granted");
               posthog.opt_in_capturing();
+              posthog.set_config({ cookieless_mode: undefined });
               setGranted();
             }}
           >

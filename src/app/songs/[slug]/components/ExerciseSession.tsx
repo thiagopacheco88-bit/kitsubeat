@@ -6,6 +6,7 @@ import { localize } from "@/lib/types/lesson";
 import type { TrackKind } from "@/lib/exercises/generator";
 import { useExerciseSession } from "@/stores/exerciseSession";
 import { recordVocabAnswer } from "@/app/actions/exercises";
+import type { PrevSongProgress } from "@/app/actions/exercises";
 import QuestionCard from "./QuestionCard";
 import SessionSummary from "./SessionSummary";
 import LearnCard from "./LearnCard";
@@ -33,6 +34,7 @@ export default function ExerciseSession({
   onRetry,
   skipLearning,
   trackKind = "vocab",
+  prevProgress = null,
 }: {
   lesson: Lesson;
   songSlug: string;
@@ -44,6 +46,8 @@ export default function ExerciseSession({
   skipLearning: boolean;
   /** Phase 11.6: track driving this session — determines cardKind for FSRS upsert. Defaults to "vocab". */
   trackKind?: TrackKind;
+  /** Prefetched song progress for optimistic star rendering in SessionSummary. */
+  prevProgress?: PrevSongProgress | null;
 }) {
   const store = useExerciseSession();
   const { questions, currentIndex, answers, mode, recordAnswer, advanceQuestion } =
@@ -99,6 +103,7 @@ export default function ExerciseSession({
           onRetry={onRetry}
           onClose={onRetry}
           tz={tz}
+          prevProgress={prevProgress}
         />
       </div>
     );

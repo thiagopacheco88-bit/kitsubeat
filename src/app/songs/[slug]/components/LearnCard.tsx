@@ -75,7 +75,7 @@ export default function LearnCard({
             type="button"
             onClick={(e) => {
               e.stopPropagation();
-              speakJapanese(question.vocabInfo.surface);
+              speakJapanese(question.vocabInfo.reading);
             }}
             aria-label="Play pronunciation"
             data-testid="learn-card-speaker"

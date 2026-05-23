@@ -20,12 +20,19 @@ import { config } from "dotenv";
 config({ path: ".env.local" });
 
 import { eq, sql } from "drizzle-orm";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { getDb } from "../src/lib/db/index.js";
 import {
   vocabularyItems,
   songVersions,
+  songs,
   vocabGlobal,
 } from "../src/lib/db/schema.js";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const LESSONS_DIR = resolve(__dirname, "../data/lessons-cache");
 import { LessonSchema, type VocabEntry } from "./types/lesson.js";
 import {
   parseConjugationPath,
@@ -95,9 +102,10 @@ async function main() {
   // -------------------------------------------------------------------------
 
   const rows = await db
-    .select()
+    .select({ ...songVersions, slug: songs.slug })
     .from(songVersions)
-    .where(sql`lesson IS NOT NULL`);
+    .innerJoin(songs, eq(songs.id, songVersions.song_id))
+    .where(sql`${songVersions.lesson} IS NOT NULL`);
 
   console.log(`Song versions with lessons: ${rows.length}`);
 
@@ -128,6 +136,8 @@ async function main() {
   // Parse all lessons first — collect vocab and grammar
   const parsedRows: Array<{
     id: string;
+    slug: string;
+    version_type: string;
     lesson: ReturnType<typeof LessonSchema.parse>;
   }> = [];
 
@@ -140,7 +150,7 @@ async function main() {
     }
 
     const lesson = parseResult.data;
-    parsedRows.push({ id: row.id, lesson });
+    parsedRows.push({ id: row.id, slug: row.slug, version_type: row.version_type, lesson });
 
     // Collect grammar points
     for (const gp of lesson.grammar_points) {
@@ -244,7 +254,7 @@ async function main() {
     const rowBatches = chunk(parsedRows, UPDATE_BATCH_SIZE);
 
     for (const batch of rowBatches) {
-      for (const { id, lesson } of batch) {
+      for (const { id, slug, version_type, lesson } of batch) {
         let rowPatched = false;
         let entriesInRow = 0;
 
@@ -273,6 +283,23 @@ async function main() {
           .update(songVersions)
           .set({ lesson: patchedLesson, updated_at: new Date() })
           .where(eq(songVersions.id, id));
+
+        // Write vocab_item_ids back to disk so the lessons-cache file stays in
+        // sync with the DB. Without this, a subsequent 05-insert-db push from
+        // disk would silently overwrite the UUIDs with nulls.
+        if (rowPatched) {
+          const cacheDir = version_type === "full" ? LESSONS_DIR : join(LESSONS_DIR + "-tv");
+          const diskPath = join(cacheDir, `${slug}.json`);
+          if (existsSync(diskPath)) {
+            try {
+              const onDisk = JSON.parse(readFileSync(diskPath, "utf-8"));
+              onDisk.vocabulary = patchedVocab;
+              writeFileSync(diskPath, JSON.stringify(onDisk, null, 2), "utf-8");
+            } catch {
+              // Non-fatal — DB is source of truth; disk sync is best-effort.
+            }
+          }
+        }
 
         if (rowPatched) patchedRows++;
       }

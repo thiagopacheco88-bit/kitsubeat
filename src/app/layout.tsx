@@ -207,6 +207,12 @@ export default async function RootLayout({
                   {t('nav.kana')}
                 </Link>
                 <Link
+                  href="/counters"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  {t('nav.counters')}
+                </Link>
+                <Link
                   href="/journal"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >

@@ -4,6 +4,7 @@ import { CURRENT_TERMS_VERSION, TERMS_EFFECTIVE_DATE } from "@/lib/legal/version
 
 export const metadata: Metadata = {
   title: "Terms & Conditions — KitsuBeat",
+  description: "Terms and conditions governing use of KitsuBeat, the anime song Japanese learning app.",
 };
 
 function LegalNavFooter() {

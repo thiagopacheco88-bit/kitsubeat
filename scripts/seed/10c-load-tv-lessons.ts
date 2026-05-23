@@ -95,6 +95,13 @@ async function main(): Promise<void> {
         `[ok           ] ${row.slug}  verses=${lesson.verses.length}  vocab=${lesson.vocabulary.length}`
       );
       loaded++;
+
+      try {
+        const { revalidateSongCache } = await import("../../src/app/actions/cache.js");
+        await revalidateSongCache(row.slug);
+      } catch {
+        // Expected to fail outside Next.js server context — not fatal.
+      }
     } catch (err) {
       console.error(`[error        ] ${row.slug} — ${(err as Error).message}`);
       errors++;

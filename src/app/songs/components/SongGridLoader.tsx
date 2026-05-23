@@ -8,6 +8,6 @@ interface Props {
 }
 
 export async function SongGridLoader({ userId, initialSearch, view }: Props) {
-  const songs = await getAllSongs(userId);
+  const songs = await getAllSongs(userId, "ja");
   return <SongGrid songs={songs} view={view} initialSearch={initialSearch} />;
 }

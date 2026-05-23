@@ -40,6 +40,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
     { href: "/path", label: "Path" },
     { href: "/songs", label: "Songs" },
     { href: "/kana", label: "Kana" },
+    { href: "/counters", label: "Counters" },
     { href: "/journal", label: "Journal" },
     { href: "/vocabulary", label: "Progress" },
     ...(isAdmin ? [{ href: "/admin/lyrics", label: "Admin", testId: "mobile-nav-admin" }] : []),

@@ -27,6 +27,7 @@ import ReviewFeedbackPanel from "./ReviewFeedbackPanel";
 import type { Tier } from "@/lib/fsrs/tier";
 import type { ReviewQuestionType } from "@/lib/review/queue-builder";
 import { shuffle } from "@/lib/exercises/generator";
+import { speakJapanese, hasJapaneseVoice, onVoicesChanged } from "@/lib/tts";
 
 interface ReviewQuestionCardProps {
   question: Question;
@@ -47,6 +48,14 @@ interface ReviewQuestionCardProps {
 }
 
 
+function SpeakerIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+      <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.241 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 01-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06zM15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.06 4.5 4.5 0 000-6.366.75.75 0 010-1.06z" />
+    </svg>
+  );
+}
+
 export default function ReviewQuestionCard({
   question,
   exerciseType,
@@ -61,6 +70,8 @@ export default function ReviewQuestionCard({
   const [isCorrect, setIsCorrect] = useState(false);
   const startTimeRef = useRef<number>(Date.now());
   const feedbackRef = useRef<HTMLDivElement>(null);
+  const [voiceReady, setVoiceReady] = useState(false);
+  const lastAutoPlayedRef = useRef<string | null>(null);
 
   // Review session has no per-vocab tier tracking (simpler than exercise session).
   // Default to Tier 1 (full furigana) for all review cards — consistent crutch level.
@@ -71,6 +82,33 @@ export default function ReviewQuestionCard({
     if (chosen !== null) {
       feedbackRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
     }
+  }, [chosen]);
+
+  useEffect(() => {
+    setVoiceReady(hasJapaneseVoice());
+    return onVoicesChanged(() => setVoiceReady(hasJapaneseVoice()));
+  }, []);
+
+  // Auto-play when question is Japanese (vocab_meaning, reading_match).
+  // voiceReady included so the play fires when voices load async on first mount.
+  useEffect(() => {
+    if (!voiceReady) return;
+    if (exerciseType === "vocab_meaning" || exerciseType === "reading_match") {
+      if (lastAutoPlayedRef.current !== question.id) {
+        lastAutoPlayedRef.current = question.id;
+        speakJapanese(question.vocabInfo.reading);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [question.id, voiceReady]);
+
+  // Auto-play correct answer when answer is Japanese (meaning_vocab)
+  useEffect(() => {
+    if (!voiceReady || chosen === null) return;
+    if (exerciseType === "meaning_vocab") {
+      speakJapanese(question.vocabInfo.reading);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chosen]);
 
   // Shuffle options ONCE per question ID (stable across re-renders)
@@ -194,8 +232,20 @@ export default function ReviewQuestionCard({
         {exerciseType.replace(/_/g, " ")}
       </p>
 
-      <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
-        {renderPrompt()}
+      <div className="flex items-start justify-between gap-2">
+        <div className="text-xl font-bold leading-snug text-[var(--color-text)]">
+          {renderPrompt()}
+        </div>
+        {voiceReady && (exerciseType === "vocab_meaning" || exerciseType === "reading_match") && (
+          <button
+            type="button"
+            onClick={() => speakJapanese(question.vocabInfo.reading)}
+            aria-label="Play pronunciation"
+            className="inline-flex h-11 w-11 min-h-11 min-w-11 flex-shrink-0 items-center justify-center rounded-full text-[var(--color-text-muted)] hover:bg-[var(--color-card-2)] hover:text-[var(--color-text)]"
+          >
+            <SpeakerIcon />
+          </button>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -210,6 +260,18 @@ export default function ReviewQuestionCard({
           </button>
         ))}
       </div>
+
+      {chosen !== null && voiceReady && exerciseType === "meaning_vocab" && (
+        <button
+          type="button"
+          onClick={() => speakJapanese(question.vocabInfo.reading)}
+          aria-label="Hear answer"
+          className="inline-flex items-center gap-2 self-start rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-card-2)] px-3 py-2 text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+        >
+          <SpeakerIcon />
+          Hear answer
+        </button>
+      )}
 
       {chosen !== null && (
         <div ref={feedbackRef} className="scroll-mb-4">
