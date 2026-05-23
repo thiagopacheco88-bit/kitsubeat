@@ -1,0 +1,1646 @@
+{
+  "anime": "fullmetal-alchemist",
+  "label": "Fullmetal Alchemist",
+  "icon": "fma-logo.png",
+  "description": "Edward and Alphonse Elric's quest to restore their bodies through alchemy.",
+  "vocab": [
+    {
+      "surface": "錬金術",
+      "reading": "れんきんじゅつ",
+      "romaji": "renkinjutsu",
+      "meanings": {
+        "en": "alchemy",
+        "pt-BR": "alquimia",
+        "es": "alquimia"
+      },
+      "jlpt_level": "N1",
+      "category": "alchemy",
+      "context": "The central power system of FMA — the science of understanding, deconstructing, and reconstructing matter. Ed and Al are gifted alchemists."
+    },
+    {
+      "surface": "錬成",
+      "reading": "れんせい",
+      "romaji": "rensei",
+      "meanings": {
+        "en": "transmutation",
+        "pt-BR": "transmutação",
+        "es": "transmutación"
+      },
+      "jlpt_level": "N1",
+      "category": "alchemy",
+      "context": "The act of performing alchemy — transforming one substance into another. Edward can transmute without a circle by clapping his hands."
+    },
+    {
+      "surface": "等価交換",
+      "reading": "とうかこうかん",
+      "romaji": "touka koukan",
+      "meanings": {
+        "en": "equivalent exchange",
+        "pt-BR": "troca equivalente",
+        "es": "intercambio equivalente"
+      },
+      "jlpt_level": null,
+      "category": "alchemy",
+      "context": "The fundamental law of alchemy: to obtain something, you must give something of equal value. This principle drives every sacrifice in the story."
+    },
+    {
+      "surface": "錬成陣",
+      "reading": "れんせいじん",
+      "romaji": "renseijin",
+      "meanings": {
+        "en": "transmutation circle",
+        "pt-BR": "círculo de transmutação",
+        "es": "círculo de transmutación"
+      },
+      "jlpt_level": null,
+      "category": "alchemy",
+      "context": "The geometric array drawn to focus alchemical energy and perform transmutation. Ed bypasses the need for one after seeing the Truth."
+    },
+    {
+      "surface": "真理",
+      "reading": "しんり",
+      "romaji": "shinri",
+      "meanings": {
+        "en": "Truth (the entity)",
+        "pt-BR": "Verdade",
+        "es": "Verdad"
+      },
+      "jlpt_level": "N2",
+      "category": "alchemy",
+      "context": "The omniscient entity behind the Gate who enforces the cost of forbidden alchemy. Anyone who opens the Gate meets the Truth and pays a toll."
+    },
+    {
+      "surface": "真理の扉",
+      "reading": "しんりのとびら",
+      "romaji": "shinri no tobira",
+      "meanings": {
+        "en": "Gate of Truth",
+        "pt-BR": "Portal da Verdade",
+        "es": "Puerta de la Verdad"
+      },
+      "jlpt_level": null,
+      "category": "alchemy",
+      "context": "The cosmic gateway through which ultimate alchemical knowledge flows. Those who open it gain power but lose something precious in return."
+    },
+    {
+      "surface": "人体錬成",
+      "reading": "じんたいれんせい",
+      "romaji": "jintai rensei",
+      "meanings": {
+        "en": "human transmutation",
+        "pt-BR": "transmutação humana",
+        "es": "transmutación humana"
+      },
+      "jlpt_level": null,
+      "category": "alchemy",
+      "context": "The ultimate taboo in alchemy — attempting to create or resurrect a human. The Elric brothers attempt it for their mother and lose everything."
+    },
+    {
+      "surface": "賢者の石",
+      "reading": "けんじゃのいし",
+      "romaji": "kenja no ishi",
+      "meanings": {
+        "en": "Philosopher's Stone",
+        "pt-BR": "Pedra Filosofal",
+        "es": "Piedra Filosofal"
+      },
+      "jlpt_level": null,
+      "category": "alchemy",
+      "context": "A legendary red stone that amplifies alchemical power and bypasses equivalent exchange — but it's made from human souls. The Elrics seek it to restore their bodies."
+    },
+    {
+      "surface": "増幅",
+      "reading": "ぞうふく",
+      "romaji": "zoufuku",
+      "meanings": {
+        "en": "amplification",
+        "pt-BR": "amplificação",
+        "es": "amplificación"
+      },
+      "jlpt_level": "N1",
+      "category": "alchemy",
+      "context": "The Philosopher's Stone amplifies an alchemist's power beyond normal limits, allowing feats that should be impossible under equivalent exchange."
+    },
+    {
+      "surface": "分解",
+      "reading": "ぶんかい",
+      "romaji": "bunkai",
+      "meanings": {
+        "en": "decomposition",
+        "pt-BR": "decomposição",
+        "es": "descomposición"
+      },
+      "jlpt_level": "N2",
+      "category": "alchemy",
+      "context": "The first step of alchemical transmutation — breaking matter down to its base components before rebuilding it into a new form."
+    },
+    {
+      "surface": "再構成",
+      "reading": "さいこうせい",
+      "romaji": "saikousei",
+      "meanings": {
+        "en": "reconstruction",
+        "pt-BR": "reconstrução",
+        "es": "reconstrucción"
+      },
+      "jlpt_level": null,
+      "category": "alchemy",
+      "context": "The final step of transmutation — rebuilding deconstructed matter into a new desired form. A skilled alchemist can reconstruct with great precision."
+    },
+    {
+      "surface": "元素",
+      "reading": "げんそ",
+      "romaji": "genso",
+      "meanings": {
+        "en": "element",
+        "pt-BR": "elemento",
+        "es": "elemento"
+      },
+      "jlpt_level": "N2",
+      "category": "alchemy",
+      "context": "Alchemists must understand the elemental composition of matter — carbon, iron, nitrogen, etc. — before they can transmute it."
+    },
+    {
+      "surface": "物質",
+      "reading": "ぶっしつ",
+      "romaji": "busshitsu",
+      "meanings": {
+        "en": "matter",
+        "pt-BR": "matéria",
+        "es": "materia"
+      },
+      "jlpt_level": "N2",
+      "category": "alchemy",
+      "context": "All physical substance that alchemists can analyze and transmute. The law of equivalent exchange applies to all matter in the FMA universe."
+    },
+    {
+      "surface": "エネルギー",
+      "reading": "えねるぎー",
+      "romaji": "enerugii",
+      "meanings": {
+        "en": "energy",
+        "pt-BR": "energia",
+        "es": "energía"
+      },
+      "jlpt_level": "N3",
+      "category": "alchemy",
+      "context": "Beyond matter, alchemical transmutation also requires understanding and managing energy flows within the transmutation circle."
+    },
+    {
+      "surface": "理解",
+      "reading": "りかい",
+      "romaji": "rikai",
+      "meanings": {
+        "en": "understanding/comprehension",
+        "pt-BR": "compreensão",
+        "es": "comprensión"
+      },
+      "jlpt_level": "N3",
+      "category": "alchemy",
+      "context": "The first of the three steps of alchemy. An alchemist must fully understand the object before transmuting it — knowledge is the foundation of power."
+    },
+    {
+      "surface": "禁忌",
+      "reading": "きんき",
+      "romaji": "kinki",
+      "meanings": {
+        "en": "taboo/forbidden",
+        "pt-BR": "tabu/proibido",
+        "es": "tabú/prohibido"
+      },
+      "jlpt_level": "N1",
+      "category": "alchemy",
+      "context": "Human transmutation is the ultimate taboo of alchemy. Those who attempt it face consequences beyond anything they could have imagined."
+    },
+    {
+      "surface": "科学",
+      "reading": "かがく",
+      "romaji": "kagaku",
+      "meanings": {
+        "en": "science",
+        "pt-BR": "ciência",
+        "es": "ciencia"
+      },
+      "jlpt_level": "N3",
+      "category": "alchemy",
+      "context": "FMA portrays alchemy explicitly as a science rather than magic — based on understanding natural laws. This framing grounds the fantastic in a logic that makes consequences feel real."
+    },
+    {
+      "surface": "研究",
+      "reading": "けんきゅう",
+      "romaji": "kenkyuu",
+      "meanings": {
+        "en": "research/study",
+        "pt-BR": "pesquisa/estudo",
+        "es": "investigación/estudio"
+      },
+      "jlpt_level": "N3",
+      "category": "alchemy",
+      "context": "State Alchemists are funded to conduct research in their specialty. Edward uses his researcher status to access military records that advance his search."
+    },
+    {
+      "surface": "竜脈",
+      "reading": "りゅうみゃく",
+      "romaji": "ryuumyaku",
+      "meanings": {
+        "en": "dragon's pulse (earth's energy)",
+        "pt-BR": "pulso do dragão",
+        "es": "pulso del dragón"
+      },
+      "jlpt_level": null,
+      "category": "alchemy",
+      "context": "The Xingese concept of energy flowing through the earth like veins. Alkahestry taps into this flow instead of the alchemist's own energy, allowing remote transmutation."
+    },
+    {
+      "surface": "国家錬金術師",
+      "reading": "こっかれんきんじゅつし",
+      "romaji": "kokka renkinjutsushi",
+      "meanings": {
+        "en": "State Alchemist",
+        "pt-BR": "Alquimista Estatal",
+        "es": "Alquimista Estatal"
+      },
+      "jlpt_level": null,
+      "category": "military",
+      "context": "Alchemists officially certified and employed by the Amestrian military. Edward is the youngest ever at age 12 — earning him the title 'Fullmetal Alchemist.'"
+    },
+    {
+      "surface": "軍",
+      "reading": "ぐん",
+      "romaji": "gun",
+      "meanings": {
+        "en": "military/army",
+        "pt-BR": "exército/militar",
+        "es": "ejército/militar"
+      },
+      "jlpt_level": "N3",
+      "category": "military",
+      "context": "The Amestrian military that rules the country with iron discipline. State Alchemists are called 'dogs of the military' by those who distrust them."
+    },
+    {
+      "surface": "大総統",
+      "reading": "だいそうとう",
+      "romaji": "daisoutou",
+      "meanings": {
+        "en": "Führer/Supreme Commander",
+        "pt-BR": "Grão-Comandante",
+        "es": "Gran Comandante"
+      },
+      "jlpt_level": null,
+      "category": "military",
+      "context": "The supreme ruler of Amestris. King Bradley holds this title — but he is also the homunculus Wrath, serving a far darker master."
+    },
+    {
+      "surface": "将軍",
+      "reading": "しょうぐん",
+      "romaji": "shougun",
+      "meanings": {
+        "en": "general",
+        "pt-BR": "general",
+        "es": "general"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "High-ranking military commanders in the Amestrian armed forces. Some generals are secretly loyal to Father and his homunculi."
+    },
+    {
+      "surface": "大佐",
+      "reading": "たいさ",
+      "romaji": "taisa",
+      "meanings": {
+        "en": "colonel",
+        "pt-BR": "coronel",
+        "es": "coronel"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "Roy Mustang holds this rank — ambitious, calculating, and determined to become Führer to change Amestris from the inside."
+    },
+    {
+      "surface": "少佐",
+      "reading": "しょうさ",
+      "romaji": "shousa",
+      "meanings": {
+        "en": "major",
+        "pt-BR": "major",
+        "es": "mayor"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "Alex Louis Armstrong, the 'Strong Arm Alchemist,' proudly holds this rank and never misses a chance to mention his illustrious bloodline of skill."
+    },
+    {
+      "surface": "曹長",
+      "reading": "そうちょう",
+      "romaji": "souchou",
+      "meanings": {
+        "en": "warrant officer/master sergeant",
+        "pt-BR": "sargento-mor",
+        "es": "sargento mayor"
+      },
+      "jlpt_level": null,
+      "category": "military",
+      "context": "A non-commissioned officer rank in the Amestrian military, positioned below commissioned officers but above lower enlisted ranks."
+    },
+    {
+      "surface": "中尉",
+      "reading": "ちゅうい",
+      "romaji": "chuui",
+      "meanings": {
+        "en": "lieutenant",
+        "pt-BR": "tenente",
+        "es": "teniente"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "Riza Hawkeye holds this rank under Mustang. She is his most loyal subordinate — a sharpshooter who would follow him anywhere, and stop him if he went too far."
+    },
+    {
+      "surface": "兵士",
+      "reading": "へいし",
+      "romaji": "heishi",
+      "meanings": {
+        "en": "soldier",
+        "pt-BR": "soldado",
+        "es": "soldado"
+      },
+      "jlpt_level": "N3",
+      "category": "military",
+      "context": "Ordinary soldiers of the Amestrian military. Many are unwittingly part of the scheme to use the entire country as a giant transmutation circle."
+    },
+    {
+      "surface": "軍事国家",
+      "reading": "ぐんじこっか",
+      "romaji": "gunji kokka",
+      "meanings": {
+        "en": "military state",
+        "pt-BR": "estado militar",
+        "es": "estado militar"
+      },
+      "jlpt_level": null,
+      "category": "military",
+      "context": "Amestris is a militaristic authoritarian nation. The military's control over alchemy and resources drives much of the political conflict in FMA."
+    },
+    {
+      "surface": "中央司令部",
+      "reading": "ちゅうおうしれいぶ",
+      "romaji": "chuuou shirebu",
+      "meanings": {
+        "en": "Central Command",
+        "pt-BR": "Comando Central",
+        "es": "Mando Central"
+      },
+      "jlpt_level": null,
+      "category": "military",
+      "context": "The headquarters of the Amestrian military located in Central City. Many key confrontations and conspiracies unfold within its walls."
+    },
+    {
+      "surface": "命令",
+      "reading": "めいれい",
+      "romaji": "meirei",
+      "meanings": {
+        "en": "order/command",
+        "pt-BR": "ordem/comando",
+        "es": "orden/mando"
+      },
+      "jlpt_level": "N3",
+      "category": "military",
+      "context": "Following orders is central to military life in Amestris — but throughout FMA, characters must decide whether to obey unjust commands or follow their conscience."
+    },
+    {
+      "surface": "作戦",
+      "reading": "さくせん",
+      "romaji": "sakusen",
+      "meanings": {
+        "en": "operation/strategy",
+        "pt-BR": "operação/estratégia",
+        "es": "operación/estrategia"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "Military operations in FMA often serve a hidden purpose — advancing Father's grand scheme to create a Philosopher's Stone from the people of Amestris."
+    },
+    {
+      "surface": "反乱",
+      "reading": "はんらん",
+      "romaji": "hanran",
+      "meanings": {
+        "en": "rebellion/uprising",
+        "pt-BR": "rebelião",
+        "es": "rebelión"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "Characters like Mustang and the Elrics ultimately rebel against the corrupt military leadership controlled by Father and the homunculi."
+    },
+    {
+      "surface": "戦争",
+      "reading": "せんそう",
+      "romaji": "sensou",
+      "meanings": {
+        "en": "war",
+        "pt-BR": "guerra",
+        "es": "guerra"
+      },
+      "jlpt_level": "N3",
+      "category": "military",
+      "context": "Amestris has a history of engineered wars used to push its borders outward and create the necessary sacrificial points for Father's transmutation circle."
+    },
+    {
+      "surface": "内戦",
+      "reading": "ないせん",
+      "romaji": "naisen",
+      "meanings": {
+        "en": "civil war",
+        "pt-BR": "guerra civil",
+        "es": "guerra civil"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "The Ishval Civil War scarred an entire generation of Amestrian soldiers. Mustang, Hawkeye, and many others carry its moral weight throughout the series."
+    },
+    {
+      "surface": "虐殺",
+      "reading": "ぎゃくさつ",
+      "romaji": "gyakusatsu",
+      "meanings": {
+        "en": "massacre/genocide",
+        "pt-BR": "massacre/genocídio",
+        "es": "masacre/genocidio"
+      },
+      "jlpt_level": "N1",
+      "category": "military",
+      "context": "The Amestrian military committed near-genocide against the Ishvalan people. This atrocity is central to several characters' guilt and motivation for change."
+    },
+    {
+      "surface": "権力",
+      "reading": "けんりょく",
+      "romaji": "kenryoku",
+      "meanings": {
+        "en": "power/authority",
+        "pt-BR": "poder/autoridade",
+        "es": "poder/autoridad"
+      },
+      "jlpt_level": "N2",
+      "category": "military",
+      "context": "Father seeks absolute power — to hold all human knowledge and become a perfect being. FMA consistently examines who wields power, how they got it, and what it costs."
+    },
+    {
+      "surface": "ホムンクルス",
+      "reading": "ほむんくるす",
+      "romaji": "homunkurusu",
+      "meanings": {
+        "en": "homunculus",
+        "pt-BR": "homúnculo",
+        "es": "homúnculo"
+      },
+      "jlpt_level": null,
+      "category": "homunculus",
+      "context": "Artificial humans created from the Philosopher's Stone by Father. Each embodies one of the seven deadly sins and serves as Father's instrument of control."
+    },
+    {
+      "surface": "七つの大罪",
+      "reading": "ななつのたいざい",
+      "romaji": "nanatsu no taizai",
+      "meanings": {
+        "en": "seven deadly sins",
+        "pt-BR": "sete pecados capitais",
+        "es": "siete pecados capitales"
+      },
+      "jlpt_level": null,
+      "category": "homunculus",
+      "context": "The seven homunculi are each named after a deadly sin: Pride, Greed, Envy, Wrath, Sloth, Gluttony, and Lust. Together they serve Father's grand plan."
+    },
+    {
+      "surface": "強欲",
+      "reading": "ごうよく",
+      "romaji": "gouyoku",
+      "meanings": {
+        "en": "greed",
+        "pt-BR": "ganância",
+        "es": "codicia"
+      },
+      "jlpt_level": "N1",
+      "category": "homunculus",
+      "context": "Greed is the homunculus who desires everything — but ultimately chooses to fight alongside the Elrics. His ultimate shield of carbon is one of the series' most iconic powers."
+    },
+    {
+      "surface": "憤怒",
+      "reading": "ふんど",
+      "romaji": "fundo",
+      "meanings": {
+        "en": "wrath",
+        "pt-BR": "ira",
+        "es": "ira"
+      },
+      "jlpt_level": "N1",
+      "category": "homunculus",
+      "context": "Wrath is embodied by King Bradley, the Führer himself. His ultimate eye lets him calculate perfect attacks — making him one of the most dangerous beings alive."
+    },
+    {
+      "surface": "傲慢",
+      "reading": "ごうまん",
+      "romaji": "gouman",
+      "meanings": {
+        "en": "pride/arrogance",
+        "pt-BR": "soberba/arrogância",
+        "es": "soberbia/arrogancia"
+      },
+      "jlpt_level": "N1",
+      "category": "homunculus",
+      "context": "Pride is the most powerful homunculus — living inside a container as a being of living shadow who can consume and mimic the abilities of others."
+    },
+    {
+      "surface": "嫉妬",
+      "reading": "しっと",
+      "romaji": "shitto",
+      "meanings": {
+        "en": "envy",
+        "pt-BR": "inveja",
+        "es": "envidia"
+      },
+      "jlpt_level": "N2",
+      "category": "homunculus",
+      "context": "Envy is a shapeshifter who despises humans out of deep jealousy. Its true form is a grotesque beast fueled by the souls used in its creation."
+    },
+    {
+      "surface": "怠惰",
+      "reading": "たいだ",
+      "romaji": "taida",
+      "meanings": {
+        "en": "sloth",
+        "pt-BR": "preguiça",
+        "es": "pereza"
+      },
+      "jlpt_level": "N1",
+      "category": "homunculus",
+      "context": "Sloth is a massive, nearly unstoppable homunculus tasked with digging a tunnel beneath all of Amestris to form the grand transmutation circle."
+    },
+    {
+      "surface": "暴食",
+      "reading": "ぼうしょく",
+      "romaji": "boushoku",
+      "meanings": {
+        "en": "gluttony",
+        "pt-BR": "gula",
+        "es": "gula"
+      },
+      "jlpt_level": null,
+      "category": "homunculus",
+      "context": "Gluttony harbors a false Gate of Truth in his stomach — a terrifying void that devours everything. He has a childlike attachment to Lust that makes him tragic."
+    },
+    {
+      "surface": "色欲",
+      "reading": "しきよく",
+      "romaji": "shikiyoku",
+      "meanings": {
+        "en": "lust",
+        "pt-BR": "luxúria",
+        "es": "lujuria"
+      },
+      "jlpt_level": "N1",
+      "category": "homunculus",
+      "context": "Lust wields retractable lance-like fingers that can pierce anything. Despite her role as assassin, she occasionally shows glimpses of doubt about her own existence."
+    },
+    {
+      "surface": "不死身",
+      "reading": "ふじみ",
+      "romaji": "fujimi",
+      "meanings": {
+        "en": "immortality/invincibility",
+        "pt-BR": "imortalidade",
+        "es": "inmortalidad"
+      },
+      "jlpt_level": null,
+      "category": "homunculus",
+      "context": "Homunculi regenerate from virtually any wound thanks to the Philosopher's Stone within them. Only destroying all the stone inside can truly kill them."
+    },
+    {
+      "surface": "再生",
+      "reading": "さいせい",
+      "romaji": "saisei",
+      "meanings": {
+        "en": "regeneration",
+        "pt-BR": "regeneração",
+        "es": "regeneración"
+      },
+      "jlpt_level": "N2",
+      "category": "homunculus",
+      "context": "The defining trait of homunculi — they can regenerate injuries at will as long as their Philosopher's Stone retains lives. Defeating them means outlasting their reserves."
+    },
+    {
+      "surface": "究極の盾",
+      "reading": "きゅうきょくのたて",
+      "romaji": "kyuukyoku no tate",
+      "meanings": {
+        "en": "ultimate shield",
+        "pt-BR": "escudo definitivo",
+        "es": "escudo definitivo"
+      },
+      "jlpt_level": null,
+      "category": "homunculus",
+      "context": "Greed's ability to rearrange carbon molecules in his body into an impenetrable shield. One of the most iconic and visually striking powers in the series."
+    },
+    {
+      "surface": "魂",
+      "reading": "たましい",
+      "romaji": "tamashii",
+      "meanings": {
+        "en": "soul",
+        "pt-BR": "alma",
+        "es": "alma"
+      },
+      "jlpt_level": "N2",
+      "category": "body",
+      "context": "Alphonse's soul was bound to armor by Edward as a desperate act to keep him alive after their failed human transmutation. The soul is the true self in FMA's worldview."
+    },
+    {
+      "surface": "肉体",
+      "reading": "にくたい",
+      "romaji": "nikutai",
+      "meanings": {
+        "en": "physical body",
+        "pt-BR": "corpo físico",
+        "es": "cuerpo físico"
+      },
+      "jlpt_level": "N2",
+      "category": "body",
+      "context": "Recovering their original bodies is the driving goal of both Elric brothers. Al's body is held at the Gate; Ed lost his arm and leg."
+    },
+    {
+      "surface": "鎧",
+      "reading": "よろい",
+      "romaji": "yoroi",
+      "meanings": {
+        "en": "armor",
+        "pt-BR": "armadura",
+        "es": "armadura"
+      },
+      "jlpt_level": "N2",
+      "category": "body",
+      "context": "Alphonse exists as a soul bound to a massive suit of armor. Though intimidating in appearance, he is gentle and kind — and desperately misses having a real body."
+    },
+    {
+      "surface": "義手",
+      "reading": "ぎしゅ",
+      "romaji": "gishu",
+      "meanings": {
+        "en": "prosthetic arm",
+        "pt-BR": "braço protético",
+        "es": "brazo protésico"
+      },
+      "jlpt_level": null,
+      "category": "body",
+      "context": "Edward lost his right arm performing human transmutation. His automail prosthetic arm is a mechanical marvel — and he transmutes it into weapons in battle."
+    },
+    {
+      "surface": "義足",
+      "reading": "ぎそく",
+      "romaji": "gisoku",
+      "meanings": {
+        "en": "prosthetic leg",
+        "pt-BR": "perna protética",
+        "es": "pierna protésica"
+      },
+      "jlpt_level": null,
+      "category": "body",
+      "context": "Edward also lost his left leg to the toll of human transmutation. His automail leg was crafted by Winry's grandmother in Resembool."
+    },
+    {
+      "surface": "オートメイル",
+      "reading": "おーとめいる",
+      "romaji": "ootomeiru",
+      "meanings": {
+        "en": "automail (mechanical prosthetic)",
+        "pt-BR": "automail (prótese mecânica)",
+        "es": "automail (prótesis mecánica)"
+      },
+      "jlpt_level": null,
+      "category": "body",
+      "context": "Advanced mechanical prosthetics used in the FMA world. Automail is attached directly to the nervous system and requires grueling rehabilitation to master."
+    },
+    {
+      "surface": "代償",
+      "reading": "だいしょう",
+      "romaji": "daishou",
+      "meanings": {
+        "en": "price/sacrifice",
+        "pt-BR": "preço/sacrifício",
+        "es": "precio/sacrificio"
+      },
+      "jlpt_level": "N1",
+      "category": "body",
+      "context": "Every alchemical act has a cost — but human transmutation demands a devastating price. The Elrics paid with limbs and a body to bring back their mother."
+    },
+    {
+      "surface": "失う",
+      "reading": "うしなう",
+      "romaji": "ushinau",
+      "meanings": {
+        "en": "to lose",
+        "pt-BR": "perder",
+        "es": "perder"
+      },
+      "jlpt_level": "N3",
+      "category": "body",
+      "context": "The Elric brothers lose their bodies attempting to resurrect their mother. This loss of something irreplaceable sets the entire story in motion."
+    },
+    {
+      "surface": "取り戻す",
+      "reading": "とりもどす",
+      "romaji": "torimodosu",
+      "meanings": {
+        "en": "to reclaim/get back",
+        "pt-BR": "recuperar",
+        "es": "recuperar"
+      },
+      "jlpt_level": "N3",
+      "category": "body",
+      "context": "The brothers' ultimate goal — to reclaim what they lost. Ed swears he will get Al's body back no matter what the cost."
+    },
+    {
+      "surface": "血印",
+      "reading": "ちいん",
+      "romaji": "chiin",
+      "meanings": {
+        "en": "blood seal",
+        "pt-BR": "selo de sangue",
+        "es": "sello de sangre"
+      },
+      "jlpt_level": null,
+      "category": "body",
+      "context": "The transmutation circle Edward drew in his own blood inside Alphonse's armor to bind his brother's soul. If the seal is erased, Al ceases to exist."
+    },
+    {
+      "surface": "神経",
+      "reading": "しんけい",
+      "romaji": "shinkei",
+      "meanings": {
+        "en": "nerve/nervous system",
+        "pt-BR": "nervo/sistema nervoso",
+        "es": "nervio/sistema nervioso"
+      },
+      "jlpt_level": "N2",
+      "category": "body",
+      "context": "Automail integrates with the user's nervous system, allowing it to be controlled as a natural limb. The attachment surgery is extremely painful and recovery takes years."
+    },
+    {
+      "surface": "痛み",
+      "reading": "いたみ",
+      "romaji": "itami",
+      "meanings": {
+        "en": "pain",
+        "pt-BR": "dor",
+        "es": "dolor"
+      },
+      "jlpt_level": "N3",
+      "category": "body",
+      "context": "Pain is a constant presence in FMA — from Ed's automail installation to the toll of forbidden alchemy. The series treats physical and emotional pain as equally real."
+    },
+    {
+      "surface": "血",
+      "reading": "ち",
+      "romaji": "chi",
+      "meanings": {
+        "en": "blood",
+        "pt-BR": "sangue",
+        "es": "sangre"
+      },
+      "jlpt_level": "N3",
+      "category": "body",
+      "context": "Blood appears throughout FMA as symbol and substance — blood seals, bloodlines, and the blood price of war. It connects the physical and the metaphysical in the series."
+    },
+    {
+      "surface": "アメストリス",
+      "reading": "あめすとりす",
+      "romaji": "Amesutorisu",
+      "meanings": {
+        "en": "Amestris",
+        "pt-BR": "Amestris",
+        "es": "Amestris"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "The autocratic military nation where FMA is set. Its entire history of wars and borders was engineered by Father to form a perfect human transmutation circle."
+    },
+    {
+      "surface": "セントラル",
+      "reading": "せんとらる",
+      "romaji": "Sentoraru",
+      "meanings": {
+        "en": "Central City",
+        "pt-BR": "Cidade Central",
+        "es": "Ciudad Central"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "The capital city of Amestris and home to Central Command. Most of the major confrontations in the final arc take place in and beneath Central."
+    },
+    {
+      "surface": "リゼンブール",
+      "reading": "りぜんぶーる",
+      "romaji": "Rizenbuurú",
+      "meanings": {
+        "en": "Resembool",
+        "pt-BR": "Resembool",
+        "es": "Resembool"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "The quiet rural hometown of the Elric brothers and Winry Rockbell. The brothers burned their own home to the ground before leaving — a vow of no retreat."
+    },
+    {
+      "surface": "イシュヴァール",
+      "reading": "いしゅう゛ぁーる",
+      "romaji": "Ishuvaaru",
+      "meanings": {
+        "en": "Ishval",
+        "pt-BR": "Ishval",
+        "es": "Ishval"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "A region and its people whose near-total extermination by the Amestrian military haunts many characters. The Ishval Civil War is a wound that never fully heals."
+    },
+    {
+      "surface": "北壁",
+      "reading": "きたかべ",
+      "romaji": "kita kabe",
+      "meanings": {
+        "en": "Northern Wall / Fort Briggs area",
+        "pt-BR": "Muro Norte / Forte Briggs",
+        "es": "Muro Norte / Fuerte Briggs"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "The northern border fortification commanded by General Olivier Mira Armstrong. A harsh, unforgiving post that breeds Amestris's toughest soldiers."
+    },
+    {
+      "surface": "東方司令部",
+      "reading": "とうほうしれいぶ",
+      "romaji": "touhou shirebu",
+      "meanings": {
+        "en": "Eastern Command",
+        "pt-BR": "Comando Leste",
+        "es": "Mando Este"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Mustang's posting before returning to Central. Located near the Ishval region, many officers stationed here carry deep guilt from the Civil War."
+    },
+    {
+      "surface": "ブリッグズ",
+      "reading": "ぶりっぐず",
+      "romaji": "Buriqquzu",
+      "meanings": {
+        "en": "Fort Briggs",
+        "pt-BR": "Forte Briggs",
+        "es": "Fuerte Briggs"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "A massive military fortress guarding Amestris's northern border. Commanded by Olivier Armstrong, it becomes a crucial base for resisting Father's plan."
+    },
+    {
+      "surface": "シン",
+      "reading": "しん",
+      "romaji": "Shin",
+      "meanings": {
+        "en": "Xing (neighboring nation)",
+        "pt-BR": "Xing",
+        "es": "Xing"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "A foreign nation to the east of Amestris. Prince Ling Yao and May Chang travel from Xing seeking the secret of immortality for their aging emperor."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": {
+        "en": "sacrifice",
+        "pt-BR": "sacrifício",
+        "es": "sacrificio"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "FMA is built on sacrifices at every level — personal, national, and cosmic. Who is willing to sacrifice what for whom defines every character's arc."
+    },
+    {
+      "surface": "贖罪",
+      "reading": "しょくざい",
+      "romaji": "shokuzai",
+      "meanings": {
+        "en": "atonement/redemption",
+        "pt-BR": "expiação/redenção",
+        "es": "expiación/redención"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "Mustang, Hughes, and the Elric brothers all carry guilt. FMA asks whether past sins can truly be atoned for — and what that redemption actually looks like."
+    },
+    {
+      "surface": "兄弟",
+      "reading": "きょうだい",
+      "romaji": "kyoudai",
+      "meanings": {
+        "en": "brothers",
+        "pt-BR": "irmãos",
+        "es": "hermanos"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Ed and Al's bond as brothers is the emotional core of the story. Their love for each other drives every decision — and nearly destroys them both."
+    },
+    {
+      "surface": "家族",
+      "reading": "かぞく",
+      "romaji": "kazoku",
+      "meanings": {
+        "en": "family",
+        "pt-BR": "família",
+        "es": "familia"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The Elrics' attempt to bring back their mother launches the entire story. Family — biological and chosen — is what every character fights to protect or reclaim."
+    },
+    {
+      "surface": "真実",
+      "reading": "しんじつ",
+      "romaji": "shinjitsu",
+      "meanings": {
+        "en": "truth/reality",
+        "pt-BR": "verdade/realidade",
+        "es": "verdad/realidad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Characters throughout FMA must confront uncomfortable truths about their country, leaders, and themselves. Ignorance is no longer an option once the conspiracy unfolds."
+    },
+    {
+      "surface": "人間",
+      "reading": "にんげん",
+      "romaji": "ningen",
+      "meanings": {
+        "en": "human being",
+        "pt-BR": "ser humano",
+        "es": "ser humano"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "What does it mean to be human? FMA explores this through Al (soul in armor), homunculi (created beings), and Father (a being who transcended humanity)."
+    },
+    {
+      "surface": "神",
+      "reading": "かみ",
+      "romaji": "kami",
+      "meanings": {
+        "en": "god",
+        "pt-BR": "deus",
+        "es": "dios"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Father's ultimate goal is to transcend humanity and become a god. FMA argues that attempting to become god is the ultimate expression of arrogance and hubris."
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "meanings": {
+        "en": "life",
+        "pt-BR": "vida",
+        "es": "vida"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Life is treated as the most precious and irreplaceable thing in FMA. The Philosopher's Stone is built from lives — making its use a profound moral question."
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibou",
+      "meanings": {
+        "en": "hope",
+        "pt-BR": "esperança",
+        "es": "esperanza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Even in the darkest moments, the Elric brothers never abandon hope of restoring their bodies. Hope — not power — is what ultimately enables them to overcome Father."
+    },
+    {
+      "surface": "絶望",
+      "reading": "ぜつぼう",
+      "romaji": "zetsubou",
+      "meanings": {
+        "en": "despair",
+        "pt-BR": "desespero",
+        "es": "desesperación"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Despair stalks many characters in FMA — Scar after Ishval, Al when doubting his own humanity. The series shows how characters choose to overcome or succumb to it."
+    },
+    {
+      "surface": "陰謀",
+      "reading": "いんぼう",
+      "romaji": "inbou",
+      "meanings": {
+        "en": "conspiracy/plot",
+        "pt-BR": "conspiração",
+        "es": "conspiración"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "Father's centuries-spanning conspiracy to turn all of Amestris into a Philosopher's Stone underlies everything in FMA. Unraveling this plot drives the second half of the series."
+    },
+    {
+      "surface": "哲学",
+      "reading": "てつがく",
+      "romaji": "tetsugaku",
+      "meanings": {
+        "en": "philosophy",
+        "pt-BR": "filosofia",
+        "es": "filosofía"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "FMA is deeply philosophical — wrestling with ethics, the nature of the soul, the limits of human knowledge, and what separates humans from gods or monsters."
+    },
+    {
+      "surface": "秘密",
+      "reading": "ひみつ",
+      "romaji": "himitsu",
+      "meanings": {
+        "en": "secret",
+        "pt-BR": "segredo",
+        "es": "secreto"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "FMA is built on secrets — the truth of the Philosopher's Stone, the homunculi's origins, and the military's dark history. Every secret uncovered raises the stakes higher."
+    },
+    {
+      "surface": "正義",
+      "reading": "せいぎ",
+      "romaji": "seigi",
+      "meanings": {
+        "en": "justice",
+        "pt-BR": "justiça",
+        "es": "justicia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "What constitutes justice in a corrupt system? FMA forces characters like Mustang and Scar to define justice for themselves, even when the law provides no answer."
+    },
+    {
+      "surface": "復讐",
+      "reading": "ふくしゅう",
+      "romaji": "fukushuu",
+      "meanings": {
+        "en": "revenge",
+        "pt-BR": "vingança",
+        "es": "venganza"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Scar seeks revenge against State Alchemists for destroying his people and killing his brother. His arc questions whether revenge provides justice or only perpetuates the cycle."
+    },
+    {
+      "surface": "自由",
+      "reading": "じゆう",
+      "romaji": "jiyuu",
+      "meanings": {
+        "en": "freedom",
+        "pt-BR": "liberdade",
+        "es": "libertad"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "State Alchemists trade freedom for power — they serve the military's agenda. The tension between freedom and obligation runs through every character who serves Amestris."
+    },
+    {
+      "surface": "不完全",
+      "reading": "ふかんぜん",
+      "romaji": "fukanzen",
+      "meanings": {
+        "en": "imperfect/incomplete",
+        "pt-BR": "imperfeito/incompleto",
+        "es": "imperfecto/incompleto"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Father views humans as imperfect and seeks to transcend them. But FMA argues that human imperfection — emotion, love, the capacity for error — is the source of human worth."
+    },
+    {
+      "surface": "完全",
+      "reading": "かんぜん",
+      "romaji": "kanzen",
+      "meanings": {
+        "en": "perfect/complete",
+        "pt-BR": "perfeito/completo",
+        "es": "perfecto/completo"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Father's obsession with perfection drives his plan to become an all-knowing god. FMA uses his arc to argue that the pursuit of absolute perfection leads only to emptiness."
+    },
+    {
+      "surface": "宗教",
+      "reading": "しゅうきょう",
+      "romaji": "shuukyou",
+      "meanings": {
+        "en": "religion",
+        "pt-BR": "religião",
+        "es": "religión"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The Ishvalan people are deeply religious, believing their god Ishvala created the world — putting them in direct conflict with alchemists who alter creation."
+    },
+    {
+      "surface": "信仰",
+      "reading": "しんこう",
+      "romaji": "shinkou",
+      "meanings": {
+        "en": "faith/belief",
+        "pt-BR": "fé/crença",
+        "es": "fe/creencia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Scar's faith in Ishvala is tested by his own acts of revenge. Faith as a source of strength — and as something that can be weaponized — runs throughout FMA."
+    },
+    {
+      "surface": "後悔",
+      "reading": "こうかい",
+      "romaji": "koukai",
+      "meanings": {
+        "en": "regret",
+        "pt-BR": "arrependimento",
+        "es": "arrepentimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Regret is the engine of multiple character arcs — Mustang for Ishval, the Elrics for their mother. FMA explores whether regret motivates redemption or paralyzes it."
+    },
+    {
+      "surface": "怒り",
+      "reading": "いかり",
+      "romaji": "ikari",
+      "meanings": {
+        "en": "anger/rage",
+        "pt-BR": "raiva/ira",
+        "es": "ira/rabia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Edward's anger fuels him — against those who exploit others and against the unfairness of the world. But FMA shows how unchecked rage can become self-destructive."
+    },
+    {
+      "surface": "誇り",
+      "reading": "ほこり",
+      "romaji": "hokori",
+      "meanings": {
+        "en": "pride/dignity",
+        "pt-BR": "orgulho/dignidade",
+        "es": "orgullo/dignidad"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Ed refuses to ignore injustice even when it's dangerous — a point of personal pride that defines his character. FMA distinguishes healthy pride from the sinful hubris of Pride."
+    },
+    {
+      "surface": "仮面",
+      "reading": "かめん",
+      "romaji": "kamen",
+      "meanings": {
+        "en": "mask",
+        "pt-BR": "máscara",
+        "es": "máscara"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Many characters wear figurative masks — Mustang's calculated ambition hides his grief; Bradley's amiable leadership conceals a monster. FMA rewards looking beneath the surface."
+    },
+    {
+      "surface": "生死",
+      "reading": "せいし",
+      "romaji": "seishi",
+      "meanings": {
+        "en": "life and death",
+        "pt-BR": "vida e morte",
+        "es": "vida y muerte"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "FMA meditates constantly on the line between life and death — whether it can be crossed, what it costs, and whether doing so dishonors those who died naturally."
+    },
+    {
+      "surface": "炎",
+      "reading": "ほのお",
+      "romaji": "honoo",
+      "meanings": {
+        "en": "flame/fire",
+        "pt-BR": "chama/fogo",
+        "es": "llama/fuego"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Roy Mustang's alchemy uses snapping fingers to ignite the oxygen in the air, creating devastating flames. His title is 'Flame Alchemist.'"
+    },
+    {
+      "surface": "攻撃",
+      "reading": "こうげき",
+      "romaji": "kougeki",
+      "meanings": {
+        "en": "attack",
+        "pt-BR": "ataque",
+        "es": "ataque"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Combat in FMA blends alchemy with martial arts. Edward transmutes the ground, his arm, and the environment itself as weapons in every fight."
+    },
+    {
+      "surface": "防御",
+      "reading": "ぼうぎょ",
+      "romaji": "bougyo",
+      "meanings": {
+        "en": "defense",
+        "pt-BR": "defesa",
+        "es": "defensa"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Alchemists use transmutation defensively as well — raising stone walls, reinforcing structures, or using Greed's carbon shield to absorb any blow."
+    },
+    {
+      "surface": "剣",
+      "reading": "けん",
+      "romaji": "ken",
+      "meanings": {
+        "en": "sword/blade",
+        "pt-BR": "espada",
+        "es": "espada"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Edward transmutes his automail arm into a blade in combat. The ability to reshape his own prosthetic as a weapon makes him uniquely unpredictable in battle."
+    },
+    {
+      "surface": "爆発",
+      "reading": "ばくはつ",
+      "romaji": "bakuhatsu",
+      "meanings": {
+        "en": "explosion",
+        "pt-BR": "explosão",
+        "es": "explosión"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Mustang's flame alchemy can cause massive explosions by controlling where combustion occurs. His power is devastating — but requires dry conditions to function."
+    },
+    {
+      "surface": "戦闘",
+      "reading": "せんとう",
+      "romaji": "sentou",
+      "meanings": {
+        "en": "battle/combat",
+        "pt-BR": "batalha/combate",
+        "es": "batalla/combate"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "FMA features some of anime's most creative battles — where the environment becomes a weapon and intelligence matters as much as raw power."
+    },
+    {
+      "surface": "破壊",
+      "reading": "はかい",
+      "romaji": "hakai",
+      "meanings": {
+        "en": "destruction",
+        "pt-BR": "destruição",
+        "es": "destrucción"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Alchemical battles leave landscapes transformed. FMA's action sequences use large-scale destruction as both spectacle and consequence — creation and destruction are inseparable."
+    },
+    {
+      "surface": "近接戦",
+      "reading": "きんせつせん",
+      "romaji": "kinsetsusen",
+      "meanings": {
+        "en": "close-quarters combat",
+        "pt-BR": "combate corpo a corpo",
+        "es": "combate cuerpo a cuerpo"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Edward excels at close-quarters fighting, combining alchemy with martial arts taught by Izumi Curtis. His small stature is consistently used to his advantage."
+    },
+    {
+      "surface": "錬金術師",
+      "reading": "れんきんじゅつし",
+      "romaji": "renkinjutsushi",
+      "meanings": {
+        "en": "alchemist",
+        "pt-BR": "alquimista",
+        "es": "alquimista"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "Those who practice alchemy. In Amestris, skilled alchemists can become State Alchemists and serve the military — trading freedom for resources and research support."
+    },
+    {
+      "surface": "師匠",
+      "reading": "ししょう",
+      "romaji": "shishou",
+      "meanings": {
+        "en": "master/teacher",
+        "pt-BR": "mestre/professor",
+        "es": "maestro"
+      },
+      "jlpt_level": "N2",
+      "category": "roles",
+      "context": "Izumi Curtis is Ed and Al's alchemy teacher. She is terrifyingly powerful and teaches them that alchemy begins with understanding the flow of the natural world."
+    },
+    {
+      "surface": "弟子",
+      "reading": "でし",
+      "romaji": "deshi",
+      "meanings": {
+        "en": "disciple/apprentice",
+        "pt-BR": "discípulo/aprendiz",
+        "es": "discípulo/aprendiz"
+      },
+      "jlpt_level": "N2",
+      "category": "roles",
+      "context": "Ed and Al are Izumi's disciples. She trains them with brutal discipline and deep care — she too violated the taboo of human transmutation and carries her own scar."
+    },
+    {
+      "surface": "医師",
+      "reading": "いし",
+      "romaji": "ishi",
+      "meanings": {
+        "en": "doctor/physician",
+        "pt-BR": "médico",
+        "es": "médico"
+      },
+      "jlpt_level": "N3",
+      "category": "roles",
+      "context": "Marcoh was a medical alchemist who used the Philosopher's Stone to heal soldiers during the Ishval war. His knowledge becomes crucial to the Elrics' quest."
+    },
+    {
+      "surface": "将校",
+      "reading": "しょうこう",
+      "romaji": "shoukou",
+      "meanings": {
+        "en": "officer",
+        "pt-BR": "oficial",
+        "es": "oficial"
+      },
+      "jlpt_level": "N2",
+      "category": "roles",
+      "context": "Military officers in Amestris hold enormous power. The series depicts how rank and loyalty are weaponized — and how individual officers choose between duty and conscience."
+    },
+    {
+      "surface": "武器職人",
+      "reading": "ぶきしょくにん",
+      "romaji": "buki shokunin",
+      "meanings": {
+        "en": "weapons craftsman",
+        "pt-BR": "artesão de armas",
+        "es": "artesano de armas"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "Winry Rockbell is an automail engineer — not an alchemist, but her skill is essential to Edward's fighting capability. She represents the power of craft over magic."
+    },
+    {
+      "surface": "民衆",
+      "reading": "みんしゅう",
+      "romaji": "minshuu",
+      "meanings": {
+        "en": "the people/masses",
+        "pt-BR": "o povo",
+        "es": "el pueblo"
+      },
+      "jlpt_level": "N2",
+      "category": "roles",
+      "context": "The ordinary citizens of Amestris are unwitting sacrifices in Father's plan. The series frames them as innocents whose lives are treated as mere fuel by those in power."
+    },
+    {
+      "surface": "父",
+      "reading": "ちち",
+      "romaji": "chichi",
+      "meanings": {
+        "en": "father",
+        "pt-BR": "pai",
+        "es": "padre"
+      },
+      "jlpt_level": "N4",
+      "category": "roles",
+      "context": "Both the Elrics' absent father Hohenheim and the being called 'Father' are central to the story. Fatherhood in FMA carries enormous weight — and enormous failure."
+    },
+    {
+      "surface": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meanings": {
+        "en": "teacher",
+        "pt-BR": "professor",
+        "es": "profesor"
+      },
+      "jlpt_level": "N5",
+      "category": "roles",
+      "context": "Ed and Al always call Izumi Curtis 'teacher' with deep respect. A true teacher in FMA shapes not just skill but character — and bears responsibility for their students."
+    },
+    {
+      "surface": "錬金術の犬",
+      "reading": "れんきんじゅつのいぬ",
+      "romaji": "renkinjutsu no inu",
+      "meanings": {
+        "en": "dog of the military's alchemy",
+        "pt-BR": "cão da alquimia militar",
+        "es": "perro de la alquimia militar"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "A derogatory term for State Alchemists, implying they are weapons of the military rather than independent scholars. Ed wrestles with this label throughout the series."
+    },
+    {
+      "surface": "日常",
+      "reading": "にちじょう",
+      "romaji": "nichijou",
+      "meanings": {
+        "en": "everyday life",
+        "pt-BR": "vida cotidiana",
+        "es": "vida cotidiana"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "Amid grand conspiracies, FMA grounds itself in everyday moments — Winry's cooking, the Elrics' childhood memories, soldiers writing letters home."
+    },
+    {
+      "surface": "思い出",
+      "reading": "おもいで",
+      "romaji": "omoide",
+      "meanings": {
+        "en": "memories",
+        "pt-BR": "memórias",
+        "es": "recuerdos"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "Al worries his memories might be false — implanted to make him believe he has always been armor. Memory and identity are tightly linked in FMA's exploration of humanity."
+    },
+    {
+      "surface": "母",
+      "reading": "はは",
+      "romaji": "haha",
+      "meanings": {
+        "en": "mother",
+        "pt-BR": "mãe",
+        "es": "madre"
+      },
+      "jlpt_level": "N4",
+      "category": "life",
+      "context": "Trisha Elric's death drives her sons to attempt the forbidden. Her love, and the boys' grief, is what makes human transmutation feel emotionally real rather than a plot device."
+    },
+    {
+      "surface": "故郷",
+      "reading": "こきょう",
+      "romaji": "kokyou",
+      "meanings": {
+        "en": "hometown/homeland",
+        "pt-BR": "cidade natal/pátria",
+        "es": "ciudad natal/patria"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "The Elrics burned their house in Resembool before leaving — cutting off retreat. Their homeland is both an anchor and a wound they carry everywhere."
+    },
+    {
+      "surface": "旅",
+      "reading": "たび",
+      "romaji": "tabi",
+      "meanings": {
+        "en": "journey/travel",
+        "pt-BR": "viagem/jornada",
+        "es": "viaje/jornada"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "The Elric brothers journey across Amestris searching for the Philosopher's Stone. Along the way they encounter allies, enemies, and hard truths about their country."
+    },
+    {
+      "surface": "友情",
+      "reading": "ゆうじょう",
+      "romaji": "yuujou",
+      "meanings": {
+        "en": "friendship",
+        "pt-BR": "amizade",
+        "es": "amistad"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "Bonds formed across the journey — with Mustang, Winry, Ling, May — give the Elrics strength at the highest stakes. FMA shows friendship as a form of equivalent exchange."
+    },
+    {
+      "surface": "成長",
+      "reading": "せいちょう",
+      "romaji": "seichou",
+      "meanings": {
+        "en": "growth/maturation",
+        "pt-BR": "crescimento/maturação",
+        "es": "crecimiento/maduración"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "Edward begins the story as a prodigy who believes alchemy can solve everything. His growth into a true hero involves humility, empathy, and understanding human limits."
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": {
+        "en": "loneliness/isolation",
+        "pt-BR": "solidão/isolamento",
+        "es": "soledad/aislamiento"
+      },
+      "jlpt_level": "N2",
+      "category": "life",
+      "context": "Alphonse, unable to feel, taste, or sleep, lives in a unique loneliness trapped in armor. His resilience despite this isolation makes him one of anime's most poignant characters."
+    },
+    {
+      "surface": "約束",
+      "reading": "やくそく",
+      "romaji": "yakusoku",
+      "meanings": {
+        "en": "promise",
+        "pt-BR": "promessa",
+        "es": "promesa"
+      },
+      "jlpt_level": "N4",
+      "category": "life",
+      "context": "Ed promises Al he will restore his body. Mustang promises Hughes he will reform the country. Promises in FMA carry enormous weight — and the cost of breaking them is just as heavy."
+    },
+    {
+      "surface": "涙",
+      "reading": "なみだ",
+      "romaji": "namida",
+      "meanings": {
+        "en": "tears",
+        "pt-BR": "lágrimas",
+        "es": "lágrimas"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "Al cannot cry — one of the most poignant reminders of what he has lost. When he finally regains his body, the ability to feel and cry is more precious than any power."
+    },
+    {
+      "surface": "笑顔",
+      "reading": "えがお",
+      "romaji": "egao",
+      "meanings": {
+        "en": "smiling face/smile",
+        "pt-BR": "sorriso",
+        "es": "sonrisa"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "In a story full of tragedy, smiles carry special meaning. Maes Hughes's infectious joy and Al's gentle warmth serve as emotional anchors against the series' darkness."
+    },
+    {
+      "surface": "病院",
+      "reading": "びょういん",
+      "romaji": "byouin",
+      "meanings": {
+        "en": "hospital",
+        "pt-BR": "hospital",
+        "es": "hospital"
+      },
+      "jlpt_level": "N4",
+      "category": "life",
+      "context": "Many injured soldiers and civilians are treated at military hospitals throughout FMA. Their presence underscores the human cost of alchemical warfare and political violence."
+    },
+    {
+      "surface": "国",
+      "reading": "くに",
+      "romaji": "kuni",
+      "meanings": {
+        "en": "country/nation",
+        "pt-BR": "país/nação",
+        "es": "país/nación"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Mustang wants to change his country from within. The nation of Amestris itself is both the stage and the victim of Father's plan — its fate is inseparable from the plot."
+    }
+  ]
+}

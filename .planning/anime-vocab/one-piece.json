@@ -1,0 +1,1425 @@
+{
+  "anime": "one-piece",
+  "label": "One Piece",
+  "icon": "one-piece-skull.png",
+  "description": "Monkey D. Luffy's quest to find the One Piece and become King of the Pirates.",
+  "vocab": [
+    {
+      "surface": "海",
+      "reading": "うみ",
+      "romaji": "umi",
+      "meanings": {
+        "en": "sea / ocean",
+        "pt-BR": "mar / oceano",
+        "es": "mar / océano"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The stage for all of One Piece — the vast ocean that connects every island and arc."
+    },
+    {
+      "surface": "島",
+      "reading": "しま",
+      "romaji": "shima",
+      "meanings": {
+        "en": "island",
+        "pt-BR": "ilha",
+        "es": "isla"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Every major arc takes place on a new island. The Straw Hats are always sailing to the next one."
+    },
+    {
+      "surface": "波",
+      "reading": "なみ",
+      "romaji": "nami",
+      "meanings": {
+        "en": "wave",
+        "pt-BR": "onda",
+        "es": "ola"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Both the ocean's waves and the name of the Straw Hats' navigator."
+    },
+    {
+      "surface": "嵐",
+      "reading": "あらし",
+      "romaji": "arashi",
+      "meanings": {
+        "en": "storm",
+        "pt-BR": "tempestade",
+        "es": "tormenta"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Storms are a constant danger on the Grand Line, where the weather is unpredictable."
+    },
+    {
+      "surface": "空",
+      "reading": "そら",
+      "romaji": "sora",
+      "meanings": {
+        "en": "sky",
+        "pt-BR": "céu",
+        "es": "cielo"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The sky islands arc (Skypiea) takes the crew above the clouds."
+    },
+    {
+      "surface": "大地",
+      "reading": "だいち",
+      "romaji": "daichi",
+      "meanings": {
+        "en": "earth / land",
+        "pt-BR": "terra firme",
+        "es": "tierra firme"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Dry land is a rare and precious thing on the Grand Line."
+    },
+    {
+      "surface": "新世界",
+      "reading": "しんせかい",
+      "romaji": "shinsekai",
+      "meanings": {
+        "en": "New World",
+        "pt-BR": "Novo Mundo",
+        "es": "Nuevo Mundo"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The second half of the Grand Line — the most dangerous waters in the world, ruled by the Four Emperors."
+    },
+    {
+      "surface": "偉大なる航路",
+      "reading": "いだいなるこうろ",
+      "romaji": "idai naru kōro",
+      "meanings": {
+        "en": "Grand Line",
+        "pt-BR": "Grand Line",
+        "es": "Grand Line"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The legendary sea route that crosses the world — dangerous, unpredictable, and where the One Piece is said to lie."
+    },
+    {
+      "surface": "空島",
+      "reading": "そらじま",
+      "romaji": "sorajima",
+      "meanings": {
+        "en": "sky island",
+        "pt-BR": "ilha celeste",
+        "es": "isla del cielo"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Islands floating in the clouds, reached by the Knock Up Stream. Skypiea is the most famous."
+    },
+    {
+      "surface": "深海",
+      "reading": "しんかい",
+      "romaji": "shinkai",
+      "meanings": {
+        "en": "deep sea / abyss",
+        "pt-BR": "mar profundo",
+        "es": "mar profundo"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Devil Fruit users sink and cannot move in deep water — their greatest natural weakness."
+    },
+    {
+      "surface": "王国",
+      "reading": "おうこく",
+      "romaji": "ōkoku",
+      "meanings": {
+        "en": "kingdom",
+        "pt-BR": "reino",
+        "es": "reino"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Many arcs center on kingdoms under threat — Alabasta, Dressrosa, Wano."
+    },
+    {
+      "surface": "聖地",
+      "reading": "せいち",
+      "romaji": "seichi",
+      "meanings": {
+        "en": "holy land / sacred place",
+        "pt-BR": "terra sagrada",
+        "es": "tierra sagrada"
+      },
+      "jlpt_level": "N2",
+      "context": "Mary Geoise (聖地マリージョア) — the sacred seat of power of the World Government and World Nobles.",
+      "category": "world"
+    },
+    {
+      "surface": "港",
+      "reading": "みなと",
+      "romaji": "minato",
+      "meanings": {
+        "en": "harbor / port",
+        "pt-BR": "porto",
+        "es": "puerto"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Every island has a port where ships dock and pirates are welcomed — or hunted."
+    },
+    {
+      "surface": "海賊",
+      "reading": "かいぞく",
+      "romaji": "kaizoku",
+      "meanings": {
+        "en": "pirate",
+        "pt-BR": "pirata",
+        "es": "pirata"
+      },
+      "jlpt_level": "N3",
+      "category": "pirate",
+      "context": "The defining identity of the series — Luffy declares 'I'm going to be King of the Pirates!' in the very first episode."
+    },
+    {
+      "surface": "海賊王",
+      "reading": "かいぞくおう",
+      "romaji": "kaizoku-ō",
+      "meanings": {
+        "en": "Pirate King",
+        "pt-BR": "Rei dos Piratas",
+        "es": "Rey de los Piratas"
+      },
+      "jlpt_level": null,
+      "category": "pirate",
+      "context": "Luffy's ultimate goal. Gold Roger was the only man who ever reached it."
+    },
+    {
+      "surface": "海賊団",
+      "reading": "かいぞくだん",
+      "romaji": "kaizoku-dan",
+      "meanings": {
+        "en": "pirate crew / band",
+        "pt-BR": "bando de piratas",
+        "es": "banda de piratas"
+      },
+      "jlpt_level": null,
+      "category": "pirate",
+      "context": "Every major pirate sails under a named crew. The Straw Hats are the 麦わら海賊団."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": {
+        "en": "crew / comrade",
+        "pt-BR": "companheiro / tripulação",
+        "es": "compañero / tripulación"
+      },
+      "jlpt_level": "N3",
+      "category": "pirate",
+      "context": "The emotional core of One Piece. Luffy's most powerful motivator — he will go to war for his nakama."
+    },
+    {
+      "surface": "麦わら",
+      "reading": "むぎわら",
+      "romaji": "mugiwara",
+      "meanings": {
+        "en": "straw hat",
+        "pt-BR": "chapéu de palha",
+        "es": "sombrero de paja"
+      },
+      "jlpt_level": null,
+      "category": "pirate",
+      "context": "Luffy's iconic hat, given to him by Shanks. 麦わらのルフィ (Straw Hat Luffy) is his epithet."
+    },
+    {
+      "surface": "懸賞金",
+      "reading": "けんしょうきん",
+      "romaji": "kenshōkin",
+      "meanings": {
+        "en": "bounty",
+        "pt-BR": "recompensa",
+        "es": "recompensa"
+      },
+      "jlpt_level": "N2",
+      "category": "pirate",
+      "context": "The World Government's price on a pirate's head. A high bounty means you're taken seriously as a threat."
+    },
+    {
+      "surface": "宝",
+      "reading": "たから",
+      "romaji": "takara",
+      "meanings": {
+        "en": "treasure",
+        "pt-BR": "tesouro",
+        "es": "tesoro"
+      },
+      "jlpt_level": "N3",
+      "category": "pirate",
+      "context": "What pirates sail for — and the One Piece (ひとつなぎの大秘宝) is the ultimate treasure."
+    },
+    {
+      "surface": "ひとつなぎの大秘宝",
+      "reading": "ひとつなぎのだいひほう",
+      "romaji": "hitotsunagi no daihihō",
+      "meanings": {
+        "en": "One Piece (the treasure)",
+        "pt-BR": "One Piece (o tesouro)",
+        "es": "One Piece (el tesoro)"
+      },
+      "jlpt_level": null,
+      "category": "pirate",
+      "context": "The legendary treasure hidden at the end of the Grand Line. Its true nature is one of the series' greatest mysteries."
+    },
+    {
+      "surface": "船長",
+      "reading": "せんちょう",
+      "romaji": "senchō",
+      "meanings": {
+        "en": "captain",
+        "pt-BR": "capitão",
+        "es": "capitán"
+      },
+      "jlpt_level": "N3",
+      "category": "pirate",
+      "context": "Luffy is the 船長 of the Straw Hat Pirates. His word is final — and usually involves meat."
+    },
+    {
+      "surface": "冒険",
+      "reading": "ぼうけん",
+      "romaji": "bōken",
+      "meanings": {
+        "en": "adventure",
+        "pt-BR": "aventura",
+        "es": "aventura"
+      },
+      "jlpt_level": "N3",
+      "category": "pirate",
+      "context": "The spirit of One Piece. Every island, every arc is a new adventure for the Straw Hats."
+    },
+    {
+      "surface": "旅",
+      "reading": "たび",
+      "romaji": "tabi",
+      "meanings": {
+        "en": "journey / voyage",
+        "pt-BR": "jornada / viagem",
+        "es": "viaje / jornada"
+      },
+      "jlpt_level": "N4",
+      "category": "pirate",
+      "context": "The Straw Hats are always on the move — their voyage (旅) is the heart of the series."
+    },
+    {
+      "surface": "夢",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "meanings": {
+        "en": "dream",
+        "pt-BR": "sonho",
+        "es": "sueño"
+      },
+      "jlpt_level": "N4",
+      "category": "pirate",
+      "context": "Every Straw Hat has a dream. Luffy: Pirate King. Zoro: world's greatest swordsman. Nami: map the world."
+    },
+    {
+      "surface": "自由",
+      "reading": "じゆう",
+      "romaji": "jiyū",
+      "meanings": {
+        "en": "freedom",
+        "pt-BR": "liberdade",
+        "es": "libertad"
+      },
+      "jlpt_level": "N4",
+      "category": "pirate",
+      "context": "The Pirate King is the freest person in the world — Roger's words that sparked the Great Pirate Era."
+    },
+    {
+      "surface": "大海賊時代",
+      "reading": "だいかいぞくじだい",
+      "romaji": "dai kaizoku jidai",
+      "meanings": {
+        "en": "Great Pirate Era",
+        "pt-BR": "Grande Era dos Piratas",
+        "es": "Gran Era de los Piratas"
+      },
+      "jlpt_level": null,
+      "category": "pirate",
+      "context": "Triggered by Gold Roger's final words before his execution, sending the world rushing to sea in search of the One Piece."
+    },
+    {
+      "surface": "略奪",
+      "reading": "りゃくだつ",
+      "romaji": "ryakudatsu",
+      "meanings": {
+        "en": "plunder / pillage",
+        "pt-BR": "pilhagem / saque",
+        "es": "pillaje / saqueo"
+      },
+      "jlpt_level": "N1",
+      "category": "pirate",
+      "context": "What villainous pirates do — notably NOT what the Straw Hats do, which makes them unusual heroes in a pirate world."
+    },
+    {
+      "surface": "海軍",
+      "reading": "かいぐん",
+      "romaji": "kaigun",
+      "meanings": {
+        "en": "navy / marines",
+        "pt-BR": "marinha",
+        "es": "marina"
+      },
+      "jlpt_level": "N2",
+      "category": "navy",
+      "context": "The military arm of the World Government. Their motto is 正義 (justice) — though what kind of justice is debatable."
+    },
+    {
+      "surface": "正義",
+      "reading": "せいぎ",
+      "romaji": "seigi",
+      "meanings": {
+        "en": "justice",
+        "pt-BR": "justiça",
+        "es": "justicia"
+      },
+      "jlpt_level": "N3",
+      "category": "navy",
+      "context": "Written on every Marine coat. Some pursue 絶対正義 (absolute justice); others believe in 人道的正義 (humane justice)."
+    },
+    {
+      "surface": "元帥",
+      "reading": "げんすい",
+      "romaji": "gensui",
+      "meanings": {
+        "en": "fleet admiral",
+        "pt-BR": "almirante-chefe",
+        "es": "almirante en jefe"
+      },
+      "jlpt_level": "N1",
+      "category": "navy",
+      "context": "The highest rank in the Marines. Sengoku, then Akainu held this title."
+    },
+    {
+      "surface": "大将",
+      "reading": "たいしょう",
+      "romaji": "taishō",
+      "meanings": {
+        "en": "admiral",
+        "pt-BR": "almirante",
+        "es": "almirante"
+      },
+      "jlpt_level": "N2",
+      "category": "navy",
+      "context": "The three admirals — Akainu, Aokiji, Kizaru — are among the most powerful fighters in the world."
+    },
+    {
+      "surface": "中将",
+      "reading": "ちゅうじょう",
+      "romaji": "chūjō",
+      "meanings": {
+        "en": "vice admiral",
+        "pt-BR": "vice-almirante",
+        "es": "vicealmirante"
+      },
+      "jlpt_level": "N2",
+      "category": "navy",
+      "context": "Garp's rank — he refused promotions to admiral. Smoker and Coby both aim for this rank."
+    },
+    {
+      "surface": "大佐",
+      "reading": "たいさ",
+      "romaji": "taisa",
+      "meanings": {
+        "en": "captain (Marine rank)",
+        "pt-BR": "capitão (rank da Marinha)",
+        "es": "capitán (rango de Marina)"
+      },
+      "jlpt_level": "N2",
+      "category": "navy",
+      "context": "Smoker's rank when he first pursues Luffy in Loguetown. He climbs the ranks throughout the series."
+    },
+    {
+      "surface": "世界政府",
+      "reading": "せかいせいふ",
+      "romaji": "sekai seifu",
+      "meanings": {
+        "en": "World Government",
+        "pt-BR": "Governo Mundial",
+        "es": "Gobierno Mundial"
+      },
+      "jlpt_level": null,
+      "category": "navy",
+      "context": "The alliance of 170 nations that rules the world. Enforced by the Marines and the Seven Warlords."
+    },
+    {
+      "surface": "天竜人",
+      "reading": "てんりゅうびと",
+      "romaji": "tenryūbito",
+      "meanings": {
+        "en": "World Nobles / Celestial Dragons",
+        "pt-BR": "Dragões Celestiais",
+        "es": "Dragones Celestiales"
+      },
+      "jlpt_level": null,
+      "category": "navy",
+      "context": "Descendants of the 20 kings who founded the World Government. They believe themselves to be gods above all others."
+    },
+    {
+      "surface": "王下七武海",
+      "reading": "おうかしちぶかい",
+      "romaji": "ōka shichibukai",
+      "meanings": {
+        "en": "Seven Warlords of the Sea",
+        "pt-BR": "Sete Guerreiros do Mar",
+        "es": "Siete Guerreros del Mar"
+      },
+      "jlpt_level": null,
+      "category": "navy",
+      "context": "Powerful pirates granted government immunity in exchange for working as enforcers. Includes Doflamingo, Hancock, and Crocodile."
+    },
+    {
+      "surface": "海兵",
+      "reading": "かいへい",
+      "romaji": "kaihei",
+      "meanings": {
+        "en": "marine soldier",
+        "pt-BR": "soldado da marinha",
+        "es": "soldado de marina"
+      },
+      "jlpt_level": "N2",
+      "category": "navy",
+      "context": "The rank-and-file Marines who serve the World Government and pursue pirates."
+    },
+    {
+      "surface": "秘密組織",
+      "reading": "ひみつそしき",
+      "romaji": "himitsu soshiki",
+      "meanings": {
+        "en": "secret organization",
+        "pt-BR": "organização secreta",
+        "es": "organización secreta"
+      },
+      "jlpt_level": "N2",
+      "category": "navy",
+      "context": "CP9 and CP0 — the World Government's covert assassin agencies operating in the shadows."
+    },
+    {
+      "surface": "四皇",
+      "reading": "よんこう",
+      "romaji": "yonkō",
+      "meanings": {
+        "en": "Four Emperors",
+        "pt-BR": "Quatro Imperadores",
+        "es": "Cuatro Emperadores"
+      },
+      "jlpt_level": null,
+      "category": "navy",
+      "context": "The four most powerful pirates in the New World — Whitebeard, Big Mom, Kaido, Shanks (later Luffy)."
+    },
+    {
+      "surface": "皇帝",
+      "reading": "こうてい",
+      "romaji": "kōtei",
+      "meanings": {
+        "en": "emperor",
+        "pt-BR": "imperador",
+        "es": "emperador"
+      },
+      "jlpt_level": "N2",
+      "category": "navy",
+      "context": "The title behind 四皇 — each emperor commands an enormous fleet and controls territory in the New World."
+    },
+    {
+      "surface": "悪魔の実",
+      "reading": "あくまのみ",
+      "romaji": "akuma no mi",
+      "meanings": {
+        "en": "Devil Fruit",
+        "pt-BR": "Fruta do Diabo",
+        "es": "Fruta del Diablo"
+      },
+      "jlpt_level": null,
+      "category": "devil_fruit",
+      "context": "Mysterious fruits that grant incredible powers at the cost of the ability to swim. The ultimate treasure for pirates."
+    },
+    {
+      "surface": "能力者",
+      "reading": "のうりょくしゃ",
+      "romaji": "nōryokusha",
+      "meanings": {
+        "en": "ability user / Devil Fruit user",
+        "pt-BR": "usuário de habilidade",
+        "es": "usuario de habilidad"
+      },
+      "jlpt_level": "N2",
+      "category": "devil_fruit",
+      "context": "Anyone who has eaten a Devil Fruit is a 能力者. They become powerful but helpless in the sea."
+    },
+    {
+      "surface": "覚醒",
+      "reading": "かくせい",
+      "romaji": "kakusei",
+      "meanings": {
+        "en": "awakening",
+        "pt-BR": "despertar",
+        "es": "despertar"
+      },
+      "jlpt_level": "N2",
+      "category": "devil_fruit",
+      "context": "The highest stage of Devil Fruit mastery — when the power extends beyond the user's body to affect the environment."
+    },
+    {
+      "surface": "変身",
+      "reading": "へんしん",
+      "romaji": "henshin",
+      "meanings": {
+        "en": "transformation",
+        "pt-BR": "transformação",
+        "es": "transformación"
+      },
+      "jlpt_level": "N3",
+      "category": "devil_fruit",
+      "context": "Zoan-type users can transform into animals or hybrid forms. Chopper's multiple Points are classic examples."
+    },
+    {
+      "surface": "超人型",
+      "reading": "ちょうじんがた",
+      "romaji": "chōjin-gata",
+      "meanings": {
+        "en": "Paramecia type",
+        "pt-BR": "tipo Paramecia",
+        "es": "tipo Paramecia"
+      },
+      "jlpt_level": null,
+      "category": "devil_fruit",
+      "context": "The most common Devil Fruit type — gives superhuman powers. Luffy's Gum-Gum Fruit is Paramecia (or was thought to be)."
+    },
+    {
+      "surface": "自然系",
+      "reading": "しぜんけい",
+      "romaji": "shizen-kei",
+      "meanings": {
+        "en": "Logia type",
+        "pt-BR": "tipo Logia",
+        "es": "tipo Logia"
+      },
+      "jlpt_level": null,
+      "category": "devil_fruit",
+      "context": "The rarest and most feared type — user becomes and controls a natural element. Akainu (magma), Aokiji (ice), Enel (lightning)."
+    },
+    {
+      "surface": "動物系",
+      "reading": "どうぶつけい",
+      "romaji": "dōbutsu-kei",
+      "meanings": {
+        "en": "Zoan type",
+        "pt-BR": "tipo Zoan",
+        "es": "tipo Zoan"
+      },
+      "jlpt_level": null,
+      "category": "devil_fruit",
+      "context": "Grants the ability to transform into an animal species. Chopper (reindeer), Rob Lucci (leopard), Kaido (dragon)."
+    },
+    {
+      "surface": "泳げない",
+      "reading": "およげない",
+      "romaji": "oyogenai",
+      "meanings": {
+        "en": "cannot swim",
+        "pt-BR": "não consegue nadar",
+        "es": "no puede nadar"
+      },
+      "jlpt_level": "N4",
+      "category": "devil_fruit",
+      "context": "The price of eating a Devil Fruit — the sea rejects you. Devil Fruit users who fall in the ocean will sink like hammers."
+    },
+    {
+      "surface": "覇気",
+      "reading": "はき",
+      "romaji": "haki",
+      "meanings": {
+        "en": "haki / ambition / fighting spirit",
+        "pt-BR": "haki / espírito de luta",
+        "es": "haki / espíritu combativo"
+      },
+      "jlpt_level": "N1",
+      "category": "haki",
+      "context": "A power born from willpower that anyone can use with training. The counter to Logia invincibility."
+    },
+    {
+      "surface": "武装色の覇気",
+      "reading": "ぶそうしょくのはき",
+      "romaji": "busōshoku no haki",
+      "meanings": {
+        "en": "Armament Haki",
+        "pt-BR": "Haki de Armamento",
+        "es": "Haki de Armamento"
+      },
+      "jlpt_level": null,
+      "category": "haki",
+      "context": "Hardens the body like iron armor. The only way to hit Logia users in their true form."
+    },
+    {
+      "surface": "見聞色の覇気",
+      "reading": "けんぶんしょくのはき",
+      "romaji": "kenbunshoku no haki",
+      "meanings": {
+        "en": "Observation Haki",
+        "pt-BR": "Haki de Observação",
+        "es": "Haki de Observación"
+      },
+      "jlpt_level": null,
+      "category": "haki",
+      "context": "Allows the user to sense the presence, emotions, and attacks of others — including future sight at advanced levels."
+    },
+    {
+      "surface": "覇王色の覇気",
+      "reading": "はおうしょくのはき",
+      "romaji": "haōshoku no haki",
+      "meanings": {
+        "en": "Conqueror's Haki",
+        "pt-BR": "Haki do Conquistador",
+        "es": "Haki del Conquistador"
+      },
+      "jlpt_level": null,
+      "category": "haki",
+      "context": "The rarest Haki — only 1 in a million people can use it. It knocks out weak-willed enemies with pure force of will. Luffy, Shanks, and Kaido possess it."
+    },
+    {
+      "surface": "気配",
+      "reading": "けはい",
+      "romaji": "kehhai",
+      "meanings": {
+        "en": "presence / aura",
+        "pt-BR": "presença / aura",
+        "es": "presencia / aura"
+      },
+      "jlpt_level": "N2",
+      "category": "haki",
+      "context": "Skilled Haki users can sense others' 気配 — their presence, intent, and emotional state."
+    },
+    {
+      "surface": "意志",
+      "reading": "いし",
+      "romaji": "ishi",
+      "meanings": {
+        "en": "will / resolve",
+        "pt-BR": "vontade / determinação",
+        "es": "voluntad / determinación"
+      },
+      "jlpt_level": "N2",
+      "category": "haki",
+      "context": "Haki is the manifestation of 意志 — willpower. Those with unbreakable will develop the strongest Haki."
+    },
+    {
+      "surface": "剣士",
+      "reading": "けんし",
+      "romaji": "kenshi",
+      "meanings": {
+        "en": "swordsman",
+        "pt-BR": "espadachim",
+        "es": "espadachín"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Zoro's identity — his goal is to be the world's greatest 剣士 (世界一の剣士)."
+    },
+    {
+      "surface": "剣",
+      "reading": "けん / つるぎ",
+      "romaji": "ken / tsurugi",
+      "meanings": {
+        "en": "sword",
+        "pt-BR": "espada",
+        "es": "espada"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Zoro wields three swords simultaneously — a style called 三刀流 (santōryū)."
+    },
+    {
+      "surface": "刀",
+      "reading": "かたな",
+      "romaji": "katana",
+      "meanings": {
+        "en": "katana / Japanese sword",
+        "pt-BR": "katana",
+        "es": "katana"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Zoro's swords are named katana — Wado Ichimonji, Sandai Kitetsu, and Enma among them."
+    },
+    {
+      "surface": "三刀流",
+      "reading": "さんとうりゅう",
+      "romaji": "santōryū",
+      "meanings": {
+        "en": "three-sword style",
+        "pt-BR": "estilo de três espadas",
+        "es": "estilo de tres espadas"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Zoro's signature fighting style — one sword in each hand, one in the mouth."
+    },
+    {
+      "surface": "流",
+      "reading": "りゅう",
+      "romaji": "ryū",
+      "meanings": {
+        "en": "style / school (of combat)",
+        "pt-BR": "estilo / escola (de combate)",
+        "es": "estilo / escuela (de combate)"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Used in fighting style names: 三刀流 (three-sword style), 一刀流 (one-sword style), ゴムゴム流 (Gum-Gum style)."
+    },
+    {
+      "surface": "技",
+      "reading": "わざ",
+      "romaji": "waza",
+      "meanings": {
+        "en": "technique / skill / move",
+        "pt-BR": "técnica / golpe",
+        "es": "técnica / golpe"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Every character's named attacks are 技 — Gum-Gum Pistol, Oni Giri, Hana Hana..."
+    },
+    {
+      "surface": "必殺技",
+      "reading": "ひっさつわざ",
+      "romaji": "hissatsu waza",
+      "meanings": {
+        "en": "finishing move / ultimate technique",
+        "pt-BR": "golpe final / técnica definitiva",
+        "es": "golpe final / técnica definitiva"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The most powerful attack in a character's arsenal. Luffy's Gear 5 attacks are his 必殺技."
+    },
+    {
+      "surface": "攻撃",
+      "reading": "こうげき",
+      "romaji": "kōgeki",
+      "meanings": {
+        "en": "attack / offensive strike",
+        "pt-BR": "ataque",
+        "es": "ataque"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "The constant cry of battle — Luffy launches 攻撃 after 攻撃 with no regard for his own safety."
+    },
+    {
+      "surface": "防御",
+      "reading": "ぼうぎょ",
+      "romaji": "bōgyo",
+      "meanings": {
+        "en": "defense",
+        "pt-BR": "defesa",
+        "es": "defensa"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Luffy's rubber body gives him natural 防御 against blunt attacks — but Haki-coated blows still hurt him."
+    },
+    {
+      "surface": "戦い",
+      "reading": "たたかい",
+      "romaji": "tatakai",
+      "meanings": {
+        "en": "battle / fight",
+        "pt-BR": "batalha / luta",
+        "es": "batalla / lucha"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Every arc builds to a 戦い — but in One Piece, the fights are rarely just about power."
+    },
+    {
+      "surface": "強さ",
+      "reading": "つよさ",
+      "romaji": "tsuyosa",
+      "meanings": {
+        "en": "strength / power level",
+        "pt-BR": "força",
+        "es": "fuerza"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "One Piece's unspoken hierarchy — fans constantly debate who has the most 強さ."
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": {
+        "en": "power / strength / force",
+        "pt-BR": "poder / força",
+        "es": "poder / fuerza"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Luffy doesn't seek 力 for its own sake — he wants it to protect his nakama and reach his dream."
+    },
+    {
+      "surface": "武器",
+      "reading": "ぶき",
+      "romaji": "buki",
+      "meanings": {
+        "en": "weapon",
+        "pt-BR": "arma",
+        "es": "arma"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "From swords and cannons to slingsshots and hammers — every Straw Hat has their preferred 武器."
+    },
+    {
+      "surface": "戦士",
+      "reading": "せんし",
+      "romaji": "senshi",
+      "meanings": {
+        "en": "warrior / fighter",
+        "pt-BR": "guerreiro",
+        "es": "guerrero"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Used of elite fighters — the Minks who fight as warriors, or the fishmen of Fishman Island."
+    },
+    {
+      "surface": "船",
+      "reading": "ふね",
+      "romaji": "fune",
+      "meanings": {
+        "en": "ship / boat",
+        "pt-BR": "navio / barco",
+        "es": "barco / nave"
+      },
+      "jlpt_level": "N4",
+      "category": "ship",
+      "context": "The Going Merry and Thousand Sunny — the Straw Hats' ships are beloved characters in their own right."
+    },
+    {
+      "surface": "航海",
+      "reading": "こうかい",
+      "romaji": "kōkai",
+      "meanings": {
+        "en": "voyage / navigation",
+        "pt-BR": "navegação / viagem marítima",
+        "es": "navegación / viaje marítimo"
+      },
+      "jlpt_level": "N2",
+      "category": "ship",
+      "context": "Nami's specialty — reading the weather and plotting the course for the crew's 航海 across the Grand Line."
+    },
+    {
+      "surface": "航海士",
+      "reading": "こうかいし",
+      "romaji": "kōkaishi",
+      "meanings": {
+        "en": "navigator",
+        "pt-BR": "navegadora",
+        "es": "navegante"
+      },
+      "jlpt_level": "N1",
+      "category": "ship",
+      "context": "Nami's official role on the crew. She dreams of drawing a complete map (海図) of the entire world."
+    },
+    {
+      "surface": "海図",
+      "reading": "かいず",
+      "romaji": "kaizu",
+      "meanings": {
+        "en": "sea chart / nautical map",
+        "pt-BR": "carta náutica / mapa marítimo",
+        "es": "carta náutica / mapa marítimo"
+      },
+      "jlpt_level": "N2",
+      "category": "ship",
+      "context": "Nami's ultimate dream — to draw a 海図 of every ocean and island in the world."
+    },
+    {
+      "surface": "羅針盤",
+      "reading": "らしんばん",
+      "romaji": "rashinban",
+      "meanings": {
+        "en": "compass",
+        "pt-BR": "bússola",
+        "es": "brújula"
+      },
+      "jlpt_level": "N1",
+      "category": "ship",
+      "context": "On the Grand Line, regular compasses don't work. Log Poses (記録指針) and Eternal Poses replace them."
+    },
+    {
+      "surface": "帆",
+      "reading": "ほ",
+      "romaji": "ho",
+      "meanings": {
+        "en": "sail",
+        "pt-BR": "vela (de barco)",
+        "es": "vela (de barco)"
+      },
+      "jlpt_level": "N2",
+      "category": "ship",
+      "context": "The Thousand Sunny's Gaon Cannon and Coup de Burst propulsion make it one of the most advanced ships on the seas."
+    },
+    {
+      "surface": "錨",
+      "reading": "いかり",
+      "romaji": "ikari",
+      "meanings": {
+        "en": "anchor",
+        "pt-BR": "âncora",
+        "es": "ancla"
+      },
+      "jlpt_level": "N2",
+      "category": "ship",
+      "context": "When the Straw Hats arrive at a new island, they drop anchor and a new adventure begins."
+    },
+    {
+      "surface": "甲板",
+      "reading": "かんぱん",
+      "romaji": "kanpan",
+      "meanings": {
+        "en": "deck (of a ship)",
+        "pt-BR": "convés",
+        "es": "cubierta"
+      },
+      "jlpt_level": "N1",
+      "category": "ship",
+      "context": "The main deck of the Going Merry and Thousand Sunny — where the crew eats, trains, and celebrates."
+    },
+    {
+      "surface": "大砲",
+      "reading": "たいほう",
+      "romaji": "taihō",
+      "meanings": {
+        "en": "cannon",
+        "pt-BR": "canhão",
+        "es": "cañón"
+      },
+      "jlpt_level": "N2",
+      "category": "ship",
+      "context": "Ship-to-ship combat in One Piece often opens with 大砲 fire before boarding."
+    },
+    {
+      "surface": "副船長",
+      "reading": "ふくせんちょう",
+      "romaji": "fuku-senchō",
+      "meanings": {
+        "en": "first mate",
+        "pt-BR": "imediato / vice-capitão",
+        "es": "primer oficial"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "Zoro is the Straw Hats' unofficial first mate — the crew's fighter and second in command."
+    },
+    {
+      "surface": "料理人",
+      "reading": "りょうりにん",
+      "romaji": "ryōrinin",
+      "meanings": {
+        "en": "cook / chef",
+        "pt-BR": "cozinheiro",
+        "es": "cocinero"
+      },
+      "jlpt_level": "N3",
+      "category": "roles",
+      "context": "Sanji's role — he feeds the crew and fights with his legs only, never using his hands, to protect his cooking."
+    },
+    {
+      "surface": "狙撃手",
+      "reading": "そげきしゅ",
+      "romaji": "sogekishu",
+      "meanings": {
+        "en": "sniper",
+        "pt-BR": "atirador de elite",
+        "es": "francotirador"
+      },
+      "jlpt_level": "N2",
+      "category": "roles",
+      "context": "Usopp's role — despite his cowardice, his marksmanship is extraordinary and grows to legendary precision."
+    },
+    {
+      "surface": "船医",
+      "reading": "ふないしゃ",
+      "romaji": "funaisha",
+      "meanings": {
+        "en": "ship's doctor",
+        "pt-BR": "médico de bordo",
+        "es": "médico de a bordo"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "Tony Tony Chopper's role — he dreams of becoming a doctor who can cure any disease in the world."
+    },
+    {
+      "surface": "考古学者",
+      "reading": "こうこがくしゃ",
+      "romaji": "kōkogakusha",
+      "meanings": {
+        "en": "archaeologist",
+        "pt-BR": "arqueóloga",
+        "es": "arqueóloga"
+      },
+      "jlpt_level": "N1",
+      "category": "roles",
+      "context": "Robin's role and life purpose — she is the only person alive who can read the Poneglyphs."
+    },
+    {
+      "surface": "造船士",
+      "reading": "ぞうせんし",
+      "romaji": "zōsenshi",
+      "meanings": {
+        "en": "shipwright",
+        "pt-BR": "construtor naval",
+        "es": "carpintero de ribera"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "Franky's role — he built the Thousand Sunny from the Adam Wood using his own bounty money."
+    },
+    {
+      "surface": "音楽家",
+      "reading": "おんがくか",
+      "romaji": "ongakuka",
+      "meanings": {
+        "en": "musician",
+        "pt-BR": "músico",
+        "es": "músico"
+      },
+      "jlpt_level": "N3",
+      "category": "roles",
+      "context": "Brook's role — he plays his violin to bring joy to the crew and to the world."
+    },
+    {
+      "surface": "泥棒",
+      "reading": "どろぼう",
+      "romaji": "dorobō",
+      "meanings": {
+        "en": "thief",
+        "pt-BR": "ladrão",
+        "es": "ladrón"
+      },
+      "jlpt_level": "N3",
+      "category": "roles",
+      "context": "What Nami was before joining the Straw Hats — stealing from pirates to buy back her village from Arlong."
+    },
+    {
+      "surface": "嘘つき",
+      "reading": "うそつき",
+      "romaji": "usotsuki",
+      "meanings": {
+        "en": "liar",
+        "pt-BR": "mentiroso",
+        "es": "mentiroso"
+      },
+      "jlpt_level": "N3",
+      "context": "Usopp's defining trait and the origin of his name (嘘 = lie). His tall tales eventually become legend.",
+      "category": "roles"
+    },
+    {
+      "surface": "絆",
+      "reading": "きずな",
+      "romaji": "kizuna",
+      "meanings": {
+        "en": "bond / connection",
+        "pt-BR": "laço / vínculo",
+        "es": "vínculo / lazo"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The bonds between the Straw Hats — forged through shared suffering, laughter, and sacrifice — are One Piece's true treasure."
+    },
+    {
+      "surface": "友情",
+      "reading": "ゆうじょう",
+      "romaji": "yūjō",
+      "meanings": {
+        "en": "friendship",
+        "pt-BR": "amizade",
+        "es": "amistad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The power that overcomes logic in One Piece — Luffy's 友情 inspires allies and terrifies enemies."
+    },
+    {
+      "surface": "信頼",
+      "reading": "しんらい",
+      "romaji": "shinrai",
+      "meanings": {
+        "en": "trust",
+        "pt-BR": "confiança",
+        "es": "confianza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Luffy's leadership style is pure 信頼 — he trusts his crew completely and they follow him into the impossible."
+    },
+    {
+      "surface": "誓い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "meanings": {
+        "en": "oath / vow / promise",
+        "pt-BR": "juramento / promessa",
+        "es": "juramento / promesa"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Zoro's oath to Kuina, Luffy's promise to Shanks, Nami's vow to her village — promises drive character arcs."
+    },
+    {
+      "surface": "誇り",
+      "reading": "ほこり",
+      "romaji": "hokori",
+      "meanings": {
+        "en": "pride",
+        "pt-BR": "orgulho",
+        "es": "orgullo"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Zoro's 誇り as a swordsman is unshakable — he would rather die than abandon his ambition."
+    },
+    {
+      "surface": "恥",
+      "reading": "はじ",
+      "romaji": "haji",
+      "meanings": {
+        "en": "shame / disgrace",
+        "pt-BR": "vergonha",
+        "es": "vergüenza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Losing without fighting, betraying a nakama, breaking a vow — these are 恥 in One Piece's moral code."
+    },
+    {
+      "surface": "守る",
+      "reading": "まもる",
+      "romaji": "mamoru",
+      "meanings": {
+        "en": "to protect",
+        "pt-BR": "proteger",
+        "es": "proteger"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The core motivation for nearly every Straw Hat — they each have someone or something they will die to 守る."
+    },
+    {
+      "surface": "別れ",
+      "reading": "わかれ",
+      "romaji": "wakare",
+      "meanings": {
+        "en": "parting / farewell",
+        "pt-BR": "despedida / separação",
+        "es": "despedida / separación"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The post-Marineford 別れ at Sabaody — Luffy and his crew are scattered, one of the series' most devastating moments."
+    },
+    {
+      "surface": "再会",
+      "reading": "さいかい",
+      "romaji": "saikai",
+      "meanings": {
+        "en": "reunion / meeting again",
+        "pt-BR": "reencontro",
+        "es": "reencuentro"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The 再会 after the two-year time skip at Sabaody — one of the most celebrated moments in the series."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": {
+        "en": "sacrifice",
+        "pt-BR": "sacrifício",
+        "es": "sacrificio"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Ace's death, Whitebeard's stand at Marineford — One Piece's emotional peaks are built on 犠牲."
+    },
+    {
+      "surface": "笑顔",
+      "reading": "えがお",
+      "romaji": "egao",
+      "meanings": {
+        "en": "smiling face / smile",
+        "pt-BR": "sorriso",
+        "es": "sonrisa"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Luffy's permanent 笑顔 — his cheerfulness in the face of any danger is his most iconic trait."
+    },
+    {
+      "surface": "泣く",
+      "reading": "なく",
+      "romaji": "naku",
+      "meanings": {
+        "en": "to cry / to weep",
+        "pt-BR": "chorar",
+        "es": "llorar"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Luffy never 泣く for himself — but he cries freely for others. Nami's breakdown, Robin's 'I want to live' arc."
+    },
+    {
+      "surface": "空白の百年",
+      "reading": "くうはくのひゃくねん",
+      "romaji": "kūhaku no hyakunen",
+      "meanings": {
+        "en": "Void Century",
+        "pt-BR": "Século Vazio",
+        "es": "Siglo Vacío"
+      },
+      "jlpt_level": null,
+      "category": "lore",
+      "context": "A 100-year period erased from history by the World Government. Robin's life mission is to uncover its secrets."
+    },
+    {
+      "surface": "歴史の本文",
+      "reading": "れきしのほんぶん",
+      "romaji": "rekishi no honbun",
+      "meanings": {
+        "en": "Poneglyph",
+        "pt-BR": "Ponéglifo",
+        "es": "Ponéglifo"
+      },
+      "jlpt_level": null,
+      "category": "lore",
+      "context": "Indestructible stone tablets scattered across the world, written in an ancient language only Robin can read."
+    },
+    {
+      "surface": "歴史",
+      "reading": "れきし",
+      "romaji": "rekishi",
+      "meanings": {
+        "en": "history",
+        "pt-BR": "história",
+        "es": "historia"
+      },
+      "jlpt_level": "N4",
+      "category": "lore",
+      "context": "The World Government controls the world's 歴史 — erasing anything that threatens their power."
+    },
+    {
+      "surface": "古代兵器",
+      "reading": "こだいへいき",
+      "romaji": "kodai heiki",
+      "meanings": {
+        "en": "Ancient Weapons",
+        "pt-BR": "Armas Antigas",
+        "es": "Armas Antiguas"
+      },
+      "jlpt_level": null,
+      "category": "lore",
+      "context": "Pluton, Poseidon, and Uranus — three weapons of mass destruction from the Void Century that the World Government fears most."
+    },
+    {
+      "surface": "伝説",
+      "reading": "でんせつ",
+      "romaji": "densetsu",
+      "meanings": {
+        "en": "legend",
+        "pt-BR": "lenda",
+        "es": "leyenda"
+      },
+      "jlpt_level": "N3",
+      "category": "lore",
+      "context": "The One Piece is called a 伝説 — something most of the world believes is a myth."
+    },
+    {
+      "surface": "肉",
+      "reading": "にく",
+      "romaji": "niku",
+      "meanings": {
+        "en": "meat",
+        "pt-BR": "carne",
+        "es": "carne"
+      },
+      "jlpt_level": "N5",
+      "category": "life",
+      "context": "Luffy's one great love. He will eat any meat at any time — including food that belongs to his enemies."
+    },
+    {
+      "surface": "料理",
+      "reading": "りょうり",
+      "romaji": "ryōri",
+      "meanings": {
+        "en": "cooking / cuisine / dish",
+        "pt-BR": "culinária / prato",
+        "es": "cocina / plato"
+      },
+      "jlpt_level": "N4",
+      "category": "life",
+      "context": "Sanji's art and identity. The all-blue — a mythical sea where all world fish swim together — is his dream cooking ground."
+    },
+    {
+      "surface": "酒",
+      "reading": "さけ",
+      "romaji": "sake",
+      "meanings": {
+        "en": "alcohol / sake / booze",
+        "pt-BR": "álcool / saké",
+        "es": "alcohol / sake"
+      },
+      "jlpt_level": "N3",
+      "category": "life",
+      "context": "A staple of pirate life and post-battle celebrations. Shanks is rarely seen without his sake bottle."
+    },
+    {
+      "surface": "笑う",
+      "reading": "わらう",
+      "romaji": "warau",
+      "meanings": {
+        "en": "to laugh",
+        "pt-BR": "rir",
+        "es": "reír"
+      },
+      "jlpt_level": "N4",
+      "category": "life",
+      "context": "'Those who cannot 笑う cannot be a pirate' — a recurring theme in One Piece's philosophy."
+    },
+    {
+      "surface": "仲間割れ",
+      "reading": "なかまわれ",
+      "romaji": "nakama-ware",
+      "meanings": {
+        "en": "falling out / crew conflict",
+        "pt-BR": "briga interna / conflito na tripulação",
+        "es": "conflicto interno / ruptura"
+      },
+      "jlpt_level": null,
+      "category": "life",
+      "context": "Rare in the Straw Hats, but when it happens (Water 7 arc, Nami leaving East Blue) it devastates both crew and viewer."
+    }
+  ]
+}
