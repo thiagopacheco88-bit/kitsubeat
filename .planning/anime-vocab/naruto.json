@@ -1,0 +1,1672 @@
+{
+  "anime": "naruto",
+  "label": "Naruto",
+  "icon": "naruto-logo.png",
+  "description": "Naruto Uzumaki's journey from outcast ninja to Hokage.",
+  "vocab": [
+    {
+      "surface": "忍者",
+      "reading": "にんじゃ",
+      "romaji": "ninja",
+      "meanings": {
+        "en": "ninja",
+        "pt-BR": "ninja",
+        "es": "ninja"
+      },
+      "jlpt_level": "N3",
+      "category": "ninja",
+      "context": "The identity of every character in Naruto — shinobi who protect their village and complete missions. Naruto dreams of becoming the greatest ninja the world has ever seen."
+    },
+    {
+      "surface": "忍",
+      "reading": "しのび",
+      "romaji": "shinobi",
+      "meanings": {
+        "en": "shinobi / covert ninja",
+        "pt-BR": "shinobi / ninja furtivo",
+        "es": "shinobi / ninja furtivo"
+      },
+      "jlpt_level": "N2",
+      "category": "ninja",
+      "context": "The poetic word for ninja used throughout Naruto's world — a warrior who endures pain and perseveres. Kakashi's famous line 'Those who break the rules are trash, but those who abandon their comrades are worse than trash' defines the true shinobi."
+    },
+    {
+      "surface": "里",
+      "reading": "さと",
+      "romaji": "sato",
+      "meanings": {
+        "en": "village / hometown",
+        "pt-BR": "vila / aldeia",
+        "es": "villa / aldea"
+      },
+      "jlpt_level": "N3",
+      "category": "places",
+      "context": "Each hidden village is a 里 — the political and emotional home of its ninja. Defending the 里 is the ultimate duty of every shinobi."
+    },
+    {
+      "surface": "木ノ葉隠れの里",
+      "reading": "このはがくれのさと",
+      "romaji": "Konohagakure no Sato",
+      "meanings": {
+        "en": "Village Hidden in the Leaves",
+        "pt-BR": "Vila Oculta das Folhas",
+        "es": "Villa Oculta de las Hojas"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Naruto's home village, ruled by the Hokage and founded by the First Hokage. The Will of Fire burns strongest here — protect the village, protect the people."
+    },
+    {
+      "surface": "砂隠れの里",
+      "reading": "すなかくれのさと",
+      "romaji": "Sunagakure no Sato",
+      "meanings": {
+        "en": "Village Hidden in the Sand",
+        "pt-BR": "Vila Oculta da Areia",
+        "es": "Villa Oculta de la Arena"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Gaara's home village in the Land of Wind, led by the Kazekage. Once an enemy of Konoha, it becomes a key ally in the Fourth Shinobi World War."
+    },
+    {
+      "surface": "霧隠れの里",
+      "reading": "きりかくれのさと",
+      "romaji": "Kirigakure no Sato",
+      "meanings": {
+        "en": "Village Hidden in the Mist",
+        "pt-BR": "Vila Oculta da Névoa",
+        "es": "Villa Oculta de la Niebla"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Zabuza and Kisame's home village, once known as the 'Bloody Mist' for its brutal graduation exams where students had to kill each other."
+    },
+    {
+      "surface": "雲隠れの里",
+      "reading": "くもかくれのさと",
+      "romaji": "Kumogakure no Sato",
+      "meanings": {
+        "en": "Village Hidden in the Clouds",
+        "pt-BR": "Vila Oculta nas Nuvens",
+        "es": "Villa Oculta en las Nubes"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Killer B and the Fourth Raikage's village in the Land of Lightning. Home to powerful Lightning Release users and one of the Five Great Shinobi Nations."
+    },
+    {
+      "surface": "岩隠れの里",
+      "reading": "いわかくれのさと",
+      "romaji": "Iwagakure no Sato",
+      "meanings": {
+        "en": "Village Hidden in the Rock",
+        "pt-BR": "Vila Oculta nas Pedras",
+        "es": "Villa Oculta en las Rocas"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Deidara's home village in the Land of Earth, led by the Tsuchikage. Known for Earth Release techniques and the controversial Particle Style."
+    },
+    {
+      "surface": "音隠れの里",
+      "reading": "おとかくれのさと",
+      "romaji": "Otogakure no Sato",
+      "meanings": {
+        "en": "Village Hidden in the Sound",
+        "pt-BR": "Vila Oculta do Som",
+        "es": "Villa Oculta del Sonido"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Orochimaru's hidden village, used as a base for his forbidden experiments. Many Sound ninja were soldiers lured with promises of power and the cursed seal."
+    },
+    {
+      "surface": "火の国",
+      "reading": "ひのくに",
+      "romaji": "Hi no Kuni",
+      "meanings": {
+        "en": "Land of Fire",
+        "pt-BR": "País do Fogo",
+        "es": "País del Fuego"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "The nation that houses Konoha — the largest and most powerful of the Five Great Shinobi Nations. The Will of Fire is named after this land."
+    },
+    {
+      "surface": "上忍",
+      "reading": "じょうにん",
+      "romaji": "jonin",
+      "meanings": {
+        "en": "elite ninja / jonin",
+        "pt-BR": "ninja de elite / jonin",
+        "es": "ninja de élite / jonin"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "The highest regular rank a ninja can achieve — Kakashi, Kurenai, and Asuma are all jonin. They lead genin squads and take on the most dangerous A and S-rank missions."
+    },
+    {
+      "surface": "中忍",
+      "reading": "ちゅうにん",
+      "romaji": "chunin",
+      "meanings": {
+        "en": "mid-level ninja / chunin",
+        "pt-BR": "ninja intermediário / chunin",
+        "es": "ninja intermedio / chunin"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "The rank earned by passing the Chunin Exams — Naruto famously never passed them. Chunin can lead teams and take mid-level missions independently."
+    },
+    {
+      "surface": "下忍",
+      "reading": "げにん",
+      "romaji": "genin",
+      "meanings": {
+        "en": "low-level ninja / genin",
+        "pt-BR": "ninja iniciante / genin",
+        "es": "ninja principiante / genin"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "Where every ninja starts — Naruto, Sasuke, and Sakura are all genin at the start of the series. They form three-person squads under a jonin sensei."
+    },
+    {
+      "surface": "影",
+      "reading": "かげ",
+      "romaji": "kage",
+      "meanings": {
+        "en": "shadow / kage (village leader)",
+        "pt-BR": "sombra / kage (líder da vila)",
+        "es": "sombra / kage (líder del pueblo)"
+      },
+      "jlpt_level": "N4",
+      "category": "ranks",
+      "context": "The title given to the leader of each of the Five Great Shinobi Villages. There are five Kage: Hokage, Kazekage, Mizukage, Raikage, and Tsuchikage."
+    },
+    {
+      "surface": "火影",
+      "reading": "ほかげ",
+      "romaji": "Hokage",
+      "meanings": {
+        "en": "Fire Shadow / Hokage",
+        "pt-BR": "Sombra do Fogo / Hokage",
+        "es": "Sombra de Fuego / Hokage"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "Naruto's lifelong dream — to become the Hokage, the leader of Konoha and the strongest ninja in the village. The faces of all Hokage are carved into the mountain overlooking the village."
+    },
+    {
+      "surface": "風影",
+      "reading": "かぜかげ",
+      "romaji": "Kazekage",
+      "meanings": {
+        "en": "Wind Shadow / Kazekage",
+        "pt-BR": "Sombra do Vento / Kazekage",
+        "es": "Sombra del Viento / Kazekage"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "The leader of the Sand Village — Gaara eventually becomes the Fifth Kazekage, proving that even a feared jinchuriki can earn the trust of his people."
+    },
+    {
+      "surface": "水影",
+      "reading": "みずかげ",
+      "romaji": "Mizukage",
+      "meanings": {
+        "en": "Water Shadow / Mizukage",
+        "pt-BR": "Sombra da Água / Mizukage",
+        "es": "Sombra del Agua / Mizukage"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "The leader of the Mist Village. The Fifth Mizukage, Mei Terumi, joins the Kage Summit and plays a key role in defending against Madara during the war."
+    },
+    {
+      "surface": "雷影",
+      "reading": "らいかげ",
+      "romaji": "Raikage",
+      "meanings": {
+        "en": "Lightning Shadow / Raikage",
+        "pt-BR": "Sombra do Trovão / Raikage",
+        "es": "Sombra del Rayo / Raikage"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "The leader of the Cloud Village. The Fourth Raikage, A, is known for his overwhelming physical strength and Lightning Release armor — fast enough to intercept Minato's Flying Thunder God."
+    },
+    {
+      "surface": "土影",
+      "reading": "つちかげ",
+      "romaji": "Tsuchikage",
+      "meanings": {
+        "en": "Earth Shadow / Tsuchikage",
+        "pt-BR": "Sombra da Terra / Tsuchikage",
+        "es": "Sombra de la Tierra / Tsuchikage"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "The leader of the Rock Village. The Third Tsuchikage, Onoki, is an ancient ninja who fought Madara himself and wields the fearsome Particle Style."
+    },
+    {
+      "surface": "暗部",
+      "reading": "あんぶ",
+      "romaji": "ANBU",
+      "meanings": {
+        "en": "ANBU (black ops)",
+        "pt-BR": "ANBU (operações especiais)",
+        "es": "ANBU (operaciones especiales)"
+      },
+      "jlpt_level": null,
+      "category": "ranks",
+      "context": "The elite black ops unit that operates directly under the Kage — they wear animal masks and carry out assassination and covert missions. Young Kakashi and Itachi both served in ANBU."
+    },
+    {
+      "surface": "班",
+      "reading": "はん",
+      "romaji": "han",
+      "meanings": {
+        "en": "squad / team",
+        "pt-BR": "esquadrão / equipe",
+        "es": "escuadrón / equipo"
+      },
+      "jlpt_level": "N3",
+      "category": "ninja",
+      "context": "Genin are organized into 班 of three under a jonin sensei. Team 7 (班7) — Naruto, Sasuke, Sakura, and Kakashi — is the central squad of the series."
+    },
+    {
+      "surface": "任務",
+      "reading": "にんむ",
+      "romaji": "ninmu",
+      "meanings": {
+        "en": "mission / duty",
+        "pt-BR": "missão / dever",
+        "es": "misión / deber"
+      },
+      "jlpt_level": "N3",
+      "category": "ninja",
+      "context": "Ninja take on ranked missions (D through S class) as their primary work. Naruto's first real mission — escorting Tazuna to the Land of Waves — quickly escalates into an S-rank life-or-death battle."
+    },
+    {
+      "surface": "チャクラ",
+      "reading": "チャクラ",
+      "romaji": "chakura",
+      "meanings": {
+        "en": "chakra",
+        "pt-BR": "chakra",
+        "es": "chakra"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The fundamental energy that powers all jutsu in the Naruto world — a blend of physical energy and spiritual energy. Naruto's massive chakra reserves (boosted by the Nine-Tails) are his greatest advantage."
+    },
+    {
+      "surface": "忍術",
+      "reading": "にんじゅつ",
+      "romaji": "ninjutsu",
+      "meanings": {
+        "en": "ninjutsu / ninja technique",
+        "pt-BR": "ninjutsu / técnica ninja",
+        "es": "ninjutsu / técnica ninja"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Techniques that manipulate chakra externally — the most common form of combat in Naruto. Everything from Fireballs to Shadow Clones to Rasengan falls under ninjutsu."
+    },
+    {
+      "surface": "幻術",
+      "reading": "げんじゅつ",
+      "romaji": "genjutsu",
+      "meanings": {
+        "en": "genjutsu / illusion technique",
+        "pt-BR": "genjutsu / técnica de ilusão",
+        "es": "genjutsu / técnica de ilusión"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Techniques that trap the enemy in illusions by disrupting their chakra flow. Itachi is the undisputed master of genjutsu — his Tsukuyomi can simulate years of torture in seconds."
+    },
+    {
+      "surface": "体術",
+      "reading": "たいじゅつ",
+      "romaji": "taijutsu",
+      "meanings": {
+        "en": "taijutsu / physical technique",
+        "pt-BR": "taijutsu / técnica física",
+        "es": "taijutsu / técnica física"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Close-combat fighting using pure physical skill and chakra-enhanced movement. Rock Lee trains only in taijutsu after being born without the ability to mold chakra — and still nearly defeats Gaara."
+    },
+    {
+      "surface": "印",
+      "reading": "いん",
+      "romaji": "in",
+      "meanings": {
+        "en": "hand seal",
+        "pt-BR": "selo de mão",
+        "es": "sello de mano"
+      },
+      "jlpt_level": "N2",
+      "category": "power",
+      "context": "The hand signs ninja weave together to shape and direct chakra into specific jutsu. Sasuke can form seals faster than the eye can see, while Lee's inability to form seals is what makes him train taijutsu exclusively."
+    },
+    {
+      "surface": "術",
+      "reading": "じゅつ",
+      "romaji": "jutsu",
+      "meanings": {
+        "en": "technique / art / jutsu",
+        "pt-BR": "técnica / arte / jutsu",
+        "es": "técnica / arte / jutsu"
+      },
+      "jlpt_level": "N2",
+      "category": "power",
+      "context": "The suffix and standalone word for all ninja techniques in Naruto. Every jutsu has a name — the dramatic naming of techniques mid-battle is one of Naruto's most iconic storytelling devices."
+    },
+    {
+      "surface": "変化の術",
+      "reading": "へんげのじゅつ",
+      "romaji": "Henge no Jutsu",
+      "meanings": {
+        "en": "Transformation Technique",
+        "pt-BR": "Técnica de Transformação",
+        "es": "Técnica de Transformación"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The most basic ninjutsu — transforming one's appearance into any person or object. Naruto's iconic 'Sexy Jutsu' variant became his signature move for shocking Hokage candidates."
+    },
+    {
+      "surface": "分身の術",
+      "reading": "ぶんしんのじゅつ",
+      "romaji": "Bunshin no Jutsu",
+      "meanings": {
+        "en": "Clone Technique",
+        "pt-BR": "Técnica de Clone",
+        "es": "Técnica de Clone"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The basic clone technique that Naruto famously failed at the Academy — his clones were always pale and limp. This failure led him to learn the forbidden Shadow Clone Jutsu instead."
+    },
+    {
+      "surface": "影分身の術",
+      "reading": "かげぶんしんのじゅつ",
+      "romaji": "Kage Bunshin no Jutsu",
+      "meanings": {
+        "en": "Shadow Clone Technique",
+        "pt-BR": "Técnica de Clone das Sombras",
+        "es": "Técnica del Clone de las Sombras"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Naruto's signature jutsu — creating solid physical clones that share memories when dispelled. It's a forbidden jutsu for good reason: using hundreds of clones consumes enormous chakra, but Naruto's reserves make it his greatest weapon."
+    },
+    {
+      "surface": "螺旋丸",
+      "reading": "らせんがん",
+      "romaji": "Rasengan",
+      "meanings": {
+        "en": "Rasengan / Spiraling Sphere",
+        "pt-BR": "Rasengan / Esfera Espiral",
+        "es": "Rasengan / Esfera Espiral"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The iconic technique invented by Minato Namikaze and mastered by Naruto — a spinning ball of compressed chakra that destroys everything it contacts. Naruto later infuses his nature chakra to create the Wind Release: Rasenshuriken."
+    },
+    {
+      "surface": "千鳥",
+      "reading": "ちどり",
+      "romaji": "Chidori",
+      "meanings": {
+        "en": "Chidori / One Thousand Birds",
+        "pt-BR": "Chidori / Mil Pássaros",
+        "es": "Chidori / Mil Pájaros"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Kakashi's original technique — a hand thrust of concentrated lightning chakra that makes a sound like a thousand birds chirping. Sasuke later masters it and it becomes his signature move."
+    },
+    {
+      "surface": "仙術",
+      "reading": "せんじゅつ",
+      "romaji": "senjutsu",
+      "meanings": {
+        "en": "sage art / senjutsu",
+        "pt-BR": "arte sábia / senjutsu",
+        "es": "arte de sabio / senjutsu"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The advanced art of gathering natural energy to combine with chakra — only those with exceptional sensitivity can master it. Naruto learns Sage Mode at Mount Myoboku, dramatically increasing his power."
+    },
+    {
+      "surface": "仙人モード",
+      "reading": "せんにんもーど",
+      "romaji": "Sennin Modo",
+      "meanings": {
+        "en": "Sage Mode",
+        "pt-BR": "Modo Sábio",
+        "es": "Modo Sabio"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The state achieved when a ninja perfectly balances natural energy with their own chakra — Naruto's Frog Sage Mode grants him orange toad eyes and enormous power boosts to all abilities."
+    },
+    {
+      "surface": "尾獣",
+      "reading": "びじゅう",
+      "romaji": "bijuu",
+      "meanings": {
+        "en": "tailed beast",
+        "pt-BR": "besta de rabo",
+        "es": "bestia de cola"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The nine colossal chakra beasts that embody natural energy — from Shukaku the One-Tail to Kurama the Nine-Tails. The Akatsuki hunt them to power the Gedo Statue and achieve world domination."
+    },
+    {
+      "surface": "九尾",
+      "reading": "きゅうび",
+      "romaji": "Kyubi",
+      "meanings": {
+        "en": "Nine-Tails",
+        "pt-BR": "Nove Caudas",
+        "es": "Nueve Colas"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Kurama — the most powerful of all nine tailed beasts, sealed inside Naruto since birth. Once Naruto earns Kurama's trust, their combined power becomes virtually unstoppable."
+    },
+    {
+      "surface": "人柱力",
+      "reading": "じんちゅうりき",
+      "romaji": "jinchuriki",
+      "meanings": {
+        "en": "jinchuriki / tailed beast host",
+        "pt-BR": "jinchuriki / hospedeiro da besta",
+        "es": "jinchuriki / anfitrión de la bestia"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "A ninja who has a tailed beast sealed inside them — Naruto holds the Nine-Tails, Gaara holds Shukaku, Killer B holds the Eight-Tails. They are both weapons and outcasts in their villages."
+    },
+    {
+      "surface": "写輪眼",
+      "reading": "しゃりんがん",
+      "romaji": "Sharingan",
+      "meanings": {
+        "en": "Sharingan / Copy Wheel Eye",
+        "pt-BR": "Sharingan / Olho da Roda Copiadora",
+        "es": "Sharingan / Ojo de la Rueda Copiadora"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The dojutsu kekkei genkai of the Uchiha clan — red eyes with black tomoe that can copy techniques, see through genjutsu, and predict movement. Kakashi copied it from Obito and became known as the Copy Ninja."
+    },
+    {
+      "surface": "万華鏡写輪眼",
+      "reading": "まんげきょうしゃりんがん",
+      "romaji": "Mangekyou Sharingan",
+      "meanings": {
+        "en": "Mangekyou Sharingan / Kaleidoscope Sharingan",
+        "pt-BR": "Mangekyou Sharingan",
+        "es": "Mangekyou Sharingan"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The evolved form of the Sharingan awakened through the trauma of losing someone dear — Itachi and Sasuke both unlock theirs through the massacre of the Uchiha clan. It grants godlike techniques like Tsukuyomi and Amaterasu."
+    },
+    {
+      "surface": "輪廻眼",
+      "reading": "りんねがん",
+      "romaji": "Rinnegan",
+      "meanings": {
+        "en": "Rinnegan / Samsara Eye",
+        "pt-BR": "Rinnegan / Olho da Reencarnação",
+        "es": "Rinnegan / Ojo de la Reencarnación"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The most powerful of the three great dojutsu — said to be the eye of a god. Pain/Nagato wields it to control the Six Paths of Pain, summon the King of Hell, and even revive the dead."
+    },
+    {
+      "surface": "白眼",
+      "reading": "びゃくがん",
+      "romaji": "Byakugan",
+      "meanings": {
+        "en": "Byakugan / White Eye",
+        "pt-BR": "Byakugan / Olho Branco",
+        "es": "Byakugan / Ojo Blanco"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The dojutsu of the Hyuga clan — near-360-degree vision that can see chakra points and see through walls. Neji and Hinata use it in combination with the Gentle Fist style to strike the enemy's chakra network directly."
+    },
+    {
+      "surface": "木遁",
+      "reading": "もくとん",
+      "romaji": "Mokuton",
+      "meanings": {
+        "en": "Wood Release",
+        "pt-BR": "Liberação de Madeira",
+        "es": "Liberación de Madera"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Hashirama Senju's unique kekkei genkai — combining Earth and Water Release to create and control living wood. The most feared power of the First Hokage, capable of restraining even the Nine-Tails."
+    },
+    {
+      "surface": "雷遁",
+      "reading": "らいとん",
+      "romaji": "Raiton",
+      "meanings": {
+        "en": "Lightning Release",
+        "pt-BR": "Liberação de Raio",
+        "es": "Liberación de Rayo"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Sasuke and Kakashi's primary nature affinity — manipulating lightning chakra for devastating speed and piercing power. The Chidori and Lightning Style Armor are its most iconic applications."
+    },
+    {
+      "surface": "火遁",
+      "reading": "かとん",
+      "romaji": "Katon",
+      "meanings": {
+        "en": "Fire Release",
+        "pt-BR": "Liberação de Fogo",
+        "es": "Liberación de Fogo"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The nature affinity of the Uchiha clan — fire jutsu that require significant chakra and dramatic hand seals. Sasuke's Great Fireball Technique is the Uchiha coming-of-age rite of passage."
+    },
+    {
+      "surface": "風遁",
+      "reading": "ふうとん",
+      "romaji": "Fuuton",
+      "meanings": {
+        "en": "Wind Release",
+        "pt-BR": "Liberação de Vento",
+        "es": "Liberación de Viento"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Naruto's chakra nature — wind chakra is sharp and cutting. Asuma Sarutobi infuses wind chakra into his trench knives, while Naruto combines it with the Rasengan to create the devastating Rasenshuriken."
+    },
+    {
+      "surface": "水遁",
+      "reading": "すいとん",
+      "romaji": "Suiton",
+      "meanings": {
+        "en": "Water Release",
+        "pt-BR": "Liberação de Água",
+        "es": "Liberación de Agua"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Zabuza's specialty — manipulating water chakra to create waves, prisons, and razor-sharp projectiles. Kakashi mastered it despite not having a natural affinity, earning his reputation as a copycat genius."
+    },
+    {
+      "surface": "土遁",
+      "reading": "どとん",
+      "romaji": "Doton",
+      "meanings": {
+        "en": "Earth Release",
+        "pt-BR": "Liberação de Terra",
+        "es": "Liberación de Tierra"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Earth Release users can move through the ground, raise walls of rock, and harden their bodies like stone. Rock Village and Sand Village ninja heavily favor Doton techniques."
+    },
+    {
+      "surface": "穢土転生",
+      "reading": "えどてんせい",
+      "romaji": "Edo Tensei",
+      "meanings": {
+        "en": "Impure World Reincarnation",
+        "pt-BR": "Reencarnação do Mundo Impuro",
+        "es": "Reencarnación del Mundo Impuro"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Orochimaru's most feared forbidden jutsu — resurrecting the dead in immortal, regenerating bodies of ash and dust. Kabuto later uses it to summon an army of legendary dead ninja during the Fourth Shinobi World War."
+    },
+    {
+      "surface": "血継限界",
+      "reading": "けっけいげんかい",
+      "romaji": "kekkei genkai",
+      "meanings": {
+        "en": "kekkei genkai / bloodline limit",
+        "pt-BR": "kekkei genkai / limite do sangue",
+        "es": "kekkei genkai / límite de linaje"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Abilities that can only be inherited through bloodline — Sharingan, Byakugan, and Wood Release are all kekkei genkai. Orochimaru's obsession with these powers drove him to conduct horrific experiments."
+    },
+    {
+      "surface": "暁",
+      "reading": "あかつき",
+      "romaji": "Akatsuki",
+      "meanings": {
+        "en": "Akatsuki / Dawn",
+        "pt-BR": "Akatsuki / Amanhecer",
+        "es": "Akatsuki / Amanecer"
+      },
+      "jlpt_level": "N2",
+      "category": "factions",
+      "context": "The iconic criminal organization of S-rank rogue ninja wearing black cloaks with red clouds. They hunt the tailed beasts with the ultimate goal of achieving world domination — Pain, Itachi, and Kisame are among their legendary members."
+    },
+    {
+      "surface": "木ノ葉",
+      "reading": "このは",
+      "romaji": "Konoha",
+      "meanings": {
+        "en": "Konoha / Leaf",
+        "pt-BR": "Konoha / Folha",
+        "es": "Konoha / Hoja"
+      },
+      "jlpt_level": null,
+      "category": "factions",
+      "context": "The shorthand name for the Hidden Leaf Village — the symbol on Naruto's forehead protector. Konoha represents the Will of Fire and is the central protector of peace in the shinobi world."
+    },
+    {
+      "surface": "うちは一族",
+      "reading": "うちはいちぞく",
+      "romaji": "Uchiha Ichizoku",
+      "meanings": {
+        "en": "Uchiha clan",
+        "pt-BR": "Clã Uchiha",
+        "es": "Clan Uchiha"
+      },
+      "jlpt_level": null,
+      "category": "factions",
+      "context": "The most powerful clan in Konoha's history — bearers of the Sharingan and founders of the military police force. The entire clan was massacred by Itachi in a single night, leaving only Sasuke as the last survivor."
+    },
+    {
+      "surface": "千手族",
+      "reading": "せんじゅぞく",
+      "romaji": "Senju-zoku",
+      "meanings": {
+        "en": "Senju clan",
+        "pt-BR": "Clã Senju",
+        "es": "Clan Senju"
+      },
+      "jlpt_level": null,
+      "category": "factions",
+      "context": "The rival clan of the Uchiha and co-founders of Konoha — led by Hashirama and Tobirama Senju, the First and Second Hokage. Their rivalry with the Uchiha shaped the entire history of the shinobi world."
+    },
+    {
+      "surface": "忍刀七人衆",
+      "reading": "しのびがたなしちにんしゅう",
+      "romaji": "Shinobigata Shichinin-shu",
+      "meanings": {
+        "en": "Seven Swordsmen of the Mist",
+        "pt-BR": "Sete Espadachins da Névoa",
+        "es": "Siete Espadachines de la Niebla"
+      },
+      "jlpt_level": null,
+      "category": "factions",
+      "context": "The legendary elite group of seven Mist ninja each wielding one of seven extraordinary swords. Zabuza and Kisame were both members — they represent the terrifying legacy of the Bloody Mist era."
+    },
+    {
+      "surface": "うずまき一族",
+      "reading": "うずまきいちぞく",
+      "romaji": "Uzumaki Ichizoku",
+      "meanings": {
+        "en": "Uzumaki clan",
+        "pt-BR": "Clã Uzumaki",
+        "es": "Clan Uzumaki"
+      },
+      "jlpt_level": null,
+      "category": "factions",
+      "context": "Naruto's clan — descendants of the legendary Uzushiogakure, masters of sealing jutsu with extraordinary life force and chakra reserves. Their clan symbol is a spiral, which appears on Konoha's jonin vests."
+    },
+    {
+      "surface": "呪印",
+      "reading": "じゅいん",
+      "romaji": "juin",
+      "meanings": {
+        "en": "cursed seal",
+        "pt-BR": "selo amaldiçoado",
+        "es": "sello maldito"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Orochimaru's seal placed on chosen ninja — it grants massive power at the cost of corrupting the user's mind and body. Sasuke's cursed seal at his neck becomes a constant temptation throughout the original series."
+    },
+    {
+      "surface": "忍刀",
+      "reading": "にんとう",
+      "romaji": "nintou",
+      "meanings": {
+        "en": "ninja sword",
+        "pt-BR": "espada ninja",
+        "es": "espada ninja"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Swords wielded by ninja in combat — the Seven Swordsmen of the Mist are legendary for their seven unique and terrifying blades. Zabuza's Executioner's Blade is the most iconic of these."
+    },
+    {
+      "surface": "クナイ",
+      "reading": "くない",
+      "romaji": "kunai",
+      "meanings": {
+        "en": "kunai (ninja throwing knife)",
+        "pt-BR": "kunai (faca arremessável ninja)",
+        "es": "kunai (cuchillo arrojadizo ninja)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The basic tool and weapon of every ninja — used for throwing, melee, and as anchors for the Flying Thunder God Jutsu. Minato attached kunai with special seals to teleport instantly anywhere one was thrown."
+    },
+    {
+      "surface": "手裏剣",
+      "reading": "しゅりけん",
+      "romaji": "shuriken",
+      "meanings": {
+        "en": "shuriken / throwing star",
+        "pt-BR": "shuriken / estrela arremessável",
+        "es": "shuriken / estrella arrojadiza"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The iconic four-pointed throwing weapon of ninja. Naruto's giant shuriken technique — combining a shadow clone and a massive shuriken — is one of his first impressive moves in the Land of Waves arc."
+    },
+    {
+      "surface": "爆符",
+      "reading": "ばくふ",
+      "romaji": "bakufu",
+      "meanings": {
+        "en": "explosive tag",
+        "pt-BR": "etiqueta explosiva",
+        "es": "etiqueta explosiva"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Paper tags inscribed with chakra seals that detonate on command — wrapped around kunai, placed on traps, or used to create massive explosions. Deidara takes explosive art to its extreme with his clay-based bombs."
+    },
+    {
+      "surface": "罠",
+      "reading": "わな",
+      "romaji": "wana",
+      "meanings": {
+        "en": "trap",
+        "pt-BR": "armadilha",
+        "es": "trampa"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Setting traps is a key part of ninja strategy — Shikamaru Nara is especially skilled at luring enemies into elaborate trap networks using his shadow techniques."
+    },
+    {
+      "surface": "戦場",
+      "reading": "せんじょう",
+      "romaji": "senjou",
+      "meanings": {
+        "en": "battlefield",
+        "pt-BR": "campo de batalha",
+        "es": "campo de batalla"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The Fourth Shinobi World War turns the entire continent into a 戦場 — allied ninja fighting against the resurrected army of Kabuto and Obito's masked crusade for the Infinite Tsukuyomi."
+    },
+    {
+      "surface": "修業",
+      "reading": "しゅぎょう",
+      "romaji": "shugyo",
+      "meanings": {
+        "en": "training / ascetic practice",
+        "pt-BR": "treinamento / prática ascética",
+        "es": "entrenamiento / práctica ascética"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The intense training arc is a staple of Naruto — Naruto trains with Jiraiya for two and a half years, Sasuke trains under Orochimaru, and Rock Lee runs laps in leg weights heavier than a ton."
+    },
+    {
+      "surface": "特訓",
+      "reading": "とっくん",
+      "romaji": "tokkun",
+      "meanings": {
+        "en": "intensive training / special training",
+        "pt-BR": "treinamento intensivo / treinamento especial",
+        "es": "entrenamiento intensivo / entrenamiento especial"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The word for brutal, focused training sessions — Naruto's 特訓 to master the Rasengan with Jiraiya pushed him to his absolute limit, nearly failing multiple times before a breakthrough."
+    },
+    {
+      "surface": "意志の力",
+      "reading": "いしのちから",
+      "romaji": "ishi no chikara",
+      "meanings": {
+        "en": "Will of Fire",
+        "pt-BR": "Vontade do Fogo",
+        "es": "Voluntad de Fuego"
+      },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "The core belief of Konoha — that love for the village and its people is the greatest power. Passed from the First Hokage through every generation, it's what Naruto ultimately embodies more than any jutsu."
+    },
+    {
+      "surface": "絆",
+      "reading": "きずな",
+      "romaji": "kizuna",
+      "meanings": {
+        "en": "bonds / connection",
+        "pt-BR": "laços / conexão",
+        "es": "lazos / conexión"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The emotional core of Naruto — the bonds between people give ninja their strength. Naruto refuses to give up on Sasuke because their 絆 is more precious to him than anything, even his own life."
+    },
+    {
+      "surface": "夢",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "meanings": {
+        "en": "dream",
+        "pt-BR": "sonho",
+        "es": "sueño"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Naruto's declaration 'I'm going to become Hokage!' is the driving 夢 of the entire series — a dream mocked by everyone who underestimated him, and eventually realized through sheer perseverance."
+    },
+    {
+      "surface": "信念",
+      "reading": "しんねん",
+      "romaji": "shinnen",
+      "meanings": {
+        "en": "belief / conviction",
+        "pt-BR": "crença / convicção",
+        "es": "creencia / convicción"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Ninja's 信念 — their unbreakable belief in their own way — is tested throughout the series. Naruto's conviction that he can save Sasuke and achieve peace never wavers even in the darkest moments."
+    },
+    {
+      "surface": "師弟",
+      "reading": "してい",
+      "romaji": "shitei",
+      "meanings": {
+        "en": "master and student / teacher-disciple",
+        "pt-BR": "mestre e discípulo",
+        "es": "maestro y discípulo"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The 師弟 relationship is sacred in Naruto — Jiraiya and Naruto, Kakashi and Team 7, Orochimaru and Sasuke. The teacher's beliefs and failures are passed through the student across generations."
+    },
+    {
+      "surface": "復讐",
+      "reading": "ふくしゅう",
+      "romaji": "fukushu",
+      "meanings": {
+        "en": "revenge / vengeance",
+        "pt-BR": "vingança",
+        "es": "venganza"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Sasuke's defining motivation for most of the series — to kill Itachi and avenge the Uchiha clan. His path of 復讐 leads him away from his friends and into darkness."
+    },
+    {
+      "surface": "認められたい",
+      "reading": "みとめられたい",
+      "romaji": "mitomeraretai",
+      "meanings": {
+        "en": "to be acknowledged / to be recognized",
+        "pt-BR": "ser reconhecido / ser aceito",
+        "es": "ser reconocido / ser aceptado"
+      },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "Naruto's deepest desire throughout the series — to be seen, accepted, and acknowledged by his village after years of being shunned as the Nine-Tails container. This longing connects him emotionally to Gaara and Nagato."
+    },
+    {
+      "surface": "守護",
+      "reading": "しゅご",
+      "romaji": "shugo",
+      "meanings": {
+        "en": "protection / guardianship",
+        "pt-BR": "proteção / tutela",
+        "es": "protección / tutela"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Every great ninja fights to protect something — Naruto protects his friends, Minato protected the village, Gaara protects the Sand. '守護' is the quiet reason behind every sacrifice in the series."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": {
+        "en": "sacrifice",
+        "pt-BR": "sacrifício",
+        "es": "sacrificio"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Naruto is built on sacrifice — the Fourth Hokage sacrificed himself to seal the Nine-Tails, the Third sacrificed himself fighting Orochimaru, Itachi sacrificed his reputation to protect Konoha."
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": {
+        "en": "loneliness / solitude",
+        "pt-BR": "solidão",
+        "es": "soledad"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The pain of loneliness is central to many characters — Naruto was ostracized by the village, Gaara was feared and isolated, Nagato lost everyone he loved. Understanding others' loneliness is Naruto's greatest power."
+    },
+    {
+      "surface": "友情",
+      "reading": "ゆうじょう",
+      "romaji": "yuujou",
+      "meanings": {
+        "en": "friendship",
+        "pt-BR": "amizade",
+        "es": "amistad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The bond between Naruto and Sasuke is the most powerful 友情 in anime — a rivalry forged into unbreakable friendship that drives 700 chapters of story and is ultimately what saves the world."
+    },
+    {
+      "surface": "誓い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "meanings": {
+        "en": "oath / vow / pledge",
+        "pt-BR": "juramento / promessa",
+        "es": "juramento / promesa"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Ninja make solemn promises called 誓い — Naruto swears to bring Sasuke back, Kakashi vows to protect his team, and Obito's final promise to Rin shapes the entire plot of Shippuden."
+    },
+    {
+      "surface": "平和",
+      "reading": "へいわ",
+      "romaji": "heiwa",
+      "meanings": {
+        "en": "peace",
+        "pt-BR": "paz",
+        "es": "paz"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The ultimate goal that every Hokage strives for — Jiraiya died seeking it, Nagato pursued it through fear, and Naruto ultimately achieves it by breaking the cycle of hatred."
+    },
+    {
+      "surface": "憎しみ",
+      "reading": "にくしみ",
+      "romaji": "nikushimi",
+      "meanings": {
+        "en": "hatred",
+        "pt-BR": "ódio",
+        "es": "odio"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Madara Uchiha's core philosophy — that hatred is inevitable in the ninja world and only the Infinite Tsukuyomi can end it. Breaking the cycle of 憎しみ is Naruto's greatest achievement."
+    },
+    {
+      "surface": "医療忍者",
+      "reading": "いりょうにんじゃ",
+      "romaji": "iryou ninja",
+      "meanings": {
+        "en": "medical ninja",
+        "pt-BR": "ninja médico",
+        "es": "ninja médico"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "Specialized ninja trained in healing jutsu — Tsunade is the greatest medical ninja in history. Sakura trains under Tsunade to become a powerful medical nin, using chakra to repair injuries in the heat of battle."
+    },
+    {
+      "surface": "情報収集",
+      "reading": "じょうほうしゅうしゅう",
+      "romaji": "jouhou shuushuu",
+      "meanings": {
+        "en": "intelligence gathering",
+        "pt-BR": "coleta de inteligência",
+        "es": "recopilación de inteligencia"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "A critical ninja function — the Leaf's Intelligence Division and ANBU constantly gather information on enemy movements. Jiraiya's intelligence network was one of the most valuable assets in the ninja world."
+    },
+    {
+      "surface": "暗殺者",
+      "reading": "あんさつしゃ",
+      "romaji": "ansatsusha",
+      "meanings": {
+        "en": "assassin",
+        "pt-BR": "assassino",
+        "es": "asesino"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "S-rank assassins are among the most feared ninja — ANBU operatives, Akatsuki members, and specialized killers like Zabuza who earned the title 'Demon of the Mist' for his work as a hired 暗殺者."
+    },
+    {
+      "surface": "護衛",
+      "reading": "ごえい",
+      "romaji": "goei",
+      "meanings": {
+        "en": "bodyguard / escort",
+        "pt-BR": "guarda-costas / escolta",
+        "es": "guardaespaldas / escolta"
+      },
+      "jlpt_level": "N2",
+      "category": "roles",
+      "context": "Team 7's very first real mission — escorting the bridge builder Tazuna — is technically an escort/bodyguard mission. 護衛 missions that escalate from C-rank to A-rank are a common narrative device in the series."
+    },
+    {
+      "surface": "里長",
+      "reading": "さとのおさ",
+      "romaji": "sato no osa",
+      "meanings": {
+        "en": "village leader / chief",
+        "pt-BR": "líder da aldeia / chefe",
+        "es": "jefe de la aldea / líder"
+      },
+      "jlpt_level": null,
+      "category": "roles",
+      "context": "The governing authority of any ninja village — the Kage are the highest form of 里長. Even small villages in the Land of Fire fall under Konoha's protection network."
+    },
+    {
+      "surface": "忍里",
+      "reading": "しのびざと",
+      "romaji": "shinobizato",
+      "meanings": {
+        "en": "ninja village / hidden village",
+        "pt-BR": "aldeia ninja / aldeia oculta",
+        "es": "aldeia ninja / pueblo oculto"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The hidden villages that ninja call home — founded during the Warring States period when the Senju and Uchiha agreed to form Konoha. Each 忍里 is associated with a nation and a Kage."
+    },
+    {
+      "surface": "森",
+      "reading": "もり",
+      "romaji": "mori",
+      "meanings": {
+        "en": "forest",
+        "pt-BR": "floresta",
+        "es": "bosque"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The Forest of Death is the second stage of the Chunin Exams — a massive, dangerous forest filled with giant creatures where teams fight each other for scrolls. It becomes Orochimaru's hunting ground."
+    },
+    {
+      "surface": "山",
+      "reading": "やま",
+      "romaji": "yama",
+      "meanings": {
+        "en": "mountain",
+        "pt-BR": "montanha",
+        "es": "montaña"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The stone faces of every Hokage are carved into the mountain behind Konoha — a monument to the village's greatest leaders. Naruto famously vandalized these faces with graffiti as a kid."
+    },
+    {
+      "surface": "忍界大戦",
+      "reading": "にんかいたいせん",
+      "romaji": "Ninkai Taisen",
+      "meanings": {
+        "en": "Shinobi World War",
+        "pt-BR": "Grande Guerra Ninja",
+        "es": "Gran Guerra Ninja"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The great wars that shaped the ninja world — three previous Shinobi World Wars precede the Fourth, in which all five villages unite against Madara and Obito's army of resurrected ninja."
+    },
+    {
+      "surface": "封印",
+      "reading": "ふういん",
+      "romaji": "fuuin",
+      "meanings": {
+        "en": "seal / sealing",
+        "pt-BR": "selo / selagem",
+        "es": "sello / sellado"
+      },
+      "jlpt_level": "N2",
+      "category": "power",
+      "context": "The art of sealing — used to contain tailed beasts inside jinchuriki, store items in scrolls, and lock away dangerous things. The Uzumaki clan was renowned as masters of sealing jutsu."
+    },
+    {
+      "surface": "口寄せ",
+      "reading": "くちよせ",
+      "romaji": "kuchiyose",
+      "meanings": {
+        "en": "summoning jutsu",
+        "pt-BR": "invocação / jutsu de invocação",
+        "es": "jutsu de invocación"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The technique for summoning giant animals by signing a blood contract and slamming your hands on the ground. Naruto summons toads, Sasuke summons snakes, Jiraiya summons the legendary toad Gamabunta."
+    },
+    {
+      "surface": "禁術",
+      "reading": "きんじゅつ",
+      "romaji": "kinjutsu",
+      "meanings": {
+        "en": "forbidden jutsu",
+        "pt-BR": "jutsu proibido",
+        "es": "jutsu prohibido"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Techniques banned because of their danger or ethical violations — Shadow Clone Jutsu is listed as forbidden due to the chakra cost, and Edo Tensei is forbidden for using human sacrifice as a vessel."
+    },
+    {
+      "surface": "天照",
+      "reading": "あまてらす",
+      "romaji": "Amaterasu",
+      "meanings": {
+        "en": "Amaterasu / Black Flames",
+        "pt-BR": "Amaterasu / Chamas Negras",
+        "es": "Amaterasu / Llamas Negras"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Itachi's Mangekyou Sharingan technique — inextinguishable black flames that burn for seven days and seven nights. Wherever Itachi's gaze falls, the flames ignite — one of the most terrifying ninjutsu in the series."
+    },
+    {
+      "surface": "月読",
+      "reading": "つくよみ",
+      "romaji": "Tsukuyomi",
+      "meanings": {
+        "en": "Tsukuyomi / Moon Reader",
+        "pt-BR": "Tsukuyomi",
+        "es": "Tsukuyomi"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Itachi's ultimate genjutsu — trapping the victim in an illusory world where he controls time and space, capable of simulating 72 hours of torture in an instant. Kakashi was hospitalized for weeks after experiencing a fraction of it."
+    },
+    {
+      "surface": "無限月読",
+      "reading": "むげんつきよみ",
+      "romaji": "Mugen Tsukuyomi",
+      "meanings": {
+        "en": "Infinite Tsukuyomi",
+        "pt-BR": "Tsukuyomi Infinito",
+        "es": "Tsukuyomi Infinito"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Madara's ultimate plan — a planetary-scale genjutsu cast by reflecting the Rinne Sharingan off the moon, trapping all humanity in an eternal dream world. The final-arc threat that Naruto and Sasuke must prevent."
+    },
+    {
+      "surface": "神威",
+      "reading": "かむい",
+      "romaji": "Kamui",
+      "meanings": {
+        "en": "Kamui / divine authority",
+        "pt-BR": "Kamui / autoridade divina",
+        "es": "Kamui / autoridad divina"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Obito and Kakashi's Mangekyou Sharingan ability — warping space to teleport objects or the user to another dimension. Kakashi uses the swirling vortex form to send targets to another dimension; Obito can phase through attacks."
+    },
+    {
+      "surface": "仙人",
+      "reading": "せんにん",
+      "romaji": "sennin",
+      "meanings": {
+        "en": "sage / hermit sage",
+        "pt-BR": "sábio / eremita sábio",
+        "es": "sabio / ermitaño sabio"
+      },
+      "jlpt_level": "N2",
+      "category": "ninja",
+      "context": "Those who master natural energy become 仙人 — Jiraiya was known as the Toad Sage, and Naruto trains at Mount Myoboku under the Great Toad Sage's guidance to achieve his own Sage Mode."
+    },
+    {
+      "surface": "伝説の三忍",
+      "reading": "でんせつのさんにん",
+      "romaji": "Densetsu no Sannin",
+      "meanings": {
+        "en": "Legendary Sannin",
+        "pt-BR": "Os Três Sannin Lendários",
+        "es": "Los Tres Sannin Legendarios"
+      },
+      "jlpt_level": null,
+      "category": "ninja",
+      "context": "Jiraiya, Tsunade, and Orochimaru — the three legendary students of the Third Hokage who became the most famous ninja of their generation. Each later becomes a sensei to the next generation's most powerful ninja."
+    },
+    {
+      "surface": "里抜け",
+      "reading": "さとぬけ",
+      "romaji": "satonuke",
+      "meanings": {
+        "en": "defection from the village / going rogue",
+        "pt-BR": "deserção da aldeia / tornar-se renegado",
+        "es": "deserción del pueblo / convertirse en renegado"
+      },
+      "jlpt_level": null,
+      "category": "ninja",
+      "context": "When a ninja abandons their village they become a 里抜け — or 'missing-nin'. Sasuke's defection from Konoha to join Orochimaru is the emotional heart of the first series, shattering Team 7."
+    },
+    {
+      "surface": "抜け忍",
+      "reading": "ぬけにん",
+      "romaji": "nukenin",
+      "meanings": {
+        "en": "missing-nin / rogue ninja",
+        "pt-BR": "ninja renegado / ninja fugitivo",
+        "es": "ninja renegado / ninja fugitivo"
+      },
+      "jlpt_level": null,
+      "category": "ninja",
+      "context": "A ninja who has defected from their village — hunted by their former comrades and listed in Bingo Books. Zabuza, Itachi, and Kisame are all 抜け忍 with S-rank bounties on their heads."
+    },
+    {
+      "surface": "額当て",
+      "reading": "ひたいあて",
+      "romaji": "hitaiate",
+      "meanings": {
+        "en": "forehead protector / headband",
+        "pt-BR": "protetor de testa / bandana",
+        "es": "protector de frente / banda"
+      },
+      "jlpt_level": null,
+      "category": "ninja",
+      "context": "The metal headband engraved with a village's symbol that every ninja wears as a badge of identity and pride. A crossed-out hitaiate marks a missing-nin — Itachi's crossed headband signals his defection from Konoha."
+    },
+    {
+      "surface": "螺旋手裏剣",
+      "reading": "らせんしゅりけん",
+      "romaji": "Rasenshuriken",
+      "meanings": {
+        "en": "Wind Release: Rasenshuriken",
+        "pt-BR": "Liberação de Vento: Rasenshuriken",
+        "es": "Liberación de Viento: Rasenshuriken"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Naruto's evolved Rasengan — infused with Wind chakra to create a devastating spinning blade that attacks on the cellular level. Initially forbidden as a suicide technique, Naruto perfects throwing it in sage mode."
+    },
+    {
+      "surface": "飛雷神",
+      "reading": "ひらいしん",
+      "romaji": "Hiraishin",
+      "meanings": {
+        "en": "Flying Thunder God",
+        "pt-BR": "Deus do Trovão Voador",
+        "es": "Dios del Trueno Volador"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "The Fourth Hokage Minato's legendary space-time ninjutsu — teleporting instantly to any location marked with his special seal. His mastery of this technique earned him the nickname 'Yellow Flash of the Leaf'."
+    },
+    {
+      "surface": "八門遁甲",
+      "reading": "はちもんとんこう",
+      "romaji": "Hachimon Tonkou",
+      "meanings": {
+        "en": "Eight Inner Gates",
+        "pt-BR": "Oito Portões Internos",
+        "es": "Ocho Puertas Internas"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Rock Lee's teacher Might Guy can open all Eight Inner Gates — releasing the body's natural chakra limiters for godlike power at the cost of destroying one's body. Opening the Eighth Gate makes the user glow with Blue Flames."
+    },
+    {
+      "surface": "蛙",
+      "reading": "かえる",
+      "romaji": "kaeru",
+      "meanings": {
+        "en": "frog / toad",
+        "pt-BR": "sapo / rã",
+        "es": "rana / sapo"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Naruto's summoning animal — he has a contract with the toads of Mount Myoboku. The great toad Gamabunta fights alongside Naruto, and Elder Toad Sage Fukasaku teaches Naruto Sage Mode."
+    },
+    {
+      "surface": "蛇",
+      "reading": "へび",
+      "romaji": "hebi",
+      "meanings": {
+        "en": "snake / serpent",
+        "pt-BR": "cobra / serpente",
+        "es": "serpiente"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Orochimaru's summoning animal — snakes that can shed their skin to achieve immortality mirror Orochimaru's obsession with eternal life. The great white snake Manda is his most powerful summon."
+    },
+    {
+      "surface": "転生",
+      "reading": "てんせい",
+      "romaji": "tensei",
+      "meanings": {
+        "en": "reincarnation / rebirth",
+        "pt-BR": "reencarnação / renascimento",
+        "es": "reencarnación / renacimiento"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "Reincarnation is a major theme in Naruto — Hagoromo's sons Indra and Asura reincarnate through the ages, with Sasuke and Naruto as their final vessels. The cycle of reincarnation underlies the entire conflict between them."
+    },
+    {
+      "surface": "六道",
+      "reading": "ろくどう",
+      "romaji": "Rikudo",
+      "meanings": {
+        "en": "Six Paths",
+        "pt-BR": "Seis Caminhos",
+        "es": "Seis Caminos"
+      },
+      "jlpt_level": null,
+      "category": "power",
+      "context": "Hagoromo Otsutsuki, the Sage of Six Paths, was the progenitor of all chakra and ninjutsu. His Six Paths Power is the highest form of chakra — bestowed on Naruto and Sasuke before the final battle."
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": {
+        "en": "power / strength",
+        "pt-BR": "poder / força",
+        "es": "poder / fuerza"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "The pursuit of 力 drives many characters — Sasuke seeks power for revenge, Orochimaru seeks it for immortality. Naruto learns that true strength comes from protecting others, not dominating them."
+    },
+    {
+      "surface": "天才",
+      "reading": "てんさい",
+      "romaji": "tensai",
+      "meanings": {
+        "en": "genius",
+        "pt-BR": "gênio",
+        "es": "genio"
+      },
+      "jlpt_level": "N3",
+      "category": "ninja",
+      "context": "Sasuke is called the 天才 of Team 7 — a natural prodigy who mastered jutsu that took others years in just days. The contrast between Sasuke the 天才 and Naruto the hard-working failure is central to the series."
+    },
+    {
+      "surface": "落第",
+      "reading": "らくだい",
+      "romaji": "rakudai",
+      "meanings": {
+        "en": "failure / failing a test",
+        "pt-BR": "reprovação / fracasso",
+        "es": "reprobación / fracaso"
+      },
+      "jlpt_level": "N2",
+      "category": "ninja",
+      "context": "Naruto failed the Ninja Academy graduation exam three times due to his inability to perform the Clone Technique. This 落第 becomes the catalyst for everything — leading him to the Scroll of Seals and the Shadow Clone Jutsu."
+    },
+    {
+      "surface": "決意",
+      "reading": "けつい",
+      "romaji": "ketsui",
+      "meanings": {
+        "en": "resolve / determination",
+        "pt-BR": "determinação / resolução",
+        "es": "determinación / resolución"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The moment a ninja's 決意 hardens — Naruto's eyes as he declares he will bring Sasuke back, Gaara's transformation after his fight with Naruto shows him what it means to fight for others."
+    },
+    {
+      "surface": "忍の世界",
+      "reading": "しのびのせかい",
+      "romaji": "shinobi no sekai",
+      "meanings": {
+        "en": "ninja world / shinobi world",
+        "pt-BR": "mundo ninja / mundo shinobi",
+        "es": "mundo ninja / mundo shinobi"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The fictional setting of Naruto — a world of warring nations where ninja villages serve as military units for hire. The power balance between the Five Great Nations shapes all geopolitical conflict in the series."
+    },
+    {
+      "surface": "忍び道",
+      "reading": "しのびみち",
+      "romaji": "shinobi michi",
+      "meanings": {
+        "en": "the ninja way / path of the ninja",
+        "pt-BR": "o caminho ninja / via do ninja",
+        "es": "el camino ninja / vía del ninja"
+      },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "Every ninja has their own shinobi michi — Naruto's is to never give up and never go back on his word. His way is the foundation of his identity, stronger than any jutsu."
+    },
+    {
+      "surface": "木ノ葉の意志",
+      "reading": "このはのいし",
+      "romaji": "Konoha no Ishi",
+      "meanings": {
+        "en": "Will of the Leaf / Will of Konoha",
+        "pt-BR": "Vontade da Folha / Vontade de Konoha",
+        "es": "Voluntad de la Hoja / Voluntad de Konoha"
+      },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "The spirit that lives in every Leaf ninja — the belief that the village's people are its true strength. Asuma taught his students this before his death, asking them to protect the next generation."
+    },
+    {
+      "surface": "火影岩",
+      "reading": "ほかげいわ",
+      "romaji": "Hokage Iwa",
+      "meanings": {
+        "en": "Hokage Rock",
+        "pt-BR": "Pedra Hokage",
+        "es": "Roca Hokage"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "The iconic mountain behind Konoha with the carved faces of all Hokage — a symbol of the village's history and Naruto's dream. Naruto famously climbs it and declares he will surpass all of them."
+    },
+    {
+      "surface": "忍術アカデミー",
+      "reading": "にんじゅつアカデミー",
+      "romaji": "Ninjutsu Akademi",
+      "meanings": {
+        "en": "Ninja Academy",
+        "pt-BR": "Academia Ninja",
+        "es": "Academia Ninja"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "Where young ninja receive their initial training before becoming genin — Naruto famously failed the graduation exam three times here. The Academy is the starting point of every ninja's journey."
+    },
+    {
+      "surface": "妙木山",
+      "reading": "みょうぼくざん",
+      "romaji": "Myoubokuzan",
+      "meanings": {
+        "en": "Mount Myoboku",
+        "pt-BR": "Monte Myoboku",
+        "es": "Monte Myoboku"
+      },
+      "jlpt_level": null,
+      "category": "places",
+      "context": "The sacred mountain of the toads — where Jiraiya trained in Sage Mode and later where Naruto mastered the same technique. Gerotora, the key toad, lives here and guards the seal on Naruto's stomach."
+    },
+    {
+      "surface": "大蛇丸",
+      "reading": "おろちまる",
+      "romaji": "Orochimaru",
+      "meanings": {
+        "en": "Orochimaru (character name)",
+        "pt-BR": "Orochimaru (nome do personagem)",
+        "es": "Orochimaru (nombre del personaje)"
+      },
+      "jlpt_level": null,
+      "category": "ninja",
+      "context": "One of the legendary Sannin and the primary villain of the first arc of Shippuden — a twisted ninja obsessed with immortality and mastering all jutsu. He invades Konoha during the Chunin Exams and marks Sasuke with the cursed seal."
+    },
+    {
+      "surface": "チーム",
+      "reading": "チーム",
+      "romaji": "chimu",
+      "meanings": {
+        "en": "team",
+        "pt-BR": "equipe / time",
+        "es": "equipo"
+      },
+      "jlpt_level": "N5",
+      "category": "ninja",
+      "context": "Ninja are organized into teams of three — Team 7, Team 8, Team 10. The チーム structure is fundamental to the Naruto world, teaching young ninja cooperation before they face real danger."
+    },
+    {
+      "surface": "砂",
+      "reading": "すな",
+      "romaji": "suna",
+      "meanings": {
+        "en": "sand",
+        "pt-BR": "areia",
+        "es": "arena"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Gaara controls 砂 with his Sand Manipulation technique — the sand that was originally controlled by his mother's spirit acting as his shield. His absolute defense made him nearly unbeatable until his fight with Naruto."
+    },
+    {
+      "surface": "影",
+      "reading": "かげ",
+      "romaji": "kage (shadow)",
+      "meanings": {
+        "en": "shadow",
+        "pt-BR": "sombra",
+        "es": "sombra"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Shikamaru Nara's clan uses Shadow Imitation Technique — controlling enemies by connecting shadows. Shadow jutsu require intelligence over brute force, making Shikamaru the tactical genius of the series."
+    },
+    {
+      "surface": "ラーメン",
+      "reading": "らーめん",
+      "romaji": "ramen",
+      "meanings": {
+        "en": "ramen (noodle soup)",
+        "pt-BR": "ramen (sopa de macarrão)",
+        "es": "ramen (sopa de fideos)"
+      },
+      "jlpt_level": "N5",
+      "category": "life",
+      "context": "Naruto's absolute favorite food — he eats at Ichiraku Ramen with Iruka after every milestone. Ramen represents comfort, belonging, and the simple joys Naruto fights to protect."
+    },
+    {
+      "surface": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meanings": {
+        "en": "teacher / sensei",
+        "pt-BR": "professor / sensei",
+        "es": "maestro / sensei"
+      },
+      "jlpt_level": "N5",
+      "category": "roles",
+      "context": "Every genin team has a jonin 先生 who shapes their development — Kakashi, Kurenai, and Asuma mold the next generation. The sensei-student bond is one of the most sacred relationships in the ninja world."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": {
+        "en": "comrade / companion / friend",
+        "pt-BR": "companheiro / camarada / amigo",
+        "es": "camarada / compañero / amigo"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "One of the most emotionally loaded words in all of Naruto — Naruto's 仲間 are everything to him. His unshakeable belief in his bonds with his comrades is the source of his greatest power."
+    },
+    {
+      "surface": "戦い",
+      "reading": "たたかい",
+      "romaji": "tatakai",
+      "meanings": {
+        "en": "battle / fight / struggle",
+        "pt-BR": "batalha / luta / combate",
+        "es": "batalla / lucha / combate"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Every 戦い in Naruto carries emotional weight — it's not just about power, but about the beliefs and bonds that give ninja the will to keep fighting. The final 戦い between Naruto and Sasuke spans an entire valley."
+    },
+    {
+      "surface": "死",
+      "reading": "し",
+      "romaji": "shi",
+      "meanings": {
+        "en": "death",
+        "pt-BR": "morte",
+        "es": "muerte"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Death is omnipresent in Naruto — Jiraiya's death, Neji's sacrifice, and the Third Hokage's final jutsu are pivotal moments. The fear of 死 and willingness to face it define a ninja's courage."
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "meanings": {
+        "en": "life / soul / existence",
+        "pt-BR": "vida / alma / existência",
+        "es": "vida / alma / existencia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "命 is what every ninja ultimately protects or sacrifices — Minato gave his 命 to seal Kurama, Itachi gave his 命 secretly protecting the village. Life's value is the deepest question Naruto asks."
+    },
+    {
+      "surface": "忍術の巻物",
+      "reading": "にんじゅつのまきもの",
+      "romaji": "ninjutsu no makimono",
+      "meanings": {
+        "en": "ninja technique scroll",
+        "pt-BR": "rolo de técnica ninja",
+        "es": "pergamino de técnica ninja"
+      },
+      "jlpt_level": null,
+      "category": "ninja",
+      "context": "Forbidden jutsu and secret techniques are stored in sealed scrolls — the Scroll of Seals that Naruto steals contains Shadow Clone Jutsu. Scrolls are also used as storage devices via sealing techniques."
+    }
+  ]
+}

@@ -1,0 +1,1724 @@
+{
+  "anime": "sword-art-online",
+  "label": "Sword Art Online",
+  "icon": "sao-logo.png",
+  "description": "Kirito and Asuna's survival inside a deadly virtual reality MMO — and the worlds that follow.",
+  "vocab": [
+    {
+      "surface": "仮想現実",
+      "reading": "かそうげんじつ",
+      "romaji": "kasō genjitsu",
+      "meanings": {
+        "en": "virtual reality",
+        "pt-BR": "realidade virtual",
+        "es": "realidad virtual"
+      },
+      "jlpt_level": "N2",
+      "category": "vr",
+      "context": "The core premise of SAO — players are fully immersed in a virtual world via NerveGear. This phrase defines the entire series: a world indistinguishable from reality that becomes a death trap."
+    },
+    {
+      "surface": "ナーヴギア",
+      "reading": "ナーヴギア",
+      "romaji": "Nāvu Gia",
+      "meanings": {
+        "en": "NerveGear",
+        "pt-BR": "NerveGear",
+        "es": "NerveGear"
+      },
+      "jlpt_level": null,
+      "category": "technology",
+      "context": "The full-dive VR headset created by Kayaba Akihiko that traps 10,000 players inside SAO. Its microwave emitter can kill the wearer if the helmet is forcibly removed."
+    },
+    {
+      "surface": "フルダイブ",
+      "reading": "フルダイブ",
+      "romaji": "furu daibu",
+      "meanings": {
+        "en": "full-dive (VR immersion)",
+        "pt-BR": "mergulho total",
+        "es": "inmersión total"
+      },
+      "jlpt_level": null,
+      "category": "vr",
+      "context": "The technology that transfers all five senses into the virtual world. Full-dive is the foundation of the SAO universe — and the reason players cannot simply 'wake up' from danger."
+    },
+    {
+      "surface": "ログアウト",
+      "reading": "ログアウト",
+      "romaji": "rogu auto",
+      "meanings": {
+        "en": "log out",
+        "pt-BR": "sair do jogo",
+        "es": "cerrar sesión"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "The option that vanishes on launch day of SAO, trapping all 10,000 players. The inability to log out is the inciting crisis of the entire first arc."
+    },
+    {
+      "surface": "ゲームオーバー",
+      "reading": "ゲームオーバー",
+      "romaji": "gēmu ōbā",
+      "meanings": {
+        "en": "game over",
+        "pt-BR": "fim de jogo",
+        "es": "fin del juego"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "In SAO, game over means death in real life. Kayaba reveals this truth on the first day, instantly transforming a fantasy game into a survival horror scenario."
+    },
+    {
+      "surface": "現実世界",
+      "reading": "げんじつせかい",
+      "romaji": "genjitsu sekai",
+      "meanings": {
+        "en": "real world",
+        "pt-BR": "mundo real",
+        "es": "mundo real"
+      },
+      "jlpt_level": "N3",
+      "category": "vr",
+      "context": "The world outside the VR helmet where players' bodies lie in hospital beds. The tension between the virtual world and the real world drives Kirito and Asuna's desire to return."
+    },
+    {
+      "surface": "意識",
+      "reading": "いしき",
+      "romaji": "ishiki",
+      "meanings": {
+        "en": "consciousness",
+        "pt-BR": "consciência",
+        "es": "consciencia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "A recurring philosophical question in SAO — is consciousness inside a VR world truly real? The Alicization arc takes this further with artificial Fluctlights that possess full consciousness."
+    },
+    {
+      "surface": "廃人化",
+      "reading": "はいじんか",
+      "romaji": "haijinka",
+      "meanings": {
+        "en": "becoming a vegetable / mental deterioration",
+        "pt-BR": "tornar-se um legume",
+        "es": "convertirse en vegetal"
+      },
+      "jlpt_level": null,
+      "category": "vr",
+      "context": "What happens to players whose bodies deteriorate from prolonged unconsciousness. The fear of廃人化 adds urgency to the rescue missions in the outside world during the SAO arc."
+    },
+    {
+      "surface": "接続",
+      "reading": "せつぞく",
+      "romaji": "setsuzoku",
+      "meanings": {
+        "en": "connection / link",
+        "pt-BR": "conexão",
+        "es": "conexión"
+      },
+      "jlpt_level": "N2",
+      "category": "technology",
+      "context": "The VR connection between player and game world. When the connection is severed or forced, the consequences can be fatal — a constant tension in every arc of SAO."
+    },
+    {
+      "surface": "電脳",
+      "reading": "でんのう",
+      "romaji": "dennō",
+      "meanings": {
+        "en": "cyber brain / electronic brain",
+        "pt-BR": "cérebro cibernético",
+        "es": "cerebro cibernético"
+      },
+      "jlpt_level": null,
+      "category": "technology",
+      "context": "A poetic term for digital consciousness and cyber-neural technology. Especially relevant in the Alicization arc where artificial souls (Fluctlights) mimic human neural patterns."
+    },
+    {
+      "surface": "フラクトライト",
+      "reading": "フラクトライト",
+      "romaji": "Furakuto Raito",
+      "meanings": {
+        "en": "Fluctlight (artificial soul)",
+        "pt-BR": "Fluctlight (alma artificial)",
+        "es": "Fluctlight (alma artificial)"
+      },
+      "jlpt_level": null,
+      "category": "technology",
+      "context": "The artificial human soul developed by Rath in the Alicization arc. Alice and Eugeo possess Fluctlights identical to human consciousness, raising questions about what constitutes life."
+    },
+    {
+      "surface": "ゲーム",
+      "reading": "ゲーム",
+      "romaji": "gēmu",
+      "meanings": {
+        "en": "game",
+        "pt-BR": "jogo",
+        "es": "juego"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "What SAO begins as — a fantasy RPG — and what it can never simply be again after Kayaba's announcement. The word itself carries irony throughout the series."
+    },
+    {
+      "surface": "レベル",
+      "reading": "レベル",
+      "romaji": "reberu",
+      "meanings": {
+        "en": "level",
+        "pt-BR": "nível",
+        "es": "nivel"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Character strength in SAO is tied to level — Kirito's strategy of solo-grinding levels separates him from most players and earns him both power and suspicion as a 'beater'."
+    },
+    {
+      "surface": "ＨＰ",
+      "reading": "エイチピー",
+      "romaji": "eichi pī",
+      "meanings": {
+        "en": "HP (hit points / health)",
+        "pt-BR": "HP (pontos de vida)",
+        "es": "HP (puntos de vida)"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "The health bar that, when it reaches zero in SAO, kills the player in real life. Watching your HP bar in a boss fight carries life-or-death stakes unlike any other game."
+    },
+    {
+      "surface": "スキル",
+      "reading": "スキル",
+      "romaji": "sukiru",
+      "meanings": {
+        "en": "skill",
+        "pt-BR": "habilidade",
+        "es": "habilidad"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Learnable abilities in SAO that improve through use. Kirito's obsessive skill grinding — including the legendary Dual Blades skill — defines his combat style throughout the series."
+    },
+    {
+      "surface": "アイテム",
+      "reading": "アイテム",
+      "romaji": "aitemu",
+      "meanings": {
+        "en": "item",
+        "pt-BR": "item",
+        "es": "ítem"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Equipment, consumables, and rare drops that players collect in SAO. Items can be the difference between life and death — rare items are coveted and sometimes stolen."
+    },
+    {
+      "surface": "クエスト",
+      "reading": "クエスト",
+      "romaji": "kuesuto",
+      "meanings": {
+        "en": "quest",
+        "pt-BR": "missão",
+        "es": "misión"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Story missions and side tasks within SAO. Quests often serve as the backdrop for character development moments — Kirito and Asuna's relationship deepens during shared quests."
+    },
+    {
+      "surface": "ボス",
+      "reading": "ボス",
+      "romaji": "bosu",
+      "meanings": {
+        "en": "boss (enemy)",
+        "pt-BR": "chefe (inimigo)",
+        "es": "jefe (enemigo)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The powerful enemies guarding each floor's labyrinth. Defeating the floor boss is the only way to advance toward the 100th floor and escape — every boss raid is a potential mass casualty event."
+    },
+    {
+      "surface": "フロア",
+      "reading": "フロア",
+      "romaji": "furoa",
+      "meanings": {
+        "en": "floor (of Aincrad)",
+        "pt-BR": "andar (de Aincrad)",
+        "es": "piso (de Aincrad)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Aincrad is a 100-floor floating castle — each floor is a distinct biome with its own boss. Clearing all 100 floors is the only condition for escaping SAO alive."
+    },
+    {
+      "surface": "攻略",
+      "reading": "こうりゃく",
+      "romaji": "kōryaku",
+      "meanings": {
+        "en": "clearing / strategy / walkthrough",
+        "pt-BR": "conclusão / estratégia",
+        "es": "completar / estrategia"
+      },
+      "jlpt_level": "N2",
+      "category": "game",
+      "context": "The act of clearing floors and ultimately conquering Aincrad. 攻略組 (the clearing group) are the elite players pushing to the frontlines — their progress means survival for everyone."
+    },
+    {
+      "surface": "最前線",
+      "reading": "さいぜんせん",
+      "romaji": "saizensen",
+      "meanings": {
+        "en": "frontlines / vanguard",
+        "pt-BR": "linha de frente",
+        "es": "primera línea"
+      },
+      "jlpt_level": "N1",
+      "category": "game",
+      "context": "The highest cleared floor in Aincrad, where the most powerful players fight. Kirito and Asuna both operate at the frontlines, pushing closer to freedom with every boss killed."
+    },
+    {
+      "surface": "経験値",
+      "reading": "けいけんち",
+      "romaji": "keiken chi",
+      "meanings": {
+        "en": "experience points / EXP",
+        "pt-BR": "pontos de experiência / EXP",
+        "es": "puntos de experiencia / EXP"
+      },
+      "jlpt_level": "N3",
+      "category": "game",
+      "context": "Experience points earned from defeating monsters and completing quests in SAO. Grinding experience early is what makes Kirito a high-level solo player who survives where others fall."
+    },
+    {
+      "surface": "モンスター",
+      "reading": "モンスター",
+      "romaji": "monsutā",
+      "meanings": {
+        "en": "monster / enemy mob",
+        "pt-BR": "monstro / inimigo",
+        "es": "monstruo / enemigo"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The AI-controlled enemies populating Aincrad's floors and dungeons. In SAO, dying to a monster means dying in reality — every encounter carries genuine mortal risk."
+    },
+    {
+      "surface": "ダンジョン",
+      "reading": "ダンジョン",
+      "romaji": "danjon",
+      "meanings": {
+        "en": "dungeon",
+        "pt-BR": "masmorra",
+        "es": "mazmorra"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The labyrinthine areas within each floor containing the floor's boss. Dungeons are the most dangerous zones in SAO — venturing in without a party can be fatal."
+    },
+    {
+      "surface": "セーフゾーン",
+      "reading": "セーフゾーン",
+      "romaji": "sēfu zōn",
+      "meanings": {
+        "en": "safe zone",
+        "pt-BR": "zona segura",
+        "es": "zona segura"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Designated areas — mainly towns — where player combat is disabled and monsters cannot attack. The safe zone becomes an illusion when 圏内犯罪 (in-zone crime) is discovered."
+    },
+    {
+      "surface": "圏内犯罪",
+      "reading": "けんないはんざい",
+      "romaji": "kennai hanzai",
+      "meanings": {
+        "en": "crime within safe zones / in-zone crime",
+        "pt-BR": "crime dentro das zonas seguras",
+        "es": "crimen dentro de zonas seguras"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "A disturbing SAO plot point — players find loopholes to murder inside safe zones without triggering the anti-criminal system, using poison, trap items, or indirect methods."
+    },
+    {
+      "surface": "ポイント",
+      "reading": "ポイント",
+      "romaji": "pointo",
+      "meanings": {
+        "en": "points",
+        "pt-BR": "pontos",
+        "es": "puntos"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Numerical values tracking player stats, currency, or scoring in various SAO-universe games. In Gun Gale Online, points determine tournament rankings and squad allocation."
+    },
+    {
+      "surface": "ソードスキル",
+      "reading": "ソードスキル",
+      "romaji": "sōdo sukiru",
+      "meanings": {
+        "en": "Sword Skill",
+        "pt-BR": "Sword Skill",
+        "es": "Sword Skill"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Preset combat techniques in SAO that lock a player into a powerful attack motion. Sword Skills are SAO's signature combat system — beautiful, devastating, and momentarily defenseless after activation."
+    },
+    {
+      "surface": "片手剣",
+      "reading": "かたてけん",
+      "romaji": "katate ken",
+      "meanings": {
+        "en": "one-handed sword",
+        "pt-BR": "espada de uma mão",
+        "es": "espada de una mano"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Kirito's primary weapon skill in SAO. His mastery of the one-handed sword combined with his high agility stat makes him one of the most dangerous solo fighters in Aincrad."
+    },
+    {
+      "surface": "両手剣",
+      "reading": "りょうてけん",
+      "romaji": "ryōte ken",
+      "meanings": {
+        "en": "two-handed sword",
+        "pt-BR": "espada de duas mãos",
+        "es": "espada de dos manos"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "A power-focused weapon style in SAO. Klein and other players favor two-handed weapons for raw damage output, sacrificing speed for devastating single strikes."
+    },
+    {
+      "surface": "二刀流",
+      "reading": "にとうりゅう",
+      "romaji": "nitōryū",
+      "meanings": {
+        "en": "dual blades / two-sword style",
+        "pt-BR": "estilo de duas espadas",
+        "es": "estilo de dos espadas"
+      },
+      "jlpt_level": "N1",
+      "category": "combat",
+      "context": "The rarest and most powerful hidden skill in SAO, automatically granted to the player with the fastest reaction time — which turns out to be Kirito. Dual Blades defines his final battle against Heathcliff."
+    },
+    {
+      "surface": "決闘",
+      "reading": "けっとう",
+      "romaji": "kettō",
+      "meanings": {
+        "en": "duel",
+        "pt-BR": "duelo",
+        "es": "duelo"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "A formal one-on-one combat system in SAO with agreed rules. Kirito's duel with Heathcliff — and his shocking loss — is a turning point that leads to his joining the Knights of the Blood Oath."
+    },
+    {
+      "surface": "対決",
+      "reading": "たいけつ",
+      "romaji": "taiketsu",
+      "meanings": {
+        "en": "confrontation / showdown",
+        "pt-BR": "confronto / embate",
+        "es": "confrontación / enfrentamiento"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The dramatic face-off between rivals or enemies. SAO builds to multiple対決 moments — most significantly Kirito vs. Kayaba Akihiko in the final battle on Floor 75."
+    },
+    {
+      "surface": "剣士",
+      "reading": "けんし",
+      "romaji": "kenshi",
+      "meanings": {
+        "en": "swordsman",
+        "pt-BR": "espadachim",
+        "es": "espadachín"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The identity Kirito fully embodies in SAO — not just a player, but a swordsman. The term carries a warrior's code of honor that Kirito lives by even when it puts him at risk."
+    },
+    {
+      "surface": "攻撃",
+      "reading": "こうげき",
+      "romaji": "kōgeki",
+      "meanings": {
+        "en": "attack / offensive",
+        "pt-BR": "ataque",
+        "es": "ataque"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Offensive action in SAO combat. Kirito's aggressive attack style — maximizing Sword Skill combos — contrasts with more defensive players and reflects his solo-player mentality."
+    },
+    {
+      "surface": "防御",
+      "reading": "ぼうぎょ",
+      "romaji": "bōgyo",
+      "meanings": {
+        "en": "defense / defense stat",
+        "pt-BR": "defesa",
+        "es": "defensa"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Defensive capability in SAO. Asuna is known for high speed rather than defense — her rapier style prioritizes overwhelming offense as the best form of protection."
+    },
+    {
+      "surface": "クリティカル",
+      "reading": "クリティカル",
+      "romaji": "kuritikaru",
+      "meanings": {
+        "en": "critical hit",
+        "pt-BR": "golpe crítico",
+        "es": "golpe crítico"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "A maximum-damage strike in SAO combat. Landing criticals against floor bosses is essential for raid success — elite players like Kirito reliably achieve critical hits through skill timing."
+    },
+    {
+      "surface": "連続攻撃",
+      "reading": "れんぞくこうげき",
+      "romaji": "renzoku kōgeki",
+      "meanings": {
+        "en": "combo attack / consecutive attacks",
+        "pt-BR": "ataque combinado",
+        "es": "ataque combinado"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Chained Sword Skills dealing multiple hits in rapid succession. Kirito's ability to chain Sword Skills into combos is one reason he excels as both a solo player and raid fighter."
+    },
+    {
+      "surface": "ヘイト",
+      "reading": "ヘイト",
+      "romaji": "heito",
+      "meanings": {
+        "en": "aggro / hate (enemy targeting)",
+        "pt-BR": "aggro / ódio (alvo inimigo)",
+        "es": "aggro / odio (targeting enemigo)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The aggro mechanic determining which player a monster prioritizes attacking. Tank-role players in SAO raids deliberately draw ヘイト to protect healers and damage dealers."
+    },
+    {
+      "surface": "ギルド",
+      "reading": "ギルド",
+      "romaji": "girudo",
+      "meanings": {
+        "en": "guild",
+        "pt-BR": "guilda",
+        "es": "gremio"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "Player organizations in SAO that pool resources and coordinate raids. Guilds range from elite raid forces like the Knights of the Blood Oath to dangerous criminal organizations."
+    },
+    {
+      "surface": "血盟騎士団",
+      "reading": "けつめいきしだん",
+      "romaji": "Ketsumei Kishidan",
+      "meanings": {
+        "en": "Knights of the Blood Oath",
+        "pt-BR": "Cavaleiros do Juramento de Sangue",
+        "es": "Caballeros del Juramento de Sangre"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "The most powerful guild in SAO, led by the mysterious Heathcliff. Asuna serves as vice-commander, and Kirito is forced to join after losing a duel — a turning point in the story."
+    },
+    {
+      "surface": "ソロ",
+      "reading": "ソロ",
+      "romaji": "soro",
+      "meanings": {
+        "en": "solo (player)",
+        "pt-BR": "solo (jogador)",
+        "es": "solitario (jugador)"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "Playing alone without a party or guild, which is Kirito's default style in SAO. His choice to solo stems partly from the trauma of losing guildmates in the Moonlit Black Cats incident."
+    },
+    {
+      "surface": "ベータテスター",
+      "reading": "ベータテスター",
+      "romaji": "bēta tesutā",
+      "meanings": {
+        "en": "beta tester",
+        "pt-BR": "testador beta",
+        "es": "beta tester"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "Players who participated in SAO's closed beta before launch. Beta testers have advance knowledge of floors and mechanics — a fact that breeds resentment and leads Kirito to call himself a 'beater'."
+    },
+    {
+      "surface": "攻略組",
+      "reading": "こうりゃくぐみ",
+      "romaji": "kōryaku gumi",
+      "meanings": {
+        "en": "clearing group / front-line raiders",
+        "pt-BR": "grupo de avanço",
+        "es": "grupo de avance"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "The elite players who push to new floors and tackle boss raids. The clearing group shoulders survival for all 10,000 players — their deaths bring Aincrad's escape closer to impossible."
+    },
+    {
+      "surface": "ＰＫ",
+      "reading": "ピーケー",
+      "romaji": "pī kē",
+      "meanings": {
+        "en": "PK / player killing",
+        "pt-BR": "PK / matar jogadores",
+        "es": "PK / matar jugadores"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "Player-versus-player murder in SAO — not a game mechanic but a real killing. The existence of PKers (player killers) like Laughing Coffin turns SAO into a society with real criminal violence."
+    },
+    {
+      "surface": "犯罪者",
+      "reading": "はんざいしゃ",
+      "romaji": "hanzaisha",
+      "meanings": {
+        "en": "criminal",
+        "pt-BR": "criminoso",
+        "es": "criminal"
+      },
+      "jlpt_level": "N3",
+      "category": "guild",
+      "context": "Players who commit murders or crimes within SAO receive the 'Criminal' cursor, marking them red and flagging them as enemies to all. The Laughing Coffin guild is entirely made up of犯罪者."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": {
+        "en": "companion / comrade / friend",
+        "pt-BR": "companheiro / camarada",
+        "es": "compañero / camarada"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The bonds formed between players trapped in SAO. Kirito initially avoids仲間 to protect himself from grief, but his connection to Asuna, Agil, Klein, and the ALO friends becomes his reason to fight."
+    },
+    {
+      "surface": "パーティー",
+      "reading": "パーティー",
+      "romaji": "pātī",
+      "meanings": {
+        "en": "party (player group)",
+        "pt-BR": "grupo (de jogadores)",
+        "es": "grupo (de jugadores)"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "A temporary group of players who team up to fight together in SAO. Kirito's reluctance to join parties stems from the Moonlit Black Cats tragedy, where his entire party was killed."
+    },
+    {
+      "surface": "アインクラッド",
+      "reading": "アインクラッド",
+      "romaji": "Ainkuraddo",
+      "meanings": {
+        "en": "Aincrad",
+        "pt-BR": "Aincrad",
+        "es": "Aincrad"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The floating iron castle in the sky where SAO takes place — 100 floors, each a different world. Aincrad is both a prison and a home for 10,000 players over two years of captivity."
+    },
+    {
+      "surface": "アルヴヘイム",
+      "reading": "アルヴヘイム",
+      "romaji": "Aruvuheimu",
+      "meanings": {
+        "en": "Alfheim Online (ALO)",
+        "pt-BR": "Alfheim Online (ALO)",
+        "es": "Alfheim Online (ALO)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The fairy-themed VR game that Kirito dives into after SAO's end to rescue Asuna, whose mind is still trapped inside a recreation of Aincrad. ALO introduces flight mechanics and the World Tree."
+    },
+    {
+      "surface": "ガンゲイル",
+      "reading": "ガンゲイル",
+      "romaji": "Gangēru",
+      "meanings": {
+        "en": "Gun Gale Online (GGO)",
+        "pt-BR": "Gun Gale Online (GGO)",
+        "es": "Gun Gale Online (GGO)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The post-apocalyptic shooter VR world Kirito enters in the Phantom Bullet arc. GGO is famous as the setting where the 'Death Gun' murders occur, linking virtual deaths to real ones."
+    },
+    {
+      "surface": "アンダーワールド",
+      "reading": "アンダーワールド",
+      "romaji": "Andā Wārudo",
+      "meanings": {
+        "en": "Underworld",
+        "pt-BR": "Mundo Subterrâneo",
+        "es": "Inframundo"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The hidden virtual world built by Rath in the Alicization arc where Kirito's Fluctlight is uploaded. Underworld contains Alice and Eugeo — artificial humans whose souls are indistinguishable from real ones."
+    },
+    {
+      "surface": "迷宮区",
+      "reading": "めいきゅうく",
+      "romaji": "meikyū ku",
+      "meanings": {
+        "en": "labyrinth zone",
+        "pt-BR": "zona labirinto",
+        "es": "zona laberinto"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The dungeon region on each Aincrad floor where the floor boss resides. Entering the迷宮区 means entering the most dangerous part of the floor — death lurks around every corner."
+    },
+    {
+      "surface": "主街区",
+      "reading": "しゅがいく",
+      "romaji": "shu gaiku",
+      "meanings": {
+        "en": "main settlement / town area",
+        "pt-BR": "área principal da cidade",
+        "es": "área principal del asentamiento"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The safe town zone on each Aincrad floor. The main settlements are where players rest, trade, and build quasi-normal lives — including the cottage where Kirito and Asuna live together on Floor 22."
+    },
+    {
+      "surface": "死",
+      "reading": "し",
+      "romaji": "shi",
+      "meanings": {
+        "en": "death",
+        "pt-BR": "morte",
+        "es": "muerte"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The ever-present stakes in SAO. Death in the game means death in reality — a fact announced by Kayaba on launch day that transforms a game into a matter of life and death."
+    },
+    {
+      "surface": "生き残る",
+      "reading": "いきのこる",
+      "romaji": "ikinokoru",
+      "meanings": {
+        "en": "to survive",
+        "pt-BR": "sobreviver",
+        "es": "sobrevivir"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The primary goal for every SAO player. Kirito's entire philosophy — solo play, level grinding, avoiding attachments — is built around one principle: survive long enough to clear the game."
+    },
+    {
+      "surface": "脱出",
+      "reading": "だっしゅつ",
+      "romaji": "dasshutsu",
+      "meanings": {
+        "en": "escape / breakout",
+        "pt-BR": "fuga / escapar",
+        "es": "escape / fuga"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The desperate goal of clearing all 100 floors to escape Aincrad. 脱出 is what the entire first arc works toward — and what players sacrifice friendships, safety, and time to achieve."
+    },
+    {
+      "surface": "絆",
+      "reading": "きずな",
+      "romaji": "kizuna",
+      "meanings": {
+        "en": "bond / tie / connection",
+        "pt-BR": "laço / vínculo",
+        "es": "vínculo / lazo"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The emotional bonds formed between players in a life-or-death situation. Kirito and Asuna's 絆 is the emotional core of SAO — it transcends the virtual world and becomes a real, life-sustaining connection."
+    },
+    {
+      "surface": "愛",
+      "reading": "あい",
+      "romaji": "ai",
+      "meanings": {
+        "en": "love",
+        "pt-BR": "amor",
+        "es": "amor"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The love between Kirito and Asuna that grows from partnership into something genuine. Their love is tested across every arc — separated by death, VR traps, and time — but always endures."
+    },
+    {
+      "surface": "現実",
+      "reading": "げんじつ",
+      "romaji": "genjitsu",
+      "meanings": {
+        "en": "reality",
+        "pt-BR": "realidade",
+        "es": "realidad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "A philosophical battleground in SAO — what makes something real? Kirito and Asuna choose to treat their virtual lives as fully real, and their feelings as genuine regardless of the medium."
+    },
+    {
+      "surface": "夢",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "meanings": {
+        "en": "dream",
+        "pt-BR": "sonho",
+        "es": "sueño"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The line between dream and reality blurs in SAO. Players begin to accept the virtual world as their real life — and returning to reality can feel like waking from a dream they never wanted to leave."
+    },
+    {
+      "surface": "覚悟",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "meanings": {
+        "en": "resolve / readiness / determination",
+        "pt-BR": "determinação / resolução",
+        "es": "determinación / resolución"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The mental readiness to face death or sacrifice. Kirito's覚悟 is tested repeatedly — most powerfully when he accepts death in the final battle with Heathcliff to save Asuna and free all players."
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "meanings": {
+        "en": "memory",
+        "pt-BR": "memória",
+        "es": "memoria"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Memories of SAO persist after players return to the real world, affecting their psychology. In Alicization, memory and identity are core themes — Kirito's memories of Eugeo and Alice define the arc."
+    },
+    {
+      "surface": "自由",
+      "reading": "じゆう",
+      "romaji": "jiyū",
+      "meanings": {
+        "en": "freedom",
+        "pt-BR": "liberdade",
+        "es": "libertad"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "What every trapped SAO player is fighting for. Freedom from Aincrad, freedom from Sugou's cage, freedom from the Underworld's rules — 自由 is the constant goal across every arc."
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "meanings": {
+        "en": "life / one's life",
+        "pt-BR": "vida",
+        "es": "vida"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Life itself — the ultimate thing at stake in SAO. Every player risks their命 in every fight. The question of whether a virtual life has the same value as a real life is central to the series."
+    },
+    {
+      "surface": "黒の剣士",
+      "reading": "くろのけんし",
+      "romaji": "Kuro no Kenshi",
+      "meanings": {
+        "en": "Black Swordsman (Kirito's title)",
+        "pt-BR": "Espadachim Negro",
+        "es": "Espadachín Negro"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "Kirito's iconic nickname in SAO, earned from his all-black equipment. The 'Black Swordsman' moniker follows him across multiple VR worlds and becomes synonymous with his legendary status."
+    },
+    {
+      "surface": "閃光",
+      "reading": "せんこう",
+      "romaji": "senkō",
+      "meanings": {
+        "en": "Flash (Asuna's title)",
+        "pt-BR": "Relâmpago (título da Asuna)",
+        "es": "Destello (título de Asuna)"
+      },
+      "jlpt_level": "N1",
+      "category": "character",
+      "context": "Asuna's title in SAO, earned for her lightning-fast rapier technique. 'The Flash' is feared throughout Aincrad — she can draw and kill before most enemies can react."
+    },
+    {
+      "surface": "副団長",
+      "reading": "ふくだんちょう",
+      "romaji": "fuku danchō",
+      "meanings": {
+        "en": "vice commander / deputy leader",
+        "pt-BR": "vice-comandante",
+        "es": "subcomandante"
+      },
+      "jlpt_level": "N2",
+      "category": "character",
+      "context": "Asuna's official rank in the Knights of the Blood Oath. As副団長, she commands respect from all players and is considered as dangerous as any floor boss by those who've seen her fight."
+    },
+    {
+      "surface": "英雄",
+      "reading": "えいゆう",
+      "romaji": "eiyū",
+      "meanings": {
+        "en": "hero",
+        "pt-BR": "herói",
+        "es": "héroe"
+      },
+      "jlpt_level": "N3",
+      "category": "character",
+      "context": "A status Kirito earns but is deeply uncomfortable with. After defeating Heathcliff and ending SAO, surviving players view Kirito as an 英雄 — though he carries the weight of every player he couldn't save."
+    },
+    {
+      "surface": "転移結晶",
+      "reading": "てんいけっしょう",
+      "romaji": "ten'i kesshō",
+      "meanings": {
+        "en": "teleport crystal",
+        "pt-BR": "cristal de teleporte",
+        "es": "cristal de teletransporte"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Emergency escape items that instantly transport players to the nearest town. A pivotal scene has Asuna use their only teleport crystal to save Kirito rather than herself — revealing her feelings for him."
+    },
+    {
+      "surface": "回復結晶",
+      "reading": "かいふくけっしょう",
+      "romaji": "kaifuku kesshō",
+      "meanings": {
+        "en": "healing crystal",
+        "pt-BR": "cristal de cura",
+        "es": "cristal de curación"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "Consumable items that instantly restore HP in SAO. Healing crystals are precious in high-stakes raids where a moment of delay means death — their use signals a fight has become desperate."
+    },
+    {
+      "surface": "索敵",
+      "reading": "さくてき",
+      "romaji": "sakuteki",
+      "meanings": {
+        "en": "enemy detection / search for enemies",
+        "pt-BR": "detecção de inimigos",
+        "es": "detección de enemigos"
+      },
+      "jlpt_level": "N1",
+      "category": "combat",
+      "context": "The skill of detecting hidden enemies or ambushes. In SAO, players with high索敵 skill can sense approaching PKers or dungeon mobs — a survival advantage in treacherous areas."
+    },
+    {
+      "surface": "鍛冶",
+      "reading": "かじ",
+      "romaji": "kaji",
+      "meanings": {
+        "en": "smithing / blacksmithing",
+        "pt-BR": "forjaria",
+        "es": "herrería"
+      },
+      "jlpt_level": "N2",
+      "category": "game",
+      "context": "The crafting skill for weapons and armor in SAO. Lizbeth (Liz) is SAO's most famous blacksmith, and her encounter with Kirito — involving a dragon and a rare ore — begins a lasting friendship."
+    },
+    {
+      "surface": "料理",
+      "reading": "りょうり",
+      "romaji": "ryōri",
+      "meanings": {
+        "en": "cooking",
+        "pt-BR": "culinária",
+        "es": "cocina"
+      },
+      "jlpt_level": "N4",
+      "category": "life",
+      "context": "An unexpected skill in SAO — Asuna is a legendary cook within the game. Their shared meals in their cottage on Floor 22 represent normalcy and love within a death game."
+    },
+    {
+      "surface": "結婚",
+      "reading": "けっこん",
+      "romaji": "kekkon",
+      "meanings": {
+        "en": "marriage",
+        "pt-BR": "casamento",
+        "es": "matrimonio"
+      },
+      "jlpt_level": "N4",
+      "category": "life",
+      "context": "Kirito and Asuna's in-game marriage is one of SAO's most emotional moments. They treat it as fully real — buying a house, cooking meals, adopting a digital child — choosing love over survival-only thinking."
+    },
+    {
+      "surface": "ユイ",
+      "reading": "ユイ",
+      "romaji": "Yui",
+      "meanings": {
+        "en": "Yui (AI character / adopted daughter)",
+        "pt-BR": "Yui (personagem IA / filha adotada)",
+        "es": "Yui (personaje IA / hija adoptiva)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "An AI mental health counseling program that Kirito and Asuna encounter and adopt as their daughter. Yui's 'death' and resurrection as a navigation fairy in ALO is one of SAO's most emotionally impactful subplots."
+    },
+    {
+      "surface": "メンタルヘルス",
+      "reading": "メンタルヘルス",
+      "romaji": "mentaru herusu",
+      "meanings": {
+        "en": "mental health",
+        "pt-BR": "saúde mental",
+        "es": "salud mental"
+      },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "A serious undercurrent in SAO. Many players develop depression and PTSD from the death game. Yui was created as an AI counselor to help players cope — her deactivation reveals the system's callousness."
+    },
+    {
+      "surface": "フィールドボス",
+      "reading": "フィールドボス",
+      "romaji": "fīrudo bosu",
+      "meanings": {
+        "en": "field boss",
+        "pt-BR": "chefe de campo",
+        "es": "jefe de campo"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Powerful enemies roaming the open areas of Aincrad floors outside the dungeon. Field bosses can ambush unprepared parties — even experienced players treat them with extreme caution."
+    },
+    {
+      "surface": "レイド",
+      "reading": "レイド",
+      "romaji": "reido",
+      "meanings": {
+        "en": "raid (multi-party boss fight)",
+        "pt-BR": "raid (batalha em grupo)",
+        "es": "raid (combate en grupo)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Large-scale boss fights requiring multiple parties to cooperate. Floor boss raids in SAO are life-or-death operations — poor coordination or unexpected boss mechanics can wipe entire raids."
+    },
+    {
+      "surface": "フロアボス",
+      "reading": "フロアボス",
+      "romaji": "furoa bosu",
+      "meanings": {
+        "en": "floor boss",
+        "pt-BR": "chefe do andar",
+        "es": "jefe de piso"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The final enemy guarding each floor's passage to the next level. Defeating the floor boss is the only path to freedom — each one killed brings 10,000 players one step closer to leaving SAO."
+    },
+    {
+      "surface": "情報屋",
+      "reading": "じょうほうや",
+      "romaji": "jōhōya",
+      "meanings": {
+        "en": "information broker",
+        "pt-BR": "corretor de informações",
+        "es": "corredor de información"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "Players who trade in game intel — floor maps, boss patterns, hidden quests. Information brokers are vital in SAO where knowing a boss's attack pattern can mean the difference between survival and death."
+    },
+    {
+      "surface": "武器",
+      "reading": "ぶき",
+      "romaji": "buki",
+      "meanings": {
+        "en": "weapon",
+        "pt-BR": "arma",
+        "es": "arma"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "The instruments of survival in SAO. A player's weapon is their most important possession — Kirito's Elucidator (black sword) and Dark Repulser (forged by Lizbeth) become iconic symbols of his character."
+    },
+    {
+      "surface": "鎧",
+      "reading": "よろい",
+      "romaji": "yoroi",
+      "meanings": {
+        "en": "armor",
+        "pt-BR": "armadura",
+        "es": "armadura"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Protective equipment in SAO. Kirito's preference for lightweight black equipment over heavy armor reflects his agility-over-defense build philosophy and contributes to his distinctive appearance."
+    },
+    {
+      "surface": "回避",
+      "reading": "かいひ",
+      "romaji": "kaihi",
+      "meanings": {
+        "en": "evasion / dodge",
+        "pt-BR": "evasão / desvio",
+        "es": "evasión / esquiva"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The skill of evading attacks rather than blocking them. Kirito's extraordinary回避 ability — dodging attacks that should be impossible to avoid — is a trademark of his fighting style and maximum agility stat."
+    },
+    {
+      "surface": "速度",
+      "reading": "そくど",
+      "romaji": "sokudo",
+      "meanings": {
+        "en": "speed / velocity",
+        "pt-BR": "velocidade",
+        "es": "velocidad"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The speed stat determining movement and attack timing in SAO. Asuna's legendary speed earns her the title 'The Flash' — her rapier strikes faster than most players can track or react to."
+    },
+    {
+      "surface": "耐久",
+      "reading": "たいきゅう",
+      "romaji": "taikyū",
+      "meanings": {
+        "en": "durability / endurance",
+        "pt-BR": "durabilidade / resistência",
+        "es": "durabilidad / resistencia"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The durability stat for weapons and armor in SAO. Equipment degrades with use — maintaining gear durability is a constant survival concern for players who can't afford new equipment in a crisis."
+    },
+    {
+      "surface": "仮想空間",
+      "reading": "かそうくうかん",
+      "romaji": "kasō kūkan",
+      "meanings": {
+        "en": "virtual space",
+        "pt-BR": "espaço virtual",
+        "es": "espacio virtual"
+      },
+      "jlpt_level": "N1",
+      "category": "vr",
+      "context": "The digital space of the VR world. In SAO's Alicization arc, the question of whether a仮想空間 can contain genuine human experience — love, fear, consciousness — becomes the series' deepest philosophical question."
+    },
+    {
+      "surface": "システム",
+      "reading": "システム",
+      "romaji": "shisutemu",
+      "meanings": {
+        "en": "system",
+        "pt-BR": "sistema",
+        "es": "sistema"
+      },
+      "jlpt_level": null,
+      "category": "technology",
+      "context": "The underlying game system governing SAO's rules. Kayaba designed the system as an absolute — players cannot override it, cheat it, or escape it, which is what makes the trap so complete."
+    },
+    {
+      "surface": "管理者",
+      "reading": "かんりしゃ",
+      "romaji": "kanrisha",
+      "meanings": {
+        "en": "administrator / system admin",
+        "pt-BR": "administrador",
+        "es": "administrador"
+      },
+      "jlpt_level": "N2",
+      "category": "technology",
+      "context": "The all-powerful administrator role in SAO, held secretly by Kayaba as Heathcliff. The administrator controls the fundamental rules of the world — a terrifying power used to trap 10,000 people."
+    },
+    {
+      "surface": "創造主",
+      "reading": "そうぞうしゅ",
+      "romaji": "sōzōshu",
+      "meanings": {
+        "en": "creator / god (creator of the world)",
+        "pt-BR": "criador / deus",
+        "es": "creador / dios"
+      },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "How Kayaba Akihiko effectively functions in SAO — as a god who built a world and trapped humans inside it. His motivations reveal a creator who wanted his virtual world to be taken as seriously as reality."
+    },
+    {
+      "surface": "プレイヤー",
+      "reading": "プレイヤー",
+      "romaji": "pureiyā",
+      "meanings": {
+        "en": "player",
+        "pt-BR": "jogador",
+        "es": "jugador"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "The 10,000 people trapped in SAO. 'Player' starts as a game term but quickly becomes a human identity — these are real people building real lives within a digital prison."
+    },
+    {
+      "surface": "アバター",
+      "reading": "アバター",
+      "romaji": "abatā",
+      "meanings": {
+        "en": "avatar (player character)",
+        "pt-BR": "avatar (personagem do jogador)",
+        "es": "avatar (personaje del jugador)"
+      },
+      "jlpt_level": null,
+      "category": "vr",
+      "context": "The digital body players inhabit in the VR world. In SAO, the avatar looks exactly like the real player — Kayaba removes the disguise option on launch day, making players confront that their in-game self is their real self."
+    },
+    {
+      "surface": "ログイン",
+      "reading": "ログイン",
+      "romaji": "rogu in",
+      "meanings": {
+        "en": "log in",
+        "pt-BR": "entrar / fazer login",
+        "es": "iniciar sesión"
+      },
+      "jlpt_level": null,
+      "category": "vr",
+      "context": "The act of entering the VR world. The launch-day ログイン of SAO becomes a one-way door — players enter a game and find themselves in a death trap with no way out."
+    },
+    {
+      "surface": "デスゲーム",
+      "reading": "デスゲーム",
+      "romaji": "desu gēmu",
+      "meanings": {
+        "en": "death game",
+        "pt-BR": "jogo mortal",
+        "es": "juego de muerte"
+      },
+      "jlpt_level": null,
+      "category": "game",
+      "context": "What SAO becomes after Kayaba's announcement — a game where losing means dying in real life. The デスゲーム concept recurs across the series, reappearing in GGO with 'Death Gun' murders."
+    },
+    {
+      "surface": "心意",
+      "reading": "しんい",
+      "romaji": "shin'i",
+      "meanings": {
+        "en": "Incarnation / will power (Underworld concept)",
+        "pt-BR": "Incarnação / força de vontade",
+        "es": "Encarnación / fuerza de voluntad"
+      },
+      "jlpt_level": null,
+      "category": "technology",
+      "context": "The Underworld's system where intense willpower can override the system's Sacred Arts limitations. Kirito and Alice master心意 to achieve feats impossible under normal rules — a power born from true human will."
+    },
+    {
+      "surface": "神聖術",
+      "reading": "しんせいじゅつ",
+      "romaji": "shinsei jutsu",
+      "meanings": {
+        "en": "Sacred Arts (Underworld magic system)",
+        "pt-BR": "Artes Sagradas",
+        "es": "Artes Sagradas"
+      },
+      "jlpt_level": null,
+      "category": "technology",
+      "context": "The magic system governing the Underworld in the Alicization arc. Sacred Arts use verbal commands to manipulate elements — the system enforces strict rules that Integrity Knights are sworn to uphold."
+    },
+    {
+      "surface": "整合騎士",
+      "reading": "せいごうきし",
+      "romaji": "seigō kishi",
+      "meanings": {
+        "en": "Integrity Knight",
+        "pt-BR": "Cavaleiro de Integridade",
+        "es": "Caballero de Integridad"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "The elite warriors of the Axiom Church who enforce the Underworld's laws. Alice is transformed into Integrity Knight Alice Synthesis Thirty after crossing the Wall of World's End — her liberation is Kirito's core goal in Alicization."
+    },
+    {
+      "surface": "アリス",
+      "reading": "アリス",
+      "romaji": "Arisu",
+      "meanings": {
+        "en": "Alice (Alicization protagonist)",
+        "pt-BR": "Alice (protagonista de Alicization)",
+        "es": "Alice (protagonista de Alicization)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "Kirito's childhood friend in the Underworld who becomes Integrity Knight Alice Synthesis Thirty. Alice represents the proof that artificial Fluctlight consciousness is indistinguishable from human consciousness."
+    },
+    {
+      "surface": "ユージオ",
+      "reading": "ユージオ",
+      "romaji": "Yūjio",
+      "meanings": {
+        "en": "Eugeo (Alicization protagonist)",
+        "pt-BR": "Eugeo (protagonista de Alicization)",
+        "es": "Eugeo (protagonista de Alicization)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "Kirito's best friend in the Underworld and co-protagonist of the Alicization arc. Eugeo's sacrifice — choosing love for Alice over his own existence — is the emotional climax of the arc."
+    },
+    {
+      "surface": "ラフィン・コフィン",
+      "reading": "ラフィン・コフィン",
+      "romaji": "Rafin Kofin",
+      "meanings": {
+        "en": "Laughing Coffin (PK guild)",
+        "pt-BR": "Laughing Coffin (guilda assassina)",
+        "es": "Laughing Coffin (gremio asesino)"
+      },
+      "jlpt_level": null,
+      "category": "guild",
+      "context": "The infamous murder guild of SAO — a group of players who kill other players for pleasure. Kirito's violent confrontation with Laughing Coffin, and the lives he had to take to stop them, haunts him long after SAO ends."
+    },
+    {
+      "surface": "カヤバ・アキヒコ",
+      "reading": "カヤバ・アキヒコ",
+      "romaji": "Kayaba Akihiko",
+      "meanings": {
+        "en": "Kayaba Akihiko (SAO's creator)",
+        "pt-BR": "Kayaba Akihiko (criador do SAO)",
+        "es": "Kayaba Akihiko (creador del SAO)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "The genius programmer who created SAO and the NerveGear, then trapped 10,000 players inside his game. His true identity as Heathcliff — the unbeatable paladin leading the strongest guild — is the series' greatest twist."
+    },
+    {
+      "surface": "ヒースクリフ",
+      "reading": "ヒースクリフ",
+      "romaji": "Hīsukurifu",
+      "meanings": {
+        "en": "Heathcliff (Kayaba's avatar)",
+        "pt-BR": "Heathcliff (avatar de Kayaba)",
+        "es": "Heathcliff (avatar de Kayaba)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "The seemingly invincible commander of the Knights of the Blood Oath and secret identity of Kayaba Akihiko. Heathcliff's 'invincibility' is maintained by GM privileges — a cheat kept hidden until Kirito deduces it."
+    },
+    {
+      "surface": "勇気",
+      "reading": "ゆうき",
+      "romaji": "yūki",
+      "meanings": {
+        "en": "courage / bravery",
+        "pt-BR": "coragem",
+        "es": "valor / coraje"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The courage to face death, fight when others retreat, and forge bonds when loss seems inevitable. Kirito's勇気 is tested in every arc — but perhaps most profoundly by the will to keep living after surviving SAO."
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "meanings": {
+        "en": "hope",
+        "pt-BR": "esperança",
+        "es": "esperanza"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The hope of escaping SAO and returning to the real world. Hope is what keeps players alive — but also what makes them vulnerable. Kirito and Asuna build a life on hope in their Floor 22 cottage."
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": {
+        "en": "loneliness / solitude",
+        "pt-BR": "solidão",
+        "es": "soledad"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Kirito's default state at the start of SAO — chosen isolation as self-protection after the Moonlit Black Cats tragedy. His孤独 gradually dissolves through his relationship with Asuna and his growing circle of friends."
+    },
+    {
+      "surface": "罪悪感",
+      "reading": "ざいあくかん",
+      "romaji": "zaiakukan",
+      "meanings": {
+        "en": "guilt / sense of guilt",
+        "pt-BR": "culpa / sentimento de culpa",
+        "es": "culpa / sentimiento de culpa"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "The guilt Kirito carries for surviving when others — particularly his guildmates in the Moonlit Black Cats — died. This罪悪感 is a defining character flaw that drives his self-sacrificing behavior."
+    },
+    {
+      "surface": "戦略",
+      "reading": "せんりゃく",
+      "romaji": "senryaku",
+      "meanings": {
+        "en": "strategy / tactics",
+        "pt-BR": "estratégia",
+        "es": "estrategia"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The tactical planning needed for boss raids in SAO. Successful戦略 requires scouting, role assignment, and studying boss patterns — and in SAO, failed strategy means real deaths, not respawns."
+    },
+    {
+      "surface": "冒険",
+      "reading": "ぼうけん",
+      "romaji": "bōken",
+      "meanings": {
+        "en": "adventure",
+        "pt-BR": "aventura",
+        "es": "aventura"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "What SAO was supposed to be — an adventure game — and what it horrifyingly becomes in reality. The word carries bitter irony when used in SAO, but Kirito and Asuna do ultimately find genuine adventure together."
+    },
+    {
+      "surface": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "meanings": {
+        "en": "world",
+        "pt-BR": "mundo",
+        "es": "mundo"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Both the real world and the various VR worlds Kirito inhabits. SAO asks which世界 is more real — the one your body is in, or the one your heart belongs to."
+    },
+    {
+      "surface": "フェアリー",
+      "reading": "フェアリー",
+      "romaji": "fearī",
+      "meanings": {
+        "en": "fairy",
+        "pt-BR": "fada",
+        "es": "hada"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The playable races in Alfheim Online (ALO) — Kirito enters as a Spriggan to rescue Asuna. The fairy races have flight capability, making ALO's combat fundamentally different from SAO's ground-based swordplay."
+    },
+    {
+      "surface": "飛翔",
+      "reading": "ひしょう",
+      "romaji": "hishō",
+      "meanings": {
+        "en": "flight / soaring",
+        "pt-BR": "voo / ascensão",
+        "es": "vuelo / ascenso"
+      },
+      "jlpt_level": "N1",
+      "category": "world",
+      "context": "The flight ability central to ALO gameplay. After being grounded in Aincrad for two years, the ability to飛翔 in Alfheim represents a new kind of freedom — but Kirito uses it only to reach Asuna."
+    },
+    {
+      "surface": "銃",
+      "reading": "じゅう",
+      "romaji": "jū",
+      "meanings": {
+        "en": "gun / firearm",
+        "pt-BR": "arma de fogo",
+        "es": "arma de fuego"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The primary weapon type in Gun Gale Online (GGO), replacing swords. Kirito's choice to use a photon sword even in a gun-based world reflects his identity as a swordsman regardless of the game's ruleset."
+    },
+    {
+      "surface": "狙撃",
+      "reading": "そげき",
+      "romaji": "sogeki",
+      "meanings": {
+        "en": "sniping / sniper shot",
+        "pt-BR": "sniping / tiro de sniper",
+        "es": "francotirador / disparo de precisión"
+      },
+      "jlpt_level": "N1",
+      "category": "combat",
+      "context": "The ranged precision shooting central to GGO. Sinon's mastery of狙撃 with the Hecate II anti-materiel rifle makes her one of GGO's most feared players — and her past trauma with guns gives it deep personal meaning."
+    },
+    {
+      "surface": "シノン",
+      "reading": "シノン",
+      "romaji": "Shinon",
+      "meanings": {
+        "en": "Sinon (GGO protagonist)",
+        "pt-BR": "Sinon (protagonista de GGO)",
+        "es": "Sinon (protagonista de GGO)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "Asada Shino's GGO avatar, a feared sniper. Sinon uses GGO to overcome her real-world trauma of having shot a man to protect herself as a child — the game is her therapy and her battlefield."
+    },
+    {
+      "surface": "死銃",
+      "reading": "しじゅう",
+      "romaji": "Shi Jū",
+      "meanings": {
+        "en": "Death Gun (GGO antagonist)",
+        "pt-BR": "Death Gun (antagonista de GGO)",
+        "es": "Death Gun (antagonista de GGO)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "The mysterious GGO player who appears to kill players in real life by shooting their avatars. Death Gun's existence forces Kirito to dive into GGO and confront a horror echoing SAO's original death-game premise."
+    },
+    {
+      "surface": "幽閉",
+      "reading": "ゆうへい",
+      "romaji": "yūhei",
+      "meanings": {
+        "en": "confinement / imprisonment",
+        "pt-BR": "confinamento",
+        "es": "confinamiento"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "The confinement of Asuna in a cage at the top of the World Tree in ALO by Sugou Nobuyuki. Her幽閉 — and Kirito's desperate rescue mission — drives the entire Fairy Dance arc."
+    },
+    {
+      "surface": "洗脳",
+      "reading": "せんのう",
+      "romaji": "sen'nō",
+      "meanings": {
+        "en": "brainwashing / mind control",
+        "pt-BR": "lavagem cerebral",
+        "es": "lavado de cerebro"
+      },
+      "jlpt_level": "N1",
+      "category": "technology",
+      "context": "Sugou's illegal experiments to control human emotions and memories via VR. His洗脳 research on 300 SAO survivors — treating real humans as lab subjects — makes him one of the series' most despised villains."
+    },
+    {
+      "surface": "感情",
+      "reading": "かんじょう",
+      "romaji": "kanjō",
+      "meanings": {
+        "en": "emotion / feeling",
+        "pt-BR": "emoção / sentimento",
+        "es": "emoción / sentimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The question of whether VR characters can have genuine感情 is central to Alicization. Alice and Eugeo clearly feel joy, love, grief, and loyalty — proof that artificial souls can carry fully human emotional lives."
+    },
+    {
+      "surface": "仮想世界",
+      "reading": "かそうせかい",
+      "romaji": "kasō sekai",
+      "meanings": {
+        "en": "virtual world",
+        "pt-BR": "mundo virtual",
+        "es": "mundo virtual"
+      },
+      "jlpt_level": "N2",
+      "category": "vr",
+      "context": "The encompassing term for all VR game worlds in SAO. The仮想世界 evolves across the series — from a death trap in SAO, to an escape in ALO, to a philosophical frontier in Alicization."
+    },
+    {
+      "surface": "蘇生",
+      "reading": "そせい",
+      "romaji": "sosei",
+      "meanings": {
+        "en": "revival / resurrection",
+        "pt-BR": "ressurreição",
+        "es": "resurrección"
+      },
+      "jlpt_level": "N1",
+      "category": "game",
+      "context": "Unlike most RPGs, there is no revival mechanic in SAO — death is permanent. The absence of蘇生 is what makes every fight genuinely terrifying and every loss a real tragedy."
+    },
+    {
+      "surface": "敵",
+      "reading": "てき",
+      "romaji": "teki",
+      "meanings": {
+        "en": "enemy / foe",
+        "pt-BR": "inimigo",
+        "es": "enemigo"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "The enemies of Aincrad — from dungeon monsters to PKers. In SAO, the line between 敵 and former friend blurs disturbingly, as desperation can turn any player into a threat."
+    },
+    {
+      "surface": "友情",
+      "reading": "ゆうじょう",
+      "romaji": "yūjō",
+      "meanings": {
+        "en": "friendship",
+        "pt-BR": "amizade",
+        "es": "amistad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The friendships forged in SAO — Klein, Agil, Lisbeth, Silica — are among the most lasting aspects of the series. Friendships born in a death game carry a weight and depth that normal bonds rarely achieve."
+    },
+    {
+      "surface": "剣",
+      "reading": "けん",
+      "romaji": "ken",
+      "meanings": {
+        "en": "sword",
+        "pt-BR": "espada",
+        "es": "espada"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "The central symbol of SAO — a sword defines Kirito's identity across every arc. The word 剣 appears in the series title itself (ソードアート＝Sword Art), anchoring the entire franchise's identity."
+    },
+    {
+      "surface": "クライン",
+      "reading": "クライン",
+      "romaji": "Kurain",
+      "meanings": {
+        "en": "Klein (Kirito's first friend)",
+        "pt-BR": "Klein (primeiro amigo de Kirito)",
+        "es": "Klein (primer amigo de Kirito)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "The first player Kirito meets on SAO's launch day. Klein's cheerful loyalty and his decision to stay with his own friends rather than escape with Kirito sets up one of the series' most touching friendships."
+    },
+    {
+      "surface": "アギル",
+      "reading": "アギル",
+      "romaji": "Agiru",
+      "meanings": {
+        "en": "Agil (merchant / Kirito ally)",
+        "pt-BR": "Agil (comerciante / aliado de Kirito)",
+        "es": "Agil (comerciante / aliado de Kirito)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "The reliable axe-wielding merchant and trusted friend who supports Kirito and Asuna throughout their time in Aincrad and beyond. Agil represents the ordinary person who becomes extraordinary through loyalty."
+    },
+    {
+      "surface": "リズベット",
+      "reading": "リズベット",
+      "romaji": "Rizubetto",
+      "meanings": {
+        "en": "Lisbeth (blacksmith / Kirito ally)",
+        "pt-BR": "Lisbeth (ferraria / aliada de Kirito)",
+        "es": "Lisbeth (herrería / aliada de Kirito)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "SAO's most skilled blacksmith and one of Kirito's close friends. Lisbeth forged Dark Repulser — Kirito's second sword — using an ore they retrieved together from a dragon's belly in one of SAO's most memorable side quests."
+    },
+    {
+      "surface": "シリカ",
+      "reading": "シリカ",
+      "romaji": "Shirika",
+      "meanings": {
+        "en": "Silica (beast tamer / Kirito ally)",
+        "pt-BR": "Silica (domadora / aliada de Kirito)",
+        "es": "Silica (domadora / aliada de Kirito)"
+      },
+      "jlpt_level": null,
+      "category": "character",
+      "context": "The young beast tamer whose partner Pina was killed protecting her. Kirito helps Silica revive Pina in a touching side story that reveals his protective instincts and the emotional cost of loss in SAO."
+    },
+    {
+      "surface": "妨害",
+      "reading": "ぼうがい",
+      "romaji": "bōgai",
+      "meanings": {
+        "en": "interference / obstruction",
+        "pt-BR": "interferência / obstrução",
+        "es": "interferencia / obstrucción"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Actions that hinder other players — a tactic used by PKers to trap victims and by Sugou to trap Kirito in ALO. Deliberate妨害 of other players' gameplay is what marks true villains in the SAO universe."
+    },
+    {
+      "surface": "報酬",
+      "reading": "ほうしゅう",
+      "romaji": "hōshū",
+      "meanings": {
+        "en": "reward / compensation",
+        "pt-BR": "recompensa",
+        "es": "recompensa"
+      },
+      "jlpt_level": "N2",
+      "category": "game",
+      "context": "The items, EXP, and currency awarded for completing quests or defeating bosses. In SAO, no報酬 is worth dying for — but the best rewards fund survival, better equipment, and closer to freedom."
+    },
+    {
+      "surface": "指揮",
+      "reading": "しき",
+      "romaji": "shiki",
+      "meanings": {
+        "en": "command / direction / leadership",
+        "pt-BR": "comando / liderança",
+        "es": "mando / liderazgo"
+      },
+      "jlpt_level": "N2",
+      "category": "guild",
+      "context": "The act of commanding in battle. Asuna's指揮 ability during floor boss raids is legendary — her tactical mind combined with her combat skill makes her a natural battle commander for the clearing group."
+    },
+    {
+      "surface": "恐怖",
+      "reading": "きょうふ",
+      "romaji": "kyōfu",
+      "meanings": {
+        "en": "fear / terror",
+        "pt-BR": "medo / terror",
+        "es": "miedo / terror"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The terror that grips players when they first learn death is permanent in SAO. 恐怖 paralyzes many into safe-zone living — only the brave (or desperate) venture out to fight."
+    },
+    {
+      "surface": "誠実",
+      "reading": "せいじつ",
+      "romaji": "seijitsu",
+      "meanings": {
+        "en": "sincerity / honesty / integrity",
+        "pt-BR": "sinceridade / integridade",
+        "es": "sinceridad / integridad"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The sincerity with which Kirito and Asuna treat their virtual relationship. Their誠実 to each other — treating VR emotions as genuinely real — is ultimately what saves both of them."
+    }
+  ]
+}
