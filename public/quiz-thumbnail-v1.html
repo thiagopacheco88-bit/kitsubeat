@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KitsuBeat Quiz Thumbnail — C</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; min-height: 100vh;
+  background: #060606;
+  font-family: Inter, system-ui, sans-serif;
+  color: #F5F5F4;
+  display: flex; flex-direction: column;
+  align-items: center; padding: 48px 24px 72px;
+}
+.pg-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,245,244,0.3); margin-bottom: 5px; }
+.pg-sub  { font-size: 11px; color: rgba(245,245,244,0.18); margin-bottom: 44px; }
+
+/* 9:16 poster 290x515 */
+.p {
+  width: 290px; height: 515px; border-radius: 18px; overflow: hidden; position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* Safe zone guides */
+.safe-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 52px;
+  background: rgba(239,68,68,0.16);
+  border-bottom: 1.5px dashed rgba(239,68,68,0.6);
+  z-index: 30; pointer-events: none;
+  display: flex; align-items: flex-end; padding: 0 8px 5px;
+}
+.safe-bot {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 113px;
+  background: rgba(239,68,68,0.16);
+  border-top: 1.5px dashed rgba(239,68,68,0.6);
+  z-index: 30; pointer-events: none;
+  display: flex; align-items: flex-start; padding: 5px 8px 0;
+}
+.safe-lbl {
+  font-size: 6.5px; font-weight: 800; letter-spacing: 0.14em;
+  color: rgba(239,68,68,0.9); text-transform: uppercase;
+}
+
+/* Shared components */
+.anime-logo-ph {
+  border: 1.5px dashed rgba(245,245,244,0.12); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  width: 200px; height: 68px;
+}
+.anime-logo-ph span {
+  font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(245,245,244,0.2); font-weight: 600;
+}
+.part-pill {
+  background: #dc2626; color: white;
+  font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(220,38,38,0.4);
+}
+.anime-name {
+  font-size: 30px; font-weight: 900; color: #F5F5F4;
+  line-height: 1.05; letter-spacing: -0.02em;
+  font-family: "Noto Sans JP", Inter, sans-serif;
+}
+
+/* C - MINIMAL */
+.pc { background: #0E0E0E; }
+
+/* Left accent bar inside safe zone only */
+.pc .bar {
+  position: absolute; left: 0; top: 52px; bottom: 113px;
+  width: 2px; background: #dc2626; z-index: 2;
+}
+
+/* Ghost number — removed (redundant with Part pill) */
+
+/* Content centered inside safe zone */
+.pc .content {
+  position: absolute;
+  top: 52px; bottom: 113px;
+  left: 0; right: 0;
+  display: flex; flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 26px;
+  z-index: 1;
+}
+
+/* Fox — transparent PNG, no square, centered horizontally */
+.pc .fox-icon {
+  width: 80px; height: 80px;
+  object-fit: contain;
+  align-self: center;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 6px 24px rgba(0,0,0,0.6));
+}
+
+.pc .quiz-on {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: rgba(245,245,244,0.52);
+  margin-bottom: 6px;
+}
+
+.pc .anime-name { margin-bottom: 20px; }
+
+.pc .anime-logo-wrap { margin-bottom: 22px; }
+</style>
+</head>
+<body>
+
+<div class="pg-lbl">KitsuBeat · Quiz Thumbnail</div>
+<div class="pg-sub">Red zones = Instagram unsafe area (top 10% · bottom 22%)</div>
+
+<div class="p pc">
+  <div class="safe-top"><span class="safe-lbl">▲ unsafe zone</span></div>
+  <div class="safe-bot"><span class="safe-lbl">▼ unsafe zone</span></div>
+
+  <div class="bar"></div>
+
+  <div class="content">
+    <img class="fox-icon" src="logo-transparent.png" alt="KitsuBeat">
+    <div class="quiz-on">Quiz on</div>
+    <div class="anime-name">Naruto<br>Shippuden</div>
+    <div class="anime-logo-wrap">
+      <div class="anime-logo-ph"><span>Anime logo</span></div>
+    </div>
+    <div class="part-pill">Part 3</div>
+  </div>
+</div>
+
+</body>
+</html>
