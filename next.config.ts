@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "s4.anilist.co" },
+      { protocol: "https", hostname: "s1.anilist.co" },
+      { protocol: "https", hostname: "anilist.co" },
+    ],
+  },
   // Tell Next.js file-tracing to bundle the MDX content files so that
   // fs.readFileSync calls in the journal admin pages work on Vercel.
   outputFileTracingIncludes: {
