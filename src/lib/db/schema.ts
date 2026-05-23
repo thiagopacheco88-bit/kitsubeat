@@ -961,6 +961,35 @@ export const animeMetadata = pgTable("anime_metadata", {
 
 export type AnimeMetadata = typeof animeMetadata.$inferSelect;
 
+// ─── Phase 18.3: Anime Vocabulary Carousel ───────────────────────────────────
+
+/**
+ * anime_vocab_catalog table — join table linking anime slugs to vocabulary_items.
+ *
+ * Each row pins one vocabulary word to one anime series with its display metadata.
+ * The unique constraint on (anime_slug, vocab_item_id) ensures idempotent seeding.
+ * display_order is computed by the seed script: N5=0, N4=1, N3=2, N2=3, N1=4,
+ * null=5, then sub-sorted by JSON array index within each JLPT level.
+ *
+ * Seeded by scripts/seed/20-seed-anime-vocab.ts from .planning/anime-vocab/*.json.
+ */
+export const animeVocabCatalog = pgTable("anime_vocab_catalog", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  anime_slug: text("anime_slug").notNull(),
+  vocab_item_id: uuid("vocab_item_id")
+    .notNull()
+    .references(() => vocabularyItems.id, { onDelete: "cascade" }),
+  category: text("category").notNull(),
+  display_order: integer("display_order").notNull(),
+  context_note: text("context_note"),
+  created_at: timestamp("created_at", { withTimezone: true }).defaultNow(),
+}, (t) => [
+  unique("anime_vocab_catalog_slug_vocab_unique").on(t.anime_slug, t.vocab_item_id),
+  index("anime_vocab_catalog_slug_order_idx").on(t.anime_slug, t.display_order),
+]);
+
+export type AnimeVocabCatalog = typeof animeVocabCatalog.$inferSelect;
+
 // ─── Phase 18: Legal & Compliance ────────────────────────────────────────────
 
 /**
