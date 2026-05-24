@@ -77,7 +77,7 @@ export default async function AnimeCarouselPage({
   return (
     <main className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="mb-8">
-        {animeMeta?.banner_image && (
+        {animeMeta?.banner_image ? (
           <div className="relative h-48 w-full overflow-hidden rounded-xl mb-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -86,7 +86,16 @@ export default async function AnimeCarouselPage({
               className="w-full h-full object-cover"
             />
           </div>
-        )}
+        ) : slug === "anime-core" ? (
+          <div className="relative h-48 w-full overflow-hidden rounded-xl mb-6 bg-[var(--color-card)] flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-transparent.png"
+              alt="KitsuBeat"
+              className="h-28 object-contain"
+            />
+          </div>
+        ) : null}
         <h1 className="text-3xl font-bold text-[var(--color-text)]">
           {animeMeta?.title_english ?? slug}
         </h1>
