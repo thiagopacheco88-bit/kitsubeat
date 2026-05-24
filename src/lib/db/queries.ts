@@ -1862,13 +1862,14 @@ async function _getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
   return rows.map((row) => {
     const levels = jlptBySlug.get(row.anime_slug);
     const top_jlpt = levels ? (JLPT_ORDER.find((l) => levels.has(l)) ?? null) : null;
+    const isAnimeCore = row.anime_slug === "anime-core";
     return {
       anime_slug: row.anime_slug,
       word_count: Number(row.word_count),
       top_jlpt,
-      cover_image: row.cover_image ?? null,
-      title_english: row.title_english ?? null,
-      description: row.description ?? null,
+      cover_image: isAnimeCore ? "/logo-transparent.png" : (row.cover_image ?? null),
+      title_english: isAnimeCore ? "Anime Core" : (row.title_english ?? null),
+      description: isAnimeCore ? "Universal words from every anime" : (row.description ?? null),
     };
   });
 }

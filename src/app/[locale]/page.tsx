@@ -16,6 +16,7 @@ import {
   getHeroSong,
   getFeaturedSongs,
   getTopAnimeFranchises,
+  getAnimeCatalog,
   getNowPlayingCounts,
   getRecentMasteryEvents,
   getTickerFirstName,
@@ -57,9 +58,10 @@ export default async function LocaleHomePage({
   const userId = await getCurrentUserId();
   const isSignedIn = userId !== PLACEHOLDER_USER_ID;
 
-  const [hero, topFranchises, featured, nowPlayingCounts, masteryEventsRaw] = await Promise.all([
+  const [hero, topFranchises, animeCatalog, featured, nowPlayingCounts, masteryEventsRaw] = await Promise.all([
     getHeroSong(isSignedIn ? userId : null),
     getTopAnimeFranchises(20),
+    getAnimeCatalog(),
     getFeaturedSongs(12),
     getNowPlayingCounts(),
     getRecentMasteryEvents(10),
@@ -98,15 +100,38 @@ export default async function LocaleHomePage({
       {/* Section 3 — Foundations */}
       <Foundations title={t('home.foundations')} viewAllLabel={t('home.openKana')} />
 
-      {/* Section 4 — Browse by Anime */}
+      {/* Section 4 — Anime Vocabulary */}
+      <section data-testid="anime-vocabulary" className="pb-8">
+        <SectionHeader
+          titleJp="語彙"
+          title={t('home.animeVocabulary')}
+          viewAll="/anime"
+          viewAllLabel={t('home.browseVocab')}
+        />
+        <Carousel testId="anime-vocabulary-carousel" ariaLabel="Anime vocabulary">
+          {animeCatalog.map((entry) => (
+            <AnimeCard
+              key={entry.anime_slug}
+              anime={entry.title_english ?? entry.anime_slug}
+              songCount={0}
+              subtitle={`${entry.word_count} words`}
+              coverImage={entry.cover_image}
+              href={`/anime/${entry.anime_slug}`}
+              imageFit={entry.anime_slug === "anime-core" ? "contain" : "cover"}
+            />
+          ))}
+        </Carousel>
+      </section>
+
+      {/* Section 5 — Anime Songs */}
       <section data-testid="browse-by-anime" className="pb-8">
         <SectionHeader
           titleJp="アニメ"
-          title={t('home.browseByAnime')}
-          viewAll="/anime-list"
-          viewAllLabel={t('home.browseAnime')}
+          title={t('home.animeSongs')}
+          viewAll="/songs"
+          viewAllLabel={t('home.browseSongs')}
         />
-        <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse by anime">
+        <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse anime songs">
           {topFranchises.map((franchise) => (
             <AnimeCard
               key={franchise.anime}

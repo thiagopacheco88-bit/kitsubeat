@@ -29,6 +29,12 @@ interface AnimeCardProps {
   songCount: number;
   coverImage?: string | null;
   bannerImage?: string | null;
+  /** Override the default /songs?search=… href */
+  href?: string;
+  /** Override the default "{songCount} songs" subtitle */
+  subtitle?: string;
+  /** How the cover image fills the card — "cover" (default) or "contain" for logos */
+  imageFit?: "cover" | "contain";
 }
 
 // Spec dimensions (CONTEXT §Specifics line 259): 130×130 cover-only tile.
@@ -41,8 +47,11 @@ export function AnimeCard({
   songCount,
   coverImage,
   bannerImage,
+  href: hrefProp,
+  subtitle,
+  imageFit = "cover",
 }: AnimeCardProps) {
-  const href = `/songs?search=${encodeURIComponent(anime)}`;
+  const href = hrefProp ?? `/songs?search=${encodeURIComponent(anime)}`;
   const imageSrc = coverImage ?? bannerImage ?? null;
   const displayName = nameJp ?? anime;
 
@@ -59,7 +68,7 @@ export function AnimeCard({
         <img
           src={imageSrc}
           alt={anime}
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full ${imageFit === "contain" ? "object-contain p-4" : "object-cover"}`}
           loading="lazy"
         />
       ) : (
@@ -94,7 +103,7 @@ export function AnimeCard({
           style={{ fontSize: "10px" }}
           data-testid="anime-card-song-count"
         >
-          {songCount} songs
+          {subtitle ?? `${songCount} songs`}
         </p>
       </div>
     </CardLink>
