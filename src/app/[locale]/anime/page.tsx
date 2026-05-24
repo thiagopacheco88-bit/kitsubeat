@@ -7,7 +7,7 @@
  * Full component (not re-export) because setRequestLocale() must be called
  * for next-intl to work correctly in sub-components.
  */
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getAnimeCatalog } from "@/lib/db/queries";
 import AnimeIndexGrid from "@/app/anime/components/AnimeIndexGrid";
 
@@ -19,17 +19,19 @@ export default async function LocaleAnimePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const animes = await getAnimeCatalog();
+  const [t, animes] = await Promise.all([
+    getTranslations("common"),
+    getAnimeCatalog(),
+  ]);
 
   return (
     <main className="container mx-auto px-4 py-8 max-w-6xl">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-[var(--color-text)]">
-          Anime Vocabulary
+          {t("anime.heading")}
         </h1>
         <p className="mt-2 text-[var(--color-text-muted)]">
-          Study world-building vocabulary from iconic anime series, tracked
-          with spaced repetition.
+          {t("anime.subheading")}
         </p>
       </div>
       <AnimeIndexGrid animes={animes} />

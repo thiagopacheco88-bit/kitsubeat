@@ -25,7 +25,7 @@
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { LanguagePicker } from "@/components/ui/LanguagePicker";
 
 type Props = { isAdmin: boolean; isSignedIn: boolean };
@@ -35,17 +35,18 @@ export default function MobileNavSheet({ isAdmin }: Props) {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const locale = useLocale() as "en" | "pt-BR" | "es";
+  const t = useTranslations("common");
 
-  const links = [
-    { href: "/path", label: "Path" },
-    { href: "/songs", label: "Songs" },
-    { href: "/anime", label: "Anime" },
-    { href: "/kana", label: "Kana" },
-    { href: "/counters", label: "Counters" },
-    { href: "/journal", label: "Journal" },
-    { href: "/vocabulary", label: "Progress" },
-    ...(isAdmin ? [{ href: "/admin/lyrics", label: "Admin", testId: "mobile-nav-admin" }] : []),
-    { href: "/profile", label: "Profile" },
+  const links: { href: string; label: string; testId?: string; isAdmin?: boolean }[] = [
+    { href: "/path", label: t("nav.path") },
+    { href: "/songs", label: t("nav.songs") },
+    { href: "/anime", label: t("nav.anime") },
+    { href: "/kana", label: t("nav.kana") },
+    { href: "/counters", label: t("nav.counters") },
+    { href: "/journal", label: t("nav.journal") },
+    { href: "/vocabulary", label: t("nav.progress") },
+    ...(isAdmin ? [{ href: "/admin/lyrics", label: t("nav.admin"), testId: "mobile-nav-admin", isAdmin: true }] : []),
+    { href: "/profile", label: t("nav.profile") },
   ];
 
   const close = useCallback(() => {
@@ -132,7 +133,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
                 data-testid="mobile-nav-close"
                 className="rounded-[var(--radius-pill)] border border-[var(--color-border-strong)] bg-[var(--color-card)] px-4 py-2 text-sm font-medium text-[var(--color-text)] shadow-[var(--shadow-card-ring)] transition-colors hover:bg-[var(--color-card-2)]"
               >
-                Close
+                {t("nav.close")}
               </button>
             </div>
             <div className="flex flex-1 flex-col justify-center gap-3">
@@ -144,7 +145,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
                   data-testid={link.testId}
                   className={[
                     "rounded-[var(--radius-xl)] border border-[var(--color-border-strong)] bg-[var(--color-card)] px-5 py-4 text-xl font-semibold shadow-[var(--shadow-card-ring)] transition-colors hover:bg-[var(--color-card-2)]",
-                    link.label === "Admin"
+                    link.isAdmin
                       ? "text-[var(--color-accent-readable)]"
                       : "text-[var(--color-text)]",
                   ].join(" ")}

@@ -38,7 +38,7 @@ export default async function LocaleJournalPage({
       {/* Page header — mirrors src/app/journal/page.tsx pattern */}
       <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
-          Content Hub
+          {t("eyebrow")}
         </p>
         <h1 className="mt-1 text-3xl font-bold text-[var(--color-text)]">
           {t("heading")}
@@ -52,7 +52,7 @@ export default async function LocaleJournalPage({
         /* Empty state — graceful, no crash */
         <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-12 text-center">
           <p className="text-[var(--color-text-muted)]">
-            No articles yet — check back soon.
+            {t("empty")}
           </p>
         </div>
       ) : (

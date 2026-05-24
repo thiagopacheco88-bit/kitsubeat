@@ -1,6 +1,8 @@
 {
+  "eyebrow": "Content Hub",
   "heading": "Journal",
   "subheading": "Japanese language and culture through the lens of anime.",
+  "empty": "No articles yet — check back soon.",
   "readMore": "Read more",
   "readingTime": "{time} read",
   "badge": {

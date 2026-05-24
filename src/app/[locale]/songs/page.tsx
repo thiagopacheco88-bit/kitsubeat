@@ -37,7 +37,7 @@ export default async function LocaleSongsPage({
     <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6">
       <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
-          Catalog
+          {t("eyebrow")}
         </p>
         <h1 className="mt-1 text-3xl font-bold text-[var(--color-text)]">
           {t("heading")}

@@ -6,9 +6,11 @@
     "kana": "Kana",
     "counters": "Counters",
     "journal": "Journal",
+    "progress": "Progress",
     "profile": "Profile",
     "admin": "Admin",
     "signIn": "Sign in",
+    "close": "Close",
     "changeLanguage": "Change language",
     "selectLanguage": "Select language"
   },
@@ -45,5 +47,19 @@
     "advanced": "Advanced",
     "classics": "Classics",
     "modern": "Modern"
+  },
+  "cookie": {
+    "body": "We use cookies for essential functionality and, with your consent, analytics to improve KitsuBeat.",
+    "rejectNonEssential": "Reject non-essential",
+    "acceptAll": "Accept all cookies",
+    "policyLink": "Cookie Policy"
+  },
+  "anime": {
+    "heading": "Anime Vocabulary",
+    "subheading": "Study world-building vocabulary from iconic anime series, tracked with spaced repetition."
+  },
+  "streakSaver": {
+    "saved": "Your {n}-day streak was saved by a streak-saver token",
+    "dismiss": "Dismiss notification"
   }
 }

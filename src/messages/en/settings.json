@@ -1,5 +1,41 @@
 {
   "heading": "Profile",
+  "eyebrow": "Account",
+  "subheading": "Tune your learning defaults, daily limits, and interface preferences.",
+  "learning": {
+    "heading": "Learning preferences",
+    "skipLearnCards": "Skip learn cards",
+    "skipLearnCardsDesc": "Jump straight into exercises without a pre-question breakdown. The new-word cap still applies.",
+    "newWordsPerSession": "New words per session",
+    "newWordsDesc": "How many brand-new words can enter a single session. Default {n}.",
+    "upgradePremiumCap": "Upgrade to premium to raise the cap (up to {max}).",
+    "capRange": "Between 1 and {max}."
+  },
+  "celebration": {
+    "heading": "Celebration effects",
+    "sound": "Sound effects",
+    "soundDesc": "Play a chime on level-up.",
+    "haptics": "Haptic feedback",
+    "hapticsDesc": "Vibrate on mobile on level-up.",
+    "hapticsIosNote": "No effect on iOS — Web Vibration API unsupported."
+  },
+  "social": {
+    "heading": "Social & notifications",
+    "activityLabel": "Show my activity to others and email me reminders",
+    "bullet1": "Your song mastery shows in others' Recently Mastered ticker",
+    "bullet2": "Daily 7pm reminder if your streak hasn't been logged today",
+    "bullet3": "Sunday weekly recap of vocab learned and songs touched",
+    "bullet4": "Your listening counts toward \"X listening now\" for others"
+  },
+  "appearance": {
+    "heading": "Appearance",
+    "desc": "Choose the color theme for KitsuBeat."
+  },
+  "form": {
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Saved."
+  },
   "language": {
     "label": "Language",
     "description": "Choose the language for the app interface."
@@ -18,6 +54,7 @@
   "data": {
     "heading": "Your Data",
     "export": "Export my data",
-    "exporting": "Exporting..."
+    "exporting": "Exporting...",
+    "description": "Export all your KitsuBeat data as JSON (GDPR/LGPD right of access)"
   }
 }

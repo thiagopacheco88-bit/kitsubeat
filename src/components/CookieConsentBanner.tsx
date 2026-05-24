@@ -22,6 +22,7 @@
 
 import { useEffect, useRef } from "react";
 import posthog from "posthog-js";
+import { useTranslations } from "next-intl";
 import { useConsentStore } from "@/lib/consent/store";
 import { recordConsent } from "@/app/actions/consent";
 import { Button } from "@/components/ui/Button";
@@ -34,6 +35,7 @@ interface CookieConsentBannerProps {
 export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps) {
   const { state, setGranted, setRejected } = useConsentStore();
   const rejectButtonRef = useRef<HTMLButtonElement>(null);
+  const t = useTranslations("common");
 
   // Sync PostHog with stored consent on every page load for returning visitors.
   // New visitors start in cookieless mode (from init); this restores their previous choice.
@@ -68,12 +70,12 @@ export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:gap-4 sm:px-6">
         <p className="text-sm leading-[1.5] text-[var(--color-text-muted)] sm:flex-1">
-          We use cookies for essential functionality and, with your consent, analytics to improve KitsuBeat.{" "}
+          {t("cookie.body")}{" "}
           <a
             href="/legal/cookie-policy"
             className="underline text-[var(--color-accent-readable)] hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]/40"
           >
-            Cookie Policy
+            {t("cookie.policyLink")}
           </a>
         </p>
         {/* Button order: Reject first (keyboard focus default), Accept second */}
@@ -88,7 +90,7 @@ export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps
               setRejected();
             }}
           >
-            Reject non-essential
+            {t("cookie.rejectNonEssential")}
           </Button>
           <Button
             variant="primary"
@@ -100,7 +102,7 @@ export function CookieConsentBanner({ initialConsent }: CookieConsentBannerProps
               setGranted();
             }}
           >
-            Accept all cookies
+            {t("cookie.acceptAll")}
           </Button>
         </div>
       </div>

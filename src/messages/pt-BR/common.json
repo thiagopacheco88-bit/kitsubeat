@@ -6,9 +6,11 @@
     "kana": "Kana",
     "counters": "Contadores",
     "journal": "Artigos",
+    "progress": "Progresso",
     "profile": "Perfil",
     "admin": "Admin",
     "signIn": "Entrar",
+    "close": "Fechar",
     "changeLanguage": "Alterar idioma",
     "selectLanguage": "Selecionar idioma"
   },
@@ -45,5 +47,19 @@
     "advanced": "Avançado",
     "classics": "Clássicos",
     "modern": "Moderno"
+  },
+  "cookie": {
+    "body": "Usamos cookies para funcionalidade essencial e, com seu consentimento, para análises que melhoram o KitsuBeat.",
+    "rejectNonEssential": "Rejeitar não essenciais",
+    "acceptAll": "Aceitar todos os cookies",
+    "policyLink": "Política de Cookies"
+  },
+  "anime": {
+    "heading": "Vocabulário Anime",
+    "subheading": "Estude vocabulário de séries de anime icônicas, com rastreamento por repetição espaçada."
+  },
+  "streakSaver": {
+    "saved": "Sua sequência de {n} dias foi salva por um token protetor de sequência",
+    "dismiss": "Dispensar notificação"
   }
 }

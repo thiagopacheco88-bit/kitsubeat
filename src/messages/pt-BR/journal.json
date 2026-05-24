@@ -1,6 +1,8 @@
 {
+  "eyebrow": "Central de Conteúdo",
   "heading": "Artigos",
   "subheading": "Língua e cultura japonesa através das lentes do anime.",
+  "empty": "Nenhum artigo ainda — volte em breve.",
   "readMore": "Ler mais",
   "readingTime": "Leitura de {time}",
   "badge": {

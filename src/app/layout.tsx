@@ -173,7 +173,7 @@ export default async function RootLayout({
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded focus:bg-[var(--color-card)] focus:px-4 focus:py-2 focus:text-sm focus:text-[var(--color-text)] focus:ring-2 focus:ring-[var(--color-accent)]"
         >
-          Skip to main content
+          {t('skip.toMain')}
         </a>
         <NextIntlClientProvider locale={locale}>
         <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
@@ -211,12 +211,6 @@ export default async function RootLayout({
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
                   {t('nav.anime')}
-                </Link>
-                <Link
-                  href="/counters"
-                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
-                >
-                  {t('nav.counters')}
                 </Link>
                 <Link
                   href="/journal"
@@ -257,7 +251,7 @@ export default async function RootLayout({
                   className="whitespace-nowrap text-sm font-medium text-[var(--color-accent-readable)] transition-colors hover:opacity-80"
                   data-testid="nav-sign-in"
                 >
-                  Sign in
+                  {t('nav.signIn')}
                 </Link>
               )}
               <ThemeToggle userId={signedInUserId} />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { updateUserPrefs, setThemePreference } from "@/app/actions/userPrefs";
 import { Button } from "@/components/ui/Button";
 
@@ -38,6 +39,7 @@ export default function ProfileForm({
   initialHapticsEnabled,
   initialSocialActivityEnabled,
 }: ProfileFormProps) {
+  const t = useTranslations("settings");
   const [skipLearning, setSkipLearning] = useState(initialSkipLearning);
   const [newCardCap, setNewCardCap] = useState<number>(initialNewCardCap);
   const [soundEnabled, setSoundEnabled] = useState(initialSoundEnabled);
@@ -120,11 +122,10 @@ export default function ProfileForm({
         />
         <span>
           <span className="block font-medium text-[var(--color-text)]">
-            Skip learn cards
+            {t("learning.skipLearnCards")}
           </span>
           <span className="block text-sm text-[var(--color-text-muted)]">
-            Jump straight into exercises without a pre-question breakdown.
-            The new-word cap still applies.
+            {t("learning.skipLearnCardsDesc")}
           </span>
         </span>
       </label>
@@ -135,11 +136,10 @@ export default function ProfileForm({
           htmlFor="new-card-cap"
           className="block font-medium text-[var(--color-text)]"
         >
-          New words per session
+          {t("learning.newWordsPerSession")}
         </label>
         <p className="mb-2 text-sm text-[var(--color-text-muted)]">
-          How many brand-new words can enter a single session. Default{" "}
-          {defaultCap}.
+          {t("learning.newWordsDesc", { n: defaultCap })}
         </p>
         <input
           id="new-card-cap"
@@ -159,19 +159,19 @@ export default function ProfileForm({
         />
         {!isPremium && (
           <p id="cap-help" className="mt-2 text-xs text-[var(--color-grammar-expression)]">
-            Upgrade to premium to raise the cap (up to {maxCap}).
+            {t("learning.upgradePremiumCap", { max: maxCap })}
           </p>
         )}
         {isPremium && (
           <p id="cap-help" className="mt-2 text-xs text-[var(--color-text-dim)]">
-            Between 1 and {maxCap}.
+            {t("learning.capRange", { max: maxCap })}
           </p>
         )}
       </div>
 
       {/* Celebration effects — sound + haptics toggles */}
       <fieldset className="space-y-4">
-        <legend className="font-medium text-[var(--color-text)]">Celebration effects</legend>
+        <legend className="font-medium text-[var(--color-text)]">{t("celebration.heading")}</legend>
 
         <label className="flex min-h-11 cursor-pointer items-start gap-3">
           <input
@@ -185,10 +185,10 @@ export default function ProfileForm({
           />
           <span>
             <span className="block font-medium text-[var(--color-text)]">
-              Sound effects
+              {t("celebration.sound")}
             </span>
             <span className="block text-sm text-[var(--color-text-muted)]">
-              Play a chime on level-up.
+              {t("celebration.soundDesc")}
             </span>
           </span>
         </label>
@@ -205,13 +205,13 @@ export default function ProfileForm({
           />
           <span>
             <span className="block font-medium text-[var(--color-text)]">
-              Haptic feedback
+              {t("celebration.haptics")}
             </span>
             <span className="block text-sm text-[var(--color-text-muted)]">
-              Vibrate on mobile on level-up.
+              {t("celebration.hapticsDesc")}
             </span>
             <span className="mt-0.5 block text-xs text-[var(--color-text-dim)]">
-              No effect on iOS — Web Vibration API unsupported.
+              {t("celebration.hapticsIosNote")}
             </span>
           </span>
         </label>
@@ -220,7 +220,7 @@ export default function ProfileForm({
       {/* Phase 14.4 D-15/D-17 — Social & notifications section */}
       <fieldset className="border-t border-[var(--color-border)] pt-4 space-y-4">
         <legend className="mb-2 text-base font-semibold text-[var(--color-text)]">
-          Social &amp; notifications
+          {t("social.heading")}
         </legend>
 
         <label className="flex min-h-14 cursor-pointer items-start gap-3">
@@ -236,13 +236,13 @@ export default function ProfileForm({
           />
           <span>
             <span className="block font-medium text-[var(--color-text)]">
-              Show my activity to others and email me reminders
+              {t("social.activityLabel")}
             </span>
             <ul className="mt-1 list-disc pl-4 text-sm text-[var(--color-text-muted)] space-y-0.5">
-              <li>Your song mastery shows in others&apos; Recently Mastered ticker</li>
-              <li>Daily 7pm reminder if your streak hasn&apos;t been logged today</li>
-              <li>Sunday weekly recap of vocab learned and songs touched</li>
-              <li>Your listening counts toward &ldquo;X listening now&rdquo; for others</li>
+              <li>{t("social.bullet1")}</li>
+              <li>{t("social.bullet2")}</li>
+              <li>{t("social.bullet3")}</li>
+              <li>{t("social.bullet4")}</li>
             </ul>
           </span>
         </label>
@@ -256,15 +256,15 @@ export default function ProfileForm({
       */}
       <fieldset className="border-t border-[var(--color-border)] pt-4">
         <legend className="mb-2 text-base font-semibold text-[var(--color-text)]">
-          Appearance
+          {t("appearance.heading")}
         </legend>
         <p className="mb-3 text-sm text-[var(--color-text-muted)]">
-          Choose the color theme for KitsuBeat.
+          {t("appearance.desc")}
         </p>
         <div
           className="flex flex-col gap-2"
           role="radiogroup"
-          aria-label="Theme preference"
+          aria-label={t("appearance.heading")}
         >
           {(["dark", "light"] as const).map((opt) => (
             <label
@@ -279,7 +279,9 @@ export default function ProfileForm({
                 onChange={() => handleThemeChange(opt)}
                 className="h-4 w-4 accent-[var(--color-accent)]"
               />
-              <span className="text-sm capitalize text-[var(--color-text)]">{opt}</span>
+              <span className="text-sm capitalize text-[var(--color-text)]">
+                {t(`theme.${opt}`)}
+              </span>
             </label>
           ))}
         </div>
@@ -293,10 +295,10 @@ export default function ProfileForm({
           size="md"
           disabled={state.kind === "saving"}
         >
-          {state.kind === "saving" ? "Saving..." : "Save"}
+          {state.kind === "saving" ? t("form.saving") : t("form.save")}
         </Button>
         {state.kind === "saved" && (
-          <span className="text-sm text-[var(--color-grammar-adjective)]">Saved.</span>
+          <span className="text-sm text-[var(--color-grammar-adjective)]">{t("form.saved")}</span>
         )}
         {state.kind === "error" && (
           <span className="text-sm text-[var(--color-accent)]">{state.message}</span>

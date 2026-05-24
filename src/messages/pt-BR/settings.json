@@ -1,5 +1,41 @@
 {
   "heading": "Perfil",
+  "eyebrow": "Conta",
+  "subheading": "Ajuste seus padrões de aprendizado, limites diários e preferências de interface.",
+  "learning": {
+    "heading": "Preferências de aprendizado",
+    "skipLearnCards": "Pular cards de aprendizado",
+    "skipLearnCardsDesc": "Vá direto para os exercícios sem a apresentação prévia. O limite de palavras novas ainda se aplica.",
+    "newWordsPerSession": "Novas palavras por sessão",
+    "newWordsDesc": "Quantas palavras novas podem entrar em uma única sessão. Padrão: {n}.",
+    "upgradePremiumCap": "Faça upgrade para premium para aumentar o limite (até {max}).",
+    "capRange": "Entre 1 e {max}."
+  },
+  "celebration": {
+    "heading": "Efeitos de celebração",
+    "sound": "Efeitos sonoros",
+    "soundDesc": "Tocar um som ao subir de nível.",
+    "haptics": "Vibração",
+    "hapticsDesc": "Vibrar no celular ao subir de nível.",
+    "hapticsIosNote": "Sem efeito no iOS — API de Vibração Web não suportada."
+  },
+  "social": {
+    "heading": "Social e notificações",
+    "activityLabel": "Mostrar minha atividade para outros e me enviar lembretes",
+    "bullet1": "Seu domínio de músicas aparece no ticker 'Dominadas Recentemente' dos outros",
+    "bullet2": "Lembrete diário às 19h se o seu streak não foi registrado hoje",
+    "bullet3": "Resumo semanal aos domingos do vocabulário aprendido e músicas estudadas",
+    "bullet4": "Suas escutas contam para 'X ouvindo agora' de outros"
+  },
+  "appearance": {
+    "heading": "Aparência",
+    "desc": "Escolha o tema de cores do KitsuBeat."
+  },
+  "form": {
+    "save": "Salvar",
+    "saving": "Salvando...",
+    "saved": "Salvo."
+  },
   "language": {
     "label": "Idioma",
     "description": "Escolha o idioma da interface do aplicativo."
@@ -18,6 +54,7 @@
   "data": {
     "heading": "Seus Dados",
     "export": "Exportar meus dados",
-    "exporting": "Exportando..."
+    "exporting": "Exportando...",
+    "description": "Exporte todos os seus dados do KitsuBeat em JSON (direito de acesso GDPR/LGPD)"
   }
 }

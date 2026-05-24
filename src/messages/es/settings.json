@@ -1,5 +1,41 @@
 {
   "heading": "Perfil",
+  "eyebrow": "Cuenta",
+  "subheading": "Ajusta tus preferencias de aprendizaje, límites diarios e interfaz.",
+  "learning": {
+    "heading": "Preferencias de aprendizaje",
+    "skipLearnCards": "Omitir tarjetas de aprendizaje",
+    "skipLearnCardsDesc": "Ve directo a los ejercicios sin la presentación previa. El límite de palabras nuevas sigue aplicando.",
+    "newWordsPerSession": "Palabras nuevas por sesión",
+    "newWordsDesc": "Cuántas palabras nuevas pueden entrar en una sesión. Predeterminado: {n}.",
+    "upgradePremiumCap": "Actualiza a premium para subir el límite (hasta {max}).",
+    "capRange": "Entre 1 y {max}."
+  },
+  "celebration": {
+    "heading": "Efectos de celebración",
+    "sound": "Efectos de sonido",
+    "soundDesc": "Reproducir un sonido al subir de nivel.",
+    "haptics": "Vibración",
+    "hapticsDesc": "Vibrar en el móvil al subir de nivel.",
+    "hapticsIosNote": "Sin efecto en iOS — API de Vibración Web no compatible."
+  },
+  "social": {
+    "heading": "Social y notificaciones",
+    "activityLabel": "Mostrar mi actividad a otros y enviarme recordatorios",
+    "bullet1": "Tu dominio de canciones aparece en el ticker 'Dominadas Recientemente' de otros",
+    "bullet2": "Recordatorio diario a las 19h si no has registrado tu racha hoy",
+    "bullet3": "Resumen semanal los domingos del vocabulario aprendido y canciones estudiadas",
+    "bullet4": "Tus escuchas cuentan para 'X escuchando ahora' de otros"
+  },
+  "appearance": {
+    "heading": "Apariencia",
+    "desc": "Elige el tema de colores de KitsuBeat."
+  },
+  "form": {
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "saved": "Guardado."
+  },
   "language": {
     "label": "Idioma",
     "description": "Elige el idioma de la interfaz de la aplicación."
@@ -18,6 +54,7 @@
   "data": {
     "heading": "Tus Datos",
     "export": "Exportar mis datos",
-    "exporting": "Exportando..."
+    "exporting": "Exportando...",
+    "description": "Exporta todos tus datos de KitsuBeat en JSON (derecho de acceso GDPR)"
   }
 }

@@ -15,6 +15,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { clearStreakSaverPending } from "@/app/actions/userPrefs";
 
 function useReducedMotion(): boolean {
@@ -39,6 +40,7 @@ interface StreakSaverToastProps {
 }
 
 export function StreakSaverToast({ userId, streakSavedTo, isPending }: StreakSaverToastProps) {
+  const t = useTranslations("common");
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const reduced = useReducedMotion();
@@ -74,10 +76,10 @@ export function StreakSaverToast({ userId, streakSavedTo, isPending }: StreakSav
     >
       <span aria-hidden="true" className="text-lg">🛡️</span>
       <span className="text-sm font-medium text-[var(--color-text)]">
-        Your {streakSavedTo}-day streak was saved by a streak-saver token
+        {t("streakSaver.saved", { n: streakSavedTo })}
       </span>
       <button
-        aria-label="Dismiss notification"
+        aria-label={t("streakSaver.dismiss")}
         onClick={() => setVisible(false)}
         className="ml-auto flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
         style={{ minHeight: "44px", minWidth: "44px" }}

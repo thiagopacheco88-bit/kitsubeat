@@ -244,7 +244,71 @@ With some progress on `/counters`:
 
 ---
 
-## Phase 6 — New features walkthrough
+## Phase 6 — i18n text audit (run for EVERY locale change)
+
+> **Why this failed before:** locale pages had hardcoded EN strings that the Playwright `i18n-text-deep` spec didn't catch because it only checked a subset of routes. Run this checklist whenever any component or page is added or edited.
+
+Switch the app language to **ES** (Spanish) via the language picker, then verify every item below shows Spanish — not English or Portuguese. Repeat for **PT-BR**, then switch back to **EN last**.
+
+### 6A — Global chrome (applies to all pages)
+
+- [ ] Desktop nav links show translated labels: Ruta / Canciones / Anime / Kana / Contadores / Artículos / Perfil (ES) or Trilha / Músicas / Artigos (PT-BR)
+- [ ] Mobile hamburger sheet shows the same translated labels (open the sheet at ≤640px viewport)
+- [ ] Mobile sheet "Close" button shows "Cerrar" (ES) / "Fechar" (PT-BR)
+- [ ] "Sign in" link (signed-out state) shows "Iniciar sesión" (ES) / "Entrar" (PT-BR)
+- [ ] Skip-to-main link (Tab on first load) shows translated text, not "Skip to main content"
+- [ ] Cookie consent banner (clear `kb_consent` cookie to trigger) shows translated body text and button labels — not English
+
+### 6B — Locale pages
+
+| Route | Element to check | ES expected | PT-BR expected |
+|---|---|---|---|
+| `/es/songs` | Eyebrow label | Catálogo | Catálogo |
+| `/es/songs` | Page heading | Canciones | Músicas |
+| `/es/journal` | Eyebrow label | Centro de Contenido | Central de Conteúdo |
+| `/es/journal` | Page heading | Blog | Artigos |
+| `/es/profile` | Eyebrow label | Cuenta | Conta |
+| `/es/profile` | Subheading | Spanish text | Portuguese text |
+| `/es/profile` | Data export description | Spanish text | Portuguese text |
+| `/es/profile` | Learning preferences heading | Preferencias de aprendizaje | Preferências de aprendizado |
+| `/es/anime` | Page heading | Vocabulario Anime | Vocabulário Anime |
+| `/es/anime` | Subheading | Spanish text | Portuguese text |
+
+### 6C — Automated coverage check (run before merging any locale-affecting PR)
+
+```bash
+# i18n specs — text correctness + routing
+# --workers=1 is required: the nav-locale-matrix tests set kb_locale cookies
+# that pollute concurrent browser sessions in parallel mode (pre-existing known issue).
+npx playwright test i18n- --workers=1
+```
+
+Expected: all `i18n-*` specs green. A failure here means a hardcoded string or broken routing was introduced.
+
+### 6D — Translation file parity check
+
+Run this to confirm no locale is missing keys that another has:
+
+```bash
+node -e "
+const en = require('./src/messages/en/common.json');
+const es = require('./src/messages/es/common.json');
+const pt = require('./src/messages/pt-BR/common.json');
+const flat = (o, p='') => Object.entries(o).flatMap(([k,v]) => typeof v==='object' ? flat(v, p+k+'.') : [p+k]);
+const enK = flat(en), esK = flat(es), ptK = flat(pt);
+const missingEs = enK.filter(k=>!esK.includes(k));
+const missingPt = enK.filter(k=>!ptK.includes(k));
+if(missingEs.length) console.log('ES missing:', missingEs);
+if(missingPt.length) console.log('PT missing:', missingPt);
+if(!missingEs.length && !missingPt.length) console.log('All keys present in all locales ✓');
+"
+```
+
+Run the same for `songs.json`, `journal.json`, `settings.json`, `exercises.json`, `errors.json`, `path.json`.
+
+---
+
+## Phase 7 — New features walkthrough
 
 Before each QA run, check what was shipped since the last QA:
 
@@ -256,7 +320,7 @@ For each new feature listed in the log:
 - Identify the user-facing surface (which page / component)
 - Walk through the feature manually end-to-end
 - Confirm it works for both **fresh** and **veteran** accounts if user-state-dependent
-- Confirm it works in **EN, PT-BR, and ES** if it has any localised text
+- Confirm it works in **PT-BR, ES, then EN last** if it has any localised text — test EN last so the session ends with `kb_locale=en`
 
 Document each new feature tested with: ✅ pass / ❌ fail / ⚠️ partial — include a one-line observation.
 
@@ -330,11 +394,22 @@ Expected: **24/24 pass** (5 integration + 14 generator + 5 server action).
 
 ### 7E — Locale routing
 
-Run these for both **PT-BR** and **ES** locales:
+Test in this order — **EN last** so the session ends with `kb_locale=en`.
 
+**PT-BR**
 - [ ] `/pt-BR/anime` renders 6 anime cards (same data, locale context set)
-- [ ] `/es/anime/naruto` renders the Naruto carousel page without errors
+- [ ] `/pt-BR/anime/naruto` renders the Naruto carousel page without errors
 - [ ] Nav "Anime" link at `/pt-BR` prefix routes correctly to `/pt-BR/anime`
+
+**ES**
+- [ ] `/es/anime` renders 6 anime cards
+- [ ] `/es/anime/naruto` renders the Naruto carousel page without errors
+- [ ] Nav "Anime" link at `/es` prefix routes correctly to `/es/anime`
+
+**EN (run last — leaves `kb_locale=en`)**
+- [ ] `/anime` renders 6 anime cards
+- [ ] `/anime/naruto` renders the Naruto carousel page without errors
+- [ ] Nav "Anime" link routes correctly to `/anime`
 
 ### 7F — Edge cases
 

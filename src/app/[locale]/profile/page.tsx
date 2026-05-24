@@ -57,11 +57,11 @@ export default async function LocaleProfilePage({
       {!userData?.date_of_birth && <ProfileNudgeBanner userId={userId} />}
       <header className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
-          Account
+          {t("eyebrow")}
         </p>
         <h1 className="mt-1 text-3xl font-bold">{t("heading")}</h1>
         <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-          Tune your learning defaults, daily limits, and interface preferences.
+          {t("subheading")}
         </p>
       </header>
       <Suspense
@@ -127,14 +127,14 @@ export default async function LocaleProfilePage({
           <div>
             <p className="text-sm text-[var(--color-text)]">{t("data.export")}</p>
             <p className="text-sm text-[var(--color-text-muted)]">
-              Export all your KitsuBeat data as JSON (GDPR/LGPD right of access)
+              {t("data.description")}
             </p>
           </div>
           <DataExportButton />
         </div>
       </section>
       <section className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-5 shadow-[var(--shadow-card-ring)] sm:p-6">
-        <h2 className="mb-4 text-xl font-semibold">Learning preferences</h2>
+        <h2 className="mb-4 text-xl font-semibold">{t("learning.heading")}</h2>
         <ProfileForm
           userId={userId}
           initialSkipLearning={prefs.skipLearning}
