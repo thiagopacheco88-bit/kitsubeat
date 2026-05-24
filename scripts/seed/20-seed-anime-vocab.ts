@@ -63,6 +63,7 @@ const SLUGS = [
   "fairy-tail",
   "code-geass",
   "chainsaw-man",
+  "anime-core",
 ] as const;
 
 // ── Path to JSON files ───────────────────────────────────────────────────────

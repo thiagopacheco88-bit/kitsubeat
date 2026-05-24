@@ -11,6 +11,8 @@
  */
 import { SectionHeader } from "./SectionHeader";
 import { KanaCheckpointNode } from "@/app/path/components/KanaCheckpointNode";
+import { CounterCheckpointNode } from "@/app/counters/components/CounterCheckpointNode";
+import { AnimeCoreFoundationCard } from "./AnimeCoreFoundationCard";
 
 interface FoundationsProps {
   title?: string;
@@ -24,6 +26,8 @@ export function Foundations({ title = "Foundations", viewAllLabel = "Open Kana" 
       <div className="flex gap-3 px-4">
         <KanaCheckpointNode script="hiragana" size="home" />
         <KanaCheckpointNode script="katakana" size="home" />
+        <CounterCheckpointNode />
+        <AnimeCoreFoundationCard />
       </div>
     </section>
   );

@@ -1771,6 +1771,7 @@ const ANIME_SLUG_TO_TITLE: Record<string, string> = {
   "fairy-tail": "Fairy Tail",
   "code-geass": "Code Geass",
   "chainsaw-man": "Chainsaw Man",
+  "anime-core": "Anime Core",
 };
 
 export interface AnimeVocabItem {
@@ -1828,6 +1829,7 @@ async function _getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
           WHEN 'fairy-tail' THEN 'Fairy Tail'
           WHEN 'code-geass' THEN 'Code Geass'
           WHEN 'chainsaw-man' THEN 'Chainsaw Man'
+          WHEN 'anime-core' THEN 'Anime Core'
           ELSE ''
         END
       )`
