@@ -58,6 +58,11 @@ const SLUGS = [
   "dragon-ball-z",
   "hunter-x-hunter",
   "tokyo-ghoul",
+  "jujutsu-kaisen",
+  "my-hero-academia",
+  "fairy-tail",
+  "code-geass",
+  "chainsaw-man",
 ] as const;
 
 // ── Path to JSON files ───────────────────────────────────────────────────────

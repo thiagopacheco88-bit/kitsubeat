@@ -1,0 +1,899 @@
+{
+  "anime": "code-geass",
+  "label": "Code Geass",
+  "icon": "code-geass.png",
+  "description": "Exiled prince Lelouch vi Britannia acquires the power of absolute obedience and wages war to destroy an empire.",
+  "vocab": [
+    {
+      "surface": "王",
+      "reading": "おう",
+      "romaji": "ō",
+      "meanings": { "en": "king", "pt-BR": "rei", "es": "rey" },
+      "jlpt_level": "N5",
+      "category": "politics",
+      "context": "Lelouch was born as a prince of the Britannian empire, the son of the king who cast him aside."
+    },
+    {
+      "surface": "国",
+      "reading": "くに",
+      "romaji": "kuni",
+      "meanings": { "en": "country", "pt-BR": "país", "es": "país" },
+      "jlpt_level": "N5",
+      "category": "politics",
+      "context": "Japan, once a free country, was conquered and renamed Area 11 by Britannia."
+    },
+    {
+      "surface": "戦争",
+      "reading": "せんそう",
+      "romaji": "sensō",
+      "meanings": { "en": "war", "pt-BR": "guerra", "es": "guerra" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The war between Britannia and the resistance defines every episode of Code Geass."
+    },
+    {
+      "surface": "軍",
+      "reading": "ぐん",
+      "romaji": "gun",
+      "meanings": { "en": "military", "pt-BR": "exército", "es": "ejército" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The Britannian military deploys Knightmare Frames to suppress uprisings in Area 11."
+    },
+    {
+      "surface": "敵",
+      "reading": "てき",
+      "romaji": "teki",
+      "meanings": { "en": "enemy", "pt-BR": "inimigo", "es": "enemigo" },
+      "jlpt_level": "N5",
+      "category": "strategy",
+      "context": "Zero considers all who uphold Britannia's tyranny to be his enemies."
+    },
+    {
+      "surface": "仮面",
+      "reading": "かめん",
+      "romaji": "kamen",
+      "meanings": { "en": "mask", "pt-BR": "máscara", "es": "máscara" },
+      "jlpt_level": "N4",
+      "category": "characters",
+      "context": "Lelouch wears a white mask as the masked rebel leader Zero."
+    },
+    {
+      "surface": "命令",
+      "reading": "めいれい",
+      "romaji": "meirei",
+      "meanings": { "en": "order/command", "pt-BR": "ordem", "es": "orden" },
+      "jlpt_level": "N4",
+      "category": "strategy",
+      "context": "Geass allows Lelouch to give any command that the target must obey without question."
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": { "en": "power/strength", "pt-BR": "poder", "es": "poder" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "C.C. grants Lelouch the power of Geass, changing the course of history."
+    },
+    {
+      "surface": "夜",
+      "reading": "よる",
+      "romaji": "yoru",
+      "meanings": { "en": "night", "pt-BR": "noite", "es": "noche" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Zero launches many of his operations under cover of night to avoid detection."
+    },
+    {
+      "surface": "目",
+      "reading": "め",
+      "romaji": "me",
+      "meanings": { "en": "eye", "pt-BR": "olho", "es": "ojo" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Lelouch's Geass manifests as a glowing symbol in his left eye."
+    },
+    {
+      "surface": "人",
+      "reading": "ひと",
+      "romaji": "hito",
+      "meanings": { "en": "person/people", "pt-BR": "pessoa", "es": "persona" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Lelouch questions what it truly means to fight for the people you claim to protect."
+    },
+    {
+      "surface": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "meanings": { "en": "world", "pt-BR": "mundo", "es": "mundo" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Lelouch declares he will destroy and rebuild the world for his sister Nunnally."
+    },
+    {
+      "surface": "嘘",
+      "reading": "うそ",
+      "romaji": "uso",
+      "meanings": { "en": "lie", "pt-BR": "mentira", "es": "mentira" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Lelouch builds his entire identity as Zero on a foundation of carefully constructed lies."
+    },
+    {
+      "surface": "自由",
+      "reading": "じゆう",
+      "romaji": "jiyū",
+      "meanings": { "en": "freedom", "pt-BR": "liberdade", "es": "libertad" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The Japanese resistance fights to reclaim freedom for their occupied homeland."
+    },
+    {
+      "surface": "民",
+      "reading": "たみ",
+      "romaji": "tami",
+      "meanings": { "en": "people/citizens", "pt-BR": "povo", "es": "pueblo" },
+      "jlpt_level": "N4",
+      "category": "politics",
+      "context": "The Elevens are treated as second-class citizens stripped of rights by Britannia."
+    },
+    {
+      "surface": "革命",
+      "reading": "かくめい",
+      "romaji": "kakumei",
+      "meanings": { "en": "revolution", "pt-BR": "revolução", "es": "revolución" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Zero leads a revolution against Britannia under the banner of justice and equality."
+    },
+    {
+      "surface": "反乱",
+      "reading": "はんらん",
+      "romaji": "hanran",
+      "meanings": { "en": "rebellion/uprising", "pt-BR": "rebelião", "es": "rebelión" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The Black Knights' rebellion shakes the foundations of the Britannian empire."
+    },
+    {
+      "surface": "陰謀",
+      "reading": "いんぼう",
+      "romaji": "inbō",
+      "meanings": { "en": "conspiracy/plot", "pt-BR": "conspiração", "es": "conspiración" },
+      "jlpt_level": "N3",
+      "category": "strategy",
+      "context": "The Britannian royal family is riven with conspiracies for power and succession."
+    },
+    {
+      "surface": "支配",
+      "reading": "しはい",
+      "romaji": "shihai",
+      "meanings": { "en": "domination/control", "pt-BR": "dominação", "es": "dominación" },
+      "jlpt_level": "N3",
+      "category": "politics",
+      "context": "Britannia's philosophy justifies military domination of weaker nations."
+    },
+    {
+      "surface": "正義",
+      "reading": "せいぎ",
+      "romaji": "seigi",
+      "meanings": { "en": "justice", "pt-BR": "justiça", "es": "justicia" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Suzaku believes in achieving justice by working within the system rather than destroying it."
+    },
+    {
+      "surface": "策略",
+      "reading": "さくりゃく",
+      "romaji": "sakuryaku",
+      "meanings": { "en": "stratagem/tactic", "pt-BR": "estratagema", "es": "estratagema" },
+      "jlpt_level": "N3",
+      "category": "strategy",
+      "context": "Lelouch is a chess genius whose strategies on the battlefield are unmatched."
+    },
+    {
+      "surface": "帝国",
+      "reading": "ていこく",
+      "romaji": "teikoku",
+      "meanings": { "en": "empire", "pt-BR": "império", "es": "imperio" },
+      "jlpt_level": "N3",
+      "category": "politics",
+      "context": "The Holy Britannian Empire spans much of the world and rules through military supremacy."
+    },
+    {
+      "surface": "貴族",
+      "reading": "きぞく",
+      "romaji": "kizoku",
+      "meanings": { "en": "nobility/aristocracy", "pt-BR": "nobreza", "es": "nobleza" },
+      "jlpt_level": "N3",
+      "category": "politics",
+      "context": "Britannian nobles enjoy enormous privilege over the conquered peoples of Area 11."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": { "en": "sacrifice", "pt-BR": "sacrifício", "es": "sacrificio" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Zero accepts terrible sacrifices in pursuit of his ultimate goal."
+    },
+    {
+      "surface": "復讐",
+      "reading": "ふくしゅう",
+      "romaji": "fukushū",
+      "meanings": { "en": "revenge", "pt-BR": "vingança", "es": "venganza" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Lelouch swears revenge on his father and the empire that exiled him and crippled his mother."
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": { "en": "solitude/loneliness", "pt-BR": "solidão", "es": "soledad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Lelouch is ultimately alone, unable to share his true identity or goals with those he loves."
+    },
+    {
+      "surface": "操る",
+      "reading": "あやつる",
+      "romaji": "ayatsuru",
+      "meanings": { "en": "to manipulate/control", "pt-BR": "manipular", "es": "manipular" },
+      "jlpt_level": "N3",
+      "category": "strategy",
+      "context": "Geass lets Lelouch manipulate anyone into following his commands absolutely."
+    },
+    {
+      "surface": "真実",
+      "reading": "しんじつ",
+      "romaji": "shinjitsu",
+      "meanings": { "en": "truth", "pt-BR": "verdade", "es": "verdad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The truth behind Marianne's murder is a secret that drives the entire plot."
+    },
+    {
+      "surface": "運命",
+      "reading": "うんめい",
+      "romaji": "unmei",
+      "meanings": { "en": "fate/destiny", "pt-BR": "destino", "es": "destino" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Lelouch refuses to accept the fate assigned to him and sets out to forge his own."
+    },
+    {
+      "surface": "誓い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "meanings": { "en": "vow/oath", "pt-BR": "juramento", "es": "juramento" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Lelouch swears an oath before his childhood friend Suzaku to destroy Britannia."
+    },
+    {
+      "surface": "覚悟",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "meanings": { "en": "resolve/preparedness", "pt-BR": "determinação", "es": "determinación" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Lelouch steels his resolve, accepting that he must become a villain for peace to exist."
+    },
+    {
+      "surface": "絶望",
+      "reading": "ぜつぼう",
+      "romaji": "zetsubō",
+      "meanings": { "en": "despair", "pt-BR": "desespero", "es": "desesperación" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "After the massacre at Narita, many in the Black Knights sink into despair."
+    },
+    {
+      "surface": "裏切り",
+      "reading": "うらぎり",
+      "romaji": "uragiri",
+      "meanings": { "en": "betrayal/treachery", "pt-BR": "traição", "es": "traición" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Black Knights' betrayal of Zero is one of the most devastating moments in the series."
+    },
+    {
+      "surface": "代償",
+      "reading": "だいしょう",
+      "romaji": "daishō",
+      "meanings": { "en": "price/cost/compensation", "pt-BR": "preço/custo", "es": "precio/costo" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Every victory Zero achieves comes at an enormous personal and human cost."
+    },
+    {
+      "surface": "同盟",
+      "reading": "どうめい",
+      "romaji": "dōmei",
+      "meanings": { "en": "alliance", "pt-BR": "aliança", "es": "alianza" },
+      "jlpt_level": "N3",
+      "category": "strategy",
+      "context": "Zero forges uneasy alliances with various factions to challenge Britannian power."
+    },
+    {
+      "surface": "指揮",
+      "reading": "しき",
+      "romaji": "shiki",
+      "meanings": { "en": "command/direction", "pt-BR": "comando", "es": "mando" },
+      "jlpt_level": "N3",
+      "category": "strategy",
+      "context": "Lelouch's tactical command of the Black Knights earns him legendary status."
+    },
+    {
+      "surface": "解放",
+      "reading": "かいほう",
+      "romaji": "kaihō",
+      "meanings": { "en": "liberation/release", "pt-BR": "libertação", "es": "liberación" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The liberation of Japan from Britannian rule is the rallying cry of the resistance."
+    },
+    {
+      "surface": "統治",
+      "reading": "とうち",
+      "romaji": "tōchi",
+      "meanings": { "en": "governance/rule", "pt-BR": "governança", "es": "gobernanza" },
+      "jlpt_level": "N2",
+      "category": "politics",
+      "context": "Britannia's governance of occupied territories relies on brutal suppression of dissent."
+    },
+    {
+      "surface": "覇権",
+      "reading": "はけん",
+      "romaji": "haken",
+      "meanings": { "en": "hegemony/supremacy", "pt-BR": "hegemonia", "es": "hegemonía" },
+      "jlpt_level": "N1",
+      "category": "politics",
+      "context": "Britannia's drive for global hegemony is the root cause of the war in Code Geass."
+    },
+    {
+      "surface": "謀略",
+      "reading": "ぼうりゃく",
+      "romaji": "bōryaku",
+      "meanings": { "en": "stratagem/intrigue", "pt-BR": "intriga", "es": "intriga" },
+      "jlpt_level": "N1",
+      "category": "strategy",
+      "context": "Lelouch employs deep intrigue, exploiting Britannia's internal politics against itself."
+    },
+    {
+      "surface": "傀儡",
+      "reading": "かいらい",
+      "romaji": "kairai",
+      "meanings": { "en": "puppet", "pt-BR": "fantoche", "es": "títere" },
+      "jlpt_level": "N1",
+      "category": "politics",
+      "context": "Honorary Britannians are seen as puppets of imperial power by the Japanese resistance."
+    },
+    {
+      "surface": "専制",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meanings": { "en": "autocracy/despotism", "pt-BR": "despotismo", "es": "despotismo" },
+      "jlpt_level": "N1",
+      "category": "politics",
+      "context": "Charles zi Britannia rules through autocracy, treating his subjects as tools of the state."
+    },
+    {
+      "surface": "搾取",
+      "reading": "さくしゅ",
+      "romaji": "sakushu",
+      "meanings": { "en": "exploitation", "pt-BR": "exploração", "es": "explotación" },
+      "jlpt_level": "N1",
+      "category": "politics",
+      "context": "Britannia exploits the Sakuradite mines of Area 11 to fuel its military machine."
+    },
+    {
+      "surface": "屈辱",
+      "reading": "くつじょく",
+      "romaji": "kutsujoku",
+      "meanings": { "en": "humiliation", "pt-BR": "humilhação", "es": "humillación" },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "The humiliation of defeat and exile fuels Lelouch's unending hatred of his father."
+    },
+    {
+      "surface": "抵抗",
+      "reading": "ていこう",
+      "romaji": "teikō",
+      "meanings": { "en": "resistance", "pt-BR": "resistência", "es": "resistencia" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "The Japanese resistance refuses to yield despite overwhelming Britannian military force."
+    },
+    {
+      "surface": "君臨",
+      "reading": "くんりん",
+      "romaji": "kunrin",
+      "meanings": { "en": "reign/dominion", "pt-BR": "reinado", "es": "reinado" },
+      "jlpt_level": "N1",
+      "category": "politics",
+      "context": "The Emperor of Britannia reigns over a global empire built on conquest and fear."
+    },
+    {
+      "surface": "崩壊",
+      "reading": "ほうかい",
+      "romaji": "hōkai",
+      "meanings": { "en": "collapse/breakdown", "pt-BR": "colapso", "es": "colapso" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Zero Requiem is designed to trigger the moral collapse of the old world order."
+    },
+    {
+      "surface": "粛清",
+      "reading": "しゅくせい",
+      "romaji": "shukusei",
+      "meanings": { "en": "purge", "pt-BR": "purga", "es": "purga" },
+      "jlpt_level": "N1",
+      "category": "politics",
+      "context": "Internal purges within the Britannian royal family keep potential rivals in check."
+    },
+    {
+      "surface": "鎮圧",
+      "reading": "ちんあつ",
+      "romaji": "chin'atsu",
+      "meanings": { "en": "suppression/crackdown", "pt-BR": "repressão", "es": "represión" },
+      "jlpt_level": "N1",
+      "category": "world",
+      "context": "Britannia sends Knightmare Frames to suppress any uprisings in occupied territories."
+    },
+    {
+      "surface": "宣言",
+      "reading": "せんげん",
+      "romaji": "sengen",
+      "meanings": { "en": "declaration/proclamation", "pt-BR": "declaração", "es": "declaración" },
+      "jlpt_level": "N2",
+      "category": "strategy",
+      "context": "Zero's public declarations inspire millions across the world to join the resistance."
+    },
+    {
+      "surface": "偽装",
+      "reading": "ぎそう",
+      "romaji": "gisō",
+      "meanings": { "en": "disguise/camouflage", "pt-BR": "disfarce", "es": "disfraz" },
+      "jlpt_level": "N2",
+      "category": "strategy",
+      "context": "Lelouch maintains a convincing disguise as a normal student while leading the Black Knights."
+    },
+    {
+      "surface": "権力",
+      "reading": "けんりょく",
+      "romaji": "kenryoku",
+      "meanings": { "en": "power/authority", "pt-BR": "poder/autoridade", "es": "poder/autoridad" },
+      "jlpt_level": "N2",
+      "category": "politics",
+      "context": "The struggle for power between Lelouch and his father is the heart of Code Geass."
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "meanings": { "en": "memory", "pt-BR": "memória", "es": "memoria" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Lelouch uses Geass to erase Shirley's memories when they become a dangerous liability."
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "meanings": { "en": "hope", "pt-BR": "esperança", "es": "esperanza" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Zero becomes a symbol of hope for all who suffer under Britannian oppression."
+    },
+    {
+      "surface": "平和",
+      "reading": "へいわ",
+      "romaji": "heiwa",
+      "meanings": { "en": "peace", "pt-BR": "paz", "es": "paz" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Lelouch's ultimate goal is a peaceful world where Nunnally can be happy."
+    },
+    {
+      "surface": "戦略",
+      "reading": "せんりゃく",
+      "romaji": "senryaku",
+      "meanings": { "en": "strategy", "pt-BR": "estratégia", "es": "estrategia" },
+      "jlpt_level": "N2",
+      "category": "strategy",
+      "context": "Lelouch's battle strategy is compared to grandmaster chess by his enemies."
+    },
+    {
+      "surface": "勝利",
+      "reading": "しょうり",
+      "romaji": "shōri",
+      "meanings": { "en": "victory", "pt-BR": "vitória", "es": "victoria" },
+      "jlpt_level": "N3",
+      "category": "strategy",
+      "context": "Each victory of the Black Knights brings Lelouch one step closer to his goal."
+    },
+    {
+      "surface": "皇帝",
+      "reading": "こうてい",
+      "romaji": "kōtei",
+      "meanings": { "en": "emperor", "pt-BR": "imperador", "es": "emperador" },
+      "jlpt_level": "N2",
+      "category": "characters",
+      "context": "Charles zi Britannia is the ruthless emperor Lelouch has sworn to destroy."
+    },
+    {
+      "surface": "騎士",
+      "reading": "きし",
+      "romaji": "kishi",
+      "meanings": { "en": "knight", "pt-BR": "cavaleiro", "es": "caballero" },
+      "jlpt_level": "N3",
+      "category": "characters",
+      "context": "Suzaku serves as a Knight of the Round, an elite warrior in the Britannian military."
+    },
+    {
+      "surface": "英雄",
+      "reading": "えいゆう",
+      "romaji": "eiyū",
+      "meanings": { "en": "hero", "pt-BR": "herói", "es": "héroe" },
+      "jlpt_level": "N3",
+      "category": "characters",
+      "context": "Zero is hailed as a hero by the oppressed peoples fighting against Britannia."
+    },
+    {
+      "surface": "悪役",
+      "reading": "あくやく",
+      "romaji": "akuyaku",
+      "meanings": { "en": "villain/antagonist", "pt-BR": "vilão", "es": "villano" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Lelouch accepts his role as the villain so the world can direct its hatred at him."
+    },
+    {
+      "surface": "犯罪",
+      "reading": "はんざい",
+      "romaji": "hanzai",
+      "meanings": { "en": "crime", "pt-BR": "crime", "es": "crimen" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The Britannian legal system labels all acts of resistance as crimes against the empire."
+    },
+    {
+      "surface": "兵器",
+      "reading": "へいき",
+      "romaji": "heiki",
+      "meanings": { "en": "weapon/armament", "pt-BR": "arma", "es": "arma" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Knightmare Frames are the primary weapons deployed in the battles of Code Geass."
+    },
+    {
+      "surface": "戦場",
+      "reading": "せんじょう",
+      "romaji": "senjō",
+      "meanings": { "en": "battlefield", "pt-BR": "campo de batalha", "es": "campo de batalla" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The streets of Area 11 become a battlefield as Zero's rebellion escalates."
+    },
+    {
+      "surface": "生存",
+      "reading": "せいぞん",
+      "romaji": "seizon",
+      "meanings": { "en": "survival/existence", "pt-BR": "sobrevivência", "es": "supervivencia" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The survival of the Japanese people is at stake as Britannia tightens its grip."
+    },
+    {
+      "surface": "任務",
+      "reading": "にんむ",
+      "romaji": "ninmu",
+      "meanings": { "en": "mission/duty", "pt-BR": "missão", "es": "misión" },
+      "jlpt_level": "N3",
+      "category": "strategy",
+      "context": "Suzaku carries out his military mission even when it conflicts with his personal values."
+    },
+    {
+      "surface": "コントラクト",
+      "reading": "こんとらくと",
+      "romaji": "kontrakuto",
+      "meanings": { "en": "contract", "pt-BR": "contrato", "es": "contrato" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "C.C. and Lelouch form a contract that grants him Geass in exchange for a price."
+    },
+    {
+      "surface": "ギアス",
+      "reading": "ぎあす",
+      "romaji": "giasu",
+      "meanings": { "en": "Geass — supernatural power of absolute obedience", "pt-BR": "Geass — poder sobrenatural de obediência absoluta", "es": "Geass — poder sobrenatural de obediencia absoluta" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "C.C. grants Lelouch the Geass, a power that forces anyone he looks at to follow his commands."
+    },
+    {
+      "surface": "ゼロ",
+      "reading": "ぜろ",
+      "romaji": "zero",
+      "meanings": { "en": "Zero — Lelouch's rebel alias", "pt-BR": "Zero — codinome rebelde de Lelouch", "es": "Zero — alias rebelde de Lelouch" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Lelouch dons a mask and cape to become Zero, the symbol of the revolution."
+    },
+    {
+      "surface": "黒の騎士団",
+      "reading": "くろのきしだん",
+      "romaji": "Kuro no Kishidan",
+      "meanings": { "en": "Order of the Black Knights", "pt-BR": "Ordem dos Cavaleiros Negros", "es": "Orden de los Caballeros Negros" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Zero founds the Black Knights as the armed force of the resistance against Britannia."
+    },
+    {
+      "surface": "ブリタニア",
+      "reading": "ぶりたにあ",
+      "romaji": "Buritania",
+      "meanings": { "en": "Britannia — the imperial superpower", "pt-BR": "Britânia — superpotência imperial", "es": "Britannia — superpotencia imperial" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Britannia is the dominant empire that has conquered Japan and many other nations."
+    },
+    {
+      "surface": "名誉ブリタニア人",
+      "reading": "めいよぶりたにあじん",
+      "romaji": "Meiyo Buritaniajin",
+      "meanings": { "en": "Honorary Britannian — conquered peoples who renounce their heritage", "pt-BR": "Britânico Honorário — povos conquistados que renunciam sua herança", "es": "Británico Honorario — pueblos conquistados que renuncian su herencia" },
+      "jlpt_level": null,
+      "category": "politics",
+      "context": "Japanese people can become Honorary Britannians by renouncing their identity, which many see as betrayal."
+    },
+    {
+      "surface": "ナイトメアフレーム",
+      "reading": "ないとめあふれーむ",
+      "romaji": "Naitomea Furēmu",
+      "meanings": { "en": "Knightmare Frame — humanoid combat mech", "pt-BR": "Knightmare Frame — mecha de combate humanóide", "es": "Knightmare Frame — meca de combate humanoide" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Knightmare Frames are the heavily armed mobile suits that dominate the battlefields of Code Geass."
+    },
+    {
+      "surface": "ルルーシュ",
+      "reading": "るるーしゅ",
+      "romaji": "Rurūshu",
+      "meanings": { "en": "Lelouch — exiled Britannian prince", "pt-BR": "Lelouch — príncipe britânico exilado", "es": "Lelouch — príncipe británico exiliado" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Lelouch vi Britannia is the exiled prince who becomes Zero and leads the revolution."
+    },
+    {
+      "surface": "スザク",
+      "reading": "すざく",
+      "romaji": "Suzaku",
+      "meanings": { "en": "Suzaku — Japanese pilot serving Britannia", "pt-BR": "Suzaku — piloto japonês a serviço de Britânia", "es": "Suzaku — piloto japonés al servicio de Britannia" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Suzaku Kururugi is Lelouch's childhood friend who fights for Britannia from within the system."
+    },
+    {
+      "surface": "C.C.",
+      "reading": "しーつー",
+      "romaji": "Shī Tsū",
+      "meanings": { "en": "C.C. — immortal witch who grants Geass", "pt-BR": "C.C. — bruxa imortal que concede o Geass", "es": "C.C. — bruja inmortal que otorga el Geass" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "C.C. is the mysterious immortal who makes a contract with Lelouch and grants him the power of Geass."
+    },
+    {
+      "surface": "絶対服従",
+      "reading": "ぜったいふくじゅう",
+      "romaji": "zettai fukujū",
+      "meanings": { "en": "absolute obedience", "pt-BR": "obediência absoluta", "es": "obediencia absoluta" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Lelouch's Geass is described as the power of absolute obedience — no one can resist his commands."
+    },
+    {
+      "surface": "神聖ブリタニア帝国",
+      "reading": "しんせいぶりたにあていこく",
+      "romaji": "Shinsei Buritania Teikoku",
+      "meanings": { "en": "Holy Britannian Empire", "pt-BR": "Sagrado Império Britânico", "es": "Santo Imperio Británico" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Holy Britannian Empire is the all-powerful antagonist nation in Code Geass, claiming divine right to rule."
+    },
+    {
+      "surface": "枢木スザク",
+      "reading": "くるるぎすざく",
+      "romaji": "Kururugi Suzaku",
+      "meanings": { "en": "Suzaku Kururugi — full name", "pt-BR": "Suzaku Kururugi — nome completo", "es": "Suzaku Kururugi — nombre completo" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Kururugi Suzaku is the son of Japan's last prime minister and Lelouch's most trusted rival."
+    },
+    {
+      "surface": "ルルーシュ・ヴィ・ブリタニア",
+      "reading": "るるーしゅ・ヴぃ・ぶりたにあ",
+      "romaji": "Rurūshu vi Buritania",
+      "meanings": { "en": "Lelouch vi Britannia — full royal name", "pt-BR": "Lelouch vi Britannia — nome real completo", "es": "Lelouch vi Britannia — nombre real completo" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Lelouch vi Britannia is the seventeenth prince of Britannia, exiled and presumed dead."
+    },
+    {
+      "surface": "エリア11",
+      "reading": "えりあじゅういち",
+      "romaji": "Eria Jūichi",
+      "meanings": { "en": "Area 11 — Japan under Britannian occupation", "pt-BR": "Área 11 — Japão sob ocupação britânica", "es": "Área 11 — Japón bajo ocupación británica" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Britannia renames conquered Japan as Area 11, stripping it of its national identity."
+    },
+    {
+      "surface": "日本解放戦線",
+      "reading": "にほんかいほうせんせん",
+      "romaji": "Nihon Kaihō Sensen",
+      "meanings": { "en": "Japan Liberation Front", "pt-BR": "Frente de Libertação do Japão", "es": "Frente de Liberación de Japón" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Japan Liberation Front is a resistance faction that fights for Japanese independence before being eclipsed by the Black Knights."
+    },
+    {
+      "surface": "ゼロ・レクイエム",
+      "reading": "ぜろ・れくいえむ",
+      "romaji": "Zero Rekuiemu",
+      "meanings": { "en": "Zero Requiem — Lelouch's final plan", "pt-BR": "Réquiem do Zero — plano final de Lelouch", "es": "Réquiem de Cero — plan final de Lelouch" },
+      "jlpt_level": null,
+      "category": "strategy",
+      "context": "Zero Requiem is the secret plan Lelouch and Suzaku devise to end the cycle of hatred."
+    },
+    {
+      "surface": "ランスロット",
+      "reading": "らんすろっと",
+      "romaji": "Ransurotto",
+      "meanings": { "en": "Lancelot — Suzaku's elite Knightmare Frame", "pt-BR": "Lancelot — Knightmare Frame de elite de Suzaku", "es": "Lancelot — Knightmare Frame de élite de Suzaku" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Lancelot is Suzaku's advanced white Knightmare Frame, far superior to standard models."
+    },
+    {
+      "surface": "サクラダイト",
+      "reading": "さくらだいと",
+      "romaji": "Sakuradaito",
+      "meanings": { "en": "Sakuradite — rare mineral resource found in Japan", "pt-BR": "Sakuradite — mineral raro encontrado no Japão", "es": "Sakuradite — mineral raro encontrado en Japón" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Sakuradite is the rare superconductor mineral that makes Japan strategically vital to Britannia."
+    },
+    {
+      "surface": "騎士団員",
+      "reading": "きしだんいん",
+      "romaji": "kishidan'in",
+      "meanings": { "en": "knight/member of the Black Knights", "pt-BR": "membro dos Cavaleiros Negros", "es": "miembro de los Caballeros Negros" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Kishidan'in fight loyally under Zero's command in the battle against Britannia."
+    },
+    {
+      "surface": "カレン",
+      "reading": "かれん",
+      "romaji": "Karen",
+      "meanings": { "en": "Kallen — ace pilot of the Black Knights", "pt-BR": "Kallen — piloto ás dos Cavaleiros Negros", "es": "Kallen — piloto as de los Caballeros Negros" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Kallen Stadtfeld is the Black Knights' most skilled Knightmare pilot and Zero's most devoted ally."
+    },
+    {
+      "surface": "ナナリー",
+      "reading": "ななりー",
+      "romaji": "Nanarī",
+      "meanings": { "en": "Nunnally — Lelouch's beloved sister", "pt-BR": "Nunnally — amada irmã de Lelouch", "es": "Nunnally — amada hermana de Lelouch" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Nunnally is blind and wheelchair-bound; Lelouch's desire to protect her drives all his actions."
+    },
+    {
+      "surface": "シャルル",
+      "reading": "しゃるる",
+      "romaji": "Sharuru",
+      "meanings": { "en": "Charles — Emperor of Britannia, Lelouch's father", "pt-BR": "Charles — Imperador de Britânia, pai de Lelouch", "es": "Charles — Emperador de Britannia, padre de Lelouch" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Charles zi Britannia discarded Lelouch and Nunnally and is the ultimate antagonist of the series."
+    },
+    {
+      "surface": "ユーフェミア",
+      "reading": "ゆーふぇみあ",
+      "romaji": "Yūfemia",
+      "meanings": { "en": "Euphemia — Britannian princess who declares the Special Administrative Zone", "pt-BR": "Eufêmia — princesa britânica que declara a Zona Administrativa Especial", "es": "Euphemia — princesa británica que declara la Zona Administrativa Especial" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Princess Euphemia's tragic death at the Narita massacre becomes the turning point of the first season."
+    },
+    {
+      "surface": "サクラダイト鉱山",
+      "reading": "さくらだいとこうざん",
+      "romaji": "Sakuradaito Kōzan",
+      "meanings": { "en": "Sakuradite mine — strategic resource site", "pt-BR": "mina de Sakuradite — local estratégico", "es": "mina de Sakuradite — sitio estratégico" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Control of Japan's Sakuradite mines is key to Britannia's military and technological dominance."
+    },
+    {
+      "surface": "反逆者",
+      "reading": "はんぎゃくしゃ",
+      "romaji": "hangyakusha",
+      "meanings": { "en": "rebel/traitor", "pt-BR": "rebelde/traidor", "es": "rebelde/traidor" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Lelouch is branded a rebel and traitor by Britannia, yet a liberator by the people he leads."
+    },
+    {
+      "surface": "戦略家",
+      "reading": "せんりゃくか",
+      "romaji": "senryakuka",
+      "meanings": { "en": "strategist", "pt-BR": "estrategista", "es": "estratega" },
+      "jlpt_level": "N2",
+      "category": "characters",
+      "context": "Lelouch is widely regarded as a military genius and brilliant strategist by allies and enemies alike."
+    },
+    {
+      "surface": "秩序",
+      "reading": "ちつじょ",
+      "romaji": "chitsujo",
+      "meanings": { "en": "order/social order", "pt-BR": "ordem/ordem social", "es": "orden/orden social" },
+      "jlpt_level": "N2",
+      "category": "politics",
+      "context": "Britannia maintains order through fear and military force rather than consent."
+    },
+    {
+      "surface": "均衡",
+      "reading": "きんこう",
+      "romaji": "kinkō",
+      "meanings": { "en": "balance/equilibrium", "pt-BR": "equilíbrio", "es": "equilibrio" },
+      "jlpt_level": "N2",
+      "category": "strategy",
+      "context": "The geopolitical balance of power shifts dramatically each time Zero achieves a major victory."
+    },
+    {
+      "surface": "不死",
+      "reading": "ふし",
+      "romaji": "fushi",
+      "meanings": { "en": "immortality", "pt-BR": "imortalidade", "es": "inmortalidad" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "C.C. is an immortal who has lived for centuries, cursed to outlive everyone she meets."
+    },
+    {
+      "surface": "魂",
+      "reading": "たましい",
+      "romaji": "tamashii",
+      "meanings": { "en": "soul/spirit", "pt-BR": "alma/espírito", "es": "alma/espíritu" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Sword of Akasha and the collective unconscious threaten the very existence of individual souls."
+    },
+    {
+      "surface": "暗殺",
+      "reading": "あんさつ",
+      "romaji": "ansatsu",
+      "meanings": { "en": "assassination", "pt-BR": "assassinato", "es": "asesinato" },
+      "jlpt_level": "N2",
+      "category": "strategy",
+      "context": "Several key plot turns in Code Geass hinge on assassination attempts against powerful figures."
+    },
+    {
+      "surface": "占領",
+      "reading": "せんりょう",
+      "romaji": "senryō",
+      "meanings": { "en": "occupation/seizure", "pt-BR": "ocupação", "es": "ocupación" },
+      "jlpt_level": "N2",
+      "category": "politics",
+      "context": "Britannia's occupation of Japan strips the country of its name, culture, and rights."
+    }
+  ]
+}

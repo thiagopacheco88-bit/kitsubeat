@@ -27,6 +27,11 @@ const NEW_ANIME: Array<{ slug: string; storeName: string; anilistSearch: string 
   { slug: "dragon-ball-z",    storeName: "Dragon Ball Z",    anilistSearch: "Dragon Ball Z" },
   { slug: "hunter-x-hunter",  storeName: "Hunter x Hunter",  anilistSearch: "Hunter x Hunter 2011" },
   { slug: "tokyo-ghoul",      storeName: "Tokyo Ghoul",      anilistSearch: "Tokyo Ghoul" },
+  { slug: "jujutsu-kaisen",   storeName: "Jujutsu Kaisen",   anilistSearch: "Jujutsu Kaisen" },
+  { slug: "my-hero-academia", storeName: "My Hero Academia", anilistSearch: "Boku no Hero Academia" },
+  { slug: "fairy-tail",       storeName: "Fairy Tail",       anilistSearch: "Fairy Tail" },
+  { slug: "code-geass",       storeName: "Code Geass",       anilistSearch: "Code Geass Hangyaku no Lelouch" },
+  { slug: "chainsaw-man",     storeName: "Chainsaw Man",     anilistSearch: "Chainsaw Man" },
 ];
 
 const QUERY = `

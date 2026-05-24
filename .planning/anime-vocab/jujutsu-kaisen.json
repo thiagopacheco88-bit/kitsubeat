@@ -1,0 +1,926 @@
+{
+  "anime": "jujutsu-kaisen",
+  "label": "Jujutsu Kaisen",
+  "icon": "jujutsu-kaisen.png",
+  "description": "Yuji Itadori swallows a cursed finger and becomes host to the King of Curses, Ryomen Sukuna.",
+  "vocab": [
+    {
+      "surface": "呪い",
+      "reading": "のろい",
+      "romaji": "noroi",
+      "meanings": { "en": "curse", "pt-BR": "maldição", "es": "maldición" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The world of Jujutsu Kaisen revolves around curses born from humanity's negative emotions."
+    },
+    {
+      "surface": "指",
+      "reading": "ゆび",
+      "romaji": "yubi",
+      "meanings": { "en": "finger", "pt-BR": "dedo", "es": "dedo" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Yuji swallows Sukuna's cursed finger, setting the entire story in motion."
+    },
+    {
+      "surface": "体",
+      "reading": "からだ",
+      "romaji": "karada",
+      "meanings": { "en": "body", "pt-BR": "corpo", "es": "cuerpo" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Yuji's body becomes a vessel for Ryomen Sukuna, the King of Curses."
+    },
+    {
+      "surface": "魂",
+      "reading": "たましい",
+      "romaji": "tamashii",
+      "meanings": { "en": "soul", "pt-BR": "alma", "es": "alma" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Gojo Satoru explains that a proper punch hits the soul directly, not just the body."
+    },
+    {
+      "surface": "人",
+      "reading": "ひと",
+      "romaji": "hito",
+      "meanings": { "en": "person", "pt-BR": "pessoa", "es": "persona" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Yuji vows that every person deserves a proper death, free from curses."
+    },
+    {
+      "surface": "死",
+      "reading": "し",
+      "romaji": "shi",
+      "meanings": { "en": "death", "pt-BR": "morte", "es": "muerte" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Yuji's goal is to ensure people experience a proper death surrounded by others."
+    },
+    {
+      "surface": "目",
+      "reading": "め",
+      "romaji": "me",
+      "meanings": { "en": "eye", "pt-BR": "olho", "es": "ojo" },
+      "jlpt_level": "N5",
+      "category": "characters",
+      "context": "Gojo Satoru's Six Eyes grant him unparalleled perception of cursed energy."
+    },
+    {
+      "surface": "拳",
+      "reading": "こぶし",
+      "romaji": "kobushi",
+      "meanings": { "en": "fist", "pt-BR": "punho", "es": "puño" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Yuji's physical strength lets his fists deal real damage even to cursed spirits."
+    },
+    {
+      "surface": "血",
+      "reading": "ち",
+      "romaji": "chi",
+      "meanings": { "en": "blood", "pt-BR": "sangue", "es": "sangre" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Nobara channels cursed energy through blood using her Straw Doll Technique."
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": { "en": "power; strength", "pt-BR": "poder; força", "es": "poder; fuerza" },
+      "jlpt_level": "N5",
+      "category": "combat",
+      "context": "Yuji's raw physical power is exceptional even among jujutsu sorcerers."
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "meanings": { "en": "heart; mind", "pt-BR": "coração; mente", "es": "corazón; mente" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Gojo believes that changing the hearts of people is the true path to reforming jujutsu society."
+    },
+    {
+      "surface": "手",
+      "reading": "て",
+      "romaji": "te",
+      "meanings": { "en": "hand", "pt-BR": "mão", "es": "mano" },
+      "jlpt_level": "N5",
+      "category": "combat",
+      "context": "Nanami Kento's Ratio Technique is activated through strikes delivered by his hands."
+    },
+    {
+      "surface": "友",
+      "reading": "とも",
+      "romaji": "tomo",
+      "meanings": { "en": "friend", "pt-BR": "amigo", "es": "amigo" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Yuji fights to protect his friends from the threat of cursed spirits."
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "meanings": { "en": "life", "pt-BR": "vida", "es": "vida" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Sorcerers risk their lives every time they face a special-grade cursed spirit."
+    },
+    {
+      "surface": "闇",
+      "reading": "やみ",
+      "romaji": "yami",
+      "meanings": { "en": "darkness", "pt-BR": "escuridão", "es": "oscuridad" },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Cursed spirits lurk in the darkness, feeding on negative human emotions."
+    },
+    {
+      "surface": "術師",
+      "reading": "じゅつし",
+      "romaji": "jutsushi",
+      "meanings": { "en": "sorcerer", "pt-BR": "feiticeiro", "es": "hechicero" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Jujutsu sorcerers are trained to exorcise cursed spirits and protect ordinary people."
+    },
+    {
+      "surface": "呪霊",
+      "reading": "じゅれい",
+      "romaji": "jurei",
+      "meanings": { "en": "cursed spirit", "pt-BR": "espírito amaldiçoado", "es": "espíritu maldito" },
+      "jlpt_level": "N3",
+      "category": "curses",
+      "context": "Cursed spirits are born from the negative emotions of humans and threaten society."
+    },
+    {
+      "surface": "儚い",
+      "reading": "はかない",
+      "romaji": "hakanai",
+      "meanings": { "en": "fleeting; transient", "pt-BR": "efêmero; fugaz", "es": "efímero; fugaz" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Human life is fleeting, which is precisely why jujutsu sorcerers protect it so fiercely."
+    },
+    {
+      "surface": "人間",
+      "reading": "にんげん",
+      "romaji": "ningen",
+      "meanings": { "en": "human being", "pt-BR": "ser humano", "es": "ser humano" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Sukuna sees human beings as nothing more than lower lifeforms beneath his contempt."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": { "en": "comrade; companion", "pt-BR": "companheiro", "es": "compañero" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji, Megumi, and Nobara become trusted comrades at Tokyo Jujutsu High."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": { "en": "sacrifice", "pt-BR": "sacrifício", "es": "sacrificio" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Many sorcerers make the ultimate sacrifice in the battle against cursed spirits."
+    },
+    {
+      "surface": "恐怖",
+      "reading": "きょうふ",
+      "romaji": "kyōfu",
+      "meanings": { "en": "fear; terror", "pt-BR": "medo; terror", "es": "miedo; terror" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Cursed spirits are born from humanity's collective fear and negative emotions."
+    },
+    {
+      "surface": "感情",
+      "reading": "かんじょう",
+      "romaji": "kanjō",
+      "meanings": { "en": "emotion; feeling", "pt-BR": "emoção; sentimento", "es": "emoción; sentimiento" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Negative emotions from humans give rise to the cursed energy that spawns cursed spirits."
+    },
+    {
+      "surface": "存在",
+      "reading": "そんざい",
+      "romaji": "sonzai",
+      "meanings": { "en": "existence; being", "pt-BR": "existência", "es": "existencia" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji's very existence as Sukuna's vessel puts him at odds with jujutsu society."
+    },
+    {
+      "surface": "覚悟",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "meanings": { "en": "resolve; preparedness", "pt-BR": "resolução; determinação", "es": "resolución; determinación" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Sorcerers must have the resolve to face death every time they confront a cursed spirit."
+    },
+    {
+      "surface": "成長",
+      "reading": "せいちょう",
+      "romaji": "seichō",
+      "meanings": { "en": "growth; development", "pt-BR": "crescimento", "es": "crecimiento" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji's rapid growth as a sorcerer surprises even veteran fighters like Nanami."
+    },
+    {
+      "surface": "限界",
+      "reading": "げんかい",
+      "romaji": "genkai",
+      "meanings": { "en": "limit; boundary", "pt-BR": "limite", "es": "límite" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Sorcerers push past their limits when protecting the people they care about."
+    },
+    {
+      "surface": "格",
+      "reading": "かく",
+      "romaji": "kaku",
+      "meanings": { "en": "rank; grade", "pt-BR": "classificação; nível", "es": "rango; grado" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Cursed spirits and sorcerers are assigned grades based on the level of their cursed energy."
+    },
+    {
+      "surface": "強さ",
+      "reading": "つよさ",
+      "romaji": "tsuyosa",
+      "meanings": { "en": "strength; power", "pt-BR": "força; poder", "es": "fuerza; poder" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Gojo Satoru's strength is so overwhelming that he is considered unrivalled among sorcerers."
+    },
+    {
+      "surface": "弱さ",
+      "reading": "よわさ",
+      "romaji": "yowasa",
+      "meanings": { "en": "weakness", "pt-BR": "fraqueza", "es": "debilidad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji's perceived weakness stems from his inability to use innate techniques at first."
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "meanings": { "en": "memory", "pt-BR": "memória", "es": "memoria" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji retains memories of everyone Sukuna kills while in control of his body."
+    },
+    {
+      "surface": "誓い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "meanings": { "en": "oath; vow", "pt-BR": "juro; promessa", "es": "juramento; promesa" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji makes a vow to his grandfather to protect others and not die alone."
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": { "en": "solitude; loneliness", "pt-BR": "solidão", "es": "soledad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Many sorcerers carry a deep loneliness, knowing ordinary people cannot understand their world."
+    },
+    {
+      "surface": "正義",
+      "reading": "せいぎ",
+      "romaji": "seigi",
+      "meanings": { "en": "justice; righteousness", "pt-BR": "justiça", "es": "justicia" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji's sense of justice drives him to protect people even at the cost of his own life."
+    },
+    {
+      "surface": "運命",
+      "reading": "うんめい",
+      "romaji": "unmei",
+      "meanings": { "en": "fate; destiny", "pt-BR": "destino", "es": "destino" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji's fate as Sukuna's vessel was sealed the moment he swallowed the cursed finger."
+    },
+    {
+      "surface": "勇気",
+      "reading": "ゆうき",
+      "romaji": "yūki",
+      "meanings": { "en": "courage; bravery", "pt-BR": "coragem", "es": "valentía" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji charges into battle with reckless courage to protect those around him."
+    },
+    {
+      "surface": "戦い",
+      "reading": "たたかい",
+      "romaji": "tatakai",
+      "meanings": { "en": "battle; fight", "pt-BR": "batalha; luta", "es": "batalla; lucha" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Every battle in Jujutsu Kaisen carries the risk of permanent death for both sides."
+    },
+    {
+      "surface": "守る",
+      "reading": "まもる",
+      "romaji": "mamoru",
+      "meanings": { "en": "to protect; to defend", "pt-BR": "proteger; defender", "es": "proteger; defender" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Yuji's core motivation is to protect people from meeting a cursed death."
+    },
+    {
+      "surface": "悪",
+      "reading": "あく",
+      "romaji": "aku",
+      "meanings": { "en": "evil; wickedness", "pt-BR": "maldade", "es": "maldad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Cursed spirits embody the evil that results from accumulated human negativity."
+    },
+    {
+      "surface": "絶望",
+      "reading": "ぜつぼう",
+      "romaji": "zetsubō",
+      "meanings": { "en": "despair; hopelessness", "pt-BR": "desespero", "es": "desesperación" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Shibuya Incident plunges Yuji into deep despair over his inability to save everyone."
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "meanings": { "en": "hope", "pt-BR": "esperança", "es": "esperanza" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gojo represents the hope of a new generation that can change the corrupt jujutsu world."
+    },
+    {
+      "surface": "呪縛",
+      "reading": "じゅばく",
+      "romaji": "jubaku",
+      "meanings": { "en": "binding vow; curse binding", "pt-BR": "voto vinculante", "es": "voto vinculante" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Binding vows are contracts that boost cursed technique power at the cost of breaking them."
+    },
+    {
+      "surface": "憑依",
+      "reading": "ひょうい",
+      "romaji": "hyōi",
+      "meanings": { "en": "possession; inhabitation", "pt-BR": "possessão", "es": "posesión" },
+      "jlpt_level": "N2",
+      "category": "curses",
+      "context": "Sukuna possesses Yuji's body whenever Yuji allows it, taking full control."
+    },
+    {
+      "surface": "術式",
+      "reading": "じゅつしき",
+      "romaji": "jutsu-shiki",
+      "meanings": { "en": "innate technique; cursed technique", "pt-BR": "técnica inata", "es": "técnica innata" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Each sorcerer is born with a unique innate technique that defines their fighting style."
+    },
+    {
+      "surface": "祓除",
+      "reading": "ふつじょ",
+      "romaji": "futsujо",
+      "meanings": { "en": "exorcism; purification", "pt-BR": "exorcismo; purificação", "es": "exorcismo; purificación" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Jujutsu sorcerers specialize in the exorcism of cursed spirits to protect civilians."
+    },
+    {
+      "surface": "反転術式",
+      "reading": "はんてんじゅつしき",
+      "romaji": "hanten jutsu-shiki",
+      "meanings": { "en": "reverse cursed technique", "pt-BR": "técnica maldita reversa", "es": "técnica maldita inversa" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "The reverse cursed technique multiplies negative energy to produce positive energy for healing."
+    },
+    {
+      "surface": "抹消",
+      "reading": "まっしょう",
+      "romaji": "masshō",
+      "meanings": { "en": "erasure; deletion; annihilation", "pt-BR": "apagamento; aniquilação", "es": "borrado; aniquilación" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Gojo's Blue technique creates a vacuum that draws everything toward a point of erasure."
+    },
+    {
+      "surface": "封印",
+      "reading": "ふういん",
+      "romaji": "fūin",
+      "meanings": { "en": "seal; sealing", "pt-BR": "selo; selamento", "es": "sello; sellado" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Gojo Satoru is sealed within the Prison Realm during the Shibuya Incident."
+    },
+    {
+      "surface": "憎悪",
+      "reading": "ぞうお",
+      "romaji": "zōo",
+      "meanings": { "en": "hatred; abhorrence", "pt-BR": "ódio; aversão", "es": "odio; aborrecimiento" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The hatred and resentment of humans over centuries gives birth to powerful cursed spirits."
+    },
+    {
+      "surface": "呪詛師",
+      "reading": "じゅそし",
+      "romaji": "jusoshi",
+      "meanings": { "en": "curse user; sorcerer who uses curses", "pt-BR": "usuário de maldições", "es": "usuario de maldiciones" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Curse users like Mahito employ cursed spirits and techniques against jujutsu sorcerers."
+    },
+    {
+      "surface": "虚式",
+      "reading": "きょしき",
+      "romaji": "kyoshiki",
+      "meanings": { "en": "hollow technique; imaginary technique", "pt-BR": "técnica oca", "es": "técnica hueca" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Hollow Technique combines Gojo's Red and Blue to create the devastating Hollow Purple."
+    },
+    {
+      "surface": "無下限",
+      "reading": "むかげん",
+      "romaji": "mukagen",
+      "meanings": { "en": "limitless; infinity", "pt-BR": "ilimitado; infinito", "es": "ilimitado; infinito" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Gojo's Limitless technique manipulates space at the atomic level around him."
+    },
+    {
+      "surface": "変容",
+      "reading": "へんよう",
+      "romaji": "henyō",
+      "meanings": { "en": "transformation; metamorphosis", "pt-BR": "transformação; metamorfose", "es": "transformación; metamorfosis" },
+      "jlpt_level": "N2",
+      "category": "curses",
+      "context": "Mahito's Idle Transfiguration allows him to reshape human souls into grotesque forms."
+    },
+    {
+      "surface": "境界",
+      "reading": "きょうかい",
+      "romaji": "kyōkai",
+      "meanings": { "en": "boundary; border", "pt-BR": "fronteira; limite", "es": "frontera; límite" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "The boundaries between the human world and the cursed world are constantly tested."
+    },
+    {
+      "surface": "融合",
+      "reading": "ゆうごう",
+      "romaji": "yūgō",
+      "meanings": { "en": "fusion; merger", "pt-BR": "fusão", "es": "fusión" },
+      "jlpt_level": "N2",
+      "category": "curses",
+      "context": "The fusion of Sukuna and Yuji creates an unprecedented vessel unlike any before."
+    },
+    {
+      "surface": "操作",
+      "reading": "そうさ",
+      "romaji": "sōsa",
+      "meanings": { "en": "manipulation; operation", "pt-BR": "manipulação; operação", "es": "manipulación; operación" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Suguru Geto's technique allows him to manipulate cursed spirits he has absorbed."
+    },
+    {
+      "surface": "蓄積",
+      "reading": "ちくせき",
+      "romaji": "chikuseki",
+      "meanings": { "en": "accumulation; stockpiling", "pt-BR": "acumulação", "es": "acumulación" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Cursed energy is accumulated through the stockpiling of negative emotions over generations."
+    },
+    {
+      "surface": "肉体",
+      "reading": "にくたい",
+      "romaji": "nikutai",
+      "meanings": { "en": "physical body; flesh", "pt-BR": "corpo físico; carne", "es": "cuerpo físico; carne" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Sukuna's physical body was split into twenty cursed fingers after his death."
+    },
+    {
+      "surface": "崩壊",
+      "reading": "ほうかい",
+      "romaji": "hōkai",
+      "meanings": { "en": "collapse; destruction", "pt-BR": "colapso; destruição", "es": "colapso; destrucción" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The Shibuya Incident leads to the collapse of public trust in the jujutsu establishment."
+    },
+    {
+      "surface": "呪術廻戦",
+      "reading": "じゅじゅつかいせん",
+      "romaji": "Jujutsu Kaisen",
+      "meanings": { "en": "Jujutsu Kaisen (sorcery fight)", "pt-BR": "Jujutsu Kaisen (batalha de feitiçaria)", "es": "Jujutsu Kaisen (batalla de hechicería)" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The title Jujutsu Kaisen literally means 'sorcery fight', encapsulating the series' core conflict."
+    },
+    {
+      "surface": "呪力",
+      "reading": "じゅりょく",
+      "romaji": "juryoku",
+      "meanings": { "en": "cursed energy", "pt-BR": "energia amaldiçoada", "es": "energía maldita" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Cursed energy is the foundation of all jujutsu techniques, derived from negative human emotions."
+    },
+    {
+      "surface": "領域展開",
+      "reading": "りょういきてんかい",
+      "romaji": "Ryōiki Tenkai",
+      "meanings": { "en": "Domain Expansion", "pt-BR": "Expansão de Domínio", "es": "Expansión de Dominio" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Domain Expansion creates a pocket dimension that guarantees all techniques land on the target."
+    },
+    {
+      "surface": "宿儺",
+      "reading": "すくな",
+      "romaji": "Sukuna",
+      "meanings": { "en": "Ryomen Sukuna (King of Curses)", "pt-BR": "Ryomen Sukuna (Rei das Maldições)", "es": "Ryomen Sukuna (Rey de las Maldiciones)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Ryomen Sukuna is the most powerful cursed spirit in history, reincarnated within Yuji's body."
+    },
+    {
+      "surface": "五条悟",
+      "reading": "ごじょうさとる",
+      "romaji": "Gojō Satoru",
+      "meanings": { "en": "Gojo Satoru (strongest sorcerer)", "pt-BR": "Gojo Satoru (o feiticeiro mais forte)", "es": "Gojo Satoru (el hechicero más fuerte)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Gojo Satoru is considered the strongest jujutsu sorcerer alive, possessing the Six Eyes and Limitless."
+    },
+    {
+      "surface": "虎杖悠仁",
+      "reading": "いたどりゆうじ",
+      "romaji": "Itadori Yūji",
+      "meanings": { "en": "Itadori Yuji (protagonist)", "pt-BR": "Itadori Yuji (protagonista)", "es": "Itadori Yuji (protagonista)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Itadori Yuji is the protagonist who becomes Sukuna's vessel after swallowing a cursed finger."
+    },
+    {
+      "surface": "釘崎野薔薇",
+      "reading": "くぎさきのばら",
+      "romaji": "Kugisaki Nobara",
+      "meanings": { "en": "Kugisaki Nobara", "pt-BR": "Kugisaki Nobara", "es": "Kugisaki Nobara" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Nobara Kugisaki wields a hammer and nails with cursed energy in her Straw Doll Technique."
+    },
+    {
+      "surface": "伏黒恵",
+      "reading": "ふしぐろめぐみ",
+      "romaji": "Fushiguro Megumi",
+      "meanings": { "en": "Fushiguro Megumi", "pt-BR": "Fushiguro Megumi", "es": "Fushiguro Megumi" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Fushiguro Megumi uses the Ten Shadows Technique to summon shikigami in battle."
+    },
+    {
+      "surface": "茈",
+      "reading": "むらさき",
+      "romaji": "Murasaki",
+      "meanings": { "en": "Hollow Purple (Gojo's technique)", "pt-BR": "Roxo Oco (técnica do Gojo)", "es": "Morado Hueco (técnica de Gojo)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Hollow Purple is Gojo's most destructive technique, combining Red and Blue into an erasure beam."
+    },
+    {
+      "surface": "無量空処",
+      "reading": "むりょうくうしょ",
+      "romaji": "Muryō Kūsho",
+      "meanings": { "en": "Infinite Void (Gojo's Domain)", "pt-BR": "Vazio Infinito (Domínio do Gojo)", "es": "Vacío Infinito (Dominio de Gojo)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Infinite Void floods the target's mind with endless stimuli, rendering them unable to act."
+    },
+    {
+      "surface": "赤",
+      "reading": "あか",
+      "romaji": "Aka",
+      "meanings": { "en": "Red (Gojo's repulsion technique)", "pt-BR": "Vermelho (técnica de repulsão do Gojo)", "es": "Rojo (técnica de repulsión de Gojo)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Gojo's Red technique reverses the attraction of Limitless to create an explosive repulsion force."
+    },
+    {
+      "surface": "蒼",
+      "reading": "あお",
+      "romaji": "Ao",
+      "meanings": { "en": "Blue (Gojo's attraction technique)", "pt-BR": "Azul (técnica de atração do Gojo)", "es": "Azul (técnica de atracción de Gojo)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Gojo's Blue compresses space, pulling everything around him into a single convergence point."
+    },
+    {
+      "surface": "十種影法術",
+      "reading": "とくさのかげぼうじゅつ",
+      "romaji": "Tokusa no Kage Bōjutsu",
+      "meanings": { "en": "Ten Shadows Technique", "pt-BR": "Técnica das Dez Sombras", "es": "Técnica de las Diez Sombras" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Fushiguro's Ten Shadows Technique summons powerful shikigami using shadow as a medium."
+    },
+    {
+      "surface": "特級呪霊",
+      "reading": "とっきゅうじゅれい",
+      "romaji": "Tokkyū Jurei",
+      "meanings": { "en": "Special Grade Cursed Spirit", "pt-BR": "Espírito Amaldiçoado de Grau Especial", "es": "Espíritu Maldito de Grado Especial" },
+      "jlpt_level": null,
+      "category": "curses",
+      "context": "Special Grade Cursed Spirits like Mahito and Jogo are powerful enough to devastate entire cities."
+    },
+    {
+      "surface": "東京都立呪術高等専門学校",
+      "reading": "とうきょうとりつじゅじゅつこうとうせんもんがっこう",
+      "romaji": "Tōkyō Toritsu Jujutsu Kōtō Senmon Gakkō",
+      "meanings": { "en": "Tokyo Metropolitan Jujutsu Technical High School", "pt-BR": "Escola Técnica Metropolitana de Jujutsu de Tóquio", "es": "Escuela Técnica Metropolitana de Jujutsu de Tokio" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Tokyo Jujutsu High is where Yuji, Megumi, and Nobara train under Gojo Satoru's mentorship."
+    },
+    {
+      "surface": "獄門疆",
+      "reading": "ごくもんきょう",
+      "romaji": "Gokumon Kyō",
+      "meanings": { "en": "Prison Realm", "pt-BR": "Reino Prisão", "es": "Reino Prisión" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Prison Realm is a special grade cursed object used to seal Gojo Satoru during the Shibuya Incident."
+    },
+    {
+      "surface": "黒閃",
+      "reading": "こくせん",
+      "romaji": "Kokusen",
+      "meanings": { "en": "Black Flash", "pt-BR": "Flash Negro", "es": "Flash Negro" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Black Flash is a phenomenon where a strike and cursed energy distort at the same microsecond, amplifying power."
+    },
+    {
+      "surface": "真人",
+      "reading": "まひと",
+      "romaji": "Mahito",
+      "meanings": { "en": "Mahito (cursed spirit of transmogrification)", "pt-BR": "Mahito (espírito das almas)", "es": "Mahito (espíritu de la transfiguración)" },
+      "jlpt_level": null,
+      "category": "curses",
+      "context": "Mahito is a special grade cursed spirit who can reshape human souls through his Idle Transfiguration."
+    },
+    {
+      "surface": "漏瑚",
+      "reading": "じょうご",
+      "romaji": "Jōgo",
+      "meanings": { "en": "Jogo (volcanic cursed spirit)", "pt-BR": "Jogo (espírito vulcânico)", "es": "Jogo (espíritu volcánico)" },
+      "jlpt_level": null,
+      "category": "curses",
+      "context": "Jogo is a special grade cursed spirit who commands volcanic fire techniques against sorcerers."
+    },
+    {
+      "surface": "夏油傑",
+      "reading": "げとうすぐる",
+      "romaji": "Getō Suguru",
+      "meanings": { "en": "Geto Suguru (cursed spirit manipulator)", "pt-BR": "Geto Suguru (manipulador de espíritos)", "es": "Geto Suguru (manipulador de espíritus)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Suguru Geto was once Gojo's closest friend before defecting to become a curse user."
+    },
+    {
+      "surface": "七海建人",
+      "reading": "ななみけんと",
+      "romaji": "Nanami Kento",
+      "meanings": { "en": "Nanami Kento (grade 1 sorcerer)", "pt-BR": "Nanami Kento (feiticeiro de grau 1)", "es": "Nanami Kento (hechicero de grado 1)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Nanami Kento is a stoic grade 1 sorcerer and reluctant mentor figure to Yuji Itadori."
+    },
+    {
+      "surface": "禪院直毘人",
+      "reading": "ぜんいんなおびと",
+      "romaji": "Zen'in Naobito",
+      "meanings": { "en": "Zen'in Naobito (head of the Zen'in clan)", "pt-BR": "Zen'in Naobito (chefe do clã Zen'in)", "es": "Zen'in Naobito (jefe del clan Zen'in)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Naobito Zen'in is the head of one of the three great jujutsu families, known for his speed technique."
+    },
+    {
+      "surface": "式神",
+      "reading": "しきがみ",
+      "romaji": "shikigami",
+      "meanings": { "en": "shikigami (summoned spirit)", "pt-BR": "shikigami (espírito convocado)", "es": "shikigami (espíritu invocado)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Fushiguro summons shikigami like Divine Dogs and Nue through his Ten Shadows Technique."
+    },
+    {
+      "surface": "渋谷事変",
+      "reading": "しぶやじへん",
+      "romaji": "Shibuya Jihen",
+      "meanings": { "en": "Shibuya Incident", "pt-BR": "Incidente de Shibuya", "es": "Incidente de Shibuya" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Shibuya Incident is a massive coordinated attack by curse users that changes the jujutsu world forever."
+    },
+    {
+      "surface": "呪胎",
+      "reading": "じゅたい",
+      "romaji": "jutai",
+      "meanings": { "en": "cursed womb", "pt-BR": "útero amaldiçoado", "es": "vientre maldito" },
+      "jlpt_level": null,
+      "category": "curses",
+      "context": "Cursed womb deathpainting womb brothers are unique cursed objects with human traits."
+    },
+    {
+      "surface": "天逆鉾",
+      "reading": "あまのさかほこ",
+      "romaji": "Amanosaka Hoko",
+      "meanings": { "en": "Inverted Spear of Heaven", "pt-BR": "Lança Invertida do Céu", "es": "Lanza Invertida del Cielo" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The Inverted Spear of Heaven is a special grade cursed tool that nullifies any technique it touches."
+    },
+    {
+      "surface": "火打木",
+      "reading": "ひうちぎ",
+      "romaji": "Hiuchigi",
+      "meanings": { "en": "Playful Cloud (special grade cursed tool)", "pt-BR": "Nuvem Brincalhona (ferramenta amaldiçoada)", "es": "Nube Juguetona (herramienta maldita)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Playful Cloud is a three-section staff wielded by Maki Zen'in, a special grade non-cursed tool."
+    },
+    {
+      "surface": "祓師",
+      "reading": "はらいし",
+      "romaji": "haraiishi",
+      "meanings": { "en": "exorcist", "pt-BR": "exorcista", "es": "exorcista" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Jujutsu sorcerers are essentially exorcists who cleanse the world of cursed spirits."
+    },
+    {
+      "surface": "受肉",
+      "reading": "じゅにく",
+      "romaji": "juniku",
+      "meanings": { "en": "incarnation; re-embodiment", "pt-BR": "encarnação", "es": "encarnación" },
+      "jlpt_level": null,
+      "category": "curses",
+      "context": "Cursed objects can be used for the incarnation of ancient sorcerers into new human bodies."
+    },
+    {
+      "surface": "核",
+      "reading": "かく",
+      "romaji": "kaku",
+      "meanings": { "en": "core; nucleus (of a cursed spirit)", "pt-BR": "núcleo (de um espírito amaldiçoado)", "es": "núcleo (de un espíritu maldito)" },
+      "jlpt_level": "N2",
+      "category": "curses",
+      "context": "Destroying the core of a cursed spirit is essential to exorcising it permanently."
+    },
+    {
+      "surface": "特級",
+      "reading": "とっきゅう",
+      "romaji": "tokkyū",
+      "meanings": { "en": "special grade", "pt-BR": "grau especial", "es": "grado especial" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Special grade is the highest classification for both cursed spirits and jujutsu sorcerers."
+    },
+    {
+      "surface": "霊体",
+      "reading": "れいたい",
+      "romaji": "reitai",
+      "meanings": { "en": "spirit body; spiritual form", "pt-BR": "corpo espiritual", "es": "cuerpo espiritual" },
+      "jlpt_level": "N1",
+      "category": "curses",
+      "context": "Cursed spirits exist as spirit bodies composed entirely of cursed energy."
+    },
+    {
+      "surface": "呪物",
+      "reading": "じゅぶつ",
+      "romaji": "jubutsu",
+      "meanings": { "en": "cursed object", "pt-BR": "objeto amaldiçoado", "es": "objeto maldito" },
+      "jlpt_level": "N1",
+      "category": "world",
+      "context": "Sukuna's twenty fingers are cursed objects of the highest order, each radiating immense energy."
+    },
+    {
+      "surface": "降伏",
+      "reading": "こうふく",
+      "romaji": "kōfuku",
+      "meanings": { "en": "surrender; submission", "pt-BR": "rendição; submissão", "es": "rendición; sumisión" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Yuji refuses to surrender even when facing opponents far beyond his current strength."
+    },
+    {
+      "surface": "刀",
+      "reading": "かたな",
+      "romaji": "katana",
+      "meanings": { "en": "sword; katana", "pt-BR": "espada; katana", "es": "espada; katana" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Toji Fushiguro wields cursed tools including a cursed blade with devastating effect."
+    },
+    {
+      "surface": "流派",
+      "reading": "りゅうは",
+      "romaji": "ryūha",
+      "meanings": { "en": "school; style; tradition", "pt-BR": "escola; estilo; tradição", "es": "escuela; estilo; tradición" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "The three great clans represent distinct schools of jujutsu tradition and technique."
+    },
+    {
+      "surface": "家系",
+      "reading": "かけい",
+      "romaji": "kakei",
+      "meanings": { "en": "lineage; bloodline", "pt-BR": "linhagem; estirpe", "es": "linaje; estirpe" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Jujutsu society is structured around powerful lineages that pass down innate techniques."
+    },
+    {
+      "surface": "穿血",
+      "reading": "せんけつ",
+      "romaji": "Senketsu",
+      "meanings": { "en": "Piercing Blood (Noritoshi's technique)", "pt-BR": "Sangue Perfurante (técnica de Noritoshi)", "es": "Sangre Perforante (técnica de Noritoshi)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Piercing Blood is Noritoshi Kamo's technique that accelerates blood to act as lethal projectiles."
+    },
+    {
+      "surface": "釘",
+      "reading": "くぎ",
+      "romaji": "kugi",
+      "meanings": { "en": "nail; spike", "pt-BR": "prego; espigão", "es": "clavo; punta" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Nobara uses cursed nails and a hammer as the primary weapons of her Straw Doll Technique."
+    },
+    {
+      "surface": "藁人形",
+      "reading": "わらにんぎょう",
+      "romaji": "wara ningyō",
+      "meanings": { "en": "straw doll", "pt-BR": "boneca de palha", "es": "muñeco de paja" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Nobara's Straw Doll Technique uses a straw doll to transmit cursed energy through shared resonance."
+    },
+    {
+      "surface": "肉弾戦",
+      "reading": "にくだんせん",
+      "romaji": "nikudan-sen",
+      "meanings": { "en": "close-quarters combat; hand-to-hand fighting", "pt-BR": "combate corpo a corpo", "es": "combate cuerpo a cuerpo" },
+      "jlpt_level": "N1",
+      "category": "combat",
+      "context": "Yuji excels in close-quarters combat, overwhelming enemies with sheer physical strength and speed."
+    },
+    {
+      "surface": "縛り",
+      "reading": "しばり",
+      "romaji": "shibari",
+      "meanings": { "en": "restriction; binding", "pt-BR": "restrição; vínculo", "es": "restricción; vínculo" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Sorcerers can impose restrictions on themselves to strengthen their techniques through binding vows."
+    },
+    {
+      "surface": "魂の形",
+      "reading": "たましいのかたち",
+      "romaji": "tamashii no katachi",
+      "meanings": { "en": "shape of the soul", "pt-BR": "forma da alma", "es": "forma del alma" },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "Gojo explains that the body follows the soul — the soul's shape determines the body's form."
+    }
+  ]
+}

@@ -1,0 +1,899 @@
+{
+  "anime": "my-hero-academia",
+  "label": "My Hero Academia",
+  "icon": "my-hero-academia.png",
+  "description": "In a world where almost everyone has a superpower, Izuku Midoriya is born without one — then inherits the greatest power of all.",
+  "vocab": [
+    {
+      "surface": "夢",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "meanings": { "en": "dream", "pt-BR": "sonho", "es": "sueño" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Izuku's dream of becoming a hero drives him to keep going even when everyone says it's impossible."
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": { "en": "power; strength", "pt-BR": "poder; força", "es": "poder; fuerza" },
+      "jlpt_level": "N5",
+      "category": "combat",
+      "context": "One For All passes its enormous power from user to user across generations."
+    },
+    {
+      "surface": "友",
+      "reading": "とも",
+      "romaji": "tomo",
+      "meanings": { "en": "friend", "pt-BR": "amigo", "es": "amigo" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Izuku and Bakugo's complicated friendship shapes both of their journeys as heroes."
+    },
+    {
+      "surface": "英雄",
+      "reading": "えいゆう",
+      "romaji": "eiyū",
+      "meanings": { "en": "hero", "pt-BR": "herói", "es": "héroe" },
+      "jlpt_level": "N4",
+      "category": "heroes",
+      "context": "All Might is celebrated as the greatest hero in the world, a symbol of peace."
+    },
+    {
+      "surface": "悪",
+      "reading": "あく",
+      "romaji": "aku",
+      "meanings": { "en": "evil; wickedness", "pt-BR": "mal; maldade", "es": "mal; maldad" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "All For One represents absolute evil, hoarding Quirks and destroying everything heroes stand for."
+    },
+    {
+      "surface": "守る",
+      "reading": "まもる",
+      "romaji": "mamoru",
+      "meanings": { "en": "to protect; to defend", "pt-BR": "proteger; defender", "es": "proteger; defender" },
+      "jlpt_level": "N4",
+      "category": "heroes",
+      "context": "Izuku's core motivation is to protect people, just like All Might always did."
+    },
+    {
+      "surface": "戦う",
+      "reading": "たたかう",
+      "romaji": "tatakau",
+      "meanings": { "en": "to fight; to battle", "pt-BR": "lutar; batalhar", "es": "luchar; batallar" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "The hero students train tirelessly so they can fight villains and protect civilians."
+    },
+    {
+      "surface": "学校",
+      "reading": "がっこう",
+      "romaji": "gakkō",
+      "meanings": { "en": "school", "pt-BR": "escola", "es": "escuela" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "UA High School is the most prestigious hero school in Japan."
+    },
+    {
+      "surface": "体",
+      "reading": "からだ",
+      "romaji": "karada",
+      "meanings": { "en": "body", "pt-BR": "corpo", "es": "cuerpo" },
+      "jlpt_level": "N5",
+      "category": "combat",
+      "context": "Izuku has to condition his body to handle the immense power of One For All."
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "meanings": { "en": "heart; mind; spirit", "pt-BR": "coração; mente; espírito", "es": "corazón; mente; espíritu" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "All Might tells Izuku that a true hero's heart is what makes them worthy of inheriting a power."
+    },
+    {
+      "surface": "空",
+      "reading": "そら",
+      "romaji": "sora",
+      "meanings": { "en": "sky", "pt-BR": "céu", "es": "cielo" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Hawks, the fastest hero, soars through the sky with his feather Quirk."
+    },
+    {
+      "surface": "走る",
+      "reading": "はしる",
+      "romaji": "hashiru",
+      "meanings": { "en": "to run", "pt-BR": "correr", "es": "correr" },
+      "jlpt_level": "N5",
+      "category": "combat",
+      "context": "Iida's Engine Quirk lets him run at incredible speeds using the exhaust pipes in his legs."
+    },
+    {
+      "surface": "強い",
+      "reading": "つよい",
+      "romaji": "tsuyoi",
+      "meanings": { "en": "strong; powerful", "pt-BR": "forte; poderoso", "es": "fuerte; poderoso" },
+      "jlpt_level": "N5",
+      "category": "combat",
+      "context": "Bakugo always declares he will be the strongest hero, surpassing even All Might."
+    },
+    {
+      "surface": "弱い",
+      "reading": "よわい",
+      "romaji": "yowai",
+      "meanings": { "en": "weak; frail", "pt-BR": "fraco; frágil", "es": "débil; frágil" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Izuku was called weak and quirkless, yet he proved everyone wrong through sheer determination."
+    },
+    {
+      "surface": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meanings": { "en": "teacher", "pt-BR": "professor", "es": "profesor" },
+      "jlpt_level": "N5",
+      "category": "characters",
+      "context": "Eraserhead is Class 1-A's homeroom teacher, known for his no-nonsense approach to hero training."
+    },
+    {
+      "surface": "個性",
+      "reading": "こせい",
+      "romaji": "kosei",
+      "meanings": { "en": "individuality; Quirk (superpower)", "pt-BR": "individualidade; Quirk (superpoder)", "es": "individualidad; Quirk (superpoder)" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Almost 80% of humanity has a Quirk — a unique superpower that manifests in childhood."
+    },
+    {
+      "surface": "才能",
+      "reading": "さいのう",
+      "romaji": "sainō",
+      "meanings": { "en": "talent; ability", "pt-BR": "talento; habilidade", "es": "talento; habilidad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Bakugo's explosive Quirk and natural talent make him one of UA's top students."
+    },
+    {
+      "surface": "訓練",
+      "reading": "くんれん",
+      "romaji": "kunren",
+      "meanings": { "en": "training; drill", "pt-BR": "treinamento; exercício", "es": "entrenamiento; práctica" },
+      "jlpt_level": "N3",
+      "category": "heroes",
+      "context": "Class 1-A undergoes intense combat training to prepare for the hero licensing exam."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": { "en": "comrade; ally; friend", "pt-BR": "companheiro; aliado; amigo", "es": "compañero; aliado; amigo" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Izuku's bonds with his classmates give him the strength to keep pushing forward."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": { "en": "sacrifice", "pt-BR": "sacrifício", "es": "sacrificio" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Every previous user of One For All made great sacrifices to pass the power to the next generation."
+    },
+    {
+      "surface": "限界",
+      "reading": "げんかい",
+      "romaji": "genkai",
+      "meanings": { "en": "limit; boundary", "pt-BR": "limite; fronteira", "es": "límite; frontera" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Izuku constantly pushes past his limits, breaking his bones to unleash One For All's full power."
+    },
+    {
+      "surface": "覚悟",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "meanings": { "en": "resolve; preparedness; readiness", "pt-BR": "determinação; prontidão", "es": "determinación; resolución" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "All Might tells Izuku that receiving One For All requires absolute resolve and readiness."
+    },
+    {
+      "surface": "勇気",
+      "reading": "ゆうき",
+      "romaji": "yūki",
+      "meanings": { "en": "courage; bravery", "pt-BR": "coragem; bravura", "es": "valentía; coraje" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Izuku showed courage when he ran toward the Sludge Villain without a Quirk, moving All Might."
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "meanings": { "en": "hope; wish", "pt-BR": "esperança; desejo", "es": "esperanza; deseo" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "All Might's smile was a symbol of hope for everyone in the world, heroes and civilians alike."
+    },
+    {
+      "surface": "正義",
+      "reading": "せいぎ",
+      "romaji": "seigi",
+      "meanings": { "en": "justice; righteousness", "pt-BR": "justiça; retidão", "es": "justicia; rectitud" },
+      "jlpt_level": "N3",
+      "category": "heroes",
+      "context": "Stain the Hero Killer challenges what true justice means for heroes in a commercialized world."
+    },
+    {
+      "surface": "成長",
+      "reading": "せいちょう",
+      "romaji": "seichō",
+      "meanings": { "en": "growth; development", "pt-BR": "crescimento; desenvolvimento", "es": "crecimiento; desarrollo" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The series follows Izuku's remarkable growth from a powerless boy into a formidable hero."
+    },
+    {
+      "surface": "誓い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "meanings": { "en": "vow; pledge; oath", "pt-BR": "voto; juramento; promessa", "es": "voto; juramento; promesa" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Izuku makes a silent vow to become the greatest hero and carry on All Might's legacy."
+    },
+    {
+      "surface": "努力",
+      "reading": "どりょく",
+      "romaji": "doryoku",
+      "meanings": { "en": "effort; hard work", "pt-BR": "esforço; trabalho duro", "es": "esfuerzo; trabajo duro" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Izuku's countless notebooks full of hero analysis show his extraordinary effort and dedication."
+    },
+    {
+      "surface": "責任",
+      "reading": "せきにん",
+      "romaji": "sekinin",
+      "meanings": { "en": "responsibility; duty", "pt-BR": "responsabilidade; dever", "es": "responsabilidad; deber" },
+      "jlpt_level": "N3",
+      "category": "heroes",
+      "context": "Carrying One For All comes with immense responsibility — the weight of all previous users."
+    },
+    {
+      "surface": "継承",
+      "reading": "けいしょう",
+      "romaji": "keishō",
+      "meanings": { "en": "succession; inheritance", "pt-BR": "sucessão; herança", "es": "sucesión; herencia" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "One For All grows stronger with each succession, carrying the power of every user who came before."
+    },
+    {
+      "surface": "敵",
+      "reading": "てき",
+      "romaji": "teki",
+      "meanings": { "en": "enemy; foe", "pt-BR": "inimigo; adversário", "es": "enemigo; adversario" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The League of Villains declares all heroes their enemies, seeking to destroy the hero society."
+    },
+    {
+      "surface": "仕事",
+      "reading": "しごと",
+      "romaji": "shigoto",
+      "meanings": { "en": "work; job; profession", "pt-BR": "trabalho; profissão", "es": "trabajo; profesión" },
+      "jlpt_level": "N4",
+      "category": "heroes",
+      "context": "Hero work involves both fighting villains and saving lives — it is both a career and a calling."
+    },
+    {
+      "surface": "試験",
+      "reading": "しけん",
+      "romaji": "shiken",
+      "meanings": { "en": "exam; test", "pt-BR": "exame; prova", "es": "examen; prueba" },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Class 1-A must pass the provisional hero license exam to legally engage in hero activities."
+    },
+    {
+      "surface": "社会",
+      "reading": "しゃかい",
+      "romaji": "shakai",
+      "meanings": { "en": "society", "pt-BR": "sociedade", "es": "sociedad" },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "The hero society built around powerful Quirks is deeply stratified and not always fair."
+    },
+    {
+      "surface": "信頼",
+      "reading": "しんらい",
+      "romaji": "shinrai",
+      "meanings": { "en": "trust; confidence", "pt-BR": "confiança; fé", "es": "confianza; fe" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "All Might's trust in Izuku was the spark that changed everything — he saw a hero's heart in him."
+    },
+    {
+      "surface": "危険",
+      "reading": "きけん",
+      "romaji": "kiken",
+      "meanings": { "en": "danger; hazard", "pt-BR": "perigo; risco", "es": "peligro; riesgo" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Hero work puts students in constant danger, which is why UA's training is so rigorous."
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "meanings": { "en": "memory; recollection", "pt-BR": "memória; lembrança", "es": "memoria; recuerdo" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Izuku accesses the memories of past One For All users as his mastery of the power grows."
+    },
+    {
+      "surface": "抑制",
+      "reading": "よくせい",
+      "romaji": "yokusei",
+      "meanings": { "en": "suppression; restraint", "pt-BR": "supressão; contenção", "es": "supresión; contención" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Shoto suppresses his fire side for years, refusing to use his father Endeavor's power."
+    },
+    {
+      "surface": "解放",
+      "reading": "かいほう",
+      "romaji": "kaihō",
+      "meanings": { "en": "liberation; release", "pt-BR": "libertação; liberação", "es": "liberación; emancipación" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Shigaraki's Liberation Army seeks the liberation of all Quirks from governmental control."
+    },
+    {
+      "surface": "象徴",
+      "reading": "しょうちょう",
+      "romaji": "shōchō",
+      "meanings": { "en": "symbol; emblem", "pt-BR": "símbolo; emblema", "es": "símbolo; emblema" },
+      "jlpt_level": "N2",
+      "category": "heroes",
+      "context": "All Might is known as the Symbol of Peace, his very existence keeping crime in check."
+    },
+    {
+      "surface": "覇権",
+      "reading": "はけん",
+      "romaji": "haken",
+      "meanings": { "en": "hegemony; supremacy", "pt-BR": "hegemonia; supremacia", "es": "hegemonía; supremacía" },
+      "jlpt_level": "N1",
+      "category": "world",
+      "context": "All For One sought total hegemony over the hero world by stealing and distributing Quirks."
+    },
+    {
+      "surface": "脅威",
+      "reading": "きょうい",
+      "romaji": "kyōi",
+      "meanings": { "en": "threat; menace", "pt-BR": "ameaça; perigo", "es": "amenaza; peligro" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "The League of Villains grows into a genuine threat to the entire hero society."
+    },
+    {
+      "surface": "秩序",
+      "reading": "ちつじょ",
+      "romaji": "chitsujo",
+      "meanings": { "en": "order; discipline", "pt-BR": "ordem; disciplina", "es": "orden; disciplina" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "The hero system is meant to maintain order, but its cracks are exposed as villains grow stronger."
+    },
+    {
+      "surface": "崩壊",
+      "reading": "ほうかい",
+      "romaji": "hōkai",
+      "meanings": { "en": "collapse; disintegration", "pt-BR": "colapso; desintegração", "es": "colapso; desintegración" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Shigaraki's Decay Quirk causes total collapse of anything he touches, making him terrifyingly destructive."
+    },
+    {
+      "surface": "制御",
+      "reading": "せいぎょ",
+      "romaji": "seigyo",
+      "meanings": { "en": "control; management", "pt-BR": "controle; gerenciamento", "es": "control; manejo" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Izuku's primary struggle is learning to control One For All without destroying his own body."
+    },
+    {
+      "surface": "継承者",
+      "reading": "けいしょうしゃ",
+      "romaji": "keishōsha",
+      "meanings": { "en": "successor; heir", "pt-BR": "sucessor; herdeiro", "es": "sucesor; heredero" },
+      "jlpt_level": "N2",
+      "category": "heroes",
+      "context": "Izuku is chosen as the ninth successor of One For All, inheriting all the power that came before."
+    },
+    {
+      "surface": "潜在",
+      "reading": "せんざい",
+      "romaji": "senzai",
+      "meanings": { "en": "latent; potential; dormant", "pt-BR": "latente; potencial; adormecido", "es": "latente; potencial; dormido" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The latent potential inside Izuku surpasses that of any previous One For All user."
+    },
+    {
+      "surface": "革命",
+      "reading": "かくめい",
+      "romaji": "kakumei",
+      "meanings": { "en": "revolution", "pt-BR": "revolução", "es": "revolución" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "The Meta Liberation Army's ideology calls for a revolution to free Quirk usage from all restrictions."
+    },
+    {
+      "surface": "暴力",
+      "reading": "ぼうりょく",
+      "romaji": "bōryoku",
+      "meanings": { "en": "violence; force", "pt-BR": "violência; força", "es": "violencia; fuerza" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Stain argues that heroes who act for fame perpetuate a cycle of violence disconnected from true justice."
+    },
+    {
+      "surface": "本能",
+      "reading": "ほんのう",
+      "romaji": "honnō",
+      "meanings": { "en": "instinct", "pt-BR": "instinto", "es": "instinto" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Izuku's instinct to save people, even without a Quirk, is what All Might recognized as a true hero trait."
+    },
+    {
+      "surface": "威圧",
+      "reading": "いあつ",
+      "romaji": "iatsu",
+      "meanings": { "en": "intimidation; coercion", "pt-BR": "intimidação; coerção", "es": "intimidación; coacción" },
+      "jlpt_level": "N1",
+      "category": "combat",
+      "context": "All Might's presence alone was enough intimidation to stop many villains from acting."
+    },
+    {
+      "surface": "無個性",
+      "reading": "むこせい",
+      "romaji": "mukosei",
+      "meanings": { "en": "Quirklessness; having no Quirk", "pt-BR": "sem Quirk; sem poder especial", "es": "sin Quirk; sin poder especial" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Izuku is born with Quirklessness (Mukosei), making him one of the rare few in a powered world."
+    },
+    {
+      "surface": "ワン・フォー・オール",
+      "reading": "わん・ふぉー・おーる",
+      "romaji": "Wan Fō Ōru",
+      "meanings": { "en": "One For All (stockpiling Quirk)", "pt-BR": "One For All (Quirk de acúmulo de poder)", "es": "One For All (Quirk acumulador de poder)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "One For All is a transferable Quirk that stockpiles power across generations, now wielded by Izuku."
+    },
+    {
+      "surface": "オール・フォー・ワン",
+      "reading": "おーる・ふぉー・わん",
+      "romaji": "Ōru Fō Wan",
+      "meanings": { "en": "All For One (Quirk theft and transfer)", "pt-BR": "All For One (Quirk de roubo e transferência)", "es": "All For One (Quirk de robo y transferencia)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "All For One is the villain's supreme Quirk that steals others' powers and the ultimate counterpart to One For All."
+    },
+    {
+      "surface": "プラスウルトラ",
+      "reading": "ぷらすうるとら",
+      "romaji": "Purasu Urutora",
+      "meanings": { "en": "Plus Ultra (UA motto: go beyond)", "pt-BR": "Plus Ultra (lema da UA: vá além)", "es": "Plus Ultra (lema de UA: ¡más allá!)" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Plus Ultra is UA High's motto, urging students to always go beyond their limits."
+    },
+    {
+      "surface": "ヒーロー",
+      "reading": "ひーろー",
+      "romaji": "Hīrō",
+      "meanings": { "en": "hero (loanword)", "pt-BR": "herói (palavra emprestada)", "es": "héroe (préstamo lingüístico)" },
+      "jlpt_level": null,
+      "category": "heroes",
+      "context": "In this world, Heroes are licensed professionals who use their Quirks to fight crime and save lives."
+    },
+    {
+      "surface": "ヴィラン",
+      "reading": "ヴぃらん",
+      "romaji": "Viran",
+      "meanings": { "en": "villain (loanword)", "pt-BR": "vilão (palavra emprestada)", "es": "villano (préstamo lingüístico)" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "In hero society, Villain is the official term for criminals who use their Quirks for evil."
+    },
+    {
+      "surface": "デク",
+      "reading": "でく",
+      "romaji": "Deku",
+      "meanings": { "en": "Deku (Izuku's hero name)", "pt-BR": "Deku (nome de herói de Izuku)", "es": "Deku (nombre de héroe de Izuku)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Deku was originally an insult meaning 'useless,' but Izuku reclaimed it as his proud hero name."
+    },
+    {
+      "surface": "オールマイト",
+      "reading": "おーるまいと",
+      "romaji": "Ōru Maito",
+      "meanings": { "en": "All Might (the Symbol of Peace)", "pt-BR": "All Might (o Símbolo da Paz)", "es": "All Might (el Símbolo de la Paz)" },
+      "jlpt_level": null,
+      "category": "heroes",
+      "context": "All Might is the world's greatest hero, whose retirement signals a dramatic shift in the balance of power."
+    },
+    {
+      "surface": "轟焦凍",
+      "reading": "とどろきしょうと",
+      "romaji": "Todoroki Shōto",
+      "meanings": { "en": "Shoto Todoroki (character name)", "pt-BR": "Shoto Todoroki (nome de personagem)", "es": "Shoto Todoroki (nombre de personaje)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Todoroki Shoto wields both fire and ice Quirks inherited from his powerful parents."
+    },
+    {
+      "surface": "爆豪勝己",
+      "reading": "ばくごうかつき",
+      "romaji": "Bakugō Katsuki",
+      "meanings": { "en": "Katsuki Bakugo (character name)", "pt-BR": "Katsuki Bakugo (nome de personagem)", "es": "Katsuki Bakugo (nombre de personaje)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Bakugo Katsuki's explosive Quirk and fierce personality make him both a rival and eventual ally to Deku."
+    },
+    {
+      "surface": "雄英高校",
+      "reading": "ゆうえいこうこう",
+      "romaji": "Yūei Kōkō",
+      "meanings": { "en": "UA High School (Yūei High)", "pt-BR": "Escola UA (Yūei High)", "es": "Instituto UA (Yūei High)" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Yūei High is Japan's top hero training school, where the best and brightest students learn to become heroes."
+    },
+    {
+      "surface": "個性把握型",
+      "reading": "こせいはあくがた",
+      "romaji": "kosei haaku-gata",
+      "meanings": { "en": "Quirk Apprehension Test type", "pt-BR": "tipo de Teste de Apreensão de Quirk", "es": "tipo de Prueba de Comprensión de Quirk" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Quirk Apprehension Test at UA evaluates students by measuring the full scope of their Quirk abilities."
+    },
+    {
+      "surface": "雄英体育祭",
+      "reading": "ゆうえいたいいくさい",
+      "romaji": "Yūei Taiikusai",
+      "meanings": { "en": "UA Sports Festival", "pt-BR": "Festival Esportivo da UA", "es": "Festival Deportivo de UA" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The UA Sports Festival is a massive televised event where hero students showcase their Quirks to the world."
+    },
+    {
+      "surface": "インターン",
+      "reading": "いんたーん",
+      "romaji": "Intān",
+      "meanings": { "en": "hero internship", "pt-BR": "estágio de herói", "es": "pasantía de héroe" },
+      "jlpt_level": null,
+      "category": "heroes",
+      "context": "Students go on Hero Internships to train under Pro Heroes and gain real field experience."
+    },
+    {
+      "surface": "緑谷出久",
+      "reading": "みどりやいずく",
+      "romaji": "Midoriya Izuku",
+      "meanings": { "en": "Izuku Midoriya (protagonist)", "pt-BR": "Izuku Midoriya (protagonista)", "es": "Izuku Midoriya (protagonista)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Midoriya Izuku is the quirkless boy who inherits One For All and dreams of becoming the greatest hero."
+    },
+    {
+      "surface": "死柄木弔",
+      "reading": "しがらきとむら",
+      "romaji": "Shigaraki Tomura",
+      "meanings": { "en": "Tomura Shigaraki (main villain)", "pt-BR": "Tomura Shigaraki (vilão principal)", "es": "Tomura Shigaraki (villano principal)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Shigaraki Tomura is the leader of the League of Villains, whose Decay Quirk crumbles anything he touches."
+    },
+    {
+      "surface": "爆発",
+      "reading": "ばくはつ",
+      "romaji": "bakuhatsu",
+      "meanings": { "en": "explosion", "pt-BR": "explosão", "es": "explosión" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Bakugo's Explosion Quirk lets him generate and detonate nitroglycerin-like sweat from his palms."
+    },
+    {
+      "surface": "氷",
+      "reading": "こおり",
+      "romaji": "kōri",
+      "meanings": { "en": "ice", "pt-BR": "gelo", "es": "hielo" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Todoroki's right side generates powerful ice, inherited from his mother's Quirk."
+    },
+    {
+      "surface": "炎",
+      "reading": "ほのお",
+      "romaji": "honō",
+      "meanings": { "en": "flame; blaze", "pt-BR": "chama; brasa", "es": "llama; fuego" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Todoroki's left side produces intense flames, inherited from his father Endeavor's fire Quirk."
+    },
+    {
+      "surface": "消去",
+      "reading": "しょうきょ",
+      "romaji": "shōkyo",
+      "meanings": { "en": "erasure; deletion", "pt-BR": "apagamento; eliminação", "es": "borrado; eliminación" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Eraserhead's Quirk Erasure allows him to nullify anyone's Quirk as long as he keeps his eyes on them."
+    },
+    {
+      "surface": "重力",
+      "reading": "じゅうりょく",
+      "romaji": "jūryoku",
+      "meanings": { "en": "gravity", "pt-BR": "gravidade", "es": "gravedad" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Uraraka's Zero Gravity Quirk removes the gravitational pull from anything she touches with all five fingers."
+    },
+    {
+      "surface": "透明",
+      "reading": "とうめい",
+      "romaji": "tōmei",
+      "meanings": { "en": "transparency; invisibility", "pt-BR": "transparência; invisibilidade", "es": "transparencia; invisibilidad" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Toru Hagakure's Invisibility Quirk makes her entire body transparent, giving her a natural stealth advantage."
+    },
+    {
+      "surface": "速度",
+      "reading": "そくど",
+      "romaji": "sokudo",
+      "meanings": { "en": "speed; velocity", "pt-BR": "velocidade", "es": "velocidad" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Iida's Engine Quirk gives him incredible speed by powering exhaust pipes built into his calves."
+    },
+    {
+      "surface": "変身",
+      "reading": "へんしん",
+      "romaji": "henshin",
+      "meanings": { "en": "transformation; metamorphosis", "pt-BR": "transformação; metamorfose", "es": "transformación; metamorfosis" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Toga's Quirk allows her to transform into anyone whose blood she consumes, copying their appearance perfectly."
+    },
+    {
+      "surface": "崩壊",
+      "reading": "ほうかい",
+      "romaji": "hōkai",
+      "meanings": { "en": "decay; collapse", "pt-BR": "decaimento; colapso", "es": "decadencia; colapso" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Shigaraki's Decay Quirk disintegrates everything he touches with all five fingers into dust."
+    },
+    {
+      "surface": "誘惑",
+      "reading": "ゆうわく",
+      "romaji": "yūwaku",
+      "meanings": { "en": "temptation; seduction", "pt-BR": "tentação; sedução", "es": "tentación; seducción" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Gentle Criminal's Elasticity Quirk and charming persona represent a villain driven by temptation for fame."
+    },
+    {
+      "surface": "連携",
+      "reading": "れんけい",
+      "romaji": "renkei",
+      "meanings": { "en": "cooperation; coordination; teamwork", "pt-BR": "cooperação; coordenação; trabalho em equipe", "es": "cooperación; coordinación; trabajo en equipo" },
+      "jlpt_level": "N2",
+      "category": "heroes",
+      "context": "Class 1-A learns that hero teamwork and coordination often matter more than individual power."
+    },
+    {
+      "surface": "防衛",
+      "reading": "ぼうえい",
+      "romaji": "bōei",
+      "meanings": { "en": "defense; protection", "pt-BR": "defesa; proteção", "es": "defensa; protección" },
+      "jlpt_level": "N2",
+      "category": "heroes",
+      "context": "UA's heightened defenses become a plot point when the League of Villains repeatedly targets the school."
+    },
+    {
+      "surface": "本物",
+      "reading": "ほんもの",
+      "romaji": "honmono",
+      "meanings": { "en": "the real thing; genuine article", "pt-BR": "coisa genuína; o artigo real", "es": "lo genuino; lo auténtico" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "All Might tells Izuku that his heart makes him the real thing — a true hero."
+    },
+    {
+      "surface": "平和",
+      "reading": "へいわ",
+      "romaji": "heiwa",
+      "meanings": { "en": "peace", "pt-BR": "paz", "es": "paz" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "All Might is called the Symbol of Peace because his existence keeps the world stable and safe."
+    },
+    {
+      "surface": "笑顔",
+      "reading": "えがお",
+      "romaji": "egao",
+      "meanings": { "en": "smile; smiling face", "pt-BR": "sorriso; rosto sorridente", "es": "sonrisa; cara sonriente" },
+      "jlpt_level": "N3",
+      "category": "heroes",
+      "context": "All Might always smiles during battle to reassure civilians that everything will be alright."
+    },
+    {
+      "surface": "勝利",
+      "reading": "しょうり",
+      "romaji": "shōri",
+      "meanings": { "en": "victory; triumph", "pt-BR": "vitória; triunfo", "es": "victoria; triunfo" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Bakugo's obsession with victory pushes him to constantly improve and never accept second place."
+    },
+    {
+      "surface": "敗北",
+      "reading": "はいぼく",
+      "romaji": "haiboku",
+      "meanings": { "en": "defeat; loss", "pt-BR": "derrota; perda", "es": "derrota; pérdida" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Bakugo's first major defeat at the UA tournament arc shakes him into rethinking his approach to heroism."
+    },
+    {
+      "surface": "プロヒーロー",
+      "reading": "ぷろひーろー",
+      "romaji": "Puro Hīrō",
+      "meanings": { "en": "Pro Hero", "pt-BR": "Herói Profissional", "es": "Héroe Profesional" },
+      "jlpt_level": null,
+      "category": "heroes",
+      "context": "Pro Heroes are licensed adults who work professionally to protect the public and fight villains."
+    },
+    {
+      "surface": "ヒーロー名",
+      "reading": "ひーろーめい",
+      "romaji": "Hīrō-mei",
+      "meanings": { "en": "hero name", "pt-BR": "nome de herói", "es": "nombre de héroe" },
+      "jlpt_level": null,
+      "category": "heroes",
+      "context": "Students choose their own hero name at UA, signifying their identity and values as future heroes."
+    },
+    {
+      "surface": "ヒーロービルボード",
+      "reading": "ひーろーびるぼーど",
+      "romaji": "Hīrō Birubōdo",
+      "meanings": { "en": "Hero Billboard Chart", "pt-BR": "Tabela de Classificação de Heróis", "es": "Clasificación de Héroes" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Hero Billboard Chart ranks Pro Heroes by their public impact, forming the backbone of hero society's status system."
+    },
+    {
+      "surface": "ヴィランレイド",
+      "reading": "ヴぃらんれいど",
+      "romaji": "Viran Reido",
+      "meanings": { "en": "villain raid", "pt-BR": "invasão de vilões", "es": "incursión de villanos" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The USJ and Paranormal Liberation War villain raids are major turning points that test the heroes' resolve."
+    },
+    {
+      "surface": "ワープゲート",
+      "reading": "わーぷげーと",
+      "romaji": "Wāpu Gēto",
+      "meanings": { "en": "Warp Gate (Kurogiri's Quirk)", "pt-BR": "Portal de Distorção (Quirk de Kurogiri)", "es": "Portal de Teletransporte (Quirk de Kurogiri)" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Kurogiri's Warp Gate Quirk creates dark mist portals, making him the League of Villains' key escape route."
+    },
+    {
+      "surface": "超人社会",
+      "reading": "ちょうじんしゃかい",
+      "romaji": "chōjin shakai",
+      "meanings": { "en": "super-powered society", "pt-BR": "sociedade super-poderosa", "es": "sociedad de superpoderes" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The entire premise of the series is built on how humanity adapted to a super-powered society where Quirks are normal."
+    },
+    {
+      "surface": "解析",
+      "reading": "かいせき",
+      "romaji": "kaiseki",
+      "meanings": { "en": "analysis; parsing", "pt-BR": "análise", "es": "análisis" },
+      "jlpt_level": "N2",
+      "category": "heroes",
+      "context": "Izuku fills notebooks with detailed analysis of heroes' Quirks, which becomes a core part of his tactical fighting style."
+    },
+    {
+      "surface": "覚醒",
+      "reading": "かくせい",
+      "romaji": "kakusei",
+      "meanings": { "en": "awakening; arousal", "pt-BR": "despertar; ativação", "es": "despertar; activación" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Several characters experience a Quirk Awakening during intense battles, unlocking new and stronger forms of their power."
+    },
+    {
+      "surface": "結束",
+      "reading": "けっそく",
+      "romaji": "kessoku",
+      "meanings": { "en": "unity; solidarity; cohesion", "pt-BR": "unidade; solidariedade; coesão", "es": "unidad; solidaridad; cohesión" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The bond and unity of Class 1-A is what allows them to survive and overcome threats that individuals could not."
+    },
+    {
+      "surface": "未来",
+      "reading": "みらい",
+      "romaji": "mirai",
+      "meanings": { "en": "future", "pt-BR": "futuro", "es": "futuro" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The next generation of heroes carries the weight of building a better future for everyone, Quirk or not."
+    },
+    {
+      "surface": "過去",
+      "reading": "かこ",
+      "romaji": "kako",
+      "meanings": { "en": "past; the past", "pt-BR": "passado", "es": "pasado" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Todoroki's painful past with his abusive father shapes every choice he makes about his Quirk."
+    },
+    {
+      "surface": "闇",
+      "reading": "やみ",
+      "romaji": "yami",
+      "meanings": { "en": "darkness", "pt-BR": "escuridão; trevas", "es": "oscuridad; tinieblas" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Izuku's Dark Deku arc shows him walking the edge of darkness, sacrificing his own body to save others alone."
+    },
+    {
+      "surface": "名声",
+      "reading": "めいせい",
+      "romaji": "meisei",
+      "meanings": { "en": "fame; reputation", "pt-BR": "fama; reputação", "es": "fama; reputación" },
+      "jlpt_level": "N2",
+      "category": "heroes",
+      "context": "Stain despises heroes who pursue fame and money rather than a genuine desire to save lives."
+    },
+    {
+      "surface": "誇り",
+      "reading": "ほこり",
+      "romaji": "hokori",
+      "meanings": { "en": "pride; honor", "pt-BR": "orgulho; honra", "es": "orgullo; honor" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Bakugo's pride refuses to let him accept help, but it is also what drives his relentless self-improvement."
+    },
+    {
+      "surface": "絆",
+      "reading": "きずな",
+      "romaji": "kizuna",
+      "meanings": { "en": "bond; tie; connection", "pt-BR": "vínculo; laço; conexão", "es": "vínculo; lazo; conexión" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The bonds between Izuku and his predecessors within One For All grow stronger with each passing episode."
+    }
+  ]
+}

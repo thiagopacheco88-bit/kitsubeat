@@ -1766,6 +1766,11 @@ const ANIME_SLUG_TO_TITLE: Record<string, string> = {
   "dragon-ball-z": "Dragon Ball Z",
   "hunter-x-hunter": "Hunter x Hunter",
   "tokyo-ghoul": "Tokyo Ghoul",
+  "jujutsu-kaisen": "Jujutsu Kaisen",
+  "my-hero-academia": "My Hero Academia",
+  "fairy-tail": "Fairy Tail",
+  "code-geass": "Code Geass",
+  "chainsaw-man": "Chainsaw Man",
 };
 
 export interface AnimeVocabItem {
@@ -1818,6 +1823,11 @@ async function _getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
           WHEN 'dragon-ball-z' THEN 'Dragon Ball Z'
           WHEN 'hunter-x-hunter' THEN 'Hunter x Hunter'
           WHEN 'tokyo-ghoul' THEN 'Tokyo Ghoul'
+          WHEN 'jujutsu-kaisen' THEN 'Jujutsu Kaisen'
+          WHEN 'my-hero-academia' THEN 'My Hero Academia'
+          WHEN 'fairy-tail' THEN 'Fairy Tail'
+          WHEN 'code-geass' THEN 'Code Geass'
+          WHEN 'chainsaw-man' THEN 'Chainsaw Man'
           ELSE ''
         END
       )`

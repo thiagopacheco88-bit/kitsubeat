@@ -1,0 +1,935 @@
+{
+  "anime": "chainsaw-man",
+  "label": "Chainsaw Man",
+  "icon": "chainsaw-man.png",
+  "description": "Denji merges with his devil dog Pochita to become the Chainsaw Man, hunting devils for a shady government agency.",
+  "vocab": [
+    {
+      "surface": "血",
+      "reading": "ち",
+      "romaji": "chi",
+      "meanings": { "en": "blood", "pt-BR": "sangue", "es": "sangre" },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "パワーは血の悪魔であり、血を自在に操る能力を持つ。"
+    },
+    {
+      "surface": "肉",
+      "reading": "にく",
+      "romaji": "niku",
+      "meanings": { "en": "flesh / meat", "pt-BR": "carne", "es": "carne" },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "デンジはチェンソーの刃で悪魔の肉を切り裂く。"
+    },
+    {
+      "surface": "夢",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "meanings": { "en": "dream", "pt-BR": "sonho", "es": "sueño" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "デンジの夢は普通の生活を送ることだった。"
+    },
+    {
+      "surface": "犬",
+      "reading": "いぬ",
+      "romaji": "inu",
+      "meanings": { "en": "dog", "pt-BR": "cachorro", "es": "perro" },
+      "jlpt_level": "N5",
+      "category": "characters",
+      "context": "ポチタはデンジが大切にしていた犬の姿をした悪魔だ。"
+    },
+    {
+      "surface": "心臓",
+      "reading": "しんぞう",
+      "romaji": "shinzō",
+      "meanings": { "en": "heart (organ)", "pt-BR": "coração", "es": "corazón" },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "ポチタはデンジの心臓の代わりになり、二人は融合した。"
+    },
+    {
+      "surface": "悪魔",
+      "reading": "あくま",
+      "romaji": "akuma",
+      "meanings": { "en": "devil / demon", "pt-BR": "demônio", "es": "demonio" },
+      "jlpt_level": "N3",
+      "category": "devils",
+      "context": "悪魔は人間の恐怖から生まれ、世界中に存在する。"
+    },
+    {
+      "surface": "死",
+      "reading": "し",
+      "romaji": "shi",
+      "meanings": { "en": "death", "pt-BR": "morte", "es": "muerte" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "デビルハンターにとって死は常に隣り合わせの存在だ。"
+    },
+    {
+      "surface": "体",
+      "reading": "からだ",
+      "romaji": "karada",
+      "meanings": { "en": "body", "pt-BR": "corpo", "es": "cuerpo" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "デンジの体にはポチタの心臓が宿っている。"
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": { "en": "power / strength", "pt-BR": "força", "es": "fuerza" },
+      "jlpt_level": "N5",
+      "category": "combat",
+      "context": "チェンソーの悪魔の力は他の悪魔を完全に消し去ることができる。"
+    },
+    {
+      "surface": "金",
+      "reading": "かね",
+      "romaji": "kane",
+      "meanings": { "en": "money", "pt-BR": "dinheiro", "es": "dinero" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "デンジは借金を返すために金が必要だったため悪魔を狩り始めた。"
+    },
+    {
+      "surface": "飯",
+      "reading": "めし",
+      "romaji": "meshi",
+      "meanings": { "en": "meal / rice / food", "pt-BR": "refeição / comida", "es": "comida / arroz" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "デンジは満足に飯も食えない貧しい生活を送っていた。"
+    },
+    {
+      "surface": "心",
+      "reading": "こころ",
+      "romaji": "kokoro",
+      "meanings": { "en": "heart / mind / spirit", "pt-BR": "coração / mente", "es": "corazón / mente" },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "ポチタはデンジの心を誰よりも理解していた。"
+    },
+    {
+      "surface": "夜",
+      "reading": "よる",
+      "romaji": "yoru",
+      "meanings": { "en": "night", "pt-BR": "noite", "es": "noche" },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "悪魔狩りの任務はしばしば危険な夜に行われる。"
+    },
+    {
+      "surface": "恐怖",
+      "reading": "きょうふ",
+      "romaji": "kyōfu",
+      "meanings": { "en": "fear / terror", "pt-BR": "medo / terror", "es": "miedo / terror" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "悪魔は人間の恐怖から生まれ、その恐怖が強いほど悪魔も強くなる。"
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "meanings": { "en": "life / one's life", "pt-BR": "vida", "es": "vida" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "デビルハンターは毎日命がけで悪魔と戦っている。"
+    },
+    {
+      "surface": "契約",
+      "reading": "けいやく",
+      "romaji": "keiyaku",
+      "meanings": { "en": "contract / agreement", "pt-BR": "contrato", "es": "contrato" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "デビルハンターは悪魔と契約を結んで特殊な力を得ることができる。"
+    },
+    {
+      "surface": "猟師",
+      "reading": "りょうし",
+      "romaji": "ryōshi",
+      "meanings": { "en": "hunter", "pt-BR": "caçador", "es": "cazador" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "デビルハンターは悪魔を狩る猟師のような存在だ。"
+    },
+    {
+      "surface": "組織",
+      "reading": "そしき",
+      "romaji": "soshiki",
+      "meanings": { "en": "organization", "pt-BR": "organização", "es": "organización" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "公安の組織はデビルハンターを管理し悪魔の脅威に対抗している。"
+    },
+    {
+      "surface": "戦闘",
+      "reading": "せんとう",
+      "romaji": "sentō",
+      "meanings": { "en": "combat / battle", "pt-BR": "combate", "es": "combate" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "デンジは戦闘になるとチェンソーの刃を額から引き出す。"
+    },
+    {
+      "surface": "変身",
+      "reading": "へんしん",
+      "romaji": "henshin",
+      "meanings": { "en": "transformation", "pt-BR": "transformação", "es": "transformación" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "デンジは血を飲むことでチェンソーマンへの変身が完成する。"
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": { "en": "sacrifice", "pt-BR": "sacrifício", "es": "sacrificio" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "多くのデビルハンターが任務のために犠牲になっていった。"
+    },
+    {
+      "surface": "絶望",
+      "reading": "ぜつぼう",
+      "romaji": "zetsubō",
+      "meanings": { "en": "despair", "pt-BR": "desespero", "es": "desesperación" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "デンジはポチタを失った後、深い絶望に陥った。"
+    },
+    {
+      "surface": "欲望",
+      "reading": "よくぼう",
+      "romaji": "yokubō",
+      "meanings": { "en": "desire / lust", "pt-BR": "desejo", "es": "deseo" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "デンジのシンプルな欲望がチェンソーマンとしての動機となっている。"
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": { "en": "solitude / loneliness", "pt-BR": "solidão", "es": "soledad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "幼い頃から孤独だったデンジにとって、ポチタは唯一の家族だった。"
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "meanings": { "en": "memory", "pt-BR": "memória", "es": "memoria" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "チェンソーマンは食べた悪魔の記憶を世界から消し去ることができる。"
+    },
+    {
+      "surface": "感情",
+      "reading": "かんじょう",
+      "romaji": "kanjō",
+      "meanings": { "en": "emotion / feeling", "pt-BR": "emoção / sentimento", "es": "emoción / sentimiento" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "マキマは人間の感情を操り、他者を支配する能力を持つ。"
+    },
+    {
+      "surface": "本能",
+      "reading": "ほんのう",
+      "romaji": "hon'nō",
+      "meanings": { "en": "instinct", "pt-BR": "instinto", "es": "instinto" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "悪魔は人間の本能的な恐怖から生まれる存在だ。"
+    },
+    {
+      "surface": "存在",
+      "reading": "そんざい",
+      "romaji": "sonzai",
+      "meanings": { "en": "existence / being", "pt-BR": "existência", "es": "existencia" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "チェンソーマンは他の悪魔たちに恐れられる特別な存在だ。"
+    },
+    {
+      "surface": "消滅",
+      "reading": "しょうめつ",
+      "romaji": "shōmetsu",
+      "meanings": { "en": "annihilation / disappearance", "pt-BR": "aniquilação / desaparecimento", "es": "aniquilación / desaparición" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "銃の悪魔は多くの人間を一瞬で消滅させる恐るべき力を持つ。"
+    },
+    {
+      "surface": "融合",
+      "reading": "ゆうごう",
+      "romaji": "yūgō",
+      "meanings": { "en": "fusion / merger", "pt-BR": "fusão", "es": "fusión" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "デンジとポチタの融合によりチェンソーマンという存在が誕生した。"
+    },
+    {
+      "surface": "決意",
+      "reading": "けつい",
+      "romaji": "ketsui",
+      "meanings": { "en": "determination / resolve", "pt-BR": "determinação", "es": "determinación" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "デンジは普通の生活を手に入れるという決意を胸に戦い続ける。"
+    },
+    {
+      "surface": "武器",
+      "reading": "ぶき",
+      "romaji": "buki",
+      "meanings": { "en": "weapon", "pt-BR": "arma", "es": "arma" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "アキは狐の悪魔との契約により特別な武器を使う。"
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": { "en": "companion / teammate", "pt-BR": "companheiro", "es": "compañero" },
+      "jlpt_level": "N3",
+      "category": "characters",
+      "context": "デンジはアキやパワーと共に仲間として悪魔と戦う。"
+    },
+    {
+      "surface": "人間",
+      "reading": "にんげん",
+      "romaji": "ningen",
+      "meanings": { "en": "human / person", "pt-BR": "ser humano", "es": "ser humano" },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "悪魔は人間の恐怖から生まれ、人間の血で強化される。"
+    },
+    {
+      "surface": "任務",
+      "reading": "にんむ",
+      "romaji": "ninmu",
+      "meanings": { "en": "mission / duty", "pt-BR": "missão", "es": "misión" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "公安のデビルハンターは危険な任務を毎日こなしている。"
+    },
+    {
+      "surface": "支配",
+      "reading": "しはい",
+      "romaji": "shihai",
+      "meanings": { "en": "control / domination", "pt-BR": "controle / dominação", "es": "control / dominación" },
+      "jlpt_level": "N3",
+      "category": "devils",
+      "context": "マキマの支配の悪魔は他者を完全にコントロールする力を持つ。"
+    },
+    {
+      "surface": "裏切り",
+      "reading": "うらぎり",
+      "romaji": "uragiri",
+      "meanings": { "en": "betrayal", "pt-BR": "traição", "es": "traición" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "マキマの裏切りはデンジを深く傷つけた。"
+    },
+    {
+      "surface": "犯罪",
+      "reading": "はんざい",
+      "romaji": "hanzai",
+      "meanings": { "en": "crime", "pt-BR": "crime", "es": "crimen" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "フィーンドは犯罪に近い行動を取ることがある。"
+    },
+    {
+      "surface": "再生",
+      "reading": "さいせい",
+      "romaji": "saisei",
+      "meanings": { "en": "regeneration / revival", "pt-BR": "regeneração", "es": "regeneración" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "チェンソーマンは血を飲むことで傷を再生させることができる。"
+    },
+    {
+      "surface": "同盟",
+      "reading": "どうめい",
+      "romaji": "dōmei",
+      "meanings": { "en": "alliance", "pt-BR": "aliança", "es": "alianza" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "デビルハンターと悪魔の間には時に奇妙な同盟が結ばれる。"
+    },
+    {
+      "surface": "抹消",
+      "reading": "まっしょう",
+      "romaji": "masshō",
+      "meanings": { "en": "erasure / elimination", "pt-BR": "eliminação / apagamento", "es": "eliminación / borrado" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "チェンソーマンが食べた悪魔は世界から完全に抹消される。"
+    },
+    {
+      "surface": "腐食",
+      "reading": "ふしょく",
+      "romaji": "fushoku",
+      "meanings": { "en": "corrosion / decay", "pt-BR": "corrosão", "es": "corrosión" },
+      "jlpt_level": "N2",
+      "category": "devils",
+      "context": "腐食の悪魔は接触した物質を腐食させる力を持つ。"
+    },
+    {
+      "surface": "憑依",
+      "reading": "ひょうい",
+      "romaji": "hyōi",
+      "meanings": { "en": "spirit possession", "pt-BR": "possessão espiritual", "es": "posesión espiritual" },
+      "jlpt_level": "N2",
+      "category": "devils",
+      "context": "フィーンドとは悪魔が人間の死体に憑依した存在のことだ。"
+    },
+    {
+      "surface": "崩壊",
+      "reading": "ほうかい",
+      "romaji": "hōkai",
+      "meanings": { "en": "collapse / breakdown", "pt-BR": "colapso", "es": "colapso" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "銃の悪魔の攻撃は街全体を崩壊させるほどの威力を持つ。"
+    },
+    {
+      "surface": "凶暴",
+      "reading": "きょうぼう",
+      "romaji": "kyōbō",
+      "meanings": { "en": "ferocious / savage", "pt-BR": "feroz / selvagem", "es": "feroz / salvaje" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "チェンソーマンの戦闘スタイルは凶暴で容赦がない。"
+    },
+    {
+      "surface": "廃棄",
+      "reading": "はいき",
+      "romaji": "haiki",
+      "meanings": { "en": "disposal / scrapping", "pt-BR": "descarte", "es": "descarte" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "役に立たなくなったデビルハンターは廃棄されることがある。"
+    },
+    {
+      "surface": "恨み",
+      "reading": "うらみ",
+      "romaji": "urami",
+      "meanings": { "en": "grudge / resentment", "pt-BR": "rancor / ressentimento", "es": "rencor / resentimiento" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "アキは銃の悪魔に対して深い恨みを抱いている。"
+    },
+    {
+      "surface": "捕捉",
+      "reading": "ほそく",
+      "romaji": "hosoku",
+      "meanings": { "en": "capture / apprehension", "pt-BR": "captura", "es": "captura" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "公安は危険な悪魔の捕捉を最優先任務としている。"
+    },
+    {
+      "surface": "根絶",
+      "reading": "こんぜつ",
+      "romaji": "konzetsu",
+      "meanings": { "en": "eradication / extermination", "pt-BR": "erradicação", "es": "erradicación" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "特殊デビルハンター部隊は危険な悪魔の根絶を目指している。"
+    },
+    {
+      "surface": "消耗",
+      "reading": "しょうもう",
+      "romaji": "shōmō",
+      "meanings": { "en": "depletion / exhaustion", "pt-BR": "esgotamento", "es": "agotamiento" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "長い戦闘でデンジは体力を消耗し血が足りなくなる。"
+    },
+    {
+      "surface": "隷属",
+      "reading": "れいぞく",
+      "romaji": "reizoku",
+      "meanings": { "en": "subjugation / servitude", "pt-BR": "servidão / sujeição", "es": "servidumbre / subyugación" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "マキマは支配の悪魔として他者を隷属させる力を持つ。"
+    },
+    {
+      "surface": "悪魔憑き",
+      "reading": "あくまつき",
+      "romaji": "akuma-tsuki",
+      "meanings": { "en": "devil possession / devil-possessed", "pt-BR": "possessão demoníaca", "es": "posesión demoníaca" },
+      "jlpt_level": "N1",
+      "category": "devils",
+      "context": "悪魔憑きとなった人間はフィーンドと呼ばれる存在になる。"
+    },
+    {
+      "surface": "強制",
+      "reading": "きょうせい",
+      "romaji": "kyōsei",
+      "meanings": { "en": "compulsion / coercion", "pt-BR": "coerção / compulsão", "es": "coerción" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "マキマは強制的に他者を自分の命令に従わせることができる。"
+    },
+    {
+      "surface": "肉体",
+      "reading": "にくたい",
+      "romaji": "nikutai",
+      "meanings": { "en": "physical body / flesh", "pt-BR": "corpo físico / carne", "es": "cuerpo físico / carne" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "デンジの肉体はチェンソーマンへと変貌することができる。"
+    },
+    {
+      "surface": "脅威",
+      "reading": "きょうい",
+      "romaji": "kyōi",
+      "meanings": { "en": "threat / menace", "pt-BR": "ameaça", "es": "amenaza" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "銃の悪魔は世界への最大の脅威として恐れられている。"
+    },
+    {
+      "surface": "分裂",
+      "reading": "ぶんれつ",
+      "romaji": "bunretsu",
+      "meanings": { "en": "split / division", "pt-BR": "divisão / separação", "es": "división / escisión" },
+      "jlpt_level": "N2",
+      "category": "devils",
+      "context": "悪魔は倒されても魂が分裂して地獄で再生することができる。"
+    },
+    {
+      "surface": "デンジ",
+      "reading": "でんじ",
+      "romaji": "Denji",
+      "meanings": { "en": "Denji (protagonist)", "pt-BR": "Denji (protagonista)", "es": "Denji (protagonista)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "デンジはポチタと融合してチェンソーマンとなった少年だ。"
+    },
+    {
+      "surface": "ポチタ",
+      "reading": "ぽちた",
+      "romaji": "Pochita",
+      "meanings": { "en": "Pochita (chainsaw devil / Denji's dog)", "pt-BR": "Pochita (diabo motosserra / cachorro do Denji)", "es": "Pochita (diablo motosierra / perro de Denji)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "ポチタはチェンソーの悪魔の姿をした犬で、デンジの心臓として生き続けている。"
+    },
+    {
+      "surface": "マキマ",
+      "reading": "まきま",
+      "romaji": "Makima",
+      "meanings": { "en": "Makima (Control Devil / Public Safety Division leader)", "pt-BR": "Makima (Diabo do Controle / líder da Segurança Pública)", "es": "Makima (Diablo del Control / líder de Seguridad Pública)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "マキマは公安のデビルハンター部門を率いる謎の女性で、支配の悪魔の正体を持つ。"
+    },
+    {
+      "surface": "アキ",
+      "reading": "あき",
+      "romaji": "Aki",
+      "meanings": { "en": "Aki Hayakawa (Public Safety devil hunter)", "pt-BR": "Aki Hayakawa (caçador de demônios da Segurança Pública)", "es": "Aki Hayakawa (cazador de demonios de Seguridad Pública)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "早川アキは銃の悪魔への復讐を誓うデビルハンターで、複数の悪魔と契約している。"
+    },
+    {
+      "surface": "パワー",
+      "reading": "ぱわー",
+      "romaji": "Pawā",
+      "meanings": { "en": "Power (Blood Devil / Fiend)", "pt-BR": "Power (Diabo do Sangue / Fiend)", "es": "Power (Diablo de la Sangre / Fiend)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "パワーは血の悪魔が人間の死体に憑依したフィーンドで、血を自在に操る。"
+    },
+    {
+      "surface": "公安",
+      "reading": "こうあん",
+      "romaji": "kōan",
+      "meanings": { "en": "Public Safety (devil hunter agency)", "pt-BR": "Segurança Pública (agência de caçadores de demônios)", "es": "Seguridad Pública (agencia de cazadores de demonios)" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "公安はデビルハンターを組織して悪魔の脅威から人々を守る政府機関だ。"
+    },
+    {
+      "surface": "フィーンド",
+      "reading": "ふぃーんど",
+      "romaji": "Fīndo",
+      "meanings": { "en": "Fiend (devil-possessed corpse)", "pt-BR": "Fiend (cadáver possuído por demônio)", "es": "Fiend (cadáver poseído por un demonio)" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "フィーンドとは悪魔が人間の死体に憑依して生まれた存在で、パワーがその一例だ。"
+    },
+    {
+      "surface": "ハイブリッド",
+      "reading": "はいぶりっど",
+      "romaji": "Haiburido",
+      "meanings": { "en": "Hybrid (human-devil merger)", "pt-BR": "Híbrido (fusão humano-demônio)", "es": "Híbrido (fusión humano-demonio)" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "ハイブリッドとは人間と悪魔が融合した存在で、デンジはその代表例だ。"
+    },
+    {
+      "surface": "銃の悪魔",
+      "reading": "じゅうのあくま",
+      "romaji": "Jū no Akuma",
+      "meanings": { "en": "Gun Devil", "pt-BR": "Diabo da Arma / Demônio da Pistola", "es": "Diablo de la Pistola" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "銃の悪魔は大量殺傷能力を持つ最強クラスの悪魔で、アキの家族を殺した。"
+    },
+    {
+      "surface": "支配の悪魔",
+      "reading": "しはいのあくま",
+      "romaji": "Shihai no Akuma",
+      "meanings": { "en": "Control Devil", "pt-BR": "Diabo do Controle", "es": "Diablo del Control" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "支配の悪魔であるマキマは他者を完全にコントロールする能力を持つ。"
+    },
+    {
+      "surface": "チェンソーの悪魔",
+      "reading": "ちぇんそーのあくま",
+      "romaji": "Chensō no Akuma",
+      "meanings": { "en": "Chainsaw Devil", "pt-BR": "Diabo da Motosserra", "es": "Diablo de la Motosierra" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "チェンソーの悪魔は他の悪魔に食べられると、その悪魔の名前を世界から消し去る能力を持つ。"
+    },
+    {
+      "surface": "コベニ",
+      "reading": "こべに",
+      "romaji": "Kobeni",
+      "meanings": { "en": "Kobeni Higashiyama (devil hunter)", "pt-BR": "Kobeni Higashiyama (caçadora de demônios)", "es": "Kobeni Higashiyama (cazadora de demonios)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "コベニは常に不運に見舞われながらも驚異的な戦闘本能を発揮するデビルハンターだ。"
+    },
+    {
+      "surface": "吉田",
+      "reading": "よしだ",
+      "romaji": "Yoshida",
+      "meanings": { "en": "Yoshida (devil hunter / Octopus Devil contractor)", "pt-BR": "Yoshida (caçador de demônios)", "es": "Yoshida (cazador de demonios)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "吉田はタコの悪魔と契約した謎めいたデビルハンターだ。"
+    },
+    {
+      "surface": "姫野",
+      "reading": "ひめの",
+      "romaji": "Himeno",
+      "meanings": { "en": "Himeno (devil hunter / Ghost Devil contractor)", "pt-BR": "Himeno (caçadora de demônios)", "es": "Himeno (cazadora de demonios)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "姫野はゴーストの悪魔と契約した経験豊富なデビルハンターで、アキの先輩だ。"
+    },
+    {
+      "surface": "チェンソー",
+      "reading": "ちぇんそー",
+      "romaji": "chensō",
+      "meanings": { "en": "chainsaw", "pt-BR": "motosserra", "es": "motosierra" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "デンジはチェンソーの刃を体から引き出して悪魔を倒す。"
+    },
+    {
+      "surface": "地獄",
+      "reading": "じごく",
+      "romaji": "jigoku",
+      "meanings": { "en": "hell", "pt-BR": "inferno", "es": "infierno" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "倒された悪魔は地獄に戻り、時間が経つと再び現世に現れる。"
+    },
+    {
+      "surface": "血液",
+      "reading": "けつえき",
+      "romaji": "ketsueki",
+      "meanings": { "en": "blood (medical/formal)", "pt-BR": "sangue (formal)", "es": "sangre (formal)" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "デンジは血液を補給することで回復し、チェンソーマンに変身できる。"
+    },
+    {
+      "surface": "刃",
+      "reading": "やいば",
+      "romaji": "yaiba",
+      "meanings": { "en": "blade / edge", "pt-BR": "lâmina / fio", "es": "hoja / filo" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "チェンソーマンの刃は悪魔を切り裂く特別な力を持つ。"
+    },
+    {
+      "surface": "部門",
+      "reading": "ぶもん",
+      "romaji": "bumon",
+      "meanings": { "en": "division / department", "pt-BR": "divisão / departamento", "es": "división / departamento" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "マキマは公安の特殊デビルハンター部門を率いている。"
+    },
+    {
+      "surface": "獲物",
+      "reading": "えもの",
+      "romaji": "emono",
+      "meanings": { "en": "prey / quarry", "pt-BR": "presa", "es": "presa" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "デビルハンターにとって悪魔は常に危険な獲物だ。"
+    },
+    {
+      "surface": "再起",
+      "reading": "さいき",
+      "romaji": "saiki",
+      "meanings": { "en": "comeback / revival / resurgence", "pt-BR": "ressurgimento / retorno", "es": "resurgimiento / regreso" },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "倒された悪魔は地獄で再起し、やがて再び人間世界に現れる。"
+    },
+    {
+      "surface": "恐れ",
+      "reading": "おそれ",
+      "romaji": "osore",
+      "meanings": { "en": "fear / dread", "pt-BR": "medo / temor", "es": "miedo / temor" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "チェンソーマンは他の悪魔たちから深い恐れを持って見られている。"
+    },
+    {
+      "surface": "死体",
+      "reading": "したい",
+      "romaji": "shitai",
+      "meanings": { "en": "corpse / dead body", "pt-BR": "cadáver / corpo morto", "es": "cadáver / cuerpo muerto" },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "フィーンドは人間の死体に悪魔が憑依して生まれる存在だ。"
+    },
+    {
+      "surface": "魂",
+      "reading": "たましい",
+      "romaji": "tamashii",
+      "meanings": { "en": "soul / spirit", "pt-BR": "alma / espírito", "es": "alma / espíritu" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "ポチタの魂はデンジの心臓の中で生き続けている。"
+    },
+    {
+      "surface": "借金",
+      "reading": "しゃっきん",
+      "romaji": "shakkin",
+      "meanings": { "en": "debt", "pt-BR": "dívida", "es": "deuda" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "デンジは父の残した借金を返すためにヤクザの下で働いていた。"
+    },
+    {
+      "surface": "復讐",
+      "reading": "ふくしゅう",
+      "romaji": "fukushū",
+      "meanings": { "en": "revenge / vengeance", "pt-BR": "vingança", "es": "venganza" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "アキは家族を奪った銃の悪魔への復讐を果たすために戦い続ける。"
+    },
+    {
+      "surface": "強化",
+      "reading": "きょうか",
+      "romaji": "kyōka",
+      "meanings": { "en": "reinforcement / strengthening", "pt-BR": "fortalecimento", "es": "fortalecimiento" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "悪魔との契約は人間の戦闘能力を強化する手段の一つだ。"
+    },
+    {
+      "surface": "暴力",
+      "reading": "ぼうりょく",
+      "romaji": "bōryoku",
+      "meanings": { "en": "violence", "pt-BR": "violência", "es": "violencia" },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "チェンソーマンの世界では暴力と血が日常的に描かれている。"
+    },
+    {
+      "surface": "自由",
+      "reading": "じゆう",
+      "romaji": "jiyū",
+      "meanings": { "en": "freedom / liberty", "pt-BR": "liberdade", "es": "libertad" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "デンジが追い求めるのは貧困と借金から解放された自由な生活だ。"
+    },
+    {
+      "surface": "現実",
+      "reading": "げんじつ",
+      "romaji": "genjitsu",
+      "meanings": { "en": "reality", "pt-BR": "realidade", "es": "realidad" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "デンジは夢と現実の狭間で、何が本当に大切かを学んでいく。"
+    },
+    {
+      "surface": "変化",
+      "reading": "へんか",
+      "romaji": "henka",
+      "meanings": { "en": "change / transformation", "pt-BR": "mudança / transformação", "es": "cambio / transformación" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "悪魔との融合によりデンジの人生は大きな変化を遂げた。"
+    },
+    {
+      "surface": "生存",
+      "reading": "せいぞん",
+      "romaji": "seizon",
+      "meanings": { "en": "survival", "pt-BR": "sobrevivência", "es": "supervivencia" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "デビルハンターにとって最大の目標は毎日の任務を生存することだ。"
+    },
+    {
+      "surface": "鎖",
+      "reading": "くさり",
+      "romaji": "kusari",
+      "meanings": { "en": "chain", "pt-BR": "corrente", "es": "cadena" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "マキマはデンジを鎖のように縛り、自分の道具として利用した。"
+    },
+    {
+      "surface": "嘘",
+      "reading": "うそ",
+      "romaji": "uso",
+      "meanings": { "en": "lie / falsehood", "pt-BR": "mentira", "es": "mentira" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "マキマはデンジに嘘をついて自分の目的のために利用し続けた。"
+    },
+    {
+      "surface": "怒り",
+      "reading": "いかり",
+      "romaji": "ikari",
+      "meanings": { "en": "anger / rage", "pt-BR": "raiva / ira", "es": "ira / rabia" },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "デンジの怒りはチェンソーマンとしての力を引き出すことがある。"
+    },
+    {
+      "surface": "悲しみ",
+      "reading": "かなしみ",
+      "romaji": "kanashimi",
+      "meanings": { "en": "sadness / grief", "pt-BR": "tristeza", "es": "tristeza" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "仲間を失った悲しみがデビルハンターたちを突き動かしている。"
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "meanings": { "en": "hope", "pt-BR": "esperança", "es": "esperanza" },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "デンジのシンプルな希望が、暗い世界の中で光のような存在となっている。"
+    },
+    {
+      "surface": "連鎖",
+      "reading": "れんさ",
+      "romaji": "rensa",
+      "meanings": { "en": "chain reaction / linkage", "pt-BR": "reação em cadeia / ligação", "es": "reacción en cadena / encadenamiento" },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "悪魔と人間の連鎖する関係が物語の核心にある。"
+    },
+    {
+      "surface": "ゾンビの悪魔",
+      "reading": "ぞんびのあくま",
+      "romaji": "Zonbi no Akuma",
+      "meanings": { "en": "Zombie Devil", "pt-BR": "Diabo Zumbi", "es": "Diablo Zombi" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "ゾンビの悪魔は人間をゾンビに変えて操る力を持ち、物語序盤に登場する。"
+    },
+    {
+      "surface": "蜘蛛の悪魔",
+      "reading": "くものあくま",
+      "romaji": "Kumo no Akuma",
+      "meanings": { "en": "Spider Devil", "pt-BR": "Diabo Aranha", "es": "Diablo Araña" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "蜘蛛の悪魔はマキマに協力する悪魔の一体だ。"
+    },
+    {
+      "surface": "血の魔法",
+      "reading": "ちのまほう",
+      "romaji": "chi no mahō",
+      "meanings": { "en": "blood magic", "pt-BR": "magia de sangue", "es": "magia de sangre" },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "パワーは血の魔法を使って武器を生成し敵を攻撃する。"
+    },
+    {
+      "surface": "早川",
+      "reading": "はやかわ",
+      "romaji": "Hayakawa",
+      "meanings": { "en": "Hayakawa (Aki's family name)", "pt-BR": "Hayakawa (sobrenome de Aki)", "es": "Hayakawa (apellido de Aki)" },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "早川アキはその苗字の通り、素早い判断力を持つデビルハンターだ。"
+    },
+    {
+      "surface": "未来の悪魔",
+      "reading": "みらいのあくま",
+      "romaji": "Mirai no Akuma",
+      "meanings": { "en": "Future Devil", "pt-BR": "Diabo do Futuro", "es": "Diablo del Futuro" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "未来の悪魔はアキと契約し、未来を予知する力を与えた。"
+    },
+    {
+      "surface": "コントラクト",
+      "reading": "こんとらくと",
+      "romaji": "kontrakuto",
+      "meanings": { "en": "contract (loanword)", "pt-BR": "contrato (empréstimo)", "es": "contrato (préstamo)" },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "デビルハンターは悪魔とコントラクトを結ぶことで特殊能力を得られる。"
+    },
+    {
+      "surface": "永遠の悪魔",
+      "reading": "えいえんのあくま",
+      "romaji": "Eien no Akuma",
+      "meanings": { "en": "Eternity Devil", "pt-BR": "Diabo da Eternidade", "es": "Diablo de la Eternidad" },
+      "jlpt_level": null,
+      "category": "devils",
+      "context": "永遠の悪魔はビルの中にデビルハンターたちを閉じ込める力を使った。"
+    },
+    {
+      "surface": "刃物",
+      "reading": "はもの",
+      "romaji": "hamono",
+      "meanings": { "en": "bladed weapon / cutting tool", "pt-BR": "arma branca / objeto cortante", "es": "arma blanca / objeto cortante" },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "チェンソーマンの刃物は悪魔を切り裂く特別な力を持つ。"
+    },
+    {
+      "surface": "怪物",
+      "reading": "かいぶつ",
+      "romaji": "kaibutsu",
+      "meanings": { "en": "monster / freak", "pt-BR": "monstro", "es": "monstruo" },
+      "jlpt_level": "N3",
+      "category": "devils",
+      "context": "チェンソーマンの姿はまさに怪物そのものだと恐れられている。"
+    }
+  ]
+}

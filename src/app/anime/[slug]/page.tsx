@@ -16,6 +16,11 @@ const KNOWN_SLUGS = [
   "dragon-ball-z",
   "hunter-x-hunter",
   "tokyo-ghoul",
+  "jujutsu-kaisen",
+  "my-hero-academia",
+  "fairy-tail",
+  "code-geass",
+  "chainsaw-man",
   "anime-core",
 ];
 
@@ -41,6 +46,11 @@ export async function generateMetadata({
     "dragon-ball-z": "Dragon Ball Z",
     "hunter-x-hunter": "Hunter × Hunter",
     "tokyo-ghoul": "Tokyo Ghoul",
+    "jujutsu-kaisen": "Jujutsu Kaisen",
+    "my-hero-academia": "My Hero Academia",
+    "fairy-tail": "Fairy Tail",
+    "code-geass": "Code Geass",
+    "chainsaw-man": "Chainsaw Man",
     "anime-core": "Anime Core — Words from Every Anime",
   };
   const title = TITLES[slug] ?? slug;
