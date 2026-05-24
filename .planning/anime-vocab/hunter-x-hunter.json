@@ -1,0 +1,1217 @@
+{
+  "anime": "hunter-x-hunter",
+  "label": "Hunter × Hunter",
+  "icon": "hunter-x-hunter.png",
+  "description": "Gon Freecss searches for his absent father while navigating a world built on dangerous ambition.",
+  "vocab": [
+    {
+      "surface": "父",
+      "reading": "ちち",
+      "romaji": "chichi",
+      "meanings": {
+        "en": "father",
+        "pt-BR": "pai",
+        "es": "padre"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Gon's entire journey begins with a single question: who is his father, and why did he choose hunting over family?"
+    },
+    {
+      "surface": "試験",
+      "reading": "しけん",
+      "romaji": "shiken",
+      "meanings": {
+        "en": "exam / test",
+        "pt-BR": "exame / teste",
+        "es": "examen / prueba"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The Hunter Exam is the series' starting arc — a brutal multi-stage test with no set rules and no mercy."
+    },
+    {
+      "surface": "友達",
+      "reading": "ともだち",
+      "romaji": "tomodachi",
+      "meanings": {
+        "en": "friend",
+        "pt-BR": "amigo",
+        "es": "amigo"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Gon forms bonds easily; Killua learns what friendship means for the first time through him."
+    },
+    {
+      "surface": "強い",
+      "reading": "つよい",
+      "romaji": "tsuyoi",
+      "meanings": {
+        "en": "strong / powerful",
+        "pt-BR": "forte / poderoso",
+        "es": "fuerte / poderoso"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Becoming strong enough to meet his father drives Gon — but the pursuit of strength costs him dearly."
+    },
+    {
+      "surface": "危険",
+      "reading": "きけん",
+      "romaji": "kiken",
+      "meanings": {
+        "en": "danger / risk",
+        "pt-BR": "perigo / risco",
+        "es": "peligro / riesgo"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "The Hunter world is built on danger — every mission, every exam, every arc escalates the threat beyond survival."
+    },
+    {
+      "surface": "殺す",
+      "reading": "ころす",
+      "romaji": "korosu",
+      "meanings": {
+        "en": "to kill",
+        "pt-BR": "matar",
+        "es": "matar"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Killua was trained from birth to kill — unlearning that conditioning is his real journey throughout the series."
+    },
+    {
+      "surface": "才能",
+      "reading": "さいのう",
+      "romaji": "sainō",
+      "meanings": {
+        "en": "talent / ability",
+        "pt-BR": "talento / habilidade",
+        "es": "talento / habilidad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon's extraordinary talent is raw potential; Killua's is honed technique — together they're near unstoppable."
+    },
+    {
+      "surface": "契約",
+      "reading": "けいやく",
+      "romaji": "keiyaku",
+      "meanings": {
+        "en": "contract / agreement",
+        "pt-BR": "contrato / acordo",
+        "es": "contrato / acuerdo"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "In Nen, a Vow and Limitation is a self-imposed contract that dramatically amplifies power in exchange for strict conditions."
+    },
+    {
+      "surface": "条件",
+      "reading": "じょうけん",
+      "romaji": "jōken",
+      "meanings": {
+        "en": "condition / requirement",
+        "pt-BR": "condição / requisito",
+        "es": "condición / requisito"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Nen abilities grow stronger when fighters place strict conditions on themselves — the harder the rule, the greater the power."
+    },
+    {
+      "surface": "制約",
+      "reading": "せいやく",
+      "romaji": "seiyaku",
+      "meanings": {
+        "en": "restriction / limitation",
+        "pt-BR": "restrição / limitação",
+        "es": "restricción / limitación"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Kurapika's Scarlet Eyes restriction — to use his chain only against the Phantom Troupe — is Nen's most dramatic self-imposed limit."
+    },
+    {
+      "surface": "誓い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "meanings": {
+        "en": "oath / vow",
+        "pt-BR": "juramento / voto",
+        "es": "juramento / voto"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kurapika's oath to avenge his clan is the emotional backbone of his entire arc — and the source of his terrifying power."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": {
+        "en": "comrade / companion",
+        "pt-BR": "companheiro / camarada",
+        "es": "compañero / camarada"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The bond between Gon, Killua, Kurapika, and Leorio is tested at every turn — a friendship built in the crucible of survival."
+    },
+    {
+      "surface": "殺意",
+      "reading": "さつい",
+      "romaji": "satsui",
+      "meanings": {
+        "en": "killing intent / bloodlust",
+        "pt-BR": "intenção de matar / sede de sangue",
+        "es": "intención de matar / instinto asesino"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Killua's bloodlust is a trained instinct — he can suppress it or release it as a weapon of pure psychological terror."
+    },
+    {
+      "surface": "覚悟",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "meanings": {
+        "en": "resolve / readiness",
+        "pt-BR": "resolução / prontidão",
+        "es": "resolución / determinación"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon's resolve in the final arc transforms his entire personality — a disturbing glimpse at what pure obsession costs."
+    },
+    {
+      "surface": "欲望",
+      "reading": "よくぼう",
+      "romaji": "yokubō",
+      "meanings": {
+        "en": "desire / greed",
+        "pt-BR": "desejo / ganância",
+        "es": "deseo / codicia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Greed Island arc is literally built from desire — a virtual game world designed around what people most want."
+    },
+    {
+      "surface": "復讐",
+      "reading": "ふくしゅう",
+      "romaji": "fukushū",
+      "meanings": {
+        "en": "revenge / vengeance",
+        "pt-BR": "vingança",
+        "es": "venganza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kurapika's entire life is consumed by revenge for his clan — it shapes every ability he possesses."
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "meanings": {
+        "en": "memory",
+        "pt-BR": "memória",
+        "es": "memoria"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Chimera Ants retain fragmented memories of their human past — a source of tragedy and profound identity questions."
+    },
+    {
+      "surface": "進化",
+      "reading": "しんか",
+      "romaji": "shinka",
+      "meanings": {
+        "en": "evolution / development",
+        "pt-BR": "evolução / desenvolvimento",
+        "es": "evolución / desarrollo"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Chimera Ants evolve by incorporating the best genetic traits from every species the queen consumes."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": {
+        "en": "sacrifice",
+        "pt-BR": "sacrifício",
+        "es": "sacrificio"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon sacrifices his future — potentially his life — to access power beyond his limits in the final Chimera Ant battle."
+    },
+    {
+      "surface": "闇",
+      "reading": "やみ",
+      "romaji": "yami",
+      "meanings": {
+        "en": "darkness",
+        "pt-BR": "escuridão",
+        "es": "oscuridad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The series' true darkness is revealed in the Chimera Ant arc — a philosophical meditation on humanity's capacity for evil."
+    },
+    {
+      "surface": "本能",
+      "reading": "ほんのう",
+      "romaji": "honnō",
+      "meanings": {
+        "en": "instinct",
+        "pt-BR": "instinto",
+        "es": "instinto"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Chimera Ants operate on instinct overlaid with human consciousness — their internal conflict mirrors the best of HxH's themes."
+    },
+    {
+      "surface": "抑制",
+      "reading": "よくせい",
+      "romaji": "yokusei",
+      "meanings": {
+        "en": "suppression / restraint",
+        "pt-BR": "supressão / contenção",
+        "es": "supresión / restricción"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Zetsu — total suppression of aura — is used for hiding Nen but leaves the user dangerously vulnerable to attack."
+    },
+    {
+      "surface": "増幅",
+      "reading": "ぞうふく",
+      "romaji": "zōfuku",
+      "meanings": {
+        "en": "amplification / enhancement",
+        "pt-BR": "amplificação / intensificação",
+        "es": "amplificación / intensificación"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Ren — amplified aura output — multiplies physical strength beyond natural limits, the foundation of Nen combat."
+    },
+    {
+      "surface": "領域",
+      "reading": "りょういき",
+      "romaji": "ryōiki",
+      "meanings": {
+        "en": "domain / territory",
+        "pt-BR": "domínio / território",
+        "es": "dominio / territorio"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "A territory-type ability stakes out a space where the user's Nen rules are absolute — the most powerful Nen expression."
+    },
+    {
+      "surface": "免許",
+      "reading": "めんきょ",
+      "romaji": "menkyo",
+      "meanings": {
+        "en": "licence / certificate",
+        "pt-BR": "licença / certificado",
+        "es": "licencia / certificado"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "A Hunter Licence grants access to restricted areas, secret information, and resources unavailable to ordinary people."
+    },
+    {
+      "surface": "念",
+      "reading": "ねん",
+      "romaji": "Nen",
+      "meanings": {
+        "en": "Nen (life energy / aura system)",
+        "pt-BR": "Nen (sistema de aura / energia vital)",
+        "es": "Nen (sistema de aura / energía vital)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Nen is the life energy that underlies all combat in HxH — mastering its four base states unlocks superhuman potential."
+    },
+    {
+      "surface": "纏",
+      "reading": "てん",
+      "romaji": "Ten",
+      "meanings": {
+        "en": "Ten — wrapping aura around the body",
+        "pt-BR": "Ten — envolver o corpo com aura",
+        "es": "Ten — envolver el cuerpo con aura"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Ten is the first Nen technique — wrapping your aura tightly around your body to defend against physical and Nen attacks."
+    },
+    {
+      "surface": "絶",
+      "reading": "ぜつ",
+      "romaji": "Zetsu",
+      "meanings": {
+        "en": "Zetsu — total aura suppression",
+        "pt-BR": "Zetsu — supressão total da aura",
+        "es": "Zetsu — supresión total del aura"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Zetsu cuts off all aura flow, making the user nearly undetectable — but completely defenceless against Nen attacks."
+    },
+    {
+      "surface": "練",
+      "reading": "れん",
+      "romaji": "Ren",
+      "meanings": {
+        "en": "Ren — amplified aura output",
+        "pt-BR": "Ren — amplificação da aura",
+        "es": "Ren — amplificación del aura"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Ren maximises aura output, massively boosting physical stats — it's the offensive power stance of Nen."
+    },
+    {
+      "surface": "発",
+      "reading": "はつ",
+      "romaji": "Hatsu",
+      "meanings": {
+        "en": "Hatsu — individual Nen ability",
+        "pt-BR": "Hatsu — habilidade Nen individual",
+        "es": "Hatsu — habilidad Nen individual"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Hatsu is a user's unique Nen ability — developed from their personality and amplified by Vows and Limitations."
+    },
+    {
+      "surface": "幻影旅団",
+      "reading": "げんえいりょだん",
+      "romaji": "Gen'ei Ryodan",
+      "meanings": {
+        "en": "Phantom Troupe (Spider)",
+        "pt-BR": "Brigada Fantasma (Aranha)",
+        "es": "Brigada Fantasma (Araña)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Phantom Troupe is a group of elite criminals — each one a Nen master, feared across the entire underworld."
+    },
+    {
+      "surface": "ハンター試験",
+      "reading": "はんたーしけん",
+      "romaji": "Hantā Shiken",
+      "meanings": {
+        "en": "Hunter Examination",
+        "pt-BR": "Exame de Hunter",
+        "es": "Examen de Hunter"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Hunter Exam is a notoriously lethal test — past exams have had 0% pass rates, and most end in casualties."
+    },
+    {
+      "surface": "キメラ＝アント",
+      "reading": "きめらあんと",
+      "romaji": "Kimera Anto",
+      "meanings": {
+        "en": "Chimera Ant",
+        "pt-BR": "Formiga Quimera",
+        "es": "Hormiga Quimera"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Chimera Ants are a hybrid species created by a queen consuming other species — the series' darkest and most acclaimed arc."
+    },
+    {
+      "surface": "暗黒大陸",
+      "reading": "あんこくたいりく",
+      "romaji": "Ankoku Tairiku",
+      "meanings": {
+        "en": "Dark Continent",
+        "pt-BR": "Continente das Trevas",
+        "es": "Continente Oscuro"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Dark Continent beyond the known world holds five disaster-level threats — the franchise's ultimate unexplored frontier."
+    },
+    {
+      "surface": "強化系",
+      "reading": "きょうかけい",
+      "romaji": "kyōka-kei",
+      "meanings": {
+        "en": "Enhancement type (Nen category)",
+        "pt-BR": "Tipo Intensificação (categoria Nen)",
+        "es": "Tipo Potenciación (categoría Nen)"
+      },
+      "jlpt_level": null,
+      "category": "nen",
+      "context": "Enhancement is Gon's Nen type — the most straightforward category, amplifying physical strength and healing to superhuman levels."
+    },
+    {
+      "surface": "変化系",
+      "reading": "へんかけい",
+      "romaji": "henka-kei",
+      "meanings": {
+        "en": "Transformation type (Nen category)",
+        "pt-BR": "Tipo Transformação (categoria Nen)",
+        "es": "Tipo Transformación (categoría Nen)"
+      },
+      "jlpt_level": null,
+      "category": "nen",
+      "context": "Transformation is Killua's Nen type — allowing him to change his aura's properties into electricity with his Godspeed technique."
+    },
+    {
+      "surface": "放出系",
+      "reading": "ほうしゅつけい",
+      "romaji": "hōshutsukei",
+      "meanings": {
+        "en": "Emission type (Nen category)",
+        "pt-BR": "Tipo Emissão (categoria Nen)",
+        "es": "Tipo Emisión (categoría Nen)"
+      },
+      "jlpt_level": null,
+      "category": "nen",
+      "context": "Emission type allows aura to be separated from the body and projected — Leorio's potential and Gon's Jajanken use this."
+    },
+    {
+      "surface": "操作系",
+      "reading": "そうさけい",
+      "romaji": "sōsa-kei",
+      "meanings": {
+        "en": "Manipulation type (Nen category)",
+        "pt-BR": "Tipo Manipulação (categoria Nen)",
+        "es": "Tipo Manipulación (categoría Nen)"
+      },
+      "jlpt_level": null,
+      "category": "nen",
+      "context": "Manipulation type controls people and objects with aura — Illumi uses it to plant a needle in Killua's mind and control his decisions."
+    },
+    {
+      "surface": "具現化系",
+      "reading": "ぐげんかけい",
+      "romaji": "gugenka-kei",
+      "meanings": {
+        "en": "Conjuration type (Nen category)",
+        "pt-BR": "Tipo Materialização (categoria Nen)",
+        "es": "Tipo Materialización (categoría Nen)"
+      },
+      "jlpt_level": null,
+      "category": "nen",
+      "context": "Conjuration type materializes real objects from aura — Kurapika's chains and Gon's rock are manifestations of this category."
+    },
+    {
+      "surface": "特質系",
+      "reading": "とくしつけい",
+      "romaji": "tokushitsu-kei",
+      "meanings": {
+        "en": "Specialization type (Nen category)",
+        "pt-BR": "Tipo Especialização (categoria Nen)",
+        "es": "Tipo Especialización (categoría Nen)"
+      },
+      "jlpt_level": null,
+      "category": "nen",
+      "context": "Specialization is the rarest Nen type — Kurapika activates it in Scarlet Eyes mode, and the Phantom Troupe leader Chrollo also possesses it."
+    },
+    {
+      "surface": "感情",
+      "reading": "かんじょう",
+      "romaji": "kanjō",
+      "meanings": {
+        "en": "emotion / feeling",
+        "pt-BR": "emoção / sentimento",
+        "es": "emoción / sentimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "nen",
+      "context": "Nen ability power scales with emotion — the strength of a user's feelings, especially resolve, amplifies their Hatsu enormously."
+    },
+    {
+      "surface": "集中",
+      "reading": "しゅうちゅう",
+      "romaji": "shūchū",
+      "meanings": {
+        "en": "concentration / focus",
+        "pt-BR": "concentração / foco",
+        "es": "concentración / enfoque"
+      },
+      "jlpt_level": "N3",
+      "category": "nen",
+      "context": "Nen techniques require intense concentration — interrupting a user's focus during aura flow can destabilize their ability."
+    },
+    {
+      "surface": "友情",
+      "reading": "ゆうじょう",
+      "romaji": "yūjō",
+      "meanings": {
+        "en": "friendship / bonds of friendship",
+        "pt-BR": "amizade / laços de amizade",
+        "es": "amistad / lazos de amistad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon and Killua's friendship — an unlikely bond between pure innocence and trained assassin — is the heart of Hunter × Hunter."
+    },
+    {
+      "surface": "信頼",
+      "reading": "しんらい",
+      "romaji": "shinrai",
+      "meanings": {
+        "en": "trust / confidence in someone",
+        "pt-BR": "confiança / fé em alguém",
+        "es": "confianza / fe en alguien"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Killua learns to trust others through Gon — a concept entirely foreign to a boy raised in an assassin family with no genuine bonds."
+    },
+    {
+      "surface": "裏切り",
+      "reading": "うらぎり",
+      "romaji": "uragiri",
+      "meanings": {
+        "en": "betrayal / treachery",
+        "pt-BR": "traição / deslealdade",
+        "es": "traición / deslealtad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Betrayal is a constant threat in the Hunter world — and the Yorknew arc shows how the Phantom Troupe exploit it as a weapon."
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "meanings": {
+        "en": "hope",
+        "pt-BR": "esperança",
+        "es": "esperanza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon embodies hope — his refusal to give in to despair is a beacon that changes everyone who encounters him."
+    },
+    {
+      "surface": "絶望",
+      "reading": "ぜつぼう",
+      "romaji": "zetsubō",
+      "meanings": {
+        "en": "despair / hopelessness",
+        "pt-BR": "desespero / desesperança",
+        "es": "desesperación / desesperanza"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Gon's final-arc despair — a rage so total it ages him into an adult — is the series' darkest and most controversial moment."
+    },
+    {
+      "surface": "葛藤",
+      "reading": "かっとう",
+      "romaji": "kattō",
+      "meanings": {
+        "en": "inner conflict / inner struggle",
+        "pt-BR": "conflito interior / luta interna",
+        "es": "conflicto interior / lucha interna"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Killua's inner conflict — between his trained instinct to kill and his desire to be Gon's friend — is the series' most nuanced arc."
+    },
+    {
+      "surface": "成長",
+      "reading": "せいちょう",
+      "romaji": "seichō",
+      "meanings": {
+        "en": "growth / development",
+        "pt-BR": "crescimento / desenvolvimento",
+        "es": "crecimiento / desarrollo"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Every protagonist grows through the Hunter Exam and beyond — but growth in HxH always comes at a painful personal cost."
+    },
+    {
+      "surface": "意志",
+      "reading": "いし",
+      "romaji": "ishi",
+      "meanings": {
+        "en": "will / determination",
+        "pt-BR": "vontade / determinação",
+        "es": "voluntad / determinación"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon's iron will to find his father drives the entire narrative — a child's stubborn refusal to accept limits imposed by adults."
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "meanings": {
+        "en": "life / one's life",
+        "pt-BR": "vida / a própria vida",
+        "es": "vida / la propia vida"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Life is cheap in the Hunter world — but HxH never lets the audience forget the weight of each death it depicts."
+    },
+    {
+      "surface": "守る",
+      "reading": "まもる",
+      "romaji": "mamoru",
+      "meanings": {
+        "en": "to protect / to defend",
+        "pt-BR": "proteger / defender",
+        "es": "proteger / defender"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Killua's entire arc converges on one truth: he must learn to protect Alluka, the sister he abandoned to the family's cruelty."
+    },
+    {
+      "surface": "報酬",
+      "reading": "ほうしゅう",
+      "romaji": "hōshū",
+      "meanings": {
+        "en": "reward / payment",
+        "pt-BR": "recompensa / pagamento",
+        "es": "recompensa / pago"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Hunter missions offer enormous rewards — but the danger level scales accordingly, and not every Hunter returns alive."
+    },
+    {
+      "surface": "依頼",
+      "reading": "いらい",
+      "romaji": "irai",
+      "meanings": {
+        "en": "request / commission / job",
+        "pt-BR": "pedido / encomenda / missão",
+        "es": "solicitud / encargo / misión"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Hunters take commissions from clients who need tasks beyond normal human capacity — the job board is the lifeblood of the Hunter world."
+    },
+    {
+      "surface": "危険度",
+      "reading": "きけんど",
+      "romaji": "kikendo",
+      "meanings": {
+        "en": "danger level / risk rating",
+        "pt-BR": "nível de perigo / índice de risco",
+        "es": "nivel de peligro / índice de riesgo"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Every Hunter mission has a danger rating — the Dark Continent has a rating that makes every other mission look trivial."
+    },
+    {
+      "surface": "情報",
+      "reading": "じょうほう",
+      "romaji": "jōhō",
+      "meanings": {
+        "en": "information / intelligence",
+        "pt-BR": "informação / inteligência",
+        "es": "información / inteligencia"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "A Hunter Licence grants access to classified information repositories — information is the real currency of power in HxH."
+    },
+    {
+      "surface": "戦略",
+      "reading": "せんりゃく",
+      "romaji": "senryaku",
+      "meanings": {
+        "en": "strategy / tactics",
+        "pt-BR": "estratégia / tática",
+        "es": "estrategia / táctica"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "HxH battles are won through strategy as much as power — Kurapika's chain abilities are designed to be perfect counters, not brute force."
+    },
+    {
+      "surface": "ゴン",
+      "reading": "ごん",
+      "romaji": "Gon",
+      "meanings": {
+        "en": "Gon Freecss (protagonist)",
+        "pt-BR": "Gon Freecss (protagonista)",
+        "es": "Gon Freecss (protagonista)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Gon is a boy of pure instinct and boundless determination — his inhuman drive to surpass limits is both inspiring and terrifying."
+    },
+    {
+      "surface": "キルア",
+      "reading": "きるあ",
+      "romaji": "Kirua",
+      "meanings": {
+        "en": "Killua Zoldyck (deuteragonist, assassin)",
+        "pt-BR": "Killua Zoldyck (deuteragonista, assassino)",
+        "es": "Killua Zoldyck (deuteragonista, asesino)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Killua was born to kill — the Zoldyck heir whose friendship with Gon becomes the only thing that matters to him."
+    },
+    {
+      "surface": "クラピカ",
+      "reading": "くらぴか",
+      "romaji": "Kurapika",
+      "meanings": {
+        "en": "Kurapika (Kurta clan survivor)",
+        "pt-BR": "Kurapika (sobrevivente do clã Kurta)",
+        "es": "Kurapika (sobreviviente del clan Kurta)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Kurapika is the sole survivor of the Kurta clan — his scarlet eyes activate an overwhelming Nen ability fueled entirely by revenge."
+    },
+    {
+      "surface": "レオリオ",
+      "reading": "れおりお",
+      "romaji": "Reorio",
+      "meanings": {
+        "en": "Leorio Paradinight (future doctor)",
+        "pt-BR": "Leorio Paradinight (futuro médico)",
+        "es": "Leorio Paradinight (futuro médico)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Leorio joins the Hunter Exam to earn money for medical school — his compassion and drive make him the team's moral center."
+    },
+    {
+      "surface": "ヒソカ",
+      "reading": "ひそか",
+      "romaji": "Hisoka",
+      "meanings": {
+        "en": "Hisoka Morow (unpredictable antagonist)",
+        "pt-BR": "Hisoka Morow (antagonista imprevisível)",
+        "es": "Hisoka Morow (antagonista impredecible)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Hisoka is a clown-themed Nen master who fights purely for pleasure — his obsession with Gon as a future worthy opponent drives him."
+    },
+    {
+      "surface": "ネテロ",
+      "reading": "ねてろ",
+      "romaji": "Netero",
+      "meanings": {
+        "en": "Isaac Netero (Hunter Association chairman)",
+        "pt-BR": "Isaac Netero (presidente da Associação de Hunters)",
+        "es": "Isaac Netero (presidente de la Asociación de Hunters)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Netero is the world's strongest Nen user — a man who spent decades in extreme training and fights the Chimera Ant King alone."
+    },
+    {
+      "surface": "メルエム",
+      "reading": "めるえむ",
+      "romaji": "Meruemu",
+      "meanings": {
+        "en": "Meruem (Chimera Ant King)",
+        "pt-BR": "Meruem (Rei das Formigas Quimera)",
+        "es": "Meruem (Rey de las Hormigas Quimera)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Meruem is born as the apex of evolution — yet his encounter with Komugi, a blind board game player, reveals something entirely human within him."
+    },
+    {
+      "surface": "軍儀",
+      "reading": "ぐんぎ",
+      "romaji": "Gungi",
+      "meanings": {
+        "en": "Gungi (board game from Chimera Ant arc)",
+        "pt-BR": "Gungi (jogo de tabuleiro do arco Formiga Quimera)",
+        "es": "Gungi (juego de tablero del arco Hormiga Quimera)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Gungi is the fictional board game at which Komugi is world champion — her mastery of it becomes the bridge between her and Meruem."
+    },
+    {
+      "surface": "グリードアイランド",
+      "reading": "ぐりーどあいらんど",
+      "romaji": "Gurīdo Airando",
+      "meanings": {
+        "en": "Greed Island (VR card game arc)",
+        "pt-BR": "Greed Island (arco do jogo de cartas VR)",
+        "es": "Greed Island (arco del juego de cartas VR)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Greed Island is a real-world VR game created by Gon's father — a world built inside a game that holds a lead to Ging Freecss."
+    },
+    {
+      "surface": "ゾルディック家",
+      "reading": "ぞるでぃっくけ",
+      "romaji": "Zorudikku-ke",
+      "meanings": {
+        "en": "Zoldyck family (assassin clan)",
+        "pt-BR": "Família Zoldyck (clã de assassinos)",
+        "es": "Familia Zoldyck (clan asesino)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Zoldyck family is the world's most feared assassin clan — Killua grew up in their compound, trained to kill before he could walk."
+    },
+    {
+      "surface": "ヨークシン",
+      "reading": "よーくしん",
+      "romaji": "Yōkushin",
+      "meanings": {
+        "en": "Yorknew City (Phantom Troupe arc setting)",
+        "pt-BR": "Yorknew City (cenário do arco da Brigada Fantasma)",
+        "es": "Yorknew City (escenario del arco de la Brigada Fantasma)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Yorknew City is where Kurapika finally confronts the Phantom Troupe — the world's largest underground auction becomes a battlefield."
+    },
+    {
+      "surface": "闘気",
+      "reading": "とうき",
+      "romaji": "tōki",
+      "meanings": {
+        "en": "fighting spirit / battle aura",
+        "pt-BR": "espírito de luta / aura de batalha",
+        "es": "espíritu de combate / aura de batalla"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "A fighter's tōki is the tangible pressure of their intent to fight — experienced Nen users can read it to gauge an opponent's resolve."
+    },
+    {
+      "surface": "罠",
+      "reading": "わな",
+      "romaji": "wana",
+      "meanings": {
+        "en": "trap / snare",
+        "pt-BR": "armadilha / cilada",
+        "es": "trampa / celada"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "HxH battles frequently involve elaborate traps — Nen abilities are often designed around luring opponents into self-defeating conditions."
+    },
+    {
+      "surface": "暗殺",
+      "reading": "あんさつ",
+      "romaji": "ansatsu",
+      "meanings": {
+        "en": "assassination",
+        "pt-BR": "assassinato / assassinato político",
+        "es": "asesinato / asesinato político"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Assassination is the Zoldyck family's profession — Killua's combat style is built around instant kills, not prolonged fights."
+    },
+    {
+      "surface": "進化",
+      "reading": "しんか",
+      "romaji": "shinka",
+      "meanings": {
+        "en": "evolution",
+        "pt-BR": "evolução",
+        "es": "evolución"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Chimera Ant evolution through phagogenesis produces ever-more-powerful hybrids — the queen's final offspring transcends all known limits."
+    },
+    {
+      "surface": "集団",
+      "reading": "しゅうだん",
+      "romaji": "shūdan",
+      "meanings": {
+        "en": "group / collective",
+        "pt-BR": "grupo / coletivo",
+        "es": "grupo / colectivo"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The Phantom Troupe is the most dangerous collective in the HxH world — 13 spiders, each individually capable of wiping out most Hunters."
+    },
+    {
+      "surface": "連絡",
+      "reading": "れんらく",
+      "romaji": "renraku",
+      "meanings": {
+        "en": "contact / communication / liaison",
+        "pt-BR": "contato / comunicação / ligação",
+        "es": "contacto / comunicación / enlace"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Hunters rely on contact networks to coordinate — the exam's survivor community is a hidden intelligence web across the world."
+    },
+    {
+      "surface": "探索",
+      "reading": "たんさく",
+      "romaji": "tansaku",
+      "meanings": {
+        "en": "exploration / search",
+        "pt-BR": "exploração / busca",
+        "es": "exploración / búsqueda"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Exploration is a Hunter's calling — unknown territories, hidden ruins, and unmapped continents are the profession's highest frontier."
+    },
+    {
+      "surface": "観察",
+      "reading": "かんさつ",
+      "romaji": "kansatsu",
+      "meanings": {
+        "en": "observation / close watching",
+        "pt-BR": "observação / vigilância atenta",
+        "es": "observación / vigilancia atenta"
+      },
+      "jlpt_level": "N4",
+      "category": "nen",
+      "context": "Skilled Nen users read opponents through keen observation — Hisoka can profile a fighter's Nen type from a single exchange."
+    },
+    {
+      "surface": "直感",
+      "reading": "ちょっかん",
+      "romaji": "chokkan",
+      "meanings": {
+        "en": "intuition / gut feeling",
+        "pt-BR": "intuição / pressentimento",
+        "es": "intuición / presentimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon's intuition is a survival superpower — he can sense danger and character through pure instinct, bypassing all analysis."
+    },
+    {
+      "surface": "訓練",
+      "reading": "くんれん",
+      "romaji": "kunren",
+      "meanings": {
+        "en": "training / drilling / practice",
+        "pt-BR": "treinamento / prática / exercício",
+        "es": "entrenamiento / práctica / ejercicio"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Nen training under Wing and Bisky is the crucible that turns Gon and Killua from talented amateurs into true fighters."
+    },
+    {
+      "surface": "承認",
+      "reading": "しょうにん",
+      "romaji": "shōnin",
+      "meanings": {
+        "en": "approval / recognition",
+        "pt-BR": "aprovação / reconhecimento",
+        "es": "aprobación / reconocimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon's search for his father is also a search for fatherly approval — a recognition that his existence has value beyond himself."
+    },
+    {
+      "surface": "自由",
+      "reading": "じゆう",
+      "romaji": "jiyū",
+      "meanings": {
+        "en": "freedom / liberty",
+        "pt-BR": "liberdade",
+        "es": "libertad"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Ging is the embodiment of absolute freedom — a man who chose adventure over fatherhood, a choice whose consequences shape his son's life."
+    },
+    {
+      "surface": "代償",
+      "reading": "だいしょう",
+      "romaji": "daishō",
+      "meanings": {
+        "en": "compensation / price paid / trade-off",
+        "pt-BR": "compensação / preço pago / custo",
+        "es": "compensación / precio pagado / coste"
+      },
+      "jlpt_level": "N2",
+      "category": "nen",
+      "context": "Every Nen ability's power comes from its cost — the heavier the self-imposed limitation, the greater the ability's destructive potential."
+    },
+    {
+      "surface": "潜在能力",
+      "reading": "せんざいのうりょく",
+      "romaji": "senzai nōryoku",
+      "meanings": {
+        "en": "latent ability / hidden potential",
+        "pt-BR": "capacidade latente / potencial oculto",
+        "es": "capacidad latente / potencial oculto"
+      },
+      "jlpt_level": "N2",
+      "category": "nen",
+      "context": "Gon's latent potential is described as bottomless — a raw ability that even Netero says he cannot fully measure."
+    },
+    {
+      "surface": "力量",
+      "reading": "りきりょう",
+      "romaji": "rikiryō",
+      "meanings": {
+        "en": "ability / capability / capacity",
+        "pt-BR": "capacidade / habilidade / competência",
+        "es": "capacidad / habilidad / competencia"
+      },
+      "jlpt_level": "N2",
+      "category": "nen",
+      "context": "Assessing an opponent's true capability is a critical skill in HxH — underestimating a Nen user is almost always fatal."
+    },
+    {
+      "surface": "記憶喪失",
+      "reading": "きおくそうしつ",
+      "romaji": "kioku sōshitsu",
+      "meanings": {
+        "en": "memory loss / amnesia",
+        "pt-BR": "perda de memória / amnésia",
+        "es": "pérdida de memoria / amnesia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Post-condition memory wipes are a real risk in Nen — Gon emerging from his ultimate transformation with no recollection mirrors this."
+    },
+    {
+      "surface": "旅",
+      "reading": "たび",
+      "romaji": "tabi",
+      "meanings": {
+        "en": "journey / travel",
+        "pt-BR": "jornada / viagem",
+        "es": "viaje / jornada"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Hunter × Hunter is at its core a road trip story — Gon's journey to find his father drives every arc from the exam to the Dark Continent."
+    },
+    {
+      "surface": "怒り",
+      "reading": "いかり",
+      "romaji": "ikari",
+      "meanings": {
+        "en": "anger / rage",
+        "pt-BR": "raiva / fúria",
+        "es": "ira / rabia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gon's rage in the Chimera Ant arc — transforming into an adult fuelled by grief — shows the terrifying price of abandoning restraint."
+    },
+    {
+      "surface": "無念",
+      "reading": "むねん",
+      "romaji": "munen",
+      "meanings": {
+        "en": "regret / frustration / sense of defeat",
+        "pt-BR": "arrependimento / frustração / senso de derrota",
+        "es": "pesar / frustración / sensación de derrota"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Netero's final battle against Meruem is filled with the bittersweet feeling of a man who has given everything and still falls short."
+    },
+    {
+      "surface": "対峙",
+      "reading": "たいじ",
+      "romaji": "taiji",
+      "meanings": {
+        "en": "confrontation / facing one another",
+        "pt-BR": "confronto / enfrentamento",
+        "es": "confrontación / cara a cara"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Every major HxH confrontation is preceded by a tense standoff — two Nen users reading each other before the first move is made."
+    },
+    {
+      "surface": "宿命",
+      "reading": "しゅくめい",
+      "romaji": "shukumei",
+      "meanings": {
+        "en": "fate / destiny",
+        "pt-BR": "destino / fado",
+        "es": "destino / hado"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Kurapika and the Phantom Troupe are locked in a destiny of mutual destruction — a cycle of revenge neither can escape without choosing peace."
+    },
+    {
+      "surface": "気配",
+      "reading": "けはい",
+      "romaji": "kehai",
+      "meanings": {
+        "en": "presence / sign / aura",
+        "pt-BR": "presença / sinal / aura",
+        "es": "presencia / señal / aura"
+      },
+      "jlpt_level": "N2",
+      "category": "nen",
+      "context": "Sensing an opponent's kehai — their ambient presence — is the first skill Nen practitioners develop, a constant environmental read."
+    },
+    {
+      "surface": "実力",
+      "reading": "じつりょく",
+      "romaji": "jitsuryoku",
+      "meanings": {
+        "en": "real ability / true power / skill",
+        "pt-BR": "habilidade real / poder verdadeiro / capacidade",
+        "es": "habilidad real / poder verdadero / capacidad"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The Hunter Exam is designed to reveal actual ability, not theoretical potential — survival itself is the measurement."
+    },
+    {
+      "surface": "忍耐",
+      "reading": "にんたい",
+      "romaji": "nintai",
+      "meanings": {
+        "en": "endurance / patience / perseverance",
+        "pt-BR": "resistência / paciência / perseverança",
+        "es": "resistencia / paciencia / perseverancia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Nen training demands extraordinary patience — the weeks-long process of opening aura nodes is a test of will before any technique can be learned."
+    },
+    {
+      "surface": "反則",
+      "reading": "はんそく",
+      "romaji": "hansoku",
+      "meanings": {
+        "en": "foul play / rule violation",
+        "pt-BR": "jogo sujo / violação de regra",
+        "es": "juego sucio / infracción de regla"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The Hunter Exam has almost no actual rules — what looks like foul play is usually just a candidate testing the exam's real limits."
+    }
+  ]
+}

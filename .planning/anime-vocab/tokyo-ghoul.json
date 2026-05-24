@@ -1,0 +1,1217 @@
+{
+  "anime": "tokyo-ghoul",
+  "label": "Tokyo Ghoul",
+  "icon": "tokyo-ghoul.png",
+  "description": "College student Ken Kaneki becomes half-ghoul after a near-fatal encounter, straddling two worlds.",
+  "vocab": [
+    {
+      "surface": "人間",
+      "reading": "にんげん",
+      "romaji": "ningen",
+      "meanings": {
+        "en": "human being",
+        "pt-BR": "ser humano",
+        "es": "ser humano"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "What makes someone human? Tokyo Ghoul asks this question relentlessly — through Kaneki's identity and the ghouls he befriends."
+    },
+    {
+      "surface": "食べる",
+      "reading": "たべる",
+      "romaji": "taberu",
+      "meanings": {
+        "en": "to eat",
+        "pt-BR": "comer",
+        "es": "comer"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Ghouls must eat human flesh to survive — the act that defines their existence and separates them from humanity."
+    },
+    {
+      "surface": "肉",
+      "reading": "にく",
+      "romaji": "niku",
+      "meanings": {
+        "en": "meat / flesh",
+        "pt-BR": "carne",
+        "es": "carne"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Human flesh is the only food ghouls can digest — everything else tastes revolting to them, except coffee."
+    },
+    {
+      "surface": "血",
+      "reading": "ち",
+      "romaji": "chi",
+      "meanings": {
+        "en": "blood",
+        "pt-BR": "sangue",
+        "es": "sangre"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Blood and flesh mark the boundary between ghouls and humans — Kaneki's white hair symbolises the trauma of that crossing."
+    },
+    {
+      "surface": "目",
+      "reading": "め",
+      "romaji": "me",
+      "meanings": {
+        "en": "eye(s)",
+        "pt-BR": "olho(s)",
+        "es": "ojo(s)"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Ghoul eyes glow red when their kakugan activates — a dead giveaway that instantly reveals their true nature."
+    },
+    {
+      "surface": "仮面",
+      "reading": "かめん",
+      "romaji": "kamen",
+      "meanings": {
+        "en": "mask",
+        "pt-BR": "máscara",
+        "es": "máscara"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Ghouls wear masks to hide their identity from the CCG — Kaneki's white mask becomes his most iconic image."
+    },
+    {
+      "surface": "痛み",
+      "reading": "いたみ",
+      "romaji": "itami",
+      "meanings": {
+        "en": "pain",
+        "pt-BR": "dor",
+        "es": "dolor"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki's entire arc is one of enduring pain — and learning that pain is something to be shared, not borne alone."
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": {
+        "en": "solitude / loneliness",
+        "pt-BR": "solidão",
+        "es": "soledad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki's greatest fear is loneliness — a childhood wound that shapes every relationship and every sacrifice he makes."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": {
+        "en": "comrade / companion",
+        "pt-BR": "companheiro / camarada",
+        "es": "compañero / camarada"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Anteiku becomes Kaneki's first found family — the nakama he would sacrifice everything to protect."
+    },
+    {
+      "surface": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "meanings": {
+        "en": "world",
+        "pt-BR": "mundo",
+        "es": "mundo"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Tokyo Ghoul depicts two worlds occupying the same city — ghouls and humans living in uneasy, violent proximity."
+    },
+    {
+      "surface": "恐怖",
+      "reading": "きょうふ",
+      "romaji": "kyōfu",
+      "meanings": {
+        "en": "fear / terror",
+        "pt-BR": "medo / terror",
+        "es": "miedo / terror"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The CCG's campaigns are driven by fear of ghouls — a fear that makes nuance impossible and peace unthinkable."
+    },
+    {
+      "surface": "苦しみ",
+      "reading": "くるしみ",
+      "romaji": "kurushimi",
+      "meanings": {
+        "en": "suffering / anguish",
+        "pt-BR": "sofrimento / angústia",
+        "es": "sufrimiento / angustia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki's torture by Yamori is the series' pivotal moment — the suffering that breaks and remakes him."
+    },
+    {
+      "surface": "存在",
+      "reading": "そんざい",
+      "romaji": "sonzai",
+      "meanings": {
+        "en": "existence / being",
+        "pt-BR": "existência / ser",
+        "es": "existencia / ser"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Ghouls fight for the right to exist — Tokyo Ghoul is ultimately a story about the legitimacy of being."
+    },
+    {
+      "surface": "変化",
+      "reading": "へんか",
+      "romaji": "henka",
+      "meanings": {
+        "en": "change / transformation",
+        "pt-BR": "mudança / transformação",
+        "es": "cambio / transformación"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki's transformation — physically and psychologically — is the series' central arc, mapped onto his shifting hair colour."
+    },
+    {
+      "surface": "捜査",
+      "reading": "そうさ",
+      "romaji": "sōsa",
+      "meanings": {
+        "en": "investigation",
+        "pt-BR": "investigação",
+        "es": "investigación"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "CCG investigators hunt ghouls with military precision — but the more skilled ones begin to question what they're really fighting."
+    },
+    {
+      "surface": "狩り",
+      "reading": "かり",
+      "romaji": "kari",
+      "meanings": {
+        "en": "hunt / hunting",
+        "pt-BR": "caça / caçada",
+        "es": "caza / cacería"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "The CCG hunts ghouls as prey — but the series asks whether hunters can justify their methods when their quarry has feelings."
+    },
+    {
+      "surface": "隠れる",
+      "reading": "かくれる",
+      "romaji": "kakureru",
+      "meanings": {
+        "en": "to hide / to conceal oneself",
+        "pt-BR": "esconder-se / ocultar-se",
+        "es": "esconderse / ocultarse"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Ghouls hide their nature every day — a performance of normalcy that Kaneki understands all too well."
+    },
+    {
+      "surface": "融合",
+      "reading": "ゆうごう",
+      "romaji": "yūgō",
+      "meanings": {
+        "en": "fusion / merger",
+        "pt-BR": "fusão / união",
+        "es": "fusión / unión"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Kaneki is a fusion of human and ghoul — his identity crisis is literally written into his biology."
+    },
+    {
+      "surface": "喰種",
+      "reading": "くいしゅ",
+      "romaji": "Kuishū",
+      "meanings": {
+        "en": "Ghoul (Tokyo Ghoul's term)",
+        "pt-BR": "Ghoul (termo de Tokyo Ghoul)",
+        "es": "Ghoul (término de Tokyo Ghoul)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "喰種 — the show's kanji for 'ghoul' — literally means 'eating species', a compound that captures their predatory nature."
+    },
+    {
+      "surface": "赫子",
+      "reading": "かぐね",
+      "romaji": "Kagune",
+      "meanings": {
+        "en": "Kagune (ghoul's predatory organ)",
+        "pt-BR": "Kagune (órgão predatório do Ghoul)",
+        "es": "Kagune (órgano predador del Ghoul)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The kagune is a ghoul's biological weapon — a flexible, RC-cell appendage unique to each ghoul in form and fighting style."
+    },
+    {
+      "surface": "鱗赫",
+      "reading": "りんかく",
+      "romaji": "Rinkaku",
+      "meanings": {
+        "en": "Rinkaku kagune (spine / tentacle type)",
+        "pt-BR": "Kagune Rinkaku (tipo tentáculo)",
+        "es": "Kagune Rinkaku (tipo tentáculo)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Rinkaku kagune extend from the lower back as tentacles — high regeneration, high attack power, lower durability."
+    },
+    {
+      "surface": "甲赫",
+      "reading": "こうかく",
+      "romaji": "Kōkaku",
+      "meanings": {
+        "en": "Kōkaku kagune (shell / armour type)",
+        "pt-BR": "Kagune Kōkaku (tipo armadura)",
+        "es": "Kagune Kōkaku (tipo armadura)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Kōkaku kagune form shields and blades from the shoulder area — heavy, powerful, and best for defence."
+    },
+    {
+      "surface": "羽赫",
+      "reading": "うかく",
+      "romaji": "Ukaku",
+      "meanings": {
+        "en": "Ukaku kagune (wing / projectile type)",
+        "pt-BR": "Kagune Ukaku (tipo asa/projétil)",
+        "es": "Kagune Ukaku (tipo ala/proyectil)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Ukaku kagune emerge from the shoulder blades as crystalline wings — fast projectiles, but burns RC cells quickly."
+    },
+    {
+      "surface": "尾赫",
+      "reading": "びかく",
+      "romaji": "Bikaku",
+      "meanings": {
+        "en": "Bikaku kagune (tail type)",
+        "pt-BR": "Kagune Bikaku (tipo cauda)",
+        "es": "Kagune Bikaku (tipo cola)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Bikaku kagune emerge from the coccyx as a tail — balanced in attack, defence, and speed; the most adaptable type."
+    },
+    {
+      "surface": "クインケ",
+      "reading": "くいんけ",
+      "romaji": "Kuinke",
+      "meanings": {
+        "en": "Quinque (CCG weapon made from kagune)",
+        "pt-BR": "Quinque (arma da CCG feita de kagune)",
+        "es": "Quinque (arma de la CCG hecha de kagune)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Quinque are weapons forged from harvested kagune — the CCG's way of turning a ghoul's own biology against them."
+    },
+    {
+      "surface": "赫眼",
+      "reading": "かくがん",
+      "romaji": "Kakugan",
+      "meanings": {
+        "en": "Kakugan (ghoul's activated eye)",
+        "pt-BR": "Kakugan (olho ativado do Ghoul)",
+        "es": "Kakugan (ojo activado del Ghoul)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The kakugan — a ghoul's eye turning black sclera with red iris — activates when they're hungry or using their kagune."
+    },
+    {
+      "surface": "アンティーク",
+      "reading": "あんてぃーく",
+      "romaji": "Antīku",
+      "meanings": {
+        "en": "Anteiku (the café)",
+        "pt-BR": "Anteiku (o café)",
+        "es": "Anteiku (el café)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Anteiku is a café run by peaceful ghouls — a sanctuary that provides Kaneki his first sense of belonging after his transformation."
+    },
+    {
+      "surface": "半喰種",
+      "reading": "はんくいしゅ",
+      "romaji": "Han-Kuishū",
+      "meanings": {
+        "en": "half-ghoul",
+        "pt-BR": "meio-ghoul",
+        "es": "medio ghoul"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Kaneki is a half-ghoul — neither fully human nor ghoul, belonging completely to neither world."
+    },
+    {
+      "surface": "喰種対策局",
+      "reading": "くいしゅたいさくきょく",
+      "romaji": "CCG (Kuishū Taisaku Kyoku)",
+      "meanings": {
+        "en": "Commission of Counter Ghoul (CCG)",
+        "pt-BR": "Comissão de Combate aos Ghouls",
+        "es": "Comisión de Combate a los Ghouls"
+      },
+      "jlpt_level": null,
+      "category": "investigation",
+      "context": "The CCG is the government organisation tasked with exterminating ghouls — investigators range from ruthless to surprisingly empathetic."
+    },
+    {
+      "surface": "対話",
+      "reading": "たいわ",
+      "romaji": "taiwa",
+      "meanings": {
+        "en": "dialogue / mutual exchange",
+        "pt-BR": "diálogo / troca mútua",
+        "es": "diálogo / intercambio mutuo"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The tragedy of Tokyo Ghoul is the impossibility of dialogue — both sides have been shaped by grief into permanent enemies."
+    },
+    {
+      "surface": "共存",
+      "reading": "きょうぞん",
+      "romaji": "kyōzon",
+      "meanings": {
+        "en": "coexistence",
+        "pt-BR": "coexistência",
+        "es": "coexistencia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Kaneki's deepest hope — and the series' impossible dream — is a world where ghouls and humans can coexist in peace."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": {
+        "en": "sacrifice",
+        "pt-BR": "sacrifício",
+        "es": "sacrificio"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki repeatedly sacrifices himself to protect others — each time losing more of who he was before the transformation."
+    },
+    {
+      "surface": "本",
+      "reading": "ほん",
+      "romaji": "hon",
+      "meanings": {
+        "en": "book",
+        "pt-BR": "livro",
+        "es": "libro"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Kaneki's love of books — especially Sen Takatsuki's novels — is a core character trait that bridges his two identities."
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": {
+        "en": "strength / power",
+        "pt-BR": "força / poder",
+        "es": "fuerza / poder"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Kaneki pursues strength to protect others — but the series consistently shows that strength without compassion is hollow."
+    },
+    {
+      "surface": "絶望",
+      "reading": "ぜつぼう",
+      "romaji": "zetsubō",
+      "meanings": {
+        "en": "despair / hopelessness",
+        "pt-BR": "desespero / desesperança",
+        "es": "desesperación / desesperanza"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Kaneki's arc bottoms out at total despair — the point where he accepts suffering as his permanent condition."
+    },
+    {
+      "surface": "受け入れる",
+      "reading": "うけいれる",
+      "romaji": "ukeireru",
+      "meanings": {
+        "en": "to accept / to embrace",
+        "pt-BR": "aceitar / acolher",
+        "es": "aceptar / acoger"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Accepting his ghoul nature — not fighting or hiding it — is the psychological breakthrough Kaneki must eventually reach."
+    },
+    {
+      "surface": "差別",
+      "reading": "さべつ",
+      "romaji": "sabetsu",
+      "meanings": {
+        "en": "discrimination / prejudice",
+        "pt-BR": "discriminação / preconceito",
+        "es": "discriminación / prejuicio"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Ghouls face systematic discrimination — hunted, harvested for quinques, and denied legal personhood simply for existing."
+    },
+    {
+      "surface": "偏見",
+      "reading": "へんけん",
+      "romaji": "henken",
+      "meanings": {
+        "en": "prejudice / bias",
+        "pt-BR": "preconceito / viés",
+        "es": "prejuicio / sesgo"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Human prejudice against ghouls is so total that even compassionate investigators struggle to see them as anything but prey."
+    },
+    {
+      "surface": "社会",
+      "reading": "しゃかい",
+      "romaji": "shakai",
+      "meanings": {
+        "en": "society",
+        "pt-BR": "sociedade",
+        "es": "sociedad"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Tokyo Ghoul's society functions normally on the surface while a hidden war of extermination runs beneath it."
+    },
+    {
+      "surface": "正義",
+      "reading": "せいぎ",
+      "romaji": "seigi",
+      "meanings": {
+        "en": "justice",
+        "pt-BR": "justiça",
+        "es": "justicia"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Every character in Tokyo Ghoul believes they serve justice — the CCG, Aogiri Tree, and Kaneki each operate under an incompatible moral logic."
+    },
+    {
+      "surface": "平和",
+      "reading": "へいわ",
+      "romaji": "heiwa",
+      "meanings": {
+        "en": "peace",
+        "pt-BR": "paz",
+        "es": "paz"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Anteiku exists as a small island of peace — a café where ghouls can pretend, briefly, that coexistence with humans is possible."
+    },
+    {
+      "surface": "戦争",
+      "reading": "せんそう",
+      "romaji": "sensō",
+      "meanings": {
+        "en": "war",
+        "pt-BR": "guerra",
+        "es": "guerra"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "The conflict between the CCG and organized ghoul factions escalates into open war — with civilians caught in the crossfire."
+    },
+    {
+      "surface": "自己",
+      "reading": "じこ",
+      "romaji": "jiko",
+      "meanings": {
+        "en": "self / oneself / the ego",
+        "pt-BR": "si mesmo / o ego",
+        "es": "sí mismo / el ego"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "Kaneki's central question is identity — which self is real, the bookish human boy or the white-haired ghoul king?"
+    },
+    {
+      "surface": "感情",
+      "reading": "かんじょう",
+      "romaji": "kanjō",
+      "meanings": {
+        "en": "emotion / feeling",
+        "pt-BR": "emoção / sentimento",
+        "es": "emoción / sentimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "Ghouls have the full range of human emotions — the series insists on this point precisely because human society denies it."
+    },
+    {
+      "surface": "欲求",
+      "reading": "よっきゅう",
+      "romaji": "yokkyū",
+      "meanings": {
+        "en": "desire / urge / craving",
+        "pt-BR": "desejo / impulso / anseio",
+        "es": "deseo / impulso / ansia"
+      },
+      "jlpt_level": "N2",
+      "category": "psychology",
+      "context": "A ghoul's hunger is an uncontrollable urge — for Kaneki, learning to manage this craving is part of accepting his new existence."
+    },
+    {
+      "surface": "同情",
+      "reading": "どうじょう",
+      "romaji": "dōjō",
+      "meanings": {
+        "en": "sympathy / compassion",
+        "pt-BR": "simpatia / compaixão",
+        "es": "simpatía / compasión"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "Amon's growing sympathy for ghouls he once hunted without hesitation is a turning point in Tokyo Ghoul's moral argument."
+    },
+    {
+      "surface": "理解",
+      "reading": "りかい",
+      "romaji": "rikai",
+      "meanings": {
+        "en": "understanding / comprehension",
+        "pt-BR": "compreensão / entendimento",
+        "es": "comprensión / entendimiento"
+      },
+      "jlpt_level": "N4",
+      "category": "psychology",
+      "context": "True understanding between humans and ghouls requires both sides to see the other as fully human — a near-impossible act of will."
+    },
+    {
+      "surface": "本能",
+      "reading": "ほんのう",
+      "romaji": "honnō",
+      "meanings": {
+        "en": "instinct",
+        "pt-BR": "instinto",
+        "es": "instinto"
+      },
+      "jlpt_level": "N2",
+      "category": "psychology",
+      "context": "Kaneki's ghoul instincts war with his human upbringing — every hunger pang is a reminder that his body has rewritten its own rules."
+    },
+    {
+      "surface": "友情",
+      "reading": "ゆうじょう",
+      "romaji": "yūjō",
+      "meanings": {
+        "en": "friendship / bonds of friendship",
+        "pt-BR": "amizade / laços de amizade",
+        "es": "amistad / lazos de amistad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki's friendships at Anteiku — with Touka, Nishiki, and the staff — give him the first genuine connections of his life."
+    },
+    {
+      "surface": "家族",
+      "reading": "かぞく",
+      "romaji": "kazoku",
+      "meanings": {
+        "en": "family",
+        "pt-BR": "família",
+        "es": "familia"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Anteiku becomes Kaneki's found family — the ghouls there love and protect each other in ways that challenge the dehumanizing CCG narrative."
+    },
+    {
+      "surface": "信頼",
+      "reading": "しんらい",
+      "romaji": "shinrai",
+      "meanings": {
+        "en": "trust",
+        "pt-BR": "confiança",
+        "es": "confianza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Trust is the rarest commodity in Tokyo Ghoul's world — extending it across the human-ghoul divide is an act of profound vulnerability."
+    },
+    {
+      "surface": "裏切り",
+      "reading": "うらぎり",
+      "romaji": "uragiri",
+      "meanings": {
+        "en": "betrayal / treachery",
+        "pt-BR": "traição / deslealdade",
+        "es": "traición / deslealtad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki feels his body has betrayed him — his transformation is experienced as a fundamental violation of the self he knew."
+    },
+    {
+      "surface": "生存",
+      "reading": "せいぞん",
+      "romaji": "seizon",
+      "meanings": {
+        "en": "survival",
+        "pt-BR": "sobrevivência",
+        "es": "supervivencia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Every ghoul in Tokyo fights for survival — against the CCG, against rival ghouls, and against the hunger that never fully quiets."
+    },
+    {
+      "surface": "境界",
+      "reading": "きょうかい",
+      "romaji": "kyōkai",
+      "meanings": {
+        "en": "boundary / border / threshold",
+        "pt-BR": "fronteira / limite / limiar",
+        "es": "frontera / límite / umbral"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki exists at the boundary between two worlds — belonging fully to neither, serving as a bridge that neither side wants built."
+    },
+    {
+      "surface": "幸せ",
+      "reading": "しあわせ",
+      "romaji": "shiawase",
+      "meanings": {
+        "en": "happiness / good fortune",
+        "pt-BR": "felicidade / boa sorte",
+        "es": "felicidad / buena suerte"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Happiness is a brief flash in Tokyo Ghoul's world — Kaneki's happiest moments at Anteiku make their eventual destruction all the more devastating."
+    },
+    {
+      "surface": "繋がり",
+      "reading": "つながり",
+      "romaji": "tsunagari",
+      "meanings": {
+        "en": "connection / bond / link",
+        "pt-BR": "conexão / laço / vínculo",
+        "es": "conexión / lazo / vínculo"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The connections Kaneki forms — human and ghoul alike — are ultimately what he sacrifices himself to protect, time and again."
+    },
+    {
+      "surface": "証拠",
+      "reading": "しょうこ",
+      "romaji": "shōko",
+      "meanings": {
+        "en": "evidence / proof",
+        "pt-BR": "evidência / prova",
+        "es": "evidencia / prueba"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "CCG investigators collect evidence of ghoul activity to justify raids — but evidence gathering often means using ghoul informants."
+    },
+    {
+      "surface": "記録",
+      "reading": "きろく",
+      "romaji": "kiroku",
+      "meanings": {
+        "en": "record / documentation",
+        "pt-BR": "registro / documentação",
+        "es": "registro / documentación"
+      },
+      "jlpt_level": "N4",
+      "category": "investigation",
+      "context": "The CCG maintains detailed records of every identified ghoul — a database that treats sentient beings as biological threats to be catalogued."
+    },
+    {
+      "surface": "目撃",
+      "reading": "もくげき",
+      "romaji": "mokugeki",
+      "meanings": {
+        "en": "witnessing / eyewitness account",
+        "pt-BR": "testemunho / relato de testemunha ocular",
+        "es": "testimonio / relato de testigo presencial"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "Civilian sightings of kakugan or kagune trigger CCG rapid response — every eyewitness report narrows a ghoul's chances of staying hidden."
+    },
+    {
+      "surface": "追跡",
+      "reading": "ついせき",
+      "romaji": "tsuiseki",
+      "meanings": {
+        "en": "pursuit / tracking",
+        "pt-BR": "perseguição / rastreamento",
+        "es": "persecución / rastreo"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "CCG investigators track ghouls across wards using informants, feeding patterns, and kagune analysis from crime scenes."
+    },
+    {
+      "surface": "任務",
+      "reading": "にんむ",
+      "romaji": "ninmu",
+      "meanings": {
+        "en": "mission / duty / assignment",
+        "pt-BR": "missão / dever / tarefa",
+        "es": "misión / deber / tarea"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "CCG investigators describe ghoul elimination as a mission and a duty — language that helps them avoid thinking of their targets as people."
+    },
+    {
+      "surface": "区",
+      "reading": "く",
+      "romaji": "ku",
+      "meanings": {
+        "en": "ward / district (Tokyo's administrative divisions)",
+        "pt-BR": "bairro / distrito (divisões administrativas de Tóquio)",
+        "es": "barrio / distrito (divisiones administrativas de Tokio)"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Tokyo is divided into wards — and each ward has a different ghoul population density, threat level, and CCG presence."
+    },
+    {
+      "surface": "地下",
+      "reading": "ちか",
+      "romaji": "chika",
+      "meanings": {
+        "en": "underground / basement",
+        "pt-BR": "subterrâneo / porão",
+        "es": "subterráneo / sótano"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "The ghoul underworld operates literally underground — Aogiri Tree's base and many ghoul gathering points hide beneath Tokyo's streets."
+    },
+    {
+      "surface": "群れ",
+      "reading": "むれ",
+      "romaji": "mure",
+      "meanings": {
+        "en": "pack / herd / group",
+        "pt-BR": "bando / matilha / grupo",
+        "es": "manada / horda / grupo"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Ghouls sometimes form packs for protection — though ghoul social structures range from Anteiku's peaceful café to Aogiri's militant cell."
+    },
+    {
+      "surface": "縄張り",
+      "reading": "なわばり",
+      "romaji": "nawabari",
+      "meanings": {
+        "en": "territory / turf",
+        "pt-BR": "território / área de domínio",
+        "es": "territorio / área de dominio"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Ghouls claim and defend feeding territories across Tokyo — trespassing on another ghoul's turf is a dangerous provocation."
+    },
+    {
+      "surface": "金木研",
+      "reading": "かなきけん",
+      "romaji": "Kaneki Ken",
+      "meanings": {
+        "en": "Ken Kaneki (protagonist, half-ghoul)",
+        "pt-BR": "Ken Kaneki (protagonista, meio-ghoul)",
+        "es": "Ken Kaneki (protagonista, medio ghoul)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Kaneki is a college student who becomes half-ghoul after a transplant surgery — his journey of identity is Tokyo Ghoul's emotional core."
+    },
+    {
+      "surface": "亜門鋼太朗",
+      "reading": "あもんこうたろう",
+      "romaji": "Amon Kōtarō",
+      "meanings": {
+        "en": "Amon Kōtarō (CCG investigator)",
+        "pt-BR": "Amon Kōtarō (investigador da CCG)",
+        "es": "Amon Kōtarō (investigador de la CCG)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Amon is a principled CCG investigator whose growing doubts about the organization mirror the series' central moral argument."
+    },
+    {
+      "surface": "月山習",
+      "reading": "つきやましゅう",
+      "romaji": "Tsukiyama Shū",
+      "meanings": {
+        "en": "Tsukiyama Shū (the Gourmet ghoul)",
+        "pt-BR": "Tsukiyama Shū (o Gourmet ghoul)",
+        "es": "Tsukiyama Shū (el Gourmet ghoul)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Tsukiyama is a flamboyant ghoul gourmet who initially sees Kaneki as a rare delicacy — but develops a complex, genuine devotion to him."
+    },
+    {
+      "surface": "芳村",
+      "reading": "よしむら",
+      "romaji": "Yoshimura",
+      "meanings": {
+        "en": "Yoshimura (Anteiku's owner, the Non-Killing Owl)",
+        "pt-BR": "Yoshimura (dono do Anteiku, a Coruja Não-Matadora)",
+        "es": "Yoshimura (dueño de Anteiku, el Búho que No Mata)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Yoshimura runs Anteiku as a sanctuary of restraint — his backstory reveals the human tragedy that shaped his philosophy of coexistence."
+    },
+    {
+      "surface": "隻眼の梟",
+      "reading": "せきがんのふくろう",
+      "romaji": "Sekigan no Fukurō",
+      "meanings": {
+        "en": "One-Eyed Owl (legendary half-ghoul)",
+        "pt-BR": "Coruja de Um Olho (meio-ghoul lendário)",
+        "es": "Búho de Un Ojo (medio ghoul legendario)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "The One-Eyed Owl is a mythic figure among ghouls — a half-ghoul whose power exceeds anything the CCG has previously encountered."
+    },
+    {
+      "surface": "リゼ",
+      "reading": "りぜ",
+      "romaji": "Rize",
+      "meanings": {
+        "en": "Rize Kamishiro (the Binge Eater ghoul)",
+        "pt-BR": "Rize Kamishiro (a ghoul Comedora Compulsiva)",
+        "es": "Rize Kamishiro (la ghoul la Comedora Compulsiva)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Rize is the ghoul whose kagune is transplanted into Kaneki — her presence haunts him throughout the series as a voice of predatory instinct."
+    },
+    {
+      "surface": "飢え",
+      "reading": "うえ",
+      "romaji": "ue",
+      "meanings": {
+        "en": "hunger / starvation",
+        "pt-BR": "fome / inanição",
+        "es": "hambre / inanición"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "A starving ghoul loses all restraint — hunger strips away the civilized veneer and reveals the predator beneath."
+    },
+    {
+      "surface": "抵抗",
+      "reading": "ていこう",
+      "romaji": "teikō",
+      "meanings": {
+        "en": "resistance / defiance",
+        "pt-BR": "resistência / desafio",
+        "es": "resistencia / desafío"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki's resistance to his ghoul nature — and later, his embrace of it — marks the two phases of his psychological arc."
+    },
+    {
+      "surface": "葛藤",
+      "reading": "かっとう",
+      "romaji": "kattō",
+      "meanings": {
+        "en": "inner conflict / struggle",
+        "pt-BR": "conflito interior / luta interna",
+        "es": "conflicto interior / lucha interna"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Kaneki's inner conflict between his human empathy and ghoul hunger is the psychological engine of every decision he makes."
+    },
+    {
+      "surface": "覚悟",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "meanings": {
+        "en": "resolve / readiness for consequences",
+        "pt-BR": "resolução / prontidão para as consequências",
+        "es": "resolución / preparación para las consecuencias"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "After Yamori's torture, Kaneki reaches a dark resolve — to become the predator rather than the prey, whatever the cost."
+    },
+    {
+      "surface": "悲劇",
+      "reading": "ひげき",
+      "romaji": "higeki",
+      "meanings": {
+        "en": "tragedy",
+        "pt-BR": "tragédia",
+        "es": "tragedia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Tokyo Ghoul is a sustained tragedy — built on the premise that two groups who could coexist are locked into destroying each other."
+    },
+    {
+      "surface": "憎しみ",
+      "reading": "にくしみ",
+      "romaji": "nikushimi",
+      "meanings": {
+        "en": "hatred / animosity",
+        "pt-BR": "ódio / animosidade",
+        "es": "odio / animosidad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Hatred between humans and ghouls is passed down through grief — every loss produces new hatred, perpetuating the cycle."
+    },
+    {
+      "surface": "暴力",
+      "reading": "ぼうりょく",
+      "romaji": "bōryoku",
+      "meanings": {
+        "en": "violence",
+        "pt-BR": "violência",
+        "es": "violencia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Violence in Tokyo Ghoul is never glorified — every fight leaves scars, and the series frames all violence as tragic and cyclical."
+    },
+    {
+      "surface": "犠牲者",
+      "reading": "ぎせいしゃ",
+      "romaji": "giseisha",
+      "meanings": {
+        "en": "victim / casualty",
+        "pt-BR": "vítima",
+        "es": "víctima"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Both sides of the conflict produce victims — Tokyo Ghoul is deliberately ambiguous about which deaths count as tragedies."
+    },
+    {
+      "surface": "被害",
+      "reading": "ひがい",
+      "romaji": "higai",
+      "meanings": {
+        "en": "damage / harm / injury",
+        "pt-BR": "dano / prejuízo / lesão",
+        "es": "daño / perjuicio / lesión"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "CCG classifies ghoul damage by category and severity — the bureaucratization of violence is part of the series' critique of institutions."
+    },
+    {
+      "surface": "尋問",
+      "reading": "じんもん",
+      "romaji": "jinmon",
+      "meanings": {
+        "en": "interrogation / questioning",
+        "pt-BR": "interrogatório",
+        "es": "interrogatorio"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "CCG interrogations of captured ghouls are brutal — but what investigators learn about ghoul society complicates their clean worldview."
+    },
+    {
+      "surface": "等級",
+      "reading": "とうきゅう",
+      "romaji": "tōkyū",
+      "meanings": {
+        "en": "grade / rank / rating",
+        "pt-BR": "grau / classificação / avaliação",
+        "es": "grado / rango / clasificación"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "Ghouls are classified by danger rating from S to C — the One-Eyed Owl is SSS, a designation that signals near-certain investigator death."
+    },
+    {
+      "surface": "意識",
+      "reading": "いしき",
+      "romaji": "ishiki",
+      "meanings": {
+        "en": "consciousness / awareness",
+        "pt-BR": "consciência / percepção",
+        "es": "conciencia / percepción"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "Kaneki's consciousness shifts during his transformation — he develops a second, predatory mode of awareness that the original boy fears."
+    },
+    {
+      "surface": "変質",
+      "reading": "へんしつ",
+      "romaji": "henshitsu",
+      "meanings": {
+        "en": "change in nature / deterioration / corruption",
+        "pt-BR": "mudança de natureza / deterioração / corrupção",
+        "es": "cambio de naturaleza / deterioro / corrupción"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Kaneki's psychological deterioration — tracked through his whitening hair — shows how trauma changes a person at their core."
+    },
+    {
+      "surface": "生と死",
+      "reading": "せいとし",
+      "romaji": "sei to shi",
+      "meanings": {
+        "en": "life and death",
+        "pt-BR": "vida e morte",
+        "es": "vida y muerte"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Tokyo Ghoul sits at the intersection of life and death — ghouls sustain their lives through human death, a cycle with no clean resolution."
+    },
+    {
+      "surface": "理想",
+      "reading": "りそう",
+      "romaji": "risō",
+      "meanings": {
+        "en": "ideal / aspiration",
+        "pt-BR": "ideal / aspiração",
+        "es": "ideal / aspiración"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kaneki's ideal — a world where he can be fully himself, neither hiding his ghoul side nor abandoning his humanity — drives every sacrifice."
+    },
+    {
+      "surface": "再生",
+      "reading": "さいせい",
+      "romaji": "saisei",
+      "meanings": {
+        "en": "regeneration / recovery",
+        "pt-BR": "regeneração / recuperação",
+        "es": "regeneración / recuperación"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Ghoul regeneration is one of their key advantages — but the RC cell cost of extreme healing can accelerate ghoulification irreversibly."
+    },
+    {
+      "surface": "喰い",
+      "reading": "くい",
+      "romaji": "kui",
+      "meanings": {
+        "en": "eating (ghoul predation)",
+        "pt-BR": "comer (predação de ghoul)",
+        "es": "comer (depredación de ghoul)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The act of eating — 喰い — defines what a ghoul is: a being whose survival requires the death of another."
+    },
+    {
+      "surface": "根",
+      "reading": "ね",
+      "romaji": "ne",
+      "meanings": {
+        "en": "root / origin / base",
+        "pt-BR": "raiz / origem / base",
+        "es": "raíz / origen / base"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Kaneki's tragedy is rooted in childhood abandonment — his fear of loneliness shapes every connection he makes and every sacrifice he chooses."
+    },
+    {
+      "surface": "黒",
+      "reading": "くろ",
+      "romaji": "kuro",
+      "meanings": {
+        "en": "black",
+        "pt-BR": "preto",
+        "es": "negro"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Black sclera — the ghoul kakugan — is the most feared sight in Tokyo Ghoul's world: the sign that a predator's true nature has surfaced."
+    },
+    {
+      "surface": "白",
+      "reading": "しろ",
+      "romaji": "shiro",
+      "meanings": {
+        "en": "white",
+        "pt-BR": "branco",
+        "es": "blanco"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Kaneki's hair turns white after Yamori's torture — a visual metaphor for the psychological trauma that irreversibly rewrites him."
+    },
+    {
+      "surface": "強さ",
+      "reading": "つよさ",
+      "romaji": "tsuyosa",
+      "meanings": {
+        "en": "strength / toughness",
+        "pt-BR": "força / resistência",
+        "es": "fuerza / fortaleza"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Kaneki equates strength with protecting others — but the stronger he becomes, the more he loses the gentle self he was protecting."
+    },
+    {
+      "surface": "感謝",
+      "reading": "かんしゃ",
+      "romaji": "kansha",
+      "meanings": {
+        "en": "gratitude / thankfulness",
+        "pt-BR": "gratidão / agradecimento",
+        "es": "gratitud / agradecimiento"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Kaneki's gratitude to Anteiku — for accepting him when the human world rejected him — is the foundation of his loyalty to them."
+    }
+  ]
+}

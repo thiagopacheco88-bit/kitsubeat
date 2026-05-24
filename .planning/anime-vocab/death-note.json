@@ -1,0 +1,1399 @@
+{
+  "anime": "death-note",
+  "label": "Death Note",
+  "icon": "death-note.png",
+  "description": "Light Yagami finds a supernatural notebook that kills anyone whose name is written in it.",
+  "vocab": [
+    {
+      "surface": "死",
+      "reading": "し",
+      "romaji": "shi",
+      "meanings": {
+        "en": "death",
+        "pt-BR": "morte",
+        "es": "muerte"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The entire series hinges on a single concept: death as a weapon, wielded by a human who believes he's a god."
+    },
+    {
+      "surface": "名前",
+      "reading": "なまえ",
+      "romaji": "namae",
+      "meanings": {
+        "en": "name",
+        "pt-BR": "nome",
+        "es": "nombre"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "A name written in the Death Note kills its owner — making names the most dangerous things in the world."
+    },
+    {
+      "surface": "日",
+      "reading": "にち",
+      "romaji": "nichi",
+      "meanings": {
+        "en": "day / date",
+        "pt-BR": "dia / data",
+        "es": "día / fecha"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "If no cause of death is specified, the person dies of a heart attack exactly 40 seconds after their name is written."
+    },
+    {
+      "surface": "世界",
+      "reading": "せかい",
+      "romaji": "sekai",
+      "meanings": {
+        "en": "world",
+        "pt-BR": "mundo",
+        "es": "mundo"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Light's goal is to cleanse the world of criminals and rule as a god — the ultimate megalomaniac's ambition."
+    },
+    {
+      "surface": "人",
+      "reading": "ひと",
+      "romaji": "hito",
+      "meanings": {
+        "en": "person / human",
+        "pt-BR": "pessoa / humano",
+        "es": "persona / humano"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Ryuk drops the Death Note into the human world out of pure boredom — humans are endlessly amusing to him."
+    },
+    {
+      "surface": "見る",
+      "reading": "みる",
+      "romaji": "miru",
+      "meanings": {
+        "en": "to see / to look",
+        "pt-BR": "ver / olhar",
+        "es": "ver / mirar"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "The shinigami eyes allow their owner to see anyone's name and remaining lifespan floating above their head."
+    },
+    {
+      "surface": "書く",
+      "reading": "かく",
+      "romaji": "kaku",
+      "meanings": {
+        "en": "to write",
+        "pt-BR": "escrever",
+        "es": "escribir"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "One act of writing a name in the notebook — and a life is ended. That is the Death Note's single, absolute rule."
+    },
+    {
+      "surface": "神",
+      "reading": "かみ",
+      "romaji": "kami",
+      "meanings": {
+        "en": "god / deity",
+        "pt-BR": "deus / divindade",
+        "es": "dios / deidad"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Light proclaims himself the god of the new world — Justice Kira, cleansing humanity of its worst elements."
+    },
+    {
+      "surface": "悪",
+      "reading": "あく",
+      "romaji": "aku",
+      "meanings": {
+        "en": "evil / wickedness",
+        "pt-BR": "mal / maldade",
+        "es": "mal / maldad"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Light targets criminals he labels as evil — but the definition of evil expands until anyone who opposes him qualifies."
+    },
+    {
+      "surface": "正義",
+      "reading": "せいぎ",
+      "romaji": "seigi",
+      "meanings": {
+        "en": "justice / righteousness",
+        "pt-BR": "justiça",
+        "es": "justicia"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Both Light and L claim to serve justice — the series asks which version of justice the audience actually supports."
+    },
+    {
+      "surface": "嘘",
+      "reading": "うそ",
+      "romaji": "uso",
+      "meanings": {
+        "en": "lie / falsehood",
+        "pt-BR": "mentira",
+        "es": "mentira"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Light's life becomes an unbroken chain of lies — each one carefully layered to protect his identity as Kira."
+    },
+    {
+      "surface": "帳",
+      "reading": "ちょう",
+      "romaji": "chō",
+      "meanings": {
+        "en": "notebook / ledger",
+        "pt-BR": "caderno / registro",
+        "es": "cuaderno / registro"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "The Death Note is literally a 死神の帳 — a shinigami's notebook, dropped into the human world."
+    },
+    {
+      "surface": "心臓",
+      "reading": "しんぞう",
+      "romaji": "shinzō",
+      "meanings": {
+        "en": "heart (organ)",
+        "pt-BR": "coração (órgão)",
+        "es": "corazón (órgano)"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "The default cause of death in the Death Note is a heart attack — a coronary that strikes exactly 40 seconds after the name is written."
+    },
+    {
+      "surface": "証拠",
+      "reading": "しょうこ",
+      "romaji": "shōko",
+      "meanings": {
+        "en": "evidence / proof",
+        "pt-BR": "evidência / prova",
+        "es": "evidencia / prueba"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L's entire strategy is building a chain of evidence — impossible to do when the weapon leaves no physical trace."
+    },
+    {
+      "surface": "真実",
+      "reading": "しんじつ",
+      "romaji": "shinjitsu",
+      "meanings": {
+        "en": "truth / reality",
+        "pt-BR": "verdade / realidade",
+        "es": "verdad / realidad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The gap between who Light appears to be and what he truly is forms the show's central dramatic tension."
+    },
+    {
+      "surface": "天才",
+      "reading": "てんさい",
+      "romaji": "tensai",
+      "meanings": {
+        "en": "genius",
+        "pt-BR": "gênio",
+        "es": "genio"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light and L are both described as geniuses — the series is ultimately a chess match between two extraordinary minds."
+    },
+    {
+      "surface": "捜査",
+      "reading": "そうさ",
+      "romaji": "sōsa",
+      "meanings": {
+        "en": "investigation / inquiry",
+        "pt-BR": "investigação / inquérito",
+        "es": "investigación"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L's investigation of Kira is the most high-stakes inquiry in the world — conducted with no precedent to follow."
+    },
+    {
+      "surface": "疑い",
+      "reading": "うたがい",
+      "romaji": "utagai",
+      "meanings": {
+        "en": "suspicion / doubt",
+        "pt-BR": "suspeita / dúvida",
+        "es": "sospecha / duda"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L's first and most enduring tactic is suspicion — he considers Light the primary suspect from their first meeting."
+    },
+    {
+      "surface": "裁き",
+      "reading": "さばき",
+      "romaji": "sabaki",
+      "meanings": {
+        "en": "judgment / verdict",
+        "pt-BR": "julgamento / veredicto",
+        "es": "juicio / veredicto"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light believes he is the only one qualified to deliver judgment upon criminals — a belief that corrupts him completely."
+    },
+    {
+      "surface": "殺す",
+      "reading": "ころす",
+      "romaji": "korosu",
+      "meanings": {
+        "en": "to kill",
+        "pt-BR": "matar",
+        "es": "matar"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The Death Note's power is absolute: write a name, and that person will be killed within the specified conditions."
+    },
+    {
+      "surface": "操る",
+      "reading": "あやつる",
+      "romaji": "ayatsuru",
+      "meanings": {
+        "en": "to manipulate / to control",
+        "pt-BR": "manipular / controlar",
+        "es": "manipular / controlar"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light's genius is his ability to manipulate everyone around him — including task force members hunting Kira."
+    },
+    {
+      "surface": "犯罪",
+      "reading": "はんざい",
+      "romaji": "hanzai",
+      "meanings": {
+        "en": "crime / criminal act",
+        "pt-BR": "crime / ato criminoso",
+        "es": "crimen / acto criminal"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "Light's initial targets are convicted criminals — but the boundaries of who counts as a criminal keep expanding."
+    },
+    {
+      "surface": "恐怖",
+      "reading": "きょうふ",
+      "romaji": "kyōfu",
+      "meanings": {
+        "en": "fear / terror",
+        "pt-BR": "medo / terror",
+        "es": "miedo / terror"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Kira's power over life and death spreads worldwide fear — a fear that paradoxically reduces crime rates."
+    },
+    {
+      "surface": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "meanings": {
+        "en": "memory / recollection",
+        "pt-BR": "memória / recordação",
+        "es": "memoria / recuerdo"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Surrendering ownership of the Death Note erases all memory of it — a key plot mechanic Light exploits."
+    },
+    {
+      "surface": "秘密",
+      "reading": "ひみつ",
+      "romaji": "himitsu",
+      "meanings": {
+        "en": "secret",
+        "pt-BR": "segredo",
+        "es": "secreto"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light's core secret — that he is Kira — must never reach L, no matter the cost to those around him."
+    },
+    {
+      "surface": "計画",
+      "reading": "けいかく",
+      "romaji": "keikaku",
+      "meanings": {
+        "en": "plan / scheme",
+        "pt-BR": "plano / esquema",
+        "es": "plan / esquema"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light's elaborate multi-step plans are the series' greatest spectacle — and his greatest flaw when one finally unravels."
+    },
+    {
+      "surface": "知性",
+      "reading": "ちせい",
+      "romaji": "chisei",
+      "meanings": {
+        "en": "intelligence / intellect",
+        "pt-BR": "inteligência / intelecto",
+        "es": "inteligencia / intelecto"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Raw intelligence is the only weapon either side possesses — no physical confrontations, just mind against mind."
+    },
+    {
+      "surface": "逮捕",
+      "reading": "たいほ",
+      "romaji": "taiho",
+      "meanings": {
+        "en": "arrest",
+        "pt-BR": "prisão / detenção",
+        "es": "arresto / detención"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L's entire endgame is building a legally admissible case — enough to arrest and convict, not just accuse."
+    },
+    {
+      "surface": "手がかり",
+      "reading": "てがかり",
+      "romaji": "tegakari",
+      "meanings": {
+        "en": "clue / lead",
+        "pt-BR": "pista / indício",
+        "es": "pista / indicio"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "Every clue L finds about Kira is deliberately manufactured by Light — a labyrinth of false leads."
+    },
+    {
+      "surface": "死神",
+      "reading": "しにがみ",
+      "romaji": "Shinigami",
+      "meanings": {
+        "en": "Death God / Grim Reaper",
+        "pt-BR": "Deus da Morte",
+        "es": "Dios de la Muerte"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Shinigami are beings from another realm who own Death Notes — Ryuk drops his into the human world out of boredom."
+    },
+    {
+      "surface": "所有者",
+      "reading": "しょゆうしゃ",
+      "romaji": "shoyūsha",
+      "meanings": {
+        "en": "owner / possessor",
+        "pt-BR": "dono / proprietário",
+        "es": "dueño / propietario"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "The Death Note's rules tie it to its human owner — switching ownership is a key tactical move in the series."
+    },
+    {
+      "surface": "寿命",
+      "reading": "じゅみょう",
+      "romaji": "jumyō",
+      "meanings": {
+        "en": "lifespan / remaining life",
+        "pt-BR": "tempo de vida restante",
+        "es": "vida restante / esperanza de vida"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Shinigami eyes let their owner see anyone's remaining lifespan — bought by trading half your own life."
+    },
+    {
+      "surface": "取引",
+      "reading": "とりひき",
+      "romaji": "torihiki",
+      "meanings": {
+        "en": "deal / transaction",
+        "pt-BR": "negócio / transação",
+        "es": "trato / transacción"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Ryuk's deal with Light — shinigami eyes in exchange for half his lifespan — is the series' most fateful transaction."
+    },
+    {
+      "surface": "狡猾",
+      "reading": "こうかつ",
+      "romaji": "kōkatsu",
+      "meanings": {
+        "en": "cunning / craftiness",
+        "pt-BR": "astúcia / esperteza",
+        "es": "astucia / artería"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Light's cunning is on full display when he constructs an alibi using the Death Note's own rule structure."
+    },
+    {
+      "surface": "傲慢",
+      "reading": "ごうまん",
+      "romaji": "gōman",
+      "meanings": {
+        "en": "arrogance / haughtiness",
+        "pt-BR": "arrogância",
+        "es": "arrogancia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Light's fatal flaw is arrogance — the belief that his intelligence makes him immune to mistakes."
+    },
+    {
+      "surface": "崇拝",
+      "reading": "すうはい",
+      "romaji": "sūhai",
+      "meanings": {
+        "en": "worship / adoration",
+        "pt-BR": "adoração / veneração",
+        "es": "adoración / veneración"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Kira amasses a following of devoted worshippers who genuinely believe his killings are divine justice."
+    },
+    {
+      "surface": "監視",
+      "reading": "かんし",
+      "romaji": "kanshi",
+      "meanings": {
+        "en": "surveillance / monitoring",
+        "pt-BR": "vigilância / monitoramento",
+        "es": "vigilancia / monitoreo"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "L's surveillance of Light is relentless and invasive — cameras even in his bedroom — yet Light still outmanoeuvres him."
+    },
+    {
+      "surface": "謀略",
+      "reading": "ぼうりゃく",
+      "romaji": "bōryaku",
+      "meanings": {
+        "en": "stratagem / intrigue",
+        "pt-BR": "estratagema / intriga",
+        "es": "estratagema / intriga"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "The battle between Light and L is pure stratagem — a war of schemes where the loser dies."
+    },
+    {
+      "surface": "デスノート",
+      "reading": "でするのおと",
+      "romaji": "Desu Nōto",
+      "meanings": {
+        "en": "Death Note (the notebook)",
+        "pt-BR": "Caderno da Morte",
+        "es": "Cuaderno de la Muerte"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Death Note: a supernatural notebook with one rule — write a human's name and that person will die."
+    },
+    {
+      "surface": "キラ",
+      "reading": "きら",
+      "romaji": "Kira",
+      "meanings": {
+        "en": "Kira (Light's alias — from 'killer')",
+        "pt-BR": "Kira (pseudônimo de Light)",
+        "es": "Kira (alias de Light)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Kira is the god-name the public gives the mysterious killer — derived from the English word 'killer' via Japanese."
+    },
+    {
+      "surface": "目の取引",
+      "reading": "めのとりひき",
+      "romaji": "Me no Torihiki",
+      "meanings": {
+        "en": "Shinigami Eyes Deal",
+        "pt-BR": "Negócio dos Olhos de Shinigami",
+        "es": "Trato de los Ojos de Shinigami"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Trade half your remaining lifespan and you gain the shinigami eyes — you can see anyone's name and remaining life."
+    },
+    {
+      "surface": "死のルール",
+      "reading": "しのるーる",
+      "romaji": "Shi no Rūru",
+      "meanings": {
+        "en": "rules of the Death Note",
+        "pt-BR": "regras do Caderno da Morte",
+        "es": "reglas del Cuaderno de la Muerte"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The Death Note comes with 60+ rules that Light memorizes and exploits as legal loopholes for his killings."
+    },
+    {
+      "surface": "新世界の神",
+      "reading": "しんせかいのかみ",
+      "romaji": "Shin Sekai no Kami",
+      "meanings": {
+        "en": "god of the new world",
+        "pt-BR": "deus do novo mundo",
+        "es": "dios del nuevo mundo"
+      },
+      "jlpt_level": null,
+      "category": "themes",
+      "context": "Light's self-proclaimed title — god of the new world — reveals the full depth of his narcissistic delusion."
+    },
+    {
+      "surface": "夜神月",
+      "reading": "やがみらいと",
+      "romaji": "Yagami Raito",
+      "meanings": {
+        "en": "Light Yagami (protagonist)",
+        "pt-BR": "Light Yagami (protagonista)",
+        "es": "Light Yagami (protagonista)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Yagami Light — his given name 月 (tsuki/raito) means 'moon' or 'light' — the perfect name for a character who plays god."
+    },
+    {
+      "surface": "警察",
+      "reading": "けいさつ",
+      "romaji": "keisatsu",
+      "meanings": {
+        "en": "police",
+        "pt-BR": "polícia",
+        "es": "policía"
+      },
+      "jlpt_level": "N4",
+      "category": "investigation",
+      "context": "Light's father leads the Kira Task Force from inside the very police force hunting his son."
+    },
+    {
+      "surface": "法律",
+      "reading": "ほうりつ",
+      "romaji": "hōritsu",
+      "meanings": {
+        "en": "law / legislation",
+        "pt-BR": "lei / legislação",
+        "es": "ley / legislación"
+      },
+      "jlpt_level": "N4",
+      "category": "investigation",
+      "context": "Light believes conventional law is too slow — his Death Note delivers an instant verdict the legal system cannot."
+    },
+    {
+      "surface": "殺人",
+      "reading": "さつじん",
+      "romaji": "satsujin",
+      "meanings": {
+        "en": "murder / homicide",
+        "pt-BR": "homicídio / assassinato",
+        "es": "homicidio / asesinato"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "Every name Light writes is legally a murder — yet no crime scene, no weapon, and no motive is ever found."
+    },
+    {
+      "surface": "犯人",
+      "reading": "はんにん",
+      "romaji": "hannin",
+      "meanings": {
+        "en": "culprit / criminal",
+        "pt-BR": "criminoso / culpado",
+        "es": "culpable / criminal"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L's task is to identify the culprit — but Kira commits crimes without leaving any physical trace for police to follow."
+    },
+    {
+      "surface": "尋問",
+      "reading": "じんもん",
+      "romaji": "jinmon",
+      "meanings": {
+        "en": "interrogation / questioning",
+        "pt-BR": "interrogatório",
+        "es": "interrogatorio"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "L interrogates Light directly while pretending to be his friend — their shared scenes are the show's most electric exchanges."
+    },
+    {
+      "surface": "心理",
+      "reading": "しんり",
+      "romaji": "shinri",
+      "meanings": {
+        "en": "psychology / mental state",
+        "pt-BR": "psicologia / estado mental",
+        "es": "psicología / estado mental"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "The battle between L and Light is fought entirely on the psychological plane — neither can afford to reveal their true reasoning."
+    },
+    {
+      "surface": "論理",
+      "reading": "ろんり",
+      "romaji": "ronri",
+      "meanings": {
+        "en": "logic / reasoning",
+        "pt-BR": "lógica / raciocínio",
+        "es": "lógica / razonamiento"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "Light constructs every lie on airtight logic — which is why L's counter-arguments based on probability unsettle him so deeply."
+    },
+    {
+      "surface": "動機",
+      "reading": "どうき",
+      "romaji": "dōki",
+      "meanings": {
+        "en": "motive / motivation",
+        "pt-BR": "motivo / motivação",
+        "es": "motivo / motivación"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "L notes early that Kira's motive is ideological — a desire for a clean world, not personal gain — which narrows the suspect pool."
+    },
+    {
+      "surface": "精神",
+      "reading": "せいしん",
+      "romaji": "seishin",
+      "meanings": {
+        "en": "spirit / mind / mental state",
+        "pt-BR": "espírito / mente / estado mental",
+        "es": "espíritu / mente / estado mental"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "The Death Note's power corrodes Light's mental state — his initial idealism calcifies into a paranoid need for total control."
+    },
+    {
+      "surface": "本能",
+      "reading": "ほんのう",
+      "romaji": "honnō",
+      "meanings": {
+        "en": "instinct",
+        "pt-BR": "instinto",
+        "es": "instinto"
+      },
+      "jlpt_level": "N2",
+      "category": "psychology",
+      "context": "Light's instinct to win overrides everything — even when logic says retreat, his nature pushes him to crush the opponent completely."
+    },
+    {
+      "surface": "自我",
+      "reading": "じが",
+      "romaji": "jiga",
+      "meanings": {
+        "en": "ego / self",
+        "pt-BR": "ego / eu",
+        "es": "ego / yo"
+      },
+      "jlpt_level": "N2",
+      "category": "psychology",
+      "context": "Light's ego expands with each victory — the Death Note doesn't corrupt him so much as remove every check on his pre-existing nature."
+    },
+    {
+      "surface": "選択",
+      "reading": "せんたく",
+      "romaji": "sentaku",
+      "meanings": {
+        "en": "choice / selection",
+        "pt-BR": "escolha / seleção",
+        "es": "elección / selección"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Every character faces a moral choice in Death Note — but only Light makes his with the casual certainty of a god."
+    },
+    {
+      "surface": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "meanings": {
+        "en": "solitude / loneliness",
+        "pt-BR": "solidão",
+        "es": "soledad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light's greatest tragedy is that his genius isolates him entirely — no one can truly know him because he can never stop performing."
+    },
+    {
+      "surface": "嫉妬",
+      "reading": "しっと",
+      "romaji": "shitto",
+      "meanings": {
+        "en": "jealousy / envy",
+        "pt-BR": "ciúme / inveja",
+        "es": "celos / envidia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Misa's love for Kira borders on jealousy of anyone else who takes his attention — a vulnerability Light exploits ruthlessly."
+    },
+    {
+      "surface": "誘惑",
+      "reading": "ゆうわく",
+      "romaji": "yūwaku",
+      "meanings": {
+        "en": "temptation / seduction",
+        "pt-BR": "tentação / sedução",
+        "es": "tentación / seducción"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The Death Note itself is a temptation — Ryuk drops it knowing that whoever picks it up will be unable to resist its power."
+    },
+    {
+      "surface": "執着",
+      "reading": "しゅうちゃく",
+      "romaji": "shūchaku",
+      "meanings": {
+        "en": "obsession / attachment",
+        "pt-BR": "obsessão / apego",
+        "es": "obsesión / apego"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Light's obsession with winning — with proving his intellectual superiority — drives every decision in the series' second half."
+    },
+    {
+      "surface": "対立",
+      "reading": "たいりつ",
+      "romaji": "tairitsu",
+      "meanings": {
+        "en": "confrontation / opposition",
+        "pt-BR": "confronto / oposição",
+        "es": "confrontación / oposición"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The confrontation between Light and L — ideologically, strategically, and personally — is the engine that drives Death Note."
+    },
+    {
+      "surface": "失敗",
+      "reading": "しっぱい",
+      "romaji": "shippai",
+      "meanings": {
+        "en": "failure / mistake",
+        "pt-BR": "fracasso / erro",
+        "es": "fracaso / error"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Light never genuinely contemplates failure — his inability to imagine defeat is ultimately what defeats him."
+    },
+    {
+      "surface": "覚悟",
+      "reading": "かくご",
+      "romaji": "kakugo",
+      "meanings": {
+        "en": "resolve / readiness for consequences",
+        "pt-BR": "resolução / prontidão para as consequências",
+        "es": "resolución / preparación para las consecuencias"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light accepts from the start that his mission requires killing — a resolve that defines him as villain or hero depending on your view."
+    },
+    {
+      "surface": "調査",
+      "reading": "ちょうさ",
+      "romaji": "chōsa",
+      "meanings": {
+        "en": "investigation / research",
+        "pt-BR": "investigação / pesquisa",
+        "es": "investigación / investigación"
+      },
+      "jlpt_level": "N4",
+      "category": "investigation",
+      "context": "L's global investigation draws on every intelligence asset available — yet the answer remains maddeningly out of reach."
+    },
+    {
+      "surface": "推理",
+      "reading": "すいり",
+      "romaji": "suiri",
+      "meanings": {
+        "en": "deduction / reasoning",
+        "pt-BR": "dedução / raciocínio",
+        "es": "deducción / razonamiento"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L's deductive reasoning leads him to Light within the first few episodes — but proving what he knows is another matter entirely."
+    },
+    {
+      "surface": "分析",
+      "reading": "ぶんせき",
+      "romaji": "bunseki",
+      "meanings": {
+        "en": "analysis",
+        "pt-BR": "análise",
+        "es": "análisis"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L analyzes every data point with extreme precision — Kira's kill patterns, timing, and victim selection all tell a hidden story."
+    },
+    {
+      "surface": "予測",
+      "reading": "よそく",
+      "romaji": "yosoku",
+      "meanings": {
+        "en": "prediction / forecast",
+        "pt-BR": "previsão / prognóstico",
+        "es": "predicción / pronóstico"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L predicts Light's actions before they happen — and Light predicts L's countermoves — a recursive battle of anticipation."
+    },
+    {
+      "surface": "証明",
+      "reading": "しょうめい",
+      "romaji": "shōmei",
+      "meanings": {
+        "en": "proof / demonstration",
+        "pt-BR": "prova / demonstração",
+        "es": "prueba / demostración"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "Proof is L's problem — he can be 99% certain Light is Kira and still be legally powerless without admissible evidence."
+    },
+    {
+      "surface": "追跡",
+      "reading": "ついせき",
+      "romaji": "tsuiseki",
+      "meanings": {
+        "en": "pursuit / tracking",
+        "pt-BR": "perseguição / rastreamento",
+        "es": "persecución / rastreo"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "L's pursuit of Kira is relentless and methodical — but every time he closes in, Light has already anticipated the trap."
+    },
+    {
+      "surface": "尾行",
+      "reading": "びこう",
+      "romaji": "bikō",
+      "meanings": {
+        "en": "tailing / shadowing",
+        "pt-BR": "seguir / rastrear furtivamente",
+        "es": "seguimiento / vigilancia encubierta"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "L puts physical surveillance on Light — a move Light counters by acting the perfect innocent suspect even under constant watch."
+    },
+    {
+      "surface": "報道",
+      "reading": "ほうどう",
+      "romaji": "hōdō",
+      "meanings": {
+        "en": "news coverage / reporting",
+        "pt-BR": "cobertura jornalística",
+        "es": "cobertura informativa"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Kira's killings dominate global news coverage — and Light monitors every broadcast to calibrate the public's perception of him."
+    },
+    {
+      "surface": "政府",
+      "reading": "せいふ",
+      "romaji": "seifu",
+      "meanings": {
+        "en": "government",
+        "pt-BR": "governo",
+        "es": "gobierno"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Governments worldwide are divided: some want Kira stopped, others quietly welcome the drop in crime rates."
+    },
+    {
+      "surface": "社会",
+      "reading": "しゃかい",
+      "romaji": "shakai",
+      "meanings": {
+        "en": "society",
+        "pt-BR": "sociedade",
+        "es": "sociedad"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Death Note asks whether a society that accepts vigilante killings has already abandoned its own principles."
+    },
+    {
+      "surface": "洗脳",
+      "reading": "せんのう",
+      "romaji": "sennō",
+      "meanings": {
+        "en": "brainwashing / indoctrination",
+        "pt-BR": "lavagem cerebral / doutrinação",
+        "es": "lavado de cerebro / adoctrinamiento"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Light's Kira Movement eventually brainwashes entire populations into believing mass killing is divine justice."
+    },
+    {
+      "surface": "矛盾",
+      "reading": "むじゅん",
+      "romaji": "mujun",
+      "meanings": {
+        "en": "contradiction / inconsistency",
+        "pt-BR": "contradição / inconsistência",
+        "es": "contradicción / inconsistencia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The core contradiction of Death Note: Light kills to create a better world, but the killing makes him exactly what he despises."
+    },
+    {
+      "surface": "完璧",
+      "reading": "かんぺき",
+      "romaji": "kanpeki",
+      "meanings": {
+        "en": "perfection / flawlessness",
+        "pt-BR": "perfeição / perfeito",
+        "es": "perfección / perfecto"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Light's obsession with a perfect execution — no loose ends, no witnesses — is what L uses to profile him as Kira."
+    },
+    {
+      "surface": "権力",
+      "reading": "けんりょく",
+      "romaji": "kenryoku",
+      "meanings": {
+        "en": "power / authority",
+        "pt-BR": "poder / autoridade",
+        "es": "poder / autoridad"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The Death Note grants absolute power over life and death — and, as Light demonstrates, absolute power corrupts absolutely."
+    },
+    {
+      "surface": "支配",
+      "reading": "しはい",
+      "romaji": "shihai",
+      "meanings": {
+        "en": "control / domination / rule",
+        "pt-BR": "controle / dominação / governo",
+        "es": "control / dominación / gobierno"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Light's ultimate goal is total control — a world where he alone decides who lives and who dies."
+    },
+    {
+      "surface": "道徳",
+      "reading": "どうとく",
+      "romaji": "dōtoku",
+      "meanings": {
+        "en": "morality / ethics",
+        "pt-BR": "moralidade / ética",
+        "es": "moralidad / ética"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Death Note systematically dismantles every moral position — both Kira's ideology and L's methods are ethically compromised."
+    },
+    {
+      "surface": "復讐",
+      "reading": "ふくしゅう",
+      "romaji": "fukushū",
+      "meanings": {
+        "en": "revenge / vengeance",
+        "pt-BR": "vingança",
+        "es": "venganza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Mello's vendetta against Light is personal — a desire for revenge that drives him to take extreme risks L never would."
+    },
+    {
+      "surface": "利用",
+      "reading": "りよう",
+      "romaji": "riyō",
+      "meanings": {
+        "en": "use / utilization / exploitation",
+        "pt-BR": "uso / utilização / exploração",
+        "es": "uso / utilización / explotación"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Light exploits everyone around him — his father, Misa, the task force — as instruments of his grand design."
+    },
+    {
+      "surface": "偽る",
+      "reading": "いつわる",
+      "romaji": "itsuwaru",
+      "meanings": {
+        "en": "to deceive / to pretend",
+        "pt-BR": "enganar / fingir",
+        "es": "engañar / fingir"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Light deceives everyone including himself — his performance as the ideal student and son never wavers even under surveillance."
+    },
+    {
+      "surface": "手帳",
+      "reading": "てちょう",
+      "romaji": "techō",
+      "meanings": {
+        "en": "notebook / pocket diary",
+        "pt-BR": "caderninho / agenda",
+        "es": "libreta / agenda"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Light hides a piece of the Death Note inside a chip-loaded dummy notebook — one of his most elaborate concealment traps."
+    },
+    {
+      "surface": "模倣",
+      "reading": "もほう",
+      "romaji": "mohō",
+      "meanings": {
+        "en": "imitation / mimicry",
+        "pt-BR": "imitação / mimetismo",
+        "es": "imitación / mimetismo"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "Copycat killers emerge after Kira's rise — Light must manage imitators who threaten to muddy his carefully curated image."
+    },
+    {
+      "surface": "直感",
+      "reading": "ちょっかん",
+      "romaji": "chokkan",
+      "meanings": {
+        "en": "intuition / gut feeling",
+        "pt-BR": "intuição / pressentimento",
+        "es": "intuición / presentimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "L says he has a 3% chance of being wrong about Light — his intuition is essentially infallible, but unprovable."
+    },
+    {
+      "surface": "記者",
+      "reading": "きしゃ",
+      "romaji": "kisha",
+      "meanings": {
+        "en": "journalist / reporter",
+        "pt-BR": "jornalista / repórter",
+        "es": "periodista / reportero"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Journalists scramble to cover Kira's killings — the media circus both helps and hinders the task force investigation."
+    },
+    {
+      "surface": "倫理",
+      "reading": "りんり",
+      "romaji": "rinri",
+      "meanings": {
+        "en": "ethics / ethical principles",
+        "pt-BR": "ética / princípios éticos",
+        "es": "ética / principios éticos"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Death Note is one of anime's few series built entirely around ethical inquiry — every plot development is a philosophical test case."
+    },
+    {
+      "surface": "罰",
+      "reading": "ばつ",
+      "romaji": "batsu",
+      "meanings": {
+        "en": "punishment / penalty",
+        "pt-BR": "punição / penalidade",
+        "es": "castigo / penalidad"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Kira positions himself as the ultimate punishment mechanism — judge, jury, and executioner in one."
+    },
+    {
+      "surface": "天才的",
+      "reading": "てんさいてき",
+      "romaji": "tensaiteki",
+      "meanings": {
+        "en": "genius-level / brilliant",
+        "pt-BR": "genial / de nível genial",
+        "es": "genial / de nivel genio"
+      },
+      "jlpt_level": "N3",
+      "category": "psychology",
+      "context": "Near describes Light's genius-level mind as both his greatest weapon and the thing that blinds him to his own destruction."
+    },
+    {
+      "surface": "ニア",
+      "reading": "にあ",
+      "romaji": "Nia",
+      "meanings": {
+        "en": "Near (L's successor, real name Nate River)",
+        "pt-BR": "Near (sucessor de L, nome real Nate River)",
+        "es": "Near (sucesor de L, nombre real Nate River)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Near is L's quiet, toy-playing successor — he eventually accomplishes what L could not by working with Mello."
+    },
+    {
+      "surface": "メロ",
+      "reading": "めろ",
+      "romaji": "Mero",
+      "meanings": {
+        "en": "Mello (L's other successor, real name Mihael Keehl)",
+        "pt-BR": "Mello (outro sucessor de L, nome real Mihael Keehl)",
+        "es": "Mello (otro sucesor de L, nombre real Mihael Keehl)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Mello is L's aggressive, chocolate-eating successor — his rivalry with Near forces Light to fight on two fronts simultaneously."
+    },
+    {
+      "surface": "レム",
+      "reading": "れむ",
+      "romaji": "Remu",
+      "meanings": {
+        "en": "Rem (female shinigami devoted to Misa)",
+        "pt-BR": "Rem (shinigami feminina devota a Misa)",
+        "es": "Rem (shinigami femenina devota a Misa)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Rem is a shinigami who genuinely loves Misa — a devotion Light weaponizes to neutralize L at a critical moment."
+    },
+    {
+      "surface": "弥海砂",
+      "reading": "あまねみさ",
+      "romaji": "Amane Misa",
+      "meanings": {
+        "en": "Amane Misa (the Second Kira)",
+        "pt-BR": "Amane Misa (a Segunda Kira)",
+        "es": "Amane Misa (la Segunda Kira)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Misa is the Second Kira — a pop idol who trades half her lifespan twice for shinigami eyes and worships Light utterly."
+    },
+    {
+      "surface": "リューク",
+      "reading": "りゅーく",
+      "romaji": "Ryūku",
+      "meanings": {
+        "en": "Ryuk (the shinigami who dropped the Death Note)",
+        "pt-BR": "Ryuk (o shinigami que largou o Caderno da Morte)",
+        "es": "Ryuk (el shinigami que dejó caer el Cuaderno de la Muerte)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Ryuk drops the Death Note out of boredom and watches humans destroy themselves — a spectator who delivers the final judgment."
+    },
+    {
+      "surface": "夜神総一郎",
+      "reading": "やがみそういちろう",
+      "romaji": "Yagami Sōichirō",
+      "meanings": {
+        "en": "Yagami Sōichirō (Light's father, task force chief)",
+        "pt-BR": "Yagami Sōichirō (pai de Light, chefe da força-tarefa)",
+        "es": "Yagami Sōichirō (padre de Light, jefe de la fuerza policial)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Light's father leads the task force hunting Kira — never suspecting his own son is the murderer he is trying to catch."
+    },
+    {
+      "surface": "松田",
+      "reading": "まつだ",
+      "romaji": "Matsuda",
+      "meanings": {
+        "en": "Matsuda (task force detective)",
+        "pt-BR": "Matsuda (detetive da força-tarefa)",
+        "es": "Matsuda (detective de la fuerza policial)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Matsuda is the young, impulsive task force member who genuinely idolizes Light — making his final act one of the series' cruelest ironies."
+    },
+    {
+      "surface": "正当化",
+      "reading": "せいとうか",
+      "romaji": "seitōka",
+      "meanings": {
+        "en": "justification / rationalization",
+        "pt-BR": "justificação / racionalização",
+        "es": "justificación / racionalización"
+      },
+      "jlpt_level": "N2",
+      "category": "psychology",
+      "context": "Light constantly justifies his killings as necessary for the greater good — a rationalization that becomes less convincing over time."
+    },
+    {
+      "surface": "責任",
+      "reading": "せきにん",
+      "romaji": "sekinin",
+      "meanings": {
+        "en": "responsibility / duty",
+        "pt-BR": "responsabilidade / dever",
+        "es": "responsabilidad / deber"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Light reframes his murders as responsibility — the burden of being the only one smart enough to clean up humanity's mess."
+    },
+    {
+      "surface": "自白",
+      "reading": "じはく",
+      "romaji": "jihaku",
+      "meanings": {
+        "en": "confession / admission",
+        "pt-BR": "confissão / admissão",
+        "es": "confesión / admisión"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "Near engineers a situation where Light's arrogance drives him to effectively confess — the ultimate psychological trap."
+    },
+    {
+      "surface": "狂気",
+      "reading": "きょうき",
+      "romaji": "kyōki",
+      "meanings": {
+        "en": "madness / insanity",
+        "pt-BR": "loucura / insanidade",
+        "es": "locura / insanidad"
+      },
+      "jlpt_level": "N2",
+      "category": "psychology",
+      "context": "Light's final monologue reveals the madness beneath the brilliance — stripped of pretense, only the delusion remains."
+    },
+    {
+      "surface": "神格化",
+      "reading": "しんかくか",
+      "romaji": "shinkakuka",
+      "meanings": {
+        "en": "deification / apotheosis",
+        "pt-BR": "deificação / apoteose",
+        "es": "deificación / apoteosis"
+      },
+      "jlpt_level": "N1",
+      "category": "themes",
+      "context": "Light's self-deification — becoming Kira, god of the new world — is the series' central cautionary arc."
+    },
+    {
+      "surface": "威圧",
+      "reading": "いあつ",
+      "romaji": "iatsu",
+      "meanings": {
+        "en": "intimidation / coercion",
+        "pt-BR": "intimidação / coerção",
+        "es": "intimidación / coerción"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "Kira intimidates governments and law enforcement worldwide — the mere threat of writing a name becomes a political weapon."
+    },
+    {
+      "surface": "独裁",
+      "reading": "どくさい",
+      "romaji": "dokusai",
+      "meanings": {
+        "en": "dictatorship / autocracy",
+        "pt-BR": "ditadura / autocracia",
+        "es": "dictadura / autocracia"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Light's ideal world is a dictatorship of virtue — himself as the supreme authority with no checks on his judgment."
+    },
+    {
+      "surface": "目撃者",
+      "reading": "もくげきしゃ",
+      "romaji": "mokugekisha",
+      "meanings": {
+        "en": "witness / eyewitness",
+        "pt-BR": "testemunha ocular",
+        "es": "testigo ocular"
+      },
+      "jlpt_level": "N3",
+      "category": "investigation",
+      "context": "There are never any witnesses to Kira's killings — death by heart attack leaves no crime scene and no survivors to testify."
+    },
+    {
+      "surface": "運命",
+      "reading": "うんめい",
+      "romaji": "unmei",
+      "meanings": {
+        "en": "fate / destiny",
+        "pt-BR": "destino / fado",
+        "es": "destino / hado"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Ryuk tells Light from the start that the Death Note's owner cannot go to either heaven or hell — fate sealed from page one."
+    },
+    {
+      "surface": "権威",
+      "reading": "けんい",
+      "romaji": "ken'i",
+      "meanings": {
+        "en": "authority / prestige",
+        "pt-BR": "autoridade / prestígio",
+        "es": "autoridad / prestigio"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "L's authority within the global intelligence community is unquestioned — yet he never reveals his face or real name."
+    },
+    {
+      "surface": "排除",
+      "reading": "はいじょ",
+      "romaji": "haijo",
+      "meanings": {
+        "en": "exclusion / elimination",
+        "pt-BR": "exclusão / eliminação",
+        "es": "exclusión / eliminación"
+      },
+      "jlpt_level": "N2",
+      "category": "investigation",
+      "context": "Light's strategy shifts from eliminating criminals to eliminating anyone who threatens to expose him as Kira."
+    }
+  ]
+}

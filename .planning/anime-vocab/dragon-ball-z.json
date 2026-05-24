@@ -1,0 +1,1191 @@
+{
+  "anime": "dragon-ball-z",
+  "label": "Dragon Ball Z",
+  "icon": "dragon-ball-z.png",
+  "description": "Goku and the Z Fighters defend Earth against increasingly powerful cosmic threats.",
+  "vocab": [
+    {
+      "surface": "空",
+      "reading": "そら",
+      "romaji": "sora",
+      "meanings": {
+        "en": "sky",
+        "pt-BR": "céu",
+        "es": "cielo"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Dragon Ball Z battles happen at every altitude — from ground level to the upper atmosphere and beyond."
+    },
+    {
+      "surface": "地球",
+      "reading": "ちきゅう",
+      "romaji": "chikyū",
+      "meanings": {
+        "en": "Earth / the earth",
+        "pt-BR": "Terra",
+        "es": "Tierra"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Earth is repeatedly at risk of total destruction — the Z Fighters dedicate their lives to defending it."
+    },
+    {
+      "surface": "強い",
+      "reading": "つよい",
+      "romaji": "tsuyoi",
+      "meanings": {
+        "en": "strong / powerful",
+        "pt-BR": "forte / poderoso",
+        "es": "fuerte / poderoso"
+      },
+      "jlpt_level": "N5",
+      "category": "themes",
+      "context": "Becoming stronger is the central aspiration of every fighter in Dragon Ball Z — the series' eternal driving force."
+    },
+    {
+      "surface": "戦う",
+      "reading": "たたかう",
+      "romaji": "tatakau",
+      "meanings": {
+        "en": "to fight / to battle",
+        "pt-BR": "lutar / batalhar",
+        "es": "luchar / batallar"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "The Z Fighters never stop fighting — no matter how impossible the odds, they stand and face the enemy."
+    },
+    {
+      "surface": "力",
+      "reading": "ちから",
+      "romaji": "chikara",
+      "meanings": {
+        "en": "strength / power",
+        "pt-BR": "força / poder",
+        "es": "fuerza / poder"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Power in Dragon Ball Z is measured, tested, and exceeded in every arc — the power ceiling keeps rising infinitely."
+    },
+    {
+      "surface": "修行",
+      "reading": "しゅぎょう",
+      "romaji": "shugyō",
+      "meanings": {
+        "en": "training / ascetic practice",
+        "pt-BR": "treinamento / prática ascética",
+        "es": "entrenamiento / práctica ascética"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Every arc begins with a training montage — Goku's relentless drive to improve is the soul of the series."
+    },
+    {
+      "surface": "変身",
+      "reading": "へんしん",
+      "romaji": "henshin",
+      "meanings": {
+        "en": "transformation",
+        "pt-BR": "transformação",
+        "es": "transformación"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Transformations are Dragon Ball Z's signature — each new form announced with a dramatic power surge and hair color change."
+    },
+    {
+      "surface": "仲間",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "meanings": {
+        "en": "comrade / companion",
+        "pt-BR": "companheiro / camarada",
+        "es": "compañero / camarada"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Z Fighters are friends first, warriors second — protecting your nakama is the motivation beneath every battle."
+    },
+    {
+      "surface": "宇宙",
+      "reading": "うちゅう",
+      "romaji": "uchū",
+      "meanings": {
+        "en": "outer space / universe",
+        "pt-BR": "espaço sideral / universo",
+        "es": "espacio exterior / universo"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Dragon Ball Z expands from Earth to the universe — Namek, Other World, and eventually multiple parallel universes."
+    },
+    {
+      "surface": "気",
+      "reading": "き",
+      "romaji": "ki",
+      "meanings": {
+        "en": "ki / life energy / spirit",
+        "pt-BR": "ki / energia vital",
+        "es": "ki / energía vital"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Ki is the power source for every technique in Dragon Ball Z — sensing, gathering, and releasing it defines a fighter."
+    },
+    {
+      "surface": "超",
+      "reading": "ちょう",
+      "romaji": "chō",
+      "meanings": {
+        "en": "super / ultra / transcendent",
+        "pt-BR": "super / ultra",
+        "es": "super / ultra"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The Super Saiyan transformation — 超サイヤ人 — is Dragon Ball Z's most iconic moment: golden hair, teal eyes, raw power."
+    },
+    {
+      "surface": "戦士",
+      "reading": "せんし",
+      "romaji": "senshi",
+      "meanings": {
+        "en": "warrior / fighter",
+        "pt-BR": "guerreiro / lutador",
+        "es": "guerrero / luchador"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Saiyan warriors are born with a fighting instinct — a racial pride that pushes them past human limits."
+    },
+    {
+      "surface": "覚醒",
+      "reading": "かくせい",
+      "romaji": "kakusei",
+      "meanings": {
+        "en": "awakening / becoming conscious",
+        "pt-BR": "despertar",
+        "es": "despertar"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Gohan's awakening against Cell — fuelled by rage over Android 16 — is one of the most cathartic moments in anime."
+    },
+    {
+      "surface": "融合",
+      "reading": "ゆうごう",
+      "romaji": "yūgō",
+      "meanings": {
+        "en": "fusion / merger",
+        "pt-BR": "fusão / união",
+        "es": "fusión / unión"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "The Fusion Dance and Potara earrings allow two fighters to merge into a single, far more powerful being."
+    },
+    {
+      "surface": "怒り",
+      "reading": "いかり",
+      "romaji": "ikari",
+      "meanings": {
+        "en": "anger / rage",
+        "pt-BR": "raiva / fúria",
+        "es": "ira / rabia"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Rage is a Saiyan power multiplier — Goku's first Super Saiyan transformation erupts from Krillin's death."
+    },
+    {
+      "surface": "希望",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "meanings": {
+        "en": "hope",
+        "pt-BR": "esperança",
+        "es": "esperanza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Dragon Balls represent hope: the ability to undo death and restore what was lost — powerful enough to rewrite fate."
+    },
+    {
+      "surface": "誇り",
+      "reading": "ほこり",
+      "romaji": "hokori",
+      "meanings": {
+        "en": "pride",
+        "pt-BR": "orgulho",
+        "es": "orgullo"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Saiyan pride is a double-edged trait — Vegeta's pride drives both his greatest achievements and his most devastating mistakes."
+    },
+    {
+      "surface": "犠牲",
+      "reading": "ぎせい",
+      "romaji": "gisei",
+      "meanings": {
+        "en": "sacrifice",
+        "pt-BR": "sacrifício",
+        "es": "sacrificio"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Goku sacrifices himself repeatedly to save others — his self-sacrifice against Cell is the series' emotional peak."
+    },
+    {
+      "surface": "限界",
+      "reading": "げんかい",
+      "romaji": "genkai",
+      "meanings": {
+        "en": "limit / boundary",
+        "pt-BR": "limite / fronteira",
+        "es": "límite / frontera"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Dragon Ball Z is the story of fighters who find their absolute limit — and then break through it."
+    },
+    {
+      "surface": "復活",
+      "reading": "ふっかつ",
+      "romaji": "fukkatsu",
+      "meanings": {
+        "en": "revival / resurrection",
+        "pt-BR": "ressurreição / renascimento",
+        "es": "resurrección / renacimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "The Dragon Balls grant resurrections — death in Dragon Ball Z is rarely permanent, which shapes its entire emotional logic."
+    },
+    {
+      "surface": "破壊",
+      "reading": "はかい",
+      "romaji": "hakai",
+      "meanings": {
+        "en": "destruction",
+        "pt-BR": "destruição",
+        "es": "destrucción"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Planet-scale destruction is a real threat in Dragon Ball Z — Freeza literally destroys Planet Vegeta with a finger."
+    },
+    {
+      "surface": "戦闘力",
+      "reading": "せんとうりょく",
+      "romaji": "sentōryoku",
+      "meanings": {
+        "en": "battle power / power level",
+        "pt-BR": "poder de batalha",
+        "es": "poder de batalla"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Power Levels are measured by scouters — though the series ultimately shows that numbers alone can't predict victory."
+    },
+    {
+      "surface": "異星人",
+      "reading": "いせいじん",
+      "romaji": "iseijin",
+      "meanings": {
+        "en": "alien / extraterrestrial",
+        "pt-BR": "alienígena / extraterrestre",
+        "es": "alienígena / extraterrestre"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Dragon Ball Z introduces cosmic threats: Freeza's empire, Saiyans, Namekians — the universe is full of dangerous aliens."
+    },
+    {
+      "surface": "不死身",
+      "reading": "ふじみ",
+      "romaji": "fujimi",
+      "meanings": {
+        "en": "immortality / invincibility",
+        "pt-BR": "imortalidade / invencibilidade",
+        "es": "inmortalidad / invencibilidad"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Freeza's wish on the Dragon Balls is immortality — the race to prevent it drives the entire Namek arc."
+    },
+    {
+      "surface": "細胞",
+      "reading": "さいぼう",
+      "romaji": "saibō",
+      "meanings": {
+        "en": "cell / biological cell",
+        "pt-BR": "célula (biológica)",
+        "es": "célula (biológica)"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Cell is made from the cells of Earth's greatest fighters — a bio-android designed to be the perfect warrior."
+    },
+    {
+      "surface": "吸収",
+      "reading": "きゅうしゅう",
+      "romaji": "kyūshū",
+      "meanings": {
+        "en": "absorption",
+        "pt-BR": "absorção",
+        "es": "absorción"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Cell absorbs Androids 17 and 18 to achieve his perfect form — and Buu absorbs opponents to steal their power."
+    },
+    {
+      "surface": "王族",
+      "reading": "おうぞく",
+      "romaji": "ōzoku",
+      "meanings": {
+        "en": "royal family / royalty",
+        "pt-BR": "família real / realeza",
+        "es": "familia real / realeza"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Vegeta is the Prince of all Saiyans — his royal lineage is a constant source of pride and complex motivation."
+    },
+    {
+      "surface": "転生",
+      "reading": "てんせい",
+      "romaji": "tensei",
+      "meanings": {
+        "en": "reincarnation / rebirth",
+        "pt-BR": "reencarnação / renascimento",
+        "es": "reencarnación / renacimiento"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Fighters who die in Dragon Ball Z can train in Other World and sometimes reincarnate into new forms."
+    },
+    {
+      "surface": "超サイヤ人",
+      "reading": "すーぱーさいやじん",
+      "romaji": "Sūpā Saiyajin",
+      "meanings": {
+        "en": "Super Saiyan",
+        "pt-BR": "Super Saiyajin",
+        "es": "Super Saiyajin"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "Super Saiyan — golden hair, teal eyes — is the most iconic transformation in anime history, achieved through grief and rage."
+    },
+    {
+      "surface": "かめはめ波",
+      "reading": "かめはめは",
+      "romaji": "Kamehameha",
+      "meanings": {
+        "en": "Kamehameha (energy beam attack)",
+        "pt-BR": "Kamehameha (ataque de feixe de energia)",
+        "es": "Kamehameha (ataque de rayo de energía)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The Kamehameha — hands cupped, energy gathered, then released — is the most recognizable technique in all of anime."
+    },
+    {
+      "surface": "元気玉",
+      "reading": "げんきだま",
+      "romaji": "Genki-dama",
+      "meanings": {
+        "en": "Spirit Bomb",
+        "pt-BR": "Bomba do Espírito",
+        "es": "Bomba del Espíritu"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The Spirit Bomb draws ki from all living things — a technique that literally requires the cooperation of the universe."
+    },
+    {
+      "surface": "フュージョン",
+      "reading": "ふゆーじょん",
+      "romaji": "Fyūjon",
+      "meanings": {
+        "en": "Fusion (technique)",
+        "pt-BR": "Fusão (técnica)",
+        "es": "Fusión (técnica)"
+      },
+      "jlpt_level": null,
+      "category": "combat",
+      "context": "The Fusion Dance requires two fighters of equal power to mirror each other perfectly — one wrong move and the result is hideous."
+    },
+    {
+      "surface": "ドラゴンボール",
+      "reading": "どらごんぼーる",
+      "romaji": "Doragon Bōru",
+      "meanings": {
+        "en": "Dragon Ball",
+        "pt-BR": "Dragon Ball",
+        "es": "Dragon Ball"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The seven Dragon Balls, when gathered, summon Shenron — a dragon who grants any wish, including resurrection."
+    },
+    {
+      "surface": "サイヤ人",
+      "reading": "さいやじん",
+      "romaji": "Saiyajin",
+      "meanings": {
+        "en": "Saiyan (alien warrior race)",
+        "pt-BR": "Saiyajin (raça guerreira alienígena)",
+        "es": "Saiyajin (raza guerrera alienígena)"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Saiyans are a warrior race from Planet Vegeta — they grow stronger after every near-death experience, called Zenkai."
+    },
+    {
+      "surface": "天下一武道会",
+      "reading": "てんかいちぶどうかい",
+      "romaji": "Tenka'ichi Budōkai",
+      "meanings": {
+        "en": "World Martial Arts Tournament",
+        "pt-BR": "Torneio das Artes Marciais",
+        "es": "Torneo Mundial de Artes Marciales"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "The World Martial Arts Tournament is where Goku's journey began — a tradition that returns across every Dragon Ball series."
+    },
+    {
+      "surface": "精神と時の部屋",
+      "reading": "せいしんとときのへや",
+      "romaji": "Seishin to Toki no Heya",
+      "meanings": {
+        "en": "Hyperbolic Time Chamber",
+        "pt-BR": "Câmara do Tempo e do Espírito",
+        "es": "Cuarto del Tiempo y del Espíritu"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "One year inside, one day outside — the Hyperbolic Time Chamber condenses training and forces fighters to their absolute limits."
+    },
+    {
+      "surface": "武道",
+      "reading": "ぶどう",
+      "romaji": "budō",
+      "meanings": {
+        "en": "martial arts / the way of fighting",
+        "pt-BR": "artes marciais / caminho do combate",
+        "es": "artes marciales / camino del combate"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Martial arts is the foundation of Dragon Ball Z — every fighter's power is rooted in a disciplined tradition of combat study."
+    },
+    {
+      "surface": "師匠",
+      "reading": "ししょう",
+      "romaji": "shishō",
+      "meanings": {
+        "en": "master / teacher",
+        "pt-BR": "mestre / professor",
+        "es": "maestro / instructor"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Every great fighter in Dragon Ball Z has a master — Goku's teachers include Roshi, Kami, and King Kai across the series."
+    },
+    {
+      "surface": "弟子",
+      "reading": "でし",
+      "romaji": "deshi",
+      "meanings": {
+        "en": "disciple / apprentice",
+        "pt-BR": "discípulo / aprendiz",
+        "es": "discípulo / aprendiz"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Gohan becomes Piccolo's disciple — a relationship that transforms both master and student over the course of the series."
+    },
+    {
+      "surface": "勝負",
+      "reading": "しょうぶ",
+      "romaji": "shōbu",
+      "meanings": {
+        "en": "contest / match / showdown",
+        "pt-BR": "confronto / combate / disputa",
+        "es": "combate / contienda / desafío"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Every arc builds to a decisive showdown — Dragon Ball Z structures its drama around the escalating stakes of each confrontation."
+    },
+    {
+      "surface": "試合",
+      "reading": "しあい",
+      "romaji": "shiai",
+      "meanings": {
+        "en": "match / bout / game",
+        "pt-BR": "partida / luta / combate",
+        "es": "partido / combate / encuentro"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "The World Martial Arts Tournament bouts are where rivalries ignite — including the defining Goku vs Vegeta dynamic."
+    },
+    {
+      "surface": "決戦",
+      "reading": "けっせん",
+      "romaji": "kessen",
+      "meanings": {
+        "en": "decisive battle / final showdown",
+        "pt-BR": "batalha decisiva / confronto final",
+        "es": "batalla decisiva / combate final"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Each arc climaxes with a decisive battle that the Z Fighters enter knowing defeat means the end of the world."
+    },
+    {
+      "surface": "打倒",
+      "reading": "だとう",
+      "romaji": "datō",
+      "meanings": {
+        "en": "defeat / overthrow",
+        "pt-BR": "derrota / derrubar",
+        "es": "derrota / derrumbar"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Defeating Freeza was the Z Fighters' ultimate goal — a tyrant so overwhelming that only a legend could stop him."
+    },
+    {
+      "surface": "武器",
+      "reading": "ぶき",
+      "romaji": "buki",
+      "meanings": {
+        "en": "weapon",
+        "pt-BR": "arma",
+        "es": "arma"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Most Z Fighters fight bare-handed — their body and ki are their only weapons, which makes them more dangerous than any blade."
+    },
+    {
+      "surface": "守る",
+      "reading": "まもる",
+      "romaji": "mamoru",
+      "meanings": {
+        "en": "to protect / to defend",
+        "pt-BR": "proteger / defender",
+        "es": "proteger / defender"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Protecting the people he loves is Goku's ultimate motivation — his power always peaks when someone close is threatened."
+    },
+    {
+      "surface": "友情",
+      "reading": "ゆうじょう",
+      "romaji": "yūjō",
+      "meanings": {
+        "en": "friendship / bonds of friendship",
+        "pt-BR": "amizade / laços de amizade",
+        "es": "amistad / lazos de amistad"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The friendships forged in battle — between Goku and Krillin, Vegeta and Goku — underpin every emotional arc in the series."
+    },
+    {
+      "surface": "命",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "meanings": {
+        "en": "life / one's life",
+        "pt-BR": "vida / a própria vida",
+        "es": "vida / la propia vida"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Dragon Ball Z treats life as precious precisely because it can be lost — and because the Dragon Balls make it recoverable."
+    },
+    {
+      "surface": "奇跡",
+      "reading": "きせき",
+      "romaji": "kiseki",
+      "meanings": {
+        "en": "miracle",
+        "pt-BR": "milagre",
+        "es": "milagro"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Goku's Spirit Bomb against Freeza is a miracle drawn from every living thing on Namek — a literal act of collective hope."
+    },
+    {
+      "surface": "宿命",
+      "reading": "しゅくめい",
+      "romaji": "shukumei",
+      "meanings": {
+        "en": "fate / destiny",
+        "pt-BR": "destino / fado",
+        "es": "destino / hado"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Goku and Vegeta are bound by destiny — two Saiyans whose rivalry drives them both to heights neither could reach alone."
+    },
+    {
+      "surface": "意志",
+      "reading": "いし",
+      "romaji": "ishi",
+      "meanings": {
+        "en": "will / determination",
+        "pt-BR": "vontade / determinação",
+        "es": "voluntad / determinación"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Goku's will to fight — to keep standing, to find one more ounce of power — is his defining trait throughout Dragon Ball Z."
+    },
+    {
+      "surface": "成長",
+      "reading": "せいちょう",
+      "romaji": "seichō",
+      "meanings": {
+        "en": "growth / development",
+        "pt-BR": "crescimento / desenvolvimento",
+        "es": "crecimiento / desarrollo"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Gohan's growth from timid child to Earth's strongest fighter is one of Dragon Ball Z's most complete character arcs."
+    },
+    {
+      "surface": "誓い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "meanings": {
+        "en": "vow / oath",
+        "pt-BR": "juramento / voto",
+        "es": "juramento / voto"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Vegeta's vow to surpass Goku drives him for the entire series — a pride-fueled oath that defines his every choice."
+    },
+    {
+      "surface": "永遠",
+      "reading": "えいえん",
+      "romaji": "eien",
+      "meanings": {
+        "en": "eternity / forever",
+        "pt-BR": "eternidade / para sempre",
+        "es": "eternidad / para siempre"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The desire for immortality drives many Dragon Ball Z villains — yet the heroes are ultimately driven by love, not eternity."
+    },
+    {
+      "surface": "闘気",
+      "reading": "とうき",
+      "romaji": "tōki",
+      "meanings": {
+        "en": "fighting aura / battle spirit",
+        "pt-BR": "aura de combate / espírito de batalha",
+        "es": "aura de combate / espíritu de batalla"
+      },
+      "jlpt_level": "N2",
+      "category": "powers",
+      "context": "A fighter's tōki is their battle aura made visible — crackling energy that distorts the air and signals a transformation coming."
+    },
+    {
+      "surface": "気功",
+      "reading": "きこう",
+      "romaji": "kikō",
+      "meanings": {
+        "en": "ki technique / energy manipulation",
+        "pt-BR": "técnica de ki / manipulação de energia",
+        "es": "técnica de ki / manipulación de energía"
+      },
+      "jlpt_level": "N2",
+      "category": "powers",
+      "context": "Ki techniques like the Kamehameha require precise energy control — raw power alone is useless without technical mastery."
+    },
+    {
+      "surface": "究極",
+      "reading": "きゅうきょく",
+      "romaji": "kyūkyoku",
+      "meanings": {
+        "en": "ultimate / the absolute extreme",
+        "pt-BR": "último / o extremo absoluto",
+        "es": "último / el extremo absoluto"
+      },
+      "jlpt_level": "N2",
+      "category": "powers",
+      "context": "Gohan's Ultimate form — unlocked by Elder Kai — draws out his full latent potential without relying on Super Saiyan transformation."
+    },
+    {
+      "surface": "圧倒的",
+      "reading": "あっとうてき",
+      "romaji": "attōteki",
+      "meanings": {
+        "en": "overwhelming / crushingly superior",
+        "pt-BR": "avassalador / esmagadoramente superior",
+        "es": "abrumador / aplastantemente superior"
+      },
+      "jlpt_level": "N2",
+      "category": "powers",
+      "context": "Freeza's power is described as overwhelming — the gap between him and the Z Fighters feels literally unsurvivable."
+    },
+    {
+      "surface": "星",
+      "reading": "ほし",
+      "romaji": "hoshi",
+      "meanings": {
+        "en": "star / planet",
+        "pt-BR": "estrela / planeta",
+        "es": "estrella / planeta"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Planets are chess pieces in Dragon Ball Z — Freeza destroys them wholesale, and each one has its own culture and warriors."
+    },
+    {
+      "surface": "銀河",
+      "reading": "ぎんが",
+      "romaji": "ginga",
+      "meanings": {
+        "en": "galaxy / Milky Way",
+        "pt-BR": "galáxia / Via Láctea",
+        "es": "galaxia / Vía Láctea"
+      },
+      "jlpt_level": "N3",
+      "category": "world",
+      "context": "Freeza controls a vast galactic empire — the Z Fighters' battles scale from Earth to events that reshape entire galaxies."
+    },
+    {
+      "surface": "異次元",
+      "reading": "いじげん",
+      "romaji": "ijigen",
+      "meanings": {
+        "en": "another dimension / different plane",
+        "pt-BR": "outra dimensão / plano diferente",
+        "es": "otra dimensión / plano diferente"
+      },
+      "jlpt_level": "N2",
+      "category": "world",
+      "context": "Other World exists as a parallel dimension — where dead fighters train and King Kai observes events across the universe."
+    },
+    {
+      "surface": "復讐",
+      "reading": "ふくしゅう",
+      "romaji": "fukushū",
+      "meanings": {
+        "en": "revenge / vengeance",
+        "pt-BR": "vingança",
+        "es": "venganza"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Vegeta's desire for revenge against Freeza — for destroying his home planet — is the engine beneath his entire characterization."
+    },
+    {
+      "surface": "善",
+      "reading": "ぜん",
+      "romaji": "zen",
+      "meanings": {
+        "en": "good / virtue",
+        "pt-BR": "bem / virtude",
+        "es": "bien / virtud"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Goku embodies goodness in its simplest form — a pure fighting spirit with no ambition beyond the next battle and protecting others."
+    },
+    {
+      "surface": "邪悪",
+      "reading": "じゃあく",
+      "romaji": "jaaku",
+      "meanings": {
+        "en": "wicked / evil / malice",
+        "pt-BR": "malvado / mal / malícia",
+        "es": "malvado / maldad / malicia"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Majin Buu's evil half — separated from his good self — is described as pure wickedness with no reasoning or restraint."
+    },
+    {
+      "surface": "孫悟空",
+      "reading": "そんごくう",
+      "romaji": "Son Gokū",
+      "meanings": {
+        "en": "Son Goku (protagonist, Saiyan raised on Earth)",
+        "pt-BR": "Son Goku (protagonista, Saiyajin criado na Terra)",
+        "es": "Son Goku (protagonista, Saiyajin criado en la Tierra)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Goku is Dragon Ball Z's heart — a pure-hearted Saiyan whose joy in combat never overshadows his love for his friends."
+    },
+    {
+      "surface": "ベジータ",
+      "reading": "べじーた",
+      "romaji": "Bejīta",
+      "meanings": {
+        "en": "Vegeta (Saiyan prince and rival)",
+        "pt-BR": "Vegeta (príncipe Saiyajin e rival)",
+        "es": "Vegeta (príncipe Saiyajin y rival)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Vegeta's arc from cold-blooded villain to reluctant hero is one of the most compelling character journeys in shonen anime."
+    },
+    {
+      "surface": "フリーザ",
+      "reading": "ふりーざ",
+      "romaji": "Furīza",
+      "meanings": {
+        "en": "Frieza (galactic emperor villain)",
+        "pt-BR": "Freeza (imperador galáctico vilão)",
+        "es": "Freezer (emperador galáctico y villano)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Frieza is the series' definitive villain — a galactic tyrant whose destruction of Planet Vegeta sets the entire saga in motion."
+    },
+    {
+      "surface": "セル",
+      "reading": "せる",
+      "romaji": "Seru",
+      "meanings": {
+        "en": "Cell (bio-android villain)",
+        "pt-BR": "Cell (androide biológico vilão)",
+        "es": "Cell (bio-androide villano)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Cell is an engineered masterpiece of evil — containing the cells of Earth's greatest warriors and able to absorb others to evolve."
+    },
+    {
+      "surface": "魔人ブウ",
+      "reading": "まじんぶう",
+      "romaji": "Majin Bū",
+      "meanings": {
+        "en": "Majin Boo (ancient magical villain)",
+        "pt-BR": "Majin Boo (antigo vilão mágico)",
+        "es": "Majin Boo (antiguo villano mágico)"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "Majin Boo is an ancient magical creature of pure destruction — his arc ultimately explores the possibility of redemption."
+    },
+    {
+      "surface": "ナメック星",
+      "reading": "なめっくせい",
+      "romaji": "Namekku-sei",
+      "meanings": {
+        "en": "Planet Namek",
+        "pt-BR": "Planeta Namek",
+        "es": "Planeta Namek"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Planet Namek is the setting of the series' most epic arc — a dying alien world holding the Dragon Balls that can grant immortality."
+    },
+    {
+      "surface": "界王",
+      "reading": "かいおう",
+      "romaji": "Kaiō",
+      "meanings": {
+        "en": "Kaio / King of Worlds",
+        "pt-BR": "Kaio / Rei dos Mundos",
+        "es": "Kaio / Rey de los Mundos"
+      },
+      "jlpt_level": null,
+      "category": "characters",
+      "context": "King Kai trains Goku in Other World, teaching him the Kaio-ken and Spirit Bomb — the techniques that let him fight Vegeta."
+    },
+    {
+      "surface": "超サイヤ人2",
+      "reading": "すーぱーさいやじんつー",
+      "romaji": "Sūpā Saiyajin Tsū",
+      "meanings": {
+        "en": "Super Saiyan 2",
+        "pt-BR": "Super Saiyajin 2",
+        "es": "Super Saiyajin 2"
+      },
+      "jlpt_level": null,
+      "category": "powers",
+      "context": "Super Saiyan 2 — lightning-wreathed, intensified gold — is the form Gohan achieves against Cell in the series' most emotional fight."
+    },
+    {
+      "surface": "ドラゴンレーダー",
+      "reading": "どらごんれーだー",
+      "romaji": "Doragon Rēdā",
+      "meanings": {
+        "en": "Dragon Radar",
+        "pt-BR": "Radar do Dragon Ball",
+        "es": "Radar de Dragon Ball"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Bulma's Dragon Radar detects the ki signal of scattered Dragon Balls — it kicks off every new search-and-gather arc."
+    },
+    {
+      "surface": "修行の場",
+      "reading": "しゅぎょうのば",
+      "romaji": "Shugyō no Ba",
+      "meanings": {
+        "en": "training ground",
+        "pt-BR": "local de treinamento",
+        "es": "campo de entrenamiento"
+      },
+      "jlpt_level": null,
+      "category": "world",
+      "context": "Saiyan training grounds — from gravity chambers to Other World — represent the price Z Fighters pay for each new level of power."
+    },
+    {
+      "surface": "界王拳",
+      "reading": "かいおうけん",
+      "romaji": "Kaiōken",
+      "meanings": {
+        "en": "Kaio-ken (power multiplication technique)",
+        "pt-BR": "Kaio-ken (técnica de multiplicação de poder)",
+        "es": "Kaio-ken (técnica de multiplicación de poder)"
+      },
+      "jlpt_level": null,
+      "category": "powers",
+      "context": "The Kaio-ken multiplies Goku's power at the cost of his body — used up to 20x during the Namek arc at enormous physical risk."
+    },
+    {
+      "surface": "全滅",
+      "reading": "ぜんめつ",
+      "romaji": "zenmetsu",
+      "meanings": {
+        "en": "total annihilation / complete wipeout",
+        "pt-BR": "aniquilação total / eliminação completa",
+        "es": "aniquilación total / eliminación completa"
+      },
+      "jlpt_level": "N2",
+      "category": "combat",
+      "context": "Freeza's threat of total annihilation — of planets, civilizations, entire species — makes every battle a survival scenario."
+    },
+    {
+      "surface": "反撃",
+      "reading": "はんげき",
+      "romaji": "hangeki",
+      "meanings": {
+        "en": "counterattack / striking back",
+        "pt-BR": "contra-ataque / revidar",
+        "es": "contraataque / respuesta ofensiva"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Dragon Ball Z fights constantly flip — a fighter absorbs punishment and then unleashes a devastating counterattack."
+    },
+    {
+      "surface": "超越",
+      "reading": "ちょうえつ",
+      "romaji": "chōetsu",
+      "meanings": {
+        "en": "transcendence / surpassing limits",
+        "pt-BR": "transcendência / superar limites",
+        "es": "trascendencia / superar límites"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Transcending limits is the series' core loop — every power ceiling is broken, every impossibility eventually achieved."
+    },
+    {
+      "surface": "絆",
+      "reading": "きずな",
+      "romaji": "kizuna",
+      "meanings": {
+        "en": "bond / tie / connection",
+        "pt-BR": "laço / vínculo / conexão",
+        "es": "lazo / vínculo / conexión"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "The bonds between Z Fighters — built through shared battles and sacrifice — are what make the Spirit Bomb possible."
+    },
+    {
+      "surface": "本気",
+      "reading": "ほんき",
+      "romaji": "honki",
+      "meanings": {
+        "en": "seriousness / full power / earnest effort",
+        "pt-BR": "seriedade / força total / esforço real",
+        "es": "seriedad / poder total / esfuerzo real"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Goku going all-out — 本気 — is signaled by his hair standing up and the earth cracking beneath his feet."
+    },
+    {
+      "surface": "残酷",
+      "reading": "ざんこく",
+      "romaji": "zankoku",
+      "meanings": {
+        "en": "cruel / brutal / merciless",
+        "pt-BR": "cruel / brutal / sem misericórdia",
+        "es": "cruel / brutal / despiadado"
+      },
+      "jlpt_level": "N2",
+      "category": "themes",
+      "context": "Frieza's cruelty — methodical, joyful, total — makes him one of anime's most enduring examples of pure villainy."
+    },
+    {
+      "surface": "時間",
+      "reading": "じかん",
+      "romaji": "jikan",
+      "meanings": {
+        "en": "time",
+        "pt-BR": "tempo",
+        "es": "tiempo"
+      },
+      "jlpt_level": "N5",
+      "category": "world",
+      "context": "Time is the Hyperbolic Time Chamber's key resource — one day outside equals a full year of training inside."
+    },
+    {
+      "surface": "平和",
+      "reading": "へいわ",
+      "romaji": "heiwa",
+      "meanings": {
+        "en": "peace",
+        "pt-BR": "paz",
+        "es": "paz"
+      },
+      "jlpt_level": "N4",
+      "category": "themes",
+      "context": "Every Z Fighter arc ends with a return to peace — knowing it will be shattered again by the next threat from beyond the stars."
+    },
+    {
+      "surface": "勇気",
+      "reading": "ゆうき",
+      "romaji": "yūki",
+      "meanings": {
+        "en": "courage / bravery",
+        "pt-BR": "coragem / bravura",
+        "es": "coraje / valentía"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Gohan's courage against Cell — standing firm even after his arm is broken — is the series' defining image of heroism."
+    },
+    {
+      "surface": "同士",
+      "reading": "どうし",
+      "romaji": "dōshi",
+      "meanings": {
+        "en": "fellow / comrade / kindred spirit",
+        "pt-BR": "companheiro / camarada / igual",
+        "es": "compañero / camarada / igual"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "Goku and Vegeta are rivals and dōshi — fellow warriors who push each other to levels neither could reach fighting alone."
+    },
+    {
+      "surface": "記録",
+      "reading": "きろく",
+      "romaji": "kiroku",
+      "meanings": {
+        "en": "record / achievement",
+        "pt-BR": "registro / conquista",
+        "es": "récord / logro"
+      },
+      "jlpt_level": "N4",
+      "category": "combat",
+      "context": "Power levels in Dragon Ball Z constantly rewrite records — each new villain surpasses every previous measurement by orders of magnitude."
+    },
+    {
+      "surface": "再生",
+      "reading": "さいせい",
+      "romaji": "saisei",
+      "meanings": {
+        "en": "regeneration / rebirth",
+        "pt-BR": "regeneração / renascimento",
+        "es": "regeneración / renacimiento"
+      },
+      "jlpt_level": "N3",
+      "category": "powers",
+      "context": "Piccolo and Namekians can regenerate lost limbs — and Cell's regenerative ability makes him nearly impossible to destroy."
+    },
+    {
+      "surface": "怪物",
+      "reading": "かいぶつ",
+      "romaji": "kaibutsu",
+      "meanings": {
+        "en": "monster / beast",
+        "pt-BR": "monstro / besta",
+        "es": "monstruo / bestia"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Each new villain in Dragon Ball Z is a monster in scale — threats that make every previous enemy seem trivial by comparison."
+    },
+    {
+      "surface": "神様",
+      "reading": "かみさま",
+      "romaji": "Kami-sama",
+      "meanings": {
+        "en": "God / Supreme Being (Kami)",
+        "pt-BR": "Deus / Kami (protetor da Terra)",
+        "es": "Dios / Kami (guardián de la Tierra)"
+      },
+      "jlpt_level": "N4",
+      "category": "world",
+      "context": "Kami is the Guardian of Earth — a Namekian who separated his evil half (Piccolo Daimao) and has watched over the Dragon Balls ever since."
+    },
+    {
+      "surface": "伝説",
+      "reading": "でんせつ",
+      "romaji": "densetsu",
+      "meanings": {
+        "en": "legend / legendary",
+        "pt-BR": "lenda / lendário",
+        "es": "leyenda / legendario"
+      },
+      "jlpt_level": "N3",
+      "category": "themes",
+      "context": "The Legendary Super Saiyan is a myth whispered across the galaxy — and Goku's transformation fulfils it in one of anime's greatest scenes."
+    },
+    {
+      "surface": "集中",
+      "reading": "しゅうちゅう",
+      "romaji": "shūchū",
+      "meanings": {
+        "en": "concentration / focus",
+        "pt-BR": "concentração / foco",
+        "es": "concentración / enfoque"
+      },
+      "jlpt_level": "N3",
+      "category": "combat",
+      "context": "Charging the Spirit Bomb requires absolute concentration — Goku must remain still while the enemy can attack freely."
+    },
+    {
+      "surface": "合体",
+      "reading": "がったい",
+      "romaji": "gattai",
+      "meanings": {
+        "en": "union / combining / merging",
+        "pt-BR": "união / combinação / fusão",
+        "es": "unión / combinación / fusión"
+      },
+      "jlpt_level": "N3",
+      "category": "powers",
+      "context": "Gotenks — the fusion of Goten and Trunks — combines their powers and personalities into one unpredictable, over-confident warrior."
+    }
+  ]
+}

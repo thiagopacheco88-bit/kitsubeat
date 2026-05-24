@@ -11,6 +11,12 @@ const KNOWN_SLUGS = [
   "fullmetal-alchemist",
   "attack-on-titan",
   "sword-art-online",
+  "demon-slayer",
+  "death-note",
+  "dragon-ball-z",
+  "hunter-x-hunter",
+  "tokyo-ghoul",
+  "anime-core",
 ];
 
 export async function generateStaticParams() {
@@ -30,6 +36,12 @@ export async function generateMetadata({
     "fullmetal-alchemist": "Fullmetal Alchemist",
     "attack-on-titan": "Attack on Titan",
     "sword-art-online": "Sword Art Online",
+    "demon-slayer": "Demon Slayer",
+    "death-note": "Death Note",
+    "dragon-ball-z": "Dragon Ball Z",
+    "hunter-x-hunter": "Hunter × Hunter",
+    "tokyo-ghoul": "Tokyo Ghoul",
+    "anime-core": "Anime Core — Words from Every Anime",
   };
   const title = TITLES[slug] ?? slug;
   return {

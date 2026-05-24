@@ -53,6 +53,11 @@ const SLUGS = [
   "fullmetal-alchemist",
   "attack-on-titan",
   "sword-art-online",
+  "demon-slayer",
+  "death-note",
+  "dragon-ball-z",
+  "hunter-x-hunter",
+  "tokyo-ghoul",
 ] as const;
 
 // ── Path to JSON files ───────────────────────────────────────────────────────

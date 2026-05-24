@@ -709,8 +709,9 @@ export async function getHeroSong(userId: string | null): Promise<HeroSongResult
 
 /**
  * Get anime franchises (merging seasons/movies) with song counts.
+ * Cached for 60 s — catalog changes are infrequent; no need to re-query every request.
  */
-export async function getTopAnimeFranchises(limit: number = 10) {
+async function _getTopAnimeFranchises(limit: number) {
   return db
     .select({
       anime: songs.anime,
@@ -756,6 +757,12 @@ export async function getTopAnimeFranchises(limit: number = 10) {
     .orderBy(sql`count(*) desc`)
     .limit(limit);
 }
+
+export const getTopAnimeFranchises = unstable_cache(
+  _getTopAnimeFranchises,
+  ['top-anime-franchises'],
+  { revalidate: 60 },
+);
 
 /**
  * Get top artists with song counts.
@@ -1751,9 +1758,14 @@ const ANIME_SLUG_TO_TITLE: Record<string, string> = {
   "one-piece": "One Piece",
   "naruto": "Naruto",
   "bleach": "Bleach",
-  "fullmetal-alchemist": "Fullmetal Alchemist: Brotherhood",
+  "fullmetal-alchemist": "Fullmetal Alchemist",
   "attack-on-titan": "Attack on Titan",
   "sword-art-online": "Sword Art Online",
+  "demon-slayer": "Demon Slayer",
+  "death-note": "Death Note",
+  "dragon-ball-z": "Dragon Ball Z",
+  "hunter-x-hunter": "Hunter x Hunter",
+  "tokyo-ghoul": "Tokyo Ghoul",
 };
 
 export interface AnimeVocabItem {
@@ -1778,7 +1790,10 @@ export interface AnimeCatalogEntry {
   description: string | null;
 }
 
-export async function getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
+async function _getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
+  const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1"] as const;
+  type JlptLevel = (typeof JLPT_ORDER)[number];
+
   const rows = await db
     .select({
       anime_slug: animeVocabCatalog.anime_slug,
@@ -1795,9 +1810,14 @@ export async function getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
           WHEN 'one-piece' THEN 'One Piece'
           WHEN 'naruto' THEN 'Naruto'
           WHEN 'bleach' THEN 'Bleach'
-          WHEN 'fullmetal-alchemist' THEN 'Fullmetal Alchemist: Brotherhood'
+          WHEN 'fullmetal-alchemist' THEN 'Fullmetal Alchemist'
           WHEN 'attack-on-titan' THEN 'Attack on Titan'
           WHEN 'sword-art-online' THEN 'Sword Art Online'
+          WHEN 'demon-slayer' THEN 'Demon Slayer'
+          WHEN 'death-note' THEN 'Death Note'
+          WHEN 'dragon-ball-z' THEN 'Dragon Ball Z'
+          WHEN 'hunter-x-hunter' THEN 'Hunter x Hunter'
+          WHEN 'tokyo-ghoul' THEN 'Tokyo Ghoul'
           ELSE ''
         END
       )`
@@ -1809,36 +1829,44 @@ export async function getAnimeCatalog(): Promise<AnimeCatalogEntry[]> {
       animeMetadata.description,
     );
 
-  // Compute top_jlpt per anime using a separate query for the min JLPT level
-  const results: AnimeCatalogEntry[] = await Promise.all(
-    rows.map(async (row) => {
-      // Find the lowest JLPT rank in this anime's words
-      const jlptRows = await db
-        .selectDistinct({ jlpt_level: vocabularyItems.jlpt_level })
-        .from(animeVocabCatalog)
-        .innerJoin(vocabularyItems, eq(animeVocabCatalog.vocab_item_id, vocabularyItems.id))
-        .where(eq(animeVocabCatalog.anime_slug, row.anime_slug));
-
-      const JLPT_ORDER = ["N5", "N4", "N3", "N2", "N1"] as const;
-      type JlptLevel = (typeof JLPT_ORDER)[number];
-      const levels = jlptRows
-        .map((r) => r.jlpt_level)
-        .filter((l): l is JlptLevel => l !== null && (JLPT_ORDER as readonly string[]).includes(l));
-      const top_jlpt = JLPT_ORDER.find((l) => levels.includes(l)) ?? null;
-
-      return {
-        anime_slug: row.anime_slug,
-        word_count: Number(row.word_count),
-        top_jlpt,
-        cover_image: row.cover_image ?? null,
-        title_english: row.title_english ?? null,
-        description: row.description ?? null,
-      };
+  // Fetch all JLPT levels in one query, then group in JS — avoids N+1 DB calls.
+  const allJlptRows = await db
+    .selectDistinct({
+      anime_slug: animeVocabCatalog.anime_slug,
+      jlpt_level: vocabularyItems.jlpt_level,
     })
-  );
+    .from(animeVocabCatalog)
+    .innerJoin(vocabularyItems, eq(animeVocabCatalog.vocab_item_id, vocabularyItems.id));
 
-  return results;
+  const jlptBySlug = new Map<string, Set<JlptLevel>>();
+  for (const row of allJlptRows) {
+    if (row.jlpt_level !== null && (JLPT_ORDER as readonly string[]).includes(row.jlpt_level)) {
+      const set = jlptBySlug.get(row.anime_slug) ?? new Set<JlptLevel>();
+      set.add(row.jlpt_level as JlptLevel);
+      jlptBySlug.set(row.anime_slug, set);
+    }
+  }
+
+  return rows.map((row) => {
+    const levels = jlptBySlug.get(row.anime_slug);
+    const top_jlpt = levels ? (JLPT_ORDER.find((l) => levels.has(l)) ?? null) : null;
+    return {
+      anime_slug: row.anime_slug,
+      word_count: Number(row.word_count),
+      top_jlpt,
+      cover_image: row.cover_image ?? null,
+      title_english: row.title_english ?? null,
+      description: row.description ?? null,
+    };
+  });
 }
+
+/** Cached for 60 s — vocab catalog changes are infrequent. */
+export const getAnimeCatalog = unstable_cache(
+  _getAnimeCatalog,
+  ['anime-catalog'],
+  { revalidate: 60 },
+);
 
 export async function getAnimeVocabBySlug(
   slug: string,
