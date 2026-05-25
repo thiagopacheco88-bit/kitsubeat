@@ -118,30 +118,41 @@ Rules:
   return parts.slice(0, 3);
 }
 
-export async function generateQuizPost(word: VocabInput): Promise<string> {
-  const body = await callHaiku(
-    `Write a Japanese vocab quiz post for X/Twitter for @kitsubeat, an anime learning app.
+/**
+ * Generates a 4-tweet quiz thread with 3 questions.
+ * Answer to Q(n) is revealed at the top of tweet (n+1).
+ * words[0..2] = the three vocab words to quiz.
+ * distractors[0..2] = 3 wrong options per word.
+ */
+export function generateQuizThread(
+  words: VocabInput[],
+  distractors: [string[], string[], string[]]
+): string[] {
+  const letters = ["A", "B", "C", "D"] as const;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kitsubeat.com";
 
-Word: ${word.dictionary_form} (${word.reading}) — ${word.romaji}
-Correct meaning: ${word.meaning.en}
+  const quizzes = words.map((w, i) => {
+    const slot = Math.floor(Math.random() * 4);
+    const opts = [...distractors[i].slice(0, 3)];
+    opts.splice(slot, 0, w.meaning.en);
+    return { word: w, opts, slot };
+  });
 
-Format exactly like this (4 options, answer revealed at bottom):
-🎌 What does ${word.dictionary_form} (${word.romaji}) mean?
+  const question = (q: typeof quizzes[number]) =>
+    [`Q: What does ${q.word.dictionary_form} (${q.word.romaji}) mean?`,
+      "",
+      ...q.opts.map((o, i) => `${letters[i]}) ${o}`),
+    ].join("\n");
 
-A) [wrong]
-B) [wrong]
-C) [correct]
-D) [wrong]
+  const answer = (q: typeof quizzes[number], n: number) =>
+    `✅ Q${n} answer: ${letters[q.slot]}) ${q.word.meaning.en}`;
 
-Answer: C ✅ ${word.romaji} = ${word.meaning.en}
+  const t1 = [`Common Japanese vocab from anime`, `Can you get all 3? 🧵`, ``, question(quizzes[0])].join("\n");
+  const t2 = [answer(quizzes[0], 1), ``, question(quizzes[1])].join("\n");
+  const t3 = [answer(quizzes[1], 2), ``, question(quizzes[2])].join("\n");
+  const t4 = [answer(quizzes[2], 3), ``, `Practice more vocab with anime on KitsuBeat 🎌`, siteUrl, ``, `#LearnJapanese #KitsuBeat`].join("\n");
 
-Rules:
-- Wrong options should be plausible Japanese vocabulary
-- Under 260 characters total
-- Return ONLY the quiz text, no hashtags`
-  );
-
-  return `${body}\n\n#LearnJapanese #KitsuBeat`;
+  return [t1, t2, t3, t4];
 }
 
 /**
