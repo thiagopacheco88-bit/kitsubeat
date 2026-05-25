@@ -12,6 +12,7 @@ test.describe('i18n language picker', () => {
 
   test('clicking globe button opens language dropdown', async ({ page }) => {
     await page.goto('/songs');
+    await expect(page.getByRole('button', { name: 'Change language' })).toBeVisible({ timeout: 15_000 });
     await page.getByRole('button', { name: 'Change language' }).click();
     await expect(page.getByRole('option', { name: 'Português' })).toBeVisible();
     await expect(page.getByRole('option', { name: 'Español' })).toBeVisible();
@@ -20,6 +21,7 @@ test.describe('i18n language picker', () => {
 
   test('Escape key closes the language dropdown', async ({ page }) => {
     await page.goto('/songs');
+    await expect(page.getByRole('button', { name: 'Change language' })).toBeVisible({ timeout: 15_000 });
     await page.getByRole('button', { name: 'Change language' }).click();
     await expect(page.getByRole('option', { name: 'Português' })).toBeVisible();
     await page.keyboard.press('Escape');
@@ -28,6 +30,7 @@ test.describe('i18n language picker', () => {
 
   test('selecting Português navigates to /pt-BR/ and sets kb_locale cookie', async ({ page, context }) => {
     await page.goto('/songs');
+    await expect(page.getByRole('button', { name: 'Change language' })).toBeVisible({ timeout: 15_000 });
     await page.getByRole('button', { name: 'Change language' }).click();
     await page.getByRole('option', { name: 'Português' }).click();
     await page.waitForURL(/\/pt-BR\//);

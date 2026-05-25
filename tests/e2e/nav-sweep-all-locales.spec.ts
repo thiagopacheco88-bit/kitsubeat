@@ -48,7 +48,7 @@ test.describe('nav-sweep-all-locales — D-02', () => {
       expect(homeResponse!.status(), 'home page itself should load').toBeLessThan(500);
 
       // Extract all nav links from the rendered header
-      const navLinks = page.getByRole('navigation').getByRole('link');
+      const navLinks = page.locator('header').getByRole('link');
       const count = await navLinks.count();
 
       // Safety check: nav must render at least 2 links

@@ -13,10 +13,10 @@ test.describe('i18n — page content text changes with locale', () => {
   test('home page: switching to PT-BR via picker changes page content strings', async ({ page }) => {
     await page.goto('/songs');
     // Wait for the nav to mount (layout renders synchronously — no networkidle needed).
-    await expect(page.getByRole('navigation')).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('header').locator('nav').first()).toBeVisible({ timeout: 10_000 });
 
     // EN baseline: nav link "Songs" is visible.
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Songs' })).toBeVisible();
+    await expect(page.locator('header').getByRole('link', { name: 'Songs' })).toBeVisible();
 
     // Switch to PT-BR via the globe picker.
     await page.getByRole('button', { name: 'Change language' }).click();
@@ -29,10 +29,10 @@ test.describe('i18n — page content text changes with locale', () => {
     expect(lang).toBe('pt-BR');
 
     // PT-BR nav: "Songs" → "Músicas".
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Músicas' })).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('header').getByRole('link', { name: 'Músicas' })).toBeVisible({ timeout: 10_000 });
 
     // PT-BR nav: "Path" → "Trilha".
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Trilha' })).toBeVisible();
+    await expect(page.locator('header').getByRole('link', { name: 'Trilha' })).toBeVisible();
   });
 
   // 2. /pt-BR/path: path page renders PT-BR nav + layout strings
@@ -44,8 +44,8 @@ test.describe('i18n — page content text changes with locale', () => {
     expect(lang).toBe('pt-BR');
 
     // Nav links are layout-level — always present in PT-BR.
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Músicas' })).toBeVisible({ timeout: 10_000 });
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Trilha' })).toBeVisible();
+    await expect(page.locator('header').getByRole('link', { name: 'Músicas' })).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('header').getByRole('link', { name: 'Trilha' })).toBeVisible();
 
     // The page itself must render some content (not crash / redirect).
     await expect(page.locator('main').first()).toBeAttached({ timeout: 10_000 });
@@ -60,7 +60,7 @@ test.describe('i18n — page content text changes with locale', () => {
     expect(lang).toBe('es');
 
     // ES nav: "Songs" → "Canciones", "Path" → "Ruta".
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Canciones' })).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('header').getByRole('link', { name: 'Canciones' })).toBeVisible({ timeout: 10_000 });
 
     // The "Nivel" label appears in HeroProgress when authenticated, but the
     // nav-level ES strings are always present. At least one "Nivel" instance
@@ -79,7 +79,7 @@ test.describe('i18n — page content text changes with locale', () => {
   // 4. Cookie persistence: switch to PT-BR on /songs, navigate to /pt-BR — PT-BR sticks
   test('locale cookie persists: PT-BR cookie set after picker click', async ({ page, context }) => {
     await page.goto('/songs');
-    await expect(page.getByRole('navigation')).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('header').locator('nav').first()).toBeVisible({ timeout: 10_000 });
 
     // Switch to PT-BR.
     await page.getByRole('button', { name: 'Change language' }).click();
@@ -93,7 +93,7 @@ test.describe('i18n — page content text changes with locale', () => {
     expect(localeCookie?.value).toBe('pt-BR');
 
     // PT-BR nav is present on the navigated page.
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Músicas' })).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('header').getByRole('link', { name: 'Músicas' })).toBeVisible({ timeout: 10_000 });
   });
 
   // 5. Switch back to EN from /pt-BR/songs → no locale prefix, lang resets to en
@@ -121,7 +121,7 @@ test.describe('i18n — page content text changes with locale', () => {
 
     // EN nav link "Songs" is back.
     await expect(
-      page.getByRole('navigation').getByRole('link', { name: 'Songs' }),
+      page.locator('header').getByRole('link', { name: 'Songs' }),
     ).toBeVisible({ timeout: 10_000 });
   });
 
@@ -134,8 +134,8 @@ test.describe('i18n — page content text changes with locale', () => {
     expect(lang).toBe('pt-BR');
 
     // PT-BR nav link "Trilha" (Path) visible — proves locale-aware layout rendered.
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Trilha' })).toBeVisible({ timeout: 10_000 });
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Músicas' })).toBeVisible();
+    await expect(page.locator('header').getByRole('link', { name: 'Trilha' })).toBeVisible({ timeout: 10_000 });
+    await expect(page.locator('header').getByRole('link', { name: 'Músicas' })).toBeVisible();
 
     // The kana page heading "Kana Trainer" is the same across locales (proper noun),
     // but surrounding UI like "Foundations" label localises. Assert the page rendered.
