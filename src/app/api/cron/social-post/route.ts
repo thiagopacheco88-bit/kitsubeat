@@ -12,6 +12,7 @@ import { NextResponse } from "next/server";
 import { assertCronSecret } from "@/lib/cron/auth";
 import { postTweet, postTweetThread } from "@/lib/social/x-client";
 import { postThread } from "@/lib/social/threads-client";
+import { postBluesky, postBlueskyThread } from "@/lib/social/bluesky-client";
 import { readPostLog, appendToPostLog } from "@/lib/social/post-log";
 import { getQueueEntryForDate } from "@/lib/social/queue";
 
@@ -69,6 +70,23 @@ export async function GET(request: NextRequest) {
       results.threads = thread;
     } catch (err) {
       results.threads_error = String(err);
+    }
+  }
+
+  // Bluesky — only if credentials configured (non-fatal)
+  if (process.env.BLUESKY_HANDLE && process.env.BLUESKY_APP_PASSWORD) {
+    try {
+      if (tweets.length === 1) {
+        const ref = await postBluesky(tweets[0]);
+        platforms.push("bluesky");
+        results.bluesky = ref;
+      } else {
+        const refs = await postBlueskyThread(tweets);
+        platforms.push("bluesky");
+        results.bluesky = refs;
+      }
+    } catch (err) {
+      results.bluesky_error = String(err);
     }
   }
 
