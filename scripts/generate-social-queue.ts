@@ -130,22 +130,56 @@ function vocabTweet(
   return `${header}${word.surface} (${word.reading}) — ${word.romaji}\n"${word.meanings.en}"\n\n${sentence}\n\n(${counter})${cta}`;
 }
 
-function quizTweet(word: VocabWord, distractors: string[]): string {
-  // Random slot for correct answer
+function buildQuizOptions(word: VocabWord, allMeanings: string[]): { options: string[]; slot: number } {
   const slot = Math.floor(Math.random() * 4);
-  const options = [...distractors.slice(0, 3)];
+  const distractors = shuffle(allMeanings.filter(m => m !== word.meanings.en)).slice(0, 3);
+  const options = [...distractors];
   options.splice(slot, 0, word.meanings.en);
-  const letters = ["A", "B", "C", "D"];
+  return { options, slot };
+}
 
-  return [
-    `🎌 What does ${word.surface} (${word.romaji}) mean?`,
-    "",
-    ...options.map((o, i) => `${letters[i]}) ${o}`),
-    "",
-    `Answer: ${letters[slot]} ✅ ${word.romaji} = ${word.meanings.en}`,
-    "",
-    "#LearnJapanese #KitsuBeat",
+function quizThread(words: VocabWord[], allMeanings: string[]): string[] {
+  const letters = ["A", "B", "C", "D"];
+  const quizzes = words.map(w => ({ word: w, ...buildQuizOptions(w, allMeanings) }));
+
+  // Tweet 1 — Q1 only, no answer
+  const t1 = [
+    `🎌 Japanese vocab quiz — can you get all 3? 🧵`,
+    ``,
+    `Q1: What does ${quizzes[0].word.surface} (${quizzes[0].word.romaji}) mean?`,
+    ``,
+    ...quizzes[0].options.map((o, i) => `${letters[i]}) ${o}`),
   ].join("\n");
+
+  // Tweet 2 — A1 reveal + Q2
+  const t2 = [
+    `✅ Q1 answer: ${letters[quizzes[0].slot]}) ${quizzes[0].word.meanings.en}`,
+    ``,
+    `Q2: What does ${quizzes[1].word.surface} (${quizzes[1].word.romaji}) mean?`,
+    ``,
+    ...quizzes[1].options.map((o, i) => `${letters[i]}) ${o}`),
+  ].join("\n");
+
+  // Tweet 3 — A2 reveal + Q3
+  const t3 = [
+    `✅ Q2 answer: ${letters[quizzes[1].slot]}) ${quizzes[1].word.meanings.en}`,
+    ``,
+    `Q3: What does ${quizzes[2].word.surface} (${quizzes[2].word.romaji}) mean?`,
+    ``,
+    ...quizzes[2].options.map((o, i) => `${letters[i]}) ${o}`),
+  ].join("\n");
+
+  // Tweet 4 — A3 reveal + CTA
+  const t4 = [
+    `✅ Q3 answer: ${letters[quizzes[2].slot]}) ${quizzes[2].word.meanings.en}`,
+    ``,
+    `Practice more vocab with anime on KitsuBeat 🎌`,
+    `${SITE_URL}`,
+    ``,
+    `#LearnJapanese #KitsuBeat`,
+  ].join("\n");
+
+  return [t1, t2, t3, t4];
 }
 
 function articleThread(article: Record<string, string>): string[] {
@@ -232,10 +266,9 @@ while (current < end) {
     });
 
   } else if (type === "quiz") {
-    const { anime, word } = quizPool[quizCursor % quizPool.length];
-    quizCursor++;
-    const distractors = shuffle(allMeanings.filter(m => m !== word.meanings.en)).slice(0, 3);
-    queue.push({ date: dateStr, type, tweets: [quizTweet(word, distractors)] });
+    const words = [0, 1, 2].map(i => quizPool[(quizCursor + i) % quizPool.length].word);
+    quizCursor += 3;
+    queue.push({ date: dateStr, type, tweets: quizThread(words, allMeanings) });
 
   } else {
     const article = shuffledArticles[articleCursor % shuffledArticles.length];
