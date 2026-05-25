@@ -72,6 +72,10 @@ export default clerkMiddleware(async (auth, req) => {
   if (!isLegalOrOnboardingRoute(req)) {
     const session = await auth();
     if (session.userId) {
+      const publicMeta = session.sessionClaims?.publicMetadata as
+        | Record<string, string>
+        | undefined;
+
       // Check bridge cookie first — set by completeOnboarding() server action.
       // Clerk JWT claims lag up to 60s after updateUserMetadata; the cookie is the
       // immediate signal that the user just completed onboarding this session.
@@ -79,14 +83,40 @@ export default clerkMiddleware(async (auth, req) => {
       const cookieMatches = termsDoneCookie?.value === CURRENT_TERMS_VERSION;
 
       if (!cookieMatches) {
-        const publicMeta = session.sessionClaims?.publicMetadata as
-          | Record<string, string>
-          | undefined;
         const termsVersion = publicMeta?.terms_version;
         if (!termsVersion || termsVersion !== CURRENT_TERMS_VERSION) {
           const dest = new URL("/onboarding/age-gate", req.url);
           dest.searchParams.set("redirect_url", req.nextUrl.pathname + req.nextUrl.search);
           return NextResponse.redirect(dest);
+        }
+      }
+
+      // Restore locale from Clerk when no kb_locale cookie is present (new browser /
+      // incognito / different device). syncLocaleToClerk() writes publicMetadata.locale
+      // whenever the user changes language — here we read it back to honour that choice
+      // without requiring the user to re-select on every new session.
+      // Only needed for non-default locales; 'en' falls through to intlMiddleware default.
+      const VALID_LOCALES = ['en', 'pt-BR', 'es'] as const;
+      const localeCookie = req.cookies.get('kb_locale');
+      if (!localeCookie) {
+        const clerkLocale = publicMeta?.locale;
+        if (
+          clerkLocale &&
+          (VALID_LOCALES as readonly string[]).includes(clerkLocale) &&
+          clerkLocale !== 'en' &&
+          !req.nextUrl.pathname.startsWith(`/${clerkLocale}`)
+        ) {
+          const dest = new URL(
+            `/${clerkLocale}${req.nextUrl.pathname}${req.nextUrl.search}`,
+            req.url
+          );
+          const res = NextResponse.redirect(dest);
+          res.cookies.set('kb_locale', clerkLocale, {
+            path: '/',
+            maxAge: 60 * 60 * 24 * 365,
+            sameSite: 'lax',
+          });
+          return res;
         }
       }
     }
