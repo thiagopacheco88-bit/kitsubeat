@@ -32,11 +32,13 @@ import { test, expect } from "../support/fixtures";
 test.describe("Home page", () => {
   test("loads with hero and Featured Songs", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("h1")).toContainText("Learn Japanese", {
+    // Hero section shows the featured song (not a static "Learn Japanese" h1)
+    await expect(page.locator('[data-testid="hero-featured"]')).toBeVisible({
       timeout: 10_000,
     });
+    // Browse by Anime section is always present on the home page
     await expect(
-      page.getByRole("link", { name: "Browse by Anime" })
+      page.locator('[data-testid="browse-by-anime"]')
     ).toBeVisible({ timeout: 5_000 });
     await expect(
       page.locator("h2").filter({ hasText: "Featured Songs" })
@@ -99,18 +101,17 @@ test.describe("Songs browse page", () => {
     expect(count).toBeGreaterThan(0);
   });
 
-  test("By Anime is default view; All Songs swaps to flat grid", async ({ page }) => {
-    await page.goto("/songs");
-
-    // By Anime is selected by default — anime-section h3 headings should be visible.
+  test("/anime-list shows grouped view; /songs shows flat grid", async ({ page }) => {
+    // /anime-list renders the "By Anime" grouped view with anime-section h3 headings.
+    await page.goto("/anime-list");
     const headings = page.locator("h3");
     await expect(headings.first()).toBeVisible({ timeout: 10_000 });
     const headingCount = await headings.count();
     expect(headingCount).toBeGreaterThan(1);
 
-    // Switch to flat "All Songs" grid — the cards should still render.
-    await page.getByRole("button", { name: "All Songs" }).click();
+    // /songs renders the flat "All Songs" grid — song card links are directly visible.
+    await page.goto("/songs");
     const cards = page.locator('a[href^="/songs/"]');
-    await expect(cards.first()).toBeVisible({ timeout: 5_000 });
+    await expect(cards.first()).toBeVisible({ timeout: 10_000 });
   });
 });

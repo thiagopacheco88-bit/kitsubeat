@@ -19,7 +19,7 @@ test.describe("/ above-fold UNAUTH (AC #7)", () => {
     // Do NOT set Clerk auth cookie — anonymous
 
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
 
     // (a) hero cover image visible
     const heroCover = page.locator('[data-testid="hero-featured"] img[src*="youtube.com"]');

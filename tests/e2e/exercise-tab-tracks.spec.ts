@@ -32,7 +32,7 @@ test("ExerciseTab shows 4 mode cards (Vocabulary, Grammar, Kanji, Advanced Drill
   await page.goto(`/songs/${KANJI_SONG_SLUG}`);
 
   // Navigate to the Practice tab
-  const practiceTab = page.getByRole("tab", { name: /practice/i });
+  const practiceTab = page.locator("button").filter({ hasText: /^Practice$/i });
   await practiceTab.click();
 
   // Wait for ExerciseTab to render (hydration guard clears)
@@ -57,7 +57,7 @@ test("Each track card (Vocab/Grammar/Kanji) has Short and Long toggle buttons", 
   page,
 }) => {
   await page.goto(`/songs/${KANJI_SONG_SLUG}`);
-  const practiceTab = page.getByRole("tab", { name: /practice/i });
+  const practiceTab = page.locator("button").filter({ hasText: /^Practice$/i });
   await practiceTab.click();
   await page.waitForTimeout(500);
 
@@ -105,7 +105,7 @@ test("Kanji card is NOT visible for an all-kana song (zero kanji-bearing vocab)"
   // using page URL param ?forceAllKana=1 — if that param is not respected, RED.
   await page.goto(`/songs/${song.slug}?forceAllKana=1`);
 
-  const practiceTab = page.getByRole("tab", { name: /practice/i });
+  const practiceTab = page.locator("button").filter({ hasText: /^Practice$/i });
   await practiceTab.click();
   await page.waitForTimeout(500);
 
@@ -123,7 +123,7 @@ test("No obsolete strings (Listening Drills, Quick Practice, Full Practice) in E
   page,
 }) => {
   await page.goto(`/songs/${KANJI_SONG_SLUG}`);
-  const practiceTab = page.getByRole("tab", { name: /practice/i });
+  const practiceTab = page.locator("button").filter({ hasText: /^Practice$/i });
   await practiceTab.click();
   await page.waitForTimeout(500);
 
@@ -148,7 +148,7 @@ test("Click Vocabulary track Short + Start → ExerciseSession starts with ≤10
   void testUser; // ensures cleanup runs after test
 
   await page.goto(`/songs/${KANJI_SONG_SLUG}`);
-  const practiceTab = page.getByRole("tab", { name: /practice/i });
+  const practiceTab = page.locator("button").filter({ hasText: /^Practice$/i });
   await practiceTab.click();
   await page.waitForTimeout(500);
 

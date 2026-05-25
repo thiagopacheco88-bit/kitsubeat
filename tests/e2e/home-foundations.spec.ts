@@ -17,7 +17,7 @@ test.describe("/ Foundations (AC #11)", () => {
     ]);
 
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
 
     const foundations = page.locator('[data-testid="foundations"]');
     await expect(foundations).toBeVisible({ timeout: 10_000 });

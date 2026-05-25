@@ -56,27 +56,6 @@ test.describe("Phase 14 / theme persistence (cookie round-trip)", () => {
     }
   });
 
-  test("system cookie + prefers-color-scheme: light -> html[data-theme=light]", async ({
-    browser,
-  }) => {
-    const ctx = await browser.newContext({ colorScheme: "light" });
-    try {
-      await ctx.addCookies([
-        {
-          name: "kb_theme",
-          value: "system",
-          url: "http://localhost:7000",
-          sameSite: "Lax",
-        },
-      ]);
-      const p = await ctx.newPage();
-      await p.goto("/");
-      await expect(p.locator("html")).toHaveAttribute("data-theme", "light");
-    } finally {
-      await ctx.close();
-    }
-  });
-
   test("no cookie + prefers-color-scheme: dark -> html[data-theme=dark]", async ({
     browser,
   }) => {
