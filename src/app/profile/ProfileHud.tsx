@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getUserGamificationState } from "@/lib/db/queries";
 import { xpWithinCurrentLevel } from "@/lib/gamification/level-curve";
 
@@ -32,27 +33,11 @@ export async function ProfileHud({ userId }: { userId: string }) {
        * surface (CONTEXT D-22 token-only swap; matches PathHud recipe). */}
       <div className={`rounded-full p-1 ${borderClass} flex-shrink-0`}>
         <div
-          className="w-16 h-16 rounded-full bg-[var(--color-card-2)] flex items-center justify-center text-2xl"
+          className="w-16 h-16 rounded-full bg-[var(--color-card-2)] flex items-center justify-center overflow-hidden"
           role="img"
           aria-label="Avatar"
         >
-          {/* Kitsune SVG placeholder — replace with final asset in Plan 06 polish.
-           * Phase 14 Plan 14-09: SVG fills swapped to token refs to match PathHud. */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            fill="none"
-            className="w-10 h-10"
-            aria-hidden="true"
-          >
-            {/* Simple fox ears + face outline */}
-            <ellipse cx="24" cy="28" rx="12" ry="10" fill="var(--color-grammar-adverb)" />
-            <polygon points="12,20 6,8 18,16" fill="var(--color-grammar-adverb)" />
-            <polygon points="36,20 42,8 30,16" fill="var(--color-grammar-adverb)" />
-            <ellipse cx="20" cy="28" rx="2" ry="2.5" fill="var(--color-text)" />
-            <ellipse cx="28" cy="28" rx="2" ry="2.5" fill="var(--color-text)" />
-            <ellipse cx="24" cy="32" rx="2" ry="1.5" fill="var(--color-jlpt-n3)" />
-          </svg>
+          <Image src="/logo-transparent.png" width={56} height={56} alt="KitsuBeat mascot" />
         </div>
       </div>
 
@@ -73,8 +58,32 @@ export async function ProfileHud({ userId }: { userId: string }) {
 
       {/* Streak */}
       <div className="text-right flex-shrink-0">
-        <div className="text-[var(--color-text)] font-semibold text-lg">
-          🔥 {s.streak_current}
+        <div className="text-[var(--color-text)] font-semibold text-lg flex items-center justify-end gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-6 h-6" aria-hidden="true">
+            <defs>
+              <linearGradient id="flame-outer" x1="0" y1="1" x2="0.4" y2="0">
+                <stop offset="0%" stopColor="#c2410c" />
+                <stop offset="50%" stopColor="#f97316" />
+                <stop offset="100%" stopColor="#fbbf24" />
+              </linearGradient>
+              <linearGradient id="flame-inner" x1="0" y1="1" x2="0.3" y2="0">
+                <stop offset="0%" stopColor="#fb923c" />
+                <stop offset="100%" stopColor="#fef08a" />
+              </linearGradient>
+            </defs>
+            {/* outer flame */}
+            <path
+              d="M12 2 C10 5 7 7 7 11 C7 14.5 9 16.5 9 16.5 C9 14 10.5 12.5 10.5 12.5 C10.5 15 12 17 12 19.5 C14 17.5 15 15 14.5 12.5 C14.5 12.5 16.5 14.5 16.5 17 C17.5 15.5 17 13 17 11 C17 7 14 5 12 2Z"
+              fill="url(#flame-outer)"
+            />
+            {/* inner flame */}
+            <path
+              d="M12 8 C11 10 10 11.5 10 13 C10 15 11 16.5 12 17.5 C13 16.5 14 15 14 13 C14 11.5 13 10 12 8Z"
+              fill="url(#flame-inner)"
+              opacity="0.9"
+            />
+          </svg>
+          {s.streak_current}
         </div>
         <div className="text-xs text-[var(--color-text-muted)]">
           Best: {s.streak_best}
