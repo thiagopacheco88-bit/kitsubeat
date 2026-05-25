@@ -1,8 +1,9 @@
 {
   "crons": [
-    { "path": "/api/cron/daily-reminder", "schedule": "0 19 * * *" },
-    { "path": "/api/cron/weekly-recap",   "schedule": "0 18 * * 0" },
-    { "path": "/api/cron/birthday-transitions", "schedule": "0 2 * * *" }
+    { "path": "/api/cron/daily-reminder",       "schedule": "0 19 * * *" },
+    { "path": "/api/cron/weekly-recap",         "schedule": "0 18 * * 0" },
+    { "path": "/api/cron/birthday-transitions", "schedule": "0 2  * * *" },
+    { "path": "/api/cron/social-post",          "schedule": "0 9  * * *" }
   ],
   "headers": [
     {
