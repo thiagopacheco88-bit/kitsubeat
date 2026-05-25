@@ -144,7 +144,8 @@ function quizThread(words: VocabWord[], allMeanings: string[]): string[] {
 
   // Tweet 1 — Q1 only, no answer
   const t1 = [
-    `🎌 Japanese vocab quiz — can you get all 3? 🧵`,
+    `Japanese vocab quiz common from anime`,
+    `Can you get all 3? 🧵`,
     ``,
     `Q1: What does ${quizzes[0].word.surface} (${quizzes[0].word.romaji}) mean?`,
     ``,
