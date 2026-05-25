@@ -30,7 +30,6 @@ import { useTranslations } from "next-intl";
 import { useKanaProgress } from "@/stores/kanaProgress";
 import { computeCheckpointState } from "@/lib/kana/checkpoint-state";
 import { CardLink } from "@/components/ui/Card";
-import { Skeleton } from "@/components/ui/Skeleton";
 import type { Script } from "@/lib/kana/types";
 
 interface KanaCheckpointNodeProps {
@@ -50,21 +49,9 @@ const SCRIPT_NAME: Record<Script, string> = {
 
 export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNodeProps) {
   const t = useTranslations('path');
-  const hasHydrated = useKanaProgress((s) => s._hasHydrated);
   const map = useKanaProgress((s) =>
     script === "hiragana" ? s.hiragana : s.katakana,
   );
-
-  if (!hasHydrated) {
-    return (
-      <Skeleton
-        variant={size === "home" ? "card" : "list-item"}
-        className={size === "home" ? undefined : "h-16"}
-        style={size === "home" ? { width: "130px", height: "124px" } : undefined}
-        data-testid={`kana-checkpoint-skeleton-${script}`}
-      />
-    );
-  }
 
   const result = computeCheckpointState(map, script);
   const glyph = SCRIPT_GLYPH[script];
