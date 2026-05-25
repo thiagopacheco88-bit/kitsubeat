@@ -59,3 +59,34 @@ export async function postTweet(text: string): Promise<{ id: string }> {
   const json = await res.json();
   return json.data as { id: string };
 }
+
+/** Posts a chain of tweets as a thread. Returns IDs in order. */
+export async function postTweetThread(tweets: string[]): Promise<string[]> {
+  const ids: string[] = [];
+
+  for (const text of tweets) {
+    const body: Record<string, unknown> = { text };
+    if (ids.length > 0) {
+      body.reply = { in_reply_to_tweet_id: ids[ids.length - 1] };
+    }
+
+    const res = await fetch(TWEET_URL, {
+      method: "POST",
+      headers: {
+        Authorization: buildOAuthHeader("POST", TWEET_URL),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`X API ${res.status} (tweet ${ids.length + 1}/${tweets.length}): ${err}`);
+    }
+
+    const json = await res.json();
+    ids.push((json.data as { id: string }).id);
+  }
+
+  return ids;
+}

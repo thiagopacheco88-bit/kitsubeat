@@ -6,7 +6,7 @@ import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
 
-const ANIME_LABELS: Record<string, string> = {
+export const ANIME_LABELS: Record<string, string> = {
   "naruto": "Naruto",
   "one-piece": "One Piece",
   "bleach": "Bleach",
@@ -42,35 +42,80 @@ export type ArticleInput = {
   slug: string;
 };
 
-async function callHaiku(prompt: string): Promise<string> {
+async function callHaiku(prompt: string, maxTokens = 220): Promise<string> {
   const res = await client.messages.create({
     model: "claude-haiku-4-5-20251001",
-    max_tokens: 220,
+    max_tokens: maxTokens,
     messages: [{ role: "user", content: prompt }],
   });
   return (res.content[0] as { text: string }).text.trim();
 }
 
-export async function generateVocabPost(word: VocabInput): Promise<string> {
-  const anime = word.anime_slug ? (ANIME_LABELS[word.anime_slug] ?? word.anime_slug) : null;
-  const context = word.context_note ?? (anime ? `Appears in ${anime}` : null);
+/**
+ * Generates a 3-tweet thread teaching vocab words from the same anime.
+ * Returns an array of 3 tweet strings; hashtags are on the last tweet only.
+ */
+export async function generateVocabThread(
+  words: VocabInput[],
+  animeLabel: string
+): Promise<string[]> {
+  const wordLines = words.map((w, i) =>
+    `Word ${i + 1}: ${w.dictionary_form} (${w.reading}) — ${w.romaji} = "${w.meaning.en}"${w.context_note ? `\nContext: ${w.context_note}` : ""}`
+  ).join("\n\n");
 
-  const body = await callHaiku(
-    `Write a short X/Twitter post teaching one Japanese word. KitsuBeat is a Japanese learning app for anime fans.
+  const raw = await callHaiku(
+    `Generate a 3-tweet X/Twitter thread teaching Japanese vocabulary from the anime "${animeLabel}".
 
-Word: ${word.dictionary_form} (${word.reading}) — ${word.romaji}
-Meaning: ${word.meaning.en}
-JLPT: ${word.jlpt_level ?? "unrated"}
-${context ? `Context: ${context}` : ""}
+${wordLines}
+
+Output EXACTLY 3 blocks separated by ---
+
+Tweet 1 format:
+Useful vocabulary from ${animeLabel} [1 relevant emoji]
+
+[kanji] ([reading]) — [romaji]
+"[meaning]"
+[breakdown line — see rule below]
+
+[one punchy sentence, max 12 words, anime-flavoured]
+
+(1/3)
+
+Tweet 2 format:
+[kanji] ([reading]) — [romaji]
+"[meaning]"
+[breakdown line — see rule below]
+
+[one punchy sentence, max 12 words, anime-flavoured]
+
+(2/3)
+
+Tweet 3 format:
+[kanji] ([reading]) — [romaji]
+"[meaning]"
+[breakdown line — see rule below]
+
+[one punchy sentence, max 12 words, anime-flavoured]
+
+(3/3)
 
 Rules:
-- Under 220 characters (hashtags added after)
-- Include kanji/kana, romaji, and English meaning
-- 1-2 emoji, casual tone
-- Return ONLY the post body, no hashtags`
+- Each block under 260 characters
+- Sentences in English, inspired by anime context
+- No hashtags anywhere
+- Breakdown line: ONLY for compound words (2+ kanji components). Format: 全 (zen) = all · 集中 (shūchū) = concentration. Skip entirely for simple words (single kanji or kana-only).
+- Return ONLY the 3 blocks separated by ---`,
+    500
   );
 
-  return `${body}\n\n#LearnJapanese #KitsuBeat`;
+  const parts = raw.split(/\n?---\n?/).map((s) => s.trim()).filter(Boolean);
+
+  while (parts.length < 3) parts.push("");
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kitsubeat.com";
+  parts[2] = `${parts[2]}\n\nPractice with anime on KitsuBeat 🎌 ${siteUrl}\n\n#LearnJapanese #KitsuBeat`;
+
+  return parts.slice(0, 3);
 }
 
 export async function generateQuizPost(word: VocabInput): Promise<string> {
@@ -81,7 +126,7 @@ Word: ${word.dictionary_form} (${word.reading}) — ${word.romaji}
 Correct meaning: ${word.meaning.en}
 
 Format exactly like this (4 options, answer revealed at bottom):
-🎌 What does "${word.dictionary_form}" mean?
+🎌 What does ${word.dictionary_form} (${word.romaji}) mean?
 
 A) [wrong]
 B) [wrong]
@@ -99,24 +144,52 @@ Rules:
   return `${body}\n\n#LearnJapanese #KitsuBeat`;
 }
 
-export async function generateArticlePost(article: ArticleInput): Promise<string> {
+/**
+ * Generates a 4-tweet thread from a journal article.
+ * Extracts 20-40% of the key content so the thread delivers real value.
+ * Returns an array of 4 tweet strings; URL + hashtags on the last tweet only.
+ */
+export async function generateArticleThread(
+  article: ArticleInput & { body: string }
+): Promise<string[]> {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kitsubeat.com";
   const url = `${siteUrl}/journal/${article.slug}`;
 
-  const body = await callHaiku(
-    `Write an X/Twitter post promoting this KitsuBeat blog article about Japanese / anime.
+  const raw = await callHaiku(
+    `You are writing a Twitter/X thread for @kitsubeat, a Japanese learning app for anime fans.
 
-Title: ${article.title}
+Article title: ${article.title}
 ${article.subtitle ? `Subtitle: ${article.subtitle}` : ""}
 Summary: ${article.summary}
 
+Article content:
+${article.body}
+
+Write a 4-tweet thread that shares 20-40% of the real content — not a teaser, actual insights.
+
+Output EXACTLY 4 blocks separated by ---
+
+Tweet 1: Hook — one surprising fact or question pulled directly from the article. 1-2 emoji + 🧵 at the end of the first line to signal a thread. Under 240 chars.
+
+Tweet 2: First key insight from the article. Specific, concrete. Under 260 chars.
+
+Tweet 3: Second key insight. Make it feel like a reveal or a "wait, really?" moment. Under 260 chars.
+
+Tweet 4: Brief wrap-up that teases what else is in the full article. No URL. No hashtags. Under 200 chars.
+
 Rules:
-- Under 180 characters (URL + hashtags added after)
-- Strong hook on the first line — make it intriguing
-- 1-2 emoji, casual curious tone
-- Do NOT include the URL
-- Return ONLY the post body`
+- Use the actual article content — not generic statements
+- Casual, curious tone
+- No hashtags anywhere in the 4 blocks
+- Return ONLY the 4 blocks separated by ---`,
+    700
   );
 
-  return `${body}\n\n${url}\n\n#LearnJapanese #KitsuBeat`;
+  const parts = raw.split(/\n?---\n?/).map((s) => s.trim()).filter(Boolean);
+
+  while (parts.length < 4) parts.push("");
+
+  parts[3] = `${parts[3]}\n\n${url}\n\n#LearnJapanese #KitsuBeat`;
+
+  return parts.slice(0, 4);
 }
