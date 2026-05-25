@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
 import Link from "next/link";
+import Image from "next/image";
 import { ClerkProvider, UserButton } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { cookies } from "next/headers";
@@ -179,8 +180,7 @@ export default async function RootLayout({
         <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur-sm">
           <nav className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
             <Link href="/" className="flex shrink-0 items-center gap-2" data-testid="brand-wordmark">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" width={26} height={26} alt="" aria-hidden="true" className="rounded-sm" />
+              <Image src="/logo-transparent.png" width={65} height={65} alt="" aria-hidden="true" />
               <span className="text-lg font-extrabold tracking-tight" aria-label="KitsuBeat">
                 <span className="text-[var(--color-text)]">Kitsu</span>
                 <span className="text-[var(--color-accent-readable)]" data-testid="wordmark-emphasis">Beat</span>
@@ -265,6 +265,27 @@ export default async function RootLayout({
         <main id="main-content">
             <PageTransitionWrapper>{children}</PageTransitionWrapper>
         </main>
+        <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg)] py-6 mt-auto">
+          <nav aria-label="Legal and site links" className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 text-sm text-[var(--color-text-muted)]">
+            <span>© {new Date().getFullYear()} KitsuBeat</span>
+            <ul className="flex flex-wrap gap-4">
+              {[
+                { href: "/legal/terms", label: "Terms of Service" },
+                { href: "/legal/privacy", label: "Privacy Policy" },
+                { href: "/legal/cookie-policy", label: "Cookie Policy" },
+              ].map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="hover:text-[var(--color-text)] hover:underline transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </footer>
         </NextIntlClientProvider>
       </body>
     </html>
