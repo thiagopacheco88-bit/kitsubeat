@@ -18,6 +18,7 @@ import { isAdminEmail, parseAdminEmails } from "@/lib/admin/admin-allowlist";
 import { LanternStreak } from "@/app/path/components/LanternStreak";
 import { getUserGamificationState, type GamificationState } from "@/lib/db/queries";
 import NextTopLoader from "nextjs-toploader";
+import Script from "next/script";
 import { PageTransitionWrapper } from "@/app/components/PageTransitionWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -262,6 +263,8 @@ export default async function RootLayout({
         {/* Phase 18 — PECR-compliant cookie consent banner (useConsentStore + recordConsent + PostHog opt-in) */}
         <CookieConsentBanner initialConsent={consentCookie} />
         <PostHogIdentify userId={signedInUserId ?? null} />
+        {/* Metricool — social traffic attribution; loads after page is interactive */}
+        <Script id="metricool-tracker" strategy="afterInteractive">{`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"67efc2f964b6a9f982dbc325f2e7fffd"})});`}</Script>
         <main id="main-content">
             <PageTransitionWrapper>{children}</PageTransitionWrapper>
         </main>

@@ -93,8 +93,10 @@ export async function GET(request: NextRequest) {
     const platforms: string[] = [];
     const results: Record<string, unknown> = {};
 
+    let articleXIds: string[] | undefined;
     try {
       const ids = await postTweetThread(tweets);
+      articleXIds = ids;
       platforms.push("x");
       results.x = ids;
     } catch (err) {
@@ -115,7 +117,7 @@ export async function GET(request: NextRequest) {
     }
 
     await appendToPostLog(
-      { date: todayKey, type: contentType, id: contentId, platforms },
+      { date: todayKey, type: contentType, id: contentId, platforms, postIds: { x: articleXIds } },
       log
     );
 
@@ -202,8 +204,10 @@ export async function GET(request: NextRequest) {
       const platforms: string[] = [];
       const results: Record<string, unknown> = {};
 
+      let vocabXIds: string[] | undefined;
       try {
         const ids = await postTweetThread(tweets);
+        vocabXIds = ids;
         platforms.push("x");
         results.x = ids;
       } catch (err) {
@@ -224,7 +228,7 @@ export async function GET(request: NextRequest) {
       }
 
       await appendToPostLog(
-        { date: todayKey, type: contentType, id: contentId, platforms },
+        { date: todayKey, type: contentType, id: contentId, platforms, postIds: { x: vocabXIds } },
         log
       );
 
@@ -268,8 +272,10 @@ export async function GET(request: NextRequest) {
   const platforms: string[] = [];
   const results: Record<string, unknown> = {};
 
+  let quizXIds: string[] | undefined;
   try {
     const tweet = await postTweet(postText);
+    quizXIds = [tweet.id];
     platforms.push("x");
     results.x = tweet;
   } catch (err) {
@@ -291,7 +297,7 @@ export async function GET(request: NextRequest) {
   }
 
   await appendToPostLog(
-    { date: todayKey, type: contentType, id: contentId, platforms },
+    { date: todayKey, type: contentType, id: contentId, platforms, postIds: { x: quizXIds } },
     log
   );
 

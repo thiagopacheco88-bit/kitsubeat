@@ -12,6 +12,7 @@ export type PostLogEntry = {
   type: "vocab" | "quiz" | "article";
   id: string; // vocab item uuid or article slug
   platforms: string[];
+  postIds?: { x?: string[] }; // platform-specific IDs for metrics lookups
 };
 
 export type PostLog = { posted: PostLogEntry[] };
