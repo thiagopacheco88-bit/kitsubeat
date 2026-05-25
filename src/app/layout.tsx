@@ -23,14 +23,18 @@ import { PageTransitionWrapper } from "@/app/components/PageTransitionWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://kitsubeat.vercel.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://kitsubeat.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "KitsuBeat",
   description: "Learn Japanese through anime songs",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
