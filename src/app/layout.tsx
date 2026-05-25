@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getTranslations } from 'next-intl/server';
 import Link from "next/link";
 import Image from "next/image";
-import { ClerkProvider, UserButton } from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { cookies } from "next/headers";
 import "./globals.css";
@@ -20,6 +20,7 @@ import { getUserGamificationState, type GamificationState } from "@/lib/db/queri
 import NextTopLoader from "nextjs-toploader";
 import Script from "next/script";
 import { PageTransitionWrapper } from "@/app/components/PageTransitionWrapper";
+import { KitsuneProfileButton } from "@/app/components/KitsuneProfileButton";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -248,7 +249,7 @@ export default async function RootLayout({
                       <LanternStreak count={state.streak_current} />
                     </div>
                   )}
-                  <UserButton />
+                  <KitsuneProfileButton />
                 </>
               ) : (
                 <Link
