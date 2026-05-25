@@ -12,6 +12,8 @@ test-results
 tmp
 _temp
 data
+!src/data
+!src/data/**
 public/audio
 videos
 design_handoff_kitsubeat_home
