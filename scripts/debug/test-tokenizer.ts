@@ -3,7 +3,7 @@
  * Run: npx tsx scripts/test-tokenizer.ts
  */
 
-import { initKuroshiro, tokenizeLyrics } from "./lib/kuroshiro-tokenizer.ts";
+import { initKuroshiro, tokenizeLyrics } from "../lib/kuroshiro-tokenizer.ts";
 
 console.log("Initializing kuroshiro...");
 await initKuroshiro();

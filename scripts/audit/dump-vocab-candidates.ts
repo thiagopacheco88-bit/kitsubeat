@@ -16,8 +16,8 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import { join, resolve } from "path";
 
-import { initKuroshiro } from "./lib/kuroshiro-tokenizer.js";
-import { extractVocabCandidates, type VocabCandidate } from "./lib/vocab-extractor.js";
+import { initKuroshiro } from "../lib/kuroshiro-tokenizer.js";
+import { extractVocabCandidates, type VocabCandidate } from "../lib/vocab-extractor.js";
 
 interface Args {
   slug: string | null;

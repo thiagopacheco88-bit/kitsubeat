@@ -11,6 +11,9 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("/ above-fold UNAUTH (AC #7)", () => {
+  // Home page DB queries + external images can take >30s; give test ample budget.
+  test.setTimeout(90_000);
+
   test("4 signals visible above the fold for anonymous visitor", async ({ page, context }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await context.addCookies([
@@ -18,8 +21,10 @@ test.describe("/ above-fold UNAUTH (AC #7)", () => {
     ]);
     // Do NOT set Clerk auth cookie — anonymous
 
-    await page.goto("/");
-    await page.waitForLoadState("load");
+    // Use domcontentloaded — home page has YouTube thumbnails and Suspense streams
+    // that keep the load event pending well past 30s. All assertions use SSR elements
+    // (hero, CTA, wordmark) present in the initial HTML before hydration.
+    await page.goto("/", { waitUntil: "commit" });
 
     // (a) hero cover image visible
     const heroCover = page.locator('[data-testid="hero-featured"] img[src*="youtube.com"]');

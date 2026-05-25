@@ -7,6 +7,9 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("/ Foundations (AC #11)", () => {
+  // Home page sequential DB queries can take >30s; give tests ample budget.
+  test.setTimeout(90_000);
+
   test("renders 2 KanaCheckpointNode cards (hiragana + katakana); each href navigates to /kana?script=...", async ({
     page,
     context,
@@ -16,8 +19,9 @@ test.describe("/ Foundations (AC #11)", () => {
       { name: "kb_theme", value: "dark", url: "http://localhost:7000", sameSite: "Lax" },
     ]);
 
-    await page.goto("/");
-    await page.waitForLoadState("load");
+    // Use domcontentloaded — home page Suspense streams and external images keep
+    // the load event pending well past 30s. Foundations section is SSR-rendered.
+    await page.goto("/", { waitUntil: "commit" });
 
     const foundations = page.locator('[data-testid="foundations"]');
     await expect(foundations).toBeVisible({ timeout: 10_000 });
