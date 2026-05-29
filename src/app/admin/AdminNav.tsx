@@ -8,6 +8,7 @@ const TOOLS = [
   { key: "exercises", href: "/admin/exercises", label: "Exercise Review" },
   { key: "timing", href: "/admin/timing", label: "Timing Editor" },
   { key: "journal", href: "/admin/journal", label: "Journal" },
+  { key: "content-status", href: "/admin/content-status", label: "Content Status" },
 ] as const;
 
 export default function AdminNav() {

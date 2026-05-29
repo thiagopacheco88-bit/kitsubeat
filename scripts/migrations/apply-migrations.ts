@@ -5,7 +5,7 @@ import { config } from "dotenv";
 import { Client } from "@neondatabase/serverless";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const ROOT = resolve(__dirname, "..");
+const ROOT = resolve(__dirname, "../..");
 config({ path: join(ROOT, ".env.local") });
 
 const DIR = join(ROOT, "drizzle");

@@ -119,6 +119,7 @@ export async function getAllSongSlugsForSitemap() {
   return db
     .select({ slug: songs.slug, updated_at: songs.updated_at })
     .from(songs)
+    .where(eq(songs.is_available, true))
     .orderBy(asc(songs.slug));
 }
 
@@ -326,6 +327,7 @@ export async function getAllSongs(userId?: string | null, languageFilter?: strin
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
     ) ${languageFilter ? sql`AND ${songs.language} = ${languageFilter}` : sql``}
     AND ${songs.quality_status} = 'active'
+    AND ${songs.is_available} = true
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
@@ -365,6 +367,7 @@ export async function getFeaturedSongs(limit: number = 6) {
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
     ) AND ${songs.language} = 'ja'
     AND ${songs.quality_status} = 'active'
+    AND ${songs.is_available} = true
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
@@ -394,6 +397,7 @@ const activeSongWhere = () => and(
   sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL)`,
   eq(songs.language, "ja"),
   eq(songs.quality_status, "active"),
+  eq(songs.is_available, true),
   sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle')`
 );
 

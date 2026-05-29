@@ -115,6 +115,11 @@ export const songs = pgTable("songs", {
   quality_status: qualityStatusEnum("quality_status").default("active").notNull(),
   quality_notes: text("quality_notes"),
 
+  // Phase 18.x: YouTube video availability — false when the video is blocked,
+  // removed, or made private. Checked by scripts/audit/check-video-availability.ts
+  // via the YouTube oEmbed API. All public browse/catalog queries filter on true.
+  is_available: boolean("is_available").default(true).notNull(),
+
   // Timestamps
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
   updated_at: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),

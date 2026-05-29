@@ -33,6 +33,8 @@
     "audit:geo": "tsx --tsconfig tsconfig.scripts.json scripts/data/backfill-geo-check.ts",
     "audit:geo:replace": "tsx --tsconfig tsconfig.scripts.json scripts/data/backfill-geo-check.ts --replace",
     "audit:verse-tokens": "tsx --tsconfig tsconfig.scripts.json scripts/audit/verse-token-distribution.ts",
+    "audit:video-availability": "tsx --tsconfig tsconfig.scripts.json scripts/audit/check-video-availability.ts",
+    "audit:video-availability:fix": "tsx --tsconfig tsconfig.scripts.json scripts/audit/check-video-availability.ts --fix",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:unit": "vitest run src/",
