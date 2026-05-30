@@ -16,6 +16,17 @@ Wait up to 60 seconds for `http://localhost:7000` to respond before proceeding.
 
 ## Phase 2 — Playwright automated suite
 
+**Known slow tests (not flakes):**
+- `home-and-browse`, `home-above-fold-*`, `home-foundations` use `test.setTimeout(90_000)` — Next.js streaming SSR + Neon cold start delays `DOMContentLoaded` 30–90s in dev. Expected.
+- `theme-toggle` optimistic test uses `test.setTimeout(180_000)` — ThemeToggle React hydration takes 60s+ in dev after many prior tests. Expected.
+- These are dev-environment characteristics. On Vercel production they load in 1–3s.
+
+**Verify last Vercel build passed before running tests:**
+```bash
+gh run list --repo thiagopacheco88-bit/kitsubeat --limit 1 --json status,conclusion,headBranch
+```
+If `conclusion` is `failure`, fix the build first — running a full Playwright suite against a broken deploy wastes time.
+
 **Run the full suite**:
 ```bash
 npx playwright test --reporter=list
@@ -28,7 +39,7 @@ PLAYWRIGHT_AUTH=true npx playwright test --reporter=list
 **Parse and report** — after the run, summarise:
 - Total passed / failed / skipped
 - Which spec files failed and the first failing assertion
-- Any tests that hit the 30s timeout (likely flake candidates)
+- Any tests that hit the 90s timeout (likely flake candidates — investigate if they exceed the budget)
 - Coverage gaps: list any of the 6 feature areas with zero passing tests
 
 **On failure** — for each failed test:
@@ -76,6 +87,42 @@ npx playwright test && npm run test:report
 
 ---
 
+## Phase 2.5 — Post-deploy production smoke check
+
+Run this after every push that lands on Vercel. Catches missing env vars, DB connection failures, and broken imports that work locally but 500 in production.
+
+```bash
+node -e "
+const pages = ['/', '/songs', '/anime', '/kana', '/path', '/journal', '/profile'];
+const base = 'https://kitsubeat.app';
+Promise.all(
+  pages.map(p =>
+    fetch(base + p, { redirect: 'manual' })
+      .then(r => {
+        const ok = r.status < 400 || r.status === 302;
+        console.log(ok ? '✓' : '✗', r.status, p);
+      })
+      .catch(e => console.error('✗ FAIL', p, e.message))
+  )
+);
+"
+```
+
+Any 500 is a blocker. 302 on `/profile` is expected (auth redirect). Also spot-check one song player:
+
+```bash
+node -e "
+fetch('https://kitsubeat.app/songs/again-yui')
+  .then(r => r.text())
+  .then(html => {
+    const ok = html.includes('Again') && html.includes('data-theme');
+    console.log(ok ? '✓ song player page renders' : '✗ missing expected content');
+  });
+"
+```
+
+---
+
 ## Phase 3 — Manual UAT: Test Accounts
 
 Two dedicated accounts should be used. Set them up in Clerk if they don't exist yet.
@@ -109,6 +156,35 @@ Sign in with `qa-veteran@kitsubeat.app` and verify:
 - [ ] Review cards show **no intro image** — the image intro is only for first encounters
 - [ ] Answering 「Again」on a review card correctly resets it to Relearning (state=3), not New (state=0)
 - [ ] After completing a review session, the due count decreases correctly
+
+---
+
+## Phase 3.5 — Social media cron health
+
+Run this after any deploy or once per week. The X and Threads posting crons can fail silently.
+
+```bash
+# Days of posts remaining in queue
+node -e "
+const q = require('./src/lib/social-queue.json');
+const future = q.posts.filter(p => new Date(p.scheduledFor) > new Date() && !p.postedAt);
+const last = q.posts.filter(p => p.postedAt).sort((a,b) => new Date(b.postedAt) - new Date(a.postedAt))[0];
+console.log('Queued posts remaining:', future.length);
+if (future[0]) console.log('Next scheduled:', future[0].scheduledFor, '-', future[0].platform);
+if (last) console.log('Last posted:', last.postedAt, '-', last.platform, last.postId ? '✓ has post ID' : '✗ missing post ID (post may have failed)');
+if (future.length < 7) console.warn('⚠️  Fewer than 7 posts queued — regenerate soon');
+"
+```
+
+**Manual check — Vercel cron logs:**
+- Go to Vercel → Functions → Cron Jobs
+- Confirm `/api/cron/post-social` last run is recent and shows 200
+- A silent 500 means the queue has been draining without posts going out
+- Check that `postId` fields are being populated in `social-queue.json` after each run (if missing, the post call failed)
+
+**Manual check — platform spot check:**
+- Open `https://x.com/kitsubeat` and `https://www.threads.net/@kitsubeat`
+- Confirm the most recent post matches the `last posted` timestamp from the script above
 
 ---
 
@@ -308,6 +384,25 @@ Run the same for `songs.json`, `journal.json`, `settings.json`, `exercises.json`
 
 ---
 
+## Phase 6.5 — Legal + cookie compliance
+
+Run this whenever the footer, layout, or cookie consent component is changed.
+
+**Legal footer links:**
+- [ ] Footer is visible on `/`, `/songs`, `/songs/[slug]`, `/kana`, `/anime`, `/profile`, `/journal`
+- [ ] Three links present: **Terms of Service**, **Privacy Policy**, **Cookies** — each navigates to its page without 404
+- [ ] `/terms`, `/privacy`, `/cookies` all return 200 (not 404 or blank)
+
+**Cookie consent flow** (use a private window or clear `kb_consent` cookie):
+- [ ] Banner appears on first visit to any page
+- [ ] "Accept" → sets `kb_consent` cookie → banner disappears
+- [ ] "Reject" → banner disappears, `kb_consent` is NOT set (or set to "rejected")
+- [ ] Reloading after accepting → banner does NOT reappear
+- [ ] Reloading after rejecting → banner DOES reappear (no persistent consent stored)
+- [ ] Banner text is translated correctly in ES and PT-BR (test via `kb_locale` cookie)
+
+---
+
 ## Phase 7 — New features walkthrough
 
 Before each QA run, check what was shipped since the last QA:
@@ -343,7 +438,7 @@ Expected: **24/24 pass** (5 integration + 14 generator + 5 server action).
 > **DB sync note:** If integration tests fail with `relation "anime_vocab_catalog" does not exist`, the test DB branch is stale. Fix:
 > ```bash
 > # Apply missing migrations to test branch
-> DATABASE_URL="<TEST_DATABASE_URL>" npx tsx scripts/apply-migrations.ts
+> DATABASE_URL="<TEST_DATABASE_URL>" npx tsx --tsconfig tsconfig.scripts.json scripts/migrations/apply-migrations.ts
 > # Seed 760 words into test branch
 > DATABASE_URL="<TEST_DATABASE_URL>" npx tsx --tsconfig tsconfig.scripts.json scripts/seed/20-seed-anime-vocab.ts
 > ```
@@ -419,9 +514,132 @@ Test in this order — **EN last** so the session ends with `kb_locale=en`.
 
 ---
 
+## Phase 8 — YouTube video availability check
+
+YouTube publishers can block or remove videos at any time. A blocked video shows an error iframe instead of the lesson — silent data rot.
+
+### 8A — Automated scan (run weekly or before any catalog-related deploy)
+
+```bash
+# Check all song YouTube IDs via oEmbed — no API key needed.
+# Prints BLOCKED / OK / UNKNOWN for each song.
+npx tsx --tsconfig tsconfig.scripts.json scripts/audit/check-video-availability.ts
+```
+
+> ⚠️ **This script does not exist yet — it needs to be built.** See 8C below for the spec.
+
+Expected output:
+```
+✓  again-yui             OK   (dQw4w9WgXcQ)
+✗  crossing-field-lisa   BLOCKED  (abc123)   ← publisher removed / region-blocked
+```
+
+Any `BLOCKED` result is a **P1 issue** — the song must be hidden from the catalog until a replacement video is found.
+
+### 8B — Manual spot check (run for any song flagged by a user)
+
+1. Open the song's player page, e.g. `/songs/crossing-field-lisa`
+2. Confirm the YouTube iframe loads (no "Video unavailable" error screen)
+3. Press play — video should start within 3s
+4. If blocked: go to admin → Content Status and mark the song as unavailable
+
+### 8C — Feature spec (needs to be built)
+
+The following is not yet implemented. Build when flagged songs start appearing in the catalog.
+
+**DB change:** add `is_available boolean NOT NULL DEFAULT true` column to the `songs` table. Migration: `scripts/migrations/add-song-availability.ts`.
+
+**Auto-hide:** all queries that return songs for public pages (`getSongs`, `getFeaturedSong`, `getAnimeSongs`) must add `WHERE is_available = true`. Blocked songs become invisible site-wide without deletion.
+
+**Detection script** (`scripts/audit/check-video-availability.ts`):
+```typescript
+// For each song in DB:
+//   fetch https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={video_id}&format=json
+//   HTTP 200 → available
+//   HTTP 401 / 403 / 404 → blocked / removed
+// Update is_available in DB for any that changed status.
+// Print a summary: N blocked, M newly blocked, K restored.
+```
+
+**Admin page** (`/admin/content-status`):
+- Table of all songs with columns: Title, Anime, YouTube ID, Status (✓ Available / ✗ Blocked), Last Checked
+- "Re-check all" button that runs the availability scan on demand
+- Per-row toggle to manually override `is_available` (for edge cases like region-only blocks)
+- Blocked songs highlighted in red — one-click to mark as hidden
+
+**QA gate:** after building, run the scan before every catalog deploy and confirm zero regressions.
+
+---
+
+## Phase 9 — Performance / load timing
+
+> **Dev mode is not representative** — Next.js dev skips all optimisations. Run these checks against **production** (`https://kitsubeat.app`) only.
+
+### 9A — Quick TTFB check (after every deploy)
+
+Time-to-first-byte tells you if the Neon DB cold start is hurting real users.
+
+```bash
+# Measure TTFB for key pages (requires curl)
+for page in "/" "/songs" "/anime" "/kana" "/songs/again-yui"; do
+  ttfb=$(curl -s -o /dev/null -w "%{time_starttransfer}" "https://kitsubeat.app$page")
+  echo "$ttfb s  $page"
+done
+```
+
+**Thresholds:**
+| Page | TTFB target | Action if exceeded |
+|---|---|---|
+| `/` | < 3s | Home page SSR is too slow — check Neon cold start and sequential DB calls |
+| `/songs` | < 2s | Songs query is slow — check DB indexes |
+| `/songs/[slug]` | < 2s | Lesson data query is slow |
+| `/anime` | < 1s | Should be fast — mostly static catalog |
+| `/kana`, `/path` | < 1s | No DB dependency for anon users |
+
+### 9B — Lighthouse spot check (run monthly or after major layout changes)
+
+```bash
+# Requires lighthouse CLI: npm install -g lighthouse
+lighthouse https://kitsubeat.app --output=json --output-path=./lighthouse-report.json --chrome-flags="--headless"
+node -e "
+const r = require('./lighthouse-report.json');
+const cats = r.categories;
+console.log('Performance:', Math.round(cats.performance.score * 100));
+console.log('Accessibility:', Math.round(cats.accessibility.score * 100));
+console.log('Best Practices:', Math.round(cats['best-practices'].score * 100));
+console.log('SEO:', Math.round(cats.seo.score * 100));
+console.log('LCP:', r.audits['largest-contentful-paint'].displayValue);
+console.log('CLS:', r.audits['cumulative-layout-shift'].displayValue);
+console.log('FCP:', r.audits['first-contentful-paint'].displayValue);
+"
+```
+
+**Minimum targets:**
+| Metric | Target |
+|---|---|
+| Performance score | ≥ 70 |
+| LCP | < 2.5s |
+| CLS | < 0.1 |
+| Accessibility | ≥ 90 |
+
+CLS failures are the most common regression — usually caused by images loading without explicit dimensions, or fonts causing layout shift. Fix before shipping.
+
+### 9C — Player video load time (manual)
+
+Open any song player on production. Open DevTools → Network tab → filter by `youtube.com`.
+
+- [ ] YouTube iframe embed request returns within 3s
+- [ ] Player thumbnail is visible before the iframe loads (no blank white box flash)
+- [ ] After clicking play, video starts playing within 5s on a normal connection
+
+If the player takes >5s to start, check whether `iframe-defer` is working correctly — lazy loading should not be activating before the user clicks play.
+
+---
+
 ## Playwright notes
 
 - Zero-flake policy: if a test fails once, do not re-run to confirm — investigate the root cause.
 - Admin tests skip gracefully when Clerk credentials are not configured — that is expected, not a failure.
 - Visual diff tests (`path-visual-light`, `path-visual-dark`, `home-visual-*`) require baseline snapshots. Run with `--update-snapshots` after intentional visual changes only.
 - Quarantined tests are excluded by default. Run `npm run test:quarantine` to see them.
+- **Home page tests are intentionally slow** (30–90s) in dev mode — this is expected due to streaming SSR + Neon cold start. Do not lower their timeouts.

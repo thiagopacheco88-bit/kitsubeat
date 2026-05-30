@@ -62,7 +62,7 @@ export function CoverCard({ song, stars = 0, showMastery, opEd, nowPlayingCount 
       href={`/songs/${song.slug}`}
       variant="flat"
       size="sm"
-      className="relative shrink-0 snap-start overflow-hidden rounded-[var(--radius-lg)] p-0 flex flex-col"
+      className="relative shrink-0 snap-start overflow-hidden rounded-[var(--radius-lg)] p-0 flex flex-col transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.02]"
       style={{ width: `${COVER_CARD_W}px`, height: `${COVER_CARD_H}px` }}
       data-testid={`cover-card-${song.slug}`}
     >

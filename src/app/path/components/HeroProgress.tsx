@@ -18,6 +18,7 @@
 import { getTranslations } from "next-intl/server";
 import { xpWithinCurrentLevel } from "@/lib/gamification/level-curve";
 import type { GamificationState } from "@/lib/db/queries";
+import { AnimatedProgressBar } from "@/components/ui/AnimatedProgressBar";
 
 export interface HeroProgressProps {
   state: GamificationState;
@@ -84,11 +85,10 @@ export async function HeroProgress({
 
       {/* XP bar — same recipe as PathHud's <progress>: card-2 track, accent value */}
       <div className="space-y-1">
-        <progress
+        <AnimatedProgressBar
           value={xpInLevel}
           max={xpToNext}
-          aria-label={`XP progress: ${xpInLevel} of ${xpToNext}`}
-          className="w-full h-2 rounded-full overflow-hidden [&::-webkit-progress-bar]:bg-[var(--color-card-2)] [&::-webkit-progress-value]:bg-[var(--color-accent)] [&::-moz-progress-bar]:bg-[var(--color-accent)]"
+          ariaLabel={`XP progress: ${xpInLevel} of ${xpToNext}`}
         />
         <div className="text-xs text-[var(--color-text-muted)]">
           {t('xpToLevel', { xp: xpInLevel, total: xpToNext, next: state.level + 1 })}

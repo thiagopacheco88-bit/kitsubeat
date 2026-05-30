@@ -273,6 +273,19 @@
   animation: ka-aura 2.4s var(--ease-in-out) infinite;
 }
 
+/* Scroll-reveal — FadeInSection component. Server renders with opacity:0 so
+ * there is no SSR→hydration flash. JS adds .fade-in-visible via IntersectionObserver. */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+.fade-in-section.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* CONTEXT D-13 — Global reduced-motion override. MUST be last in file.
  * Suppresses every cataloged animation (verse-highlight, star-shine, level-pop,
  * confetti, page-transition fade, hover lift, modal enter/exit, toast slide-in,

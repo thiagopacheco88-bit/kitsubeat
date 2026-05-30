@@ -59,6 +59,12 @@ const TARGETS: Target[] = [
   { slug: "tonight-tonight-tonight-beat-crusaders", title: "TONIGHT,TONIGHT,TONIGHT", artist: "BEAT CRUSADERS", query: "TONIGHT TONIGHT TONIGHT" },
   { slug: "taidada-zutomayo", title: "タイダダ", artist: "ずっと真夜中でいいのに。", query: "タイダダ" },
   { slug: "yuugure-no-tori-shinsei-kamattechan", title: "夕暮れの鳥", artist: "神聖かまってちゃん", query: "夕暮れの鳥" },
+  // 2026-05-29: Whisper-transcription failures — YouTube junk / insufficient lines
+  { slug: "never-give-up-watanabe-misato", title: "NEVER GIVE UP!", artist: "渡辺美里", query: "渡辺美里 NEVER GIVE UP" },
+  { slug: "futatsu-no-kodou-to-akai-tsumi-on-off", title: "二つの鼓動と赤い罪", artist: "ON/OFF", query: "二つの鼓動と赤い罪 ON/OFF" },
+  { slug: "rinne-rondo-on-off", title: "輪廻-rondo-", artist: "ON/OFF", query: "輪廻 rondo ON/OFF" },
+  { slug: "mr-sadistic-night-midorikawa-toriumi", title: "Mr.サディスティック・ナイト", artist: "緑川光・鳥海浩輔", query: "Mr サディスティック ナイト" },
+  { slug: "kindan-no-666-kimura-kishio", title: "禁断の666", artist: "木村良平・岸尾だいすけ", query: "禁断の666 木村良平" },
 ];
 
 const UA =

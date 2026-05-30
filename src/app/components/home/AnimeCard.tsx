@@ -60,7 +60,7 @@ export function AnimeCard({
       href={href}
       variant="flat"
       size="sm"
-      className="relative shrink-0 snap-start overflow-hidden rounded-[var(--radius-lg)] p-0"
+      className="relative shrink-0 snap-start overflow-hidden rounded-[var(--radius-lg)] p-0 transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.03]"
       style={{ width: `${ANIME_CARD_SIZE}px`, height: `${ANIME_CARD_SIZE}px` }}
       data-testid={`anime-card-${anime}`}
     >

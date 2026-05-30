@@ -1,5 +1,6 @@
 import { getJlptGapSummary, type JlptGapRow } from "@/lib/db/queries";
 import { Badge } from "@/components/ui/Badge";
+import { AnimatedProgressBar } from "@/components/ui/AnimatedProgressBar";
 
 const ALL_TIERS: JlptGapRow["jlpt_level"][] = ["N5", "N4", "N3", "N2", "N1"];
 
@@ -46,11 +47,10 @@ export async function JlptGapSummary({ userId }: { userId: string }) {
                   {row.mastered_count} / {row.total_count} mastered
                 </span>
               </div>
-              <progress
+              <AnimatedProgressBar
                 value={pct}
                 max={100}
-                aria-label={`${tier} mastery: ${pct}%`}
-                className="w-full h-2 rounded-[var(--radius-pill)] overflow-hidden [&::-webkit-progress-bar]:bg-[var(--color-card-2)] [&::-webkit-progress-value]:bg-[var(--color-accent)] [&::-moz-progress-bar]:bg-[var(--color-accent)]"
+                ariaLabel={`${tier} mastery: ${pct}%`}
               />
               <p className="text-xs text-[var(--color-text-muted)]">
                 {remaining > 0

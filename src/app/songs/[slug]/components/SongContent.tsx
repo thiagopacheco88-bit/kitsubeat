@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, lazy, Suspense, useRef, useEffect } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { Lesson } from "@/lib/types/lesson";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -111,6 +112,7 @@ function SongContentInner({
   fullVersion,
 }: SongContentInnerProps) {
   const { setForceMount } = usePlayer();
+  const prefersReduced = useReducedMotion();
 
   const [activeTab, setActiveTab] = useState<ContentTab>("vocabulary");
 
@@ -285,37 +287,63 @@ function SongContentInner({
         </div>
 
         {/* Tab content */}
-        {activeTab === "vocabulary" && (
-          <VocabularySection vocabulary={active.lesson.vocabulary} />
-        )}
+        <AnimatePresence mode="wait">
+          {activeTab === "vocabulary" && (
+            <motion.div
+              key="vocabulary"
+              initial={prefersReduced ? {} : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={prefersReduced ? {} : { opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <VocabularySection vocabulary={active.lesson.vocabulary} />
+            </motion.div>
+          )}
 
-        {activeTab === "grammar" && (
-          <div className="mb-12">
-            <GrammarSection points={active.lesson.grammar_points} />
-          </div>
-        )}
-
-        {activeTab === "practice" && (
-          <Suspense
-            fallback={
-              <div className="flex flex-col gap-4 py-8 animate-pulse">
-                <div className="h-5 w-1/3 rounded bg-[var(--color-card-2)]" />
-                <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
-                <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
+          {activeTab === "grammar" && (
+            <motion.div
+              key="grammar"
+              initial={prefersReduced ? {} : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={prefersReduced ? {} : { opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <div className="mb-12">
+                <GrammarSection points={active.lesson.grammar_points} />
               </div>
-            }
-          >
-            <ExerciseTab
-              lesson={active.lesson}
-              songVersionId={active.id}
-              songSlug={song.slug}
-              userId={userId}
-              hasKanjiBearingVocab={active.hasKanjiBearingVocab ?? true}
-              trackPcts={active.trackPcts ?? { vocab: 0, grammar: 0, kanji: 0 }}
-              advancedDrillsUnlocked={active.advancedDrillsUnlocked ?? false}
-            />
-          </Suspense>
-        )}
+            </motion.div>
+          )}
+
+          {activeTab === "practice" && (
+            <motion.div
+              key="practice"
+              initial={prefersReduced ? {} : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={prefersReduced ? {} : { opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <Suspense
+                fallback={
+                  <div className="flex flex-col gap-4 py-8 animate-pulse">
+                    <div className="h-5 w-1/3 rounded bg-[var(--color-card-2)]" />
+                    <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
+                    <div className="h-24 w-full rounded-lg bg-[var(--color-card-2)]" />
+                  </div>
+                }
+              >
+                <ExerciseTab
+                  lesson={active.lesson}
+                  songVersionId={active.id}
+                  songSlug={song.slug}
+                  userId={userId}
+                  hasKanjiBearingVocab={active.hasKanjiBearingVocab ?? true}
+                  trackPcts={active.trackPcts ?? { vocab: 0, grammar: 0, kanji: 0 }}
+                  advancedDrillsUnlocked={active.advancedDrillsUnlocked ?? false}
+                />
+              </Suspense>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

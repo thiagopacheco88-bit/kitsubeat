@@ -92,16 +92,24 @@ export default async function LocaleHomePage({
       <HeroFeatured hero={hero} />
 
       {/* Section 2 — Continue Learning (auth-only) */}
-      {isSignedIn && <ContinueLearning userId={userId} title={t('home.continueLearning')} viewAllLabel={t('home.openPath')} />}
+      {isSignedIn && (
+        <div className="fade-in-section">
+          <ContinueLearning userId={userId} title={t('home.continueLearning')} viewAllLabel={t('home.openPath')} />
+        </div>
+      )}
 
       {/* Section 2.5 — Recently Mastered ticker */}
-      <RecentlyMasteredTicker events={masteryEvents} />
+      <div className="fade-in-section">
+        <RecentlyMasteredTicker events={masteryEvents} />
+      </div>
 
       {/* Section 3 — Foundations */}
-      <Foundations title={t('home.foundations')} viewAllLabel={t('home.openKana')} />
+      <div className="fade-in-section">
+        <Foundations title={t('home.foundations')} viewAllLabel={t('home.openKana')} />
+      </div>
 
       {/* Section 4 — Anime Vocabulary */}
-      <section data-testid="anime-vocabulary" className="pb-8">
+      <section data-testid="anime-vocabulary" className="pb-8 fade-in-section">
         <SectionHeader
           titleJp="語彙"
           title={t('home.animeVocabulary')}
@@ -124,7 +132,7 @@ export default async function LocaleHomePage({
       </section>
 
       {/* Section 5 — Anime Songs */}
-      <section data-testid="browse-by-anime" className="pb-8">
+      <section data-testid="browse-by-anime" className="pb-8 fade-in-section">
         <SectionHeader
           titleJp="アニメ"
           title={t('home.animeSongs')}
@@ -155,7 +163,7 @@ export default async function LocaleHomePage({
       )}
 
       {/* Section 5 — Featured Songs */}
-      <section data-testid="featured-songs" className="pb-8">
+      <section data-testid="featured-songs" className="pb-8 fade-in-section">
         <SectionHeader
           titleJp="特集"
           title={t('home.featuredSongs')}
@@ -183,25 +191,35 @@ export default async function LocaleHomePage({
       </section>
 
       {/* Below-fold carousels — streamed independently via Suspense */}
-      <Suspense fallback={<CarouselSkeleton />}>
-        <BeginnerCarousel showMastery={isSignedIn} title={t('home.beginner')} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <BeginnerCarousel showMastery={isSignedIn} title={t('home.beginner')} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <IntermediateCarousel showMastery={isSignedIn} title={t('home.intermediate')} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <IntermediateCarousel showMastery={isSignedIn} title={t('home.intermediate')} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <AdvancedCarousel showMastery={isSignedIn} title={t('home.advanced')} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <AdvancedCarousel showMastery={isSignedIn} title={t('home.advanced')} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <ClassicsCarousel showMastery={isSignedIn} title={t('home.classics')} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <ClassicsCarousel showMastery={isSignedIn} title={t('home.classics')} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <ModernCarousel showMastery={isSignedIn} title={t('home.modern')} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <ModernCarousel showMastery={isSignedIn} title={t('home.modern')} />
+        </Suspense>
+      </div>
     </div>
   );
 }

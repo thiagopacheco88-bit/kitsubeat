@@ -1,23 +1,20 @@
 # Resume Context
 
 ## Current Task
-Quiz video format for KitsuBeat social (Reels, TikTok, Shorts).
+X (Twitter) daily posting automation — fully wired and live.
 
 ## Key Decisions
-- Thumbnail = frame 0 of video; cover on all platforms, barely perceptible on playback
-- Thumbnail must match KitsuBeat brand (#0E0E0E, #dc2626, Inter) — not standalone
-- Thumbnail content: icon + logo · "Quiz on [Anime] — Part X" · anime logo/art
-- Use apple-touch-icon.png (Instagram square icon) in nav, not wordmark alone
-- Countdown animation: icon center + 3 red orbiting dots + 3→2→1 tiles
+- Pre-generated queue (scripts/generate-social-queue.ts → src/data/social-queue.json) — zero Anthropic API cost at runtime
+- Quiz posts restructured as 4-tweet thread: Q1 → A1+Q2 → A2+Q3 → A3+CTA; hook: "Common Japanese vocab from anime / Can you get all 3? 🧵"
+- X credentials regenerated and added to .env.local + Vercel production; $5 credits added to X developer account
 
 ## Next Steps
-1. Pick layout from `public/quiz-thumbnail-v1.html` (A/B/C/D)
-2. Source real anime logos for placeholders
-3. Decide countdown duration (3s now, likely 5–10s needed)
-4. Plan video flow: thumbnail → quiz screen → countdown → answer reveal
+- Monitor first automatic cron post tomorrow at 09:00 UTC
+- Add remaining missing tokens: RESEND_API_KEY, NEXT_PUBLIC_POSTHOG_TOKEN/HOST, UPSTASH_REDIS_REST_URL/TOKEN, THREADS_ACCESS_TOKEN + THREADS_USER_ID
+- Regenerate queue around Nov 2026 when current 184-post queue runs out: `npx tsx --tsconfig tsconfig.scripts.json scripts/generate-social-queue.ts`
 
 ## Key Artifacts
-- `public/quiz-thumbnail-v1.html` — 4 thumbnail layouts
-- `public/quiz-countdown.html` — countdown animation
-- `scripts/gen-thumbnail-v1.py` — thumbnail generator
-- `scripts/gen-countdown-animation.py` — countdown generator
+- `scripts/social/generate-social-queue.ts` — offline queue generator (run locally)
+- `src/data/social-queue.json` — 184 pre-generated posts (2026-05-26 → 2026-11-25)
+- `src/app/api/cron/social-post/route.ts` — Vercel cron, fires daily at 09:00 UTC
+- `scripts/social/post-now.ts` — manual post trigger: `npx tsx --tsconfig tsconfig.scripts.json scripts/social/post-now.ts <date>`

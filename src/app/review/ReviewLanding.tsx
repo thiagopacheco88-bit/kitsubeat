@@ -23,6 +23,7 @@ import UpsellModal from "./UpsellModal";
 import type { VocabRow, QueueResponse } from "@/app/api/review/queue/route";
 import { useReviewSession } from "@/stores/reviewSession";
 import { Button } from "@/components/ui/Button";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 // Lazy-load ReviewSession so it doesn't inflate the landing bundle
 const ReviewSession = dynamic(() => import("./ReviewSession"), { ssr: false });
@@ -129,13 +130,15 @@ export default function ReviewLanding({
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
             <p className="text-sm text-[var(--color-text-muted)]">Cards due</p>
-            <p className="text-4xl font-bold text-[var(--color-text)]">{dueCount}</p>
+            <p className="text-4xl font-bold text-[var(--color-text)]">
+              <AnimatedCounter value={dueCount} />
+            </p>
           </div>
           {isPremium && newBudgetRemaining > 0 && (
             <div className="sm:text-right">
               <p className="text-sm text-[var(--color-text-muted)]">New today</p>
               <p className="text-4xl font-bold text-[var(--color-jlpt-n4)]">
-                up to {newBudgetRemaining}
+                up to <AnimatedCounter value={newBudgetRemaining} />
               </p>
             </div>
           )}

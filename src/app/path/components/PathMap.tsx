@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { PathNode } from "./PathNode";
 import { TierDivider } from "./TierDivider";
 import { KanaCheckpointNode } from "./KanaCheckpointNode";
@@ -26,6 +27,8 @@ const TIER_ORDER: Record<string, number> = {
  * M1 guard: no disabled attrs / pointer-events:none on any node.
  */
 export function PathMap({ songs, currentNodeSlug }: PathMapProps) {
+  const prefersReduced = useReducedMotion();
+
   // Sort in JS: tier_order ASC, popularity_rank ASC (null → 999999)
   const sorted = [...songs].sort((a, b) => {
     const ta = TIER_ORDER[a.difficulty_tier ?? ""] ?? 3;
@@ -77,9 +80,16 @@ export function PathMap({ songs, currentNodeSlug }: PathMapProps) {
     const isCompleted = (song.ex1_2_3_best_accuracy ?? 0) > 0;
 
     elements.push(
-      <div key={song.slug} className={`${alignClass} w-full max-w-xs`}>
+      <motion.div
+        key={song.slug}
+        className={`${alignClass} w-full max-w-xs`}
+        initial={prefersReduced ? {} : { opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
         <PathNode song={song} isCurrent={isCurrent} isCompleted={isCompleted} />
-      </div>
+      </motion.div>
     );
 
     globalIndex++;

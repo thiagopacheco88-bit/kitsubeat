@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { HIRAGANA_ROWS, KATAKANA_ROWS } from "@/lib/kana/chart";
 import { computeUnlockedRows } from "@/lib/kana/mastery";
 import type { Script } from "@/lib/kana/types";
@@ -20,6 +21,7 @@ interface Props {
  * by virtue of the page never wiring an onClick.
  */
 export function KanaGrid({ script }: Props) {
+  const prefersReduced = useReducedMotion();
   const mastery = useKanaProgress((s) =>
     script === "hiragana" ? s.hiragana : s.katakana,
   );
@@ -42,14 +44,15 @@ export function KanaGrid({ script }: Props) {
         </p>
       </div>
       <div className="flex flex-col gap-3">
-        {rows.map((row) => {
+        {rows.map((row, idx) => {
           const isUnlocked = unlocked.has(row.id);
           return (
-            <div
+            <motion.div
               key={row.id}
-              className={`rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-3 ${
-                isUnlocked ? "" : "opacity-55"
-              }`}
+              className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card-2)] p-3"
+              initial={prefersReduced ? { opacity: isUnlocked ? 1 : 0.55 } : { opacity: 0, y: 8 }}
+              animate={{ opacity: isUnlocked ? 1 : 0.55, y: 0 }}
+              transition={{ duration: prefersReduced ? 0 : 0.3, delay: prefersReduced ? 0 : idx * 0.04 }}
             >
               <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
                 {row.label}
@@ -68,7 +71,7 @@ export function KanaGrid({ script }: Props) {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

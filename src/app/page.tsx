@@ -80,35 +80,45 @@ export default async function HomePage() {
       <HeroFeatured hero={hero} />
 
       {/* Section 2 — Continue Learning (auth-only) */}
-      {isSignedIn && <ContinueLearning userId={userId} />}
+      {isSignedIn && (
+        <div className="fade-in-section">
+          <ContinueLearning userId={userId} />
+        </div>
+      )}
 
       {/* Section 2.5 — Recently Mastered ticker */}
-      <RecentlyMasteredTicker events={masteryEvents} />
+      <div className="fade-in-section">
+        <RecentlyMasteredTicker events={masteryEvents} />
+      </div>
 
       {/* Section 3 — Foundations */}
-      <Foundations />
+      <div className="fade-in-section">
+        <Foundations />
+      </div>
 
       {/* Section 4 — Browse by Anime */}
-      <section data-testid="browse-by-anime" className="pb-8">
-        <SectionHeader
-          titleJp="アニメ"
-          title="Browse by Anime"
-          viewAll="/anime-list"
-          viewAllLabel="Browse Anime"
-        />
-        <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse by anime">
-          {topFranchises.map((franchise) => (
-            <AnimeCard
-              key={franchise.anime}
-              anime={franchise.anime}
-              nameJp={franchise.anime}
-              songCount={franchise.count}
-              coverImage={franchise.cover_image}
-              bannerImage={franchise.banner_image}
-            />
-          ))}
-        </Carousel>
-      </section>
+      <div className="fade-in-section">
+        <section data-testid="browse-by-anime" className="pb-8">
+          <SectionHeader
+            titleJp="アニメ"
+            title="Browse by Anime"
+            viewAll="/anime-list"
+            viewAllLabel="Browse Anime"
+          />
+          <Carousel testId="browse-by-anime-carousel" ariaLabel="Browse by anime">
+            {topFranchises.map((franchise) => (
+              <AnimeCard
+                key={franchise.anime}
+                anime={franchise.anime}
+                nameJp={franchise.anime}
+                songCount={franchise.count}
+                coverImage={franchise.cover_image}
+                bannerImage={franchise.banner_image}
+              />
+            ))}
+          </Carousel>
+        </section>
+      </div>
 
       {/* Streak-saver toast */}
       {isSignedIn && userRow?.streakSaverPending && (
@@ -120,54 +130,66 @@ export default async function HomePage() {
       )}
 
       {/* Section 5 — Featured Songs */}
-      <section data-testid="featured-songs" className="pb-8">
-        <SectionHeader
-          titleJp="特集"
-          title="Featured Songs"
-          viewAll="/songs"
-          viewAllLabel="Browse Songs"
-        />
-        <Carousel testId="featured-songs-carousel" ariaLabel="Featured songs">
-          {featured.map((song) => (
-            <CoverCard
-              key={song.slug}
-              song={{
-                slug: song.slug,
-                title: song.title,
-                artist: song.artist,
-                anime: song.anime,
-                youtube_id: song.youtube_id,
-                jlpt_level: song.jlpt_level,
-              }}
-              stars={0}
-              showMastery={isSignedIn}
-              nowPlayingCount={nowPlayingCounts[song.id]}
-            />
-          ))}
-        </Carousel>
-      </section>
+      <div className="fade-in-section">
+        <section data-testid="featured-songs" className="pb-8">
+          <SectionHeader
+            titleJp="特集"
+            title="Featured Songs"
+            viewAll="/songs"
+            viewAllLabel="Browse Songs"
+          />
+          <Carousel testId="featured-songs-carousel" ariaLabel="Featured songs">
+            {featured.map((song) => (
+              <CoverCard
+                key={song.slug}
+                song={{
+                  slug: song.slug,
+                  title: song.title,
+                  artist: song.artist,
+                  anime: song.anime,
+                  youtube_id: song.youtube_id,
+                  jlpt_level: song.jlpt_level,
+                }}
+                stars={0}
+                showMastery={isSignedIn}
+                nowPlayingCount={nowPlayingCounts[song.id]}
+              />
+            ))}
+          </Carousel>
+        </section>
+      </div>
 
       {/* ── Below-fold carousels — streamed independently via Suspense ── */}
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <BeginnerCarousel showMastery={isSignedIn} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <BeginnerCarousel showMastery={isSignedIn} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <IntermediateCarousel showMastery={isSignedIn} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <IntermediateCarousel showMastery={isSignedIn} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <AdvancedCarousel showMastery={isSignedIn} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <AdvancedCarousel showMastery={isSignedIn} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <ClassicsCarousel showMastery={isSignedIn} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <ClassicsCarousel showMastery={isSignedIn} />
+        </Suspense>
+      </div>
 
-      <Suspense fallback={<CarouselSkeleton />}>
-        <ModernCarousel showMastery={isSignedIn} />
-      </Suspense>
+      <div className="fade-in-section">
+        <Suspense fallback={<CarouselSkeleton />}>
+          <ModernCarousel showMastery={isSignedIn} />
+        </Suspense>
+      </div>
     </div>
   );
 }
