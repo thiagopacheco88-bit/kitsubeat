@@ -16,6 +16,7 @@ export function FadeInSection({ children, delay = 0, className }: FadeInSectionP
       data-fade-wrapper="1"
       className={`fade-in-section${className ? ` ${className}` : ""}`}
       style={style}
+      suppressHydrationWarning
     >
       {children}
     </div>
