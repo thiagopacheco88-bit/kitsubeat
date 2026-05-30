@@ -11,6 +11,28 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { join } from "path";
 import matter from "gray-matter";
 
+// ─── Hooks cache (AI-generated hooks + word insights) ─────────────────────────
+const HOOKS_CACHE_PATH = join(process.cwd(), ".planning/anime-vocab/hooks-cache.json");
+const hooksCache: Record<string, Record<string, string | string[]>> = existsSync(HOOKS_CACHE_PATH)
+  ? JSON.parse(readFileSync(HOOKS_CACHE_PATH, "utf8"))
+  : {};
+const animeCacheHookCursors: Record<string, number> = {};
+
+function nextCachedHook(animeId: string): string | null {
+  const entry = hooksCache[animeId];
+  const hooks = entry?._hooks as string[] | undefined;
+  if (!hooks?.length) return null;
+  if (animeCacheHookCursors[animeId] === undefined) animeCacheHookCursors[animeId] = 0;
+  const hook = hooks[animeCacheHookCursors[animeId] % hooks.length];
+  animeCacheHookCursors[animeId]++;
+  return hook;
+}
+
+function getCachedInsight(animeId: string, surface: string): string | null {
+  const val = hooksCache[animeId]?.[surface];
+  return typeof val === "string" ? val : null;
+}
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type VocabWord = {
@@ -44,8 +66,8 @@ const OUTPUT_DIR = join(ROOT, "src/data");
 const OUTPUT = join(OUTPUT_DIR, "social-queue.json");
 const SITE_URL = "https://kitsubeat.com";
 
-const START_DATE = "2026-05-26"; // tomorrow — today already missed
-const MONTHS = 6;
+const START_DATE = "2026-05-26";
+const MONTHS = 12;
 
 const ANIME_EMOJIS: Record<string, string> = {
   "naruto": "🍃",
@@ -126,7 +148,7 @@ const articles = readdirSync(JOURNAL_DIR)
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function contentTypeForDay(dayOfWeek: number): "vocab" | "quiz" | "article" {
-  if (dayOfWeek === 0 || dayOfWeek === 6) return "article";
+  if (dayOfWeek === 0 || dayOfWeek === 3 || dayOfWeek === 6) return "article";
   if (dayOfWeek === 2 || dayOfWeek === 4) return "quiz";
   return "vocab";
 }
@@ -207,15 +229,15 @@ const ARTICLE_ENGAGE = [
 ];
 
 const JLPT_CTAS: Array<(label: string, jlpt: string | null) => string> = [
-  (label) => `KitsuBeat's ${label} deck uses FSRS — you'll remember these in 3 sessions, not 30 🎌`,
+  (label) => `KitsuBeat's ${label} deck uses FSRS. You'll remember these in 3 sessions, not 30 🎌`,
   (label, jlpt) => jlpt
-    ? `${jlpt} words, anime scene context, FSRS scheduling — that's KitsuBeat's ${label} deck 🎌`
-    : `Anime context + FSRS scheduling — KitsuBeat's ${label} deck makes these stick without grinding 🎌`,
-  (label) => `KitsuBeat's ${label} deck ties each word to the anime scene it came from — that's what makes them stick 📌`,
+    ? `${jlpt} words, anime scene context, FSRS scheduling. That's KitsuBeat's ${label} deck 🎌`
+    : `Anime context + FSRS scheduling. KitsuBeat's ${label} deck makes these stick without grinding 🎌`,
+  (label) => `KitsuBeat's ${label} deck ties each word to the anime scene it came from. That's what makes them stick 📌`,
   (label, jlpt) => jlpt
-    ? `KitsuBeat resurfaces these ${jlpt} ${label} words right before you'd forget them — that's FSRS 🎌`
-    : `KitsuBeat resurfaces ${label} vocab right before you'd forget it — that's what FSRS does 🎌`,
-  (label) => `📸 Screenshot this — 3 ${label} words you'll encounter in your next binge`,
+    ? `KitsuBeat resurfaces these ${jlpt} ${label} words right before you'd forget them. That's FSRS 🎌`
+    : `KitsuBeat resurfaces ${label} vocab right before you'd forget it. That's what FSRS does 🎌`,
+  (label) => `📸 Screenshot this: 3 ${label} words you'll encounter in your next binge`,
   () => `Save this: 3 words, 3 anime scenes. Your offline vocab card 📸`,
   // Experience-loop closers: reader just experienced how KitsuBeat works
   () => `No flashcards. Anime words, the scenes they came from, FSRS timing. That's KitsuBeat 🎌`,
@@ -223,12 +245,12 @@ const JLPT_CTAS: Array<(label: string, jlpt: string | null) => string> = [
     ? `${label} vocab → scene context → FSRS timing = words that stick without grinding. That's KitsuBeat 🎌`
     : `Anime vocab → scene context → FSRS timing = words that stick. That's KitsuBeat 🎌`,
   // Emotional resonance: reader already felt these words, now KitsuBeat makes them permanent
-  (label) => `You've already felt these ${label} words in the show — KitsuBeat just makes them permanent 🎌`,
+  (label) => `You've already felt these ${label} words in the show. KitsuBeat just makes them permanent 🎌`,
   () => `You heard it in anime. The emotion did half the work. KitsuBeat does the rest 🎌`,
   // Engagement-prompt CTAs — activate replies without sacrificing product signal
   (label) => `Which of these ${label} words did you already know? Drop it below 👇`,
   (label, jlpt) => jlpt
-    ? `${jlpt} ${label} vocab — which one hits different once you know the meaning? Reply 👇`
+    ? `${jlpt} ${label} vocab: which one hits different once you know the meaning? Reply 👇`
     : `Which of these words surprised you most when you found out the meaning? 👇`,
 ];
 
@@ -237,27 +259,27 @@ const short = (w: VocabWord) => w.romaji.length <= 12;
 const VOCAB_HOOK_TEMPLATES: Array<(label: string, emoji: string, topWord: VocabWord) => string> = [
   // Recognition — you already know this word, now here's what it means
   (label, emoji, w) => short(w)
-    ? `If you've watched ${label}, you already know ${w.romaji} — here's what it actually means ${emoji}`
-    : `If you've watched ${label}, you already know these words — here's what they mean ${emoji}`,
+    ? `If you've watched ${label}, you already know ${w.romaji}. Here's what it actually means ${emoji}`
+    : `If you've watched ${label}, you already know these words. Here's what they mean ${emoji}`,
   // Discovery — the word carries more than you thought
   (label, emoji, w) => short(w)
-    ? `${label} uses ${w.romaji} in some of its most loaded moments — and this is what it means ${emoji}`
+    ? `${label} uses ${w.romaji} in some of its most loaded moments. This is what it means ${emoji}`
     : `3 ${label} words that carry more meaning than they first appear to ${emoji}`,
   // Meaning-reveal — genuine "I didn't know that" moment
   (label, emoji, w) => short(w)
-    ? `${w.romaji} in ${label} literally means "${w.meanings?.en ?? "something deeper"}" — and it changes how the scenes read ${emoji}`
+    ? `${w.romaji} in ${label} literally means "${w.meanings?.en ?? "something deeper"}". It changes how the scenes read ${emoji}`
     : `The ${label} vocabulary that changes how you read the show once you know it ${emoji}`,
   // Passive learning — watching is already studying
-  (label, emoji) => `Watching ${label} is already Japanese study — you've just been doing it without subtitles ${emoji}`,
+  (label, emoji) => `Watching ${label} is already Japanese study. You've just been doing it without subtitles ${emoji}`,
   (label, emoji, w) => short(w)
     ? `You've heard ${w.romaji} in ${label} enough times that your brain already knows it. Here's the meaning ${emoji}`
-    : `You've absorbed these ${label} words from hundreds of hours of watching — here's what they mean ${emoji}`,
+    : `You've absorbed these ${label} words from hundreds of hours of watching. Here's what they mean ${emoji}`,
   // Save-forward — useful next time
   (label, emoji, w) => short(w)
-    ? `Save this for your next ${label} rewatch — ${w.romaji} is one of those words that keeps coming up ${emoji}`
-    : `📌 Save this for your next ${label} rewatch — 3 words that keep coming up ${emoji}`,
+    ? `Save this for your next ${label} rewatch. ${w.romaji} is one of those words that keeps coming up ${emoji}`
+    : `📌 Save this for your next ${label} rewatch. 3 words that keep coming up ${emoji}`,
   // Quiet observation — no pressure
-  (label, emoji) => `3 ${label} words worth knowing — the ones that carry whole arcs ${emoji}`,
+  (label, emoji) => `3 ${label} words worth knowing. The ones that carry whole arcs ${emoji}`,
   (label, emoji, w) => short(w)
     ? `Learning Japanese through ${label} ${emoji}\n\n${w.romaji} is the one that comes up everywhere:`
     : `Learning Japanese through ${label} ${emoji}\n\n3 words from the show worth actually knowing:`,
@@ -268,19 +290,19 @@ function getSeasonalHooks(dateStr: string): Array<(label: string, emoji: string,
   const m = new Date(dateStr + "T00:00:00Z").getUTCMonth() + 1; // 1-12
   if (m <= 3) return [
     (label, emoji) => `New season, good time to actually know what ${label} characters are saying ${emoji}`,
-    (label, emoji) => `Winter anime season — 3 ${label} words worth picking up while you're watching ${emoji}`,
+    (label, emoji) => `Winter anime season. 3 ${label} words worth picking up while you're watching ${emoji}`,
   ];
   if (m <= 6) return [
-    (label, emoji) => `Spring season — a good time to start learning the ${label} vocabulary you keep hearing 🌸`,
+    (label, emoji) => `Spring season. A good time to start learning the ${label} vocabulary you keep hearing 🌸`,
     (label, emoji) => `New anime season is a good excuse to learn the Japanese that keeps showing up in ${label} ${emoji}`,
   ];
   if (m <= 9) return [
-    (label, emoji) => `Good season for a long ${label} rewatch — here's some vocabulary to go with it ${emoji}`,
+    (label, emoji) => `Good season for a long ${label} rewatch. Here's some vocabulary to go with it ${emoji}`,
     (label, emoji) => `Summer is a good time to put meaning to the ${label} words you've been hearing for years ${emoji}`,
   ];
   return [
-    (label, emoji) => `Autumn anime season — 3 ${label} words worth knowing for the rewatch ${emoji}`,
-    (label, emoji) => `Good time of year to revisit ${label} — here's vocabulary that makes it land differently ${emoji}`,
+    (label, emoji) => `Autumn anime season. 3 ${label} words worth knowing for the rewatch ${emoji}`,
+    (label, emoji) => `Good time of year to revisit ${label}. Here's vocabulary that makes it land differently ${emoji}`,
   ];
 }
 
@@ -292,21 +314,21 @@ function vocabTweet(
   anime: AnimeVocab,
   hookTemplate: (label: string, emoji: string, topWord: VocabWord) => string,
   topWord: VocabWord,
-  // Change 3: JLPT label for the set (derived from topWord or word — use word's own level inline)
-  setJlpt: string | null
+  setJlpt: string | null,
+  cachedHook: string | null = null
 ): string {
   const emoji = ANIME_EMOJIS[anime.anime] ?? "🎌";
   const headerLine = counter === "1/3"
-    ? hookTemplate(
+    ? (cachedHook ?? hookTemplate(
         setJlpt ? `${anime.label} (${setJlpt})` : anime.label,
         emoji,
         topWord
-      )
+      ))
     : null;
   const header = headerLine ? `${headerLine}\n\n` : "";
   const animeTag = ANIME_HASHTAGS[anime.anime] ?? "";
   const hashtags = animeTag ? `${animeTag} ${pick(HASHTAG_POOLS)}` : pick(HASHTAG_POOLS);
-  const wordBlock = `${word.surface} (${word.reading}) — ${word.romaji}\n"${word.meanings.en}"\n\n`;
+  const wordBlock = `${word.surface} (${word.reading}) · ${word.romaji}\n"${word.meanings.en}"\n\n`;
   const counterStr = `\n\n(${counter})`;
   // Build CTA for tweet 3 only; use rotation functions to prevent back-to-back repetition
   let ctaStr = "";
@@ -321,9 +343,13 @@ function vocabTweet(
   }
   // Dynamic context budget for ALL counters — prevents overflow on tweets 1+2 with long headers
   const maxCtxChars = Math.max(40, 276 - header.length - wordBlock.length - counterStr.length - ctaStr.length);
-  const sentence = contextSentence(word.context, maxCtxChars);
+  // Prefer cached linguistic insight over raw context sentence
+  const cachedInsight = getCachedInsight(anime.anime, word.surface);
+  const bodyText = cachedInsight && cachedInsight.length <= maxCtxChars
+    ? cachedInsight
+    : contextSentence(word.context, maxCtxChars);
 
-  return `${header}${wordBlock}${sentence}${counterStr}${ctaStr}`;
+  return `${header}${wordBlock}${bodyText}${counterStr}${ctaStr}`;
 }
 
 /** Pick the "most interesting" word from a set to feature in the hook.
@@ -423,27 +449,27 @@ function buildQuizOptions(word: VocabWord): { options: string[]; slot: number } 
 // All quiz hook options in one flat pool — rotated with a cursor to prevent repeats
 const QUIZ_HOOK_SINGLE_ANIME: Array<(label: string, emoji: string, level: string) => string> = [
   // Recognition-first — you've heard these, now here's a quiz to lock them in
-  (l, e, v) => `3 ${v}${l} words you've definitely heard before — short quiz ${e} 🧵`,
-  (l, e, v) => `If you've watched ${l}, you've heard all three of these ${v}words — do you know what they mean? ${e} 🧵`,
+  (l, e, v) => `3 ${v}${l} words you've definitely heard before. Short quiz ${e} 🧵`,
+  (l, e, v) => `If you've watched ${l}, you've heard all three of these ${v}words. Do you know what they mean? ${e} 🧵`,
   // Discovery — words that carry more than expected
   (l, e, v) => `A short ${l} vocabulary quiz ${e}\n3 ${v}words that carry more than they first appear to 🧵`,
-  (l, e, v) => `These ${v}${l} words come up in almost every arc — a quick quiz ${e} 🧵`,
+  (l, e, v) => `These ${v}${l} words come up in almost every arc. A quick quiz ${e} 🧵`,
   // Low-pressure, curious tone
   (l, e, v) => `${l} vocabulary quiz ${e}\n3 ${v}words from the show worth actually knowing 🧵`,
   (l, e, v) => `${l} teaches you Japanese whether you mean to study it or not ${e}\nA quick quiz on 3 ${v}words 🧵`,
 ];
 const QUIZ_HOOK_MULTI_ANIME: Array<(level: string, jlpt: string | null) => string> = [
   // Recognition — anime already taught you these
-  (v) => `Three ${v}anime words that carry more meaning than most fans realise — quick quiz 🎌 🧵`,
-  (v, j) => `A short Japanese quiz from anime${j ? ` (${j})` : ""} — 3 ${v}words you've probably heard before 🧵`,
+  (v) => `Three ${v}anime words that carry more meaning than most fans realise. Quick quiz 🎌 🧵`,
+  (v, j) => `A short Japanese quiz from anime${j ? ` (${j})` : ""}. 3 ${v}words you've probably heard before 🧵`,
   // Discovery tone — the meanings change how scenes read
   (_v, j) => `Words from anime that hit differently once you know the translation${j ? ` (${j})` : ""} 🎌 🧵`,
-  (v) => `You've absorbed a lot of Japanese from watching anime — here's a short quiz to see what stuck 🎌 🧵`,
+  (v) => `You've absorbed a lot of Japanese from watching anime. Here's a short quiz to see what stuck 🎌 🧵`,
   // Specific and calm
-  (v, j) => `3 ${v}vocab words from anime${j ? ` (${j} level)` : ""} — the sounds you know, with meaning attached 🧵`,
-  (v) => `These ${v}words keep appearing across different anime for a reason — do you know them? 🎌 🧵`,
+  (v, j) => `3 ${v}vocab words from anime${j ? ` (${j} level)` : ""}. The sounds you know, with meaning attached 🧵`,
+  (v) => `These ${v}words keep appearing across different anime for a reason. Do you know them? 🎌 🧵`,
   // Gentle curiosity
-  (v) => `A short ${v}anime Japanese quiz — three words worth locking in 🎌 🧵`,
+  (v) => `A short ${v}anime Japanese quiz. Three words worth locking in 🎌 🧵`,
   (v) => `Sometimes the best vocabulary lesson is the one you've already sat through while watching 🎌 🧵`,
 ];
 const shuffledQuizHooksSingle = shuffle([...QUIZ_HOOK_SINGLE_ANIME]);
@@ -481,26 +507,31 @@ function quizThread(entries: { anime: AnimeVocab; word: VocabWord }[]): string[]
 
   const src = (i: number) => singleAnime ? "" : ` · ${animeSource(entries[i].anime)}`;
 
-  // Scene-context snippet for intermediate tweets — long enough to complete a sentence
-  const loreHint = (quiz: { word: VocabWord }) => {
-    const hint = contextSentence(quiz.word.context, 120);
+  // Insight for intermediate tweets — prefer cached linguistic insight, fall back to context sentence
+  const loreHint = (quiz: { word: VocabWord }, entryIndex: number) => {
+    const animeId = entries[entryIndex].anime.anime;
+    const cached = getCachedInsight(animeId, quiz.word.surface);
+    const hint = cached
+      ? (cached.length <= 120 ? cached : cached.slice(0, 119) + "…")
+      : contextSentence(quiz.word.context, 120);
     return hint.length > 20 ? `💡 ${hint}` : "";
   };
 
   // T1 — Q1 with explicit reply instruction (suspense arc: reveals held until T4)
   const replyInstr = "\n\nReply A, B, C, or D below 👇";
+  const truncOpt = (s: string) => s.length > 35 ? s.slice(0, 34) + "…" : s;
   const t1base = [
     hook,
     ``,
     `Q1: What does ${quizzes[0].word.romaji} (${quizzes[0].word.surface}) mean?${src(0)}`,
     ``,
-    ...quizzes[0].options.map((o, i) => `${letters[i]}) ${o}`),
+    ...quizzes[0].options.map((o, i) => `${letters[i]}) ${truncOpt(o)}`),
   ].join("\n");
   const t1 = (t1base + replyInstr).length <= 280 ? t1base + replyInstr : t1base;
 
   // T2 — lore hint + Q2; fall back to no-hint if adding it overflows
-  const q0hint = loreHint(quizzes[0]);
-  const spoilerNote = "\n\nAll answers revealed in tweet 4 — no peeking 👀";
+  const q0hint = loreHint(quizzes[0], 0);
+  const spoilerNote = "\n\nAll answers revealed in tweet 4. No peeking 👀";
   const t2q = [
     `Q2: What does ${quizzes[1].word.romaji} (${quizzes[1].word.surface}) mean?${src(1)}`,
     ``,
@@ -511,8 +542,8 @@ function quizThread(entries: { anime: AnimeVocab; word: VocabWord }[]): string[]
   const t2 = (t2base + spoilerNote).length <= 280 ? t2base + spoilerNote : t2base;
 
   // T3 — lore hint + Q3; same overflow guard
-  const q1hint = loreHint(quizzes[1]);
-  const finalNudge = "\n\nLast question — all reveals in the next tweet 👇";
+  const q1hint = loreHint(quizzes[1], 1);
+  const finalNudge = "\n\nLast question. All reveals in the next tweet 👇";
   const t3q = [
     `Q3: What does ${quizzes[2].word.romaji} (${quizzes[2].word.surface}) mean?${src(2)}`,
     ``,
@@ -527,18 +558,19 @@ function quizThread(entries: { anime: AnimeVocab; word: VocabWord }[]): string[]
   const hashtags = animeTag ? `${animeTag} #LearnJapanese #KitsuBeat` : pick(HASHTAG_POOLS);
   // Rotate the quiz CTA for variety and freshness
   const QUIZ_CTAS = quizJlpt ? [
-    `KitsuBeat shows you the scene each word came from — that's how ${quizJlpt} vocab sticks without grinding 🎌`,
+    `KitsuBeat shows you the scene each word came from. That's how ${quizJlpt} vocab sticks without grinding 🎌`,
     `You felt these ${quizJlpt} words in anime already. KitsuBeat just makes the meaning permanent 🎌`,
     `${quizJlpt} vocab via anime scenes + FSRS timing = words that stick in 3 sessions not 30 🎌`,
   ] : [
-    `KitsuBeat ties each word to the anime scene it came from — that's how vocab sticks without grinding 🎌`,
+    `KitsuBeat ties each word to the anime scene it came from. That's how vocab sticks without grinding 🎌`,
     `You felt these words in anime already. KitsuBeat makes the meaning permanent 🎌`,
     `Anime scene context + FSRS scheduling = vocab that sticks without grinding 🎌`,
   ];
   const quizCta = QUIZ_CTAS[Math.floor(Math.random() * QUIZ_CTAS.length)];
 
-  // Truncate meanings so T4 stays under 280 — budget allows 38 chars per meaning with short CTA
+  // Truncate meanings so T4 stays under 280
   const trunc = (s: string, max = 38) => s.length <= max ? s : s.slice(0, max - 1) + "…";
+  const truncShort = (s: string) => trunc(s, 25);
   const t4full = [
     `✅ Answers:`,
     `Q1: ${letters[quizzes[0].slot]}) ${quizzes[0].word.meanings.en}`,
@@ -566,7 +598,17 @@ function quizThread(entries: { anime: AnimeVocab; word: VocabWord }[]): string[]
     ``,
     hashtags,
   ].join("\n");
-  const t4 = t4full.length <= 280 ? t4full : t4short;
+  const t4micro = [
+    `✅ Answers:`,
+    `Q1: ${letters[quizzes[0].slot]}) ${truncShort(quizzes[0].word.meanings.en)}`,
+    `Q2: ${letters[quizzes[1].slot]}) ${truncShort(quizzes[1].word.meanings.en)}`,
+    `Q3: ${letters[quizzes[2].slot]}) ${truncShort(quizzes[2].word.meanings.en)}`,
+    ``,
+    `How many did you get? 👇`,
+    ``,
+    SITE_URL,
+  ].join("\n");
+  const t4 = t4full.length <= 280 ? t4full : t4short.length <= 280 ? t4short : t4micro;
 
   return [t1, t2, t3, t4];
 }
@@ -619,13 +661,13 @@ function articleThread(article: Record<string, string>): string[] {
   const sorted = [...allParagraphs]
     .map((p, i) => ({ p, i, len: p.length, score: paragraphScore(p) }))
     .sort((a, b) => (b.score - a.score) || (b.len - a.len))
-    .slice(0, 3)
+    .slice(0, 6)
     .sort((a, b) => a.i - b.i)
     .map(({ p }) => truncateAtSentence(p, 260));
 
   const hook = article.subtitle
-    ? `${article.title} 🧵\n\n${article.subtitle}`
-    : `${article.title} 🧵`;
+    ? `${stripMarkdown(article.title)} 🧵\n\n${stripMarkdown(article.subtitle)}`
+    : `${stripMarkdown(article.title)} 🧵`;
 
   // Derive anime hashtag from article slug when possible
   const slugAnime = Object.keys(ANIME_HASHTAGS).find(k =>
@@ -649,9 +691,12 @@ function articleThread(article: Record<string, string>): string[] {
     "\n\nWhich one surprised you most? Drop it below 👇",
   ];
   const t2prompt = T2_PROMPTS[Math.floor(Math.random() * T2_PROMPTS.length)];
-  const t2 = sorted[0].length + t2prompt.length <= 278 ? sorted[0] + t2prompt : sorted[0];
+  const t2 = sorted[0] && sorted[0].length + t2prompt.length <= 278 ? sorted[0] + t2prompt : sorted[0] ?? "";
 
-  return [hook, t2, sorted[1], sorted[2], mention];
+  // Build content tweets from all available paragraphs (up to 6 total)
+  const contentTweets = [t2, ...sorted.slice(1)].filter(Boolean);
+
+  return [hook, ...contentTweets, mention];
 }
 
 // ─── Generate schedule ────────────────────────────────────────────────────────
@@ -774,13 +819,15 @@ while (current < end) {
     const setJlpt = majorityJlpt(words);
     // Put topWord first so the hook's challenge word matches what tweet 1 teaches
     const orderedWords = [topWord, ...words.filter(w => w.surface !== topWord.surface)];
+    // Prefer AI-crafted cached hook; fall back to template
+    const cachedHook = nextCachedHook(anime.anime);
     queue.push({
       date: dateStr,
       type,
       tweets: [
-        vocabTweet(orderedWords[0], "1/3", anime, hookTemplate, topWord, setJlpt),
-        vocabTweet(orderedWords[1], "2/3", anime, hookTemplate, topWord, setJlpt),
-        vocabTweet(orderedWords[2], "3/3", anime, hookTemplate, topWord, setJlpt),
+        vocabTweet(orderedWords[0], "1/3", anime, hookTemplate, topWord, setJlpt, cachedHook),
+        vocabTweet(orderedWords[1], "2/3", anime, hookTemplate, topWord, setJlpt, cachedHook),
+        vocabTweet(orderedWords[2], "3/3", anime, hookTemplate, topWord, setJlpt, cachedHook),
       ],
     });
 
