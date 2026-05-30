@@ -25,6 +25,7 @@ scripts/*
 !scripts/migrations/**
 !scripts/lib
 !scripts/lib/**
+!scripts/fix-clerk-esm.mjs
 .env.local
 .env.test
 *.log
