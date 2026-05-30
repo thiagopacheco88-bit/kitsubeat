@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "postinstall": "node scripts/fix-clerk-esm.mjs",
     "dev": "next dev --port 7000",
     "dev:turbo": "next dev --turbopack --port 7000",
     "build": "next build",
@@ -17,6 +18,7 @@
     "db:studio": "drizzle-kit studio",
     "post-social": "npx tsx --tsconfig tsconfig.scripts.json scripts/social/post-social.ts",
     "schedule-posts": "npx tsx --tsconfig tsconfig.scripts.json scripts/social/schedule-posts.ts",
+    "youtube-auth": "npx tsx --tsconfig tsconfig.scripts.json scripts/social/youtube-auth.ts",
     "batch-create": "node scripts/video/batch-create.mjs",
     "batch-render": "node scripts/video/batch-render.mjs",
     "repair-audio": "node scripts/video/repair-audio.mjs",

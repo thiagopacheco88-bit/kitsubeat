@@ -165,7 +165,7 @@ export default function SongGrid({
       {view === "by-anime" && (
         <div className="flex min-w-0 flex-col gap-8">
           {groupedByAnime.map(([anime, animeSongs]) => (
-            <section key={anime} className="min-w-0">
+            <section key={anime} className="min-w-0 overflow-x-hidden">
               <h3 className="mb-3 flex min-w-0 items-baseline gap-2 px-1 text-lg font-semibold text-[var(--color-text)]">
                 <span className="truncate">{anime}</span>
                 <span className="shrink-0 text-sm font-normal text-[var(--color-text-dim)]">
@@ -186,8 +186,14 @@ export default function SongGrid({
 
       {view === "all" && (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filtered.map((song) => (
-            <SongCard key={song.id} song={song} difficultyLabel={song.difficulty_tier ? t(`difficulty.${song.difficulty_tier as 'basic' | 'intermediate' | 'advanced'}`) : undefined} learnersLabel={t('learners', { n: '{n}' })} dominatedLabel={t('dominated')} />
+          {filtered.map((song, index) => (
+            <div
+              key={song.id}
+              className="song-card-enter"
+              style={{ animationDelay: `${Math.min(index * 50, 400)}ms` }}
+            >
+              <SongCard song={song} difficultyLabel={song.difficulty_tier ? t(`difficulty.${song.difficulty_tier as 'basic' | 'intermediate' | 'advanced'}`) : undefined} learnersLabel={t('learners', { n: '{n}' })} dominatedLabel={t('dominated')} />
+            </div>
           ))}
         </div>
       )}
