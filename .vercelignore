@@ -15,7 +15,11 @@ data
 !src/data
 !src/data/**
 public/audio
-videos
+videos/**/*.mp4
+videos/**/*.mkv
+videos/**/*.mov
+videos/**/*.png
+videos/**/*.jpg
 design_handoff_kitsubeat_home
 design_handoff_kitsubeat_web
 docs
