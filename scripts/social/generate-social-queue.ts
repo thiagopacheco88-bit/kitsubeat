@@ -143,10 +143,16 @@ function pick<T>(arr: T[]): T {
 function contextSentence(context: string, maxChars = 200): string {
   const first = context.split(/(?<=[.!?])\s/)[0]?.trim() ?? context;
   if (first.length <= maxChars) return first;
-  // Truncate at last word boundary within limit
   const cut = first.slice(0, maxChars - 1);
   const lastSpace = cut.lastIndexOf(" ");
-  return (lastSpace > maxChars * 0.6 ? cut.slice(0, lastSpace) : cut) + "…";
+  if (lastSpace <= maxChars * 0.6) return cut + "…";
+  // Strip trailing connector chains ("core of the" → "core", "to move in" → "to move")
+  // Loop because one pass may expose another connector (e.g. removes "the", then "of")
+  const TRAILING_CONNECTOR = /\s+[-—–,;:]?\s*(a|an|the|but|and|or|in|on|at|to|of|for|with|from)\.?$/i;
+  let trimmed = cut.slice(0, lastSpace);
+  let prev = "";
+  while (prev !== trimmed) { prev = trimmed; trimmed = trimmed.replace(TRAILING_CONNECTOR, "").trimEnd(); }
+  return (trimmed.length > maxChars * 0.5 ? trimmed : cut.slice(0, lastSpace)) + "…";
 }
 
 /**
@@ -179,14 +185,16 @@ const VOCAB_ENGAGE = [
   "Quote with the one you're learning first 👇",
   "KitsuBeat's FSRS resurfaces these right before you'd forget — try it free 🎌",
   "Spaced repetition + anime context = the only way these actually stick 🎌",
+  "📸 Screenshot this thread — 3 words you can review without opening an app",
+  "Save this thread: 3 words, 3 anime scenes. Your offline study card 📸",
 ];
 
 const ARTICLE_ENGAGE = [
-  "What other anime should we break down? Quote this 👇",
+  "These words show up in KitsuBeat's FSRS queue — review them before you forget 🎌",
   "Which detail surprised you most? Reply below 👇",
-  "KitsuBeat turns this vocab into FSRS drills — 3 sessions to remember, not 30 🎌",
-  "What should we cover next?",
-  "Practice these words with anime context on KitsuBeat 🎌",
+  "KitsuBeat drills this vocab with anime scene context — 3 sessions to own it, not 30 🎌",
+  "Learning Japanese through anime? KitsuBeat's FSRS surfaces these words right before you'd forget them 🎌",
+  "KitsuBeat ties every word to the scene it came from — try the free deck 🎌",
 ];
 
 const JLPT_CTAS: Array<(label: string, jlpt: string | null) => string> = [
@@ -198,30 +206,64 @@ const JLPT_CTAS: Array<(label: string, jlpt: string | null) => string> = [
   (label, jlpt) => jlpt
     ? `KitsuBeat resurfaces these ${jlpt} ${label} words right before you'd forget them — that's FSRS 🎌`
     : `KitsuBeat resurfaces ${label} vocab right before you'd forget it — that's what FSRS does 🎌`,
+  (label) => `📸 Screenshot this thread — 3 ${label} words you can review without opening an app`,
+  () => `Save this thread: 3 words, 3 anime scenes. Your offline study card 📸`,
+  // Experience-loop closers: tell the reader they just experienced how KitsuBeat works
+  () => `No flashcards. 3 anime words, their scenes, FSRS-timed review. That's KitsuBeat 🎌`,
+  (label, jlpt) => jlpt
+    ? `${label} vocab → scene context → FSRS timing = words that actually stick. That's KitsuBeat 🎌`
+    : `Anime vocab + scene context + FSRS timing = words that actually stick. That's KitsuBeat 🎌`,
 ];
 
 // Guard: only embed romaji in hooks when it's short enough not to inflate tweet length
 const short = (w: VocabWord) => w.romaji.length <= 12;
 const VOCAB_HOOK_TEMPLATES: Array<(label: string, emoji: string, topWord: VocabWord) => string> = [
+  // Revelation hooks — lead with the insight, not a question
   (label, emoji, w) => short(w)
-    ? `You've heard ${w.romaji} in ${label}. But do you know what it means? ${emoji}`
-    : `You've watched ${label} — but do you know these 3 words? ${emoji}`,
+    ? `${label} uses ${w.romaji} in one of its most iconic scenes — most fans can't actually define it ${emoji}`
+    : `${label} fans watch hundreds of hours of Japanese and still miss these 3 words ${emoji}`,
   (label, emoji, w) => short(w)
-    ? `${label} uses ${w.romaji} in a key scene — do you know what it means? ${emoji}`
-    : `${label} fans — 3 words from the show you might not actually know ${emoji}`,
-  (label, emoji) => `You've watched ${label}. How many of these 3 words can you actually define? ${emoji}`,
+    ? `Most ${label} fans hear ${w.romaji} constantly but can't translate it ${emoji}`
+    : `You've watched ${label} dozens of times — but how much Japanese did you actually absorb? ${emoji}`,
+  // Self-doubt challenge hooks
   (label, emoji, w) => short(w)
     ? `${label} fans: can you translate ${w.romaji}? ${emoji}`
     : `${label} fans — 3 vocab words. How many can you actually translate? ${emoji}`,
   (label, emoji) => `3 words from ${label} you've heard hundreds of times — do you actually know them? ${emoji}`,
-  (label, emoji) => `${label} vocabulary — do you know all 3? ${emoji}`,
+  // Curiosity-gap hooks
+  (label, emoji, w) => short(w)
+    ? `${label} uses ${w.romaji} in a key scene — do you know what it means? ${emoji}`
+    : `${label} fans — 3 words from the show you might not actually know ${emoji}`,
+  (label, emoji, w) => short(w)
+    ? `You've heard ${w.romaji} in ${label}. But do you know what it means? ${emoji}`
+    : `You've watched ${label} — but do you know these 3 words? ${emoji}`,
+  // Learning-journey hooks
   (label, emoji, w) => short(w)
     ? `Learning Japanese through ${label} ${emoji}\n\nStart with ${w.romaji} — the hardest one:`
     : `Learning Japanese through ${label} ${emoji}`,
-  (label, emoji, w) => short(w)
-    ? `Most ${label} fans hear ${w.romaji} constantly but can't translate it ${emoji}`
-    : `You've watched ${label} dozens of times — but how much Japanese did you actually absorb? ${emoji}`,
+  (label, emoji) => `You've watched ${label}. How many of these 3 words can you actually define? ${emoji}`,
 ];
+
+/** Returns extra hook options tuned to the current anime season. 30% usage rate in main loop. */
+function getSeasonalHooks(dateStr: string): Array<(label: string, emoji: string, topWord: VocabWord) => string> {
+  const m = new Date(dateStr + "T00:00:00Z").getUTCMonth() + 1; // 1-12
+  if (m <= 3) return [
+    (label, emoji) => `New winter anime season — here's vocab from ${label} to kick it off ${emoji}`,
+    (label, emoji) => `Winter anime season is live. Know ${label}'s Japanese? ${emoji}`,
+  ];
+  if (m <= 6) return [
+    (label, emoji) => `Spring anime season — ${label} vocab to study between episodes ${emoji}`,
+    (label, emoji) => `Cherry blossom season, new anime. Start with ${label} vocab 🌸`,
+  ];
+  if (m <= 9) return [
+    (label, emoji) => `Summer binge season. Turn ${label} screen time into ${label} vocab ${emoji}`,
+    (label, emoji) => `Summer anime season — learn the Japanese while you watch ${label} ${emoji}`,
+  ];
+  return [
+    (label, emoji) => `Fall anime season is here — ${label} vocab to study between episodes ${emoji}`,
+    (label, emoji) => `Best season for anime. Best time to learn ${label}'s Japanese ${emoji}`,
+  ];
+}
 
 // ─── Tweet builders ───────────────────────────────────────────────────────────
 
@@ -245,18 +287,18 @@ function vocabTweet(
   const header = headerLine ? `${headerLine}\n\n` : "";
   const animeTag = ANIME_HASHTAGS[anime.anime] ?? "";
   const hashtags = animeTag ? `${animeTag} ${pick(HASHTAG_POOLS)}` : pick(HASHTAG_POOLS);
-  const engage = setJlpt
-    ? pick(JLPT_CTAS)(anime.label, setJlpt)
-    : pick(VOCAB_ENGAGE);
   const wordBlock = `${word.surface} (${word.reading}) — ${word.romaji}\n"${word.meanings.en}"\n\n`;
   const counterStr = `\n\n(${counter})`;
-  // Build CTA for tweet 3; fall back to compact version when space is tight
+  // Build CTA for tweet 3 only; use rotation functions to prevent back-to-back repetition
   let ctaStr = "";
   if (counter === "3/3") {
+    const engage = setJlpt
+      ? nextJlptCta()(anime.label, setJlpt)
+      : nextVocabEngage();
     const fullCta = `\n\n${engage}\n\nKitsuBeat 🎌 ${SITE_URL}\n\n${hashtags}`;
     const shortCta = `\n\nUnlike Anki, KitsuBeat ties each word to the scene — try it free 🎌\n${SITE_URL}`;
     const budgetWithFull = 276 - header.length - wordBlock.length - counterStr.length - fullCta.length;
-    ctaStr = budgetWithFull >= 80 ? fullCta : shortCta;
+    ctaStr = budgetWithFull >= 40 ? fullCta : shortCta;
   }
   // Dynamic context budget for ALL counters — prevents overflow on tweets 1+2 with long headers
   const maxCtxChars = Math.max(40, 276 - header.length - wordBlock.length - counterStr.length - ctaStr.length);
@@ -300,13 +342,15 @@ const distractorPool: VocabWord[] = []; // populated after allAnimes loads
 // Uses \S* instead of [a-zA-Z]* to handle romanised Japanese with macrons (Kidō, Ōtsutsuki).
 function isProperNounMeaning(meaning: string): boolean {
   const m = meaning.trim();
-  // Allow anything with slash/semicolon separators — those are real vocab definitions
-  if (/[/;]/.test(m)) return false;
-  const base = m.replace(/\s*\(.*\)\s*$/, "").replace(/\s*—.*$/, "").trim();
+  // Test the PRIMARY meaning (before any slash/semicolon) — a slash doesn't exempt title-case names
+  const primary = m.split(/[/;]/)[0].trim();
+  const base = primary.replace(/\s*\(.*\)\s*$/, "").replace(/\s*—.*$/, "").trim();
   // Single capitalised word (e.g. "Saiyan", "Hierro", "Kidō")
   if (/^[A-Z]\S*$/.test(base)) return true;
   // All words title-cased (e.g. "Shadow Clone Technique", "Kidō Corps")
-  return /^([A-Z]\S* )+[A-Z]\S*$/.test(base);
+  if (/^([A-Z]\S* )+[A-Z]\S*$/.test(base)) return true;
+  // Title-case phrase with lowercase connectors (e.g. "Inverted Spear of Heaven", "Dance of the Fire God")
+  return /^[A-Z]\S*( [A-Z]\S*| (of|the|a|an|in|at|for|from|with|by) [A-Z]\S*)+$/.test(base);
 }
 
 function isValidDistractor(candidate: VocabWord, quizWord: VocabWord): boolean {
@@ -348,28 +392,47 @@ function buildQuizOptions(word: VocabWord): { options: string[]; slot: number } 
   return { options, slot };
 }
 
-// Change 5: Quiz hook improvement — include JLPT level and specificity
+// All quiz hook options in one flat pool — rotated with a cursor to prevent repeats
+const QUIZ_HOOK_SINGLE_ANIME: Array<(label: string, emoji: string, level: string) => string> = [
+  // Revelation-first
+  (l, e, v) => `Most ${l} fans miss these ${v}words entirely — can you get all 3? ${e} 🧵`,
+  (l, e, v) => `These are the ${v}${l} words most learners skip — prove you didn't ${e} 🧵`,
+  // Challenge
+  (l, e, v) => `Think you know ${l}'s Japanese? ${e}\n3 ${v}words. Prove it 🧵`,
+  (l, e, v) => `${l} ${v}vocab quiz ${e}\nHow many can you get right? 🧵`,
+  // Curiosity gap
+  (l, e, v) => `3 ${v}words from ${l} — how many can you translate? ${e} 🧵`,
+  (l, e, v) => `${v}vocab from ${l} ${e}\nCan you get all 3 before scrolling? 🧵`,
+];
+const QUIZ_HOOK_MULTI_ANIME: Array<(level: string, jlpt: string | null) => string> = [
+  // Revelation-first
+  (v) => `Most anime fans can't define these ${v}words — can you? 🎌 🧵`,
+  (v, j) => `${v}Japanese from anime: 3 words that serious learners know${j ? ` (${j})` : ""} 🧵`,
+  // Self-doubt challenge
+  (_v, j) => `Think you know your anime Japanese?\n${j ? `${j} level. ` : ""}Prove it 🧵`,
+  (v) => `How much anime Japanese have you actually absorbed?\n3 ${v}words. Let's find out 🧵`,
+  // Direct challenge
+  (v) => `Quick anime Japanese quiz — no looking it up 👀\n3 ${v}words. Go. 🧵`,
+  (v, j) => `You've heard these ${v}words in anime.\nBut do you know what they mean?${j ? ` (${j})` : ""} 🧵`,
+  (v) => `3 ${v}vocab words straight from anime\nGuess them all 🧵`,
+  (v) => `These ${v}words appear in KitsuBeat's most-reviewed anime decks — can you translate them? 🎌 🧵`,
+];
+const shuffledQuizHooksSingle = shuffle([...QUIZ_HOOK_SINGLE_ANIME]);
+const shuffledQuizHooksMulti = shuffle([...QUIZ_HOOK_MULTI_ANIME]);
+let quizHookSingleCursor = 0;
+let quizHookMultiCursor = 0;
+
 function buildQuizHook(anime: AnimeVocab | null, quizJlpt: string | null): string {
   const level = quizJlpt ? `${quizJlpt} ` : "";
   if (anime) {
     const emoji = ANIME_EMOJIS[anime.anime] ?? "🎌";
-    return pick([
-      `3 ${level}words from ${anime.label} — how many can you translate? ${emoji} 🧵`,
-      `${anime.label} ${level}vocab quiz ${emoji}\nHow many can you get right? 🧵`,
-      `Think you know ${anime.label}'s Japanese? ${emoji}\n3 ${level}words. Prove it 🧵`,
-      `${level}vocab from ${anime.label} ${emoji}\nCan you get all 3 before scrolling? 🧵`,
-    ]);
+    const fn = shuffledQuizHooksSingle[quizHookSingleCursor % shuffledQuizHooksSingle.length];
+    quizHookSingleCursor++;
+    return fn(anime.label, emoji, level);
   }
-  return pick([
-    `${level}Japanese vocab from anime — can you get all 3? 🎌 🧵`,
-    `3 ${level}Japanese words from anime\nHow many can you translate? 🧵`,
-    `Anime vocabulary test${quizJlpt ? ` (${quizJlpt} level)` : ""} 🧵\nLet's see how much you've picked up`,
-    "Quick Japanese quiz — no looking it up 👀\n3 words. Go. 🧵",
-    `You've heard these ${level}words in anime.\nBut do you know what they mean? 🧵`,
-    `Think you know your anime Japanese?\n3 ${level}words. Prove it 🧵`,
-    `3 ${level}vocab words straight from anime\nGuess them all 🧵`,
-    "How much anime Japanese have you actually absorbed?\nLet's find out 🧵",
-  ]);
+  const fn = shuffledQuizHooksMulti[quizHookMultiCursor % shuffledQuizHooksMulti.length];
+  quizHookMultiCursor++;
+  return fn(level, quizJlpt);
 }
 
 function animeSource(anime: AnimeVocab): string {
@@ -382,67 +445,91 @@ function quizThread(entries: { anime: AnimeVocab; word: VocabWord }[]): string[]
   const letters = ["A", "B", "C", "D"];
   const quizzes = words.map(w => ({ word: w, ...buildQuizOptions(w) }));
 
-  // Use anime-specific hook when all 3 words come from the same series
   const animeIds = new Set(entries.map(e => e.anime.anime));
   const singleAnime = animeIds.size === 1 ? entries[0].anime : null;
   const quizJlpt = majorityJlpt(words);
   const hook = buildQuizHook(singleAnime, quizJlpt);
 
-  // Per-question source attribution — omit when all from same anime (hook already says it)
   const src = (i: number) => singleAnime ? "" : ` · ${animeSource(entries[i].anime)}`;
 
-  // Tweet 1 — Q1 only, no answer
-  const t1 = [
+  // Scene-context snippet for intermediate tweets — long enough to complete a sentence
+  const loreHint = (quiz: { word: VocabWord }) => {
+    const hint = contextSentence(quiz.word.context, 120);
+    return hint.length > 20 ? `💡 ${hint}` : "";
+  };
+
+  // T1 — Q1 with explicit reply instruction (suspense arc: reveals held until T4)
+  const replyInstr = "\n\nReply A, B, C, or D below 👇";
+  const t1base = [
     hook,
     ``,
     `Q1: What does ${quizzes[0].word.romaji} (${quizzes[0].word.surface}) mean?${src(0)}`,
     ``,
     ...quizzes[0].options.map((o, i) => `${letters[i]}) ${o}`),
   ].join("\n");
+  const t1 = (t1base + replyInstr).length <= 280 ? t1base + replyInstr : t1base;
 
-  // Brief lore callback for answer reveals — makes the reveal feel meaningful, not mechanical
-  const loreHint = (quiz: { word: VocabWord }) => {
-    const hint = contextSentence(quiz.word.context, 50);
-    return hint.length > 20 ? hint : "";
-  };
-
-  // Tweet 2 — A1 reveal + lore note + Q2
+  // T2 — lore hint + Q2; fall back to no-hint if adding it overflows
   const q0hint = loreHint(quizzes[0]);
-  const t2 = [
-    `✅ Q1 answer: ${letters[quizzes[0].slot]}) ${quizzes[0].word.meanings.en}`,
-    ...(q0hint ? [q0hint, ``] : [``]),
+  const spoilerNote = "\n\nAll answers revealed in tweet 4 — no peeking 👀";
+  const t2q = [
     `Q2: What does ${quizzes[1].word.romaji} (${quizzes[1].word.surface}) mean?${src(1)}`,
     ``,
     ...quizzes[1].options.map((o, i) => `${letters[i]}) ${o}`),
   ].join("\n");
+  const t2withHint = q0hint ? `${q0hint}\n\n${t2q}` : t2q;
+  const t2base = t2withHint.length <= 280 ? t2withHint : t2q;
+  const t2 = (t2base + spoilerNote).length <= 280 ? t2base + spoilerNote : t2base;
 
-  // Tweet 3 — A2 reveal + lore note + Q3
+  // T3 — lore hint + Q3; same overflow guard
   const q1hint = loreHint(quizzes[1]);
-  const t3 = [
-    `✅ Q2 answer: ${letters[quizzes[1].slot]}) ${quizzes[1].word.meanings.en}`,
-    ...(q1hint ? [q1hint, ``] : [``]),
+  const finalNudge = "\n\nLast question — all reveals in the next tweet 👇";
+  const t3q = [
     `Q3: What does ${quizzes[2].word.romaji} (${quizzes[2].word.surface}) mean?${src(2)}`,
     ``,
     ...quizzes[2].options.map((o, i) => `${letters[i]}) ${o}`),
   ].join("\n");
+  const t3withHint = q1hint ? `${q1hint}\n\n${t3q}` : t3q;
+  const t3base = t3withHint.length <= 280 ? t3withHint : t3q;
+  const t3 = (t3base + finalNudge).length <= 280 ? t3base + finalNudge : t3base;
 
-  // Tweet 4 — A3 reveal + engagement + CTA
+  // T4 — ALL THREE reveals in one payoff tweet + score prompt + FSRS CTA
   const animeTag = singleAnime ? (ANIME_HASHTAGS[singleAnime.anime] ?? "") : "";
-  const hashtags = animeTag
-    ? `${animeTag} #LearnJapanese #KitsuBeat`
-    : pick(HASHTAG_POOLS);
+  const hashtags = animeTag ? `${animeTag} #LearnJapanese #KitsuBeat` : pick(HASHTAG_POOLS);
   const quizCta = quizJlpt
-    ? `Want to make these ${quizJlpt} words stick? KitsuBeat uses spaced repetition (FSRS) to drill anime vocab until you own it 🎌`
-    : pick(QUIZ_ENGAGE);
-  const t4 = [
-    `✅ Q3 answer: ${letters[quizzes[2].slot]}) ${quizzes[2].word.meanings.en}`,
+    ? `Want these ${quizJlpt} words to actually stick? KitsuBeat uses FSRS to resurface them right before you'd forget 🎌`
+    : `KitsuBeat uses FSRS — you'll remember these in 3 sessions, not 30 🎌`;
+
+  // Truncate meanings so T4 stays under 280 — budget allows 38 chars per meaning with short CTA
+  const trunc = (s: string, max = 38) => s.length <= max ? s : s.slice(0, max - 1) + "…";
+  const t4full = [
+    `✅ Answers:`,
+    `Q1: ${letters[quizzes[0].slot]}) ${quizzes[0].word.meanings.en}`,
+    `Q2: ${letters[quizzes[1].slot]}) ${quizzes[1].word.meanings.en}`,
+    `Q3: ${letters[quizzes[2].slot]}) ${quizzes[2].word.meanings.en}`,
+    ``,
+    `How many did you get? Quote with your score 👇`,
     ``,
     quizCta,
     ``,
-    `${SITE_URL}`,
+    SITE_URL,
     ``,
     hashtags,
   ].join("\n");
+  const t4short = [
+    `✅ Answers:`,
+    `Q1: ${letters[quizzes[0].slot]}) ${trunc(quizzes[0].word.meanings.en)}`,
+    `Q2: ${letters[quizzes[1].slot]}) ${trunc(quizzes[1].word.meanings.en)}`,
+    `Q3: ${letters[quizzes[2].slot]}) ${trunc(quizzes[2].word.meanings.en)}`,
+    ``,
+    `How many? Quote with your score 👇`,
+    ``,
+    `KitsuBeat: 3 sessions to own these, not 30 🎌`,
+    SITE_URL,
+    ``,
+    hashtags,
+  ].join("\n");
+  const t4 = t4full.length <= 280 ? t4full : t4short;
 
   return [t1, t2, t3, t4];
 }
@@ -480,10 +567,11 @@ function articleThread(article: Record<string, string>): string[] {
       !/^(yes[.,!]|no[.,!—]|here'?s the thing|here'?s what|not exactly|not quite)/i.test(p)
     );
 
-  // Pick the 3 meatiest paragraphs, preserving article order
+  // Prefer paragraphs containing Japanese characters — they carry language-learning signal
+  const hasJapanese = (p: string) => /[぀-ヿ一-鿿]/.test(p);
   const sorted = [...allParagraphs]
-    .map((p, i) => ({ p, i, len: p.length }))
-    .sort((a, b) => b.len - a.len)
+    .map((p, i) => ({ p, i, len: p.length, jp: hasJapanese(p) ? 1 : 0 }))
+    .sort((a, b) => (b.jp - a.jp) || (b.len - a.len))
     .slice(0, 3)
     .sort((a, b) => a.i - b.i)
     .map(({ p }) => truncateAtSentence(p, 260));
@@ -524,14 +612,21 @@ const usedWords = new Map<string, Set<string>>(); // anime → set of used surfa
 function pickThreeWords(anime: AnimeVocab): VocabWord[] {
   if (!usedWords.has(anime.anime)) usedWords.set(anime.anime, new Set());
   const used = usedWords.get(anime.anime)!;
-  // context quality gate + no character names in vocab threads (names aren't learnable words)
+  // context quality gate + no character names + no katakana-only transliterations + no proper nouns
   const pool = vocabByAnime.get(anime.anime)!.filter(
-    w => !used.has(w.surface) && hasRichContext(w.context) && !QUIZ_BLOCKED.has(w.category)
+    w => !used.has(w.surface) &&
+      hasRichContext(w.context) &&
+      !QUIZ_BLOCKED.has(w.category) &&
+      !/^[゠-ヿー・]+$/.test(w.surface) &&
+      !isProperNounMeaning(w.meanings.en)
   );
+  // Prefer non-N5 words so sets don't mix advanced/beginner levels
+  const nonN5Pool = pool.filter(w => w.jlpt_level !== "N5");
+  const qualityPool = nonN5Pool.length >= 3 ? nonN5Pool : pool;
 
-  // If fewer than 3 with rich context, fall back to ungated pool to avoid infinite loop
+  // If fewer than 3 with quality gate, fall back to ungated pool to avoid infinite loop
   const fallbackPool = vocabByAnime.get(anime.anime)!.filter(w => !used.has(w.surface));
-  const activePool = pool.length >= 3 ? pool : fallbackPool;
+  const activePool = qualityPool.length >= 3 ? qualityPool : fallbackPool;
 
   // If still fewer than 3 remaining, reset used set and retry
   if (activePool.length < 3) {
@@ -574,6 +669,22 @@ function nextHookTemplate(): (label: string, emoji: string, topWord: VocabWord) 
   return fn;
 }
 
+// CTA rotation — round-robin prevents the same line repeating back-to-back
+const shuffledVocabEngages = shuffle([...VOCAB_ENGAGE]);
+let vocabEngageCursor = 0;
+function nextVocabEngage(): string {
+  const e = shuffledVocabEngages[vocabEngageCursor % shuffledVocabEngages.length];
+  vocabEngageCursor++;
+  return e;
+}
+const shuffledJlptCtas = shuffle([...JLPT_CTAS]);
+let jlptCtaCursor = 0;
+function nextJlptCta(): (label: string, jlpt: string | null) => string {
+  const fn = shuffledJlptCtas[jlptCtaCursor % shuffledJlptCtas.length];
+  jlptCtaCursor++;
+  return fn;
+}
+
 // Anime rotation for vocab
 let animeCursor = 0;
 
@@ -588,7 +699,11 @@ while (current < end) {
     const anime = animeList[animeCursor % animeList.length];
     animeCursor++;
     const words = pickThreeWords(anime);
-    const hookTemplate = nextHookTemplate();
+    // 30% chance to use a seasonal hook when in an active anime season
+    const seasonalOptions = getSeasonalHooks(dateStr);
+    const hookTemplate = seasonalOptions.length > 0 && Math.random() < 0.3
+      ? pick(seasonalOptions)
+      : nextHookTemplate();
     const topWord = pickTopWord(words);
     const setJlpt = majorityJlpt(words);
     // Put topWord first so the hook's challenge word matches what tweet 1 teaches
