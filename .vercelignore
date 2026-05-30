@@ -21,7 +21,8 @@ design_handoff_kitsubeat_web
 docs
 tests
 scripts/*
-!scripts/apply-migrations.ts
+!scripts/migrations
+!scripts/migrations/**
 !scripts/lib
 !scripts/lib/**
 .env.local
