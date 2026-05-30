@@ -1,0 +1,2662 @@
+{
+  "generated": "2026-05-24",
+  "interval_days": 2,
+  "first_post": "2026-05-26",
+  "last_post": "2027-03-14",
+  "total": 147,
+  "rotation": "option-a-6way",
+  "posts": [
+    {
+      "post": 1,
+      "date": "2026-05-26",
+      "day": "Tue",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 1,
+      "words": [
+        "nani",
+        "doko",
+        "dare",
+        "naze",
+        "itsu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-05-25"
+    },
+    {
+      "post": 2,
+      "date": "2026-05-28",
+      "day": "Thu",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 2,
+      "words": [
+        "yume",
+        "jiyuu",
+        "kibō",
+        "tabi",
+        "ishi"
+      ],
+      "status": "posted",
+      "scheduled_instagram_id": "posted-2026-05-21",
+      "fb_date": "2026-05-26",
+      "scheduled_youtube_id": "posted-2026-05-21",
+      "scheduled_facebook_id": "1105289136008484"
+    },
+    {
+      "post": 3,
+      "date": "2026-05-30",
+      "day": "Sat",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 1,
+      "words": [
+        "ninja",
+        "mura",
+        "kage",
+        "jutsu",
+        "sato"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-05-27"
+    },
+    {
+      "post": 4,
+      "date": "2026-06-01",
+      "day": "Mon",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 1,
+      "words": [
+        "ki",
+        "sentō",
+        "henshin",
+        "genkai",
+        "toppa"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-05-28"
+    },
+    {
+      "post": 5,
+      "date": "2026-06-03",
+      "day": "Wed",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 1,
+      "words": [
+        "shinigami",
+        "tamashii",
+        "reiatsu",
+        "zanpakutō",
+        "konpaku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-05-29"
+    },
+    {
+      "post": 6,
+      "date": "2026-06-05",
+      "day": "Fri",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 1,
+      "words": [
+        "oni",
+        "katana",
+        "yoru",
+        "chi",
+        "kokyū"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-05-30"
+    },
+    {
+      "post": 7,
+      "date": "2026-06-07",
+      "day": "Sun",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 2,
+      "words": [
+        "sugoi",
+        "kawaii",
+        "yabai",
+        "uso",
+        "masaka"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-05-31"
+    },
+    {
+      "post": 8,
+      "date": "2026-06-09",
+      "day": "Tue",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 3,
+      "words": [
+        "takara",
+        "bōken",
+        "chizu",
+        "nazo",
+        "unmei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-01"
+    },
+    {
+      "post": 9,
+      "date": "2026-06-11",
+      "day": "Thu",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 2,
+      "words": [
+        "sensei",
+        "deshi",
+        "genin",
+        "shishō",
+        "hokage"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-02"
+    },
+    {
+      "post": 10,
+      "date": "2026-06-13",
+      "day": "Sat",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 2,
+      "words": [
+        "hoshi",
+        "uchū",
+        "ginga",
+        "kami",
+        "kaiō"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-03"
+    },
+    {
+      "post": 11,
+      "date": "2026-06-15",
+      "day": "Mon",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 2,
+      "words": [
+        "shikai",
+        "bankai",
+        "kaigō",
+        "zangeki",
+        "katana"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-04"
+    },
+    {
+      "post": 12,
+      "date": "2026-06-17",
+      "day": "Wed",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 2,
+      "words": [
+        "kazoku",
+        "taiyō",
+        "tsuki",
+        "honō",
+        "hashira"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-05"
+    },
+    {
+      "post": 13,
+      "date": "2026-06-19",
+      "day": "Fri",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 3,
+      "words": [
+        "iku",
+        "kuru",
+        "miru",
+        "kiku",
+        "wakaru"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-06"
+    },
+    {
+      "post": 14,
+      "date": "2026-06-21",
+      "day": "Sun",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 4,
+      "words": [
+        "kenshi",
+        "ryōrinin",
+        "kōkaishi",
+        "sogekishu",
+        "ongakuka",
+        "akuma no mi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-07"
+    },
+    {
+      "post": 15,
+      "date": "2026-06-23",
+      "day": "Tue",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 3,
+      "words": [
+        "tsuchi",
+        "kaminari",
+        "ninjutsu",
+        "henka",
+        "hi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-08"
+    },
+    {
+      "post": 16,
+      "date": "2026-06-25",
+      "day": "Thu",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 3,
+      "words": [
+        "ryū",
+        "negai",
+        "kame",
+        "kiseki",
+        "senzu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-09"
+    },
+    {
+      "post": 17,
+      "date": "2026-06-27",
+      "day": "Sat",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 3,
+      "words": [
+        "kidō",
+        "bakudō",
+        "hadō",
+        "shunpo",
+        "hakuda"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-10"
+    },
+    {
+      "post": 18,
+      "date": "2026-06-29",
+      "day": "Mon",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 3,
+      "words": [
+        "take",
+        "sumi",
+        "mamoru",
+        "nioi",
+        "fuji"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-11"
+    },
+    {
+      "post": 19,
+      "date": "2026-07-01",
+      "day": "Wed",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 4,
+      "words": [
+        "taberu",
+        "nomu",
+        "neru",
+        "hashiru",
+        "katsu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-12"
+    },
+    {
+      "post": 20,
+      "date": "2026-07-03",
+      "day": "Fri",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 5,
+      "words": [
+        "chikara",
+        "teki",
+        "ikari",
+        "senshi",
+        "haki"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-13"
+    },
+    {
+      "post": 21,
+      "date": "2026-07-05",
+      "day": "Sun",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 4,
+      "words": [
+        "itami",
+        "nikushimi",
+        "kodoku",
+        "fukushū",
+        "shinnen"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-14"
+    },
+    {
+      "post": 22,
+      "date": "2026-07-07",
+      "day": "Tue",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 4,
+      "words": [
+        "budō",
+        "bujutsu",
+        "shiren",
+        "tenkaichi",
+        "saigo"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-15"
+    },
+    {
+      "post": 23,
+      "date": "2026-07-09",
+      "day": "Thu",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 4,
+      "words": [
+        "Seireitei",
+        "Rukongai",
+        "gense",
+        "Hōgyoku",
+        "Dangai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-16"
+    },
+    {
+      "post": 24,
+      "date": "2026-07-11",
+      "day": "Sat",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 4,
+      "words": [
+        "kurenai",
+        "hajimari",
+        "owari",
+        "jōgen",
+        "kagen"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-17"
+    },
+    {
+      "post": 25,
+      "date": "2026-07-13",
+      "day": "Mon",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 5,
+      "words": [
+        "ureshii",
+        "kanashii",
+        "kowai",
+        "hazukashii",
+        "sabishii"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-18"
+    },
+    {
+      "post": 26,
+      "date": "2026-07-15",
+      "day": "Wed",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 6,
+      "words": [
+        "kaze",
+        "mizu",
+        "hi",
+        "arashi",
+        "yami"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-19"
+    },
+    {
+      "post": 27,
+      "date": "2026-07-17",
+      "day": "Fri",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 5,
+      "words": [
+        "katana",
+        "chikara",
+        "shugyō",
+        "haiboku",
+        "chōsen"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-20"
+    },
+    {
+      "post": 28,
+      "date": "2026-07-19",
+      "day": "Sun",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 5,
+      "words": [
+        "tensai",
+        "junsui",
+        "hokori",
+        "yūsha",
+        "tōshi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-21"
+    },
+    {
+      "post": 29,
+      "date": "2026-07-21",
+      "day": "Tue",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 5,
+      "words": [
+        "taichō",
+        "fukutaichō",
+        "sōtaichō",
+        "sekkan",
+        "kizoku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-22"
+    },
+    {
+      "post": 30,
+      "date": "2026-07-23",
+      "day": "Thu",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 5,
+      "words": [
+        "ken",
+        "uroko",
+        "kasumi",
+        "aza",
+        "yūkaku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-23"
+    },
+    {
+      "post": 31,
+      "date": "2026-07-25",
+      "day": "Sat",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 6,
+      "words": [
+        "tsuyoi",
+        "hayai",
+        "yowai",
+        "ōkii",
+        "chiisai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-24"
+    },
+    {
+      "post": 32,
+      "date": "2026-07-27",
+      "day": "Mon",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 7,
+      "words": [
+        "kokoro",
+        "warai",
+        "namida",
+        "ai",
+        "tamashii"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-25"
+    },
+    {
+      "post": 33,
+      "date": "2026-07-29",
+      "day": "Wed",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 6,
+      "words": [
+        "kuni",
+        "suna",
+        "kiri",
+        "iwa",
+        "ha"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-26"
+    },
+    {
+      "post": 34,
+      "date": "2026-07-31",
+      "day": "Fri",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 6,
+      "words": [
+        "chō",
+        "kin'iro",
+        "kakusei",
+        "kyōteki",
+        "chōetsu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-27"
+    },
+    {
+      "post": 35,
+      "date": "2026-08-02",
+      "day": "Sun",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 6,
+      "words": [
+        "kamen",
+        "fūin",
+        "reishi",
+        "shugo",
+        "fushi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-28"
+    },
+    {
+      "post": 36,
+      "date": "2026-08-04",
+      "day": "Tue",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 6,
+      "words": [
+        "yama",
+        "doku",
+        "yaiba",
+        "karasu",
+        "zenshūchū"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-29"
+    },
+    {
+      "post": 37,
+      "date": "2026-08-06",
+      "day": "Thu",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 7,
+      "words": [
+        "hito",
+        "otoko",
+        "onna",
+        "sensei",
+        "gakusei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-06-30"
+    },
+    {
+      "post": 38,
+      "date": "2026-08-08",
+      "day": "Sat",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 8,
+      "words": [
+        "yūjō",
+        "shinrai",
+        "shinyū",
+        "kizuna",
+        "chikai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-01"
+    },
+    {
+      "post": 39,
+      "date": "2026-08-10",
+      "day": "Mon",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 7,
+      "words": [
+        "chakura",
+        "kage bunshin",
+        "senjutsu",
+        "sharingan",
+        "bijū"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-02"
+    },
+    {
+      "post": 40,
+      "date": "2026-08-12",
+      "day": "Wed",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 7,
+      "words": [
+        "meshi",
+        "satori",
+        "michi",
+        "akuma",
+        "seishin"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-03"
+    },
+    {
+      "post": 41,
+      "date": "2026-08-14",
+      "day": "Fri",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 7,
+      "words": [
+        "kakugo",
+        "kizuna",
+        "hokori",
+        "tsumi",
+        "uragiri"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-04"
+    },
+    {
+      "post": 42,
+      "date": "2026-08-16",
+      "day": "Sun",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 7,
+      "words": [
+        "ani",
+        "kaminari",
+        "kimetsu",
+        "rengoku",
+        "kumo"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-05"
+    },
+    {
+      "post": 43,
+      "date": "2026-08-18",
+      "day": "Tue",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 8,
+      "words": [
+        "ima",
+        "ato",
+        "mae",
+        "kyō",
+        "ashita"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-06"
+    },
+    {
+      "post": 44,
+      "date": "2026-08-20",
+      "day": "Thu",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 9,
+      "words": [
+        "heiwa",
+        "seigi",
+        "giri",
+        "kakugo",
+        "kakumei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-07"
+    },
+    {
+      "post": 45,
+      "date": "2026-08-22",
+      "day": "Sat",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 8,
+      "words": [
+        "kazoku",
+        "raibaru",
+        "eiyū",
+        "uzumaki",
+        "tomodachi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-08"
+    },
+    {
+      "post": 46,
+      "date": "2026-08-24",
+      "day": "Mon",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 8,
+      "words": [
+        "seichō",
+        "bakuhatsu",
+        "jakuten",
+        "kiryoku",
+        "jiman"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-09"
+    },
+    {
+      "post": 47,
+      "date": "2026-08-26",
+      "day": "Wed",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 8,
+      "words": [
+        "ikari",
+        "kodoku",
+        "kizu",
+        "yūjō",
+        "chikai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-10"
+    },
+    {
+      "post": 48,
+      "date": "2026-08-28",
+      "day": "Fri",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 8,
+      "words": [
+        "kaze",
+        "mizu",
+        "inazuma",
+        "hi",
+        "hana"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-11"
+    },
+    {
+      "post": 49,
+      "date": "2026-08-30",
+      "day": "Sun",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 9,
+      "words": [
+        "koko",
+        "soko",
+        "ue",
+        "shita",
+        "migi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-12"
+    },
+    {
+      "post": 50,
+      "date": "2026-09-01",
+      "day": "Tue",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 10,
+      "words": [
+        "yūki",
+        "tsuyosa",
+        "egao",
+        "hikari",
+        "uso"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-13"
+    },
+    {
+      "post": 51,
+      "date": "2026-09-03",
+      "day": "Thu",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 9,
+      "words": [
+        "akirame",
+        "yurushi",
+        "shōri",
+        "mitomeru",
+        "densetsu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-14"
+    },
+    {
+      "post": 52,
+      "date": "2026-09-05",
+      "day": "Sat",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 9,
+      "words": [
+        "shōri",
+        "sentōryoku",
+        "funnu",
+        "mirai",
+        "hogo"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-15"
+    },
+    {
+      "post": 53,
+      "date": "2026-09-07",
+      "day": "Mon",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 9,
+      "words": [
+        "shugyō",
+        "tōshi",
+        "mushin",
+        "kairiki",
+        "shokei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-16"
+    },
+    {
+      "post": 54,
+      "date": "2026-09-09",
+      "day": "Wed",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 9,
+      "words": [
+        "mimi",
+        "me",
+        "koe",
+        "kizuato",
+        "hayasa"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-17"
+    },
+    {
+      "post": 55,
+      "date": "2026-09-11",
+      "day": "Fri",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 10,
+      "words": [
+        "daijōbu",
+        "mada",
+        "mō",
+        "hontō",
+        "hayaku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-18"
+    },
+    {
+      "post": 56,
+      "date": "2026-09-13",
+      "day": "Sun",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 11,
+      "words": [
+        "minato",
+        "machi",
+        "samurai",
+        "gensui",
+        "shōgun"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-19"
+    },
+    {
+      "post": 57,
+      "date": "2026-09-15",
+      "day": "Tue",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 10,
+      "words": [
+        "ki",
+        "honō",
+        "kumo",
+        "mokuton",
+        "shugo"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-20"
+    },
+    {
+      "post": 58,
+      "date": "2026-09-17",
+      "day": "Thu",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 10,
+      "words": [
+        "unmei",
+        "isan",
+        "hakai",
+        "yūki",
+        "tamashii"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-21"
+    },
+    {
+      "post": 59,
+      "date": "2026-09-19",
+      "day": "Sat",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 10,
+      "words": [
+        "kaihō",
+        "kokoro",
+        "kūkyo",
+        "unmei",
+        "shimei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-22"
+    },
+    {
+      "post": 60,
+      "date": "2026-09-21",
+      "day": "Mon",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 10,
+      "words": [
+        "kanashimi",
+        "yorokobi",
+        "ikari",
+        "kyōfu",
+        "ai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-23"
+    },
+    {
+      "post": 61,
+      "date": "2026-09-23",
+      "day": "Wed",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 11,
+      "words": [
+        "hi",
+        "tsuki",
+        "hoshi",
+        "ame",
+        "yuki"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-24"
+    },
+    {
+      "post": 62,
+      "date": "2026-09-25",
+      "day": "Fri",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 12,
+      "words": [
+        "himitsu",
+        "yoake",
+        "dōmei",
+        "kakumei",
+        "kōkogakusha"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-25"
+    },
+    {
+      "post": 63,
+      "date": "2026-09-27",
+      "day": "Sun",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 11,
+      "words": [
+        "kabe",
+        "taijutsu",
+        "genjutsu",
+        "katon",
+        "teki"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-26"
+    },
+    {
+      "post": 64,
+      "date": "2026-09-29",
+      "day": "Tue",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 11,
+      "words": [
+        "chikyū",
+        "shizen",
+        "mori",
+        "umi",
+        "sora"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-27"
+    },
+    {
+      "post": 65,
+      "date": "2026-10-01",
+      "day": "Thu",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 11,
+      "words": [
+        "ningen",
+        "kazoku",
+        "gakkō",
+        "yūrei",
+        "kioku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-28"
+    },
+    {
+      "post": 66,
+      "date": "2026-10-03",
+      "day": "Sat",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 11,
+      "words": [
+        "machi",
+        "ie",
+        "shizen",
+        "kisetsu",
+        "ame"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-29"
+    },
+    {
+      "post": 67,
+      "date": "2026-10-05",
+      "day": "Mon",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 12,
+      "words": [
+        "te",
+        "me",
+        "kokoro",
+        "kotoba",
+        "namae"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-30"
+    },
+    {
+      "post": 68,
+      "date": "2026-10-07",
+      "day": "Wed",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 13,
+      "words": [
+        "mori",
+        "yuki",
+        "sabaku",
+        "sakura",
+        "kōro"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-07-31"
+    },
+    {
+      "post": 69,
+      "date": "2026-10-09",
+      "day": "Fri",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 12,
+      "words": [
+        "namae",
+        "raiton",
+        "chūnin",
+        "jōnin",
+        "konoha"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-01"
+    },
+    {
+      "post": 70,
+      "date": "2026-10-11",
+      "day": "Sun",
+      "series": "dragon-ball",
+      "label": "Dragon Ball",
+      "part": 12,
+      "words": [
+        "nakama",
+        "tomodachi",
+        "kazoku",
+        "chichi",
+        "ko"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-02"
+    },
+    {
+      "post": 71,
+      "date": "2026-10-13",
+      "day": "Tue",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 13,
+      "words": [
+        "ichi",
+        "ni",
+        "san",
+        "yon",
+        "go"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-03"
+    },
+    {
+      "post": 72,
+      "date": "2026-10-15",
+      "day": "Thu",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 14,
+      "words": [
+        "taihō",
+        "kaizokuki",
+        "funadaiku",
+        "sen'i",
+        "akuma no mi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-04"
+    },
+    {
+      "post": 73,
+      "date": "2026-10-17",
+      "day": "Sat",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 13,
+      "words": [
+        "ishi",
+        "heiwa",
+        "mamoru",
+        "nakama",
+        "tamashii"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-05"
+    },
+    {
+      "post": 74,
+      "date": "2026-10-19",
+      "day": "Mon",
+      "series": "bleach",
+      "label": "Bleach",
+      "part": 12,
+      "words": [
+        "shi",
+        "gisei",
+        "tensei",
+        "kyōkai",
+        "kinkō"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-06"
+    },
+    {
+      "post": 75,
+      "date": "2026-10-21",
+      "day": "Wed",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 1,
+      "words": [
+        "gakkō",
+        "doryoku",
+        "kyūjo",
+        "akuyaku",
+        "kosei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-07"
+    },
+    {
+      "post": 76,
+      "date": "2026-10-23",
+      "day": "Fri",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 1,
+      "words": [
+        "kyojin",
+        "kabe",
+        "shima",
+        "umi",
+        "yoru"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-08"
+    },
+    {
+      "post": 77,
+      "date": "2026-10-25",
+      "day": "Sun",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 14,
+      "words": [
+        "roku",
+        "nana",
+        "hachi",
+        "kyū",
+        "jū"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-09"
+    },
+    {
+      "post": 78,
+      "date": "2026-10-27",
+      "day": "Tue",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 15,
+      "words": [
+        "bushidō",
+        "katana",
+        "yoroi",
+        "hana",
+        "kessen"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-10"
+    },
+    {
+      "post": 79,
+      "date": "2026-10-29",
+      "day": "Thu",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 14,
+      "words": [
+        "akatsuki",
+        "zetsubō",
+        "kurushimi",
+        "ai",
+        "sekai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-11"
+    },
+    {
+      "post": 80,
+      "date": "2026-10-31",
+      "day": "Sat",
+      "series": "demon-slayer",
+      "label": "Demon Slayer",
+      "part": 12,
+      "words": [
+        "ishi",
+        "kioku",
+        "inochi",
+        "shi",
+        "kibō"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-12"
+    },
+    {
+      "post": 81,
+      "date": "2026-11-02",
+      "day": "Mon",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 15,
+      "words": [
+        "aka",
+        "ao",
+        "shiro",
+        "kuro",
+        "kiiro"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-13"
+    },
+    {
+      "post": 82,
+      "date": "2026-11-04",
+      "day": "Wed",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 16,
+      "words": [
+        "ryōri",
+        "taberu",
+        "niku",
+        "sakana",
+        "gohan"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-14"
+    },
+    {
+      "post": 83,
+      "date": "2026-11-06",
+      "day": "Fri",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 15,
+      "words": [
+        "fūin",
+        "kinjutsu",
+        "doton",
+        "fūton",
+        "suiton"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-15"
+    },
+    {
+      "post": 84,
+      "date": "2026-11-08",
+      "day": "Sun",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 2,
+      "words": [
+        "shiken",
+        "sainō",
+        "shakai",
+        "shōchō",
+        "sekinin"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-16"
+    },
+    {
+      "post": 85,
+      "date": "2026-11-10",
+      "day": "Tue",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 2,
+      "words": [
+        "heishi",
+        "sensō",
+        "meirei",
+        "kōgeki",
+        "bōei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-17"
+    },
+    {
+      "post": 86,
+      "date": "2026-11-12",
+      "day": "Thu",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 1,
+      "words": [
+        "renkinjutsu",
+        "rensei",
+        "tōka kōkan",
+        "hagane",
+        "tobira"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-18"
+    },
+    {
+      "post": 87,
+      "date": "2026-11-14",
+      "day": "Sat",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 16,
+      "words": [
+        "ohayō",
+        "arigatō",
+        "gomen",
+        "sumimasen",
+        "yatta"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-19"
+    },
+    {
+      "post": 88,
+      "date": "2026-11-16",
+      "day": "Mon",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 17,
+      "words": [
+        "rekishi",
+        "monogatari",
+        "kami",
+        "sekai",
+        "mirai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-20"
+    },
+    {
+      "post": 89,
+      "date": "2026-11-18",
+      "day": "Wed",
+      "series": "naruto",
+      "label": "Naruto",
+      "part": 16,
+      "words": [
+        "sensō",
+        "kessen",
+        "mikata",
+        "shi",
+        "mirai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-21"
+    },
+    {
+      "post": 90,
+      "date": "2026-11-20",
+      "day": "Fri",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 2,
+      "words": [
+        "shinjitsu",
+        "tsumi",
+        "gisei",
+        "daishō",
+        "tamashii"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-22"
+    },
+    {
+      "post": 91,
+      "date": "2026-11-22",
+      "day": "Sun",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 1,
+      "words": [
+        "sekai",
+        "jikan",
+        "bōken",
+        "kiken",
+        "kyōfu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-23"
+    },
+    {
+      "post": 92,
+      "date": "2026-11-24",
+      "day": "Tue",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 17,
+      "words": [
+        "chichi",
+        "haha",
+        "ani",
+        "imōto",
+        "kazoku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-24"
+    },
+    {
+      "post": 93,
+      "date": "2026-11-26",
+      "day": "Thu",
+      "series": "one-piece",
+      "label": "One Piece",
+      "part": 18,
+      "words": [
+        "nakama",
+        "saigo",
+        "tatakau",
+        "inochi",
+        "shi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-25"
+    },
+    {
+      "post": 94,
+      "date": "2026-11-28",
+      "day": "Sat",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 3,
+      "words": [
+        "karada",
+        "te",
+        "ashi",
+        "chi",
+        "kizu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-26"
+    },
+    {
+      "post": 95,
+      "date": "2026-11-30",
+      "day": "Mon",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 2,
+      "words": [
+        "tsurugi",
+        "tate",
+        "kōgeki",
+        "bōei",
+        "wana"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-27"
+    },
+    {
+      "post": 96,
+      "date": "2026-12-02",
+      "day": "Wed",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 18,
+      "words": [
+        "ii",
+        "warui",
+        "tanoshii",
+        "muzukashii",
+        "yasashii"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-28"
+    },
+    {
+      "post": 97,
+      "date": "2026-12-04",
+      "day": "Fri",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 3,
+      "words": [
+        "chōsen",
+        "ganbaru",
+        "kokufuku",
+        "genkai",
+        "senpai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-29"
+    },
+    {
+      "post": 98,
+      "date": "2026-12-06",
+      "day": "Sun",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 3,
+      "words": [
+        "jiyū",
+        "dorei",
+        "dasshutsu",
+        "rōgoku",
+        "kakumei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-30"
+    },
+    {
+      "post": 99,
+      "date": "2026-12-08",
+      "day": "Tue",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 4,
+      "words": [
+        "ani",
+        "otōto",
+        "chichi",
+        "haha",
+        "kazoku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-08-31"
+    },
+    {
+      "post": 100,
+      "date": "2026-12-10",
+      "day": "Thu",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 3,
+      "words": [
+        "inochi",
+        "shi",
+        "fukkatsu",
+        "tamashii",
+        "gisei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-01"
+    },
+    {
+      "post": 101,
+      "date": "2026-12-12",
+      "day": "Sat",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 19,
+      "words": [
+        "atsui",
+        "samui",
+        "takai",
+        "omoi",
+        "akarui"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-02"
+    },
+    {
+      "post": 102,
+      "date": "2026-12-14",
+      "day": "Mon",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 4,
+      "words": [
+        "hokori",
+        "kōhai",
+        "seichō",
+        "kakusei",
+        "chōnōryoku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-03"
+    },
+    {
+      "post": 103,
+      "date": "2026-12-16",
+      "day": "Wed",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 4,
+      "words": [
+        "tatakau",
+        "mamoru",
+        "nigeru",
+        "hakai",
+        "ikiru"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-04"
+    },
+    {
+      "post": 104,
+      "date": "2026-12-18",
+      "day": "Fri",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 5,
+      "words": [
+        "gun",
+        "taisa",
+        "shōgun",
+        "meirei",
+        "sensō"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-05"
+    },
+    {
+      "post": 105,
+      "date": "2026-12-20",
+      "day": "Sun",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 4,
+      "words": [
+        "nakama",
+        "tomodachi",
+        "kazoku",
+        "yūjō",
+        "kizuna"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-06"
+    },
+    {
+      "post": 106,
+      "date": "2026-12-22",
+      "day": "Tue",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 20,
+      "words": [
+        "hanasu",
+        "yomu",
+        "kaku",
+        "suru",
+        "naru"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-07"
+    },
+    {
+      "post": 107,
+      "date": "2026-12-24",
+      "day": "Thu",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 5,
+      "words": [
+        "hayasa",
+        "bakuhatsu",
+        "kōri",
+        "tōmei",
+        "jūryoku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-08"
+    },
+    {
+      "post": 108,
+      "date": "2026-12-26",
+      "day": "Sat",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 5,
+      "words": [
+        "kyōfu",
+        "zetsubō",
+        "ikari",
+        "kibō",
+        "yūki"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-09"
+    },
+    {
+      "post": 109,
+      "date": "2026-12-28",
+      "day": "Mon",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 6,
+      "words": [
+        "ikari",
+        "kanashimi",
+        "kibō",
+        "kodoku",
+        "aijō"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-10"
+    },
+    {
+      "post": 110,
+      "date": "2026-12-30",
+      "day": "Wed",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 5,
+      "words": [
+        "kibō",
+        "yūki",
+        "kodoku",
+        "kanashimi",
+        "aijō"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-11"
+    },
+    {
+      "post": 111,
+      "date": "2027-01-01",
+      "day": "Fri",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 21,
+      "words": [
+        "matsu",
+        "au",
+        "shiru",
+        "omou",
+        "mamoru"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-12"
+    },
+    {
+      "post": 112,
+      "date": "2027-01-03",
+      "day": "Sun",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 6,
+      "words": [
+        "atsui",
+        "moeru",
+        "akirame",
+        "jakuten",
+        "ichiban"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-13"
+    },
+    {
+      "post": 113,
+      "date": "2027-01-05",
+      "day": "Tue",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 6,
+      "words": [
+        "kazoku",
+        "chichi",
+        "haha",
+        "tomodachi",
+        "kyōdai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-14"
+    },
+    {
+      "post": 114,
+      "date": "2027-01-07",
+      "day": "Thu",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 7,
+      "words": [
+        "chishiki",
+        "kenkyū",
+        "fushigi",
+        "ninmu",
+        "himitsu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-15"
+    },
+    {
+      "post": 115,
+      "date": "2027-01-09",
+      "day": "Sat",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 6,
+      "words": [
+        "shōri",
+        "haiboku",
+        "chōsen",
+        "doryoku",
+        "akirame"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-16"
+    },
+    {
+      "post": 116,
+      "date": "2027-01-11",
+      "day": "Mon",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 22,
+      "words": [
+        "teki",
+        "mikata",
+        "waza",
+        "mahou",
+        "shōbu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-17"
+    },
+    {
+      "post": 117,
+      "date": "2027-01-13",
+      "day": "Wed",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 7,
+      "words": [
+        "yūki",
+        "kizuna",
+        "kōkeisha",
+        "toppa",
+        "shōmei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-18"
+    },
+    {
+      "post": 118,
+      "date": "2027-01-15",
+      "day": "Fri",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 7,
+      "words": [
+        "shi",
+        "inochi",
+        "shōri",
+        "haiboku",
+        "gisei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-19"
+    },
+    {
+      "post": 119,
+      "date": "2027-01-17",
+      "day": "Sun",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 8,
+      "words": [
+        "kuni",
+        "machi",
+        "sabaku",
+        "chikashitsu",
+        "shiro"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-20"
+    },
+    {
+      "post": 120,
+      "date": "2027-01-19",
+      "day": "Tue",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 7,
+      "words": [
+        "shiro",
+        "mori",
+        "machi",
+        "chika",
+        "sora"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-21"
+    },
+    {
+      "post": 121,
+      "date": "2027-01-21",
+      "day": "Thu",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 23,
+      "words": [
+        "gakkō",
+        "hon",
+        "benkyō",
+        "shiken",
+        "kotae"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-22"
+    },
+    {
+      "post": 122,
+      "date": "2027-01-23",
+      "day": "Sat",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 8,
+      "words": [
+        "kunren",
+        "tomodachi",
+        "puro",
+        "kokoro",
+        "egao"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-23"
+    },
+    {
+      "post": 123,
+      "date": "2027-01-25",
+      "day": "Mon",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 8,
+      "words": [
+        "shinjitsu",
+        "uso",
+        "rekishi",
+        "kioku",
+        "himitsu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-24"
+    },
+    {
+      "post": 124,
+      "date": "2027-01-27",
+      "day": "Wed",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 9,
+      "words": [
+        "honō",
+        "mizu",
+        "tsuchi",
+        "kaze",
+        "denki"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-25"
+    },
+    {
+      "post": 125,
+      "date": "2027-01-29",
+      "day": "Fri",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 8,
+      "words": [
+        "genjitsu",
+        "heya",
+        "me",
+        "nemuri",
+        "mezame"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-26"
+    },
+    {
+      "post": 126,
+      "date": "2027-01-31",
+      "day": "Sun",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 24,
+      "words": [
+        "gohan",
+        "niku",
+        "mizu",
+        "ocha",
+        "oishii"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-27"
+    },
+    {
+      "post": 127,
+      "date": "2027-02-02",
+      "day": "Tue",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 9,
+      "words": [
+        "seigi",
+        "heiwa",
+        "hanzai",
+        "hōritsu",
+        "anzen"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-28"
+    },
+    {
+      "post": 128,
+      "date": "2027-02-04",
+      "day": "Thu",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 9,
+      "words": [
+        "sekai",
+        "sora",
+        "mori",
+        "yama",
+        "tsuchi"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-29"
+    },
+    {
+      "post": 129,
+      "date": "2027-02-06",
+      "day": "Sat",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 10,
+      "words": [
+        "tatakau",
+        "mamoru",
+        "nigeru",
+        "sōsaku",
+        "hakai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-09-30"
+    },
+    {
+      "post": 130,
+      "date": "2027-02-08",
+      "day": "Mon",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 9,
+      "words": [
+        "kokoro",
+        "kioku",
+        "yume",
+        "shinjitsu",
+        "himitsu"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-01"
+    },
+    {
+      "post": 131,
+      "date": "2027-02-10",
+      "day": "Wed",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 25,
+      "words": [
+        "atama",
+        "kao",
+        "kuchi",
+        "mimi",
+        "karada"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-02"
+    },
+    {
+      "post": 132,
+      "date": "2027-02-12",
+      "day": "Fri",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 10,
+      "words": [
+        "sakusen",
+        "handan",
+        "chishiki",
+        "keikaku",
+        "meirei"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-03"
+    },
+    {
+      "post": 133,
+      "date": "2027-02-14",
+      "day": "Sun",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 10,
+      "words": [
+        "chikara",
+        "ō",
+        "eiyū",
+        "unmei",
+        "akuma"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-04"
+    },
+    {
+      "post": 134,
+      "date": "2027-02-16",
+      "day": "Tue",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 11,
+      "words": [
+        "yūki",
+        "gaman",
+        "akirame",
+        "tsuyosa",
+        "yasashisa"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-05"
+    },
+    {
+      "post": 135,
+      "date": "2027-02-18",
+      "day": "Thu",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 10,
+      "words": [
+        "chikara",
+        "seichō",
+        "keiken",
+        "jōtatsu",
+        "tsuyosa"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-06"
+    },
+    {
+      "post": 136,
+      "date": "2027-02-20",
+      "day": "Sat",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 26,
+      "words": [
+        "ie",
+        "machi",
+        "michi",
+        "mise",
+        "okane"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-07"
+    },
+    {
+      "post": 137,
+      "date": "2027-02-22",
+      "day": "Mon",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 11,
+      "words": [
+        "te",
+        "ashi",
+        "kaifuku",
+        "kōgeki",
+        "kyūkyoku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-08"
+    },
+    {
+      "post": 138,
+      "date": "2027-02-24",
+      "day": "Wed",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 11,
+      "words": [
+        "shingeki",
+        "yoroi",
+        "kōka",
+        "henka",
+        "kyōryoku"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-09"
+    },
+    {
+      "post": 139,
+      "date": "2027-02-26",
+      "day": "Fri",
+      "series": "fullmetal-alchemist",
+      "label": "Fullmetal Alchemist",
+      "part": 12,
+      "words": [
+        "unmei",
+        "jiyū",
+        "heiwa",
+        "seimei",
+        "mirai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-10"
+    },
+    {
+      "post": 140,
+      "date": "2027-02-28",
+      "day": "Sun",
+      "series": "my-hero-academia",
+      "label": "My Hero Academia",
+      "part": 12,
+      "words": [
+        "yume",
+        "mokuhyō",
+        "shōrai",
+        "unmei",
+        "jibun"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-11"
+    },
+    {
+      "post": 141,
+      "date": "2027-03-02",
+      "day": "Tue",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 11,
+      "words": [
+        "ai",
+        "yakusoku",
+        "omoide",
+        "wakare",
+        "saikai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-12"
+    },
+    {
+      "post": 142,
+      "date": "2027-03-04",
+      "day": "Thu",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 27,
+      "words": [
+        "dame",
+        "matte",
+        "ikuzo",
+        "dekiru",
+        "suki"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-13"
+    },
+    {
+      "post": 143,
+      "date": "2027-03-06",
+      "day": "Sat",
+      "series": "attack-on-titan",
+      "label": "Attack on Titan",
+      "part": 12,
+      "words": [
+        "ningen",
+        "heiwa",
+        "tamashii",
+        "fukushū",
+        "mirai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-14"
+    },
+    {
+      "post": 144,
+      "date": "2027-03-08",
+      "day": "Mon",
+      "series": "sword-art-online",
+      "label": "Sword Art Online",
+      "part": 12,
+      "words": [
+        "jiyū",
+        "unmei",
+        "kami",
+        "mirai",
+        "heiwa"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-15"
+    },
+    {
+      "post": 145,
+      "date": "2027-03-10",
+      "day": "Wed",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 28,
+      "words": [
+        "chikara",
+        "seishin",
+        "inochi",
+        "yūki",
+        "kibō"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-16"
+    },
+    {
+      "post": 146,
+      "date": "2027-03-12",
+      "day": "Fri",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 29,
+      "words": [
+        "yume",
+        "mokuhyō",
+        "shōrai",
+        "ganbaru",
+        "akirameru"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-17"
+    },
+    {
+      "post": 147,
+      "date": "2027-03-14",
+      "day": "Sun",
+      "series": "anime-core",
+      "label": "Anime Core",
+      "part": 30,
+      "words": [
+        "nakama",
+        "shinrai",
+        "kizuna",
+        "yūjō",
+        "ai"
+      ],
+      "status": "pending",
+      "scheduled_instagram_id": null,
+      "fb_date": "2026-10-18"
+    }
+  ],
+  "fb_start": "2026-05-25",
+  "fb_end": "2026-10-18",
+  "fb_interval_days": 1
+}
