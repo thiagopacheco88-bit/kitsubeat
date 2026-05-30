@@ -39,6 +39,7 @@ import {
   ClassicsCarousel,
   ModernCarousel,
 } from "@/app/components/home/SongCarousels";
+import { FadeInSection } from "@/components/ui/FadeInSection";
 import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
@@ -93,23 +94,23 @@ export default async function LocaleHomePage({
 
       {/* Section 2 — Continue Learning (auth-only) */}
       {isSignedIn && (
-        <div className="fade-in-section">
+        <FadeInSection>
           <ContinueLearning userId={userId} title={t('home.continueLearning')} viewAllLabel={t('home.openPath')} />
-        </div>
+        </FadeInSection>
       )}
 
       {/* Section 2.5 — Recently Mastered ticker */}
-      <div className="fade-in-section">
+      <FadeInSection>
         <RecentlyMasteredTicker events={masteryEvents} />
-      </div>
+      </FadeInSection>
 
       {/* Section 3 — Foundations */}
-      <div className="fade-in-section">
+      <FadeInSection>
         <Foundations title={t('home.foundations')} viewAllLabel={t('home.openKana')} />
-      </div>
+      </FadeInSection>
 
       {/* Section 4 — Anime Vocabulary */}
-      <section data-testid="anime-vocabulary" className="pb-8 fade-in-section">
+      <FadeInSection as="section" data-testid="anime-vocabulary" className="pb-8">
         <SectionHeader
           titleJp="語彙"
           title={t('home.animeVocabulary')}
@@ -129,10 +130,10 @@ export default async function LocaleHomePage({
             />
           ))}
         </Carousel>
-      </section>
+      </FadeInSection>
 
       {/* Section 5 — Anime Songs */}
-      <section data-testid="browse-by-anime" className="pb-8 fade-in-section">
+      <FadeInSection as="section" data-testid="browse-by-anime" className="pb-8">
         <SectionHeader
           titleJp="アニメ"
           title={t('home.animeSongs')}
@@ -151,7 +152,7 @@ export default async function LocaleHomePage({
             />
           ))}
         </Carousel>
-      </section>
+      </FadeInSection>
 
       {/* Streak-saver toast */}
       {isSignedIn && userRow?.streakSaverPending && (
@@ -162,8 +163,8 @@ export default async function LocaleHomePage({
         />
       )}
 
-      {/* Section 5 — Featured Songs */}
-      <section data-testid="featured-songs" className="pb-8 fade-in-section">
+      {/* Section 6 — Featured Songs */}
+      <FadeInSection as="section" data-testid="featured-songs" className="pb-8">
         <SectionHeader
           titleJp="特集"
           title={t('home.featuredSongs')}
@@ -188,38 +189,38 @@ export default async function LocaleHomePage({
             />
           ))}
         </Carousel>
-      </section>
+      </FadeInSection>
 
       {/* Below-fold carousels — streamed independently via Suspense */}
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <BeginnerCarousel showMastery={isSignedIn} title={t('home.beginner')} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <IntermediateCarousel showMastery={isSignedIn} title={t('home.intermediate')} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <AdvancedCarousel showMastery={isSignedIn} title={t('home.advanced')} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <ClassicsCarousel showMastery={isSignedIn} title={t('home.classics')} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <ModernCarousel showMastery={isSignedIn} title={t('home.modern')} />
         </Suspense>
-      </div>
+      </FadeInSection>
     </div>
   );
 }

@@ -1,36 +1,36 @@
 "use client";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
-// Mounts a single IntersectionObserver that watches every .fade-in-section
-// element on the page and adds .fade-in-visible when they enter the viewport.
-// Placed once in the root layout so it works across all pages.
+// Mounts an IntersectionObserver that watches every .fade-in-section element
+// on the current page. Re-runs on SPA navigation so elements on the new page
+// are observed (without pathname dependency, navigating from /onboarding → /
+// leaves the home-page sections permanently invisible at opacity: 0).
 export function ScrollRevealScript() {
+  const pathname = usePathname();
+
   useEffect(() => {
-    let observer: IntersectionObserver | null = null;
     let rescanTimer: ReturnType<typeof setTimeout> | null = null;
 
-    // Use data-visible attribute instead of className so React's hydration
-    // reconciler never sees a mismatch — React doesn't own data-* attributes
-    // set via direct DOM mutation.
-    const initTimer = setTimeout(() => {
-      observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              (entry.target as HTMLElement).dataset.visible = "1";
-              observer!.unobserve(entry.target);
-            }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).dataset.visible = "1";
+            observer.unobserve(entry.target);
           }
-        },
-        { rootMargin: "-40px" },
-      );
+        }
+      },
+      { rootMargin: "-40px" },
+    );
 
-      const observe = () => {
-        document.querySelectorAll(".fade-in-section:not([data-visible])").forEach((el) => {
-          observer!.observe(el);
-        });
-      };
+    const observe = () => {
+      document.querySelectorAll(".fade-in-section:not([data-visible])").forEach((el) => {
+        observer.observe(el);
+      });
+    };
 
+    const initTimer = setTimeout(() => {
       observe();
       // Re-scan after streaming completes (Suspense fallbacks resolve late)
       rescanTimer = setTimeout(observe, 1500);
@@ -38,10 +38,16 @@ export function ScrollRevealScript() {
 
     return () => {
       clearTimeout(initTimer);
-      if (observer) observer.disconnect();
       if (rescanTimer) clearTimeout(rescanTimer);
+      observer.disconnect();
+      // Remove data-visible so the next render (SPA nav or router-cache reconciliation)
+      // doesn't find stale attributes that the server HTML didn't include, which would
+      // cause a React hydration mismatch on the new route.
+      document
+        .querySelectorAll<HTMLElement>(".fade-in-section[data-visible]")
+        .forEach((el) => delete el.dataset.visible);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

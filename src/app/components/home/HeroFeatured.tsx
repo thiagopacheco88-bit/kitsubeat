@@ -102,16 +102,9 @@ export async function HeroFeatured({ hero }: HeroFeaturedProps) {
         aria-hidden="true"
       />
 
-      {/* Eyebrow row: Featured this week + JLPT chip */}
-      <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-        <span
-          className="rounded-[var(--radius-pill)] bg-white/15 backdrop-blur-sm px-3 py-1 text-xs font-bold"
-          style={{ color: "white" }}
-          data-testid="hero-eyebrow"
-        >
-          ★ {t('hero.featuredThisWeek')}
-        </span>
-        {song.jlpt_level && (
+      {/* JLPT chip — top right */}
+      {song.jlpt_level && (
+        <div className="absolute top-3 right-3">
           <span
             className="rounded-[var(--radius-pill)] bg-[var(--color-accent)] px-2 py-1 text-xs font-bold"
             style={{ color: "white" }}
@@ -119,8 +112,8 @@ export async function HeroFeatured({ hero }: HeroFeaturedProps) {
           >
             JLPT {song.jlpt_level}
           </span>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Bottom stack: title + meta + CTA */}
       <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col gap-3">
@@ -133,6 +126,7 @@ export async function HeroFeatured({ hero }: HeroFeaturedProps) {
             fontWeight: 900,
             color: "white",
             textShadow: "0 2px 4px rgba(0,0,0,0.65)",
+            animation: "hero-enter-down 0.55s ease-out both",
           }}
           data-testid="hero-title-jp"
         >
@@ -140,7 +134,7 @@ export async function HeroFeatured({ hero }: HeroFeaturedProps) {
         </h1>
         <p
           className="truncate text-sm"
-          style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 2px rgba(0,0,0,0.55)" }}
+          style={{ color: "rgba(255,255,255,0.9)", textShadow: "0 1px 2px rgba(0,0,0,0.55)", animation: "hero-enter-down 0.55s ease-out 0.08s both" }}
           data-testid="hero-meta"
         >
           {metaLine}
@@ -154,6 +148,7 @@ export async function HeroFeatured({ hero }: HeroFeaturedProps) {
         <Link
           href={ctaHref}
           className="inline-flex h-14 items-center justify-center gap-2 self-start rounded-[var(--radius-pill)] bg-white/100 px-6 text-sm font-bold text-[var(--color-accent)] shadow-[var(--shadow-cta-red)] transition-transform hover:scale-105"
+          style={{ animation: "hero-enter-up 0.5s ease-out 0.18s both" }}
           data-testid="hero-cta"
         >
           <span aria-hidden="true">▶</span>

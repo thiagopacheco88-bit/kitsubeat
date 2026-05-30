@@ -281,9 +281,49 @@
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   will-change: opacity, transform;
 }
-.fade-in-section[data-visible] {
+.fade-in-section.fade-in-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Hero section entrance — title fades down, CTA fades up */
+@keyframes hero-enter-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-enter-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Song catalog grid — staggered card entrance */
+@keyframes song-card-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.song-card-enter {
+  animation: song-card-enter 0.35s ease-out both;
+}
+
+/* LanternStreak — pulse when streak count increases */
+@keyframes lantern-pulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.2); filter: drop-shadow(0 0 8px rgba(251, 146, 60, 0.75)); }
+  70%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+[data-lantern-pulsing] {
+  animation: lantern-pulse 0.65s ease-out;
+}
+
+/* Session complete emoji — one-shot pop-in used by kana, counter, and anime sessions */
+@keyframes session-emoji-pop {
+  0%   { transform: scale(0.4); opacity: 0; }
+  60%  { transform: scale(1.25); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.session-emoji-pop {
+  animation: session-emoji-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
 /* CONTEXT D-13 — Global reduced-motion override. MUST be last in file.

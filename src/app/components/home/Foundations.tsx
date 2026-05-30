@@ -12,7 +12,11 @@
 import { SectionHeader } from "./SectionHeader";
 import { KanaCheckpointNode } from "@/app/path/components/KanaCheckpointNode";
 import { CounterCheckpointNode } from "@/app/counters/components/CounterCheckpointNode";
+import { VerbCheckpointNode } from "@/app/verbs/components/VerbCheckpointNode";
 import { AnimeCoreFoundationCard } from "./AnimeCoreFoundationCard";
+import { ParticlesFoundationCard } from "./ParticlesFoundationCard";
+import { CommonPhrasesFoundationCard } from "./CommonPhrasesFoundationCard";
+import { HonorificsTitlesFoundationCard } from "./HonorificsTitlesFoundationCard";
 
 interface FoundationsProps {
   title?: string;
@@ -27,7 +31,11 @@ export function Foundations({ title = "Foundations", viewAllLabel = "Open Kana" 
         <KanaCheckpointNode script="hiragana" size="home" />
         <KanaCheckpointNode script="katakana" size="home" />
         <CounterCheckpointNode />
+        <VerbCheckpointNode />
         <AnimeCoreFoundationCard />
+        <ParticlesFoundationCard />
+        <CommonPhrasesFoundationCard />
+        <HonorificsTitlesFoundationCard />
       </div>
     </section>
   );

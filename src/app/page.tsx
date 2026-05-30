@@ -37,6 +37,7 @@ import {
   ClassicsCarousel,
   ModernCarousel,
 } from "./components/home/SongCarousels";
+import { FadeInSection } from "@/components/ui/FadeInSection";
 import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
@@ -81,23 +82,23 @@ export default async function HomePage() {
 
       {/* Section 2 — Continue Learning (auth-only) */}
       {isSignedIn && (
-        <div className="fade-in-section">
+        <FadeInSection>
           <ContinueLearning userId={userId} />
-        </div>
+        </FadeInSection>
       )}
 
       {/* Section 2.5 — Recently Mastered ticker */}
-      <div className="fade-in-section">
+      <FadeInSection>
         <RecentlyMasteredTicker events={masteryEvents} />
-      </div>
+      </FadeInSection>
 
       {/* Section 3 — Foundations */}
-      <div className="fade-in-section">
+      <FadeInSection>
         <Foundations />
-      </div>
+      </FadeInSection>
 
       {/* Section 4 — Browse by Anime */}
-      <div className="fade-in-section">
+      <FadeInSection>
         <section data-testid="browse-by-anime" className="pb-8">
           <SectionHeader
             titleJp="アニメ"
@@ -118,7 +119,7 @@ export default async function HomePage() {
             ))}
           </Carousel>
         </section>
-      </div>
+      </FadeInSection>
 
       {/* Streak-saver toast */}
       {isSignedIn && userRow?.streakSaverPending && (
@@ -130,7 +131,7 @@ export default async function HomePage() {
       )}
 
       {/* Section 5 — Featured Songs */}
-      <div className="fade-in-section">
+      <FadeInSection>
         <section data-testid="featured-songs" className="pb-8">
           <SectionHeader
             titleJp="特集"
@@ -157,39 +158,39 @@ export default async function HomePage() {
             ))}
           </Carousel>
         </section>
-      </div>
+      </FadeInSection>
 
       {/* ── Below-fold carousels — streamed independently via Suspense ── */}
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <BeginnerCarousel showMastery={isSignedIn} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <IntermediateCarousel showMastery={isSignedIn} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <AdvancedCarousel showMastery={isSignedIn} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <ClassicsCarousel showMastery={isSignedIn} />
         </Suspense>
-      </div>
+      </FadeInSection>
 
-      <div className="fade-in-section">
+      <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>
           <ModernCarousel showMastery={isSignedIn} />
         </Suspense>
-      </div>
+      </FadeInSection>
     </div>
   );
 }

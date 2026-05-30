@@ -21,7 +21,6 @@ import NextTopLoader from "nextjs-toploader";
 import Script from "next/script";
 import { PageTransitionWrapper } from "@/app/components/PageTransitionWrapper";
 import { KitsuneProfileButton } from "@/app/components/KitsuneProfileButton";
-import { ScrollRevealScript } from "@/components/ui/ScrollRevealScript";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -214,6 +213,12 @@ export default async function RootLayout({
                   {t('nav.kana')}
                 </Link>
                 <Link
+                  href="/verbs"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  Verbs
+                </Link>
+                <Link
                   href="/anime"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
@@ -273,7 +278,6 @@ export default async function RootLayout({
         <Script id="metricool-tracker" strategy="afterInteractive">{`function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"67efc2f964b6a9f982dbc325f2e7fffd"})});`}</Script>
         <main id="main-content">
             <PageTransitionWrapper>{children}</PageTransitionWrapper>
-            <ScrollRevealScript />
         </main>
         <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg)] py-6 mt-auto">
           <nav aria-label="Legal and site links" className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 text-sm text-[var(--color-text-muted)]">
