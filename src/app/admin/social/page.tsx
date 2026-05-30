@@ -151,12 +151,14 @@ export default async function SocialPage() {
   const admins = (process.env.ADMIN_USER_IDS ?? "").split(",").map((s) => s.trim());
   if (!admins.includes(user.id)) return notFound();
 
-  const catalog = JSON.parse(
-    readFileSync(resolve(process.cwd(), "videos/catalog.json"), "utf-8")
-  );
-  const schedule = JSON.parse(
-    readFileSync(resolve(process.cwd(), "videos/schedule.json"), "utf-8")
-  );
+  let catalog: Record<string, any> = {};
+  let schedule: { posts: any[] } = { posts: [] };
+  try {
+    catalog = JSON.parse(readFileSync(resolve(process.cwd(), "videos/catalog.json"), "utf-8"));
+    schedule = JSON.parse(readFileSync(resolve(process.cwd(), "videos/schedule.json"), "utf-8"));
+  } catch (e) {
+    console.error("[social] failed to load catalog/schedule:", e);
+  }
 
   const IG_TOKEN = process.env.INSTAGRAM_LONG_TOKEN ?? "";
   const FB_TOKEN = process.env.FACEBOOK_PAGE_TOKEN ?? "";
