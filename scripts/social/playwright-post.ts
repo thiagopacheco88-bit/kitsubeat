@@ -9,7 +9,8 @@
  *
  * In GitHub Actions: THREADS_SESSION and TIKTOK_SESSION secrets are base64-encoded storageState JSON.
  */
-import { chromium, type Page } from "@playwright/test";
+import { chromium } from "playwright";
+import type { Page } from "playwright";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import * as dotenv from "dotenv";

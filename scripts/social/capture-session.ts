@@ -8,9 +8,10 @@
  *   npx tsx --tsconfig tsconfig.scripts.json scripts/social/capture-session.ts --tiktok
  *   npx tsx --tsconfig tsconfig.scripts.json scripts/social/capture-session.ts --threads --tiktok
  */
-import { chromium } from "@playwright/test";
-import { writeFileSync, readFileSync } from "fs";
+import { chromium } from "playwright";
+import { writeFileSync, readFileSync, mkdtempSync } from "fs";
 import { join } from "path";
+import { tmpdir } from "os";
 import * as readline from "readline";
 
 const ROOT = process.cwd();
@@ -27,8 +28,14 @@ function waitForEnter(message: string): Promise<void> {
 
 async function captureSession(url: string, outFile: string, platform: string): Promise<void> {
   console.log(`\n[${platform}] Opening browser…`);
-  const browser = await chromium.launch({ headless: false, slowMo: 100 });
-  const ctx = await browser.newContext();
+  // Use launchPersistentContext — opens a real visible window immediately
+  const tmpDir = mkdtempSync(join(tmpdir(), `pw-${platform.toLowerCase()}-`));
+  const ctx = await chromium.launchPersistentContext(tmpDir, {
+    headless: false,
+    slowMo: 50,
+    args: ["--start-maximized"],
+    ignoreDefaultArgs: ["--disable-extensions"],
+  });
   const page = await ctx.newPage();
 
   await page.goto(url);
@@ -41,13 +48,13 @@ async function captureSession(url: string, outFile: string, platform: string): P
   // Print base64 for GitHub Secret
   const json = readFileSync(outFile, "utf8");
   const b64 = Buffer.from(json).toString("base64");
-  console.log(`\n[${platform}] Copy this as the GitHub Secret value:`);
-  console.log(`Secret name: ${platform.toUpperCase()}_SESSION`);
-  console.log(`Secret value (base64):\n${b64.slice(0, 60)}…`);
-  console.log(`\nFull value written to: ${outFile}.b64`);
+  console.log(`\n[${platform}] GitHub Secret:`);
+  console.log(`  Name:  ${platform.toUpperCase()}_SESSION`);
+  console.log(`  Value: (base64, ${b64.length} chars — saved to ${outFile}.b64)`);
   writeFileSync(outFile + ".b64", b64);
+  console.log(`  Preview: ${b64.slice(0, 60)}…`);
 
-  await browser.close();
+  await ctx.close();
 }
 
 if (!doThreads && !doTikTok) {
