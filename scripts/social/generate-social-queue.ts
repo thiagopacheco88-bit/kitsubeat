@@ -658,10 +658,17 @@ function articleThread(article: Record<string, string>): string[] {
     const defBonus = n > 0 && /[぀-ヿ一-鿿].{0,60}\bmeans?\b|\).{0,60}\bmeans?\b/.test(p) ? 1 : 0;
     return jpScore * 2 + defBonus;
   };
-  const sorted = [...allParagraphs]
-    .map((p, i) => ({ p, i, len: p.length, score: paragraphScore(p) }))
+  const scored = allParagraphs.map((p, i) => ({ p, i, len: p.length, score: paragraphScore(p) }));
+  // Always include the first paragraph (narrative setup) — it scores 0 on kanji density
+  // but anchors the thread so it reads as a story, not disconnected excerpts.
+  const firstPara = scored[0];
+  // Pick top 5 scored paragraphs for the remaining slots (skip firstPara's index)
+  const bestFive = scored
+    .filter(x => !firstPara || x.i !== firstPara.i)
     .sort((a, b) => (b.score - a.score) || (b.len - a.len))
-    .slice(0, 6)
+    .slice(0, 5);
+  // Re-sort everything by original document position so the story flows in order
+  const sorted = [...(firstPara ? [firstPara] : []), ...bestFive]
     .sort((a, b) => a.i - b.i)
     .map(({ p }) => truncateAtSentence(p, 260));
 
