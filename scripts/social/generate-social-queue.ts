@@ -130,7 +130,12 @@ const allAnimes: AnimeVocab[] = readdirSync(VOCAB_DIR)
   .filter(a => a.vocab?.length >= 3);
 
 
-const articles = readdirSync(JOURNAL_DIR)
+type ArticleData = Record<string, string> & {
+  body: string;
+  faq?: Array<{ question: string; answer: string }>;
+};
+
+const articles: ArticleData[] = readdirSync(JOURNAL_DIR)
   .filter(f => f.endsWith(".mdx"))
   .map(f => {
     const raw = readFileSync(join(JOURNAL_DIR, f), "utf8");
@@ -140,7 +145,8 @@ const articles = readdirSync(JOURNAL_DIR)
       .replace(/<[^>]+>/g, "")
       .replace(/\n{3,}/g, "\n\n")
       .trim();
-    return { ...data as Record<string, string>, body };
+    const faq = Array.isArray((data as any).faq) ? (data as any).faq : undefined;
+    return { ...data as Record<string, string>, body, faq };
   })
   .filter(a => a.slug && a.title)
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -647,30 +653,47 @@ function articleThread(article: Record<string, string>): string[] {
       !/^(yes[.,!]|no[.,!—]|here'?s the thing|here'?s what|not exactly|not quite)/i.test(p)
     );
 
-  // Score paragraphs by vocabulary-instruction signal:
-  //   4 = kanji-rich (4+ chars) AND explicit definition ("means") — vocabulary instruction paragraph
-  //   2 = kanji-rich only — cultural/contextual content
-  //   1 = 1-3 kanji (likely a name in parentheses) — narrative with incidental kanji
-  //   0 = no Japanese
-  const paragraphScore = (p: string): number => {
-    const n = (p.match(/[぀-ヿ一-鿿]/g) ?? []).length;
-    const jpScore = n === 0 ? 0 : n <= 3 ? 1 : 2;
-    const defBonus = n > 0 && /[぀-ヿ一-鿿].{0,60}\bmeans?\b|\).{0,60}\bmeans?\b/.test(p) ? 1 : 0;
-    return jpScore * 2 + defBonus;
-  };
-  const scored = allParagraphs.map((p, i) => ({ p, i, len: p.length, score: paragraphScore(p) }));
-  // Always include the first paragraph (narrative setup) — it scores 0 on kanji density
-  // but anchors the thread so it reads as a story, not disconnected excerpts.
-  const firstPara = scored[0];
-  // Pick top 5 scored paragraphs for the remaining slots (skip firstPara's index)
-  const bestFive = scored
-    .filter(x => !firstPara || x.i !== firstPara.i)
-    .sort((a, b) => (b.score - a.score) || (b.len - a.len))
-    .slice(0, 5);
-  // Re-sort everything by original document position so the story flows in order
-  const sorted = [...(firstPara ? [firstPara] : []), ...bestFive]
-    .sort((a, b) => a.i - b.i)
-    .map(({ p }) => truncateAtSentence(p, 260));
+  // FAQ answers are self-contained by design — each explains one concept without
+  // assuming prior context. Use them as content tweets when available.
+  // Fall back to body paragraph scoring only for articles without FAQ entries.
+  let contentTweetTexts: string[];
+
+  if (article.faq && article.faq.length >= 2) {
+    // T2 = first body paragraph (narrative hook — the "why this is interesting")
+    const firstBodyPara = allParagraphs[0] ? truncateAtSentence(stripMarkdown(allParagraphs[0]), 260) : null;
+    // T3–T7 = up to 5 FAQ answers, each self-contained
+    // Strip Q&A openers that read oddly out of context ("Yes. X is...", "Because...")
+    const stripFaqOpener = (a: string): string =>
+      a.replace(/^(yes[.,!]\s+|no[.,!]\s+|because\s+|not exactly[.,]\s+|not quite[.,]\s+)/i, s =>
+        s.replace(/^./, c => c.toUpperCase())
+          .replace(/^(yes[.,!]\s+|no[.,!]\s+|because\s+|not exactly[.,]\s+|not quite[.,]\s+)/i, "")
+      ).replace(/^(yes|no)[.,]?\s+/i, "").replace(/^./, c => c.toUpperCase());
+    const faqTweets = article.faq
+      .map(f => stripFaqOpener(stripMarkdown(f.answer)))
+      .filter(a => a.length > 60)
+      .slice(0, 5)
+      .map(a => truncateAtSentence(a, 260));
+    contentTweetTexts = [...(firstBodyPara ? [firstBodyPara] : []), ...faqTweets];
+  } else {
+    // No FAQ — fall back to scored body paragraphs
+    const paragraphScore = (p: string): number => {
+      const n = (p.match(/[぀-ヿ一-鿿]/g) ?? []).length;
+      const jpScore = n === 0 ? 0 : n <= 3 ? 1 : 2;
+      const defBonus = n > 0 && /[぀-ヿ一-鿿].{0,60}\bmeans?\b|\).{0,60}\bmeans?\b/.test(p) ? 1 : 0;
+      return jpScore * 2 + defBonus;
+    };
+    const scored = allParagraphs.map((p, i) => ({ p, i, len: p.length, score: paragraphScore(p) }));
+    const firstPara = scored[0];
+    const bestFive = scored
+      .filter(x => !firstPara || x.i !== firstPara.i)
+      .sort((a, b) => (b.score - a.score) || (b.len - a.len))
+      .slice(0, 5);
+    contentTweetTexts = [...(firstPara ? [firstPara] : []), ...bestFive]
+      .sort((a, b) => a.i - b.i)
+      .map(({ p }) => truncateAtSentence(p, 260));
+  }
+
+  const sorted = contentTweetTexts;
 
   const hook = article.subtitle
     ? `${stripMarkdown(article.title)} 🧵\n\n${stripMarkdown(article.subtitle)}`
