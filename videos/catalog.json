@@ -19,7 +19,11 @@
           },
           "facebook": {
             "id": "1059433533074592",
-            "date": "2026-05-24"
+            "date": "2026-05-24",
+            "metrics_override": {
+              "views": 9,
+              "likes": 1
+            }
           },
           "tiktok": {
             "date": "2026-05-17"
@@ -110,7 +114,11 @@
           "facebook": {
             "id": "1105289136008484",
             "date": "2026-05-25",
-            "scheduled_for": "2026-05-25T11:00:00.000Z"
+            "scheduled_for": "2026-05-25T11:00:00.000Z",
+            "metrics_override": {
+              "views": 5,
+              "likes": 1
+            }
           },
           "tiktok": {
             "date": "2026-05-24"

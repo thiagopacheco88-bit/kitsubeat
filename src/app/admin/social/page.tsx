@@ -154,6 +154,7 @@ export default async function SocialPage() {
     platform: "instagram" | "youtube" | "facebook" | "tiktok";
     postId?: string;
     date: string;
+    metricsOverride?: PlatformMetrics;
   };
   const raw: RawEntry[] = [];
 
@@ -162,13 +163,13 @@ export default async function SocialPage() {
     for (const part of (series as any).parts ?? []) {
       const p = part.posted ?? {};
       if (p.instagram?.date)
-        raw.push({ series: seriesKey, label, part: part.part, platform: "instagram", postId: p.instagram.id, date: p.instagram.date });
+        raw.push({ series: seriesKey, label, part: part.part, platform: "instagram", postId: p.instagram.id, date: p.instagram.date, metricsOverride: p.instagram.metrics_override });
       if (p.youtube?.date)
-        raw.push({ series: seriesKey, label, part: part.part, platform: "youtube", postId: p.youtube.id, date: p.youtube.date });
+        raw.push({ series: seriesKey, label, part: part.part, platform: "youtube", postId: p.youtube.id, date: p.youtube.date, metricsOverride: p.youtube.metrics_override });
       if (p.facebook?.date)
-        raw.push({ series: seriesKey, label, part: part.part, platform: "facebook", postId: p.facebook.id, date: p.facebook.date });
+        raw.push({ series: seriesKey, label, part: part.part, platform: "facebook", postId: p.facebook.id, date: p.facebook.date, metricsOverride: p.facebook.metrics_override });
       if (p.tiktok?.date)
-        raw.push({ series: seriesKey, label, part: part.part, platform: "tiktok", date: p.tiktok.date });
+        raw.push({ series: seriesKey, label, part: part.part, platform: "tiktok", date: p.tiktok.date, metricsOverride: p.tiktok.metrics_override });
     }
   }
 
@@ -203,6 +204,8 @@ export default async function SocialPage() {
         link = `https://www.youtube.com/watch?v=${r.postId}`;
       }
       if (r.platform === "facebook" && r.postId) metrics = fbMap[r.postId] ?? {};
+      // Fall back to manually stored override when API returns nothing
+      if (!Object.keys(metrics).length && r.metricsOverride) metrics = r.metricsOverride;
       return { ...r, daysAgo: daysSince(r.date), metrics, link };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
