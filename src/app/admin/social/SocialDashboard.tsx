@@ -18,7 +18,7 @@ const COLORS: Record<string, string> = {
   instagram: "#e1306c",
   youtube: "#ff0000",
   facebook: "#1877f2",
-  tiktok: "#111111",
+  tiktok: "#69C9D0",
 };
 
 function fmt(n?: number): string {
