@@ -2,8 +2,8 @@ name: Daily Social Post — Threads + TikTok + Bluesky
 
 on:
   schedule:
-    # 09:00 UTC = 10:00 BST (London summer) / 09:00 GMT (winter)
-    - cron: "0 9 * * *"
+    # 04:00 UTC = 05:00 BST (London summer) / 04:00 GMT (winter)
+    - cron: "0 4 * * *"
   workflow_dispatch:
     inputs:
       date:
