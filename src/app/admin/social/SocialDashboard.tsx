@@ -28,6 +28,33 @@ function fmt(n?: number): string {
   return String(n);
 }
 
+function engagementRate(m: { views?: number; likes?: number; comments?: number; shares?: number; saves?: number }): number | null {
+  if (!m.views) return null;
+  const interactions = (m.likes ?? 0) + (m.comments ?? 0) + (m.shares ?? 0) + (m.saves ?? 0);
+  return (interactions / m.views) * 100;
+}
+
+function ErBadge({ rate }: { rate: number | null }) {
+  if (rate === null) return <td style={{ padding: "10px 16px", whiteSpace: "nowrap" }}>—</td>;
+
+  const [bg, color, label] =
+    rate >= 6   ? ["rgba(16,185,129,0.15)", "#10b981", `${rate.toFixed(1)}% ✦`] :
+    rate >= 3   ? ["rgba(34,197,94,0.12)",  "#22c55e", `${rate.toFixed(1)}%`]   :
+    rate >= 1   ? ["rgba(245,158,11,0.15)", "#f59e0b", `${rate.toFixed(1)}%`]   :
+                  ["rgba(239,68,68,0.12)",  "#ef4444", `${rate.toFixed(1)}%`];
+
+  return (
+    <td style={{ padding: "10px 16px", whiteSpace: "nowrap" }}>
+      <span style={{
+        display: "inline-block", padding: "2px 8px", borderRadius: 999,
+        fontSize: 11, fontWeight: 700, background: bg, color,
+      }}>
+        {label}
+      </span>
+    </td>
+  );
+}
+
 function getRows(posted: PostedRow[], platform: PlatformFilter, showAll: boolean): PostedRow[] {
   const filtered = platform === "all" ? posted : posted.filter((r) => r.platform === platform);
   if (platform !== "all" || showAll) return filtered;
@@ -121,6 +148,7 @@ export default function SocialDashboard({
                 <Th>Comments</Th>
                 <Th>Shares</Th>
                 <Th>Saved</Th>
+                <Th>ER%</Th>
               </tr>
             </thead>
             <tbody>
@@ -210,6 +238,7 @@ export default function SocialDashboard({
                     <Metric>{fmt(row.metrics.comments)}</Metric>
                     <Metric>{fmt(row.metrics.shares)}</Metric>
                     <Metric>{fmt(row.metrics.saves)}</Metric>
+                    <ErBadge rate={engagementRate(row.metrics)} />
                   </tr>
                 ))
               )}
