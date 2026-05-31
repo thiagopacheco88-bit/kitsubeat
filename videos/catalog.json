@@ -26,7 +26,15 @@
             }
           },
           "tiktok": {
-            "date": "2026-05-17"
+            "date": "2026-05-17",
+            "metrics_override": {
+              "views": 11,
+              "likes": 2,
+              "comments": 1,
+              "saves": 2,
+              "shares": 4
+            },
+            "id": "7640994339719695619"
           },
           "youtube": {
             "id": "gMmEiFBQLC0",
@@ -121,7 +129,14 @@
             }
           },
           "tiktok": {
-            "date": "2026-05-24"
+            "date": "2026-05-24",
+            "metrics_override": {
+              "views": 273,
+              "likes": 20,
+              "comments": 0,
+              "saves": 2
+            },
+            "id": "7643415767291006230"
           },
           "youtube": {
             "date": "2026-05-23",
@@ -1418,7 +1433,15 @@
             "date": "2026-05-24"
           },
           "tiktok": {
-            "date": "2026-05-30"
+            "date": "2026-05-30",
+            "metrics_override": {
+              "views": 246,
+              "likes": 2,
+              "comments": 0,
+              "saves": 1,
+              "shares": 1
+            },
+            "id": "7645734479683751190"
           },
           "youtube": {
             "id": "wVQsBpCciIU",
