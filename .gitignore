@@ -72,3 +72,9 @@ playwright-report/
 
 # clerk configuration (can include secrets)
 /.clerk/
+
+# Social media session files (never commit)
+.threads-session.json
+.threads-session.json.b64
+.tiktok-session.json
+.tiktok-session.json.b64

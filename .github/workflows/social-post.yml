@@ -1,0 +1,85 @@
+name: Daily Social Post — Threads + TikTok
+
+on:
+  schedule:
+    # 09:00 UTC = 10:00 BST (London summer) / 09:00 GMT (winter)
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date to post (YYYY-MM-DD, defaults to today)"
+        required: false
+      platforms:
+        description: "Platforms to post (threads, tiktok, or both)"
+        required: false
+        default: "both"
+
+jobs:
+  post:
+    name: Post to Threads + TikTok
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Determine date
+        id: date
+        run: |
+          DATE="${{ github.event.inputs.date }}"
+          if [ -z "$DATE" ]; then
+            DATE=$(date -u +%Y-%m-%d)
+          fi
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+          echo "Posting for: $DATE"
+
+      - name: Post to Threads
+        if: |
+          (github.event.inputs.platforms == '' ||
+           github.event.inputs.platforms == 'both' ||
+           github.event.inputs.platforms == 'threads') &&
+          env.THREADS_SESSION != ''
+        env:
+          THREADS_SESSION: ${{ secrets.THREADS_SESSION }}
+        run: |
+          npx tsx --tsconfig tsconfig.scripts.json \
+            scripts/social/playwright-post.ts \
+            --threads ${{ steps.date.outputs.date }}
+        continue-on-error: true
+
+      - name: Post to TikTok
+        if: |
+          (github.event.inputs.platforms == '' ||
+           github.event.inputs.platforms == 'both' ||
+           github.event.inputs.platforms == 'tiktok') &&
+          env.TIKTOK_SESSION != ''
+        env:
+          TIKTOK_SESSION: ${{ secrets.TIKTOK_SESSION }}
+        run: |
+          npx tsx --tsconfig tsconfig.scripts.json \
+            scripts/social/playwright-post.ts \
+            --tiktok ${{ steps.date.outputs.date }}
+        continue-on-error: true
+
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces-${{ steps.date.outputs.date }}
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore
