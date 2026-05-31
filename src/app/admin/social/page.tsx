@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { currentUser } from "@clerk/nextjs/server";
+import { requireAdminUser } from "@/lib/admin/require-admin";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 import SocialDashboard from "./SocialDashboard";
@@ -146,10 +146,11 @@ async function fetchFbMetrics(id: string, token: string): Promise<PlatformMetric
 }
 
 export default async function SocialPage() {
-  const user = await currentUser();
-  if (!user) return notFound();
-  const admins = (process.env.ADMIN_USER_IDS ?? "").split(",").map((s) => s.trim());
-  if (!admins.includes(user.id)) return notFound();
+  try {
+    await requireAdminUser();
+  } catch {
+    return notFound();
+  }
 
   let catalog: Record<string, any> = {};
   let schedule: { posts: any[] } = { posts: [] };
