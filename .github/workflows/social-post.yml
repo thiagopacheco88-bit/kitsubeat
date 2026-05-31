@@ -1,4 +1,4 @@
-name: Daily Social Post — Threads + TikTok
+name: Daily Social Post — Threads + TikTok + Bluesky
 
 on:
   schedule:
@@ -16,7 +16,7 @@ on:
 
 jobs:
   post:
-    name: Post to Threads + TikTok
+    name: Post to Threads + TikTok + Bluesky
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -72,6 +72,15 @@ jobs:
           npx tsx --tsconfig tsconfig.scripts.json \
             scripts/social/playwright-post.ts \
             --tiktok ${{ steps.date.outputs.date }}
+        continue-on-error: true
+
+      - name: Post to Bluesky
+        env:
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: |
+          npx tsx --tsconfig tsconfig.scripts.json \
+            scripts/social/post-bluesky.ts ${{ steps.date.outputs.date }}
         continue-on-error: true
 
       - name: Upload screenshots on failure
