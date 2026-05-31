@@ -1,0 +1,34 @@
+name: Facebook Monthly Batch Schedule
+
+on:
+  schedule:
+    # Run on the 1st of each month at 03:00 UTC — schedules the next 29 days
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
+
+jobs:
+  schedule:
+    name: Schedule Facebook posts (next 29 days)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Schedule Facebook posts
+        env:
+          FACEBOOK_PAGE_TOKEN: ${{ secrets.FACEBOOK_PAGE_TOKEN }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+        run: |
+          npx tsx --tsconfig tsconfig.scripts.json \
+            scripts/social/schedule-facebook.ts
