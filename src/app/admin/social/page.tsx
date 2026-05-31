@@ -46,7 +46,7 @@ function daysUntil(dateStr: string): number {
 async function fetchIgMetrics(id: string, token: string): Promise<PlatformMetrics> {
   try {
     const res = await fetch(
-      `https://graph.facebook.com/v19.0/${id}/insights?metric=plays,likes,comments,shares,saved&access_token=${token}`,
+      `https://graph.facebook.com/v19.0/${id}/insights?metric=views,likes,comments,shares,saved&access_token=${token}`,
       { cache: "no-store" }
     );
     const json = (await res.json()) as any;
@@ -54,7 +54,7 @@ async function fetchIgMetrics(id: string, token: string): Promise<PlatformMetric
     const m: PlatformMetrics = {};
     for (const item of json.data ?? []) {
       const val = item.values?.[0]?.value ?? item.value;
-      if (item.name === "plays") m.views = val;
+      if (item.name === "views") m.views = val;
       if (item.name === "likes") m.likes = val;
       if (item.name === "comments") m.comments = val;
       if (item.name === "shares") m.shares = val;
@@ -112,34 +112,16 @@ async function fetchYtBatch(ids: string[], token: string): Promise<Record<string
 async function fetchFbMetrics(id: string, token: string): Promise<PlatformMetrics> {
   try {
     const res = await fetch(
-      `https://graph.facebook.com/v19.0/${id}/video_insights?metric=total_video_views,total_video_reactions_by_type_total,total_video_comments_by_action_type,total_video_shares&access_token=${token}`,
+      `https://graph.facebook.com/v19.0/${id}?fields=views,likes.summary(true),comments.summary(true)&access_token=${token}`,
       { cache: "no-store" }
     );
     const json = (await res.json()) as any;
     if (json.error) return {};
-    const m: PlatformMetrics = {};
-    for (const item of json.data ?? []) {
-      const val = item.values?.[0]?.value;
-      if (item.name === "total_video_views") {
-        m.views =
-          typeof val === "object"
-            ? Object.values(val as Record<string, number>).reduce((a, b) => a + b, 0)
-            : val;
-      }
-      if (item.name === "total_video_reactions_by_type_total") {
-        m.likes = typeof val === "object" ? ((val as any).LIKE ?? 0) : val;
-      }
-      if (item.name === "total_video_comments_by_action_type") {
-        m.comments =
-          typeof val === "object"
-            ? Object.values(val as Record<string, number>).reduce((a, b) => a + b, 0)
-            : val;
-      }
-      if (item.name === "total_video_shares") {
-        m.shares = typeof val === "number" ? val : 0;
-      }
-    }
-    return m;
+    return {
+      views: json.views ?? undefined,
+      likes: json.likes?.summary?.total_count ?? undefined,
+      comments: json.comments?.summary?.total_count ?? undefined,
+    };
   } catch {
     return {};
   }
