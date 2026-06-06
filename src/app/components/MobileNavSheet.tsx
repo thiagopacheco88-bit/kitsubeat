@@ -25,6 +25,7 @@
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { LanguagePicker } from "@/components/ui/LanguagePicker";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -115,14 +116,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
           >
             <div className="flex items-center justify-between border-b border-[var(--color-border-strong)] pb-4">
               <Link href="/" onClick={close} className="flex shrink-0 items-center gap-2">
-                <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                  <ellipse cx="16" cy="20" rx="9" ry="7" fill="var(--color-grammar-adverb)" />
-                  <polygon points="9,15 4,5 13,11" fill="var(--color-grammar-adverb)" />
-                  <polygon points="23,15 28,5 19,11" fill="var(--color-grammar-adverb)" />
-                  <ellipse cx="13" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
-                  <ellipse cx="19" cy="20" rx="1.4" ry="1.8" fill="var(--color-text)" />
-                  <ellipse cx="16" cy="23.5" rx="1.4" ry="1" fill="var(--color-accent)" />
-                </svg>
+                <Image src="/logo-transparent.png" width={32} height={32} alt="" aria-hidden="true" />
                 <span className="text-lg font-extrabold tracking-tight" aria-label="KitsuBeat">
                   <span className="text-[var(--color-text)]">Kitsu</span>
                   <span className="text-[var(--color-accent-readable)]">Beat</span>
