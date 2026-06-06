@@ -139,7 +139,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
                 {t("nav.close")}
               </button>
             </div>
-            <div className="flex flex-1 flex-col justify-center gap-3">
+            <div className="flex flex-1 flex-col gap-3 overflow-y-auto py-4">
               {links.map((link) => (
                 <Link
                   key={link.href}
