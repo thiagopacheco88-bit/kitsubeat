@@ -45,9 +45,43 @@ import { Pool } from "@neondatabase/serverless";
 import { drizzle as drizzlePool } from "drizzle-orm/neon-serverless";
 import { songs, songVersions } from "../../src/lib/db/schema.js";
 import { SongManifestSchema } from "../types/manifest.js";
-import { LessonSchema, type Lesson } from "../types/lesson.js";
+import { LessonSchema, type Lesson, type VocabEntry, type Verse } from "../types/lesson.js";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
+
+const _EXCLUDED_GRAMMAR = new Set(["particle", "other"]);
+const _EXCLUDE_SURFACES = new Set([
+  "だ","です","ます","ません","ました","でした","ている","ていても",
+  "んですか","のか","のだ","んだ","のに","ですか","ですよね","ですよ",
+  "でしょう","ということですか","ということだ","そうだ","そうです","いや",
+]);
+
+function buildVocabFromVerses(verses: Verse[]): VocabEntry[] {
+  const seen = new Set<string>();
+  const vocab: VocabEntry[] = [];
+  for (const verse of verses) {
+    const verseText = verse.tokens.map((t) => t.surface).join("");
+    for (const token of verse.tokens) {
+      if (seen.has(token.surface)) continue;
+      if (_EXCLUDED_GRAMMAR.has(token.grammar)) continue;
+      if (_EXCLUDE_SURFACES.has(token.surface)) continue;
+      if (!token.surface.trim()) continue;
+      if (/^[ぁ-ゖ]$/.test(token.surface)) continue;
+      seen.add(token.surface);
+      vocab.push({
+        surface: token.surface,
+        reading: token.reading,
+        romaji: token.romaji,
+        meaning: token.meaning,
+        jlpt_level: token.jlpt_level,
+        part_of_speech: token.grammar as VocabEntry["part_of_speech"],
+        example_from_song: verseText,
+        additional_examples: [],
+      });
+    }
+  }
+  return vocab;
+}
 const PROJECT_ROOT = resolve(__dirname, "../../");
 
 const MANIFEST_PATH = join(PROJECT_ROOT, "data/songs-manifest.json");
@@ -386,7 +420,7 @@ async function main(): Promise<void> {
         errorCount++;
         continue;
       }
-      lesson = parsed.data;
+      lesson = { ...parsed.data, vocabulary: buildVocabFromVerses(parsed.data.verses) };
     } catch (err) {
       console.warn(`  [ERROR] ${song.slug} — failed to read lesson: ${(err as Error).message}`);
       errorCount++;
