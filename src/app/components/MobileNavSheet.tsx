@@ -42,6 +42,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
     { href: "/songs", label: t("nav.songs") },
     { href: "/anime", label: t("nav.anime") },
     { href: "/kana", label: t("nav.kana") },
+    { href: "/verbs", label: "Verbs" },
     { href: "/counters", label: t("nav.counters") },
     { href: "/journal", label: t("nav.journal") },
     { href: "/vocabulary", label: t("nav.progress") },

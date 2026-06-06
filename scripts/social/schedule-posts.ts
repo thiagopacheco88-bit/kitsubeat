@@ -29,16 +29,16 @@ import { put } from "@vercel/blob";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const SCHEDULE_PATH = resolve(__dirname, "../videos/schedule.json");
-const CATALOG_PATH  = resolve(__dirname, "../videos/catalog.json");
-const VIDEOS_DIR    = resolve(__dirname, "../videos");
+const SCHEDULE_PATH = resolve(__dirname, "../../videos/schedule.json");
+const CATALOG_PATH  = resolve(__dirname, "../../videos/catalog.json");
+const VIDEOS_DIR    = resolve(__dirname, "../../videos");
 
 const IG_TOKEN = process.env.INSTAGRAM_LONG_TOKEN!;
 const IG_ID    = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID!;
 const IG_BASE  = "https://graph.facebook.com/v19.0";
 
 const IG_MAX_DAYS = 74;          // stay under Instagram's 75-day limit
-const POST_TIME   = "08:00:00Z"; // 8am UTC = 9am London / 5am São Paulo
+const POST_TIME   = "04:00:00Z"; // 4am UTC = 5am London (BST) / 1am São Paulo
 
 // ── arg parsing ──────────────────────────────────────────────────────────────
 

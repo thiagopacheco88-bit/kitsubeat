@@ -1,0 +1,201 @@
+{
+  "anime": "honorifics",
+  "label": "Honorifics & Titles",
+  "vocab": [
+    {
+      "surface": "さん",
+      "reading": "さん",
+      "romaji": "san",
+      "meanings": {
+        "en": "Mr. / Ms. / neutral respectful suffix",
+        "pt-BR": "senhor / senhora (sufixo respeitoso neutro)",
+        "es": "señor / señora (sufijo respetuoso neutro)"
+      },
+      "jlpt_level": "N5",
+      "category": "name-suffix",
+      "context": "The safe default. Use it with anyone you're not close to. 'Tanaka-san' works for a boss, a stranger, or a character you just met in episode one."
+    },
+    {
+      "surface": "くん",
+      "reading": "くん",
+      "romaji": "kun",
+      "meanings": {
+        "en": "suffix for boys / younger males / informal respect",
+        "pt-BR": "sufixo para garotos / homens mais jovens",
+        "es": "sufijo para chicos / hombres jóvenes"
+      },
+      "jlpt_level": "N5",
+      "category": "name-suffix",
+      "context": "Added to a boy's name by someone older or in authority. Teachers use it for male students. 'Deku-kun' — affectionate from Uraraka, formal from teachers."
+    },
+    {
+      "surface": "ちゃん",
+      "reading": "ちゃん",
+      "romaji": "chan",
+      "meanings": {
+        "en": "cute / familiar suffix (girls, children, pets)",
+        "pt-BR": "sufixo fofo / familiar (meninas, crianças, bichos)",
+        "es": "sufijo cariñoso / familiar (niñas, niños, mascotas)"
+      },
+      "jlpt_level": "N5",
+      "category": "name-suffix",
+      "context": "Warmth in a syllable. Used for girls, small children, pets, and close friends regardless of gender. 'Nami-chan', 'Pikachu-chan'. Also signals cuteness-as-personality."
+    },
+    {
+      "surface": "先輩",
+      "reading": "せんぱい",
+      "romaji": "senpai",
+      "meanings": {
+        "en": "upperclassman / senior / mentor",
+        "pt-BR": "veterano / sênior / mentor",
+        "es": "veterano / superior / mentor"
+      },
+      "jlpt_level": "N3",
+      "category": "title",
+      "context": "One of the most loaded words in anime. The idol you look up to — Oikawa to Kageyama in Haikyuu, Makoto to Haruka in Free!. When a kouhai finally says 'senpai' with their whole chest, something has shifted."
+    },
+    {
+      "surface": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "meanings": {
+        "en": "teacher / doctor / master / expert",
+        "pt-BR": "professor / médico / mestre",
+        "es": "profesor / médico / maestro"
+      },
+      "jlpt_level": "N5",
+      "category": "title",
+      "context": "Anyone who teaches or masters a craft. Kakashi-sensei, Iruka-sensei. Also used for doctors and manga artists. The respect embedded in one word."
+    },
+    {
+      "surface": "様",
+      "reading": "さま",
+      "romaji": "sama",
+      "meanings": {
+        "en": "lord / highly respectful (very formal)",
+        "pt-BR": "senhor / senhora (muito formal / reverente)",
+        "es": "señor / señora (muy formal / reverente)"
+      },
+      "jlpt_level": "N4",
+      "category": "name-suffix",
+      "context": "Reserved for nobility, gods, and characters with overwhelming power or status. 'Vegeta-sama'. 'Ainz-sama'. If someone bows their head when they say your name, this is why."
+    },
+    {
+      "surface": "殿",
+      "reading": "どの",
+      "romaji": "dono",
+      "meanings": {
+        "en": "lord / my lord (archaic / samurai era)",
+        "pt-BR": "senhor / milorde (arcaico / era samurai)",
+        "es": "señor / milord (arcaico / era samurai)"
+      },
+      "jlpt_level": "N2",
+      "category": "name-suffix",
+      "context": "The honorific of the samurai age. More equal than 様 — used even to peers of high standing. 'Himura-dono' from Rurouni Kenshin. If you're watching a period drama and everyone speaks with formality, this is everywhere."
+    },
+    {
+      "surface": "師匠",
+      "reading": "ししょう",
+      "romaji": "shishou",
+      "meanings": {
+        "en": "master / martial arts teacher / mentor",
+        "pt-BR": "mestre / sensei de artes marciais / mentor",
+        "es": "maestro / instructor de artes marciales"
+      },
+      "jlpt_level": "N1",
+      "category": "title",
+      "context": "The master who trains you in a craft or fighting style. More intimate and specific than 先生. 'Jiraiya-shishou' — your teacher by blood-and-sweat bond."
+    },
+    {
+      "surface": "たん",
+      "reading": "たん",
+      "romaji": "tan",
+      "meanings": {
+        "en": "extremely cute / baby-talk diminutive of ちゃん",
+        "pt-BR": "fofíssimo / diminutivo babão de ちゃん",
+        "es": "muy adorable / diminutivo infantil de ちゃん"
+      },
+      "jlpt_level": null,
+      "category": "name-suffix",
+      "context": "ちゃん with the dial turned to max cute. Used in moe anime, fan communities, and mascot characters. 'Mikuru-tan'. If you're being called this, you're adorable."
+    },
+    {
+      "surface": "氏",
+      "reading": "し",
+      "romaji": "shi",
+      "meanings": {
+        "en": "Mr. / Ms. (formal written / news / official)",
+        "pt-BR": "senhor / senhora (formal escrito / notícias)",
+        "es": "señor / señora (formal escrito / noticias)"
+      },
+      "jlpt_level": "N2",
+      "category": "name-suffix",
+      "context": "Almost exclusively written. You'll see it in news broadcasts and official documents inside anime. If a character reads aloud from a paper, this will be there."
+    },
+    {
+      "surface": "後輩",
+      "reading": "こうはい",
+      "romaji": "kouhai",
+      "meanings": {
+        "en": "underclassman / junior / someone below you in seniority",
+        "pt-BR": "calouro / júnior / subordinado mais novo",
+        "es": "novato / junior / alguien menor en antigüedad"
+      },
+      "jlpt_level": "N3",
+      "category": "title",
+      "context": "The counterpart to 先輩. The younger student who looks up to you. Romance anime often centers on the senpai-kouhai dynamic — the kouhai who caught the senpai's eye."
+    },
+    {
+      "surface": "お",
+      "reading": "お",
+      "romaji": "o",
+      "meanings": {
+        "en": "honorific prefix (polite / refined)",
+        "pt-BR": "prefixo honorífico (educado / refinado)",
+        "es": "prefijo honorífico (educado / refinado)"
+      },
+      "jlpt_level": "N5",
+      "category": "honorific-prefix",
+      "context": "Attached to nouns to make them polite. 'O-namae' (your name), 'o-cha' (tea), 'o-kane' (money). Female characters and formal speech use it liberally."
+    },
+    {
+      "surface": "お兄さん",
+      "reading": "おにいさん",
+      "romaji": "onii-san",
+      "meanings": {
+        "en": "older brother / used to address young male strangers",
+        "pt-BR": "irmão mais velho / forma de chamar jovens desconhecidos",
+        "es": "hermano mayor / forma de dirigirse a jóvenes desconocidos"
+      },
+      "jlpt_level": "N4",
+      "category": "title",
+      "context": "Used for actual older brothers and to address unfamiliar young men warmly. Mei uses it for Totoro without a second thought. Shopkeepers, children, and passersby use it as a casual open address."
+    },
+    {
+      "surface": "お姉さん",
+      "reading": "おねえさん",
+      "romaji": "onee-san",
+      "meanings": {
+        "en": "older sister / used to address young female strangers",
+        "pt-BR": "irmã mais velha / forma de chamar jovens desconhecidas",
+        "es": "hermana mayor / forma de dirigirse a jóvenes desconocidas"
+      },
+      "jlpt_level": "N4",
+      "category": "title",
+      "context": "The sister-side counterpart to onii-san. Said by children to adult women in shops, in parks, on trains. A gentle address that keeps the social distance warm rather than formal."
+    },
+    {
+      "surface": "呼び捨て",
+      "reading": "よびすて",
+      "romaji": "yobisute",
+      "meanings": {
+        "en": "calling someone by name with no suffix (intimacy marker)",
+        "pt-BR": "chamar sem sufixo (sinal de intimidade)",
+        "es": "llamar sin sufijo (señal de intimidad)"
+      },
+      "jlpt_level": null,
+      "category": "title",
+      "context": "Dropping a suffix is never accidental. It can mean deep intimacy (the confession arc moment) or contempt (a villain addressing the hero without respect). Same word, opposite meanings — the gap between them is everything."
+    }
+  ]
+}

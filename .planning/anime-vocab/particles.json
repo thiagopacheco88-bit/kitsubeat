@@ -1,0 +1,292 @@
+{
+  "anime": "particles",
+  "label": "Particles",
+  "vocab": [
+    {
+      "surface": "は",
+      "reading": "は",
+      "romaji": "wa",
+      "meanings": {
+        "en": "topic marker",
+        "pt-BR": "marcador de tópico",
+        "es": "marcador de tema"
+      },
+      "jlpt_level": "N5",
+      "category": "core",
+      "context": "The single most important particle. 'Ore wa Uzumaki Naruto da!' — marks what the sentence is about. Every anime intro uses it."
+    },
+    {
+      "surface": "が",
+      "reading": "が",
+      "romaji": "ga",
+      "meanings": {
+        "en": "subject marker",
+        "pt-BR": "marcador de sujeito",
+        "es": "marcador de sujeto"
+      },
+      "jlpt_level": "N5",
+      "category": "core",
+      "context": "Marks who actually performs the action. 'Ichigo ga tatakau' — Ichigo is the one fighting. Often contrasted with は for nuance."
+    },
+    {
+      "surface": "を",
+      "reading": "を",
+      "romaji": "wo",
+      "meanings": {
+        "en": "object marker",
+        "pt-BR": "marcador de objeto",
+        "es": "marcador de objeto"
+      },
+      "jlpt_level": "N5",
+      "category": "core",
+      "context": "Marks what gets acted on. 'Getsuga wo hanate!' — release the Getsuga! Hear it before every anime special attack."
+    },
+    {
+      "surface": "に",
+      "reading": "に",
+      "romaji": "ni",
+      "meanings": {
+        "en": "to / at / in (target, time, location)",
+        "pt-BR": "para / em / às (destino, tempo, lugar)",
+        "es": "a / en (destino, tiempo, lugar)"
+      },
+      "jlpt_level": "N5",
+      "category": "core",
+      "context": "The Swiss army particle. Direction, time, indirect object. 'Tokyo ni iku' (go to Tokyo), 'Ore ni makasero' (leave it to me)."
+    },
+    {
+      "surface": "で",
+      "reading": "で",
+      "romaji": "de",
+      "meanings": {
+        "en": "at / with / by means of",
+        "pt-BR": "em / com / por meio de",
+        "es": "en / con / por medio de"
+      },
+      "jlpt_level": "N5",
+      "category": "core",
+      "context": "Where something happens or what you use to do it. 'Kenshin ga katana de kiru' — Kenshin cuts with a katana. 'Maito Gai ga dojo de renshuu suru' — Guy trains at the dojo."
+    },
+    {
+      "surface": "の",
+      "reading": "の",
+      "romaji": "no",
+      "meanings": {
+        "en": "of / 's (possession, description)",
+        "pt-BR": "de / do / da (posse, descrição)",
+        "es": "de / del / de la (posesión)"
+      },
+      "jlpt_level": "N5",
+      "category": "core",
+      "context": "Possession or noun modification. 'Sharingan no chikara' — the power of the Sharingan. 'Ore no nakama' — my crewmates."
+    },
+    {
+      "surface": "と",
+      "reading": "と",
+      "romaji": "to",
+      "meanings": {
+        "en": "and / with / quotation marker",
+        "pt-BR": "e / com / marcador de citação",
+        "es": "y / con / marcador de cita"
+      },
+      "jlpt_level": "N5",
+      "category": "connector",
+      "context": "Connects nouns exhaustively or marks quoted speech. 'Luffy to Zoro' — Luffy and Zoro. Also marks what someone said or thought."
+    },
+    {
+      "surface": "も",
+      "reading": "も",
+      "romaji": "mo",
+      "meanings": {
+        "en": "also / too / even",
+        "pt-BR": "também / até mesmo",
+        "es": "también / incluso"
+      },
+      "jlpt_level": "N5",
+      "category": "connector",
+      "context": "'Ore mo iku!' — I'm going too! What Chopper shouts when Luffy runs into danger. The particle that refuses to let a friend go alone."
+    },
+    {
+      "surface": "けど",
+      "reading": "けど",
+      "romaji": "kedo",
+      "meanings": {
+        "en": "but / though / however",
+        "pt-BR": "mas / embora / porém",
+        "es": "pero / aunque / sin embargo"
+      },
+      "jlpt_level": "N5",
+      "category": "connector",
+      "context": "The soft contradiction particle. 'Suki dakedo, ienai' — I like you, but I can't say it. Romance arcs run on this word. Also softens requests: 'Ii kedo...' — it's fine, but..."
+    },
+    {
+      "surface": "や",
+      "reading": "や",
+      "romaji": "ya",
+      "meanings": {
+        "en": "and (non-exhaustive list)",
+        "pt-BR": "e (lista não exaustiva)",
+        "es": "y (lista no exhaustiva)"
+      },
+      "jlpt_level": "N4",
+      "category": "connector",
+      "context": "Lists items without exhausting them. In Demon Slayer, gear lists use ya — sword, whetstone, and more. Softer than と — implies the list continues beyond what's named."
+    },
+    {
+      "surface": "へ",
+      "reading": "へ",
+      "romaji": "e",
+      "meanings": {
+        "en": "toward / to (direction)",
+        "pt-BR": "em direção a / para",
+        "es": "hacia / a (dirección)"
+      },
+      "jlpt_level": "N5",
+      "category": "directional",
+      "context": "Softer, more poetic direction than に. 'Sunny-gou wa shin sekai he' — the Sunny sails toward the New World. The particle of longing and journey — used in endings, not battles."
+    },
+    {
+      "surface": "から",
+      "reading": "から",
+      "romaji": "kara",
+      "meanings": {
+        "en": "from / because / since",
+        "pt-BR": "de / porque / desde",
+        "es": "desde / porque / a partir de"
+      },
+      "jlpt_level": "N5",
+      "category": "directional",
+      "context": "Origin or reason. 'Naze tatakau? Nakama ga iru kara!' — Why fight? Because my nakama are here! Direct and passionate. More casual than ので — use kara for gut-level conviction, node for polite explanation."
+    },
+    {
+      "surface": "まで",
+      "reading": "まで",
+      "romaji": "made",
+      "meanings": {
+        "en": "until / up to / as far as",
+        "pt-BR": "até",
+        "es": "hasta"
+      },
+      "jlpt_level": "N5",
+      "category": "directional",
+      "context": "Sets a limit in time or space. 'Saigo made akiramenai' — I won't give up until the very end. Classic anime final-battle phrase."
+    },
+    {
+      "surface": "より",
+      "reading": "より",
+      "romaji": "yori",
+      "meanings": {
+        "en": "than / from (comparison or formal origin)",
+        "pt-BR": "do que / mais do que",
+        "es": "que (comparación)"
+      },
+      "jlpt_level": "N4",
+      "category": "directional",
+      "context": "Comparison particle. 'Dare yori mo tsuyoi' — stronger than anyone alive. Vegeta says it about himself. Gojo says it calmly. How you know a character thinks they've already won."
+    },
+    {
+      "surface": "か",
+      "reading": "か",
+      "romaji": "ka",
+      "meanings": {
+        "en": "question marker",
+        "pt-BR": "marcador de pergunta",
+        "es": "marcador de pregunta"
+      },
+      "jlpt_level": "N5",
+      "category": "sentence-final",
+      "context": "Turns any statement into a question just by adding it at the end. 'Omae wa nakama ka?' — Are you friend or enemy? The pause before this word lands is its own dramatic device."
+    },
+    {
+      "surface": "ね",
+      "reading": "ね",
+      "romaji": "ne",
+      "meanings": {
+        "en": "right? / isn't it? (seeking confirmation)",
+        "pt-BR": "não é? / né?",
+        "es": "¿verdad? / ¿no?"
+      },
+      "jlpt_level": "N5",
+      "category": "sentence-final",
+      "context": "Seeks agreement or softens a statement. 'Sugoi, ne?' — Amazing, right? Common in slice-of-life and romance anime to build connection."
+    },
+    {
+      "surface": "よ",
+      "reading": "よ",
+      "romaji": "yo",
+      "meanings": {
+        "en": "I'm telling you / emphasis (new information)",
+        "pt-BR": "eu te digo / ênfase (informação nova)",
+        "es": "te lo digo / énfasis (información nueva)"
+      },
+      "jlpt_level": "N5",
+      "category": "sentence-final",
+      "context": "Announces something the listener doesn't know yet. 'Ore wa kita yo!' — I'm here! Assertive and confident — heroes use this constantly."
+    },
+    {
+      "surface": "ぞ",
+      "reading": "ぞ",
+      "romaji": "zo",
+      "meanings": {
+        "en": "assertive emphasis — masculine strong declaration",
+        "pt-BR": "ênfase assertiva — declaração masculina forte",
+        "es": "énfasis asertivo — declaración masculina fuerte"
+      },
+      "jlpt_level": "N4",
+      "category": "sentence-final",
+      "context": "The shonen hero particle. 'Iku zo!' — here we go! Naruto, Goku, Ichigo — every protagonist has a signature phrase ending in ぞ. More forceful than よ, less rough than ぜ."
+    },
+    {
+      "surface": "な",
+      "reading": "な",
+      "romaji": "na",
+      "meanings": {
+        "en": "don't (prohibition) / right? (seeking agreement)",
+        "pt-BR": "não faça (proibição) / né? (pedindo concordância)",
+        "es": "no hagas (prohibición) / ¿verdad? (buscando acuerdo)"
+      },
+      "jlpt_level": "N5",
+      "category": "sentence-final",
+      "context": "Two meanings in one syllable. Falling intonation = prohibition: 'Sore wa suru na!' — Don't do that! (Kakashi stopping Naruto). Rising = soft agreement: 'Ii na' — nice, right?"
+    },
+    {
+      "surface": "ぜ",
+      "reading": "ぜ",
+      "romaji": "ze",
+      "meanings": {
+        "en": "casual masculine emphasis / rough assertion",
+        "pt-BR": "ênfase masculina casual / asserção bruta",
+        "es": "énfasis masculino casual / asserción brusca"
+      },
+      "jlpt_level": "N4",
+      "category": "sentence-final",
+      "context": "Rougher than よ, more street-level than ぞ. 'Ore ga katsu ze!' — I'm gonna win! Rivals, delinquents, and loud side characters favor this. Heroes level up to ぞ when they get serious."
+    },
+    {
+      "surface": "ので",
+      "reading": "ので",
+      "romaji": "node",
+      "meanings": {
+        "en": "because / so (polite, soft reason)",
+        "pt-BR": "porque / por isso (motivo educado e suave)",
+        "es": "porque / así que (razón educada y suave)"
+      },
+      "jlpt_level": "N4",
+      "category": "connector",
+      "context": "Politer and softer than から when giving reasons. 'Tsuyoku naritai node, renshuu shimasu' — I want to get stronger, so I train. The reason a disciplined character gives before acting. (See から for the passionate version.)"
+    },
+    {
+      "surface": "たら",
+      "reading": "たら",
+      "romaji": "tara",
+      "meanings": {
+        "en": "if / when / after (conditional)",
+        "pt-BR": "se / quando / depois que (condicional)",
+        "es": "si / cuando / después de (condicional)"
+      },
+      "jlpt_level": "N4",
+      "category": "connector",
+      "context": "Attaches to the past-tense form to mean 'if/when this happens'. 'Moshi shindara — tatakau' — If I die, fight on. The particle of ultimatums, desperate gambles, and conditional vows."
+    }
+  ]
+}

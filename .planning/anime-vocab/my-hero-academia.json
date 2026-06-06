@@ -2,7 +2,7 @@
   "anime": "my-hero-academia",
   "label": "My Hero Academia",
   "icon": "my-hero-academia.png",
-  "description": "In a world where almost everyone has a superpower, Izuku Midoriya is born without one — then inherits the greatest power of all.",
+  "description": "In a world where almost everyone has a superpower, Izuku Midoriya is born without one. Then inherits the greatest power of all.",
   "vocab": [
     {
       "surface": "夢",
@@ -146,7 +146,7 @@
       "meanings": { "en": "individuality; Quirk (superpower)", "pt-BR": "individualidade; Quirk (superpoder)", "es": "individualidad; Quirk (superpoder)" },
       "jlpt_level": "N3",
       "category": "world",
-      "context": "Almost 80% of humanity has a Quirk — a unique superpower that manifests in childhood."
+      "context": "Almost 80% of humanity has a Quirk. A unique superpower that manifests in childhood."
     },
     {
       "surface": "才能",
@@ -263,7 +263,7 @@
       "meanings": { "en": "responsibility; duty", "pt-BR": "responsabilidade; dever", "es": "responsabilidad; deber" },
       "jlpt_level": "N3",
       "category": "heroes",
-      "context": "Carrying One For All comes with immense responsibility — the weight of all previous users."
+      "context": "Carrying One For All comes with immense responsibility. The weight of all previous users."
     },
     {
       "surface": "継承",
@@ -290,7 +290,7 @@
       "meanings": { "en": "work; job; profession", "pt-BR": "trabalho; profissão", "es": "trabajo; profesión" },
       "jlpt_level": "N4",
       "category": "heroes",
-      "context": "Hero work involves both fighting villains and saving lives — it is both a career and a calling."
+      "context": "Hero work involves both fighting villains and saving lives. It is both a career and a calling."
     },
     {
       "surface": "試験",
@@ -317,7 +317,7 @@
       "meanings": { "en": "trust; confidence", "pt-BR": "confiança; fé", "es": "confianza; fe" },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "All Might's trust in Izuku was the spark that changed everything — he saw a hero's heart in him."
+      "context": "All Might's trust in Izuku was the spark that changed everything. He saw a hero's heart in him."
     },
     {
       "surface": "危険",
@@ -722,7 +722,7 @@
       "meanings": { "en": "the real thing; genuine article", "pt-BR": "coisa genuína; o artigo real", "es": "lo genuino; lo auténtico" },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "All Might tells Izuku that his heart makes him the real thing — a true hero."
+      "context": "All Might tells Izuku that his heart makes him the real thing. A true hero."
     },
     {
       "surface": "平和",

@@ -15,7 +15,7 @@
       },
       "jlpt_level": "N1",
       "category": "alchemy",
-      "context": "The central power system of FMA — the science of understanding, deconstructing, and reconstructing matter. Ed and Al are gifted alchemists."
+      "context": "The central power system of FMA. The science of understanding, deconstructing, and reconstructing matter. Ed and Al are gifted alchemists."
     },
     {
       "surface": "錬成",
@@ -28,7 +28,7 @@
       },
       "jlpt_level": "N1",
       "category": "alchemy",
-      "context": "The act of performing alchemy — transforming one substance into another. Edward can transmute without a circle by clapping his hands."
+      "context": "The act of performing alchemy. Transforming one substance into another. Edward can transmute without a circle by clapping his hands."
     },
     {
       "surface": "等価交換",
@@ -93,7 +93,7 @@
       },
       "jlpt_level": null,
       "category": "alchemy",
-      "context": "The ultimate taboo in alchemy — attempting to create or resurrect a human. The Elric brothers attempt it for their mother and lose everything."
+      "context": "The ultimate taboo in alchemy. Attempting to create or resurrect a human. The Elric brothers attempt it for their mother and lose everything."
     },
     {
       "surface": "賢者の石",
@@ -106,7 +106,7 @@
       },
       "jlpt_level": null,
       "category": "alchemy",
-      "context": "A legendary red stone that amplifies alchemical power and bypasses equivalent exchange — but it's made from human souls. The Elrics seek it to restore their bodies."
+      "context": "A legendary red stone that amplifies alchemical power and bypasses equivalent exchange. But it's made from human souls. The Elrics seek it to restore their bodies."
     },
     {
       "surface": "増幅",
@@ -132,7 +132,7 @@
       },
       "jlpt_level": "N2",
       "category": "alchemy",
-      "context": "The first step of alchemical transmutation — breaking matter down to its base components before rebuilding it into a new form."
+      "context": "The first step of alchemical transmutation. Breaking matter down to its base components before rebuilding it into a new form."
     },
     {
       "surface": "再構成",
@@ -145,7 +145,7 @@
       },
       "jlpt_level": null,
       "category": "alchemy",
-      "context": "The final step of transmutation — rebuilding deconstructed matter into a new desired form. A skilled alchemist can reconstruct with great precision."
+      "context": "The final step of transmutation. Rebuilding deconstructed matter into a new desired form. A skilled alchemist can reconstruct with great precision."
     },
     {
       "surface": "元素",
@@ -158,7 +158,7 @@
       },
       "jlpt_level": "N2",
       "category": "alchemy",
-      "context": "Alchemists must understand the elemental composition of matter — carbon, iron, nitrogen, etc. — before they can transmute it."
+      "context": "Alchemists must understand the elemental composition of matter. Carbon, iron, nitrogen, etc.. Before they can transmute it."
     },
     {
       "surface": "物質",
@@ -197,7 +197,7 @@
       },
       "jlpt_level": "N3",
       "category": "alchemy",
-      "context": "The first of the three steps of alchemy. An alchemist must fully understand the object before transmuting it — knowledge is the foundation of power."
+      "context": "The first of the three steps of alchemy. An alchemist must fully understand the object before transmuting it. Knowledge is the foundation of power."
     },
     {
       "surface": "禁忌",
@@ -223,7 +223,7 @@
       },
       "jlpt_level": "N3",
       "category": "alchemy",
-      "context": "FMA portrays alchemy explicitly as a science rather than magic — based on understanding natural laws. This framing grounds the fantastic in a logic that makes consequences feel real."
+      "context": "FMA portrays alchemy explicitly as a science rather than magic. Based on understanding natural laws. This framing grounds the fantastic in a logic that makes consequences feel real."
     },
     {
       "surface": "研究",
@@ -262,7 +262,7 @@
       },
       "jlpt_level": null,
       "category": "military",
-      "context": "Alchemists officially certified and employed by the Amestrian military. Edward is the youngest ever at age 12 — earning him the title 'Fullmetal Alchemist.'"
+      "context": "Alchemists officially certified and employed by the Amestrian military. Edward is the youngest ever at age 12. Earning him the title 'Fullmetal Alchemist.'"
     },
     {
       "surface": "軍",
@@ -288,7 +288,7 @@
       },
       "jlpt_level": null,
       "category": "military",
-      "context": "The supreme ruler of Amestris. King Bradley holds this title — but he is also the homunculus Wrath, serving a far darker master."
+      "context": "The supreme ruler of Amestris. King Bradley holds this title. But he is also the homunculus Wrath, serving a far darker master."
     },
     {
       "surface": "将軍",
@@ -314,7 +314,7 @@
       },
       "jlpt_level": "N2",
       "category": "military",
-      "context": "Roy Mustang holds this rank — ambitious, calculating, and determined to become Führer to change Amestris from the inside."
+      "context": "Roy Mustang holds this rank. Ambitious, calculating, and determined to become Führer to change Amestris from the inside."
     },
     {
       "surface": "少佐",
@@ -353,7 +353,7 @@
       },
       "jlpt_level": "N2",
       "category": "military",
-      "context": "Riza Hawkeye holds this rank under Mustang. She is his most loyal subordinate — a sharpshooter who would follow him anywhere, and stop him if he went too far."
+      "context": "Riza Hawkeye holds this rank under Mustang. She is his most loyal subordinate. A sharpshooter who would follow him anywhere, and stop him if he went too far."
     },
     {
       "surface": "兵士",
@@ -405,7 +405,7 @@
       },
       "jlpt_level": "N3",
       "category": "military",
-      "context": "Following orders is central to military life in Amestris — but throughout FMA, characters must decide whether to obey unjust commands or follow their conscience."
+      "context": "Following orders is central to military life in Amestris. But throughout FMA, characters must decide whether to obey unjust commands or follow their conscience."
     },
     {
       "surface": "作戦",
@@ -418,7 +418,7 @@
       },
       "jlpt_level": "N2",
       "category": "military",
-      "context": "Military operations in FMA often serve a hidden purpose — advancing Father's grand scheme to create a Philosopher's Stone from the people of Amestris."
+      "context": "Military operations in FMA often serve a hidden purpose. Advancing Father's grand scheme to create a Philosopher's Stone from the people of Amestris."
     },
     {
       "surface": "反乱",
@@ -483,7 +483,7 @@
       },
       "jlpt_level": "N2",
       "category": "military",
-      "context": "Father seeks absolute power — to hold all human knowledge and become a perfect being. FMA consistently examines who wields power, how they got it, and what it costs."
+      "context": "Father seeks absolute power. To hold all human knowledge and become a perfect being. FMA consistently examines who wields power, how they got it, and what it costs."
     },
     {
       "surface": "ホムンクルス",
@@ -522,7 +522,7 @@
       },
       "jlpt_level": "N1",
       "category": "homunculus",
-      "context": "Greed is the homunculus who desires everything — but ultimately chooses to fight alongside the Elrics. His ultimate shield of carbon is one of the series' most iconic powers."
+      "context": "Greed is the homunculus who desires everything. But ultimately chooses to fight alongside the Elrics. His ultimate shield of carbon is one of the series' most iconic powers."
     },
     {
       "surface": "憤怒",
@@ -535,7 +535,7 @@
       },
       "jlpt_level": "N1",
       "category": "homunculus",
-      "context": "Wrath is embodied by King Bradley, the Führer himself. His ultimate eye lets him calculate perfect attacks — making him one of the most dangerous beings alive."
+      "context": "Wrath is embodied by King Bradley, the Führer himself. His ultimate eye lets him calculate perfect attacks. Making him one of the most dangerous beings alive."
     },
     {
       "surface": "傲慢",
@@ -548,7 +548,7 @@
       },
       "jlpt_level": "N1",
       "category": "homunculus",
-      "context": "Pride is the most powerful homunculus — living inside a container as a being of living shadow who can consume and mimic the abilities of others."
+      "context": "Pride is the most powerful homunculus. Living inside a container as a being of living shadow who can consume and mimic the abilities of others."
     },
     {
       "surface": "嫉妬",
@@ -587,7 +587,7 @@
       },
       "jlpt_level": null,
       "category": "homunculus",
-      "context": "Gluttony harbors a false Gate of Truth in his stomach — a terrifying void that devours everything. He has a childlike attachment to Lust that makes him tragic."
+      "context": "Gluttony harbors a false Gate of Truth in his stomach. A terrifying void that devours everything. He has a childlike attachment to Lust that makes him tragic."
     },
     {
       "surface": "色欲",
@@ -626,7 +626,7 @@
       },
       "jlpt_level": "N2",
       "category": "homunculus",
-      "context": "The defining trait of homunculi — they can regenerate injuries at will as long as their Philosopher's Stone retains lives. Defeating them means outlasting their reserves."
+      "context": "The defining trait of homunculi. They can regenerate injuries at will as long as their Philosopher's Stone retains lives. Defeating them means outlasting their reserves."
     },
     {
       "surface": "究極の盾",
@@ -678,7 +678,7 @@
       },
       "jlpt_level": "N2",
       "category": "body",
-      "context": "Alphonse exists as a soul bound to a massive suit of armor. Though intimidating in appearance, he is gentle and kind — and desperately misses having a real body."
+      "context": "Alphonse exists as a soul bound to a massive suit of armor. Though intimidating in appearance, he is gentle and kind. And desperately misses having a real body."
     },
     {
       "surface": "義手",
@@ -691,7 +691,7 @@
       },
       "jlpt_level": null,
       "category": "body",
-      "context": "Edward lost his right arm performing human transmutation. His automail prosthetic arm is a mechanical marvel — and he transmutes it into weapons in battle."
+      "context": "Edward lost his right arm performing human transmutation. His automail prosthetic arm is a mechanical marvel. And he transmutes it into weapons in battle."
     },
     {
       "surface": "義足",
@@ -730,7 +730,7 @@
       },
       "jlpt_level": "N1",
       "category": "body",
-      "context": "Every alchemical act has a cost — but human transmutation demands a devastating price. The Elrics paid with limbs and a body to bring back their mother."
+      "context": "Every alchemical act has a cost. But human transmutation demands a devastating price. The Elrics paid with limbs and a body to bring back their mother."
     },
     {
       "surface": "失う",
@@ -756,7 +756,7 @@
       },
       "jlpt_level": "N3",
       "category": "body",
-      "context": "The brothers' ultimate goal — to reclaim what they lost. Ed swears he will get Al's body back no matter what the cost."
+      "context": "The brothers' ultimate goal. To reclaim what they lost. Ed swears he will get Al's body back no matter what the cost."
     },
     {
       "surface": "血印",
@@ -795,7 +795,7 @@
       },
       "jlpt_level": "N3",
       "category": "body",
-      "context": "Pain is a constant presence in FMA — from Ed's automail installation to the toll of forbidden alchemy. The series treats physical and emotional pain as equally real."
+      "context": "Pain is a constant presence in FMA. From Ed's automail installation to the toll of forbidden alchemy. The series treats physical and emotional pain as equally real."
     },
     {
       "surface": "血",
@@ -808,7 +808,7 @@
       },
       "jlpt_level": "N3",
       "category": "body",
-      "context": "Blood appears throughout FMA as symbol and substance — blood seals, bloodlines, and the blood price of war. It connects the physical and the metaphysical in the series."
+      "context": "Blood appears throughout FMA as symbol and substance. Blood seals, bloodlines, and the blood price of war. It connects the physical and the metaphysical in the series."
     },
     {
       "surface": "アメストリス",
@@ -847,7 +847,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "The quiet rural hometown of the Elric brothers and Winry Rockbell. The brothers burned their own home to the ground before leaving — a vow of no retreat."
+      "context": "The quiet rural hometown of the Elric brothers and Winry Rockbell. The brothers burned their own home to the ground before leaving. A vow of no retreat."
     },
     {
       "surface": "イシュヴァール",
@@ -925,7 +925,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "FMA is built on sacrifices at every level — personal, national, and cosmic. Who is willing to sacrifice what for whom defines every character's arc."
+      "context": "FMA is built on sacrifices at every level. Personal, national, and cosmic. Who is willing to sacrifice what for whom defines every character's arc."
     },
     {
       "surface": "贖罪",
@@ -938,7 +938,7 @@
       },
       "jlpt_level": "N1",
       "category": "themes",
-      "context": "Mustang, Hughes, and the Elric brothers all carry guilt. FMA asks whether past sins can truly be atoned for — and what that redemption actually looks like."
+      "context": "Mustang, Hughes, and the Elric brothers all carry guilt. FMA asks whether past sins can truly be atoned for. And what that redemption actually looks like."
     },
     {
       "surface": "兄弟",
@@ -951,7 +951,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "Ed and Al's bond as brothers is the emotional core of the story. Their love for each other drives every decision — and nearly destroys them both."
+      "context": "Ed and Al's bond as brothers is the emotional core of the story. Their love for each other drives every decision. And nearly destroys them both."
     },
     {
       "surface": "家族",
@@ -964,7 +964,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "The Elrics' attempt to bring back their mother launches the entire story. Family — biological and chosen — is what every character fights to protect or reclaim."
+      "context": "The Elrics' attempt to bring back their mother launches the entire story. Family. Biological and chosen. Is what every character fights to protect or reclaim."
     },
     {
       "surface": "真実",
@@ -1016,7 +1016,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Life is treated as the most precious and irreplaceable thing in FMA. The Philosopher's Stone is built from lives — making its use a profound moral question."
+      "context": "Life is treated as the most precious and irreplaceable thing in FMA. The Philosopher's Stone is built from lives. Making its use a profound moral question."
     },
     {
       "surface": "希望",
@@ -1029,7 +1029,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Even in the darkest moments, the Elric brothers never abandon hope of restoring their bodies. Hope — not power — is what ultimately enables them to overcome Father."
+      "context": "Even in the darkest moments, the Elric brothers never abandon hope of restoring their bodies. Hope. Not power. Is what ultimately enables them to overcome Father."
     },
     {
       "surface": "絶望",
@@ -1042,7 +1042,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Despair stalks many characters in FMA — Scar after Ishval, Al when doubting his own humanity. The series shows how characters choose to overcome or succumb to it."
+      "context": "Despair stalks many characters in FMA. Scar after Ishval, Al when doubting his own humanity. The series shows how characters choose to overcome or succumb to it."
     },
     {
       "surface": "陰謀",
@@ -1068,7 +1068,7 @@
       },
       "jlpt_level": "N1",
       "category": "themes",
-      "context": "FMA is deeply philosophical — wrestling with ethics, the nature of the soul, the limits of human knowledge, and what separates humans from gods or monsters."
+      "context": "FMA is deeply philosophical. Wrestling with ethics, the nature of the soul, the limits of human knowledge, and what separates humans from gods or monsters."
     },
     {
       "surface": "秘密",
@@ -1081,7 +1081,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "FMA is built on secrets — the truth of the Philosopher's Stone, the homunculi's origins, and the military's dark history. Every secret uncovered raises the stakes higher."
+      "context": "FMA is built on secrets. The truth of the Philosopher's Stone, the homunculi's origins, and the military's dark history. Every secret uncovered raises the stakes higher."
     },
     {
       "surface": "正義",
@@ -1120,7 +1120,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "State Alchemists trade freedom for power — they serve the military's agenda. The tension between freedom and obligation runs through every character who serves Amestris."
+      "context": "State Alchemists trade freedom for power. They serve the military's agenda. The tension between freedom and obligation runs through every character who serves Amestris."
     },
     {
       "surface": "不完全",
@@ -1133,7 +1133,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Father views humans as imperfect and seeks to transcend them. But FMA argues that human imperfection — emotion, love, the capacity for error — is the source of human worth."
+      "context": "Father views humans as imperfect and seeks to transcend them. But FMA argues that human imperfection. Emotion, love, the capacity for error. Is the source of human worth."
     },
     {
       "surface": "完全",
@@ -1159,7 +1159,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "The Ishvalan people are deeply religious, believing their god Ishvala created the world — putting them in direct conflict with alchemists who alter creation."
+      "context": "The Ishvalan people are deeply religious, believing their god Ishvala created the world. Putting them in direct conflict with alchemists who alter creation."
     },
     {
       "surface": "信仰",
@@ -1172,7 +1172,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Scar's faith in Ishvala is tested by his own acts of revenge. Faith as a source of strength — and as something that can be weaponized — runs throughout FMA."
+      "context": "Scar's faith in Ishvala is tested by his own acts of revenge. Faith as a source of strength. And as something that can be weaponized. Runs throughout FMA."
     },
     {
       "surface": "後悔",
@@ -1185,7 +1185,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Regret is the engine of multiple character arcs — Mustang for Ishval, the Elrics for their mother. FMA explores whether regret motivates redemption or paralyzes it."
+      "context": "Regret is the engine of multiple character arcs. Mustang for Ishval, the Elrics for their mother. FMA explores whether regret motivates redemption or paralyzes it."
     },
     {
       "surface": "怒り",
@@ -1198,7 +1198,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Edward's anger fuels him — against those who exploit others and against the unfairness of the world. But FMA shows how unchecked rage can become self-destructive."
+      "context": "Edward's anger fuels him. Against those who exploit others and against the unfairness of the world. But FMA shows how unchecked rage can become self-destructive."
     },
     {
       "surface": "誇り",
@@ -1211,7 +1211,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Ed refuses to ignore injustice even when it's dangerous — a point of personal pride that defines his character. FMA distinguishes healthy pride from the sinful hubris of Pride."
+      "context": "Ed refuses to ignore injustice even when it's dangerous. A point of personal pride that defines his character. FMA distinguishes healthy pride from the sinful hubris of Pride."
     },
     {
       "surface": "仮面",
@@ -1224,7 +1224,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Many characters wear figurative masks — Mustang's calculated ambition hides his grief; Bradley's amiable leadership conceals a monster. FMA rewards looking beneath the surface."
+      "context": "Many characters wear figurative masks. Mustang's calculated ambition hides his grief; Bradley's amiable leadership conceals a monster. FMA rewards looking beneath the surface."
     },
     {
       "surface": "生死",
@@ -1237,7 +1237,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "FMA meditates constantly on the line between life and death — whether it can be crossed, what it costs, and whether doing so dishonors those who died naturally."
+      "context": "FMA meditates constantly on the line between life and death. Whether it can be crossed, what it costs, and whether doing so dishonors those who died naturally."
     },
     {
       "surface": "炎",
@@ -1276,7 +1276,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Alchemists use transmutation defensively as well — raising stone walls, reinforcing structures, or using Greed's carbon shield to absorb any blow."
+      "context": "Alchemists use transmutation defensively as well. Raising stone walls, reinforcing structures, or using Greed's carbon shield to absorb any blow."
     },
     {
       "surface": "剣",
@@ -1302,7 +1302,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "Mustang's flame alchemy can cause massive explosions by controlling where combustion occurs. His power is devastating — but requires dry conditions to function."
+      "context": "Mustang's flame alchemy can cause massive explosions by controlling where combustion occurs. His power is devastating. But requires dry conditions to function."
     },
     {
       "surface": "戦闘",
@@ -1315,7 +1315,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "FMA features some of anime's most creative battles — where the environment becomes a weapon and intelligence matters as much as raw power."
+      "context": "FMA features some of anime's most creative battles. Where the environment becomes a weapon and intelligence matters as much as raw power."
     },
     {
       "surface": "破壊",
@@ -1328,7 +1328,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "Alchemical battles leave landscapes transformed. FMA's action sequences use large-scale destruction as both spectacle and consequence — creation and destruction are inseparable."
+      "context": "Alchemical battles leave landscapes transformed. FMA's action sequences use large-scale destruction as both spectacle and consequence. Creation and destruction are inseparable."
     },
     {
       "surface": "近接戦",
@@ -1354,7 +1354,7 @@
       },
       "jlpt_level": null,
       "category": "roles",
-      "context": "Those who practice alchemy. In Amestris, skilled alchemists can become State Alchemists and serve the military — trading freedom for resources and research support."
+      "context": "Those who practice alchemy. In Amestris, skilled alchemists can become State Alchemists and serve the military. Trading freedom for resources and research support."
     },
     {
       "surface": "師匠",
@@ -1380,7 +1380,7 @@
       },
       "jlpt_level": "N2",
       "category": "roles",
-      "context": "Ed and Al are Izumi's disciples. She trains them with brutal discipline and deep care — she too violated the taboo of human transmutation and carries her own scar."
+      "context": "Ed and Al are Izumi's disciples. She trains them with brutal discipline and deep care. She too violated the taboo of human transmutation and carries her own scar."
     },
     {
       "surface": "医師",
@@ -1406,7 +1406,7 @@
       },
       "jlpt_level": "N2",
       "category": "roles",
-      "context": "Military officers in Amestris hold enormous power. The series depicts how rank and loyalty are weaponized — and how individual officers choose between duty and conscience."
+      "context": "Military officers in Amestris hold enormous power. The series depicts how rank and loyalty are weaponized. And how individual officers choose between duty and conscience."
     },
     {
       "surface": "武器職人",
@@ -1419,7 +1419,7 @@
       },
       "jlpt_level": null,
       "category": "roles",
-      "context": "Winry Rockbell is an automail engineer — not an alchemist, but her skill is essential to Edward's fighting capability. She represents the power of craft over magic."
+      "context": "Winry Rockbell is an automail engineer. Not an alchemist, but her skill is essential to Edward's fighting capability. She represents the power of craft over magic."
     },
     {
       "surface": "民衆",
@@ -1445,7 +1445,7 @@
       },
       "jlpt_level": "N4",
       "category": "roles",
-      "context": "Both the Elrics' absent father Hohenheim and the being called 'Father' are central to the story. Fatherhood in FMA carries enormous weight — and enormous failure."
+      "context": "Both the Elrics' absent father Hohenheim and the being called 'Father' are central to the story. Fatherhood in FMA carries enormous weight. And enormous failure."
     },
     {
       "surface": "先生",
@@ -1458,7 +1458,7 @@
       },
       "jlpt_level": "N5",
       "category": "roles",
-      "context": "Ed and Al always call Izumi Curtis 'teacher' with deep respect. A true teacher in FMA shapes not just skill but character — and bears responsibility for their students."
+      "context": "Ed and Al always call Izumi Curtis 'teacher' with deep respect. A true teacher in FMA shapes not just skill but character. And bears responsibility for their students."
     },
     {
       "surface": "錬金術の犬",
@@ -1484,7 +1484,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "Amid grand conspiracies, FMA grounds itself in everyday moments — Winry's cooking, the Elrics' childhood memories, soldiers writing letters home."
+      "context": "Amid grand conspiracies, FMA grounds itself in everyday moments. Winry's cooking, the Elrics' childhood memories, soldiers writing letters home."
     },
     {
       "surface": "思い出",
@@ -1497,7 +1497,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "Al worries his memories might be false — implanted to make him believe he has always been armor. Memory and identity are tightly linked in FMA's exploration of humanity."
+      "context": "Al worries his memories might be false. Implanted to make him believe he has always been armor. Memory and identity are tightly linked in FMA's exploration of humanity."
     },
     {
       "surface": "母",
@@ -1523,7 +1523,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "The Elrics burned their house in Resembool before leaving — cutting off retreat. Their homeland is both an anchor and a wound they carry everywhere."
+      "context": "The Elrics burned their house in Resembool before leaving. Cutting off retreat. Their homeland is both an anchor and a wound they carry everywhere."
     },
     {
       "surface": "旅",
@@ -1549,7 +1549,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "Bonds formed across the journey — with Mustang, Winry, Ling, May — give the Elrics strength at the highest stakes. FMA shows friendship as a form of equivalent exchange."
+      "context": "Bonds formed across the journey. With Mustang, Winry, Ling, May. Give the Elrics strength at the highest stakes. FMA shows friendship as a form of equivalent exchange."
     },
     {
       "surface": "成長",
@@ -1588,7 +1588,7 @@
       },
       "jlpt_level": "N4",
       "category": "life",
-      "context": "Ed promises Al he will restore his body. Mustang promises Hughes he will reform the country. Promises in FMA carry enormous weight — and the cost of breaking them is just as heavy."
+      "context": "Ed promises Al he will restore his body. Mustang promises Hughes he will reform the country. Promises in FMA carry enormous weight. And the cost of breaking them is just as heavy."
     },
     {
       "surface": "涙",
@@ -1601,7 +1601,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "Al cannot cry — one of the most poignant reminders of what he has lost. When he finally regains his body, the ability to feel and cry is more precious than any power."
+      "context": "Al cannot cry. One of the most poignant reminders of what he has lost. When he finally regains his body, the ability to feel and cry is more precious than any power."
     },
     {
       "surface": "笑顔",
@@ -1640,7 +1640,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "Mustang wants to change his country from within. The nation of Amestris itself is both the stage and the victim of Father's plan — its fate is inseparable from the plot."
+      "context": "Mustang wants to change his country from within. The nation of Amestris itself is both the stage and the victim of Father's plan. Its fate is inseparable from the plot."
     }
   ]
 }

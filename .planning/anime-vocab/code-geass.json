@@ -611,7 +611,7 @@
       "surface": "ギアス",
       "reading": "ぎあす",
       "romaji": "giasu",
-      "meanings": { "en": "Geass — supernatural power of absolute obedience", "pt-BR": "Geass — poder sobrenatural de obediência absoluta", "es": "Geass — poder sobrenatural de obediencia absoluta" },
+      "meanings": { "en": "Geass. Supernatural power of absolute obedience", "pt-BR": "Geass. Poder sobrenatural de obediência absoluta", "es": "Geass. Poder sobrenatural de obediencia absoluta" },
       "jlpt_level": null,
       "category": "world",
       "context": "C.C. grants Lelouch the Geass, a power that forces anyone he looks at to follow his commands."
@@ -620,7 +620,7 @@
       "surface": "ゼロ",
       "reading": "ぜろ",
       "romaji": "zero",
-      "meanings": { "en": "Zero — Lelouch's rebel alias", "pt-BR": "Zero — codinome rebelde de Lelouch", "es": "Zero — alias rebelde de Lelouch" },
+      "meanings": { "en": "Zero. Lelouch's rebel alias", "pt-BR": "Zero. Codinome rebelde de Lelouch", "es": "Zero. Alias rebelde de Lelouch" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Lelouch dons a mask and cape to become Zero, the symbol of the revolution."
@@ -638,7 +638,7 @@
       "surface": "ブリタニア",
       "reading": "ぶりたにあ",
       "romaji": "Buritania",
-      "meanings": { "en": "Britannia — the imperial superpower", "pt-BR": "Britânia — superpotência imperial", "es": "Britannia — superpotencia imperial" },
+      "meanings": { "en": "Britannia. The imperial superpower", "pt-BR": "Britânia. Superpotência imperial", "es": "Britannia. Superpotencia imperial" },
       "jlpt_level": null,
       "category": "world",
       "context": "Britannia is the dominant empire that has conquered Japan and many other nations."
@@ -647,7 +647,7 @@
       "surface": "名誉ブリタニア人",
       "reading": "めいよぶりたにあじん",
       "romaji": "Meiyo Buritaniajin",
-      "meanings": { "en": "Honorary Britannian — conquered peoples who renounce their heritage", "pt-BR": "Britânico Honorário — povos conquistados que renunciam sua herança", "es": "Británico Honorario — pueblos conquistados que renuncian su herencia" },
+      "meanings": { "en": "Honorary Britannian. Conquered peoples who renounce their heritage", "pt-BR": "Britânico Honorário. Povos conquistados que renunciam sua herança", "es": "Británico Honorario. Pueblos conquistados que renuncian su herencia" },
       "jlpt_level": null,
       "category": "politics",
       "context": "Japanese people can become Honorary Britannians by renouncing their identity, which many see as betrayal."
@@ -656,7 +656,7 @@
       "surface": "ナイトメアフレーム",
       "reading": "ないとめあふれーむ",
       "romaji": "Naitomea Furēmu",
-      "meanings": { "en": "Knightmare Frame — humanoid combat mech", "pt-BR": "Knightmare Frame — mecha de combate humanóide", "es": "Knightmare Frame — meca de combate humanoide" },
+      "meanings": { "en": "Knightmare Frame. Humanoid combat mech", "pt-BR": "Knightmare Frame. Mecha de combate humanóide", "es": "Knightmare Frame. Meca de combate humanoide" },
       "jlpt_level": null,
       "category": "world",
       "context": "Knightmare Frames are the heavily armed mobile suits that dominate the battlefields of Code Geass."
@@ -665,7 +665,7 @@
       "surface": "ルルーシュ",
       "reading": "るるーしゅ",
       "romaji": "Rurūshu",
-      "meanings": { "en": "Lelouch — exiled Britannian prince", "pt-BR": "Lelouch — príncipe britânico exilado", "es": "Lelouch — príncipe británico exiliado" },
+      "meanings": { "en": "Lelouch. Exiled Britannian prince", "pt-BR": "Lelouch. Príncipe britânico exilado", "es": "Lelouch. Príncipe británico exiliado" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Lelouch vi Britannia is the exiled prince who becomes Zero and leads the revolution."
@@ -674,7 +674,7 @@
       "surface": "スザク",
       "reading": "すざく",
       "romaji": "Suzaku",
-      "meanings": { "en": "Suzaku — Japanese pilot serving Britannia", "pt-BR": "Suzaku — piloto japonês a serviço de Britânia", "es": "Suzaku — piloto japonés al servicio de Britannia" },
+      "meanings": { "en": "Suzaku. Japanese pilot serving Britannia", "pt-BR": "Suzaku. Piloto japonês a serviço de Britânia", "es": "Suzaku. Piloto japonés al servicio de Britannia" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Suzaku Kururugi is Lelouch's childhood friend who fights for Britannia from within the system."
@@ -683,7 +683,7 @@
       "surface": "C.C.",
       "reading": "しーつー",
       "romaji": "Shī Tsū",
-      "meanings": { "en": "C.C. — immortal witch who grants Geass", "pt-BR": "C.C. — bruxa imortal que concede o Geass", "es": "C.C. — bruja inmortal que otorga el Geass" },
+      "meanings": { "en": "C.C.. Immortal witch who grants Geass", "pt-BR": "C.C.. Bruxa imortal que concede o Geass", "es": "C.C.. Bruja inmortal que otorga el Geass" },
       "jlpt_level": null,
       "category": "characters",
       "context": "C.C. is the mysterious immortal who makes a contract with Lelouch and grants him the power of Geass."
@@ -695,7 +695,7 @@
       "meanings": { "en": "absolute obedience", "pt-BR": "obediência absoluta", "es": "obediencia absoluta" },
       "jlpt_level": null,
       "category": "world",
-      "context": "Lelouch's Geass is described as the power of absolute obedience — no one can resist his commands."
+      "context": "Lelouch's Geass is described as the power of absolute obedience. No one can resist his commands."
     },
     {
       "surface": "神聖ブリタニア帝国",
@@ -710,7 +710,7 @@
       "surface": "枢木スザク",
       "reading": "くるるぎすざく",
       "romaji": "Kururugi Suzaku",
-      "meanings": { "en": "Suzaku Kururugi — full name", "pt-BR": "Suzaku Kururugi — nome completo", "es": "Suzaku Kururugi — nombre completo" },
+      "meanings": { "en": "Suzaku Kururugi. Full name", "pt-BR": "Suzaku Kururugi. Nome completo", "es": "Suzaku Kururugi. Nombre completo" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Kururugi Suzaku is the son of Japan's last prime minister and Lelouch's most trusted rival."
@@ -719,7 +719,7 @@
       "surface": "ルルーシュ・ヴィ・ブリタニア",
       "reading": "るるーしゅ・ヴぃ・ぶりたにあ",
       "romaji": "Rurūshu vi Buritania",
-      "meanings": { "en": "Lelouch vi Britannia — full royal name", "pt-BR": "Lelouch vi Britannia — nome real completo", "es": "Lelouch vi Britannia — nombre real completo" },
+      "meanings": { "en": "Lelouch vi Britannia. Full royal name", "pt-BR": "Lelouch vi Britannia. Nome real completo", "es": "Lelouch vi Britannia. Nombre real completo" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Lelouch vi Britannia is the seventeenth prince of Britannia, exiled and presumed dead."
@@ -728,7 +728,7 @@
       "surface": "エリア11",
       "reading": "えりあじゅういち",
       "romaji": "Eria Jūichi",
-      "meanings": { "en": "Area 11 — Japan under Britannian occupation", "pt-BR": "Área 11 — Japão sob ocupação britânica", "es": "Área 11 — Japón bajo ocupación británica" },
+      "meanings": { "en": "Area 11. Japan under Britannian occupation", "pt-BR": "Área 11. Japão sob ocupação britânica", "es": "Área 11. Japón bajo ocupación británica" },
       "jlpt_level": null,
       "category": "world",
       "context": "Britannia renames conquered Japan as Area 11, stripping it of its national identity."
@@ -746,7 +746,7 @@
       "surface": "ゼロ・レクイエム",
       "reading": "ぜろ・れくいえむ",
       "romaji": "Zero Rekuiemu",
-      "meanings": { "en": "Zero Requiem — Lelouch's final plan", "pt-BR": "Réquiem do Zero — plano final de Lelouch", "es": "Réquiem de Cero — plan final de Lelouch" },
+      "meanings": { "en": "Zero Requiem. Lelouch's final plan", "pt-BR": "Réquiem do Zero. Plano final de Lelouch", "es": "Réquiem de Cero. Plan final de Lelouch" },
       "jlpt_level": null,
       "category": "strategy",
       "context": "Zero Requiem is the secret plan Lelouch and Suzaku devise to end the cycle of hatred."
@@ -755,7 +755,7 @@
       "surface": "ランスロット",
       "reading": "らんすろっと",
       "romaji": "Ransurotto",
-      "meanings": { "en": "Lancelot — Suzaku's elite Knightmare Frame", "pt-BR": "Lancelot — Knightmare Frame de elite de Suzaku", "es": "Lancelot — Knightmare Frame de élite de Suzaku" },
+      "meanings": { "en": "Lancelot. Suzaku's elite Knightmare Frame", "pt-BR": "Lancelot. Knightmare Frame de elite de Suzaku", "es": "Lancelot. Knightmare Frame de élite de Suzaku" },
       "jlpt_level": null,
       "category": "world",
       "context": "The Lancelot is Suzaku's advanced white Knightmare Frame, far superior to standard models."
@@ -764,7 +764,7 @@
       "surface": "サクラダイト",
       "reading": "さくらだいと",
       "romaji": "Sakuradaito",
-      "meanings": { "en": "Sakuradite — rare mineral resource found in Japan", "pt-BR": "Sakuradite — mineral raro encontrado no Japão", "es": "Sakuradite — mineral raro encontrado en Japón" },
+      "meanings": { "en": "Sakuradite. Rare mineral resource found in Japan", "pt-BR": "Sakuradite. Mineral raro encontrado no Japão", "es": "Sakuradite. Mineral raro encontrado en Japón" },
       "jlpt_level": null,
       "category": "world",
       "context": "Sakuradite is the rare superconductor mineral that makes Japan strategically vital to Britannia."
@@ -782,7 +782,7 @@
       "surface": "カレン",
       "reading": "かれん",
       "romaji": "Karen",
-      "meanings": { "en": "Kallen — ace pilot of the Black Knights", "pt-BR": "Kallen — piloto ás dos Cavaleiros Negros", "es": "Kallen — piloto as de los Caballeros Negros" },
+      "meanings": { "en": "Kallen. Ace pilot of the Black Knights", "pt-BR": "Kallen. Piloto ás dos Cavaleiros Negros", "es": "Kallen. Piloto as de los Caballeros Negros" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Kallen Stadtfeld is the Black Knights' most skilled Knightmare pilot and Zero's most devoted ally."
@@ -791,7 +791,7 @@
       "surface": "ナナリー",
       "reading": "ななりー",
       "romaji": "Nanarī",
-      "meanings": { "en": "Nunnally — Lelouch's beloved sister", "pt-BR": "Nunnally — amada irmã de Lelouch", "es": "Nunnally — amada hermana de Lelouch" },
+      "meanings": { "en": "Nunnally. Lelouch's beloved sister", "pt-BR": "Nunnally. Amada irmã de Lelouch", "es": "Nunnally. Amada hermana de Lelouch" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Nunnally is blind and wheelchair-bound; Lelouch's desire to protect her drives all his actions."
@@ -800,7 +800,7 @@
       "surface": "シャルル",
       "reading": "しゃるる",
       "romaji": "Sharuru",
-      "meanings": { "en": "Charles — Emperor of Britannia, Lelouch's father", "pt-BR": "Charles — Imperador de Britânia, pai de Lelouch", "es": "Charles — Emperador de Britannia, padre de Lelouch" },
+      "meanings": { "en": "Charles. Emperor of Britannia, Lelouch's father", "pt-BR": "Charles. Imperador de Britânia, pai de Lelouch", "es": "Charles. Emperador de Britannia, padre de Lelouch" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Charles zi Britannia discarded Lelouch and Nunnally and is the ultimate antagonist of the series."
@@ -809,7 +809,7 @@
       "surface": "ユーフェミア",
       "reading": "ゆーふぇみあ",
       "romaji": "Yūfemia",
-      "meanings": { "en": "Euphemia — Britannian princess who declares the Special Administrative Zone", "pt-BR": "Eufêmia — princesa britânica que declara a Zona Administrativa Especial", "es": "Euphemia — princesa británica que declara la Zona Administrativa Especial" },
+      "meanings": { "en": "Euphemia. Britannian princess who declares the Special Administrative Zone", "pt-BR": "Eufêmia. Princesa britânica que declara a Zona Administrativa Especial", "es": "Euphemia. Princesa británica que declara la Zona Administrativa Especial" },
       "jlpt_level": null,
       "category": "characters",
       "context": "Princess Euphemia's tragic death at the Narita massacre becomes the turning point of the first season."
@@ -818,7 +818,7 @@
       "surface": "サクラダイト鉱山",
       "reading": "さくらだいとこうざん",
       "romaji": "Sakuradaito Kōzan",
-      "meanings": { "en": "Sakuradite mine — strategic resource site", "pt-BR": "mina de Sakuradite — local estratégico", "es": "mina de Sakuradite — sitio estratégico" },
+      "meanings": { "en": "Sakuradite mine. Strategic resource site", "pt-BR": "mina de Sakuradite. Local estratégico", "es": "mina de Sakuradite. Sitio estratégico" },
       "jlpt_level": null,
       "category": "world",
       "context": "Control of Japan's Sakuradite mines is key to Britannia's military and technological dominance."

@@ -20,6 +20,8 @@ interface KanaProgressState {
   hiragana: MasteryMap;          // char -> stars 0..10
   katakana: MasteryMap;
   sessionsCompleted: number;     // monotonically incremented at session-summary
+  streak: number;                // consecutive days with at least one session
+  lastPracticeDate: string | null; // ISO date YYYY-MM-DD of last session
   _hasHydrated: boolean;
 }
 
@@ -43,6 +45,8 @@ export const useKanaProgress = create<KanaProgressState & KanaProgressActions>()
       hiragana: {},
       katakana: {},
       sessionsCompleted: 0,
+      streak: 0,
+      lastPracticeDate: null,
       _hasHydrated: false,
       applyAnswer: (script, kana, correct) =>
         set((s) => {
@@ -60,10 +64,18 @@ export const useKanaProgress = create<KanaProgressState & KanaProgressActions>()
           return script === "hiragana" ? { hiragana: updated } : { katakana: updated };
         }),
       incrementSessionsCompleted: () =>
-        set((s) => ({ sessionsCompleted: s.sessionsCompleted + 1 })),
+        set((s) => {
+          const today = new Date().toISOString().split("T")[0];
+          const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
+          const newStreak =
+            s.lastPracticeDate === today ? s.streak
+            : s.lastPracticeDate === yesterday ? s.streak + 1
+            : 1;
+          return { sessionsCompleted: s.sessionsCompleted + 1, streak: newStreak, lastPracticeDate: today };
+        }),
       hydrateFrom: (input) => set({ hiragana: input.hiragana, katakana: input.katakana }),
       setHasHydrated: (v) => set({ _hasHydrated: v }),
-      __resetForTests: () => set({ hiragana: {}, katakana: {}, sessionsCompleted: 0 }),
+      __resetForTests: () => set({ hiragana: {}, katakana: {}, sessionsCompleted: 0, streak: 0, lastPracticeDate: null }),
     }),
     {
       name: "kitsubeat-kana-mastery-v1",       // versioned key — future schema change bumps to v2

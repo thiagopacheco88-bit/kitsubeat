@@ -111,8 +111,8 @@ if (scheduleMode) {
 
   let scheduled = 0, skipped = 0;
   for (const entry of upcoming) {
-    // Schedule at 09:00 UTC (same as X cron)
-    const scheduledAt = Math.floor(new Date(`${entry.date}T09:00:00Z`).getTime() / 1000);
+    // Schedule at 04:00 UTC = 05:00 London (BST)
+    const scheduledAt = Math.floor(new Date(`${entry.date}T04:00:00Z`).getTime() / 1000);
     const now = Math.floor(Date.now() / 1000);
     const minFuture = now + 10 * 60; // 10 minutes minimum
 

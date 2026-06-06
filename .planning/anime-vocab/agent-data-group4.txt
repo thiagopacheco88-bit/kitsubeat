@@ -1,0 +1,176 @@
+=== naruto | Naruto | emoji: 🍃 ===
+Description: Naruto Uzumaki's journey from outcast ninja to Hokage.
+Words (surface|romaji|meaning|jlpt|existing_context):
+忍者|ninja|ninja|N3|The identity of every character in Naruto — shinobi who protect their village and complete missions.
+忍|shinobi|shinobi / covert ninja|N2|The poetic word for ninja used throughout Naruto's world — a warrior who endures pain and perseveres
+上忍|jonin|elite ninja / jonin|?|The highest regular rank a ninja can achieve — Kakashi, Kurenai, and Asuma are all jonin. They lead 
+中忍|chunin|mid-level ninja / chunin|?|The rank earned by passing the Chunin Exams — Naruto famously never passed them. Chunin can lead tea
+下忍|genin|low-level ninja / genin|?|Where every ninja starts — Naruto, Sasuke, and Sakura are all genin at the start of the series. They
+影|kage|shadow / kage (village leader)|N4|The title given to the leader of each of the Five Great Shinobi Villages. There are five Kage: Hokag
+班|han|squad / team|N3|Genin are organized into 班 of three under a jonin sensei. Team 7 (班7) — Naruto, Sasuke, Sakura, and 
+任務|ninmu|mission / duty|N3|Ninja take on ranked missions (D through S class) as their primary work. Naruto's first real mission
+忍術|ninjutsu|ninjutsu / ninja technique|?|Techniques that manipulate chakra externally — the most common form of combat in Naruto. Everything 
+幻術|genjutsu|genjutsu / illusion technique|?|Techniques that trap the enemy in illusions by disrupting their chakra flow. Itachi is the undispute
+体術|taijutsu|taijutsu / physical technique|?|Close-combat fighting using pure physical skill and chakra-enhanced movement. Rock Lee trains only i
+印|in|hand seal|N2|The hand signs ninja weave together to shape and direct chakra into specific jutsu. Sasuke can form 
+術|jutsu|technique / art / jutsu|N2|The suffix and standalone word for all ninja techniques in Naruto. Every jutsu has a name — the dram
+仙術|senjutsu|sage art / senjutsu|?|The advanced art of gathering natural energy to combine with chakra — only those with exceptional se
+尾獣|bijuu|tailed beast|?|The nine colossal chakra beasts that embody natural energy — from Shukaku the One-Tail to Kurama the
+人柱力|jinchuriki|jinchuriki / tailed beast host|?|A ninja who has a tailed beast sealed inside them — Naruto holds the Nine-Tails, Gaara holds Shukaku
+血継限界|kekkei genkai|kekkei genkai / bloodline limit|?|Abilities that can only be inherited through bloodline — Sharingan, Byakugan, and Wood Release are a
+呪印|juin|cursed seal|?|Orochimaru's seal placed on chosen ninja — it grants massive power at the cost of corrupting the use
+忍刀|nintou|ninja sword|?|Swords wielded by ninja in combat — the Seven Swordsmen of the Mist are legendary for their seven un
+手裏剣|shuriken|shuriken / throwing star|?|The iconic four-pointed throwing weapon of ninja. Naruto's giant shuriken technique — combining a sh
+爆符|bakufu|explosive tag|?|Paper tags inscribed with chakra seals that detonate on command — wrapped around kunai, placed on tr
+罠|wana|trap|N3|Setting traps is a key part of ninja strategy — Shikamaru Nara is especially skilled at luring enemi
+戦場|senjou|battlefield|N2|The Fourth Shinobi World War turns the entire continent into a 戦場 — allied ninja fighting against th
+修業|shugyo|training / ascetic practice|N2|The intense training arc is a staple of Naruto — Naruto trains with Jiraiya for two and a half years
+特訓|tokkun|intensive training / special training|N3|The word for brutal, focused training sessions — Naruto's 特訓 to master the Rasengan with Jiraiya pus
+絆|kizuna|bonds / connection|N2|The emotional core of Naruto — the bonds between people give ninja their strength. Naruto refuses to
+信念|shinnen|belief / conviction|N2|Ninja's 信念 — their unbreakable belief in their own way — is tested throughout the series. Naruto's c
+師弟|shitei|master and student / teacher-disciple|N2|The 師弟 relationship is sacred in Naruto — Jiraiya and Naruto, Kakashi and Team 7, Orochimaru and Sas
+復讐|fukushu|revenge / vengeance|N2|Sasuke's defining motivation for most of the series — to kill Itachi and avenge the Uchiha clan. His
+認められたい|mitomeraretai|to be acknowledged / to be recognized|?|Naruto's deepest desire throughout the series — to be seen, accepted, and acknowledged by his villag
+守護|shugo|protection / guardianship|N2|Every great ninja fights to protect something — Naruto protects his friends, Minato protected the vi
+犠牲|gisei|sacrifice|N2|Naruto is built on sacrifice — the Fourth Hokage sacrificed himself to seal the Nine-Tails, the Thir
+孤独|kodoku|loneliness / solitude|N2|The pain of loneliness is central to many characters — Naruto was ostracized by the village, Gaara w
+友情|yuujou|friendship|N3|The bond between Naruto and Sasuke is the most powerful 友情 in anime — a rivalry forged into unbreaka
+誓い|chikai|oath / vow / pledge|N2|Ninja make solemn promises called 誓い — Naruto swears to bring Sasuke back, Kakashi vows to protect h
+平和|heiwa|peace|N3|The ultimate goal that every Hokage strives for — Jiraiya died seeking it, Nagato pursued it through
+憎しみ|nikushimi|hatred|N2|Madara Uchiha's core philosophy — that hatred is inevitable in the ninja world and only the Infinite
+医療忍者|iryou ninja|medical ninja|?|Specialized ninja trained in healing jutsu — Tsunade is the greatest medical ninja in history. Sakur
+情報収集|jouhou shuushuu|intelligence gathering|?|A critical ninja function — the Leaf's Intelligence Division and ANBU constantly gather information 
+暗殺者|ansatsusha|assassin|?|S-rank assassins are among the most feared ninja — ANBU operatives, Akatsuki members, and specialize
+
+=== one-piece | One Piece | emoji: ⚓ ===
+Description: Monkey D. Luffy's quest to find the One Piece and become King of the Pirates.
+Words (surface|romaji|meaning|jlpt|existing_context):
+海賊|kaizoku|pirate|N3|The defining identity of the series — Luffy declares 'I'm going to be King of the Pirates!' in the v
+懸賞金|kenshōkin|bounty|N2|The World Government's price on a pirate's head. A high bounty means you're taken seriously as a thr
+夢|yume|dream|N4|Every Straw Hat has a dream. Luffy: Pirate King. Zoro: world's greatest swordsman. Nami: map the wor
+略奪|ryakudatsu|plunder / pillage|N1|What villainous pirates do — notably NOT what the Straw Hats do, which makes them unusual heroes in 
+海軍|kaigun|navy / marines|N2|The military arm of the World Government. Their motto is 正義 (justice) — though what kind of justice 
+正義|seigi|justice|N3|Written on every Marine coat. Some pursue 絶対正義 (absolute justice); others believe in 人道的正義 (humane j
+王下七武海|ōka shichibukai|Seven Warlords of the Sea|?|Powerful pirates granted government immunity in exchange for working as enforcers. Includes Doflamin
+皇帝|kōtei|emperor|N2|The title behind 四皇 — each emperor commands an enormous fleet and controls territory in the New Worl
+覚醒|kakusei|awakening|N2|The highest stage of Devil Fruit mastery — when the power extends beyond the user's body to affect t
+変身|henshin|transformation|N3|Zoan-type users can transform into animals or hybrid forms. Chopper's multiple Points are classic ex
+超人型|chōjin-gata|Paramecia type|?|The most common Devil Fruit type — gives superhuman powers. Luffy's Gum-Gum Fruit is Paramecia (or w
+自然系|shizen-kei|Logia type|?|The rarest and most feared type — user becomes and controls a natural element. Akainu (magma), Aokij
+動物系|dōbutsu-kei|Zoan type|?|Grants the ability to transform into an animal species. Chopper (reindeer), Rob Lucci (leopard), Kai
+泳げない|oyogenai|cannot swim|N4|The price of eating a Devil Fruit — the sea rejects you. Devil Fruit users who fall in the ocean wil
+防御|bōgyo|defense|N3|Luffy's rubber body gives him natural 防御 against blunt attacks — but Haki-coated blows still hurt hi
+船|fune|ship / boat|N4|The Going Merry and Thousand Sunny — the Straw Hats' ships are beloved characters in their own right
+航海|kōkai|voyage / navigation|N2|Nami's specialty — reading the weather and plotting the course for the crew's 航海 across the Grand Li
+帆|ho|sail|N2|The Thousand Sunny's Gaon Cannon and Coup de Burst propulsion make it one of the most advanced ships
+料理人|ryōrinin|cook / chef|N3|Sanji's role — he feeds the crew and fights with his legs only, never using his hands, to protect hi
+狙撃手|sogekishu|sniper|N2|Usopp's role — despite his cowardice, his marksmanship is extraordinary and grows to legendary preci
+泥棒|dorobō|thief|N3|What Nami was before joining the Straw Hats — stealing from pirates to buy back her village from Arl
+嘘つき|usotsuki|liar|N3|Usopp's defining trait and the origin of his name (嘘 = lie). His tall tales eventually become legend
+絆|kizuna|bond / connection|N2|The bonds between the Straw Hats — forged through shared suffering, laughter, and sacrifice — are On
+信頼|shinrai|trust|N3|Luffy's leadership style is pure 信頼 — he trusts his crew completely and they follow him into the imp
+誓い|chikai|oath / vow / promise|N2|Zoro's oath to Kuina, Luffy's promise to Shanks, Nami's vow to her village — promises drive characte
+守る|mamoru|to protect|N3|The core motivation for nearly every Straw Hat — they each have someone or something they will die t
+別れ|wakare|parting / farewell|N3|The post-Marineford 別れ at Sabaody — Luffy and his crew are scattered, one of the series' most devast
+泣く|naku|to cry / to weep|N4|Luffy never 泣く for himself — but he cries freely for others. Nami's breakdown, Robin's 'I want to li
+料理|ryōri|cooking / cuisine / dish|N4|Sanji's art and identity. The all-blue — a mythical sea where all world fish swim together — is his 
+仲間割れ|nakama-ware|falling out / crew conflict|?|Rare in the Straw Hats, but when it happens (Water 7 arc, Nami leaving East Blue) it devastates both
+島|shima|island|N4|Every major arc takes place on a new island. The Straw Hats are always sailing to the next one.
+波|nami|wave|N4|Both the ocean's waves and the name of the Straw Hats' navigator.
+嵐|arashi|storm|N3|Storms are a constant danger on the Grand Line, where the weather is unpredictable.
+大地|daichi|earth / land|N3|Dry land is a rare and precious thing on the Grand Line.
+空島|sorajima|sky island|?|Islands floating in the clouds, reached by the Knock Up Stream. Skypiea is the most famous.
+深海|shinkai|deep sea / abyss|N2|Devil Fruit users sink and cannot move in deep water — their greatest natural weakness.
+王国|ōkoku|kingdom|N3|Many arcs center on kingdoms under threat — Alabasta, Dressrosa, Wano.
+聖地|seichi|holy land / sacred place|N2|Mary Geoise (聖地マリージョア) — the sacred seat of power of the World Government and World Nobles.
+港|minato|harbor / port|N3|Every island has a port where ships dock and pirates are welcomed — or hunted.
+海賊団|kaizoku-dan|pirate crew / band|?|Every major pirate sails under a named crew. The Straw Hats are the 麦わら海賊団.
+
+=== sword-art-online | Sword Art Online | emoji: 🗡️ ===
+Description: Kirito and Asuna's survival inside a deadly virtual reality MMO — and the worlds that follow.
+Words (surface|romaji|meaning|jlpt|existing_context):
+仮想現実|kasō genjitsu|virtual reality|N2|The core premise of SAO — players are fully immersed in a virtual world via NerveGear. This phrase d
+現実世界|genjitsu sekai|real world|N3|The world outside the VR helmet where players' bodies lie in hospital beds. The tension between the 
+意識|ishiki|consciousness|N2|A recurring philosophical question in SAO — is consciousness inside a VR world truly real? The Alici
+廃人化|haijinka|becoming a vegetable / mental deterioration|?|What happens to players whose bodies deteriorate from prolonged unconsciousness. The fear of廃人化 adds
+接続|setsuzoku|connection / link|N2|The VR connection between player and game world. When the connection is severed or forced, the conse
+電脳|dennō|cyber brain / electronic brain|?|A poetic term for digital consciousness and cyber-neural technology. Especially relevant in the Alic
+ＨＰ|eichi pī|HP (hit points / health)|?|The health bar that, when it reaches zero in SAO, kills the player in real life. Watching your HP ba
+攻略|kōryaku|clearing / strategy / walkthrough|N2|The act of clearing floors and ultimately conquering Aincrad. 攻略組 (the clearing group) are the elite
+最前線|saizensen|frontlines / vanguard|N1|The highest cleared floor in Aincrad, where the most powerful players fight. Kirito and Asuna both o
+経験値|keiken chi|experience points / EXP|N3|Experience points earned from defeating monsters and completing quests in SAO. Grinding experience e
+圏内犯罪|kennai hanzai|crime within safe zones / in-zone crime|?|A disturbing SAO plot point — players find loopholes to murder inside safe zones without triggering 
+片手剣|katate ken|one-handed sword|N2|Kirito's primary weapon skill in SAO. His mastery of the one-handed sword combined with his high agi
+両手剣|ryōte ken|two-handed sword|N2|A power-focused weapon style in SAO. Klein and other players favor two-handed weapons for raw damage
+二刀流|nitōryū|dual blades / two-sword style|N1|The rarest and most powerful hidden skill in SAO, automatically granted to the player with the faste
+決闘|kettō|duel|N2|A formal one-on-one combat system in SAO with agreed rules. Kirito's duel with Heathcliff — and his 
+対決|taiketsu|confrontation / showdown|N2|The dramatic face-off between rivals or enemies. SAO builds to multiple対決 moments — most significant
+剣士|kenshi|swordsman|N3|The identity Kirito fully embodies in SAO — not just a player, but a swordsman. The term carries a w
+攻撃|kōgeki|attack / offensive|N3|Offensive action in SAO combat. Kirito's aggressive attack style — maximizing Sword Skill combos — c
+防御|bōgyo|defense / defense stat|N3|Defensive capability in SAO. Asuna is known for high speed rather than defense — her rapier style pr
+連続攻撃|renzoku kōgeki|combo attack / consecutive attacks|N2|Chained Sword Skills dealing multiple hits in rapid succession. Kirito's ability to chain Sword Skil
+血盟騎士団|Ketsumei Kishidan|Knights of the Blood Oath|?|The most powerful guild in SAO, led by the mysterious Heathcliff. Asuna serves as vice-commander, an
+攻略組|kōryaku gumi|clearing group / front-line raiders|?|The elite players who push to new floors and tackle boss raids. The clearing group shoulders surviva
+犯罪者|hanzaisha|criminal|N3|Players who commit murders or crimes within SAO receive the 'Criminal' cursor, marking them red and 
+仲間|nakama|companion / comrade / friend|N3|The bonds formed between players trapped in SAO. Kirito initially avoids仲間 to protect himself from g
+迷宮区|meikyū ku|labyrinth zone|?|The dungeon region on each Aincrad floor where the floor boss resides. Entering the迷宮区 means enterin
+主街区|shu gaiku|main settlement / town area|?|The safe town zone on each Aincrad floor. The main settlements are where players rest, trade, and bu
+死|shi|death|N4|The ever-present stakes in SAO. Death in the game means death in reality — a fact announced by Kayab
+生き残る|ikinokoru|to survive|N3|The primary goal for every SAO player. Kirito's entire philosophy — solo play, level grinding, avoid
+脱出|dasshutsu|escape / breakout|N2|The desperate goal of clearing all 100 floors to escape Aincrad. 脱出 is what the entire first arc wor
+絆|kizuna|bond / tie / connection|N2|The emotional bonds formed between players in a life-or-death situation. Kirito and Asuna's 絆 is the
+愛|ai|love|N4|The love between Kirito and Asuna that grows from partnership into something genuine. Their love is 
+現実|genjitsu|reality|N3|A philosophical battleground in SAO — what makes something real? Kirito and Asuna choose to treat th
+夢|yume|dream|N4|The line between dream and reality blurs in SAO. Players begin to accept the virtual world as their 
+覚悟|kakugo|resolve / readiness / determination|N2|The mental readiness to face death or sacrifice. Kirito's覚悟 is tested repeatedly — most powerfully w
+記憶|kioku|memory|N3|Memories of SAO persist after players return to the real world, affecting their psychology. In Alici
+自由|jiyū|freedom|N4|What every trapped SAO player is fighting for. Freedom from Aincrad, freedom from Sugou's cage, free
+命|inochi|life / one's life|N3|Life itself — the ultimate thing at stake in SAO. Every player risks their命 in every fight. The ques
+転移結晶|ten'i kesshō|teleport crystal|?|Emergency escape items that instantly transport players to the nearest town. A pivotal scene has Asu
+回復結晶|kaifuku kesshō|healing crystal|?|Consumable items that instantly restore HP in SAO. Healing crystals are precious in high-stakes raid
+索敵|sakuteki|enemy detection / search for enemies|N1|The skill of detecting hidden enemies or ambushes. In SAO, players with high索敵 skill can sense appro
+
+=== tokyo-ghoul | Tokyo Ghoul | emoji: 👁️ ===
+Description: College student Ken Kaneki becomes half-ghoul after a near-fatal encounter, straddling two worlds.
+Words (surface|romaji|meaning|jlpt|existing_context):
+人間|ningen|human being|N3|What makes someone human? Tokyo Ghoul asks this question relentlessly — through Kaneki's identity an
+肉|niku|meat / flesh|N4|Human flesh is the only food ghouls can digest — everything else tastes revolting to them, except co
+血|chi|blood|N3|Blood and flesh mark the boundary between ghouls and humans — Kaneki's white hair symbolises the tra
+仮面|kamen|mask|N3|Ghouls wear masks to hide their identity from the CCG — Kaneki's white mask becomes his most iconic 
+痛み|itami|pain|N3|Kaneki's entire arc is one of enduring pain — and learning that pain is something to be shared, not 
+孤独|kodoku|solitude / loneliness|N3|Kaneki's greatest fear is loneliness — a childhood wound that shapes every relationship and every sa
+恐怖|kyōfu|fear / terror|N3|The CCG's campaigns are driven by fear of ghouls — a fear that makes nuance impossible and peace unt
+苦しみ|kurushimi|suffering / anguish|N3|Kaneki's torture by Yamori is the series' pivotal moment — the suffering that breaks and remakes him
+存在|sonzai|existence / being|N3|Ghouls fight for the right to exist — Tokyo Ghoul is ultimately a story about the legitimacy of bein
+変化|henka|change / transformation|N3|Kaneki's transformation — physically and psychologically — is the series' central arc, mapped onto h
+捜査|sōsa|investigation|N3|CCG investigators hunt ghouls with military precision — but the more skilled ones begin to question 
+狩り|kari|hunt / hunting|N3|The CCG hunts ghouls as prey — but the series asks whether hunters can justify their methods when th
+鱗赫|Rinkaku|Rinkaku kagune (spine / tentacle type)|?|Rinkaku kagune extend from the lower back as tentacles — high regeneration, high attack power, lower
+甲赫|Kōkaku|Kōkaku kagune (shell / armour type)|?|Kōkaku kagune form shields and blades from the shoulder area — heavy, powerful, and best for defence
+羽赫|Ukaku|Ukaku kagune (wing / projectile type)|?|Ukaku kagune emerge from the shoulder blades as crystalline wings — fast projectiles, but burns RC c
+尾赫|Bikaku|Bikaku kagune (tail type)|?|Bikaku kagune emerge from the coccyx as a tail — balanced in attack, defence, and speed; the most ad
+対話|taiwa|dialogue / mutual exchange|N2|The tragedy of Tokyo Ghoul is the impossibility of dialogue — both sides have been shaped by grief i
+共存|kyōzon|coexistence|N2|Kaneki's deepest hope — and the series' impossible dream — is a world where ghouls and humans can co
+犠牲|gisei|sacrifice|N3|Kaneki repeatedly sacrifices himself to protect others — each time losing more of who he was before 
+力|chikara|strength / power|N4|Kaneki pursues strength to protect others — but the series consistently shows that strength without 
+絶望|zetsubō|despair / hopelessness|N2|Kaneki's arc bottoms out at total despair — the point where he accepts suffering as his permanent co
+受け入れる|ukeireru|to accept / to embrace|N3|Accepting his ghoul nature — not fighting or hiding it — is the psychological breakthrough Kaneki mu
+差別|sabetsu|discrimination / prejudice|N3|Ghouls face systematic discrimination — hunted, harvested for quinques, and denied legal personhood 
+偏見|henken|prejudice / bias|N2|Human prejudice against ghouls is so total that even compassionate investigators struggle to see the
+社会|shakai|society|N4|Tokyo Ghoul's society functions normally on the surface while a hidden war of extermination runs ben
+正義|seigi|justice|N4|Every character in Tokyo Ghoul believes they serve justice — the CCG, Aogiri Tree, and Kaneki each o
+平和|heiwa|peace|N4|Anteiku exists as a small island of peace — a café where ghouls can pretend, briefly, that coexisten
+戦争|sensō|war|N4|The conflict between the CCG and organized ghoul factions escalates into open war — with civilians c
+自己|jiko|self / oneself / the ego|N3|Kaneki's central question is identity — which self is real, the bookish human boy or the white-haire
+感情|kanjō|emotion / feeling|N3|Ghouls have the full range of human emotions — the series insists on this point precisely because hu
+欲求|yokkyū|desire / urge / craving|N2|A ghoul's hunger is an uncontrollable urge — for Kaneki, learning to manage this craving is part of 
+同情|dōjō|sympathy / compassion|N3|Amon's growing sympathy for ghouls he once hunted without hesitation is a turning point in Tokyo Gho
+理解|rikai|understanding / comprehension|N4|True understanding between humans and ghouls requires both sides to see the other as fully human — a
+本能|honnō|instinct|N2|Kaneki's ghoul instincts war with his human upbringing — every hunger pang is a reminder that his bo
+友情|yūjō|friendship / bonds of friendship|N3|Kaneki's friendships at Anteiku — with Touka, Nishiki, and the staff — give him the first genuine co
+信頼|shinrai|trust|N3|Trust is the rarest commodity in Tokyo Ghoul's world — extending it across the human-ghoul divide is
+裏切り|uragiri|betrayal / treachery|N3|Kaneki feels his body has betrayed him — his transformation is experienced as a fundamental violatio
+生存|seizon|survival|N3|Every ghoul in Tokyo fights for survival — against the CCG, against rival ghouls, and against the hu
+境界|kyōkai|boundary / border / threshold|N3|Kaneki exists at the boundary between two worlds — belonging fully to neither, serving as a bridge t
+幸せ|shiawase|happiness / good fortune|N4|Happiness is a brief flash in Tokyo Ghoul's world — Kaneki's happiest moments at Anteiku make their 
+

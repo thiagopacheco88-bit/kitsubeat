@@ -19,7 +19,7 @@ import { config } from "dotenv";
 config({ path: ".env.local" });
 
 import { put } from "@vercel/blob";
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -29,8 +29,8 @@ const TOKEN = process.env.INSTAGRAM_LONG_TOKEN!;
 const IG_ID  = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID!;
 const BASE   = "https://graph.facebook.com/v19.0";
 
-const CATALOG_PATH = resolve(__dirname, "../videos/catalog.json");
-const VIDEOS_DIR   = resolve(__dirname, "../videos");
+const CATALOG_PATH = resolve(__dirname, "../../videos/catalog.json");
+const VIDEOS_DIR   = resolve(__dirname, "../../videos");
 
 // ─── helpers ──────────────────────────────────────────────────────────────────
 
@@ -59,16 +59,26 @@ async function uploadVideo(videoPath: string): Promise<string> {
   return url;
 }
 
+async function uploadThumbnail(thumbPath: string): Promise<string> {
+  const file = readFileSync(thumbPath);
+  const filename = `quiz-thumbnails/${Date.now()}-thumbnail.png`;
+  const { url } = await put(filename, file, { access: "public", contentType: "image/png" });
+  console.log("✓ Thumbnail uploaded:", url);
+  return url;
+}
+
 // ─── Instagram Reels ──────────────────────────────────────────────────────────
 
-async function postInstagramReel(videoUrl: string, caption: string): Promise<string> {
+async function postInstagramReel(videoUrl: string, caption: string, coverUrl?: string): Promise<string> {
   if (!TOKEN || !IG_ID) throw new Error("Missing INSTAGRAM_LONG_TOKEN or INSTAGRAM_BUSINESS_ACCOUNT_ID");
 
   console.log("\nCreating Instagram Reel container...");
+  const containerBody: Record<string, any> = { video_url: videoUrl, caption, media_type: "REELS", access_token: TOKEN };
+  if (coverUrl) { containerBody.cover_url = coverUrl; console.log("  cover_url set"); }
   const createRes = await fetch(`${BASE}/${IG_ID}/media`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ video_url: videoUrl, caption, media_type: "REELS", access_token: TOKEN }),
+    body: JSON.stringify(containerBody),
   });
   const { id: containerId, error: createErr } = await createRes.json() as any;
   if (createErr) throw new Error(`Container error: ${JSON.stringify(createErr)}`);
@@ -235,13 +245,23 @@ async function main() {
   console.log(`Video:   ${videoPath}`);
   console.log(`Words:   ${part.words.map((w: any) => w.romaji).join(", ")}`);
 
+  // Upload thumbnail for Instagram cover (first frame override)
+  const thumbPath = join(dirname(dirname(videoPath)), "thumbnail.png");
+  let coverUrl: string | undefined;
+  if (existsSync(thumbPath)) {
+    console.log(`\nUploading thumbnail: ${thumbPath}`);
+    coverUrl = await uploadThumbnail(thumbPath);
+  } else {
+    console.warn("⚠ No thumbnail.png found — Instagram will auto-select cover frame");
+  }
+
   // Upload to Blob once — reused for both Instagram and Facebook
   let blobUrl: string | null = null;
   const needsBlob = ["instagram", "facebook", "all"].includes(platform);
   if (needsBlob) blobUrl = await uploadVideo(videoPath);
 
   if (platform === "instagram" || platform === "all") {
-    const postId = await postInstagramReel(blobUrl!, social.instagram.caption);
+    const postId = await postInstagramReel(blobUrl!, social.instagram.caption, coverUrl);
     getPart(catalog, series, partNum).posted.instagram = { id: postId, date: new Date().toISOString().slice(0, 10) };
     saveCatalog(catalog);
     console.log("✓ catalog.json updated (instagram)");

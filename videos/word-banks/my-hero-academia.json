@@ -1,0 +1,90 @@
+{
+  "series": "my-hero-academia",
+  "label": "My Hero Academia",
+  "parts": [
+    { "part": 1, "theme": "Hero Society", "words": [
+      { "id": "gakkou",  "q": "How do you say \"School\" in Japanese?",             "jp": "学校", "hiragana": "がっこう",     "romaji": "gakkō",    "en": "School",              "tier": "N5", "wrong": [{"r":"byōin","e":"Hospital"},{"r":"toshokan","e":"Library"},{"r":"kōen","e":"Park"}] },
+      { "id": "doryoku", "q": "How do you say \"Effort\" in Japanese?",             "jp": "努力", "hiragana": "どりょく",     "romaji": "doryoku",  "en": "Effort",              "tier": "N5", "wrong": [{"r":"sainō","e":"Talent"},{"r":"kyūkei","e":"Rest"},{"r":"asobi","e":"Play"}] },
+      { "id": "kyuujo",  "q": "How do you say \"Rescue\" in Japanese?",             "jp": "救助", "hiragana": "きゅうじょ",   "romaji": "kyūjo",    "en": "Rescue",              "tier": "N4", "wrong": [{"r":"kōgeki","e":"Attack"},{"r":"hogo","e":"Protection"},{"r":"taiho","e":"Arrest"}] },
+      { "id": "akuyaku", "q": "How do you say \"Villain\" in Japanese?",            "jp": "悪役", "hiragana": "あくやく",     "romaji": "akuyaku",  "en": "Villain",             "tier": "N4", "wrong": [{"r":"eiyū","e":"Hero"},{"r":"heishi","e":"Soldier"},{"r":"kōken","e":"Guardian"}] },
+      { "id": "kosei",   "q": "How do you say \"Quirk / Individuality\" in Japanese?","jp":"個性","hiragana": "こせい",       "romaji": "kosei",    "en": "Quirk / Individuality","tier": "N3", "wrong": [{"r":"nōryoku","e":"Ability"},{"r":"waza","e":"Technique"},{"r":"tokushoku","e":"Characteristic"}] }
+    ]},
+    { "part": 2, "theme": "School & Exams", "words": [
+      { "id": "shiken",  "q": "How do you say \"Exam / Test\" in Japanese?",        "jp": "試験", "hiragana": "しけん",       "romaji": "shiken",   "en": "Exam / Test",         "tier": "N5", "wrong": [{"r":"jugyō","e":"Class"},{"r":"shukudai","e":"Homework"},{"r":"seiseki","e":"Grade"}] },
+      { "id": "sainou",  "q": "How do you say \"Talent\" in Japanese?",             "jp": "才能", "hiragana": "さいのう",     "romaji": "sainō",    "en": "Talent",              "tier": "N5", "wrong": [{"r":"doryoku","e":"Effort"},{"r":"keiken","e":"Experience"},{"r":"chishiki","e":"Knowledge"}] },
+      { "id": "shakai",  "q": "How do you say \"Society\" in Japanese?",            "jp": "社会", "hiragana": "しゃかい",     "romaji": "shakai",   "en": "Society",             "tier": "N4", "wrong": [{"r":"seiji","e":"Politics"},{"r":"keizai","e":"Economy"},{"r":"bunka","e":"Culture"}] },
+      { "id": "shouchou","q": "How do you say \"Symbol\" in Japanese?",             "jp": "象徴", "hiragana": "しょうちょう", "romaji": "shōchō",   "en": "Symbol",              "tier": "N4", "wrong": [{"r":"shirushi","e":"Mark"},{"r":"katachi","e":"Shape"},{"r":"imēji","e":"Image"}] },
+      { "id": "sekinin", "q": "How do you say \"Responsibility\" in Japanese?",     "jp": "責任", "hiragana": "せきにん",     "romaji": "sekinin",  "en": "Responsibility",      "tier": "N3", "wrong": [{"r":"kenri","e":"Right"},{"r":"gimu","e":"Obligation"},{"r":"jiyū","e":"Freedom"}] }
+    ]},
+    { "part": 3, "theme": "Challenge & Perseverance", "words": [
+      { "id": "chousen", "q": "How do you say \"Challenge\" in Japanese?",          "jp": "挑戦", "hiragana": "ちょうせん",   "romaji": "chōsen",   "en": "Challenge",           "tier": "N5", "wrong": [{"r":"akirame","e":"Giving Up"},{"r":"kyōsō","e":"Competition"},{"r":"jikken","e":"Experiment"}] },
+      { "id": "ganbaru", "q": "How do you say \"To Do One's Best\" in Japanese?",   "jp": "頑張る","hiragana": "がんばる",     "romaji": "ganbaru",  "en": "To Do One's Best",    "tier": "N5", "wrong": [{"r":"akirameru","e":"To Give Up"},{"r":"yasumu","e":"To Rest"},{"r":"neru","e":"To Sleep"}] },
+      { "id": "kokufuku","q": "How do you say \"Overcome\" in Japanese?",           "jp": "克服", "hiragana": "こくふく",     "romaji": "kokufuku", "en": "Overcome",            "tier": "N4", "wrong": [{"r":"taeru","e":"To Endure"},{"r":"haiboku","e":"Defeat"},{"r":"tōhi","e":"Avoidance"}] },
+      { "id": "genkai",  "q": "How do you say \"Limit\" in Japanese?",              "jp": "限界", "hiragana": "げんかい",     "romaji": "genkai",   "en": "Limit",               "tier": "N4", "wrong": [{"r":"mokuhyō","e":"Goal"},{"r":"saijō","e":"Maximum"},{"r":"kanousei","e":"Possibility"}] },
+      { "id": "senpai",  "q": "How do you say \"Upperclassman / Senior\" in Japanese?","jp":"先輩","hiragana": "せんぱい",     "romaji": "senpai",   "en": "Senior / Upperclassman","tier":"N3", "wrong": [{"r":"kōhai","e":"Junior"},{"r":"sensei","e":"Teacher"},{"r":"dōkyūsei","e":"Classmate"}] }
+    ]},
+    { "part": 4, "theme": "Pride & Growth", "words": [
+      { "id": "hokori",  "q": "How do you say \"Pride\" in Japanese?",              "jp": "誇り", "hiragana": "ほこり",       "romaji": "hokori",   "en": "Pride",               "tier": "N5", "wrong": [{"r":"haji","e":"Shame"},{"r":"yorokobi","e":"Joy"},{"r":"kansha","e":"Gratitude"}] },
+      { "id": "kouhai",  "q": "How do you say \"Underclassman / Junior\" in Japanese?","jp":"後輩","hiragana": "こうはい",     "romaji": "kōhai",    "en": "Junior / Underclassman","tier":"N5","wrong":[{"r":"senpai","e":"Senior"},{"r":"sensei","e":"Teacher"},{"r":"tomodachi","e":"Friend"}] },
+      { "id": "seichou", "q": "How do you say \"Growth\" in Japanese?",             "jp": "成長", "hiragana": "せいちょう",   "romaji": "seichō",   "en": "Growth",              "tier": "N4", "wrong": [{"r":"genwaku","e":"Confusion"},{"r":"teishi","e":"Stagnation"},{"r":"genshou","e":"Decline"}] },
+      { "id": "kakusei", "q": "How do you say \"Awakening\" in Japanese?",          "jp": "覚醒", "hiragana": "かくせい",     "romaji": "kakusei",  "en": "Awakening",           "tier": "N4", "wrong": [{"r":"suimin","e":"Sleep"},{"r":"kyūsoku","e":"Rest"},{"r":"mezame","e":"Waking Up"}] },
+      { "id": "chounouryoku","q":"How do you say \"Superpower\" in Japanese?",      "jp":"超能力","hiragana":"ちょうのうりょく","romaji":"chōnōryoku","en":"Superpower",           "tier": "N3", "wrong": [{"r":"majutsu","e":"Sorcery"},{"r":"gijutsu","e":"Technology"},{"r":"nōryoku","e":"Ability"}] }
+    ]},
+    { "part": 5, "theme": "Powers & Elements", "words": [
+      { "id": "hayasa",  "q": "How do you say \"Speed\" in Japanese?",              "jp": "速さ", "hiragana": "はやさ",       "romaji": "hayasa",   "en": "Speed",               "tier": "N5", "wrong": [{"r":"chikara","e":"Power"},{"r":"takasa","e":"Height"},{"r":"omosa","e":"Weight"}] },
+      { "id": "bakuhatsu","q":"How do you say \"Explosion\" in Japanese?",          "jp":"爆発",  "hiragana":"ばくはつ",       "romaji":"bakuhatsu", "en":"Explosion",            "tier": "N5", "wrong": [{"r":"kaminari","e":"Thunder"},{"r":"honō","e":"Flame"},{"r":"jishin","e":"Earthquake"}] },
+      { "id": "koori",   "q": "How do you say \"Ice\" in Japanese?",               "jp": "氷",   "hiragana": "こおり",       "romaji": "kōri",     "en": "Ice",                 "tier": "N4", "wrong": [{"r":"yuki","e":"Snow"},{"r":"mizu","e":"Water"},{"r":"shimo","e":"Frost"}] },
+      { "id": "toumei",  "q": "How do you say \"Transparent / Invisible\" in Japanese?","jp":"透明","hiragana":"とうめい",     "romaji":"tōmei",    "en":"Transparent / Invisible","tier":"N4","wrong":[{"r":"meikaku","e":"Clear / Definite"},{"r":"fumei","e":"Unknown"},{"r":"kasoka","e":"Invisible"}] },
+      { "id": "juuryoku","q": "How do you say \"Gravity\" in Japanese?",            "jp": "重力", "hiragana": "じゅうりょく", "romaji": "jūryoku",  "en": "Gravity",             "tier": "N3", "wrong": [{"r":"jiki","e":"Magnetism"},{"r":"fūryoku","e":"Wind Power"},{"r":"netsuryoku","e":"Thermal Energy"}] }
+    ]},
+    { "part": 6, "theme": "Emotions & Willpower", "words": [
+      { "id": "atsui",   "q": "How do you say \"Passionate / Hot\" in Japanese?",   "jp": "熱い", "hiragana": "あつい",       "romaji": "atsui",    "en": "Passionate / Hot",    "tier": "N5", "wrong": [{"r":"tsumetai","e":"Cold"},{"r":"nurui","e":"Lukewarm"},{"r":"suzushii","e":"Cool"}] },
+      { "id": "moeru",   "q": "How do you say \"To Burn / Be Fired Up\" in Japanese?","jp":"燃える","hiragana":"もえる",       "romaji":"moeru",     "en":"To Burn / Be Fired Up","tier":"N4","wrong":[{"r":"kieru","e":"To Disappear"},{"r":"kooru","e":"To Freeze"},{"r":"sameru","e":"To Cool Down"}] },
+      { "id": "akirame", "q": "How do you say \"Giving Up\" in Japanese?",          "jp": "諦め", "hiragana": "あきらめ",     "romaji": "akirame",  "en": "Giving Up",           "tier": "N4", "wrong": [{"r":"doryoku","e":"Effort"},{"r":"ganbari","e":"Persistence"},{"r":"chōsen","e":"Challenge"}] },
+      { "id": "jakuten", "q": "How do you say \"Weakness / Weak Point\" in Japanese?","jp":"弱点","hiragana":"じゃくてん",   "romaji":"jakuten",  "en":"Weakness / Weak Point","tier":"N3","wrong":[{"r":"kyōten","e":"Strong Point"},{"r":"tokui","e":"Forte"},{"r":"kanzen","e":"Perfection"}] },
+      { "id": "ichiban", "q": "How do you say \"Number One / The Best\" in Japanese?","jp":"一番","hiragana":"いちばん",     "romaji":"ichiban",   "en":"Number One / Best",    "tier":"N4","wrong":[{"r":"saijō","e":"Supreme"},{"r":"futsū","e":"Ordinary"},{"r":"saigo","e":"Last / Final"}] }
+    ]},
+    { "part": 7, "theme": "Courage & Legacy", "words": [
+      { "id": "yuuki_mha","q":"How do you say \"Courage\" in Japanese?",            "jp": "勇気", "hiragana": "ゆうき",       "romaji": "yūki",     "en": "Courage",             "tier": "N5", "wrong": [{"r":"kyōfu","e":"Fear"},{"r":"chinmoku","e":"Silence"},{"r":"gaman","e":"Endurance"}] },
+      { "id": "kizuna_mha","q":"How do you say \"Bond / Connection\" in Japanese?", "jp": "絆",   "hiragana": "きずな",       "romaji": "kizuna",   "en": "Bond / Connection",   "tier": "N4", "wrong": [{"r":"wakare","e":"Parting"},{"r":"rikai","e":"Understanding"},{"r":"yakusoku","e":"Promise"}] },
+      { "id": "kokeisha","q": "How do you say \"Successor / Inheritor\" in Japanese?","jp":"後継者","hiragana":"こうけいしゃ","romaji":"kōkeisha",  "en":"Successor / Inheritor","tier":"N3","wrong":[{"r":"senzo","e":"Ancestor"},{"r":"kyōsōsha","e":"Competitor"},{"r":"dōryō","e":"Colleague"}] },
+      { "id": "toppa_mha","q":"How do you say \"Break Through\" in Japanese?",      "jp": "突破", "hiragana": "とっぱ",       "romaji": "toppa",    "en": "Break Through",       "tier": "N4", "wrong": [{"r":"taeru","e":"To Endure"},{"r":"mondai","e":"Problem"},{"r":"tōka","e":"Passing Through"}] },
+      { "id": "shoumei", "q": "How do you say \"Proof / Evidence\" in Japanese?",  "jp": "証明", "hiragana": "しょうめい",   "romaji": "shōmei",   "en": "Proof / Evidence",    "tier": "N3", "wrong": [{"r":"gimon","e":"Doubt"},{"r":"himitsu","e":"Secret"},{"r":"shinrai","e":"Trust"}] }
+    ]},
+    { "part": 8, "theme": "Training & Mastery", "words": [
+      { "id": "kunren",  "q": "How do you say \"Training / Practice\" in Japanese?","jp":"訓練",  "hiragana": "くんれん",     "romaji": "kunren",   "en": "Training / Practice", "tier": "N5", "wrong": [{"r":"kyūkei","e":"Rest"},{"r":"shiken","e":"Exam"},{"r":"jugyō","e":"Class"}] },
+      { "id": "tomodachi_mha","q":"How do you say \"Friend\" in Japanese?",         "jp":"友達",  "hiragana": "ともだち",     "romaji":"tomodachi", "en":"Friend",               "tier": "N5", "wrong": [{"r":"teki","e":"Enemy"},{"r":"raibaru","e":"Rival"},{"r":"tanin","e":"Stranger"}] },
+      { "id": "puro",    "q": "How do you say \"Professional / Pro\" in Japanese?", "jp": "プロ", "hiragana": "ぷろ",         "romaji": "puro",     "en": "Professional / Pro",  "tier": "N4", "wrong": [{"r":"shirouto","e":"Amateur"},{"r":"gakusei","e":"Student"},{"r":"kenshūsei","e":"Trainee"}] },
+      { "id": "kokoro_mha","q":"How do you say \"Heart / Mind\" in Japanese?",      "jp": "心",   "hiragana": "こころ",       "romaji": "kokoro",   "en": "Heart / Mind",        "tier": "N4", "wrong": [{"r":"karada","e":"Body"},{"r":"atama","e":"Head"},{"r":"tamashii","e":"Soul"}] },
+      { "id": "egao_mha","q":"How do you say \"Smiling Face\" in Japanese?",        "jp": "笑顔", "hiragana": "えがお",       "romaji": "egao",     "en": "Smiling Face",        "tier": "N3", "wrong": [{"r":"nakigao","e":"Tearful Face"},{"r":"ikari","e":"Anger"},{"r":"hyōjō","e":"Expression"}] }
+    ]},
+    { "part": 9, "theme": "Society & Justice", "words": [
+      { "id": "seigi_mha", "q": "How do you say \"Justice\" in Japanese?",           "jp": "正義", "hiragana": "せいぎ",     "romaji": "seigi",    "en": "Justice",             "tier": "N4", "wrong": [{"r":"aku","e":"Evil"},{"r":"fusei","e":"Injustice"},{"r":"jiyū","e":"Freedom"}] },
+      { "id": "heiwa_mha", "q": "How do you say \"Peace\" in Japanese?",             "jp": "平和", "hiragana": "へいわ",     "romaji": "heiwa",    "en": "Peace",               "tier": "N4", "wrong": [{"r":"sensō","e":"War"},{"r":"arashi","e":"Chaos"},{"r":"tatakai","e":"Battle"}] },
+      { "id": "hanzai",    "q": "How do you say \"Crime\" in Japanese?",             "jp": "犯罪", "hiragana": "はんざい",   "romaji": "hanzai",   "en": "Crime",               "tier": "N3", "wrong": [{"r":"seigi","e":"Justice"},{"r":"hōritsu","e":"Law"},{"r":"anzen","e":"Safety"}] },
+      { "id": "houritsu",  "q": "How do you say \"Law\" in Japanese?",               "jp": "法律", "hiragana": "ほうりつ",   "romaji": "hōritsu",  "en": "Law",                 "tier": "N3", "wrong": [{"r":"seigi","e":"Justice"},{"r":"kiken","e":"Danger"},{"r":"chitsujo","e":"Order"}] },
+      { "id": "anzen",     "q": "How do you say \"Safety\" in Japanese?",            "jp": "安全", "hiragana": "あんぜん",   "romaji": "anzen",    "en": "Safety",              "tier": "N4", "wrong": [{"r":"kiken","e":"Danger"},{"r":"fushin","e":"Unease"},{"r":"kyōfu","e":"Fear"}] }
+    ]},
+    { "part": 10, "theme": "Mind & Strategy", "words": [
+      { "id": "sakusen",   "q": "How do you say \"Strategy / Plan\" in Japanese?",   "jp": "作戦", "hiragana": "さくせん",   "romaji": "sakusen",  "en": "Strategy / Plan",     "tier": "N3", "wrong": [{"r":"keikaku","e":"Plan"},{"r":"meirei","e":"Order"},{"r":"handan","e":"Judgment"}] },
+      { "id": "handan",    "q": "How do you say \"Judgment\" in Japanese?",          "jp": "判断", "hiragana": "はんだん",   "romaji": "handan",   "en": "Judgment",            "tier": "N3", "wrong": [{"r":"meirei","e":"Order"},{"r":"sakusen","e":"Strategy"},{"r":"chishiki","e":"Knowledge"}] },
+      { "id": "chishiki",  "q": "How do you say \"Knowledge\" in Japanese?",         "jp": "知識", "hiragana": "ちしき",     "romaji": "chishiki", "en": "Knowledge",           "tier": "N4", "wrong": [{"r":"keiken","e":"Experience"},{"r":"sainō","e":"Talent"},{"r":"chie","e":"Wisdom"}] },
+      { "id": "keikaku",   "q": "How do you say \"Plan\" in Japanese?",              "jp": "計画", "hiragana": "けいかく",   "romaji": "keikaku",  "en": "Plan",                "tier": "N4", "wrong": [{"r":"mokuhyō","e":"Goal"},{"r":"sakusen","e":"Strategy"},{"r":"yotei","e":"Schedule"}] },
+      { "id": "meirei",    "q": "How do you say \"Command / Order\" in Japanese?",   "jp": "命令", "hiragana": "めいれい",   "romaji": "meirei",   "en": "Command / Order",     "tier": "N3", "wrong": [{"r":"irai","e":"Request"},{"r":"teian","e":"Proposal"},{"r":"adobaisu","e":"Advice"}] }
+    ]},
+    { "part": 11, "theme": "Body & Battle", "words": [
+      { "id": "te_mha",    "q": "How do you say \"Hand\" in Japanese?",              "jp": "手",   "hiragana": "て",         "romaji": "te",       "en": "Hand",                "tier": "N5", "wrong": [{"r":"ashi","e":"Leg"},{"r":"atama","e":"Head"},{"r":"karada","e":"Body"}] },
+      { "id": "ashi_mha",  "q": "How do you say \"Leg / Foot\" in Japanese?",        "jp": "足",   "hiragana": "あし",       "romaji": "ashi",     "en": "Leg / Foot",          "tier": "N5", "wrong": [{"r":"te","e":"Hand"},{"r":"karada","e":"Body"},{"r":"atama","e":"Head"}] },
+      { "id": "kaifuku",   "q": "How do you say \"Recovery\" in Japanese?",          "jp": "回復", "hiragana": "かいふく",   "romaji": "kaifuku",  "en": "Recovery",            "tier": "N4", "wrong": [{"r":"shōgai","e":"Injury"},{"r":"haiboku","e":"Defeat"},{"r":"teishi","e":"Stop"}] },
+      { "id": "kougeki",   "q": "How do you say \"Attack\" in Japanese?",            "jp": "攻撃", "hiragana": "こうげき",   "romaji": "kōgeki",   "en": "Attack",              "tier": "N4", "wrong": [{"r":"bōgyo","e":"Defense"},{"r":"kaifuku","e":"Recovery"},{"r":"nigeru","e":"Flee"}] },
+      { "id": "kyuukyoku", "q": "How do you say \"Ultimate\" in Japanese?",          "jp": "究極", "hiragana": "きゅうきょく","romaji": "kyūkyoku", "en": "Ultimate",            "tier": "N3", "wrong": [{"r":"futsū","e":"Ordinary"},{"r":"saikō","e":"Best"},{"r":"kanzen","e":"Perfect"}] }
+    ]},
+    { "part": 12, "theme": "Dreams & Purpose", "words": [
+      { "id": "yume_mha",  "q": "How do you say \"Dream\" in Japanese?",             "jp": "夢",   "hiragana": "ゆめ",       "romaji": "yume",     "en": "Dream",               "tier": "N5", "wrong": [{"r":"mokuhyō","e":"Goal"},{"r":"kibō","e":"Hope"},{"r":"mirai","e":"Future"}] },
+      { "id": "mokuhyou",  "q": "How do you say \"Goal / Target\" in Japanese?",     "jp": "目標", "hiragana": "もくひょう", "romaji": "mokuhyō",  "en": "Goal / Target",       "tier": "N4", "wrong": [{"r":"yume","e":"Dream"},{"r":"keikaku","e":"Plan"},{"r":"kekka","e":"Result"}] },
+      { "id": "shourai",   "q": "How do you say \"Future / Prospects\" in Japanese?","jp": "将来", "hiragana": "しょうらい", "romaji": "shōrai",   "en": "Future / Prospects",  "tier": "N4", "wrong": [{"r":"kako","e":"Past"},{"r":"genzai","e":"Present"},{"r":"mirai","e":"Future"}] },
+      { "id": "unmei_mha", "q": "How do you say \"Destiny\" in Japanese?",           "jp": "運命", "hiragana": "うんめい",   "romaji": "unmei",    "en": "Destiny",             "tier": "N4", "wrong": [{"r":"guuzen","e":"Coincidence"},{"r":"sentaku","e":"Choice"},{"r":"jiyū","e":"Freedom"}] },
+      { "id": "jibun",     "q": "How do you say \"Self / Oneself\" in Japanese?",    "jp": "自分", "hiragana": "じぶん",     "romaji": "jibun",    "en": "Self / Oneself",      "tier": "N4", "wrong": [{"r":"tanin","e":"Others"},{"r":"hito","e":"Person"},{"r":"minna","e":"Everyone"}] }
+    ]}
+  ]
+}

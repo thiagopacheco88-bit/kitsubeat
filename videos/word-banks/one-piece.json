@@ -1,0 +1,2231 @@
+{
+  "series": "one-piece",
+  "label": "One Piece",
+  "note": "Part 1 words already rendered: kaizoku, nakama, kaizoku-ō, kenshōkin, mugiwara",
+  "parts": [
+    {
+      "part": 2,
+      "theme": "Sea & Sky",
+      "words": [
+        {
+          "id": "umi",
+          "q": "How do you say \"Sea\" in Japanese?",
+          "jp": "海",
+          "hiragana": "うみ",
+          "romaji": "umi",
+          "en": "Sea",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "minato",
+              "e": "Harbor"
+            },
+            {
+              "r": "kawa",
+              "e": "River"
+            },
+            {
+              "r": "mori",
+              "e": "Forest"
+            }
+          ]
+        },
+        {
+          "id": "fune",
+          "q": "How do you say \"Ship\" in Japanese?",
+          "jp": "船",
+          "hiragana": "ふね",
+          "romaji": "fune",
+          "en": "Ship",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kuruma",
+              "e": "Car"
+            },
+            {
+              "r": "hashi",
+              "e": "Bridge"
+            },
+            {
+              "r": "ie",
+              "e": "House"
+            }
+          ]
+        },
+        {
+          "id": "sora",
+          "q": "How do you say \"Sky\" in Japanese?",
+          "jp": "空",
+          "hiragana": "そら",
+          "romaji": "sora",
+          "en": "Sky",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kawa",
+              "e": "River"
+            },
+            {
+              "r": "shima",
+              "e": "Island"
+            },
+            {
+              "r": "minato",
+              "e": "Harbor"
+            }
+          ]
+        },
+        {
+          "id": "shima",
+          "q": "How do you say \"Island\" in Japanese?",
+          "jp": "島",
+          "hiragana": "しま",
+          "romaji": "shima",
+          "en": "Island",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yama",
+              "e": "Mountain"
+            },
+            {
+              "r": "machi",
+              "e": "Town"
+            },
+            {
+              "r": "sabaku",
+              "e": "Desert"
+            }
+          ]
+        },
+        {
+          "id": "kokai",
+          "q": "How do you say \"Voyage\" in Japanese?",
+          "jp": "航海",
+          "hiragana": "こうかい",
+          "romaji": "kōkai",
+          "en": "Voyage",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "tabi",
+              "e": "Journey"
+            },
+            {
+              "r": "sensō",
+              "e": "War"
+            },
+            {
+              "r": "kakumei",
+              "e": "Revolution"
+            }
+          ]
+        },
+        {
+          "id": "kaigun",
+          "q": "How do you say \"Navy\" in Japanese?",
+          "jp": "海軍",
+          "hiragana": "かいぐん",
+          "romaji": "kaigun",
+          "en": "Navy",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "gundan",
+              "e": "Military Corps"
+            },
+            {
+              "r": "heishi",
+              "e": "Soldier"
+            },
+            {
+              "r": "taishō",
+              "e": "Admiral"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "theme": "Dreams & Freedom",
+      "words": [
+        {
+          "id": "yume",
+          "q": "How do you say \"Dream\" in Japanese?",
+          "jp": "夢",
+          "hiragana": "ゆめ",
+          "romaji": "yume",
+          "en": "Dream",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mirai",
+              "e": "Future"
+            },
+            {
+              "r": "kibō",
+              "e": "Hope"
+            },
+            {
+              "r": "chikara",
+              "e": "Power"
+            }
+          ]
+        },
+        {
+          "id": "jiyuu",
+          "q": "How do you say \"Freedom\" in Japanese?",
+          "jp": "自由",
+          "hiragana": "じゆう",
+          "romaji": "jiyuu",
+          "en": "Freedom",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "seigi",
+              "e": "Justice"
+            },
+            {
+              "r": "giri",
+              "e": "Duty"
+            },
+            {
+              "r": "unmei",
+              "e": "Fate"
+            }
+          ]
+        },
+        {
+          "id": "kibou",
+          "q": "How do you say \"Hope\" in Japanese?",
+          "jp": "希望",
+          "hiragana": "きぼう",
+          "romaji": "kibō",
+          "en": "Hope",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "zetsubō",
+              "e": "Despair"
+            },
+            {
+              "r": "yami",
+              "e": "Darkness"
+            },
+            {
+              "r": "himitsu",
+              "e": "Secret"
+            }
+          ]
+        },
+        {
+          "id": "tabi",
+          "q": "How do you say \"Journey\" in Japanese?",
+          "jp": "旅",
+          "hiragana": "たび",
+          "romaji": "tabi",
+          "en": "Journey",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "shiro",
+              "e": "Castle"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            },
+            {
+              "r": "minato",
+              "e": "Harbor"
+            }
+          ]
+        },
+        {
+          "id": "ishi",
+          "q": "How do you say \"Will / Determination\" in Japanese?",
+          "jp": "意志",
+          "hiragana": "いし",
+          "romaji": "ishi",
+          "en": "Will",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "kakugo",
+              "e": "Resolve"
+            },
+            {
+              "r": "chikara",
+              "e": "Power"
+            },
+            {
+              "r": "tamashii",
+              "e": "Soul"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "theme": "Treasure & Adventure",
+      "words": [
+        {
+          "id": "takara",
+          "q": "How do you say \"Treasure\" in Japanese?",
+          "jp": "宝",
+          "hiragana": "たから",
+          "romaji": "takara",
+          "en": "Treasure",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "okane",
+              "e": "Money"
+            },
+            {
+              "r": "gōrudo",
+              "e": "Gold"
+            },
+            {
+              "r": "shima",
+              "e": "Island"
+            }
+          ]
+        },
+        {
+          "id": "boken",
+          "q": "How do you say \"Adventure\" in Japanese?",
+          "jp": "冒険",
+          "hiragana": "ぼうけん",
+          "romaji": "bōken",
+          "en": "Adventure",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kokai",
+              "e": "Voyage"
+            },
+            {
+              "r": "sensō",
+              "e": "War"
+            },
+            {
+              "r": "kakumei",
+              "e": "Revolution"
+            }
+          ]
+        },
+        {
+          "id": "chizu",
+          "q": "How do you say \"Map\" in Japanese?",
+          "jp": "地図",
+          "hiragana": "ちず",
+          "romaji": "chizu",
+          "en": "Map",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tegami",
+              "e": "Letter"
+            },
+            {
+              "r": "hon",
+              "e": "Book"
+            },
+            {
+              "r": "shimbun",
+              "e": "Newspaper"
+            }
+          ]
+        },
+        {
+          "id": "nazo",
+          "q": "How do you say \"Mystery\" in Japanese?",
+          "jp": "謎",
+          "hiragana": "なぞ",
+          "romaji": "nazo",
+          "en": "Mystery",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "himitsu",
+              "e": "Secret"
+            },
+            {
+              "r": "uso",
+              "e": "Lie"
+            },
+            {
+              "r": "jiyuu",
+              "e": "Freedom"
+            }
+          ]
+        },
+        {
+          "id": "unmei",
+          "q": "How do you say \"Fate\" in Japanese?",
+          "jp": "運命",
+          "hiragana": "うんめい",
+          "romaji": "unmei",
+          "en": "Fate",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "kibō",
+              "e": "Hope"
+            },
+            {
+              "r": "kakugo",
+              "e": "Resolve"
+            },
+            {
+              "r": "dōmei",
+              "e": "Alliance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 5,
+      "theme": "Crew Roles",
+      "words": [
+        {
+          "id": "kenshi",
+          "q": "How do you say \"Swordsman\" in Japanese?",
+          "jp": "剣士",
+          "hiragana": "けんし",
+          "romaji": "kenshi",
+          "en": "Swordsman",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "senshi",
+              "e": "Warrior"
+            },
+            {
+              "r": "funadaiku",
+              "e": "Shipwright"
+            },
+            {
+              "r": "sogekishu",
+              "e": "Sniper"
+            }
+          ]
+        },
+        {
+          "id": "ryourinin",
+          "q": "How do you say \"Cook\" in Japanese?",
+          "jp": "料理人",
+          "hiragana": "りょうりにん",
+          "romaji": "ryōrinin",
+          "en": "Cook",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "sensei",
+              "e": "Teacher"
+            },
+            {
+              "r": "isha",
+              "e": "Doctor"
+            },
+            {
+              "r": "gakusha",
+              "e": "Scholar"
+            }
+          ]
+        },
+        {
+          "id": "kokaishi",
+          "q": "How do you say \"Navigator\" in Japanese?",
+          "jp": "航海士",
+          "hiragana": "こうかいし",
+          "romaji": "kōkaishi",
+          "en": "Navigator",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "funadaiku",
+              "e": "Shipwright"
+            },
+            {
+              "r": "rekishika",
+              "e": "Historian"
+            },
+            {
+              "r": "kōkogakusha",
+              "e": "Archaeologist"
+            }
+          ]
+        },
+        {
+          "id": "sogekishu",
+          "q": "How do you say \"Sniper\" in Japanese?",
+          "jp": "狙撃手",
+          "hiragana": "そげきしゅ",
+          "romaji": "sogekishu",
+          "en": "Sniper",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "heitai",
+              "e": "Soldier"
+            },
+            {
+              "r": "senshi",
+              "e": "Warrior"
+            },
+            {
+              "r": "gensui",
+              "e": "Fleet Admiral"
+            }
+          ]
+        },
+        {
+          "id": "ongakuka",
+          "q": "How do you say \"Musician\" in Japanese?",
+          "jp": "音楽家",
+          "hiragana": "おんがくか",
+          "romaji": "ongakuka",
+          "en": "Musician",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "gaka",
+              "e": "Painter"
+            },
+            {
+              "r": "sakka",
+              "e": "Writer"
+            },
+            {
+              "r": "haiyū",
+              "e": "Actor"
+            }
+          ]
+        },
+        {
+          "id": "akuma-no-mi",
+          "q": "How do you say \"Devil Fruit\" in Japanese?",
+          "jp": "悪魔の実",
+          "hiragana": "あくまのみ",
+          "romaji": "akuma no mi",
+          "en": "Devil Fruit",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tenshi no mi",
+              "e": "Angel's Fruit"
+            },
+            {
+              "r": "kami no mi",
+              "e": "God's Fruit"
+            },
+            {
+              "r": "ryū no mi",
+              "e": "Dragon's Fruit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 6,
+      "theme": "Battle & Power",
+      "words": [
+        {
+          "id": "chikara",
+          "q": "How do you say \"Power\" in Japanese?",
+          "jp": "力",
+          "hiragana": "ちから",
+          "romaji": "chikara",
+          "en": "Power",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "tsuyosa",
+              "e": "Strength"
+            },
+            {
+              "r": "hayasa",
+              "e": "Speed"
+            },
+            {
+              "r": "katasa",
+              "e": "Hardness"
+            }
+          ]
+        },
+        {
+          "id": "teki",
+          "q": "How do you say \"Enemy\" in Japanese?",
+          "jp": "敵",
+          "hiragana": "てき",
+          "romaji": "teki",
+          "en": "Enemy",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shinyū",
+              "e": "Best Friend"
+            },
+            {
+              "r": "dōmei",
+              "e": "Alliance"
+            },
+            {
+              "r": "mikata",
+              "e": "Ally"
+            }
+          ]
+        },
+        {
+          "id": "ikari",
+          "q": "How do you say \"Rage\" in Japanese?",
+          "jp": "怒り",
+          "hiragana": "いかり",
+          "romaji": "ikari",
+          "en": "Rage",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "warai",
+              "e": "Laughter"
+            },
+            {
+              "r": "namida",
+              "e": "Tears"
+            },
+            {
+              "r": "yorokobi",
+              "e": "Joy"
+            }
+          ]
+        },
+        {
+          "id": "senshi",
+          "q": "How do you say \"Warrior\" in Japanese?",
+          "jp": "戦士",
+          "hiragana": "せんし",
+          "romaji": "senshi",
+          "en": "Warrior",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kenshi",
+              "e": "Swordsman"
+            },
+            {
+              "r": "samurai",
+              "e": "Samurai"
+            },
+            {
+              "r": "ryōrinin",
+              "e": "Cook"
+            }
+          ]
+        },
+        {
+          "id": "haki",
+          "q": "What does 覇気 (Haki) mean in English?",
+          "jp": "覇気",
+          "hiragana": "はき",
+          "romaji": "Ambition / Domination",
+          "en": "Ambition / Domination",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "Soul",
+              "e": "Soul"
+            },
+            {
+              "r": "Will",
+              "e": "Will"
+            },
+            {
+              "r": "Killing Intent",
+              "e": "Killing Intent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 7,
+      "theme": "Nature & Elements",
+      "words": [
+        {
+          "id": "kaze",
+          "q": "How do you say \"Wind\" in Japanese?",
+          "jp": "風",
+          "hiragana": "かぜ",
+          "romaji": "kaze",
+          "en": "Wind",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "umi",
+              "e": "Sea"
+            },
+            {
+              "r": "kōri",
+              "e": "Ice"
+            },
+            {
+              "r": "yuki",
+              "e": "Snow"
+            }
+          ]
+        },
+        {
+          "id": "mizu",
+          "q": "How do you say \"Water\" in Japanese?",
+          "jp": "水",
+          "hiragana": "みず",
+          "romaji": "mizu",
+          "en": "Water",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kōri",
+              "e": "Ice"
+            },
+            {
+              "r": "tsuchi",
+              "e": "Earth"
+            },
+            {
+              "r": "umi",
+              "e": "Sea"
+            }
+          ]
+        },
+        {
+          "id": "hi",
+          "q": "How do you say \"Fire\" in Japanese?",
+          "jp": "火",
+          "hiragana": "ひ",
+          "romaji": "hi",
+          "en": "Fire",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "umi",
+              "e": "Sea"
+            },
+            {
+              "r": "kōri",
+              "e": "Ice"
+            },
+            {
+              "r": "hikari",
+              "e": "Light"
+            }
+          ]
+        },
+        {
+          "id": "arashi",
+          "q": "How do you say \"Storm\" in Japanese?",
+          "jp": "嵐",
+          "hiragana": "あらし",
+          "romaji": "arashi",
+          "en": "Storm",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yuki",
+              "e": "Snow"
+            },
+            {
+              "r": "tsuchi",
+              "e": "Earth"
+            },
+            {
+              "r": "yoake",
+              "e": "Dawn"
+            }
+          ]
+        },
+        {
+          "id": "yami",
+          "q": "How do you say \"Darkness\" in Japanese?",
+          "jp": "闇",
+          "hiragana": "やみ",
+          "romaji": "yami",
+          "en": "Darkness",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "hikari",
+              "e": "Light"
+            },
+            {
+              "r": "yoake",
+              "e": "Dawn"
+            },
+            {
+              "r": "hoshi",
+              "e": "Star"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 8,
+      "theme": "Emotions & Heart",
+      "words": [
+        {
+          "id": "kokoro",
+          "q": "How do you say \"Heart\" in Japanese?",
+          "jp": "心",
+          "hiragana": "こころ",
+          "romaji": "kokoro",
+          "en": "Heart",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "seishin",
+              "e": "Spirit / Mind"
+            },
+            {
+              "r": "karada",
+              "e": "Body"
+            },
+            {
+              "r": "atama",
+              "e": "Head"
+            }
+          ]
+        },
+        {
+          "id": "warai",
+          "q": "How do you say \"Laughter\" in Japanese?",
+          "jp": "笑い",
+          "hiragana": "わらい",
+          "romaji": "warai",
+          "en": "Laughter",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kanashimi",
+              "e": "Sadness"
+            },
+            {
+              "r": "ikari",
+              "e": "Rage"
+            },
+            {
+              "r": "egao",
+              "e": "Smiling Face"
+            }
+          ]
+        },
+        {
+          "id": "namida",
+          "q": "How do you say \"Tears\" in Japanese?",
+          "jp": "涙",
+          "hiragana": "なみだ",
+          "romaji": "namida",
+          "en": "Tears",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kanashimi",
+              "e": "Sadness"
+            },
+            {
+              "r": "chi",
+              "e": "Blood"
+            },
+            {
+              "r": "ase",
+              "e": "Sweat"
+            }
+          ]
+        },
+        {
+          "id": "ai",
+          "q": "How do you say \"Love\" in Japanese?",
+          "jp": "愛",
+          "hiragana": "あい",
+          "romaji": "ai",
+          "en": "Love",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "nikushimi",
+              "e": "Hatred"
+            },
+            {
+              "r": "yūjō",
+              "e": "Friendship"
+            },
+            {
+              "r": "giri",
+              "e": "Duty"
+            }
+          ]
+        },
+        {
+          "id": "tamashii",
+          "q": "How do you say \"Soul\" in Japanese?",
+          "jp": "魂",
+          "hiragana": "たましい",
+          "romaji": "tamashii",
+          "en": "Soul",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "seishin",
+              "e": "Spirit / Mind"
+            },
+            {
+              "r": "karada",
+              "e": "Body"
+            },
+            {
+              "r": "ishi",
+              "e": "Will"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 9,
+      "theme": "Friendship & Bonds",
+      "words": [
+        {
+          "id": "yuujou",
+          "q": "How do you say \"Friendship\" in Japanese?",
+          "jp": "友情",
+          "hiragana": "ゆうじょう",
+          "romaji": "yūjō",
+          "en": "Friendship",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ai",
+              "e": "Love"
+            },
+            {
+              "r": "giri",
+              "e": "Duty"
+            },
+            {
+              "r": "dōmei",
+              "e": "Alliance"
+            }
+          ]
+        },
+        {
+          "id": "shinrai",
+          "q": "How do you say \"Trust\" in Japanese?",
+          "jp": "信頼",
+          "hiragana": "しんらい",
+          "romaji": "shinrai",
+          "en": "Trust",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "uso",
+              "e": "Lie"
+            },
+            {
+              "r": "himitsu",
+              "e": "Secret"
+            },
+            {
+              "r": "nazo",
+              "e": "Mystery"
+            }
+          ]
+        },
+        {
+          "id": "shinyuu",
+          "q": "How do you say \"Best Friend\" in Japanese?",
+          "jp": "親友",
+          "hiragana": "しんゆう",
+          "romaji": "shinyū",
+          "en": "Best Friend",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "teki",
+              "e": "Enemy"
+            },
+            {
+              "r": "kazoku",
+              "e": "Family"
+            },
+            {
+              "r": "sensei",
+              "e": "Teacher"
+            }
+          ]
+        },
+        {
+          "id": "kizuna",
+          "q": "How do you say \"Bond\" in Japanese?",
+          "jp": "絆",
+          "hiragana": "きずな",
+          "romaji": "kizuna",
+          "en": "Bond",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yakusoku",
+              "e": "Promise"
+            },
+            {
+              "r": "ai",
+              "e": "Love"
+            },
+            {
+              "r": "dōmei",
+              "e": "Alliance"
+            }
+          ]
+        },
+        {
+          "id": "chikai",
+          "q": "How do you say \"Vow\" in Japanese?",
+          "jp": "誓い",
+          "hiragana": "ちかい",
+          "romaji": "chikai",
+          "en": "Vow",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "uso",
+              "e": "Lie"
+            },
+            {
+              "r": "himitsu",
+              "e": "Secret"
+            },
+            {
+              "r": "giri",
+              "e": "Duty"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 10,
+      "theme": "Honor & Justice",
+      "words": [
+        {
+          "id": "heiwa",
+          "q": "How do you say \"Peace\" in Japanese?",
+          "jp": "平和",
+          "hiragana": "へいわ",
+          "romaji": "heiwa",
+          "en": "Peace",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "sensō",
+              "e": "War"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            },
+            {
+              "r": "tatakai",
+              "e": "Battle"
+            }
+          ]
+        },
+        {
+          "id": "seigi",
+          "q": "How do you say \"Justice\" in Japanese?",
+          "jp": "正義",
+          "hiragana": "せいぎ",
+          "romaji": "seigi",
+          "en": "Justice",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "jiyuu",
+              "e": "Freedom"
+            },
+            {
+              "r": "aku",
+              "e": "Evil"
+            },
+            {
+              "r": "fusei",
+              "e": "Injustice"
+            }
+          ]
+        },
+        {
+          "id": "giri",
+          "q": "How do you say \"Duty\" in Japanese?",
+          "jp": "義理",
+          "hiragana": "ぎり",
+          "romaji": "giri",
+          "en": "Duty",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "ishi",
+              "e": "Will"
+            },
+            {
+              "r": "unmei",
+              "e": "Fate"
+            },
+            {
+              "r": "ninjō",
+              "e": "Human Feeling"
+            }
+          ]
+        },
+        {
+          "id": "kakugo",
+          "q": "How do you say \"Resolve\" in Japanese?",
+          "jp": "覚悟",
+          "hiragana": "かくご",
+          "romaji": "kakugo",
+          "en": "Resolve",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yūki",
+              "e": "Courage"
+            },
+            {
+              "r": "ikari",
+              "e": "Rage"
+            },
+            {
+              "r": "namida",
+              "e": "Tears"
+            }
+          ]
+        },
+        {
+          "id": "kakumei_p10",
+          "q": "How do you say \"Revolution\" in Japanese?",
+          "jp": "革命",
+          "hiragana": "かくめい",
+          "romaji": "kakumei",
+          "en": "Revolution",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "sensō",
+              "e": "War"
+            },
+            {
+              "r": "dōmei",
+              "e": "Alliance"
+            },
+            {
+              "r": "funsō",
+              "e": "Conflict"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 11,
+      "theme": "Courage & Strength",
+      "words": [
+        {
+          "id": "yuuki",
+          "q": "How do you say \"Courage\" in Japanese?",
+          "jp": "勇気",
+          "hiragana": "ゆうき",
+          "romaji": "yūki",
+          "en": "Courage",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kakugo",
+              "e": "Resolve"
+            },
+            {
+              "r": "chikara",
+              "e": "Power"
+            },
+            {
+              "r": "ikari",
+              "e": "Rage"
+            }
+          ]
+        },
+        {
+          "id": "tsuyosa",
+          "q": "How do you say \"Strength\" in Japanese?",
+          "jp": "強さ",
+          "hiragana": "つよさ",
+          "romaji": "tsuyosa",
+          "en": "Strength",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hayasa",
+              "e": "Speed"
+            },
+            {
+              "r": "ōkisa",
+              "e": "Size"
+            },
+            {
+              "r": "kashikosa",
+              "e": "Wisdom"
+            }
+          ]
+        },
+        {
+          "id": "egao",
+          "q": "How do you say \"Smiling Face\" in Japanese?",
+          "jp": "笑顔",
+          "hiragana": "えがお",
+          "romaji": "egao",
+          "en": "Smiling Face",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "namida",
+              "e": "Tears"
+            },
+            {
+              "r": "ikari",
+              "e": "Rage"
+            },
+            {
+              "r": "me",
+              "e": "Eye"
+            }
+          ]
+        },
+        {
+          "id": "hikari",
+          "q": "How do you say \"Light\" in Japanese?",
+          "jp": "光",
+          "hiragana": "ひかり",
+          "romaji": "hikari",
+          "en": "Light",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yami",
+              "e": "Darkness"
+            },
+            {
+              "r": "hi",
+              "e": "Fire"
+            },
+            {
+              "r": "hoshi",
+              "e": "Star"
+            }
+          ]
+        },
+        {
+          "id": "uso",
+          "q": "How do you say \"Lie\" in Japanese?",
+          "jp": "嘘",
+          "hiragana": "うそ",
+          "romaji": "uso",
+          "en": "Lie",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "himitsu",
+              "e": "Secret"
+            },
+            {
+              "r": "shinrai",
+              "e": "Trust"
+            },
+            {
+              "r": "yakusoku",
+              "e": "Promise"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 12,
+      "theme": "Rank & Command",
+      "words": [
+        {
+          "id": "minato",
+          "q": "How do you say \"Harbor\" in Japanese?",
+          "jp": "港",
+          "hiragana": "みなと",
+          "romaji": "minato",
+          "en": "Harbor",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shima",
+              "e": "Island"
+            },
+            {
+              "r": "umi",
+              "e": "Sea"
+            },
+            {
+              "r": "shiro",
+              "e": "Castle"
+            }
+          ]
+        },
+        {
+          "id": "machi",
+          "q": "How do you say \"Town\" in Japanese?",
+          "jp": "町",
+          "hiragana": "まち",
+          "romaji": "machi",
+          "en": "Town",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "toshi",
+              "e": "City"
+            },
+            {
+              "r": "shiro",
+              "e": "Castle"
+            },
+            {
+              "r": "mori",
+              "e": "Forest"
+            }
+          ]
+        },
+        {
+          "id": "samurai",
+          "q": "What does 侍 mean in English?",
+          "jp": "侍",
+          "hiragana": "さむらい",
+          "romaji": "Samurai",
+          "en": "Samurai",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "Swordsman",
+              "e": "Swordsman"
+            },
+            {
+              "r": "Warrior",
+              "e": "Warrior"
+            },
+            {
+              "r": "Soldier",
+              "e": "Soldier"
+            }
+          ]
+        },
+        {
+          "id": "gensui",
+          "q": "How do you say \"Fleet Admiral\" in Japanese?",
+          "jp": "元帥",
+          "hiragana": "げんすい",
+          "romaji": "gensui",
+          "en": "Fleet Admiral",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "daimyo",
+              "e": "Feudal Lord"
+            },
+            {
+              "r": "taishō",
+              "e": "General"
+            },
+            {
+              "r": "senshi",
+              "e": "Warrior"
+            }
+          ]
+        },
+        {
+          "id": "shogun",
+          "q": "How do you say \"Shogun\" in Japanese?",
+          "jp": "将軍",
+          "hiragana": "しょうぐん",
+          "romaji": "shōgun",
+          "en": "Shogun",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "daimyo",
+              "e": "Feudal Lord"
+            },
+            {
+              "r": "samurai",
+              "e": "Samurai"
+            },
+            {
+              "r": "ōsama",
+              "e": "King"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 13,
+      "theme": "Secrets & Alliances",
+      "words": [
+        {
+          "id": "himitsu",
+          "q": "How do you say \"Secret\" in Japanese?",
+          "jp": "秘密",
+          "hiragana": "ひみつ",
+          "romaji": "himitsu",
+          "en": "Secret",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nazo",
+              "e": "Mystery"
+            },
+            {
+              "r": "uso",
+              "e": "Lie"
+            },
+            {
+              "r": "shinrai",
+              "e": "Trust"
+            }
+          ]
+        },
+        {
+          "id": "yoake",
+          "q": "How do you say \"Dawn\" in Japanese?",
+          "jp": "夜明け",
+          "hiragana": "よあけ",
+          "romaji": "yoake",
+          "en": "Dawn",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "yoru",
+              "e": "Night"
+            },
+            {
+              "r": "hiru",
+              "e": "Noon"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            }
+          ]
+        },
+        {
+          "id": "domei",
+          "q": "How do you say \"Alliance\" in Japanese?",
+          "jp": "同盟",
+          "hiragana": "どうめい",
+          "romaji": "dōmei",
+          "en": "Alliance",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "teki",
+              "e": "Enemy"
+            },
+            {
+              "r": "yūjō",
+              "e": "Friendship"
+            },
+            {
+              "r": "jiyū",
+              "e": "Freedom"
+            }
+          ]
+        },
+        {
+          "id": "kakumei",
+          "q": "How do you say \"Revolution\" in Japanese?",
+          "jp": "革命",
+          "hiragana": "かくめい",
+          "romaji": "kakumei",
+          "en": "Revolution",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "sensō",
+              "e": "War"
+            },
+            {
+              "r": "heiwa",
+              "e": "Peace"
+            },
+            {
+              "r": "jōyaku",
+              "e": "Treaty / Pact"
+            }
+          ]
+        },
+        {
+          "id": "kouko",
+          "q": "How do you say \"Archaeologist\" in Japanese?",
+          "jp": "考古学者",
+          "hiragana": "こうこがくしゃ",
+          "romaji": "kōkogakusha",
+          "en": "Archaeologist",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "ongakuka",
+              "e": "Musician"
+            },
+            {
+              "r": "kagakusha",
+              "e": "Scientist"
+            },
+            {
+              "r": "rekishika",
+              "e": "Historian"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 14,
+      "theme": "World & Landscape",
+      "words": [
+        {
+          "id": "mori",
+          "q": "How do you say \"Forest\" in Japanese?",
+          "jp": "森",
+          "hiragana": "もり",
+          "romaji": "mori",
+          "en": "Forest",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shima",
+              "e": "Island"
+            },
+            {
+              "r": "tsuchi",
+              "e": "Earth / Soil"
+            },
+            {
+              "r": "yama",
+              "e": "Mountain"
+            }
+          ]
+        },
+        {
+          "id": "yuki",
+          "q": "How do you say \"Snow\" in Japanese?",
+          "jp": "雪",
+          "hiragana": "ゆき",
+          "romaji": "yuki",
+          "en": "Snow",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ame",
+              "e": "Rain"
+            },
+            {
+              "r": "kaze",
+              "e": "Wind"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            }
+          ]
+        },
+        {
+          "id": "sabaku",
+          "q": "How do you say \"Desert\" in Japanese?",
+          "jp": "砂漠",
+          "hiragana": "さばく",
+          "romaji": "sabaku",
+          "en": "Desert",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "heigen",
+              "e": "Plain / Prairie"
+            },
+            {
+              "r": "umi",
+              "e": "Sea"
+            },
+            {
+              "r": "yama",
+              "e": "Mountain"
+            }
+          ]
+        },
+        {
+          "id": "sakura",
+          "q": "How do you say \"Cherry Blossom\" in Japanese?",
+          "jp": "桜",
+          "hiragana": "さくら",
+          "romaji": "sakura",
+          "en": "Cherry Blossom",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "ume",
+              "e": "Plum Blossom"
+            },
+            {
+              "r": "ki",
+              "e": "Tree"
+            },
+            {
+              "r": "kusa",
+              "e": "Grass"
+            }
+          ]
+        },
+        {
+          "id": "kouro",
+          "q": "How do you say \"Sea Route\" in Japanese?",
+          "jp": "航路",
+          "hiragana": "こうろ",
+          "romaji": "kōro",
+          "en": "Sea Route",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "chizu",
+              "e": "Map"
+            },
+            {
+              "r": "minato",
+              "e": "Harbor"
+            },
+            {
+              "r": "kokai",
+              "e": "Voyage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 15,
+      "theme": "Ship & Weapons",
+      "words": [
+        {
+          "id": "taiho",
+          "q": "How do you say \"Cannon\" in Japanese?",
+          "jp": "大砲",
+          "hiragana": "たいほう",
+          "romaji": "taihō",
+          "en": "Cannon",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ken",
+              "e": "Sword"
+            },
+            {
+              "r": "yumi",
+              "e": "Bow"
+            },
+            {
+              "r": "tate",
+              "e": "Shield"
+            }
+          ]
+        },
+        {
+          "id": "kaizokuki",
+          "q": "How do you say \"Jolly Roger\" in Japanese?",
+          "jp": "海賊旗",
+          "hiragana": "かいぞくき",
+          "romaji": "kaizokuki",
+          "en": "Jolly Roger",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hata",
+              "e": "Flag"
+            },
+            {
+              "r": "ikari",
+              "e": "Anchor"
+            },
+            {
+              "r": "masuto",
+              "e": "Mast"
+            }
+          ]
+        },
+        {
+          "id": "funadaiku",
+          "q": "How do you say \"Shipwright\" in Japanese?",
+          "jp": "船大工",
+          "hiragana": "ふなだいく",
+          "romaji": "funadaiku",
+          "en": "Shipwright",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "daiku",
+              "e": "Carpenter"
+            },
+            {
+              "r": "kokaishi",
+              "e": "Navigator"
+            },
+            {
+              "r": "ryōrinin",
+              "e": "Cook"
+            }
+          ]
+        },
+        {
+          "id": "senni",
+          "q": "How do you say \"Ship's Doctor\" in Japanese?",
+          "jp": "船医",
+          "hiragana": "せんい",
+          "romaji": "sen'i",
+          "en": "Ship Doctor",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "funadaiku",
+              "e": "Shipwright"
+            },
+            {
+              "r": "kokaishi",
+              "e": "Navigator"
+            },
+            {
+              "r": "ongakuka",
+              "e": "Musician"
+            }
+          ]
+        },
+        {
+          "id": "akuma_no_mi",
+          "q": "How do you say \"Devil Fruit\" in Japanese?",
+          "jp": "悪魔の実",
+          "hiragana": "あくまのみ",
+          "romaji": "akuma no mi",
+          "en": "Devil Fruit",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "haki",
+              "e": "Haki"
+            },
+            {
+              "r": "taihō",
+              "e": "Cannon"
+            },
+            {
+              "r": "kizuna",
+              "e": "Bond"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 16,
+      "theme": "Wano & Samurai Honor",
+      "words": [
+        {
+          "id": "bushidou",
+          "q": "How do you say \"Way of the Samurai\" in Japanese?",
+          "jp": "武士道",
+          "hiragana": "ぶしどう",
+          "romaji": "bushidō",
+          "en": "Way of the Samurai",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "nindō",
+              "e": "Ninja Way"
+            },
+            {
+              "r": "seigi",
+              "e": "Justice"
+            },
+            {
+              "r": "giri",
+              "e": "Duty"
+            }
+          ]
+        },
+        {
+          "id": "katana_p",
+          "q": "What does 刀 mean in English?",
+          "jp": "刀",
+          "hiragana": "かたな",
+          "romaji": "Japanese Sword",
+          "en": "Japanese Sword",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "Spear",
+              "e": "Spear"
+            },
+            {
+              "r": "Bow",
+              "e": "Bow"
+            },
+            {
+              "r": "Shield",
+              "e": "Shield"
+            }
+          ]
+        },
+        {
+          "id": "yoroi",
+          "q": "How do you say \"Armor\" in Japanese?",
+          "jp": "鎧",
+          "hiragana": "よろい",
+          "romaji": "yoroi",
+          "en": "Armor",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "katana",
+              "e": "Katana"
+            },
+            {
+              "r": "kabuto",
+              "e": "Helmet"
+            },
+            {
+              "r": "tate",
+              "e": "Shield"
+            }
+          ]
+        },
+        {
+          "id": "hana_p",
+          "q": "How do you say \"Flower\" in Japanese?",
+          "jp": "花",
+          "hiragana": "はな",
+          "romaji": "hana",
+          "en": "Flower",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ki",
+              "e": "Tree"
+            },
+            {
+              "r": "kusa",
+              "e": "Grass"
+            },
+            {
+              "r": "ha",
+              "e": "Leaf"
+            }
+          ]
+        },
+        {
+          "id": "kessen_p",
+          "q": "How do you say \"Decisive Battle\" in Japanese?",
+          "jp": "決戦",
+          "hiragana": "けっせん",
+          "romaji": "kessen",
+          "en": "Decisive Battle",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "sensō",
+              "e": "War"
+            },
+            {
+              "r": "tatakai",
+              "e": "Battle"
+            },
+            {
+              "r": "dōmei",
+              "e": "Alliance"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 17,
+      "theme": "Food & Cooking",
+      "words": [
+        {
+          "id": "ryouri",
+          "q": "How do you say \"Cooking / Food\" in Japanese?",
+          "jp": "料理",
+          "hiragana": "りょうり",
+          "romaji": "ryōri",
+          "en": "Cooking / Food",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tabemono",
+              "e": "Food"
+            },
+            {
+              "r": "shokuji",
+              "e": "Meal"
+            },
+            {
+              "r": "chōri",
+              "e": "Preparation"
+            }
+          ]
+        },
+        {
+          "id": "taberu",
+          "q": "How do you say \"To Eat\" in Japanese?",
+          "jp": "食べる",
+          "hiragana": "たべる",
+          "romaji": "taberu",
+          "en": "To Eat",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nomu",
+              "e": "To Drink"
+            },
+            {
+              "r": "tsukuru",
+              "e": "To Make"
+            },
+            {
+              "r": "miru",
+              "e": "To See"
+            }
+          ]
+        },
+        {
+          "id": "niku",
+          "q": "How do you say \"Meat\" in Japanese?",
+          "jp": "肉",
+          "hiragana": "にく",
+          "romaji": "niku",
+          "en": "Meat",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "sakana",
+              "e": "Fish"
+            },
+            {
+              "r": "yasai",
+              "e": "Vegetable"
+            },
+            {
+              "r": "pan",
+              "e": "Bread"
+            }
+          ]
+        },
+        {
+          "id": "sakana_p",
+          "q": "How do you say \"Fish\" in Japanese?",
+          "jp": "魚",
+          "hiragana": "さかな",
+          "romaji": "sakana",
+          "en": "Fish",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "niku",
+              "e": "Meat"
+            },
+            {
+              "r": "yasai",
+              "e": "Vegetable"
+            },
+            {
+              "r": "kome",
+              "e": "Rice"
+            }
+          ]
+        },
+        {
+          "id": "gohan",
+          "q": "How do you say \"Cooked Rice / Meal\" in Japanese?",
+          "jp": "ご飯",
+          "hiragana": "ごはん",
+          "romaji": "gohan",
+          "en": "Cooked Rice / Meal",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "pan",
+              "e": "Bread"
+            },
+            {
+              "r": "niku",
+              "e": "Meat"
+            },
+            {
+              "r": "sakana",
+              "e": "Fish"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 18,
+      "theme": "The Void Century",
+      "words": [
+        {
+          "id": "rekishi_p",
+          "q": "How do you say \"History\" in Japanese?",
+          "jp": "歴史",
+          "hiragana": "れきし",
+          "romaji": "rekishi",
+          "en": "History",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "monogatari",
+              "e": "Story"
+            },
+            {
+              "r": "nazo",
+              "e": "Mystery"
+            },
+            {
+              "r": "himitsu",
+              "e": "Secret"
+            }
+          ]
+        },
+        {
+          "id": "monogatari",
+          "q": "How do you say \"Story / Tale\" in Japanese?",
+          "jp": "物語",
+          "hiragana": "ものがたり",
+          "romaji": "monogatari",
+          "en": "Story / Tale",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "rekishi",
+              "e": "History"
+            },
+            {
+              "r": "nazo",
+              "e": "Mystery"
+            },
+            {
+              "r": "densetsu",
+              "e": "Legend"
+            }
+          ]
+        },
+        {
+          "id": "kami_p",
+          "q": "How do you say \"God\" in Japanese?",
+          "jp": "神",
+          "hiragana": "かみ",
+          "romaji": "kami",
+          "en": "God",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "oni",
+              "e": "Demon"
+            },
+            {
+              "r": "akuma",
+              "e": "Devil"
+            },
+            {
+              "r": "tenshi",
+              "e": "Angel"
+            }
+          ]
+        },
+        {
+          "id": "sekai_p",
+          "q": "How do you say \"World\" in Japanese?",
+          "jp": "世界",
+          "hiragana": "せかい",
+          "romaji": "sekai",
+          "en": "World",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kuni",
+              "e": "Country"
+            },
+            {
+              "r": "uchū",
+              "e": "Universe"
+            },
+            {
+              "r": "shima",
+              "e": "Island"
+            }
+          ]
+        },
+        {
+          "id": "mirai_p",
+          "q": "How do you say \"Future\" in Japanese?",
+          "jp": "未来",
+          "hiragana": "みらい",
+          "romaji": "mirai",
+          "en": "Future",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kako",
+              "e": "Past"
+            },
+            {
+              "r": "genzai",
+              "e": "Present"
+            },
+            {
+              "r": "unmei",
+              "e": "Fate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 19,
+      "theme": "Pirate Code",
+      "words": [
+        {
+          "id": "nakama_p",
+          "q": "How do you say \"Companions / Crew\" in Japanese?",
+          "jp": "仲間",
+          "hiragana": "なかま",
+          "romaji": "nakama",
+          "en": "Companions / Crew",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "teki",
+              "e": "Enemy"
+            },
+            {
+              "r": "tanin",
+              "e": "Stranger"
+            },
+            {
+              "r": "raibaru",
+              "e": "Rival"
+            }
+          ]
+        },
+        {
+          "id": "saigo_p",
+          "q": "How do you say \"The Last / Final\" in Japanese?",
+          "jp": "最後",
+          "hiragana": "さいご",
+          "romaji": "saigo",
+          "en": "The Last / Final",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "hajime",
+              "e": "First"
+            },
+            {
+              "r": "naka",
+              "e": "Middle"
+            },
+            {
+              "r": "saishō",
+              "e": "Minimum"
+            }
+          ]
+        },
+        {
+          "id": "tatakau_p",
+          "q": "How do you say \"To Fight\" in Japanese?",
+          "jp": "戦う",
+          "hiragana": "たたかう",
+          "romaji": "tatakau",
+          "en": "To Fight",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "nigeru",
+              "e": "To Flee"
+            },
+            {
+              "r": "mamoru",
+              "e": "To Protect"
+            },
+            {
+              "r": "akirameru",
+              "e": "To Give Up"
+            }
+          ]
+        },
+        {
+          "id": "inochi_p",
+          "q": "How do you say \"Life\" in Japanese?",
+          "jp": "命",
+          "hiragana": "いのち",
+          "romaji": "inochi",
+          "en": "Life",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "shi",
+              "e": "Death"
+            },
+            {
+              "r": "tamashii",
+              "e": "Soul"
+            },
+            {
+              "r": "karada",
+              "e": "Body"
+            }
+          ]
+        },
+        {
+          "id": "shi_p",
+          "q": "How do you say \"Death\" in Japanese?",
+          "jp": "死",
+          "hiragana": "し",
+          "romaji": "shi",
+          "en": "Death",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "inochi",
+              "e": "Life"
+            },
+            {
+              "r": "yami",
+              "e": "Darkness"
+            },
+            {
+              "r": "owari",
+              "e": "End"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

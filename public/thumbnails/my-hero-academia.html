@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KitsuBeat — MHA Quiz Thumbnail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #050F05; }
+.frame {
+  width: 1080px; height: 1920px;
+  background: #050F05;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 48px;
+  position: relative;
+}
+.frame::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 6px; background: #22c55e;
+}
+.fox-icon { width: 200px; height: 200px; object-fit: contain; filter: drop-shadow(0 16px 64px rgba(0,0,0,0.8)); }
+.quiz-on { font-family: Inter, system-ui, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,245,244,0.4); }
+.logo-img { max-width: 700px; max-height: 220px; object-fit: contain; filter: drop-shadow(0 4px 24px rgba(34,197,94,0.25)); }
+.part-pill { background: #22c55e; color: #050F05; font-family: Inter, system-ui, sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 48px; border-radius: 999px; box-shadow: 0 8px 32px rgba(34,197,94,0.4); }
+</style>
+</head>
+<body>
+<div class="frame">
+  <img class="fox-icon" src="../logo-transparent.png" alt="KitsuBeat">
+  <div class="quiz-on">Quiz on</div>
+  <img class="logo-img" src="../anime/my-hero-academia-logo.png" alt="My Hero Academia">
+  <div class="part-pill">Part 1</div>
+</div>
+</body>
+</html>

@@ -8,7 +8,7 @@
   "posts": [
     {
       "post": 1,
-      "date": "2026-05-26",
+      "date": "2026-06-01",
       "day": "Tue",
       "series": "anime-core",
       "label": "Anime Core",
@@ -22,7 +22,8 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-05-25"
+      "fb_date": "2026-05-25",
+      "scheduled_youtube_id": null
     },
     {
       "post": 2,
@@ -34,7 +35,7 @@
       "words": [
         "yume",
         "jiyuu",
-        "kibō",
+        "kibÅ",
         "tabi",
         "ishi"
       ],
@@ -59,8 +60,10 @@
         "sato"
       ],
       "status": "pending",
-      "scheduled_instagram_id": null,
-      "fb_date": "2026-05-27"
+      "scheduled_instagram_id": "18065073674430675",
+      "fb_date": "2026-05-27",
+      "scheduled_youtube_id": "wVQsBpCciIU",
+      "scheduled_facebook_id": "1357235762977487"
     },
     {
       "post": 4,
@@ -71,14 +74,16 @@
       "part": 1,
       "words": [
         "ki",
-        "sentō",
+        "sentÅ",
         "henshin",
         "genkai",
         "toppa"
       ],
       "status": "pending",
-      "scheduled_instagram_id": null,
-      "fb_date": "2026-05-28"
+      "scheduled_instagram_id": "18339185827218470",
+      "fb_date": "2026-05-28",
+      "scheduled_youtube_id": "crgwi_MJpl8",
+      "scheduled_facebook_id": "1797471571219522"
     },
     {
       "post": 5,
@@ -91,12 +96,13 @@
         "shinigami",
         "tamashii",
         "reiatsu",
-        "zanpakutō",
+        "zanpakutÅ",
         "konpaku"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-05-29"
+      "fb_date": "2026-05-29",
+      "scheduled_youtube_id": null
     },
     {
       "post": 6,
@@ -110,11 +116,12 @@
         "katana",
         "yoru",
         "chi",
-        "kokyū"
+        "kokyÅ«"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-05-30"
+      "fb_date": "2026-05-30",
+      "scheduled_youtube_id": "I41Lf6oMqqE"
     },
     {
       "post": 7,
@@ -132,7 +139,8 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-05-31"
+      "fb_date": "2026-05-31",
+      "scheduled_youtube_id": "XjCGdWPrQMI"
     },
     {
       "post": 8,
@@ -143,14 +151,17 @@
       "part": 3,
       "words": [
         "takara",
-        "bōken",
+        "bÅken",
         "chizu",
         "nazo",
         "unmei"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-01"
+      "fb_date": "2026-06-01",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230789732-one-piece-quiz-3_2026-05-25_08-43-47_music.mp4",
+      "scheduled_facebook_id": "892708640507693",
+      "scheduled_youtube_id": "kXsmE4ELpbY"
     },
     {
       "post": 9,
@@ -163,12 +174,15 @@
         "sensei",
         "deshi",
         "genin",
-        "shishō",
+        "shishÅ",
         "hokage"
       ],
       "status": "pending",
-      "scheduled_instagram_id": null,
-      "fb_date": "2026-06-02"
+      "scheduled_instagram_id": "17856588666660038",
+      "fb_date": "2026-06-02",
+      "scheduled_youtube_id": "FWCdvvQNswA",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230805163-naruto-quiz-2_2026-05-30_17-09-10_music.mp4",
+      "scheduled_facebook_id": "35880602704921379"
     },
     {
       "post": 10,
@@ -179,14 +193,17 @@
       "part": 2,
       "words": [
         "hoshi",
-        "uchū",
+        "uchÅ«",
         "ginga",
         "kami",
-        "kaiō"
+        "kaiÅ"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-03"
+      "fb_date": "2026-06-03",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230813823-dragon-ball-quiz-2_2026-05-25_16-34-14.mp4",
+      "scheduled_facebook_id": "4402073460043585",
+      "scheduled_youtube_id": "T0dIE51vI-s"
     },
     {
       "post": 11,
@@ -198,13 +215,16 @@
       "words": [
         "shikai",
         "bankai",
-        "kaigō",
+        "kaigÅ",
         "zangeki",
         "katana"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-04"
+      "fb_date": "2026-06-04",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230849128-bleach-quiz-2_2026-05-30_17-19-12_music.mp4",
+      "scheduled_facebook_id": "885421827944272",
+      "scheduled_youtube_id": null
     },
     {
       "post": 12,
@@ -215,14 +235,17 @@
       "part": 2,
       "words": [
         "kazoku",
-        "taiyō",
+        "taiyÅ",
         "tsuki",
-        "honō",
+        "honÅ",
         "hashira"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-05"
+      "fb_date": "2026-06-05",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230862661-demon-slayer-quiz-2_2026-05-25_08-51-42_music.mp4",
+      "scheduled_facebook_id": "971184532450282",
+      "scheduled_youtube_id": "ipb-_aR8fo8"
     },
     {
       "post": 13,
@@ -240,7 +263,10 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-06"
+      "fb_date": "2026-06-06",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230885680-anime-core-quiz-3_2026-05-25_16-06-35_music.mp4",
+      "scheduled_facebook_id": "1697522884697607",
+      "scheduled_youtube_id": "Jz12TtVWyXY"
     },
     {
       "post": 14,
@@ -251,15 +277,18 @@
       "part": 4,
       "words": [
         "kenshi",
-        "ryōrinin",
-        "kōkaishi",
+        "ryÅrinin",
+        "kÅkaishi",
         "sogekishu",
         "ongakuka",
         "akuma no mi"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-07"
+      "fb_date": "2026-06-07",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230906855-one-piece-quiz-4_2026-05-25_17-13-42_music.mp4",
+      "scheduled_facebook_id": "803974382746552",
+      "scheduled_youtube_id": "I-doxEqlsmY"
     },
     {
       "post": 15,
@@ -277,7 +306,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-08"
+      "fb_date": "2026-06-08",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230923616-naruto-quiz-3_2026-05-25_16-56-33_music.mp4",
+      "scheduled_facebook_id": "1167627398834235"
     },
     {
       "post": 16,
@@ -287,7 +318,7 @@
       "label": "Dragon Ball",
       "part": 3,
       "words": [
-        "ryū",
+        "ryÅ«",
         "negai",
         "kame",
         "kiseki",
@@ -295,7 +326,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-09"
+      "fb_date": "2026-06-09",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230938306-dragon-ball-quiz-3_2026-05-25_08-59-37.mp4",
+      "scheduled_facebook_id": "1031905535835031"
     },
     {
       "post": 17,
@@ -305,15 +338,17 @@
       "label": "Bleach",
       "part": 3,
       "words": [
-        "kidō",
-        "bakudō",
-        "hadō",
+        "kidÅ",
+        "bakudÅ",
+        "hadÅ",
         "shunpo",
         "hakuda"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-10"
+      "fb_date": "2026-06-10",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230948688-bleach-quiz-3_2026-05-25_09-01-36_music.mp4",
+      "scheduled_facebook_id": "1512451367029736"
     },
     {
       "post": 18,
@@ -331,7 +366,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-11"
+      "fb_date": "2026-06-11",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230958853-demon-slayer-quiz-3_2026-05-25_09-03-37_music.mp4",
+      "scheduled_facebook_id": "1622951308775330"
     },
     {
       "post": 19,
@@ -349,7 +386,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-12"
+      "fb_date": "2026-06-12",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230967728-anime-core-quiz-4_2026-05-25_16-08-49_music.mp4",
+      "scheduled_facebook_id": "1513459437237013"
     },
     {
       "post": 20,
@@ -367,7 +406,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-13"
+      "fb_date": "2026-06-13",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230978380-one-piece-quiz-5_2026-05-25_09-07-39_music.mp4",
+      "scheduled_facebook_id": "1302608535350866"
     },
     {
       "post": 21,
@@ -380,12 +421,14 @@
         "itami",
         "nikushimi",
         "kodoku",
-        "fukushū",
+        "fukushÅ«",
         "shinnen"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-14"
+      "fb_date": "2026-06-14",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230987393-naruto-quiz-4_2026-05-25_09-09-41_music.mp4",
+      "scheduled_facebook_id": "26746021471735257"
     },
     {
       "post": 22,
@@ -395,7 +438,7 @@
       "label": "Dragon Ball",
       "part": 4,
       "words": [
-        "budō",
+        "budÅ",
         "bujutsu",
         "shiren",
         "tenkaichi",
@@ -403,7 +446,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-15"
+      "fb_date": "2026-06-15",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780230996978-dragon-ball-quiz-4_2026-05-25_17-32-59.mp4",
+      "scheduled_facebook_id": "4341437592790285"
     },
     {
       "post": 23,
@@ -416,12 +461,14 @@
         "Seireitei",
         "Rukongai",
         "gense",
-        "Hōgyoku",
+        "HÅgyoku",
         "Dangai"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-16"
+      "fb_date": "2026-06-16",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231008555-bleach-quiz-4_2026-05-25_09-13-52_music.mp4",
+      "scheduled_facebook_id": "823787097208750"
     },
     {
       "post": 24,
@@ -434,12 +481,14 @@
         "kurenai",
         "hajimari",
         "owari",
-        "jōgen",
+        "jÅgen",
         "kagen"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-17"
+      "fb_date": "2026-06-17",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231016737-demon-slayer-quiz-4_2026-05-25_09-15-53_music.mp4",
+      "scheduled_facebook_id": "790075860737718"
     },
     {
       "post": 25,
@@ -457,7 +506,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-18"
+      "fb_date": "2026-06-18",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231028504-anime-core-quiz-5_2026-05-25_09-17-57_music.mp4",
+      "scheduled_facebook_id": "889729487471544"
     },
     {
       "post": 26,
@@ -475,7 +526,9 @@
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-19"
+      "fb_date": "2026-06-19",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231056050-one-piece-quiz-6_2026-05-25_09-19-58_music.mp4",
+      "scheduled_facebook_id": "1701953264335554"
     },
     {
       "post": 27,
@@ -487,13 +540,15 @@
       "words": [
         "katana",
         "chikara",
-        "shugyō",
+        "shugyÅ",
         "haiboku",
-        "chōsen"
+        "chÅsen"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-20"
+      "fb_date": "2026-06-20",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231066231-naruto-quiz-5_2026-05-30_17-13-27_music.mp4",
+      "scheduled_facebook_id": "847150385125596"
     },
     {
       "post": 28,
@@ -506,12 +561,14 @@
         "tensai",
         "junsui",
         "hokori",
-        "yūsha",
-        "tōshi"
+        "yÅ«sha",
+        "tÅshi"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-21"
+      "fb_date": "2026-06-21",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231077073-dragon-ball-quiz-5_2026-05-25_16-36-36.mp4",
+      "scheduled_facebook_id": "1041524668208495"
     },
     {
       "post": 29,
@@ -521,15 +578,17 @@
       "label": "Bleach",
       "part": 5,
       "words": [
-        "taichō",
-        "fukutaichō",
-        "sōtaichō",
+        "taichÅ",
+        "fukutaichÅ",
+        "sÅtaichÅ",
         "sekkan",
         "kizoku"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-22"
+      "fb_date": "2026-06-22",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231086464-bleach-quiz-5_2026-05-25_09-26-06_music.mp4",
+      "scheduled_facebook_id": "970343249238227"
     },
     {
       "post": 30,
@@ -543,11 +602,13 @@
         "uroko",
         "kasumi",
         "aza",
-        "yūkaku"
+        "yÅ«kaku"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
-      "fb_date": "2026-06-23"
+      "fb_date": "2026-06-23",
+      "blob_url": "https://hppj0kne2bayf2ld.public.blob.vercel-storage.com/instagram/1780231106361-demon-slayer-quiz-5_2026-05-25_09-28-10_music.mp4",
+      "scheduled_facebook_id": "955815520661528"
     },
     {
       "post": 31,
@@ -560,7 +621,7 @@
         "tsuyoi",
         "hayai",
         "yowai",
-        "ōkii",
+        "Åkii",
         "chiisai"
       ],
       "status": "pending",
@@ -611,11 +672,11 @@
       "label": "Dragon Ball",
       "part": 6,
       "words": [
-        "chō",
+        "chÅ",
         "kin'iro",
         "kakusei",
-        "kyōteki",
-        "chōetsu"
+        "kyÅteki",
+        "chÅetsu"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -630,7 +691,7 @@
       "part": 6,
       "words": [
         "kamen",
-        "fūin",
+        "fÅ«in",
         "reishi",
         "shugo",
         "fushi"
@@ -651,7 +712,7 @@
         "doku",
         "yaiba",
         "karasu",
-        "zenshūchū"
+        "zenshÅ«chÅ«"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -683,9 +744,9 @@
       "label": "One Piece",
       "part": 8,
       "words": [
-        "yūjō",
+        "yÅ«jÅ",
         "shinrai",
-        "shinyū",
+        "shinyÅ«",
         "kizuna",
         "chikai"
       ],
@@ -705,7 +766,7 @@
         "kage bunshin",
         "senjutsu",
         "sharingan",
-        "bijū"
+        "bijÅ«"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -776,7 +837,7 @@
         "ima",
         "ato",
         "mae",
-        "kyō",
+        "kyÅ",
         "ashita"
       ],
       "status": "pending",
@@ -811,7 +872,7 @@
       "words": [
         "kazoku",
         "raibaru",
-        "eiyū",
+        "eiyÅ«",
         "uzumaki",
         "tomodachi"
       ],
@@ -827,7 +888,7 @@
       "label": "Dragon Ball",
       "part": 8,
       "words": [
-        "seichō",
+        "seichÅ",
         "bakuhatsu",
         "jakuten",
         "kiryoku",
@@ -848,7 +909,7 @@
         "ikari",
         "kodoku",
         "kizu",
-        "yūjō",
+        "yÅ«jÅ",
         "chikai"
       ],
       "status": "pending",
@@ -899,7 +960,7 @@
       "label": "One Piece",
       "part": 10,
       "words": [
-        "yūki",
+        "yÅ«ki",
         "tsuyosa",
         "egao",
         "hikari",
@@ -919,7 +980,7 @@
       "words": [
         "akirame",
         "yurushi",
-        "shōri",
+        "shÅri",
         "mitomeru",
         "densetsu"
       ],
@@ -935,8 +996,8 @@
       "label": "Dragon Ball",
       "part": 9,
       "words": [
-        "shōri",
-        "sentōryoku",
+        "shÅri",
+        "sentÅryoku",
         "funnu",
         "mirai",
         "hogo"
@@ -953,8 +1014,8 @@
       "label": "Bleach",
       "part": 9,
       "words": [
-        "shugyō",
-        "tōshi",
+        "shugyÅ",
+        "tÅshi",
         "mushin",
         "kairiki",
         "shokei"
@@ -989,10 +1050,10 @@
       "label": "Anime Core",
       "part": 10,
       "words": [
-        "daijōbu",
+        "daijÅbu",
         "mada",
-        "mō",
-        "hontō",
+        "mÅ",
+        "hontÅ",
         "hayaku"
       ],
       "status": "pending",
@@ -1011,7 +1072,7 @@
         "machi",
         "samurai",
         "gensui",
-        "shōgun"
+        "shÅgun"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1026,7 +1087,7 @@
       "part": 10,
       "words": [
         "ki",
-        "honō",
+        "honÅ",
         "kumo",
         "mokuton",
         "shugo"
@@ -1046,7 +1107,7 @@
         "unmei",
         "isan",
         "hakai",
-        "yūki",
+        "yÅ«ki",
         "tamashii"
       ],
       "status": "pending",
@@ -1061,9 +1122,9 @@
       "label": "Bleach",
       "part": 10,
       "words": [
-        "kaihō",
+        "kaihÅ",
         "kokoro",
-        "kūkyo",
+        "kÅ«kyo",
         "unmei",
         "shimei"
       ],
@@ -1082,7 +1143,7 @@
         "kanashimi",
         "yorokobi",
         "ikari",
-        "kyōfu",
+        "kyÅfu",
         "ai"
       ],
       "status": "pending",
@@ -1117,9 +1178,9 @@
       "words": [
         "himitsu",
         "yoake",
-        "dōmei",
+        "dÅmei",
         "kakumei",
-        "kōkogakusha"
+        "kÅkogakusha"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1151,7 +1212,7 @@
       "label": "Dragon Ball",
       "part": 11,
       "words": [
-        "chikyū",
+        "chikyÅ«",
         "shizen",
         "mori",
         "umi",
@@ -1171,8 +1232,8 @@
       "words": [
         "ningen",
         "kazoku",
-        "gakkō",
-        "yūrei",
+        "gakkÅ",
+        "yÅ«rei",
         "kioku"
       ],
       "status": "pending",
@@ -1227,7 +1288,7 @@
         "yuki",
         "sabaku",
         "sakura",
-        "kōro"
+        "kÅro"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1243,8 +1304,8 @@
       "words": [
         "namae",
         "raiton",
-        "chūnin",
-        "jōnin",
+        "chÅ«nin",
+        "jÅnin",
         "konoha"
       ],
       "status": "pending",
@@ -1295,7 +1356,7 @@
       "label": "One Piece",
       "part": 14,
       "words": [
-        "taihō",
+        "taihÅ",
         "kaizokuki",
         "funadaiku",
         "sen'i",
@@ -1334,8 +1395,8 @@
         "shi",
         "gisei",
         "tensei",
-        "kyōkai",
-        "kinkō"
+        "kyÅkai",
+        "kinkÅ"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1349,9 +1410,9 @@
       "label": "My Hero Academia",
       "part": 1,
       "words": [
-        "gakkō",
+        "gakkÅ",
         "doryoku",
-        "kyūjo",
+        "kyÅ«jo",
         "akuyaku",
         "kosei"
       ],
@@ -1388,8 +1449,8 @@
         "roku",
         "nana",
         "hachi",
-        "kyū",
-        "jū"
+        "kyÅ«",
+        "jÅ«"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1403,7 +1464,7 @@
       "label": "One Piece",
       "part": 15,
       "words": [
-        "bushidō",
+        "bushidÅ",
         "katana",
         "yoroi",
         "hana",
@@ -1422,7 +1483,7 @@
       "part": 14,
       "words": [
         "akatsuki",
-        "zetsubō",
+        "zetsubÅ",
         "kurushimi",
         "ai",
         "sekai"
@@ -1443,7 +1504,7 @@
         "kioku",
         "inochi",
         "shi",
-        "kibō"
+        "kibÅ"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1475,7 +1536,7 @@
       "label": "One Piece",
       "part": 16,
       "words": [
-        "ryōri",
+        "ryÅri",
         "taberu",
         "niku",
         "sakana",
@@ -1493,10 +1554,10 @@
       "label": "Naruto",
       "part": 15,
       "words": [
-        "fūin",
+        "fÅ«in",
         "kinjutsu",
         "doton",
-        "fūton",
+        "fÅ«ton",
         "suiton"
       ],
       "status": "pending",
@@ -1512,9 +1573,9 @@
       "part": 2,
       "words": [
         "shiken",
-        "sainō",
+        "sainÅ",
         "shakai",
-        "shōchō",
+        "shÅchÅ",
         "sekinin"
       ],
       "status": "pending",
@@ -1530,10 +1591,10 @@
       "part": 2,
       "words": [
         "heishi",
-        "sensō",
+        "sensÅ",
         "meirei",
-        "kōgeki",
-        "bōei"
+        "kÅgeki",
+        "bÅei"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1549,7 +1610,7 @@
       "words": [
         "renkinjutsu",
         "rensei",
-        "tōka kōkan",
+        "tÅka kÅkan",
         "hagane",
         "tobira"
       ],
@@ -1565,8 +1626,8 @@
       "label": "Anime Core",
       "part": 16,
       "words": [
-        "ohayō",
-        "arigatō",
+        "ohayÅ",
+        "arigatÅ",
         "gomen",
         "sumimasen",
         "yatta"
@@ -1601,7 +1662,7 @@
       "label": "Naruto",
       "part": 16,
       "words": [
-        "sensō",
+        "sensÅ",
         "kessen",
         "mikata",
         "shi",
@@ -1622,7 +1683,7 @@
         "shinjitsu",
         "tsumi",
         "gisei",
-        "daishō",
+        "daishÅ",
         "tamashii"
       ],
       "status": "pending",
@@ -1639,9 +1700,9 @@
       "words": [
         "sekai",
         "jikan",
-        "bōken",
+        "bÅken",
         "kiken",
-        "kyōfu"
+        "kyÅfu"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1658,7 +1719,7 @@
         "chichi",
         "haha",
         "ani",
-        "imōto",
+        "imÅto",
         "kazoku"
       ],
       "status": "pending",
@@ -1711,8 +1772,8 @@
       "words": [
         "tsurugi",
         "tate",
-        "kōgeki",
-        "bōei",
+        "kÅgeki",
+        "bÅei",
         "wana"
       ],
       "status": "pending",
@@ -1745,7 +1806,7 @@
       "label": "My Hero Academia",
       "part": 3,
       "words": [
-        "chōsen",
+        "chÅsen",
         "ganbaru",
         "kokufuku",
         "genkai",
@@ -1763,10 +1824,10 @@
       "label": "Attack on Titan",
       "part": 3,
       "words": [
-        "jiyū",
+        "jiyÅ«",
         "dorei",
         "dasshutsu",
-        "rōgoku",
+        "rÅgoku",
         "kakumei"
       ],
       "status": "pending",
@@ -1782,7 +1843,7 @@
       "part": 4,
       "words": [
         "ani",
-        "otōto",
+        "otÅto",
         "chichi",
         "haha",
         "kazoku"
@@ -1836,10 +1897,10 @@
       "part": 4,
       "words": [
         "hokori",
-        "kōhai",
-        "seichō",
+        "kÅhai",
+        "seichÅ",
         "kakusei",
-        "chōnōryoku"
+        "chÅnÅryoku"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1873,9 +1934,9 @@
       "words": [
         "gun",
         "taisa",
-        "shōgun",
+        "shÅgun",
         "meirei",
-        "sensō"
+        "sensÅ"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1892,7 +1953,7 @@
         "nakama",
         "tomodachi",
         "kazoku",
-        "yūjō",
+        "yÅ«jÅ",
         "kizuna"
       ],
       "status": "pending",
@@ -1927,9 +1988,9 @@
       "words": [
         "hayasa",
         "bakuhatsu",
-        "kōri",
-        "tōmei",
-        "jūryoku"
+        "kÅri",
+        "tÅmei",
+        "jÅ«ryoku"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1943,11 +2004,11 @@
       "label": "Attack on Titan",
       "part": 5,
       "words": [
-        "kyōfu",
-        "zetsubō",
+        "kyÅfu",
+        "zetsubÅ",
         "ikari",
-        "kibō",
-        "yūki"
+        "kibÅ",
+        "yÅ«ki"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1963,9 +2024,9 @@
       "words": [
         "ikari",
         "kanashimi",
-        "kibō",
+        "kibÅ",
         "kodoku",
-        "aijō"
+        "aijÅ"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -1979,11 +2040,11 @@
       "label": "Sword Art Online",
       "part": 5,
       "words": [
-        "kibō",
-        "yūki",
+        "kibÅ",
+        "yÅ«ki",
         "kodoku",
         "kanashimi",
-        "aijō"
+        "aijÅ"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -2037,7 +2098,7 @@
         "chichi",
         "haha",
         "tomodachi",
-        "kyōdai"
+        "kyÅdai"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -2052,7 +2113,7 @@
       "part": 7,
       "words": [
         "chishiki",
-        "kenkyū",
+        "kenkyÅ«",
         "fushigi",
         "ninmu",
         "himitsu"
@@ -2069,9 +2130,9 @@
       "label": "Sword Art Online",
       "part": 6,
       "words": [
-        "shōri",
+        "shÅri",
         "haiboku",
-        "chōsen",
+        "chÅsen",
         "doryoku",
         "akirame"
       ],
@@ -2091,7 +2152,7 @@
         "mikata",
         "waza",
         "mahou",
-        "shōbu"
+        "shÅbu"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -2105,11 +2166,11 @@
       "label": "My Hero Academia",
       "part": 7,
       "words": [
-        "yūki",
+        "yÅ«ki",
         "kizuna",
-        "kōkeisha",
+        "kÅkeisha",
         "toppa",
-        "shōmei"
+        "shÅmei"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -2125,7 +2186,7 @@
       "words": [
         "shi",
         "inochi",
-        "shōri",
+        "shÅri",
         "haiboku",
         "gisei"
       ],
@@ -2177,9 +2238,9 @@
       "label": "Anime Core",
       "part": 23,
       "words": [
-        "gakkō",
+        "gakkÅ",
         "hon",
-        "benkyō",
+        "benkyÅ",
         "shiken",
         "kotae"
       ],
@@ -2231,7 +2292,7 @@
       "label": "Fullmetal Alchemist",
       "part": 9,
       "words": [
-        "honō",
+        "honÅ",
         "mizu",
         "tsuchi",
         "kaze",
@@ -2288,7 +2349,7 @@
         "seigi",
         "heiwa",
         "hanzai",
-        "hōritsu",
+        "hÅritsu",
         "anzen"
       ],
       "status": "pending",
@@ -2324,7 +2385,7 @@
         "tatakau",
         "mamoru",
         "nigeru",
-        "sōsaku",
+        "sÅsaku",
         "hakai"
       ],
       "status": "pending",
@@ -2394,8 +2455,8 @@
       "part": 10,
       "words": [
         "chikara",
-        "ō",
-        "eiyū",
+        "Å",
+        "eiyÅ«",
         "unmei",
         "akuma"
       ],
@@ -2411,7 +2472,7 @@
       "label": "Fullmetal Alchemist",
       "part": 11,
       "words": [
-        "yūki",
+        "yÅ«ki",
         "gaman",
         "akirame",
         "tsuyosa",
@@ -2430,9 +2491,9 @@
       "part": 10,
       "words": [
         "chikara",
-        "seichō",
+        "seichÅ",
         "keiken",
-        "jōtatsu",
+        "jÅtatsu",
         "tsuyosa"
       ],
       "status": "pending",
@@ -2468,8 +2529,8 @@
         "te",
         "ashi",
         "kaifuku",
-        "kōgeki",
-        "kyūkyoku"
+        "kÅgeki",
+        "kyÅ«kyoku"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -2485,9 +2546,9 @@
       "words": [
         "shingeki",
         "yoroi",
-        "kōka",
+        "kÅka",
         "henka",
-        "kyōryoku"
+        "kyÅryoku"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -2502,7 +2563,7 @@
       "part": 12,
       "words": [
         "unmei",
-        "jiyū",
+        "jiyÅ«",
         "heiwa",
         "seimei",
         "mirai"
@@ -2520,8 +2581,8 @@
       "part": 12,
       "words": [
         "yume",
-        "mokuhyō",
-        "shōrai",
+        "mokuhyÅ",
+        "shÅrai",
         "unmei",
         "jibun"
       ],
@@ -2576,7 +2637,7 @@
         "ningen",
         "heiwa",
         "tamashii",
-        "fukushū",
+        "fukushÅ«",
         "mirai"
       ],
       "status": "pending",
@@ -2591,7 +2652,7 @@
       "label": "Sword Art Online",
       "part": 12,
       "words": [
-        "jiyū",
+        "jiyÅ«",
         "unmei",
         "kami",
         "mirai",
@@ -2612,8 +2673,8 @@
         "chikara",
         "seishin",
         "inochi",
-        "yūki",
-        "kibō"
+        "yÅ«ki",
+        "kibÅ"
       ],
       "status": "pending",
       "scheduled_instagram_id": null,
@@ -2628,8 +2689,8 @@
       "part": 29,
       "words": [
         "yume",
-        "mokuhyō",
-        "shōrai",
+        "mokuhyÅ",
+        "shÅrai",
         "ganbaru",
         "akirameru"
       ],
@@ -2648,7 +2709,7 @@
         "nakama",
         "shinrai",
         "kizuna",
-        "yūjō",
+        "yÅ«jÅ",
         "ai"
       ],
       "status": "pending",

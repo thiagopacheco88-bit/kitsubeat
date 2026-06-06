@@ -1,14 +1,17 @@
 "use client";
 
 import type { AnimeCarouselSessionResult } from "@/app/actions/anime-carousel";
+import type { WordResult } from "./AnimeCarouselExerciseSession";
 
 interface AnimeSessionSummaryProps {
   result: AnimeCarouselSessionResult;
+  wordResults?: WordResult[];
   onBackToCarousel: () => void;
 }
 
 export default function AnimeSessionSummary({
   result,
+  wordResults = [],
   onBackToCarousel,
 }: AnimeSessionSummaryProps) {
   const accuracy =
@@ -18,7 +21,7 @@ export default function AnimeSessionSummary({
 
   return (
     <div className="max-w-md mx-auto flex flex-col items-center gap-6 py-12 text-center">
-      <div className="text-5xl">
+      <div className="session-emoji-pop text-5xl">
         {accuracy >= 80 ? "🎯" : accuracy >= 50 ? "📚" : "💪"}
       </div>
 
@@ -46,6 +49,32 @@ export default function AnimeSessionSummary({
           <span className="text-xs text-[var(--color-text-muted)]">Day streak</span>
         </div>
       </div>
+
+      {wordResults.length > 0 && (
+        <div className="w-full text-left">
+          <h3 className="mb-2 text-sm font-semibold text-[var(--color-text-muted)]">Words this session</h3>
+          <div className="flex flex-wrap gap-2">
+            {wordResults.map((w, i) => (
+              <span
+                key={i}
+                className={`inline-flex flex-col items-center rounded-[var(--radius-md)] border px-2.5 py-1.5 text-xs ${
+                  w.correct
+                    ? "border-green-500/40 bg-green-500/10"
+                    : "border-[var(--color-jlpt-n1-ring)] bg-[var(--color-jlpt-n1-bg)]"
+                }`}
+              >
+                <span className={`font-bold text-sm ${w.correct ? "text-[var(--color-text)]" : "text-[var(--color-jlpt-n1)]"}`}>
+                  {w.surface}
+                </span>
+                <span className="text-[var(--color-text-muted)]">{w.romaji}</span>
+                {!w.correct && w.meaning && (
+                  <span className="mt-0.5 text-[10px] text-[var(--color-text-muted)] italic">{w.meaning}</span>
+                )}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       <button
         onClick={onBackToCarousel}

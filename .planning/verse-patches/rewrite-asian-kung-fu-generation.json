@@ -1,0 +1,86 @@
+{
+  "patches": [
+    {
+      "replace_verse_number": 4,
+      "verse": {
+        "start_time_ms": 0,
+        "end_time_ms": 0,
+        "tokens": [
+          {
+            "surface": "「尊厳」",
+            "reading": "そんげん",
+            "romaji": "songen",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "\"dignity\" (cited as a concept)",
+              "pt-BR": "\"dignidade\" (citada como conceito)",
+              "es": "\"dignidad\" (citada como concepto)"
+            },
+            "jlpt_level": "N1"
+          },
+          {
+            "surface": "と",
+            "reading": "と",
+            "romaji": "to",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "and",
+              "pt-BR": "e",
+              "es": "y"
+            },
+            "jlpt_level": "N5"
+          },
+          {
+            "surface": "「自由」",
+            "reading": "じゆう",
+            "romaji": "jiyuu",
+            "grammar": "noun",
+            "grammar_color": "blue",
+            "meaning": {
+              "en": "\"freedom\" (cited as a concept)",
+              "pt-BR": "\"liberdade\" (citada como conceito)",
+              "es": "\"libertad\" (citada como concepto)"
+            },
+            "jlpt_level": "N4"
+          },
+          {
+            "surface": "で",
+            "reading": "で",
+            "romaji": "de",
+            "grammar": "particle",
+            "grammar_color": "grey",
+            "meaning": {
+              "en": "with; between (instrument/means)",
+              "pt-BR": "com; entre (instrumento/meio)",
+              "es": "con; entre (instrumento/medio)"
+            },
+            "jlpt_level": "N5"
+          },
+          {
+            "surface": "矛盾してるよ",
+            "reading": "むじゅんしてるよ",
+            "romaji": "mujun shiteru yo",
+            "grammar": "verb",
+            "grammar_color": "red",
+            "meaning": {
+              "en": "contradicting each other, you know (矛盾する contracted + よ)",
+              "pt-BR": "se contradizem, entende (矛盾する contraído + よ)",
+              "es": "se contradicen, ¿sabes? (矛盾する contraído + よ)"
+            },
+            "jlpt_level": "N2"
+          }
+        ],
+        "translations": {
+          "en": "\"Dignity\" and \"freedom\" contradict each other, you know",
+          "pt-BR": "\"Dignidade\" e \"liberdade\" se contradizem, entende",
+          "es": "\"Dignidad\" y \"libertad\" se contradicen, ¿sabes?"
+        },
+        "literal_meaning": {
+          "en": "\"dignity\" + and + \"freedom\" + with/between + contradicting (you know)"
+        }
+      }
+    }
+  ]
+}

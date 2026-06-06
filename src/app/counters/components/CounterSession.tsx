@@ -11,6 +11,7 @@ import {
 } from "@/lib/counters/selection";
 import type { CounterQuestion as CQ, DrillDirection } from "@/lib/counters/types";
 import { CounterQuestionCard } from "./CounterQuestionCard";
+import { CounterLearnCard } from "./CounterLearnCard";
 
 interface AnswerLog {
   counterId: string;
@@ -33,6 +34,7 @@ export function CounterSession() {
   const hasHydrated = useCounterProgress((s) => s._hasHydrated);
   const mastery = useCounterProgress((s) => s.mastery);
   const applyAnswer = useCounterProgress((s) => s.applyAnswer);
+  const setStars = useCounterProgress((s) => s.setStars);
 
   // Snapshot at session start — pool is fixed for these 20 questions.
   const startSnapshot = useRef<{
@@ -91,17 +93,30 @@ export function CounterSession() {
 
   // Session complete — send to summary.
   if (index >= SESSION_LENGTH) {
+    const correct = answerLog.filter((a) => a.correct).length;
+    const accuracy = Math.round((correct / SESSION_LENGTH) * 100);
+    const starsGained = answerLog.reduce((sum, a) => sum + Math.max(0, a.starsAfter - a.starsBefore), 0);
     return (
-      <div className="flex flex-col items-center gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center shadow-[var(--shadow-card-ring-strong)]">
-        <h2 className="text-2xl font-bold text-[var(--color-text)]">Session complete</h2>
-        <p className="text-sm text-[var(--color-text-muted)]">
-          Answered {answerLog.filter((a) => a.correct).length}/{SESSION_LENGTH} correctly.
-        </p>
+      <div className="flex flex-col items-center gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center shadow-[var(--shadow-card-ring-strong)]">
+        <div className="session-emoji-pop text-5xl">
+          {accuracy >= 80 ? "🎯" : accuracy >= 50 ? "📚" : "💪"}
+        </div>
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl font-bold text-[var(--color-text)]">Session complete!</h2>
+          <p className="text-[var(--color-text-muted)]">
+            {correct} / {SESSION_LENGTH} correct · {accuracy}%
+          </p>
+          {starsGained > 0 && (
+            <p className="text-sm font-semibold text-[var(--color-jlpt-n5)]">
+              ★ +{starsGained} stars earned
+            </p>
+          )}
+        </div>
         <Link
           href="/counters/session/summary"
           className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-5 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
-          See summary
+          See summary →
         </Link>
       </div>
     );
@@ -109,6 +124,31 @@ export function CounterSession() {
 
   const current = session[index];
   const correctStarsBefore = (mastery[current.counter.id] ?? 0);
+
+  // 0-star → introduce the counter before drilling it
+  if (correctStarsBefore === 0) {
+    return (
+      <SessionFrame index={index} total={SESSION_LENGTH}>
+        <CounterLearnCard
+          counter={current.counter}
+          onGotIt={() => {
+            setStars(current.counter.id, 1);
+            setAnswerLog((log) => [
+              ...log,
+              {
+                counterId: current.counter.id,
+                direction: current.direction,
+                correct: true,
+                starsBefore: 0,
+                starsAfter: 1,
+              },
+            ]);
+            setIndex((i) => i + 1);
+          }}
+        />
+      </SessionFrame>
+    );
+  }
 
   // Correct answer for this question.
   const correctAnswer =

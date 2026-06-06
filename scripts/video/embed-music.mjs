@@ -22,7 +22,7 @@ import { fileURLToPath } from 'url';
 import { execSync, spawnSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT      = join(__dirname, '..');
+const ROOT      = join(__dirname, '../..');
 const MUSIC_DIR = join(ROOT, 'videos', 'music');
 
 // ─── CLI args ────────────────────────────────────────────────────────────────
@@ -71,12 +71,14 @@ function findMusic(name) {
   return found ? found.full : null;
 }
 
-const reelsMusic = findMusic(series.music);
-const ytMusic    = findMusic(series.yt_music);
+const reelsMusic  = findMusic(series.music);
+const ytMusic     = findMusic(series.yt_music);
+const MUSIC_START = series.music_start ?? 0;
 
 console.log(`\n🎵 ${series.label} — music embed`);
 console.log(`   Reels : ${reelsMusic ? basename(reelsMusic) : '✗ not found (set "music" in catalog.json)'}`);
 console.log(`   YT    : ${ytMusic    ? basename(ytMusic)    : '✗ not found (set "yt_music" in catalog.json)'}`);
+console.log(`   Start : ${MUSIC_START}s`);
 console.log('');
 
 // ─── Process parts ───────────────────────────────────────────────────────────
@@ -140,10 +142,10 @@ for (const part of parts) {
         '-i', inputPath,
         '-i', musicPath,
         '-filter_complex',
-          `[0:v]format=yuv420p[thumb];` +
+          `[0:v]scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2,setsar=1,format=yuv420p[thumb];` +
           `[thumb][1:v]concat=n=2:v=1:a=0[outv];` +
           `[1:a]adelay=${frameDelayMs}|${frameDelayMs},asetpts=PTS-STARTPTS[voice];` +
-          `[2:a]atrim=0:${totalDur},afade=t=out:st=${fadeStart}:d=3,volume=0.15,asetpts=PTS-STARTPTS[music];` +
+          `[2:a]atrim=${MUSIC_START}:${MUSIC_START + parseFloat(totalDur)},afade=t=out:st=${fadeStart}:d=3,volume=0.35,asetpts=PTS-STARTPTS[music];` +
           `[voice][music]amix=inputs=2:duration=first[outa]`,
         '-map', '[outv]',
         '-map', '[outa]',
@@ -160,7 +162,7 @@ for (const part of parts) {
         '-i', musicPath,
         '-filter_complex',
           `[0:a]asetpts=PTS-STARTPTS[voice];` +
-          `[1:a]atrim=0:${dur},afade=t=out:st=${fadeStart}:d=3,volume=0.15,asetpts=PTS-STARTPTS[music];` +
+          `[1:a]atrim=${MUSIC_START}:${MUSIC_START + dur},afade=t=out:st=${fadeStart}:d=3,volume=0.35,asetpts=PTS-STARTPTS[music];` +
           `[voice][music]amix=inputs=2:duration=first[outa]`,
         '-map', '0:v',
         '-map', '[outa]',

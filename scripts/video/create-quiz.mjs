@@ -62,6 +62,46 @@ if (!part) {
   process.exit(1);
 }
 
+// ─── Validate quiz questions before creating any files ────────────────────────
+
+function validatePart(words, seriesLabel, partNumber) {
+  const errors = [];
+  const romajiMap = new Map(words.map(w => [w.romaji.toLowerCase(), w.id]));
+
+  for (const w of words) {
+    const q   = w.q.toLowerCase();
+    const ans = w.romaji.toLowerCase();
+    const pat = new RegExp(`\\b${ans.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
+
+    if (pat.test(q)) {
+      errors.push(`  SELF_REF [${w.id}]: question "${w.q}" contains the answer romaji "${w.romaji}"`);
+    }
+
+    const seen = new Set();
+    for (const d of w.wrong) {
+      const dr = d.r.toLowerCase();
+      if (dr === ans) {
+        errors.push(`  WRONG_EQUALS_CORRECT [${w.id}]: distractor "${d.r}" equals correct answer`);
+      }
+      if (seen.has(dr)) {
+        errors.push(`  DUPE_WRONG [${w.id}]: duplicate distractor "${d.r}"`);
+      }
+      seen.add(dr);
+    }
+  }
+
+  if (errors.length > 0) {
+    console.error(`\n✗ Quiz validation failed — ${seriesLabel} Part ${partNumber}:`);
+    errors.forEach(e => console.error(e));
+    console.error('\nFix the word-bank file and retry. Run: npx tsx --tsconfig tsconfig.scripts.json scripts/social/validate-quiz-banks.ts');
+    process.exit(1);
+  }
+}
+
+validatePart(part.words, bank.label, partNum);
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 const words = part.words.slice(0, 5);
 if (words.length < 5) {
   console.error(`✗ Part ${partNum} has only ${words.length} words — need 5`);
@@ -139,14 +179,18 @@ const questions = words.map((word, idx) => {
     .filter((_, i) => i !== correctIdx)
     .map(l => `'#q${idx + 1}${l}'`);
 
-  // Insert <br> before the quoted word in the question
-  const qText = word.q.replace(/"([^"]+)"/, '<br>"$1"');
+  // Famous terms: show JP term and ask for English meaning (inverse)
+  const inverse = word.famous === true;
+  const qText = inverse
+    ? `What does ${word.jp} (${word.romaji}) mean?`
+    : word.q.replace(/"([^"]+)"/, '<br>"$1"');
 
   return {
     n:         idx + 1,
     start:     idx * 14,
     text:      qText,
     options,
+    inverse,
     kanji:     word.jp,
     romajiEn:  `${word.romaji} — ${word.en}`,
     correctId,
@@ -167,12 +211,16 @@ const compId    = `kitsubeat-${animeSlug}-quiz-${partNum}`;
 const partLabel = partNum === 1 ? 'Part 1' : `Pt. ${partNum}`;
 const logoRef   = hasLogo ? `assets/${animeSlug}-logo.png` : 'assets/apple-touch-icon.png';
 
+const LOGO_FILTERS = { 'bleach': 'invert(1)', 'attack-on-titan': 'invert(1)' };
+const logoStyle = LOGO_FILTERS[animeSlug] ? ` style="filter: ${LOGO_FILTERS[animeSlug]}"` : '';
+
 function buildQuestionsHtml() {
   return questions.map(q => {
     const optLines = q.options.map((opt, i) => {
-      const ltr = 'ABCD'[i];
-      const id  = `q${q.n}${'abcd'[i]}`;
-      return `      <div class="option" id="${id}"><span class="opt-label">${ltr}</span><span class="opt-romaji">${opt.r}</span></div>`;
+      const ltr  = 'ABCD'[i];
+      const id   = `q${q.n}${'abcd'[i]}`;
+      const text = q.inverse ? opt.e : opt.r;
+      return `      <div class="option" id="${id}"><span class="opt-label">${ltr}</span><span class="opt-romaji">${text}</span></div>`;
     }).join('\n');
 
     return `  <!-- ─── Q${q.n}: ${q.options.find(o => o.correct).e} ─── -->
@@ -221,8 +269,9 @@ const html = template
   .replace(/\{\{COMP_ID\}\}/g,       compId)
   .replace(/\{\{ANIME_LABEL\}\}/g,   bank.label)
   .replace(/\{\{PART_LABEL\}\}/g,    partLabel)
-  .replace(/\{\{ANIME_LOGO\}\}/g,    logoRef)
-  .replace(/\{\{ANIME_LOGO_ALT\}\}/g, bank.label)
+  .replace(/\{\{ANIME_LOGO\}\}/g,       logoRef)
+  .replace(/\{\{ANIME_LOGO_ALT\}\}/g,  bank.label)
+  .replace(/\{\{ANIME_LOGO_STYLE\}\}/g, logoStyle)
   .replace('{{QUESTIONS_HTML}}',     buildQuestionsHtml())
   .replace('{{AUDIO_TAGS}}',         buildAudioTags())
   .replace('{{QUESTIONS_JS}}',       buildQuestionsJs());
@@ -356,9 +405,27 @@ try {
   ], { stdio: 'inherit' });
 
   if (result.status !== 0) throw new Error('exit ' + result.status);
-  console.log('✓ thumbnail.png');
+  console.log('✓ thumbnail.png (landscape, YouTube)');
 } catch (e) {
   console.warn(`⚠ Thumbnail generation failed: ${e.message}`);
+}
+
+// Portrait reel thumbnail (1080×1920) for Instagram/TikTok cover
+const reelTemplatePath = join(ROOT, 'public', 'thumbnails', `${animeSlug}.html`);
+if (existsSync(reelTemplatePath)) {
+  console.log('\n🖼  Generating portrait thumbnail (reel cover)...');
+  try {
+    const result = spawnSync('node', [
+      join(__dirname, 'gen-reel-thumbnail.cjs'),
+      '--anime', animeSlug,
+      '--part',  String(partNum),
+    ], { stdio: 'inherit' });
+    if (result.status !== 0) throw new Error('exit ' + result.status);
+  } catch (e) {
+    console.warn(`⚠ Portrait thumbnail failed: ${e.message}`);
+  }
+} else {
+  console.warn(`⚠ No portrait template — skipping reel cover (add public/thumbnails/${animeSlug}.html)`);
 }
 
 // ─── Generate social.json ─────────────────────────────────────────────────────

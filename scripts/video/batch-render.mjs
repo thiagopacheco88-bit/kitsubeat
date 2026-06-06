@@ -25,7 +25,7 @@ import { fileURLToPath } from 'url';
 import { spawnSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT      = join(__dirname, '..');
+const ROOT      = join(__dirname, '../..');
 
 // ── Args ─────────────────────────────────────────────────────────────────────
 

@@ -82,6 +82,8 @@ export function KanaQuestionCard({
     if (chosen !== null) return;
     setChosen(option);
     onAnswer(option === correctRomaji);
+    // Speak the kana on reveal — same reinforcement pattern as CounterQuestionCard
+    speakJapanese(kana);
   };
 
   // Keyboard shortcuts: 1-4 selects option; Space/Enter continues after feedback.

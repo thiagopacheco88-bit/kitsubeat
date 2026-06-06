@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { localize, type Localizable } from "@/lib/types/lesson";
 import { parseRuleName } from "@/lib/grammar/rule-name";
@@ -106,6 +107,14 @@ export default function GrammarRuleIntroCard({ rule, lang = "en", onContinue }: 
           </button>
         )}
       </div>
+
+      {/* Verb drills nudge — grammar rules always involve verb forms */}
+      <Link
+        href="/verbs"
+        className="self-start rounded-[var(--radius-pill)] border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-text-dim)] no-underline transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text)]"
+      >
+        💡 Practice verb forms →
+      </Link>
 
       <Button type="button" variant="primary" size="sm" onClick={onContinue} className="self-end">
         Got it — start practice

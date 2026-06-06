@@ -25,7 +25,7 @@ if (!animeSlug) {
   process.exit(1);
 }
 
-const ROOT       = path.join(__dirname, '..');
+const ROOT       = path.join(__dirname, '../..');
 const htmlPath   = path.join(ROOT, 'public', 'thumbnails', `${animeSlug}.html`);
 const folderName = partNum === 1 ? `${animeSlug}-quiz` : `${animeSlug}-quiz-${partNum}`;
 const outDir     = path.join(ROOT, 'videos', folderName);

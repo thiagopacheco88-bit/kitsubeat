@@ -15,7 +15,7 @@
       },
       "jlpt_level": "N2",
       "category": "shinigami",
-      "context": "Ichigo's core identity — Soul Reapers guide souls to the afterlife and battle Hollows to protect both the living and the dead."
+      "context": "Ichigo's core identity. Soul Reapers guide souls to the afterlife and battle Hollows to protect both the living and the dead."
     },
     {
       "surface": "魂魄",
@@ -28,7 +28,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "The spiritual essence that separates from the body at death — purifying lost souls is the fundamental duty of every Soul Reaper."
+      "context": "The spiritual essence that separates from the body at death. Purifying lost souls is the fundamental duty of every Soul Reaper."
     },
     {
       "surface": "霊圧",
@@ -41,7 +41,7 @@
       },
       "jlpt_level": null,
       "category": "power",
-      "context": "The tangible force exerted by a Soul Reaper's or Hollow's spiritual energy — when Ichigo's reiatsu explodes, even captains take notice."
+      "context": "The tangible force exerted by a Soul Reaper's or Hollow's spiritual energy. When Ichigo's reiatsu explodes, even captains take notice."
     },
     {
       "surface": "霊力",
@@ -54,7 +54,7 @@
       },
       "jlpt_level": null,
       "category": "power",
-      "context": "The raw spiritual energy that fuels every technique — a Soul Reaper's strength is measured by the volume and quality of their reiryoku."
+      "context": "The raw spiritual energy that fuels every technique. A Soul Reaper's strength is measured by the volume and quality of their reiryoku."
     },
     {
       "surface": "現世",
@@ -80,7 +80,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "The afterlife realm ruled by the Gotei 13 — Ichigo invades it to rescue Rukia, setting off the first major arc of the series."
+      "context": "The afterlife realm ruled by the Gotei 13. Ichigo invades it to rescue Rukia, setting off the first major arc of the series."
     },
     {
       "surface": "護廷十三隊",
@@ -93,7 +93,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "The thirteen military divisions of Soul Society — each led by a captain, they are the first and last line of defense against Hollows and rogue Reapers."
+      "context": "The thirteen military divisions of Soul Society. Each led by a captain, they are the first and last line of defense against Hollows and rogue Reapers."
     },
     {
       "surface": "斬魄刀",
@@ -106,7 +106,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The signature weapon of every Soul Reaper — each zanpakutō has its own name, spirit, and unique power waiting to be awakened."
+      "context": "The signature weapon of every Soul Reaper. Each zanpakutō has its own name, spirit, and unique power waiting to be awakened."
     },
     {
       "surface": "始解",
@@ -119,7 +119,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The first unlocked form of a zanpakutō, activated by calling its name — the minimum requirement to become a seated officer in the Gotei 13."
+      "context": "The first unlocked form of a zanpakutō, activated by calling its name. The minimum requirement to become a seated officer in the Gotei 13."
     },
     {
       "surface": "卍解",
@@ -132,7 +132,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The ultimate form of a zanpakutō, typically requiring ten or more years to master — achieving bankai is the threshold between lieutenant and captain class."
+      "context": "The ultimate form of a zanpakutō, typically requiring ten or more years to master. Achieving bankai is the threshold between lieutenant and captain class."
     },
     {
       "surface": "解号",
@@ -145,7 +145,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The verbal trigger spoken to activate shikai — phrases like 'Reign over the frosted heavens' or 'Smash' reflect each zanpakutō's unique nature."
+      "context": "The verbal trigger spoken to activate shikai. Phrases like 'Reign over the frosted heavens' or 'Smash' reflect each zanpakutō's unique nature."
     },
     {
       "surface": "内なる世界",
@@ -158,7 +158,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The spiritual landscape inside a Soul Reaper's soul where their zanpakutō spirit resides — Ichigo's inner world is a perpetually rain-soaked skyscraper city."
+      "context": "The spiritual landscape inside a Soul Reaper's soul where their zanpakutō spirit resides. Ichigo's inner world is a perpetually rain-soaked skyscraper city."
     },
     {
       "surface": "鬼道",
@@ -171,7 +171,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Spell-based combat techniques used by Soul Reapers — divided into binding spells and destructive spells, mastery is the hallmark of captains like Byakuya and Aizen."
+      "context": "Spell-based combat techniques used by Soul Reapers. Divided into binding spells and destructive spells, mastery is the hallmark of captains like Byakuya and Aizen."
     },
     {
       "surface": "縛道",
@@ -184,7 +184,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The defensive and restraining branch of kidō — spells that immobilize, bind, or trap enemies without direct destruction."
+      "context": "The defensive and restraining branch of kidō. Spells that immobilize, bind, or trap enemies without direct destruction."
     },
     {
       "surface": "破道",
@@ -197,7 +197,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The offensive branch of kidō — high-numbered hadō like Ryūjin Jakka's flames or Getsuga Tenshō-level blasts can level entire districts."
+      "context": "The offensive branch of kidō. High-numbered hadō like Ryūjin Jakka's flames or Getsuga Tenshō-level blasts can level entire districts."
     },
     {
       "surface": "虚",
@@ -210,7 +210,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "Souls that lose their hearts become Hollows — monstrous spirits that devour other souls and must be purified by a Soul Reaper's blade."
+      "context": "Souls that lose their hearts become Hollows. Monstrous spirits that devour other souls and must be purified by a Soul Reaper's blade."
     },
     {
       "surface": "大虚",
@@ -223,7 +223,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "Massive Hollows formed when many weaker Hollows fuse together — their appearance signals a threat far beyond the reach of ordinary Soul Reapers."
+      "context": "Massive Hollows formed when many weaker Hollows fuse together. Their appearance signals a threat far beyond the reach of ordinary Soul Reapers."
     },
     {
       "surface": "虚化",
@@ -236,7 +236,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "The terrifying process of a Soul Reaper merging with Hollow powers — Ichigo's inner Hollow represents both his greatest threat and his most fearsome strength."
+      "context": "The terrifying process of a Soul Reaper merging with Hollow powers. Ichigo's inner Hollow represents both his greatest threat and his most fearsome strength."
     },
     {
       "surface": "虚圏",
@@ -249,7 +249,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "The barren desert dimension between the living world and Soul Society where Hollows roam — Aizen transforms it into his base of operations."
+      "context": "The barren desert dimension between the living world and Soul Society where Hollows roam. Aizen transforms it into his base of operations."
     },
     {
       "surface": "仮面",
@@ -262,7 +262,7 @@
       },
       "jlpt_level": "N3",
       "category": "hollow",
-      "context": "The bone-white mask is the mark of a Hollow — when Ichigo's own mask appears in battle, it amplifies his power at the cost of his humanity."
+      "context": "The bone-white mask is the mark of a Hollow. When Ichigo's own mask appears in battle, it amplifies his power at the cost of his humanity."
     },
     {
       "surface": "十刃",
@@ -275,7 +275,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "Aizen's ten most powerful Arrancar — each Espada represents an aspect of death and commands armies in Hueco Mundo."
+      "context": "Aizen's ten most powerful Arrancar. Each Espada represents an aspect of death and commands armies in Hueco Mundo."
     },
     {
       "surface": "隊長",
@@ -288,7 +288,7 @@
       },
       "jlpt_level": "N3",
       "category": "ranks",
-      "context": "The leader of each of the Gotei 13's thirteen squads — captains wield bankai and are the most feared warriors in Soul Society."
+      "context": "The leader of each of the Gotei 13's thirteen squads. Captains wield bankai and are the most feared warriors in Soul Society."
     },
     {
       "surface": "副隊長",
@@ -301,7 +301,7 @@
       },
       "jlpt_level": null,
       "category": "ranks",
-      "context": "The second-in-command of each squad — Renji Abarai serves under Captain Byakuya while secretly pushing to surpass him."
+      "context": "The second-in-command of each squad. Renji Abarai serves under Captain Byakuya while secretly pushing to surpass him."
     },
     {
       "surface": "席官",
@@ -314,7 +314,7 @@
       },
       "jlpt_level": null,
       "category": "ranks",
-      "context": "Numbered officers within each squad, from 3rd seat down — Ichigo's friends Chad and Orihime would rank here by power, though they are not Soul Reapers."
+      "context": "Numbered officers within each squad, from 3rd seat down. Ichigo's friends Chad and Orihime would rank here by power, though they are not Soul Reapers."
     },
     {
       "surface": "中央四十六室",
@@ -327,7 +327,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "The supreme governing body of Soul Society, composed of forty sages and six judges — their secret massacre by Aizen shakes the very foundation of Seireitei."
+      "context": "The supreme governing body of Soul Society, composed of forty sages and six judges. Their secret massacre by Aizen shakes the very foundation of Seireitei."
     },
     {
       "surface": "瀞霊廷",
@@ -340,7 +340,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "The walled inner city of Soul Society where the Gotei 13 squads are headquartered — breaching its gates is the central mission of the Soul Society arc."
+      "context": "The walled inner city of Soul Society where the Gotei 13 squads are headquartered. Breaching its gates is the central mission of the Soul Society arc."
     },
     {
       "surface": "流魂街",
@@ -353,7 +353,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "The vast slum districts surrounding Seireitei where ordinary souls live — Rukia grew up here, and its desperate poverty drives many characters' ambitions."
+      "context": "The vast slum districts surrounding Seireitei where ordinary souls live. Rukia grew up here, and its desperate poverty drives many characters' ambitions."
     },
     {
       "surface": "崩玉",
@@ -366,7 +366,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "A mysterious device created by Urahara and perfected by Aizen — it dissolves the boundary between Soul Reaper and Hollow, granting terrifying hybrid power."
+      "context": "A mysterious device created by Urahara and perfected by Aizen. It dissolves the boundary between Soul Reaper and Hollow, granting terrifying hybrid power."
     },
     {
       "surface": "瞬歩",
@@ -379,7 +379,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "The high-speed movement technique of Soul Reapers — Yoruichi's mastery of shunpo earned her the title 'Flash Goddess.'"
+      "context": "The high-speed movement technique of Soul Reapers. Yoruichi's mastery of shunpo earned her the title 'Flash Goddess.'"
     },
     {
       "surface": "斬撃",
@@ -392,7 +392,7 @@
       },
       "jlpt_level": "N1",
       "category": "combat",
-      "context": "The fundamental attack of every Soul Reaper — Ichigo's raw slashing power overwhelms opponents even before he masters any technique."
+      "context": "The fundamental attack of every Soul Reaper. Ichigo's raw slashing power overwhelms opponents even before he masters any technique."
     },
     {
       "surface": "月牙天衝",
@@ -405,7 +405,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "Ichigo's signature zanpakutō technique — a concentrated wave of black-red reiatsu that can cleave mountains when unleashed at full power."
+      "context": "Ichigo's signature zanpakutō technique. A concentrated wave of black-red reiatsu that can cleave mountains when unleashed at full power."
     },
     {
       "surface": "虚閃",
@@ -418,7 +418,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "The devastating energy beam fired by Hollows and Arrancar — the color of a Cero reveals its user's power level and personality."
+      "context": "The devastating energy beam fired by Hollows and Arrancar. The color of a Cero reveals its user's power level and personality."
     },
     {
       "surface": "黒腔",
@@ -431,7 +431,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "A tear in dimensional space used by Hollows and Arrancars to travel between worlds — stepping through one leads into the dark void between dimensions."
+      "context": "A tear in dimensional space used by Hollows and Arrancars to travel between worlds. Stepping through one leads into the dark void between dimensions."
     },
     {
       "surface": "封印",
@@ -444,7 +444,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "The act of binding or suppressing spiritual power — Rukia's powers are sealed inside Ichigo's body, triggering the entire plot of Bleach."
+      "context": "The act of binding or suppressing spiritual power. Rukia's powers are sealed inside Ichigo's body, triggering the entire plot of Bleach."
     },
     {
       "surface": "魂",
@@ -457,7 +457,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "The central concept of Bleach — every conflict ultimately concerns the fate of souls, whether protecting them, harvesting them, or transcending their limits."
+      "context": "The central concept of Bleach. Every conflict ultimately concerns the fate of souls, whether protecting them, harvesting them, or transcending their limits."
     },
     {
       "surface": "死",
@@ -470,7 +470,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "The series confronts death unflinchingly — Soul Reapers exist because of it, Hollows are born from it, and every major arc forces characters to face their own mortality."
+      "context": "The series confronts death unflinchingly. Soul Reapers exist because of it, Hollows are born from it, and every major arc forces characters to face their own mortality."
     },
     {
       "surface": "守護",
@@ -483,7 +483,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Ichigo's driving motivation — his absolute refusal to let anyone in his sight be hurt defines his fighting style and every major decision he makes."
+      "context": "Ichigo's driving motivation. His absolute refusal to let anyone in his sight be hurt defines his fighting style and every major decision he makes."
     },
     {
       "surface": "覚悟",
@@ -496,7 +496,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "A word repeated constantly in Bleach — warriors must steel themselves to face death, sacrifice, and the consequences of their choices."
+      "context": "A word repeated constantly in Bleach. Warriors must steel themselves to face death, sacrifice, and the consequences of their choices."
     },
     {
       "surface": "誇り",
@@ -509,7 +509,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Byakuya Kuchiki embodies pride as a noble ideal — his pride in his clan's name forces him into tragic conflict with his own feelings for Rukia."
+      "context": "Byakuya Kuchiki embodies pride as a noble ideal. His pride in his clan's name forces him into tragic conflict with his own feelings for Rukia."
     },
     {
       "surface": "罪",
@@ -522,7 +522,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Many Soul Reapers carry sins from their past — Aizen's crimes against Soul Society and his former subordinates define the entire Arrancar arc."
+      "context": "Many Soul Reapers carry sins from their past. Aizen's crimes against Soul Society and his former subordinates define the entire Arrancar arc."
     },
     {
       "surface": "贖罪",
@@ -535,7 +535,7 @@
       },
       "jlpt_level": "N1",
       "category": "themes",
-      "context": "Characters like Gin Ichimaru and Renji Abarai are driven by the need to atone — their painful pasts make their eventual choices all the more powerful."
+      "context": "Characters like Gin Ichimaru and Renji Abarai are driven by the need to atone. Their painful pasts make their eventual choices all the more powerful."
     },
     {
       "surface": "絆",
@@ -548,7 +548,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "The bonds between Ichigo and his friends — Orihime, Chad, Uryu, and Rukia — are the source of his power and the reason he keeps fighting beyond his limits."
+      "context": "The bonds between Ichigo and his friends. Orihime, Chad, Uryu, and Rukia. Are the source of his power and the reason he keeps fighting beyond his limits."
     },
     {
       "surface": "裏切り",
@@ -561,7 +561,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Aizen's revelation that he manipulated Soul Society for centuries is the ultimate betrayal — few anime twists are as devastating as the end of the Soul Society arc."
+      "context": "Aizen's revelation that he manipulated Soul Society for centuries is the ultimate betrayal. Few anime twists are as devastating as the end of the Soul Society arc."
     },
     {
       "surface": "変革",
@@ -574,7 +574,7 @@
       },
       "jlpt_level": "N1",
       "category": "themes",
-      "context": "Aizen declares he will change the very order of Soul Society and the world — his ambition for change is the engine of the entire middle portion of the series."
+      "context": "Aizen declares he will change the very order of Soul Society and the world. His ambition for change is the engine of the entire middle portion of the series."
     },
     {
       "surface": "力",
@@ -587,7 +587,7 @@
       },
       "jlpt_level": "N5",
       "category": "themes",
-      "context": "The eternal question in Bleach — is power a tool for protection or a burden that destroys the one who wields it? Ichigo constantly grapples with this."
+      "context": "The eternal question in Bleach. Is power a tool for protection or a burden that destroys the one who wields it? Ichigo constantly grapples with this."
     },
     {
       "surface": "隊",
@@ -600,7 +600,7 @@
       },
       "jlpt_level": "N3",
       "category": "ranks",
-      "context": "The basic organizational unit of the Gotei 13 — each of the thirteen squads has a distinct specialty, captain, and cultural identity."
+      "context": "The basic organizational unit of the Gotei 13. Each of the thirteen squads has a distinct specialty, captain, and cultural identity."
     },
     {
       "surface": "総隊長",
@@ -613,7 +613,7 @@
       },
       "jlpt_level": null,
       "category": "ranks",
-      "context": "The supreme military leader of the Gotei 13 — Genryūsai Shigekuni Yamamoto held this title for over a thousand years before his death shook Soul Society."
+      "context": "The supreme military leader of the Gotei 13. Genryūsai Shigekuni Yamamoto held this title for over a thousand years before his death shook Soul Society."
     },
     {
       "surface": "貴族",
@@ -626,7 +626,7 @@
       },
       "jlpt_level": "N2",
       "category": "soul_society",
-      "context": "The noble houses of Soul Society — the Kuchiki, Shiba, and other noble clans wield enormous political power alongside their formidable combat ability."
+      "context": "The noble houses of Soul Society. The Kuchiki, Shiba, and other noble clans wield enormous political power alongside their formidable combat ability."
     },
     {
       "surface": "隠密機動",
@@ -639,7 +639,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "The covert operations corps of Soul Society, formerly led by Yoruichi Shihōin — specializing in assassination, reconnaissance, and the detention of criminals."
+      "context": "The covert operations corps of Soul Society, formerly led by Yoruichi Shihōin. Specializing in assassination, reconnaissance, and the detention of criminals."
     },
     {
       "surface": "技術開発局",
@@ -652,7 +652,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "Mayuri Kurotsuchi's domain — a place of terrifying scientific experimentation where the boundary between research and torture is deliberately blurred."
+      "context": "Mayuri Kurotsuchi's domain. A place of terrifying scientific experimentation where the boundary between research and torture is deliberately blurred."
     },
     {
       "surface": "アランカル",
@@ -665,7 +665,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "Hollows who have removed their masks and gained Soul Reaper-like powers — Aizen's army of Arrancars represents the most dangerous force in the series."
+      "context": "Hollows who have removed their masks and gained Soul Reaper-like powers. Aizen's army of Arrancars represents the most dangerous force in the series."
     },
     {
       "surface": "帰刃",
@@ -678,7 +678,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "An Arrancar's equivalent of bankai — releasing their sealed zanpakutō returns them to their true Hollow form, dramatically amplifying their power."
+      "context": "An Arrancar's equivalent of bankai. Releasing their sealed zanpakutō returns them to their true Hollow form, dramatically amplifying their power."
     },
     {
       "surface": "完現術",
@@ -691,7 +691,7 @@
       },
       "jlpt_level": null,
       "category": "power",
-      "context": "An ability held by humans whose mothers were attacked by Hollows before birth — they can draw out the soul of any object, granting unique powers tied to items they love."
+      "context": "An ability held by humans whose mothers were attacked by Hollows before birth. They can draw out the soul of any object, granting unique powers tied to items they love."
     },
     {
       "surface": "滅却師",
@@ -704,7 +704,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "Uryu Ishida's ancient clan of spiritually-aware humans who destroy Hollows with energy arrows — their methods clash fatally with Soul Reaper philosophy."
+      "context": "Uryu Ishida's ancient clan of spiritually-aware humans who destroy Hollows with energy arrows. Their methods clash fatally with Soul Reaper philosophy."
     },
     {
       "surface": "聖文字",
@@ -717,7 +717,7 @@
       },
       "jlpt_level": null,
       "category": "power",
-      "context": "The letter-coded designation granted by the Quincy king Yhwach to each of his elite warriors — each Schrift represents a unique and terrifying ability."
+      "context": "The letter-coded designation granted by the Quincy king Yhwach to each of his elite warriors. Each Schrift represents a unique and terrifying ability."
     },
     {
       "surface": "霊子",
@@ -730,7 +730,7 @@
       },
       "jlpt_level": null,
       "category": "power",
-      "context": "The fundamental building block of both Soul Society and Hueco Mundo — Quincies absorb reishi from their environment to form weapons, while Hollows are made of it."
+      "context": "The fundamental building block of both Soul Society and Hueco Mundo. Quincies absorb reishi from their environment to form weapons, while Hollows are made of it."
     },
     {
       "surface": "天鎖斬月",
@@ -743,7 +743,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Ichigo's bankai — it compresses all his power into a sleek black blade, trading raw energy for extreme speed and concentrated cutting force."
+      "context": "Ichigo's bankai. It compresses all his power into a sleek black blade, trading raw energy for extreme speed and concentrated cutting force."
     },
     {
       "surface": "千本桜",
@@ -756,7 +756,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Byakuya Kuchiki's zanpakutō — its blade dissolves into millions of razor-sharp pink petals that move too fast to see and cut from every direction at once."
+      "context": "Byakuya Kuchiki's zanpakutō. Its blade dissolves into millions of razor-sharp pink petals that move too fast to see and cut from every direction at once."
     },
     {
       "surface": "氷輪丸",
@@ -769,7 +769,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Tōshirō Hitsugaya's zanpakutō — the most powerful ice-type in Soul Society, it can freeze the air itself and create massive ice dragons."
+      "context": "Tōshirō Hitsugaya's zanpakutō. The most powerful ice-type in Soul Society, it can freeze the air itself and create massive ice dragons."
     },
     {
       "surface": "流刃若火",
@@ -782,7 +782,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Yamamoto's zanpakutō — the most powerful fire-type in existence; its bankai Zanka no Tachi concentrates all that heat into a single scorched blade."
+      "context": "Yamamoto's zanpakutō. The most powerful fire-type in existence; its bankai Zanka no Tachi concentrates all that heat into a single scorched blade."
     },
     {
       "surface": "神鎗",
@@ -795,7 +795,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Gin Ichimaru's zanpakutō — it appears to be a short tantō but can extend at the speed of sound, striking targets before they can perceive it."
+      "context": "Gin Ichimaru's zanpakutō. It appears to be a short tantō but can extend at the speed of sound, striking targets before they can perceive it."
     },
     {
       "surface": "虚夜宮",
@@ -808,7 +808,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "Aizen's fortress in Hueco Mundo — a massive white palace carved out of the desert, where the Espada hold court and Orihime is held captive."
+      "context": "Aizen's fortress in Hueco Mundo. A massive white palace carved out of the desert, where the Espada hold court and Orihime is held captive."
     },
     {
       "surface": "空座町",
@@ -821,7 +821,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "Ichigo's hometown — built on a site of immense spiritual power, it becomes the target of Aizen's plan to forge the King's Key."
+      "context": "Ichigo's hometown. Built on a site of immense spiritual power, it becomes the target of Aizen's plan to forge the King's Key."
     },
     {
       "surface": "王鍵",
@@ -834,7 +834,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "Aizen's ultimate objective — a key forged from the souls of 100,000 Karakura residents that opens the way to the Soul King's palace."
+      "context": "Aizen's ultimate objective. A key forged from the souls of 100,000 Karakura residents that opens the way to the Soul King's palace."
     },
     {
       "surface": "霊王宮",
@@ -847,7 +847,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "The highest realm above Soul Society where the Soul King resides — its existence is a closely guarded secret even among captains."
+      "context": "The highest realm above Soul Society where the Soul King resides. Its existence is a closely guarded secret even among captains."
     },
     {
       "surface": "霊王",
@@ -860,7 +860,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "The god-like linchpin of Soul Society's existence — the shocking truth about the Soul King's nature is one of the manga's most disturbing revelations."
+      "context": "The god-like linchpin of Soul Society's existence. The shocking truth about the Soul King's nature is one of the manga's most disturbing revelations."
     },
     {
       "surface": "代行証",
@@ -873,7 +873,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "The badge given to Ichigo that allows him to leave his body to fight as a Soul Reaper — later revealed to also serve as a surveillance device and power limiter."
+      "context": "The badge given to Ichigo that allows him to leave his body to fight as a Soul Reaper. Later revealed to also serve as a surveillance device and power limiter."
     },
     {
       "surface": "義骸",
@@ -886,7 +886,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "A false human body used by Soul Reapers to move in the living world undetected — Rukia uses one to attend school with Ichigo while hiding in Karakura Town."
+      "context": "A false human body used by Soul Reapers to move in the living world undetected. Rukia uses one to attend school with Ichigo while hiding in Karakura Town."
     },
     {
       "surface": "魂葬",
@@ -899,7 +899,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "The ritual act of sending a Plus (wandering soul) to Soul Society by pressing a zanpakutō's hilt to its forehead — the basic duty of every Soul Reaper."
+      "context": "The ritual act of sending a Plus (wandering soul) to Soul Society by pressing a zanpakutō's hilt to its forehead. The basic duty of every Soul Reaper."
     },
     {
       "surface": "プラス",
@@ -912,7 +912,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "A soul that has departed the body but not yet become a Hollow — Soul Reapers guide these wandering spirits toward Soul Society before they lose their hearts."
+      "context": "A soul that has departed the body but not yet become a Hollow. Soul Reapers guide these wandering spirits toward Soul Society before they lose their hearts."
     },
     {
       "surface": "地縛霊",
@@ -925,7 +925,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "Souls bound to a location by powerful attachments or unresolved emotions — they risk hollowfication if a Soul Reaper does not reach them in time."
+      "context": "Souls bound to a location by powerful attachments or unresolved emotions. They risk hollowfication if a Soul Reaper does not reach them in time."
     },
     {
       "surface": "喰種",
@@ -938,7 +938,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "The act by which a Hollow consumes souls — a Hollow that devours enough human souls evolves into increasingly dangerous forms like Menos Grande."
+      "context": "The act by which a Hollow consumes souls. A Hollow that devours enough human souls evolves into increasingly dangerous forms like Menos Grande."
     },
     {
       "surface": "虚の穴",
@@ -951,7 +951,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "The gaping hole in a Hollow's chest that symbolizes the emptiness where their heart once was — an Arrancar's hole is smaller, a sign of partial reclamation."
+      "context": "The gaping hole in a Hollow's chest that symbolizes the emptiness where their heart once was. An Arrancar's hole is smaller, a sign of partial reclamation."
     },
     {
       "surface": "超速再生",
@@ -964,7 +964,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "A powerful ability of high-level Hollows that allows them to regrow limbs near-instantly — one reason they are so dangerous even against experienced Soul Reapers."
+      "context": "A powerful ability of high-level Hollows that allows them to regrow limbs near-instantly. One reason they are so dangerous even against experienced Soul Reapers."
     },
     {
       "surface": "鋼皮",
@@ -977,7 +977,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "The hardened skin of an Arrancar — Grimmjow's Hierro is so dense that Ichigo's early attacks bounce off it harmlessly, forcing a power-up breakthrough."
+      "context": "The hardened skin of an Arrancar. Grimmjow's Hierro is so dense that Ichigo's early attacks bounce off it harmlessly, forcing a power-up breakthrough."
     },
     {
       "surface": "響転",
@@ -990,7 +990,7 @@
       },
       "jlpt_level": null,
       "category": "hollow",
-      "context": "The Arrancar equivalent of Soul Reaper shunpo — a high-speed movement technique that leaves an afterimage echo when used at full power."
+      "context": "The Arrancar equivalent of Soul Reaper shunpo. A high-speed movement technique that leaves an afterimage echo when used at full power."
     },
     {
       "surface": "精神体",
@@ -1003,7 +1003,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "The true form of a Soul Reaper — separating from their gigai, they become invisible to ordinary humans and move freely through the spiritual world."
+      "context": "The true form of a Soul Reaper. Separating from their gigai, they become invisible to ordinary humans and move freely through the spiritual world."
     },
     {
       "surface": "転生",
@@ -1016,7 +1016,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "The cycle of souls through death, Soul Society, and reincarnation forms the spiritual cosmology of Bleach — breaking or manipulating this cycle is the ultimate taboo."
+      "context": "The cycle of souls through death, Soul Society, and reincarnation forms the spiritual cosmology of Bleach. Breaking or manipulating this cycle is the ultimate taboo."
     },
     {
       "surface": "完全催眠",
@@ -1029,7 +1029,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "The ability of Aizen's zanpakutō Kyōka Suigetsu — once someone sees its shikai release, their five senses fall under Aizen's total control forever."
+      "context": "The ability of Aizen's zanpakutō Kyōka Suigetsu. Once someone sees its shikai release, their five senses fall under Aizen's total control forever."
     },
     {
       "surface": "進化",
@@ -1042,7 +1042,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Aizen frames his entire plan as accelerating the evolution of souls — his contempt for stagnation drives him to reshape the very order of existence."
+      "context": "Aizen frames his entire plan as accelerating the evolution of souls. His contempt for stagnation drives him to reshape the very order of existence."
     },
     {
       "surface": "犠牲",
@@ -1068,7 +1068,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Every major power-up in Bleach is preceded by intense training — Ichigo's bankai training with Yoruichi or his dangai forest passage define his power ceilings."
+      "context": "Every major power-up in Bleach is preceded by intense training. Ichigo's bankai training with Yoruichi or his dangai forest passage define his power ceilings."
     },
     {
       "surface": "闘志",
@@ -1081,7 +1081,7 @@
       },
       "jlpt_level": "N1",
       "category": "combat",
-      "context": "The intangible fighting will that keeps warriors standing past their physical limits — Soul Reapers can feel an opponent's tōshi as a form of reiatsu."
+      "context": "The intangible fighting will that keeps warriors standing past their physical limits. Soul Reapers can feel an opponent's tōshi as a form of reiatsu."
     },
     {
       "surface": "霊術院",
@@ -1094,7 +1094,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "The school where aspiring Soul Reapers train for six years — Renji and Rukia met here as students, beginning the bond central to the Soul Society arc."
+      "context": "The school where aspiring Soul Reapers train for six years. Renji and Rukia met here as students, beginning the bond central to the Soul Society arc."
     },
     {
       "surface": "鬼道衆",
@@ -1107,7 +1107,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "The specialized unit devoted to kidō mastery — operating independently of the Gotei 13, they maintain the barriers and seals that protect Soul Society."
+      "context": "The specialized unit devoted to kidō mastery. Operating independently of the Gotei 13, they maintain the barriers and seals that protect Soul Society."
     },
     {
       "surface": "処刑",
@@ -1120,7 +1120,7 @@
       },
       "jlpt_level": "N2",
       "category": "soul_society",
-      "context": "Rukia's scheduled execution by the Sōkyoku is the ticking clock of the Soul Society arc — it forces Ichigo to fight all of Soul Society to save her."
+      "context": "Rukia's scheduled execution by the Sōkyoku is the ticking clock of the Soul Society arc. It forces Ichigo to fight all of Soul Society to save her."
     },
     {
       "surface": "双極",
@@ -1133,7 +1133,7 @@
       },
       "jlpt_level": null,
       "category": "soul_society",
-      "context": "The legendary execution weapon of Soul Society said to hold the power of a million zanpakutō — its destruction is a major turning point in rescuing Rukia."
+      "context": "The legendary execution weapon of Soul Society said to hold the power of a million zanpakutō. Its destruction is a major turning point in rescuing Rukia."
     },
     {
       "surface": "居合",
@@ -1146,7 +1146,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "A real Japanese sword art emphasized in Bleach — several captains' styles incorporate the single-motion draw-and-cut philosophy of iai."
+      "context": "A real Japanese sword art emphasized in Bleach. Several captains' styles incorporate the single-motion draw-and-cut philosophy of iai."
     },
     {
       "surface": "白打",
@@ -1159,7 +1159,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "The unarmed combat discipline of Soul Reapers — Yoruichi is a grandmaster of hakuda, her bare-handed strikes capable of shattering Arrancar hierro."
+      "context": "The unarmed combat discipline of Soul Reapers. Yoruichi is a grandmaster of hakuda, her bare-handed strikes capable of shattering Arrancar hierro."
     },
     {
       "surface": "怒",
@@ -1172,7 +1172,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Ichigo's rages are literal power sources — his most explosive reiatsu spikes occur when someone he loves is threatened, turning emotion into lethal force."
+      "context": "Ichigo's rages are literal power sources. His most explosive reiatsu spikes occur when someone he loves is threatened, turning emotion into lethal force."
     },
     {
       "surface": "孤独",
@@ -1185,7 +1185,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Many of Bleach's most powerful characters — Byakuya, Hitsugaya, Ulquiorra — carry a profound isolation that their strength makes worse, not better."
+      "context": "Many of Bleach's most powerful characters. Byakuya, Hitsugaya, Ulquiorra. Carry a profound isolation that their strength makes worse, not better."
     },
     {
       "surface": "侘助",
@@ -1198,7 +1198,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Izuru Kira's zanpakutō — each strike doubles the weight of whatever it hits, making it impossible for the opponent to raise their weapon and forcing them to bow."
+      "context": "Izuru Kira's zanpakutō. Each strike doubles the weight of whatever it hits, making it impossible for the opponent to raise their weapon and forcing them to bow."
     },
     {
       "surface": "喜助",
@@ -1211,7 +1211,7 @@
       },
       "jlpt_level": null,
       "category": "shinigami",
-      "context": "Kisuke Urahara — exiled genius inventor who runs a candy shop in Karakura Town, secretly preparing Ichigo and the others for battles he has foreseen."
+      "context": "Kisuke Urahara. Exiled genius inventor who runs a candy shop in Karakura Town, secretly preparing Ichigo and the others for battles he has foreseen."
     },
     {
       "surface": "浦原商店",
@@ -1224,7 +1224,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "Urahara's candy and sundries shop in the living world — beneath it lies a massive underground training space where Ichigo first learns to use his Soul Reaper powers properly."
+      "context": "Urahara's candy and sundries shop in the living world. Beneath it lies a massive underground training space where Ichigo first learns to use his Soul Reaper powers properly."
     },
     {
       "surface": "不死",
@@ -1237,7 +1237,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Aizen merges with the Hōgyoku hoping to transcend death — his pursuit of godhood and immortality frames him as the archetypal overreacher."
+      "context": "Aizen merges with the Hōgyoku hoping to transcend death. His pursuit of godhood and immortality frames him as the archetypal overreacher."
     },
     {
       "surface": "斬魄刀の魂",
@@ -1250,7 +1250,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Every zanpakutō contains a sentient spirit — the relationship between a Soul Reaper and their sword spirit is one of Bleach's most philosophically rich elements."
+      "context": "Every zanpakutō contains a sentient spirit. The relationship between a Soul Reaper and their sword spirit is one of Bleach's most philosophically rich elements."
     },
     {
       "surface": "断界",
@@ -1263,7 +1263,7 @@
       },
       "jlpt_level": null,
       "category": "places",
-      "context": "The dimensional corridor between the living world and Soul Society — time flows differently inside, allowing Ichigo to train for three months in three days."
+      "context": "The dimensional corridor between the living world and Soul Society. Time flows differently inside, allowing Ichigo to train for three months in three days."
     },
     {
       "surface": "無心",
@@ -1276,7 +1276,7 @@
       },
       "jlpt_level": "N1",
       "category": "combat",
-      "context": "The mental state sought by sword masters — fighting without conscious thought, letting the blade respond instinctively, is what separates captains from lieutenants."
+      "context": "The mental state sought by sword masters. Fighting without conscious thought, letting the blade respond instinctively, is what separates captains from lieutenants."
     },
     {
       "surface": "残火の太刀",
@@ -1289,7 +1289,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Yamamoto's bankai — all the heat of his flames is compressed into the blade itself, making it invisible but capable of incinerating anything it touches."
+      "context": "Yamamoto's bankai. All the heat of his flames is compressed into the blade itself, making it invisible but capable of incinerating anything it touches."
     },
     {
       "surface": "反膜の匣",
@@ -1302,7 +1302,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "A Quincy barrier technique that converts surrounding reishi into a prison — when used in Soul Society, it neutralizes the zanpakutō of anyone trapped inside."
+      "context": "A Quincy barrier technique that converts surrounding reishi into a prison. When used in Soul Society, it neutralizes the zanpakutō of anyone trapped inside."
     },
     {
       "surface": "誓い",
@@ -1315,7 +1315,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Many of Bleach's most powerful moments hinge on vows — Ichigo's unspoken promise to protect everyone, Renji's vow to surpass Byakuya, Gin's secret oath to Rangiku."
+      "context": "Many of Bleach's most powerful moments hinge on vows. Ichigo's unspoken promise to protect everyone, Renji's vow to surpass Byakuya, Gin's secret oath to Rangiku."
     },
     {
       "surface": "刀",
@@ -1328,7 +1328,7 @@
       },
       "jlpt_level": "N3",
       "category": "zanpakuto",
-      "context": "The physical form of a sealed zanpakutō — before shikai, every Soul Reaper carries a standard katana whose true power lies dormant within."
+      "context": "The physical form of a sealed zanpakutō. Before shikai, every Soul Reaper carries a standard katana whose true power lies dormant within."
     },
     {
       "surface": "霊魂",
@@ -1341,7 +1341,7 @@
       },
       "jlpt_level": "N1",
       "category": "shinigami",
-      "context": "A more classical term for soul used in ceremonial and formal Soul Society contexts — distinguishing the reikon from the living body is the first step in Soul Reaper cosmology."
+      "context": "A more classical term for soul used in ceremonial and formal Soul Society contexts. Distinguishing the reikon from the living body is the first step in Soul Reaper cosmology."
     },
     {
       "surface": "剣術",
@@ -1354,7 +1354,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "The classical Japanese sword art that underlies all zanpakutō combat — the formal curriculum of the Shinō Academy is built around kenjutsu foundations."
+      "context": "The classical Japanese sword art that underlies all zanpakutō combat. The formal curriculum of the Shinō Academy is built around kenjutsu foundations."
     },
     {
       "surface": "友情",
@@ -1367,7 +1367,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "The engine of Ichigo's power — his friendships with Orihime, Chad, Uryu, and Rukia create the emotional stakes that make every battle matter."
+      "context": "The engine of Ichigo's power. His friendships with Orihime, Chad, Uryu, and Rukia create the emotional stakes that make every battle matter."
     },
     {
       "surface": "忍耐",
@@ -1380,7 +1380,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Bleach characters push through injuries that would kill ordinary warriors — this physical and emotional endurance is presented as the deepest form of strength."
+      "context": "Bleach characters push through injuries that would kill ordinary warriors. This physical and emotional endurance is presented as the deepest form of strength."
     },
     {
       "surface": "天命",
@@ -1393,7 +1393,7 @@
       },
       "jlpt_level": "N1",
       "category": "themes",
-      "context": "Aizen claims his rise to godhood is tenmei — predestined. Ichigo's counter-argument is that he fights not for destiny but for the people standing in front of him."
+      "context": "Aizen claims his rise to godhood is tenmei. Predestined. Ichigo's counter-argument is that he fights not for destiny but for the people standing in front of him."
     },
     {
       "surface": "天使",
@@ -1406,7 +1406,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Orihime Inoue is often described in angelic terms — her rejection-based powers literally deny fate and reality, setting her apart as something beyond normal spiritually-aware humans."
+      "context": "Orihime Inoue is often described in angelic terms. Her rejection-based powers literally deny fate and reality, setting her apart as something beyond normal spiritually-aware humans."
     },
     {
       "surface": "現実",
@@ -1419,7 +1419,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Aizen's power, Kyōka Suigetsu, bends reality by controlling all five senses — the question of what is real haunts every battle against him."
+      "context": "Aizen's power, Kyōka Suigetsu, bends reality by controlling all five senses. The question of what is real haunts every battle against him."
     },
     {
       "surface": "虚偽",
@@ -1432,7 +1432,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Aizen's defining weapon is deception — his entire career in Soul Society was a performance, making kyogi the central technique of his character."
+      "context": "Aizen's defining weapon is deception. His entire career in Soul Society was a performance, making kyogi the central technique of his character."
     },
     {
       "surface": "斬魄刀の名前",
@@ -1445,7 +1445,7 @@
       },
       "jlpt_level": null,
       "category": "zanpakuto",
-      "context": "Learning their zanpakutō's true name is the first step to shikai — Soul Reapers must bond deeply with their sword's spirit to hear it spoken."
+      "context": "Learning their zanpakutō's true name is the first step to shikai. Soul Reapers must bond deeply with their sword's spirit to hear it spoken."
     },
     {
       "surface": "脅威",
@@ -1458,7 +1458,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "When Ichigo's reiatsu exceeds captain level, he becomes simultaneously ally and kyōi to Soul Society — a threat too useful to eliminate and too powerful to ignore."
+      "context": "When Ichigo's reiatsu exceeds captain level, he becomes simultaneously ally and kyōi to Soul Society. A threat too useful to eliminate and too powerful to ignore."
     },
     {
       "surface": "傷",
@@ -1471,7 +1471,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Wounds in Bleach often carry narrative weight — Ichigo's scar from his mother's death and every battle scar mark the cost of the protection he swore to provide."
+      "context": "Wounds in Bleach often carry narrative weight. Ichigo's scar from his mother's death and every battle scar mark the cost of the protection he swore to provide."
     },
     {
       "surface": "怪力",
@@ -1484,7 +1484,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "Chad's fullbring-augmented arm grants him strength that rivals Soul Reapers — his kairiki is the physical counterpoint to Ichigo's reiatsu-based power."
+      "context": "Chad's fullbring-augmented arm grants him strength that rivals Soul Reapers. His kairiki is the physical counterpoint to Ichigo's reiatsu-based power."
     },
     {
       "surface": "心",
@@ -1497,7 +1497,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "Hollows are defined by the absence of kokoro — Ulquiorra's arc in Hueco Mundo is an extended meditation on whether a Hollow can ever regain a heart."
+      "context": "Hollows are defined by the absence of kokoro. Ulquiorra's arc in Hueco Mundo is an extended meditation on whether a Hollow can ever regain a heart."
     },
     {
       "surface": "空虚",
@@ -1510,7 +1510,7 @@
       },
       "jlpt_level": "N1",
       "category": "hollow",
-      "context": "The philosophical core of Hollow existence — kūkyo is not just the hole in their chest but the existential void they try endlessly to fill by consuming other souls."
+      "context": "The philosophical core of Hollow existence. Kūkyo is not just the hole in their chest but the existential void they try endlessly to fill by consuming other souls."
     },
     {
       "surface": "神",
@@ -1523,7 +1523,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "Aizen's trajectory is an explicit bid for godhood — his arc asks whether transcending human limits is ambition or the deepest form of arrogance."
+      "context": "Aizen's trajectory is an explicit bid for godhood. His arc asks whether transcending human limits is ambition or the deepest form of arrogance."
     },
     {
       "surface": "運命",
@@ -1536,7 +1536,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Ichigo repeatedly rejects the idea that his unmei is fixed — his power grows precisely when he refuses to accept that someone he loves is fated to die."
+      "context": "Ichigo repeatedly rejects the idea that his unmei is fixed. His power grows precisely when he refuses to accept that someone he loves is fated to die."
     },
     {
       "surface": "解放",
@@ -1549,7 +1549,7 @@
       },
       "jlpt_level": "N3",
       "category": "zanpakuto",
-      "context": "The act of releasing a zanpakutō from its sealed state — both shikai and bankai are forms of kaihō, each unlocking progressively more of the sword's true nature."
+      "context": "The act of releasing a zanpakutō from its sealed state. Both shikai and bankai are forms of kaihō, each unlocking progressively more of the sword's true nature."
     },
     {
       "surface": "黒崎",
@@ -1562,7 +1562,7 @@
       },
       "jlpt_level": null,
       "category": "life",
-      "context": "Ichigo's family name — his father Isshin is a retired Soul Reaper, meaning Ichigo's hybrid nature as both human and Soul Reaper was inherited from birth."
+      "context": "Ichigo's family name. His father Isshin is a retired Soul Reaper, meaning Ichigo's hybrid nature as both human and Soul Reaper was inherited from birth."
     },
     {
       "surface": "家族",
@@ -1575,7 +1575,7 @@
       },
       "jlpt_level": "N5",
       "category": "life",
-      "context": "Ichigo's family — his sisters Karin and Yuzu, and father Isshin — are the human anchor that keeps him fighting to return to the living world no matter the cost."
+      "context": "Ichigo's family. His sisters Karin and Yuzu, and father Isshin. Are the human anchor that keeps him fighting to return to the living world no matter the cost."
     },
     {
       "surface": "学校",
@@ -1588,7 +1588,7 @@
       },
       "jlpt_level": "N5",
       "category": "life",
-      "context": "Ichigo's high school in Karakura Town is the stage for Bleach's early chapters — the contrast between mundane school life and supernatural battle defines the series' tone."
+      "context": "Ichigo's high school in Karakura Town is the stage for Bleach's early chapters. The contrast between mundane school life and supernatural battle defines the series' tone."
     },
     {
       "surface": "生命",
@@ -1601,7 +1601,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "What Soul Reapers exist to protect — the seimei of ordinary humans is the ultimate justification for every sacrifice made in the series."
+      "context": "What Soul Reapers exist to protect. The seimei of ordinary humans is the ultimate justification for every sacrifice made in the series."
     },
     {
       "surface": "記憶",
@@ -1614,7 +1614,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "Soul Reapers who spend time in the living world have their memories of it erased — the loss of kioku is one of the quiet tragedies running beneath Bleach's action."
+      "context": "Soul Reapers who spend time in the living world have their memories of it erased. The loss of kioku is one of the quiet tragedies running beneath Bleach's action."
     },
     {
       "surface": "人間",
@@ -1627,7 +1627,7 @@
       },
       "jlpt_level": "N5",
       "category": "life",
-      "context": "Ichigo's human side is not a weakness but his anchor — his ningen perspective keeps him from losing himself in the ruthless logic of Soul Society's power politics."
+      "context": "Ichigo's human side is not a weakness but his anchor. His ningen perspective keeps him from losing himself in the ruthless logic of Soul Society's power politics."
     },
     {
       "surface": "高校生",
@@ -1640,7 +1640,7 @@
       },
       "jlpt_level": "N4",
       "category": "life",
-      "context": "Ichigo is introduced as a kōkōsei who can see ghosts — his normalcy as a teenager makes the leap into fighting Hollows and captains all the more striking."
+      "context": "Ichigo is introduced as a kōkōsei who can see ghosts. His normalcy as a teenager makes the leap into fighting Hollows and captains all the more striking."
     },
     {
       "surface": "幽霊",
@@ -1653,7 +1653,7 @@
       },
       "jlpt_level": "N3",
       "category": "life",
-      "context": "Ichigo has been able to see yūrei since childhood — this ability marks him as spiritually sensitive long before he becomes a Soul Reaper."
+      "context": "Ichigo has been able to see yūrei since childhood. This ability marks him as spiritually sensitive long before he becomes a Soul Reaper."
     },
     {
       "surface": "使命",
@@ -1666,7 +1666,7 @@
       },
       "jlpt_level": "N2",
       "category": "shinigami",
-      "context": "Every Soul Reaper carries a shimei — guiding the dead, purifying Hollows, and maintaining the balance between the living world and Soul Society."
+      "context": "Every Soul Reaper carries a shimei. Guiding the dead, purifying Hollows, and maintaining the balance between the living world and Soul Society."
     },
     {
       "surface": "均衡",
@@ -1679,7 +1679,7 @@
       },
       "jlpt_level": "N2",
       "category": "soul_society",
-      "context": "The balance between the living world and Soul Society is the central law Gotei 13 exists to maintain — Aizen's plans threaten to shatter it permanently."
+      "context": "The balance between the living world and Soul Society is the central law Gotei 13 exists to maintain. Aizen's plans threaten to shatter it permanently."
     },
     {
       "surface": "虚仮",
@@ -1692,7 +1692,7 @@
       },
       "jlpt_level": null,
       "category": "themes",
-      "context": "Gin Ichimaru's fox-eyed smile conceals his true self behind a facade of koke — his apparent cruelty and servility to Aizen mask a secret purpose rooted in genuine love."
+      "context": "Gin Ichimaru's fox-eyed smile conceals his true self behind a facade of koke. His apparent cruelty and servility to Aizen mask a secret purpose rooted in genuine love."
     },
     {
       "surface": "刃",
@@ -1705,7 +1705,7 @@
       },
       "jlpt_level": "N2",
       "category": "zanpakuto",
-      "context": "The blade is the most intimate extension of a Soul Reaper's will — when Ichigo's yaiba turns black in bankai, it signals that his hollow power has merged with his own."
+      "context": "The blade is the most intimate extension of a Soul Reaper's will. When Ichigo's yaiba turns black in bankai, it signals that his hollow power has merged with his own."
     },
     {
       "surface": "流血",
@@ -1718,7 +1718,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "Bleach never flinches from ryūketsu — the physical cost of every fight is shown honestly, grounding its supernatural battles in visceral human stakes."
+      "context": "Bleach never flinches from ryūketsu. The physical cost of every fight is shown honestly, grounding its supernatural battles in visceral human stakes."
     },
     {
       "surface": "境界",
@@ -1731,7 +1731,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "The boundary between life and death, Soul Reaper and Hollow, human and divine — Bleach is fundamentally a story about characters who cross or dissolve these boundaries."
+      "context": "The boundary between life and death, Soul Reaper and Hollow, human and divine. Bleach is fundamentally a story about characters who cross or dissolve these boundaries."
     }
   ]
 }

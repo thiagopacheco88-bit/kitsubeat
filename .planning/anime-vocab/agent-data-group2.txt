@@ -1,0 +1,176 @@
+=== death-note | Death Note | emoji: 📓 ===
+Description: Light Yagami finds a supernatural notebook that kills anyone whose name is written in it.
+Words (surface|romaji|meaning|jlpt|existing_context):
+神|kami|god / deity|N4|Light proclaims himself the god of the new world — Justice Kira, cleansing humanity of its worst ele
+悪|aku|evil / wickedness|N4|Light targets criminals he labels as evil — but the definition of evil expands until anyone who oppo
+正義|seigi|justice / righteousness|N4|Both Light and L claim to serve justice — the series asks which version of justice the audience actu
+嘘|uso|lie / falsehood|N4|Light's life becomes an unbroken chain of lies — each one carefully layered to protect his identity 
+心臓|shinzō|heart (organ)|N4|The default cause of death in the Death Note is a heart attack — a coronary that strikes exactly 40 
+証拠|shōko|evidence / proof|N3|L's entire strategy is building a chain of evidence — impossible to do when the weapon leaves no phy
+真実|shinjitsu|truth / reality|N3|The gap between who Light appears to be and what he truly is forms the show's central dramatic tensi
+天才|tensai|genius|N3|Light and L are both described as geniuses — the series is ultimately a chess match between two extr
+捜査|sōsa|investigation / inquiry|N3|L's investigation of Kira is the most high-stakes inquiry in the world — conducted with no precedent
+疑い|utagai|suspicion / doubt|N3|L's first and most enduring tactic is suspicion — he considers Light the primary suspect from their 
+裁き|sabaki|judgment / verdict|N3|Light believes he is the only one qualified to deliver judgment upon criminals — a belief that corru
+殺す|korosu|to kill|N3|The Death Note's power is absolute: write a name, and that person will be killed within the specifie
+操る|ayatsuru|to manipulate / to control|N3|Light's genius is his ability to manipulate everyone around him — including task force members hunti
+犯罪|hanzai|crime / criminal act|N3|Light's initial targets are convicted criminals — but the boundaries of who counts as a criminal kee
+恐怖|kyōfu|fear / terror|N3|Kira's power over life and death spreads worldwide fear — a fear that paradoxically reduces crime ra
+記憶|kioku|memory / recollection|N3|Surrendering ownership of the Death Note erases all memory of it — a key plot mechanic Light exploit
+計画|keikaku|plan / scheme|N3|Light's elaborate multi-step plans are the series' greatest spectacle — and his greatest flaw when o
+知性|chisei|intelligence / intellect|N3|Raw intelligence is the only weapon either side possesses — no physical confrontations, just mind ag
+逮捕|taiho|arrest|N3|L's entire endgame is building a legally admissible case — enough to arrest and convict, not just ac
+所有者|shoyūsha|owner / possessor|N2|The Death Note's rules tie it to its human owner — switching ownership is a key tactical move in the
+寿命|jumyō|lifespan / remaining life|N2|Shinigami eyes let their owner see anyone's remaining lifespan — bought by trading half your own lif
+取引|torihiki|deal / transaction|N2|Ryuk's deal with Light — shinigami eyes in exchange for half his lifespan — is the series' most fate
+狡猾|kōkatsu|cunning / craftiness|N2|Light's cunning is on full display when he constructs an alibi using the Death Note's own rule struc
+崇拝|sūhai|worship / adoration|N2|Kira amasses a following of devoted worshippers who genuinely believe his killings are divine justic
+監視|kanshi|surveillance / monitoring|N2|L's surveillance of Light is relentless and invasive — cameras even in his bedroom — yet Light still
+死のルール|Shi no Rūru|rules of the Death Note|?|The Death Note comes with 60+ rules that Light memorizes and exploits as legal loopholes for his kil
+新世界の神|Shin Sekai no Kami|god of the new world|?|Light's self-proclaimed title — god of the new world — reveals the full depth of his narcissistic de
+法律|hōritsu|law / legislation|N4|Light believes conventional law is too slow — his Death Note delivers an instant verdict the legal s
+殺人|satsujin|murder / homicide|N3|Every name Light writes is legally a murder — yet no crime scene, no weapon, and no motive is ever f
+犯人|hannin|culprit / criminal|N3|L's task is to identify the culprit — but Kira commits crimes without leaving any physical trace for
+尋問|jinmon|interrogation / questioning|N2|L interrogates Light directly while pretending to be his friend — their shared scenes are the show's
+心理|shinri|psychology / mental state|N3|The battle between L and Light is fought entirely on the psychological plane — neither can afford to
+論理|ronri|logic / reasoning|N3|Light constructs every lie on airtight logic — which is why L's counter-arguments based on probabili
+動機|dōki|motive / motivation|N3|L notes early that Kira's motive is ideological — a desire for a clean world, not personal gain — wh
+精神|seishin|spirit / mind / mental state|N3|The Death Note's power corrodes Light's mental state — his initial idealism calcifies into a paranoi
+本能|honnō|instinct|N2|Light's instinct to win overrides everything — even when logic says retreat, his nature pushes him t
+自我|jiga|ego / self|N2|Light's ego expands with each victory — the Death Note doesn't corrupt him so much as remove every c
+選択|sentaku|choice / selection|N3|Every character faces a moral choice in Death Note — but only Light makes his with the casual certai
+孤独|kodoku|solitude / loneliness|N3|Light's greatest tragedy is that his genius isolates him entirely — no one can truly know him becaus
+嫉妬|shitto|jealousy / envy|N2|Misa's love for Kira borders on jealousy of anyone else who takes his attention — a vulnerability Li
+
+=== demon-slayer | Demon Slayer | emoji: 🔥 ===
+Description: Tanjiro Kamado's quest to cure his demon sister Nezuko and avenge his slaughtered family.
+Words (surface|romaji|meaning|jlpt|existing_context):
+家族|kazoku|family|N4|Tanjiro's entire journey begins with the loss of his family — and the promise to protect what remain
+兄|ani|older brother|N4|As the eldest son, Tanjiro carries the weight of older brother — protector, breadwinner, and avenger
+妹|imōto|younger sister|N4|Nezuko, Tanjiro's younger sister, was turned into a demon — yet remains the purest soul in the story
+岩|iwa|rock / boulder|N4|Rock Breathing, Gyomei's style, channels immovable strength through spiked flails rather than a blad
+恋|koi|love (romantic)|N4|Love Breathing channels intense emotion into fluid, powerful strikes — Mitsuri Kanroji's unique styl
+鬼|oni|demon / ogre|N3|The creatures Tanjiro hunts — once human, now transformed by Muzan's blood into something terrifying
+呼吸|kokyū|breathing / respiration|N3|Total Concentration Breathing is the foundation of all Demon Slayer combat — mastering it is masteri
+剣|ken|sword|N3|A Demon Slayer's sword is their lifeline — each blade changes color to match its wielder's fighting 
+型|kata|form / style|N3|Each breathing style is divided into numbered forms — Tanjiro's mastery grows form by form, battle b
+柱|hashira|pillar / support|N3|The nine Hashira are the most powerful Demon Slayers — pillars of the Corps and humanity's last line
+訓練|kunren|training / drill|N3|Two years of relentless training under Urokodaki shaped Tanjiro from a coal seller into a Demon Slay
+技|waza|technique / skill|N3|Tanjiro's techniques evolve throughout the series, each new form pushing the limits of human capabil
+復讐|fukushū|revenge / vengeance|N3|Tanjiro's quest blends revenge with compassion — unusual for an avenger, and defining for the series
+魂|tamashii|soul / spirit|N3|The Hinokami Kagura is described as a dance passed soul to soul across generations of the Kamado fam
+雷|kaminari|thunder / lightning|N3|Thunder Breathing lets Zenitsu move faster than the eye can see — all power compressed into one deva
+変化|henka|change / transformation|N3|Nezuko's transformation is the central tragedy — but also the spark that ignites Tanjiro's entire jo
+希望|kibō|hope|N3|Nezuko surviving as a demon who protects humans gives the Corps the first real hope of defeating Muz
+過去|kako|the past|N3|Each Demon Slayer's past is a wound — the Corps is built from people who refuse to let that wound be
+全集中|zenshūchū|total concentration|N2|Total Concentration Breathing means filling lungs to absolute capacity — maintaining it 24/7 is the 
+継承|keishō|inheritance / succession|N2|The Hinokami Kagura is a sacred breathing dance inherited through the Kamado family across generatio
+毒|doku|poison / toxin|N2|Shinobu Kocho fights with wisteria-derived poison — injected through needle-fine thrusts against dem
+痣|aza|birthmark / scar mark|N2|The Demon Slayer Mark awakens in the most powerful fighters, granting superhuman speed at a terrible
+鴉|karasu|crow / raven|N2|Demon Slayers receive a Kasugai Crow — a messenger bird that relays mission orders from Corps headqu
+憎悪|zōo|hatred / loathing|N2|Sanemi's consuming hatred of demons contrasts with Tanjiro's empathy — both born from the same kind 
+鍛錬|tanren|forging / rigorous training|N2|The Swordsmith Village reveals both sword-forging and the spiritual tempering that Demon Slayers mus
+累積|ruiseki|accumulation|N1|Tanjiro's strength grows through accumulated training, pain, and the inherited will of those who cam
+壊滅|kaimetsu|annihilation / destruction|N1|The Demon Slayer Corps has teetered on the brink of annihilation for generations, kept alive by shee
+覚醒|kakusei|awakening|N1|Tanjiro's awakening to Sun Breathing is the series' emotional climax — the final piece of his ancest
+ヒノカミ神楽|Hinokami Kagura|Dance of the Fire God|?|The Hinokami Kagura is the Kamado family's sacred dance — and the hidden origin of Sun Breathing its
+常中|Jōchū|constant state (of Total Concentration Breathing)|?|Jōchū means maintaining Total Concentration Breathing even while asleep — the true mark of a Hashira
+藤の花|Fuji no Hana|wisteria flower|?|Wisteria is toxic to demons — villages plant it as borders and Shinobu infuses it in her poison blad
+嗅覚|kyūkaku|sense of smell / olfaction|?|Tanjiro's extraordinary sense of smell lets him track demons, sense emotions, and even predict enemy
+月|tsuki|moon|N4|Moon Breathing is Kokushibo's devastating style — the strongest demon aside from Muzan himself.
+力|chikara|strength / power|N4|Tanjiro proves that compassion amplifies strength — real power comes from protecting others.
+心|kokoro|heart / mind|N4|In every dying demon, Tanjiro sees a human heart that was corrupted — and grieves for it.
+竹|take|bamboo|N4|Nezuko wears a bamboo muzzle — simultaneously a restraint and a symbol of trust between siblings.
+涙|namida|tears|N4|Tanjiro cries for every demon he kills, mourning the person they could have been.
+蛇|hebi|snake / serpent|N4|Serpent Breathing mimics a snake's unpredictable fluid strikes — Obanai Iguro's lethal speciality.
+音|oto|sound|N4|Sound Breathing, Uzui Tengen's style, matches attack rhythms to music and explosive flamboyance.
+強さ|tsuyosa|strength / toughness|N4|Every character in Demon Slayer asks what true strength looks like — and gets a different answer.
+
+=== dragon-ball-z | Dragon Ball Z | emoji: ⚡ ===
+Description: Goku and the Z Fighters defend Earth against increasingly powerful cosmic threats.
+Words (surface|romaji|meaning|jlpt|existing_context):
+戦う|tatakau|to fight / to battle|N4|The Z Fighters never stop fighting — no matter how impossible the odds, they stand and face the enem
+力|chikara|strength / power|N4|Power in Dragon Ball Z is measured, tested, and exceeded in every arc — the power ceiling keeps risi
+修行|shugyō|training / ascetic practice|N4|Every arc begins with a training montage — Goku's relentless drive to improve is the soul of the ser
+変身|henshin|transformation|N4|Transformations are Dragon Ball Z's signature — each new form announced with a dramatic power surge 
+仲間|nakama|comrade / companion|N3|The Z Fighters are friends first, warriors second — protecting your nakama is the motivation beneath
+宇宙|uchū|outer space / universe|N3|Dragon Ball Z expands from Earth to the universe — Namek, Other World, and eventually multiple paral
+気|ki|ki / life energy / spirit|N3|Ki is the power source for every technique in Dragon Ball Z — sensing, gathering, and releasing it d
+超|chō|super / ultra / transcendent|N3|The Super Saiyan transformation — 超サイヤ人 — is Dragon Ball Z's most iconic moment: golden hair, teal e
+戦士|senshi|warrior / fighter|N3|Saiyan warriors are born with a fighting instinct — a racial pride that pushes them past human limit
+覚醒|kakusei|awakening / becoming conscious|N3|Gohan's awakening against Cell — fuelled by rage over Android 16 — is one of the most cathartic mome
+融合|yūgō|fusion / merger|N3|The Fusion Dance and Potara earrings allow two fighters to merge into a single, far more powerful be
+怒り|ikari|anger / rage|N3|Rage is a Saiyan power multiplier — Goku's first Super Saiyan transformation erupts from Krillin's d
+希望|kibō|hope|N3|The Dragon Balls represent hope: the ability to undo death and restore what was lost — powerful enou
+誇り|hokori|pride|N3|Saiyan pride is a double-edged trait — Vegeta's pride drives both his greatest achievements and his 
+犠牲|gisei|sacrifice|N3|Goku sacrifices himself repeatedly to save others — his self-sacrifice against Cell is the series' e
+復活|fukkatsu|revival / resurrection|N3|The Dragon Balls grant resurrections — death in Dragon Ball Z is rarely permanent, which shapes its 
+破壊|hakai|destruction|N3|Planet-scale destruction is a real threat in Dragon Ball Z — Freeza literally destroys Planet Vegeta
+戦闘力|sentōryoku|battle power / power level|N2|Power Levels are measured by scouters — though the series ultimately shows that numbers alone can't 
+異星人|iseijin|alien / extraterrestrial|N2|Dragon Ball Z introduces cosmic threats: Freeza's empire, Saiyans, Namekians — the universe is full 
+不死身|fujimi|immortality / invincibility|N2|Freeza's wish on the Dragon Balls is immortality — the race to prevent it drives the entire Namek ar
+細胞|saibō|cell / biological cell|N2|Cell is made from the cells of Earth's greatest fighters — a bio-android designed to be the perfect 
+吸収|kyūshū|absorption|N2|Cell absorbs Androids 17 and 18 to achieve his perfect form — and Buu absorbs opponents to steal the
+王族|ōzoku|royal family / royalty|N2|Vegeta is the Prince of all Saiyans — his royal lineage is a constant source of pride and complex mo
+武道|budō|martial arts / the way of fighting|N3|Martial arts is the foundation of Dragon Ball Z — every fighter's power is rooted in a disciplined t
+師匠|shishō|master / teacher|N3|Every great fighter in Dragon Ball Z has a master — Goku's teachers include Roshi, Kami, and King Ka
+弟子|deshi|disciple / apprentice|N3|Gohan becomes Piccolo's disciple — a relationship that transforms both master and student over the c
+勝負|shōbu|contest / match / showdown|N3|Every arc builds to a decisive showdown — Dragon Ball Z structures its drama around the escalating s
+試合|shiai|match / bout / game|N4|The World Martial Arts Tournament bouts are where rivalries ignite — including the defining Goku vs 
+決戦|kessen|decisive battle / final showdown|N3|Each arc climaxes with a decisive battle that the Z Fighters enter knowing defeat means the end of t
+打倒|datō|defeat / overthrow|N2|Defeating Freeza was the Z Fighters' ultimate goal — a tyrant so overwhelming that only a legend cou
+武器|buki|weapon|N3|Most Z Fighters fight bare-handed — their body and ki are their only weapons, which makes them more 
+守る|mamoru|to protect / to defend|N4|Protecting the people he loves is Goku's ultimate motivation — his power always peaks when someone c
+友情|yūjō|friendship / bonds of friendship|N3|The friendships forged in battle — between Goku and Krillin, Vegeta and Goku — underpin every emotio
+命|inochi|life / one's life|N3|Dragon Ball Z treats life as precious precisely because it can be lost — and because the Dragon Ball
+奇跡|kiseki|miracle|N3|Goku's Spirit Bomb against Freeza is a miracle drawn from every living thing on Namek — a literal ac
+宿命|shukumei|fate / destiny|N2|Goku and Vegeta are bound by destiny — two Saiyans whose rivalry drives them both to heights neither
+意志|ishi|will / determination|N3|Goku's will to fight — to keep standing, to find one more ounce of power — is his defining trait thr
+成長|seichō|growth / development|N4|Gohan's growth from timid child to Earth's strongest fighter is one of Dragon Ball Z's most complete
+誓い|chikai|vow / oath|N3|Vegeta's vow to surpass Goku drives him for the entire series — a pride-fueled oath that defines his
+永遠|eien|eternity / forever|N3|The desire for immortality drives many Dragon Ball Z villains — yet the heroes are ultimately driven
+
+=== fairy-tail | Fairy Tail | emoji: ✨ ===
+Description: Natsu Dragneel and his friends take on dangerous jobs for the chaotic but beloved Fairy Tail mage guild.
+Words (surface|romaji|meaning|jlpt|existing_context):
+魔法|mahō|magic|N4|Magic permeates every corner of Fiore — and Fairy Tail's mages use it with more chaos than anyone el
+心|kokoro|heart / spirit|N4|Fairy Tail's members fight from the heart — raw emotion is often the catalyst for their most powerfu
+竜|ryū|dragon|N4|Dragons ruled the ancient world and taught their magic to chosen humans — leaving a legacy that shap
+絆|kizuna|bond / tie|N3|The bonds between Fairy Tail members are the show's emotional engine — they snap tight under pressur
+勝利|shōri|victory|N3|Victory for Fairy Tail usually comes at the very last moment, powered by sheer stubbornness and love
+裏切り|uragiri|betrayal|N3|Betrayal hits hardest in Fairy Tail because the bonds are so deep — it always carries personal histo
+犠牲|gisei|sacrifice|N3|Mavis sacrificed her physical existence to protect Fairy Tail — the first master's love endures for 
+記憶|kioku|memory|N3|Fairy Tail's seven-year disappearance leaves the guild mourned and thought dead — memory keeps them 
+誓い|chikai|vow / oath|N3|Natsu's vow to find Igneel drives him across continents — a promise made to a father who is also a d
+悲しみ|kanashimi|sadness / sorrow|N3|Fairy Tail earns its emotional moments — sadness over lost comrades hits harder because of the joy t
+希望|kibō|hope|N3|Even against Acnologia's annihilation, hope persists — the Dragon Slayers combine to defy the imposs
+信頼|shinrai|trust / reliance|N3|Fairy Tail's strength is trust — members fight harder knowing their guildmates are watching their ba
+家族|kazoku|family|N4|Fairy Tail isn't just a guild — it's the family that the lonely, the broken, and the lost find their
+依頼|irai|request / commission|N3|Jobs range from D-rank escort missions to S-rank quests that only the guild's elite can legally take
+魔力|maryoku|magic power|N2|Natsu's magical power grows with emotion — his reserves are almost bottomless when nakama are at sta
+消滅|shōmetsu|annihilation / disappearance|N2|Acnologia's Eternal Flare spell would cause total annihilation — the Dragon Slayers are the only cou
+封印|fūin|seal / sealing|N2|Zeref tried to seal away his own power to stop the endless deaths his presence caused — unsuccessful
+継承|keishō|inheritance / succession|N2|Dragon Slayer Magic is passed from dragon to human — a sacred inheritance that takes years to perfec
+消耗|shōmō|exhaustion / depletion|N2|Overusing Dragon Force causes massive magical exhaustion — even Natsu needs rest after pushing that 
+呪い|noroi|curse|N2|Zeref is cursed with immortality and uncontrolled mass-killing magic — he has lived in agony for cen
+不死|fushi|immortality|N2|Zeref's immortality is not a gift — it is a punishment that forces him to watch everyone he loves di
+契約|keiyaku|contract / pact|N2|Lucy treats her Celestial Spirits as partners, not tools — her contracts are built on mutual respect
+精霊|seirei|spirit|N2|Celestial Spirits are beings from another realm — Lucy's bond with them is one of the series' warmes
+闘志|tōshi|fighting spirit|N2|Natsu's fighting spirit never dims — even half-dead, he rises and charges the strongest enemy in the
+光|hikari|light|N4|First Master Mavis is described as a fairy of light — her presence is warmth even centuries after he
+復活|fukkatsu|revival / resurrection|N2|Fairy Tail disbands — then triumphantly revives. The guild's resilience mirrors the spirit of its me
+闇|yami|darkness|N3|Dark guilds operate in the shadows — Grimoire Heart and Tartaros push Fairy Tail to its darkest mome
+王国|ōkoku|kingdom|N3|The Kingdom of Fiore officially recognises guilds — making magic both a livelihood and a legal profe
+闇ギルド|yami girudo|dark guild|?|Dark guilds operate outside the law — Grimoire Heart, Oración Seis, and Tartaros are Fairy Tail's gr
+仲間|nakama|companion / comrade|N4|Natsu fights for his nakama above all else — the word that defines every heroic act in Fairy Tail.
+炎|honō|flame|N4|Natsu's Dragon Slayer Magic channels pure flame — he even eats fire to replenish his power.
+鉄|tetsu|iron|N4|Gajeel's Iron Dragon Slayer Magic lets him turn his body into iron and devour metal to power up.
+雷|kaminari|thunder / lightning|N4|Laxus wields lightning as his Dragon Slayer element — the Thunder God Tribe follows him loyally.
+剣|ken|sword|N4|Erza Re-Quips dozens of swords in an instant — each one suited for a specific battle scenario.
+冒険|bōken|adventure|N3|Every arc is a new adventure — Fairy Tail never stays still long enough to be comfortable.
+友情|yūjō|friendship|N3|Friendship is the series' beating heart — it's the reason Natsu gets back up every single time.
+誇り|hokori|pride|N3|Erza wears the Fairy Tail mark as a badge of pride — she'd rather die than disgrace the guild.
+限界|genkai|limit / boundary|N3|Natsu's limit is not a ceiling — it is a floor he keeps raising with every impossible fight.
+過去|kako|the past|N3|Erza's traumatic past in the Tower of Heaven defines her drive — she faces it rather than run.
+感情|kanjō|emotion / feeling|N3|Dragon Slayer magic amplifies with emotion — the stronger Natsu feels, the hotter his fire burns.
+

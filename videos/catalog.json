@@ -191,11 +191,20 @@
         "theme": "Dreams & Freedom",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-3/renders/one-piece-quiz-3_2026-05-25_08-43-47.mp4",
+        "render_file": "one-piece-quiz-3/renders/one-piece-quiz-3_2026-05-25_08-43-47_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "kXsmE4ELpbY",
+            "scheduled_for": "2026-06-09T04:00:00.000Z",
+            "date": "2026-06-09"
+          },
+          "facebook": {
+            "id": "892708640507693",
+            "scheduled_for": "2026-06-01T04:00:00.000Z",
+            "date": "2026-06-01"
+          }
         },
         "words": [
           {
@@ -254,7 +263,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-3/renders/one-piece-quiz-3_2026-05-25_08-43-47.mp4"
+        "render_file_clean": "one-piece-quiz-3/renders/one-piece-quiz-3_2026-05-25_08-43-47.mp4",
+        "render_file_yt": "one-piece-quiz-3/renders/one-piece-quiz-3_2026-05-25_08-43-47_yt.mp4"
       },
       {
         "part": 4,
@@ -262,11 +272,20 @@
         "theme": "Treasure & Adventure",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-4/renders/one-piece-quiz-4_2026-05-25_17-13-42.mp4",
+        "render_file": "one-piece-quiz-4/renders/one-piece-quiz-4_2026-05-25_17-13-42_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "I-doxEqlsmY",
+            "scheduled_for": "2026-06-21T04:00:00.000Z",
+            "date": "2026-06-21"
+          },
+          "facebook": {
+            "id": "803974382746552",
+            "scheduled_for": "2026-06-07T04:00:00.000Z",
+            "date": "2026-06-07"
+          }
         },
         "words": [
           {
@@ -325,7 +344,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-4/renders/one-piece-quiz-4_2026-05-25_17-13-42.mp4"
+        "render_file_clean": "one-piece-quiz-4/renders/one-piece-quiz-4_2026-05-25_17-13-42.mp4",
+        "render_file_yt": "one-piece-quiz-4/renders/one-piece-quiz-4_2026-05-25_17-13-42_yt.mp4"
       },
       {
         "part": 5,
@@ -333,11 +353,16 @@
         "theme": "Crew Roles",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-5/renders/one-piece-quiz-5_2026-05-25_09-07-39.mp4",
+        "render_file": "one-piece-quiz-5/renders/one-piece-quiz-5_2026-05-25_09-07-39_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1302608535350866",
+            "scheduled_for": "2026-06-13T04:00:00.000Z",
+            "date": "2026-06-13"
+          }
         },
         "words": [
           {
@@ -396,7 +421,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-5/renders/one-piece-quiz-5_2026-05-25_09-07-39.mp4"
+        "render_file_clean": "one-piece-quiz-5/renders/one-piece-quiz-5_2026-05-25_09-07-39.mp4",
+        "render_file_yt": "one-piece-quiz-5/renders/one-piece-quiz-5_2026-05-25_09-07-39_yt.mp4"
       },
       {
         "part": 6,
@@ -404,11 +430,16 @@
         "theme": "Battle & Power",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-6/renders/one-piece-quiz-6_2026-05-25_09-19-58.mp4",
+        "render_file": "one-piece-quiz-6/renders/one-piece-quiz-6_2026-05-25_09-19-58_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1701953264335554",
+            "scheduled_for": "2026-06-19T04:00:00.000Z",
+            "date": "2026-06-19"
+          }
         },
         "words": [
           {
@@ -467,7 +498,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-6/renders/one-piece-quiz-6_2026-05-25_09-19-58.mp4"
+        "render_file_clean": "one-piece-quiz-6/renders/one-piece-quiz-6_2026-05-25_09-19-58.mp4",
+        "render_file_yt": "one-piece-quiz-6/renders/one-piece-quiz-6_2026-05-25_09-19-58_yt.mp4"
       },
       {
         "part": 7,
@@ -475,7 +507,7 @@
         "theme": "Nature & Elements",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-7/renders/one-piece-quiz-7_2026-05-25_09-32-23.mp4",
+        "render_file": "one-piece-quiz-7/renders/one-piece-quiz-7_2026-05-25_09-32-23_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -538,7 +570,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-7/renders/one-piece-quiz-7_2026-05-25_09-32-23.mp4"
+        "render_file_clean": "one-piece-quiz-7/renders/one-piece-quiz-7_2026-05-25_09-32-23.mp4",
+        "render_file_yt": "one-piece-quiz-7/renders/one-piece-quiz-7_2026-05-25_09-32-23_yt.mp4"
       },
       {
         "part": 8,
@@ -546,7 +579,7 @@
         "theme": "Emotions & Heart",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-8/renders/one-piece-quiz-8_2026-05-25_09-45-01.mp4",
+        "render_file": "one-piece-quiz-8/renders/one-piece-quiz-8_2026-05-25_09-45-01_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -609,7 +642,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-8/renders/one-piece-quiz-8_2026-05-25_09-45-01.mp4"
+        "render_file_clean": "one-piece-quiz-8/renders/one-piece-quiz-8_2026-05-25_09-45-01.mp4",
+        "render_file_yt": "one-piece-quiz-8/renders/one-piece-quiz-8_2026-05-25_09-45-01_yt.mp4"
       },
       {
         "part": 9,
@@ -617,7 +651,7 @@
         "theme": "Friendship & Bonds",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-9/renders/one-piece-quiz-9_2026-05-25_09-57-40.mp4",
+        "render_file": "one-piece-quiz-9/renders/one-piece-quiz-9_2026-05-25_09-57-40_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -680,7 +714,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-9/renders/one-piece-quiz-9_2026-05-25_09-57-40.mp4"
+        "render_file_clean": "one-piece-quiz-9/renders/one-piece-quiz-9_2026-05-25_09-57-40.mp4",
+        "render_file_yt": "one-piece-quiz-9/renders/one-piece-quiz-9_2026-05-25_09-57-40_yt.mp4"
       },
       {
         "part": 10,
@@ -688,7 +723,7 @@
         "theme": "Honor & Justice",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-10/renders/one-piece-quiz-10_2026-05-25_10-10-37.mp4",
+        "render_file": "one-piece-quiz-10/renders/one-piece-quiz-10_2026-05-25_10-10-37_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -751,7 +786,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-10/renders/one-piece-quiz-10_2026-05-25_10-10-37.mp4"
+        "render_file_clean": "one-piece-quiz-10/renders/one-piece-quiz-10_2026-05-25_10-10-37.mp4",
+        "render_file_yt": "one-piece-quiz-10/renders/one-piece-quiz-10_2026-05-25_10-10-37_yt.mp4"
       },
       {
         "part": 11,
@@ -759,7 +795,7 @@
         "theme": "Courage & Strength",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-11/renders/one-piece-quiz-11_2026-05-25_10-23-10.mp4",
+        "render_file": "one-piece-quiz-11/renders/one-piece-quiz-11_2026-05-25_10-23-10_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -822,7 +858,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-11/renders/one-piece-quiz-11_2026-05-25_10-23-10.mp4"
+        "render_file_clean": "one-piece-quiz-11/renders/one-piece-quiz-11_2026-05-25_10-23-10.mp4",
+        "render_file_yt": "one-piece-quiz-11/renders/one-piece-quiz-11_2026-05-25_10-23-10_yt.mp4"
       },
       {
         "part": 12,
@@ -830,7 +867,7 @@
         "theme": "Rank & Command",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-12/renders/one-piece-quiz-12_2026-05-25_17-06-24.mp4",
+        "render_file": "one-piece-quiz-12/renders/one-piece-quiz-12_2026-05-25_17-06-24_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -893,7 +930,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-12/renders/one-piece-quiz-12_2026-05-25_17-06-24.mp4"
+        "render_file_clean": "one-piece-quiz-12/renders/one-piece-quiz-12_2026-05-25_17-06-24.mp4",
+        "render_file_yt": "one-piece-quiz-12/renders/one-piece-quiz-12_2026-05-25_17-06-24_yt.mp4"
       },
       {
         "part": 13,
@@ -901,7 +939,7 @@
         "theme": "Secrets & Alliances",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-13/renders/one-piece-quiz-13_2026-05-25_10-48-37.mp4",
+        "render_file": "one-piece-quiz-13/renders/one-piece-quiz-13_2026-05-25_10-48-37_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -964,7 +1002,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-13/renders/one-piece-quiz-13_2026-05-25_10-48-37.mp4"
+        "render_file_clean": "one-piece-quiz-13/renders/one-piece-quiz-13_2026-05-25_10-48-37.mp4",
+        "render_file_yt": "one-piece-quiz-13/renders/one-piece-quiz-13_2026-05-25_10-48-37_yt.mp4"
       },
       {
         "part": 14,
@@ -972,7 +1011,7 @@
         "theme": "World & Landscape",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-14/renders/one-piece-quiz-14_2026-05-25_10-57-18.mp4",
+        "render_file": "one-piece-quiz-14/renders/one-piece-quiz-14_2026-05-25_10-57-18_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -1035,7 +1074,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-14/renders/one-piece-quiz-14_2026-05-25_10-57-18.mp4"
+        "render_file_clean": "one-piece-quiz-14/renders/one-piece-quiz-14_2026-05-25_10-57-18.mp4",
+        "render_file_yt": "one-piece-quiz-14/renders/one-piece-quiz-14_2026-05-25_10-57-18_yt.mp4"
       },
       {
         "part": 15,
@@ -1043,7 +1083,7 @@
         "theme": "Ship & Weapons",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-15/renders/one-piece-quiz-15_2026-05-25_11-09-59.mp4",
+        "render_file": "one-piece-quiz-15/renders/one-piece-quiz-15_2026-05-25_11-09-59_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -1106,7 +1146,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-15/renders/one-piece-quiz-15_2026-05-25_11-09-59.mp4"
+        "render_file_clean": "one-piece-quiz-15/renders/one-piece-quiz-15_2026-05-25_11-09-59.mp4",
+        "render_file_yt": "one-piece-quiz-15/renders/one-piece-quiz-15_2026-05-25_11-09-59_yt.mp4"
       },
       {
         "part": 16,
@@ -1114,7 +1155,7 @@
         "theme": "Wano & Samurai Honor",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-16/renders/one-piece-quiz-16_2026-05-25_17-08-50.mp4",
+        "render_file": "one-piece-quiz-16/renders/one-piece-quiz-16_2026-05-25_17-08-50_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -1177,7 +1218,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-16/renders/one-piece-quiz-16_2026-05-25_17-08-50.mp4"
+        "render_file_clean": "one-piece-quiz-16/renders/one-piece-quiz-16_2026-05-25_17-08-50.mp4",
+        "render_file_yt": "one-piece-quiz-16/renders/one-piece-quiz-16_2026-05-25_17-08-50_yt.mp4"
       },
       {
         "part": 17,
@@ -1185,7 +1227,7 @@
         "theme": "Food & Cooking",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-17/renders/one-piece-quiz-17_2026-05-25_11-31-12.mp4",
+        "render_file": "one-piece-quiz-17/renders/one-piece-quiz-17_2026-05-25_11-31-12_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -1248,7 +1290,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-17/renders/one-piece-quiz-17_2026-05-25_11-31-12.mp4"
+        "render_file_clean": "one-piece-quiz-17/renders/one-piece-quiz-17_2026-05-25_11-31-12.mp4",
+        "render_file_yt": "one-piece-quiz-17/renders/one-piece-quiz-17_2026-05-25_11-31-12_yt.mp4"
       },
       {
         "part": 18,
@@ -1256,7 +1299,7 @@
         "theme": "The Void Century",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "one-piece-quiz-18/renders/one-piece-quiz-18_2026-05-25_17-11-21.mp4",
+        "render_file": "one-piece-quiz-18/renders/one-piece-quiz-18_2026-05-25_17-11-21_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -1319,7 +1362,8 @@
             ]
           }
         },
-        "render_file_clean": "one-piece-quiz-18/renders/one-piece-quiz-18_2026-05-25_17-11-21.mp4"
+        "render_file_clean": "one-piece-quiz-18/renders/one-piece-quiz-18_2026-05-25_17-11-21.mp4",
+        "render_file_yt": "one-piece-quiz-18/renders/one-piece-quiz-18_2026-05-25_17-11-21_yt.mp4"
       }
     ],
     "used_words": [
@@ -1528,6 +1572,11 @@
           "youtube": {
             "id": "FWCdvvQNswA",
             "date": "2026-05-30"
+          },
+          "facebook": {
+            "id": "35880602704921379",
+            "scheduled_for": "2026-06-02T04:00:00.000Z",
+            "date": "2026-06-02"
           }
         },
         "words": [
@@ -1596,11 +1645,16 @@
         "theme": "Jutsu Types",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-3/renders/naruto-quiz-3_2026-05-25_16-56-33.mp4",
+        "render_file": "naruto-quiz-3/renders/naruto-quiz-3_2026-05-25_16-56-33_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1167627398834235",
+            "scheduled_for": "2026-06-08T04:00:00.000Z",
+            "date": "2026-06-08"
+          }
         },
         "words": [
           {
@@ -1659,7 +1713,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-3/renders/naruto-quiz-3_2026-05-25_16-56-33.mp4"
+        "render_file_clean": "naruto-quiz-3/renders/naruto-quiz-3_2026-05-25_16-56-33.mp4",
+        "render_file_yt": "naruto-quiz-3/renders/naruto-quiz-3_2026-05-25_16-56-33_yt.mp4"
       },
       {
         "part": 4,
@@ -1667,11 +1722,16 @@
         "theme": "Emotions & Inner Strength",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-4/renders/naruto-quiz-4_2026-05-25_09-09-41.mp4",
+        "render_file": "naruto-quiz-4/renders/naruto-quiz-4_2026-05-25_09-09-41_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "26746021471735257",
+            "scheduled_for": "2026-06-14T04:00:00.000Z",
+            "date": "2026-06-14"
+          }
         },
         "words": [
           {
@@ -1730,7 +1790,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-4/renders/naruto-quiz-4_2026-05-25_09-09-41.mp4"
+        "render_file_clean": "naruto-quiz-4/renders/naruto-quiz-4_2026-05-25_09-09-41.mp4",
+        "render_file_yt": "naruto-quiz-4/renders/naruto-quiz-4_2026-05-25_09-09-41_yt.mp4"
       },
       {
         "part": 5,
@@ -1738,11 +1799,16 @@
         "theme": "Training & Battle",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-5/renders/naruto-quiz-5_2026-05-25_09-22-03.mp4",
+        "render_file": "naruto-quiz-5/renders/naruto-quiz-5_2026-05-30_17-13-27_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "847150385125596",
+            "scheduled_for": "2026-06-20T04:00:00.000Z",
+            "date": "2026-06-20"
+          }
         },
         "words": [
           {
@@ -1801,7 +1867,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-5/renders/naruto-quiz-5_2026-05-25_09-22-03.mp4"
+        "render_file_clean": "naruto-quiz-5/renders/naruto-quiz-5_2026-05-25_09-22-03.mp4",
+        "render_file_yt": "naruto-quiz-5/renders/naruto-quiz-5_2026-05-30_17-13-27_yt.mp4"
       },
       {
         "part": 6,
@@ -1809,7 +1876,7 @@
         "theme": "Villages & Landscape",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-6/renders/naruto-quiz-6_2026-05-25_16-59-11.mp4",
+        "render_file": "naruto-quiz-6/renders/naruto-quiz-6_2026-05-25_16-59-11_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -1872,7 +1939,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-6/renders/naruto-quiz-6_2026-05-25_16-59-11.mp4"
+        "render_file_clean": "naruto-quiz-6/renders/naruto-quiz-6_2026-05-25_16-59-11.mp4",
+        "render_file_yt": "naruto-quiz-6/renders/naruto-quiz-6_2026-05-25_16-59-11_yt.mp4"
       },
       {
         "part": 7,
@@ -1880,7 +1948,7 @@
         "theme": "Advanced Techniques",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-7/renders/naruto-quiz-7_2026-05-25_17-01-38.mp4",
+        "render_file": "naruto-quiz-7/renders/naruto-quiz-7_2026-05-30_17-16-24_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -1943,7 +2011,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-7/renders/naruto-quiz-7_2026-05-25_17-01-38.mp4"
+        "render_file_clean": "naruto-quiz-7/renders/naruto-quiz-7_2026-05-25_17-01-38.mp4",
+        "render_file_yt": "naruto-quiz-7/renders/naruto-quiz-7_2026-05-30_17-16-24_yt.mp4"
       },
       {
         "part": 8,
@@ -1951,7 +2020,7 @@
         "theme": "People & Relationships",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-8/renders/naruto-quiz-8_2026-05-25_17-04-01.mp4",
+        "render_file": "naruto-quiz-8/renders/naruto-quiz-8_2026-05-25_17-04-01_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2014,7 +2083,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-8/renders/naruto-quiz-8_2026-05-25_17-04-01.mp4"
+        "render_file_clean": "naruto-quiz-8/renders/naruto-quiz-8_2026-05-25_17-04-01.mp4",
+        "render_file_yt": "naruto-quiz-8/renders/naruto-quiz-8_2026-05-25_17-04-01_yt.mp4"
       },
       {
         "part": 9,
@@ -2022,7 +2092,7 @@
         "theme": "Mindset & Philosophy",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-9/renders/naruto-quiz-9_2026-05-25_10-12-41.mp4",
+        "render_file": "naruto-quiz-9/renders/naruto-quiz-9_2026-05-25_10-12-41_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2085,7 +2155,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-9/renders/naruto-quiz-9_2026-05-25_10-12-41.mp4"
+        "render_file_clean": "naruto-quiz-9/renders/naruto-quiz-9_2026-05-25_10-12-41.mp4",
+        "render_file_yt": "naruto-quiz-9/renders/naruto-quiz-9_2026-05-25_10-12-41_yt.mp4"
       },
       {
         "part": 10,
@@ -2093,7 +2164,7 @@
         "theme": "Nature & Elements",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-10/renders/naruto-quiz-10_2026-05-25_10-25-13.mp4",
+        "render_file": "naruto-quiz-10/renders/naruto-quiz-10_2026-05-25_10-25-13_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2156,7 +2227,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-10/renders/naruto-quiz-10_2026-05-25_10-25-13.mp4"
+        "render_file_clean": "naruto-quiz-10/renders/naruto-quiz-10_2026-05-25_10-25-13.mp4",
+        "render_file_yt": "naruto-quiz-10/renders/naruto-quiz-10_2026-05-25_10-25-13_yt.mp4"
       },
       {
         "part": 11,
@@ -2164,7 +2236,7 @@
         "theme": "Battle Concepts",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-11/renders/naruto-quiz-11_2026-05-25_10-37-44.mp4",
+        "render_file": "naruto-quiz-11/renders/naruto-quiz-11_2026-05-25_10-37-44_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2227,7 +2299,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-11/renders/naruto-quiz-11_2026-05-25_10-37-44.mp4"
+        "render_file_clean": "naruto-quiz-11/renders/naruto-quiz-11_2026-05-25_10-37-44.mp4",
+        "render_file_yt": "naruto-quiz-11/renders/naruto-quiz-11_2026-05-25_10-37-44_yt.mp4"
       },
       {
         "part": 12,
@@ -2235,7 +2308,7 @@
         "theme": "Legacy & Identity",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-12/renders/naruto-quiz-12_2026-05-25_10-50-54.mp4",
+        "render_file": "naruto-quiz-12/renders/naruto-quiz-12_2026-05-25_10-50-54_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2298,7 +2371,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-12/renders/naruto-quiz-12_2026-05-25_10-50-54.mp4"
+        "render_file_clean": "naruto-quiz-12/renders/naruto-quiz-12_2026-05-25_10-50-54.mp4",
+        "render_file_yt": "naruto-quiz-12/renders/naruto-quiz-12_2026-05-25_10-50-54_yt.mp4"
       },
       {
         "part": 13,
@@ -2306,7 +2380,7 @@
         "theme": "Will of Fire",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-13/renders/naruto-quiz-13_2026-05-25_10-59-19.mp4",
+        "render_file": "naruto-quiz-13/renders/naruto-quiz-13_2026-05-25_10-59-19_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2369,7 +2443,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-13/renders/naruto-quiz-13_2026-05-25_10-59-19.mp4"
+        "render_file_clean": "naruto-quiz-13/renders/naruto-quiz-13_2026-05-25_10-59-19.mp4",
+        "render_file_yt": "naruto-quiz-13/renders/naruto-quiz-13_2026-05-25_10-59-19_yt.mp4"
       },
       {
         "part": 14,
@@ -2377,7 +2452,7 @@
         "theme": "Akatsuki & Pain",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-14/renders/naruto-quiz-14_2026-05-25_11-12-14.mp4",
+        "render_file": "naruto-quiz-14/renders/naruto-quiz-14_2026-05-25_11-12-14_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2440,7 +2515,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-14/renders/naruto-quiz-14_2026-05-25_11-12-14.mp4"
+        "render_file_clean": "naruto-quiz-14/renders/naruto-quiz-14_2026-05-25_11-12-14.mp4",
+        "render_file_yt": "naruto-quiz-14/renders/naruto-quiz-14_2026-05-25_11-12-14_yt.mp4"
       },
       {
         "part": 15,
@@ -2448,7 +2524,7 @@
         "theme": "Seals & Hidden Styles",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-15/renders/naruto-quiz-15_2026-05-25_11-20-24.mp4",
+        "render_file": "naruto-quiz-15/renders/naruto-quiz-15_2026-05-25_11-20-24_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2511,7 +2587,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-15/renders/naruto-quiz-15_2026-05-25_11-20-24.mp4"
+        "render_file_clean": "naruto-quiz-15/renders/naruto-quiz-15_2026-05-25_11-20-24.mp4",
+        "render_file_yt": "naruto-quiz-15/renders/naruto-quiz-15_2026-05-25_11-20-24_yt.mp4"
       },
       {
         "part": 16,
@@ -2519,7 +2596,7 @@
         "theme": "The Great Ninja War",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "naruto-quiz-16/renders/naruto-quiz-16_2026-05-25_11-33-28.mp4",
+        "render_file": "naruto-quiz-16/renders/naruto-quiz-16_2026-05-25_11-33-28_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2582,7 +2659,8 @@
             ]
           }
         },
-        "render_file_clean": "naruto-quiz-16/renders/naruto-quiz-16_2026-05-25_11-33-28.mp4"
+        "render_file_clean": "naruto-quiz-16/renders/naruto-quiz-16_2026-05-25_11-33-28.mp4",
+        "render_file_yt": "naruto-quiz-16/renders/naruto-quiz-16_2026-05-25_11-33-28_yt.mp4"
       }
     ],
     "used_words": [
@@ -2681,7 +2759,7 @@
         "theme": "Soul Reaper Basics",
         "status": "rendered",
         "created": "2026-05-23",
-        "render_file": "bleach-quiz/renders/bleach-quiz_2026-05-25_16-25-00.mp4",
+        "render_file": "bleach-quiz/renders/bleach-quiz_2026-05-31_17-19-58_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -2744,7 +2822,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz/renders/bleach-quiz_2026-05-25_16-25-00.mp4"
+        "render_file_clean": "bleach-quiz/renders/bleach-quiz_2026-05-31_17-19-58.mp4",
+        "render_file_yt": "bleach-quiz/renders/bleach-quiz_2026-05-31_17-19-58_yt.mp4"
       },
       {
         "part": 2,
@@ -2752,11 +2831,12 @@
         "theme": "The Blade",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-2/renders/bleach-quiz-2_2026-05-25_08-49-44.mp4",
+        "render_file": "bleach-quiz-2/renders/bleach-quiz-2_2026-05-31_17-26-18_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": null
         },
         "words": [
           {
@@ -2815,7 +2895,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-2/renders/bleach-quiz-2_2026-05-25_08-49-44.mp4"
+        "render_file_clean": "bleach-quiz-2/renders/bleach-quiz-2_2026-05-31_17-26-18.mp4",
+        "render_file_yt": "bleach-quiz-2/renders/bleach-quiz-2_2026-05-31_17-26-18_yt.mp4"
       },
       {
         "part": 3,
@@ -2823,11 +2904,16 @@
         "theme": "Spells & Flash Step",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-3/renders/bleach-quiz-3_2026-05-25_09-01-36.mp4",
+        "render_file": "bleach-quiz-3/renders/bleach-quiz-3_2026-05-25_09-01-36_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1512451367029736",
+            "scheduled_for": "2026-06-10T04:00:00.000Z",
+            "date": "2026-06-10"
+          }
         },
         "words": [
           {
@@ -2886,7 +2972,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-3/renders/bleach-quiz-3_2026-05-25_09-01-36.mp4"
+        "render_file_clean": "bleach-quiz-3/renders/bleach-quiz-3_2026-05-31_17-31-10.mp4",
+        "render_file_yt": "bleach-quiz-3/renders/bleach-quiz-3_2026-05-25_09-01-36_yt.mp4"
       },
       {
         "part": 4,
@@ -2894,11 +2981,16 @@
         "theme": "Soul Society",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-4/renders/bleach-quiz-4_2026-05-25_09-13-52.mp4",
+        "render_file": "bleach-quiz-4/renders/bleach-quiz-4_2026-05-25_09-13-52_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "823787097208750",
+            "scheduled_for": "2026-06-16T04:00:00.000Z",
+            "date": "2026-06-16"
+          }
         },
         "words": [
           {
@@ -2957,7 +3049,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-4/renders/bleach-quiz-4_2026-05-25_09-13-52.mp4"
+        "render_file_clean": "bleach-quiz-4/renders/bleach-quiz-4_2026-05-31_17-33-51.mp4",
+        "render_file_yt": "bleach-quiz-4/renders/bleach-quiz-4_2026-05-25_09-13-52_yt.mp4"
       },
       {
         "part": 5,
@@ -2965,11 +3058,16 @@
         "theme": "Gotei 13 Ranks",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-5/renders/bleach-quiz-5_2026-05-25_09-26-06.mp4",
+        "render_file": "bleach-quiz-5/renders/bleach-quiz-5_2026-05-25_09-26-06_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "970343249238227",
+            "scheduled_for": "2026-06-22T04:00:00.000Z",
+            "date": "2026-06-22"
+          }
         },
         "words": [
           {
@@ -3028,7 +3126,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-5/renders/bleach-quiz-5_2026-05-25_09-26-06.mp4"
+        "render_file_clean": "bleach-quiz-5/renders/bleach-quiz-5_2026-05-31_17-36-28.mp4",
+        "render_file_yt": "bleach-quiz-5/renders/bleach-quiz-5_2026-05-25_09-26-06_yt.mp4"
       },
       {
         "part": 6,
@@ -3036,7 +3135,7 @@
         "theme": "Hollow & Power",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-6/renders/bleach-quiz-6_2026-05-25_09-38-42.mp4",
+        "render_file": "bleach-quiz-6/renders/bleach-quiz-6_2026-05-25_09-38-42_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3099,7 +3198,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-6/renders/bleach-quiz-6_2026-05-25_09-38-42.mp4"
+        "render_file_clean": "bleach-quiz-6/renders/bleach-quiz-6_2026-05-31_17-39-03.mp4",
+        "render_file_yt": "bleach-quiz-6/renders/bleach-quiz-6_2026-05-25_09-38-42_yt.mp4"
       },
       {
         "part": 7,
@@ -3107,7 +3207,7 @@
         "theme": "Bleach Themes",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-7/renders/bleach-quiz-7_2026-05-25_09-51-18.mp4",
+        "render_file": "bleach-quiz-7/renders/bleach-quiz-7_2026-05-25_09-51-18_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3170,7 +3270,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-7/renders/bleach-quiz-7_2026-05-25_09-51-18.mp4"
+        "render_file_clean": "bleach-quiz-7/renders/bleach-quiz-7_2026-05-31_17-41-37.mp4",
+        "render_file_yt": "bleach-quiz-7/renders/bleach-quiz-7_2026-05-25_09-51-18_yt.mp4"
       },
       {
         "part": 8,
@@ -3178,7 +3279,7 @@
         "theme": "Emotions & Will",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-8/renders/bleach-quiz-8_2026-05-25_10-04-13.mp4",
+        "render_file": "bleach-quiz-8/renders/bleach-quiz-8_2026-05-25_10-04-13_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3241,7 +3342,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-8/renders/bleach-quiz-8_2026-05-25_10-04-13.mp4"
+        "render_file_clean": "bleach-quiz-8/renders/bleach-quiz-8_2026-05-31_17-44-14.mp4",
+        "render_file_yt": "bleach-quiz-8/renders/bleach-quiz-8_2026-05-25_10-04-13_yt.mp4"
       },
       {
         "part": 9,
@@ -3249,7 +3351,7 @@
         "theme": "Power & Training",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-9/renders/bleach-quiz-9_2026-05-25_16-29-31.mp4",
+        "render_file": "bleach-quiz-9/renders/bleach-quiz-9_2026-05-25_16-29-31_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3312,7 +3414,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-9/renders/bleach-quiz-9_2026-05-25_16-29-31.mp4"
+        "render_file_clean": "bleach-quiz-9/renders/bleach-quiz-9_2026-05-31_17-46-50.mp4",
+        "render_file_yt": "bleach-quiz-9/renders/bleach-quiz-9_2026-05-25_16-29-31_yt.mp4"
       },
       {
         "part": 10,
@@ -3320,7 +3423,7 @@
         "theme": "Release & Fate",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-10/renders/bleach-quiz-10_2026-05-25_10-29-21.mp4",
+        "render_file": "bleach-quiz-10/renders/bleach-quiz-10_2026-05-25_10-29-21_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3383,7 +3486,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-10/renders/bleach-quiz-10_2026-05-25_10-29-21.mp4"
+        "render_file_clean": "bleach-quiz-10/renders/bleach-quiz-10_2026-05-31_17-49-26.mp4",
+        "render_file_yt": "bleach-quiz-10/renders/bleach-quiz-10_2026-05-25_10-29-21_yt.mp4"
       },
       {
         "part": 11,
@@ -3391,7 +3495,7 @@
         "theme": "Karakura Life",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-11/renders/bleach-quiz-11_2026-05-25_16-27-19.mp4",
+        "render_file": "bleach-quiz-11/renders/bleach-quiz-11_2026-05-25_16-27-19_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3454,7 +3558,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-11/renders/bleach-quiz-11_2026-05-25_16-27-19.mp4"
+        "render_file_clean": "bleach-quiz-11/renders/bleach-quiz-11_2026-05-31_17-52-04.mp4",
+        "render_file_yt": "bleach-quiz-11/renders/bleach-quiz-11_2026-05-25_16-27-19_yt.mp4"
       },
       {
         "part": 12,
@@ -3462,7 +3567,7 @@
         "theme": "Death & Balance",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "bleach-quiz-12/renders/bleach-quiz-12_2026-05-25_11-01-27.mp4",
+        "render_file": "bleach-quiz-12/renders/bleach-quiz-12_2026-05-25_11-01-27_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3525,7 +3630,8 @@
             ]
           }
         },
-        "render_file_clean": "bleach-quiz-12/renders/bleach-quiz-12_2026-05-25_11-01-27.mp4"
+        "render_file_clean": "bleach-quiz-12/renders/bleach-quiz-12_2026-05-31_17-54-38.mp4",
+        "render_file_yt": "bleach-quiz-12/renders/bleach-quiz-12_2026-05-25_11-01-27_yt.mp4"
       }
     ],
     "used_words": [
@@ -3606,7 +3712,7 @@
         "theme": "Titans & Walls",
         "status": "rendered",
         "created": "2026-05-23",
-        "render_file": "attack-on-titan-quiz/renders/attack-on-titan-quiz_2026-05-25_16-15-53.mp4",
+        "render_file": "attack-on-titan-quiz/renders/attack-on-titan-quiz_2026-05-25_16-15-53_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3669,7 +3775,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz/renders/attack-on-titan-quiz_2026-05-25_16-15-53.mp4"
+        "render_file_clean": "attack-on-titan-quiz/renders/attack-on-titan-quiz_2026-05-31_18-02-19.mp4",
+        "render_file_yt": "attack-on-titan-quiz/renders/attack-on-titan-quiz_2026-05-25_16-15-53_yt.mp4"
       },
       {
         "part": 2,
@@ -3677,7 +3784,7 @@
         "theme": "The Military",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-2/renders/attack-on-titan-quiz-2_2026-05-25_16-18-08.mp4",
+        "render_file": "attack-on-titan-quiz-2/renders/attack-on-titan-quiz-2_2026-05-25_16-18-08_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3740,7 +3847,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-2/renders/attack-on-titan-quiz-2_2026-05-25_16-18-08.mp4"
+        "render_file_clean": "attack-on-titan-quiz-2/renders/attack-on-titan-quiz-2_2026-05-31_18-04-46.mp4",
+        "render_file_yt": "attack-on-titan-quiz-2/renders/attack-on-titan-quiz-2_2026-05-25_16-18-08_yt.mp4"
       },
       {
         "part": 3,
@@ -3748,7 +3856,7 @@
         "theme": "Freedom & Captivity",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-3/renders/attack-on-titan-quiz-3_2026-05-25_11-55-19.mp4",
+        "render_file": "attack-on-titan-quiz-3/renders/attack-on-titan-quiz-3_2026-05-25_11-55-19_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3811,7 +3919,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-3/renders/attack-on-titan-quiz-3_2026-05-25_11-55-19.mp4"
+        "render_file_clean": "attack-on-titan-quiz-3/renders/attack-on-titan-quiz-3_2026-05-31_18-07-13.mp4",
+        "render_file_yt": "attack-on-titan-quiz-3/renders/attack-on-titan-quiz-3_2026-05-25_11-55-19_yt.mp4"
       },
       {
         "part": 4,
@@ -3819,7 +3928,7 @@
         "theme": "Combat & Survival",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-4/renders/attack-on-titan-quiz-4_2026-05-25_16-20-22.mp4",
+        "render_file": "attack-on-titan-quiz-4/renders/attack-on-titan-quiz-4_2026-05-25_16-20-22_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3882,7 +3991,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-4/renders/attack-on-titan-quiz-4_2026-05-25_16-20-22.mp4"
+        "render_file_clean": "attack-on-titan-quiz-4/renders/attack-on-titan-quiz-4_2026-05-31_18-09-46.mp4",
+        "render_file_yt": "attack-on-titan-quiz-4/renders/attack-on-titan-quiz-4_2026-05-25_16-20-22_yt.mp4"
       },
       {
         "part": 5,
@@ -3890,7 +4000,7 @@
         "theme": "Emotions",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-5/renders/attack-on-titan-quiz-5_2026-05-25_12-19-16.mp4",
+        "render_file": "attack-on-titan-quiz-5/renders/attack-on-titan-quiz-5_2026-05-25_12-19-16_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -3953,7 +4063,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-5/renders/attack-on-titan-quiz-5_2026-05-25_12-19-16.mp4"
+        "render_file_clean": "attack-on-titan-quiz-5/renders/attack-on-titan-quiz-5_2026-05-31_18-12-18.mp4",
+        "render_file_yt": "attack-on-titan-quiz-5/renders/attack-on-titan-quiz-5_2026-05-25_12-19-16_yt.mp4"
       },
       {
         "part": 6,
@@ -3961,7 +4072,7 @@
         "theme": "Family & People",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-6/renders/attack-on-titan-quiz-6_2026-05-25_16-22-39.mp4",
+        "render_file": "attack-on-titan-quiz-6/renders/attack-on-titan-quiz-6_2026-05-25_16-22-39_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4024,7 +4135,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-6/renders/attack-on-titan-quiz-6_2026-05-25_16-22-39.mp4"
+        "render_file_clean": "attack-on-titan-quiz-6/renders/attack-on-titan-quiz-6_2026-05-31_18-14-48.mp4",
+        "render_file_yt": "attack-on-titan-quiz-6/renders/attack-on-titan-quiz-6_2026-05-25_16-22-39_yt.mp4"
       },
       {
         "part": 7,
@@ -4032,7 +4144,7 @@
         "theme": "Victory & Death",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-7/renders/attack-on-titan-quiz-7_2026-05-25_12-40-41.mp4",
+        "render_file": "attack-on-titan-quiz-7/renders/attack-on-titan-quiz-7_2026-05-25_12-40-41_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4095,7 +4207,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-7/renders/attack-on-titan-quiz-7_2026-05-25_12-40-41.mp4"
+        "render_file_clean": "attack-on-titan-quiz-7/renders/attack-on-titan-quiz-7_2026-05-31_18-17-19.mp4",
+        "render_file_yt": "attack-on-titan-quiz-7/renders/attack-on-titan-quiz-7_2026-05-25_12-40-41_yt.mp4"
       },
       {
         "part": 8,
@@ -4103,7 +4216,7 @@
         "theme": "Truth & History",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-8/renders/attack-on-titan-quiz-8_2026-05-25_12-51-15.mp4",
+        "render_file": "attack-on-titan-quiz-8/renders/attack-on-titan-quiz-8_2026-05-25_12-51-15_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4166,7 +4279,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-8/renders/attack-on-titan-quiz-8_2026-05-25_12-51-15.mp4"
+        "render_file_clean": "attack-on-titan-quiz-8/renders/attack-on-titan-quiz-8_2026-05-31_18-19-54.mp4",
+        "render_file_yt": "attack-on-titan-quiz-8/renders/attack-on-titan-quiz-8_2026-05-25_12-51-15_yt.mp4"
       },
       {
         "part": 9,
@@ -4174,7 +4288,7 @@
         "theme": "World & Nature",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-9/renders/attack-on-titan-quiz-9_2026-05-25_13-01-42.mp4",
+        "render_file": "attack-on-titan-quiz-9/renders/attack-on-titan-quiz-9_2026-05-25_13-01-42_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4237,7 +4351,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-9/renders/attack-on-titan-quiz-9_2026-05-25_13-01-42.mp4"
+        "render_file_clean": "attack-on-titan-quiz-9/renders/attack-on-titan-quiz-9_2026-05-31_18-22-30.mp4",
+        "render_file_yt": "attack-on-titan-quiz-9/renders/attack-on-titan-quiz-9_2026-05-25_13-01-42_yt.mp4"
       },
       {
         "part": 10,
@@ -4245,7 +4360,7 @@
         "theme": "Power & Authority",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-10/renders/attack-on-titan-quiz-10_2026-05-25_13-12-13.mp4",
+        "render_file": "attack-on-titan-quiz-10/renders/attack-on-titan-quiz-10_2026-05-25_13-12-13_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4308,7 +4423,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-10/renders/attack-on-titan-quiz-10_2026-05-25_13-12-13.mp4"
+        "render_file_clean": "attack-on-titan-quiz-10/renders/attack-on-titan-quiz-10_2026-05-31_18-25-11.mp4",
+        "render_file_yt": "attack-on-titan-quiz-10/renders/attack-on-titan-quiz-10_2026-05-25_13-12-13_yt.mp4"
       },
       {
         "part": 11,
@@ -4316,7 +4432,7 @@
         "theme": "Titan Powers",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-11/renders/attack-on-titan-quiz-11_2026-05-25_13-22-42.mp4",
+        "render_file": "attack-on-titan-quiz-11/renders/attack-on-titan-quiz-11_2026-05-25_13-22-42_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4379,7 +4495,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-11/renders/attack-on-titan-quiz-11_2026-05-25_13-22-42.mp4"
+        "render_file_clean": "attack-on-titan-quiz-11/renders/attack-on-titan-quiz-11_2026-05-31_18-27-49.mp4",
+        "render_file_yt": "attack-on-titan-quiz-11/renders/attack-on-titan-quiz-11_2026-05-25_13-22-42_yt.mp4"
       },
       {
         "part": 12,
@@ -4387,7 +4504,7 @@
         "theme": "Humanity & Hope",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "attack-on-titan-quiz-12/renders/attack-on-titan-quiz-12_2026-05-25_13-33-14.mp4",
+        "render_file": "attack-on-titan-quiz-12/renders/attack-on-titan-quiz-12_2026-05-25_13-33-14_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4450,7 +4567,8 @@
             ]
           }
         },
-        "render_file_clean": "attack-on-titan-quiz-12/renders/attack-on-titan-quiz-12_2026-05-25_13-33-14.mp4"
+        "render_file_clean": "attack-on-titan-quiz-12/renders/attack-on-titan-quiz-12_2026-05-31_18-30-12.mp4",
+        "render_file_yt": "attack-on-titan-quiz-12/renders/attack-on-titan-quiz-12_2026-05-25_13-33-14_yt.mp4"
       }
     ],
     "used_words": [
@@ -4531,7 +4649,7 @@
         "theme": "Alchemy Basics",
         "status": "rendered",
         "created": "2026-05-23",
-        "render_file": "fullmetal-alchemist-quiz/renders/fullmetal-alchemist-quiz_2026-05-25_16-39-06.mp4",
+        "render_file": "fullmetal-alchemist-quiz/renders/fullmetal-alchemist-quiz_2026-05-25_16-39-06_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4594,7 +4712,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz/renders/fullmetal-alchemist-quiz_2026-05-25_16-39-06.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz/renders/fullmetal-alchemist-quiz_2026-05-25_16-39-06.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz/renders/fullmetal-alchemist-quiz_2026-05-25_16-39-06_yt.mp4"
       },
       {
         "part": 2,
@@ -4602,7 +4721,7 @@
         "theme": "Truth & Cost",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-2/renders/fullmetal-alchemist-quiz-2_2026-05-25_11-35-45.mp4",
+        "render_file": "fullmetal-alchemist-quiz-2/renders/fullmetal-alchemist-quiz-2_2026-05-25_11-35-45_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4665,7 +4784,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-2/renders/fullmetal-alchemist-quiz-2_2026-05-25_11-35-45.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-2/renders/fullmetal-alchemist-quiz-2_2026-05-25_11-35-45.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-2/renders/fullmetal-alchemist-quiz-2_2026-05-25_11-35-45_yt.mp4"
       },
       {
         "part": 3,
@@ -4673,7 +4793,7 @@
         "theme": "The Body",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-3/renders/fullmetal-alchemist-quiz-3_2026-05-25_11-44-57.mp4",
+        "render_file": "fullmetal-alchemist-quiz-3/renders/fullmetal-alchemist-quiz-3_2026-05-25_11-44-57_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4736,7 +4856,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-3/renders/fullmetal-alchemist-quiz-3_2026-05-25_11-44-57.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-3/renders/fullmetal-alchemist-quiz-3_2026-05-25_11-44-57.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-3/renders/fullmetal-alchemist-quiz-3_2026-05-25_11-44-57_yt.mp4"
       },
       {
         "part": 4,
@@ -4744,7 +4865,7 @@
         "theme": "Brothers & Family",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-4/renders/fullmetal-alchemist-quiz-4_2026-05-25_11-57-51.mp4",
+        "render_file": "fullmetal-alchemist-quiz-4/renders/fullmetal-alchemist-quiz-4_2026-05-25_11-57-51_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4807,7 +4928,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-4/renders/fullmetal-alchemist-quiz-4_2026-05-25_11-57-51.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-4/renders/fullmetal-alchemist-quiz-4_2026-05-25_11-57-51.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-4/renders/fullmetal-alchemist-quiz-4_2026-05-25_11-57-51_yt.mp4"
       },
       {
         "part": 5,
@@ -4815,7 +4937,7 @@
         "theme": "The Military",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-5/renders/fullmetal-alchemist-quiz-5_2026-05-25_12-10-17.mp4",
+        "render_file": "fullmetal-alchemist-quiz-5/renders/fullmetal-alchemist-quiz-5_2026-05-25_12-10-17_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4878,7 +5000,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-5/renders/fullmetal-alchemist-quiz-5_2026-05-25_12-10-17.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-5/renders/fullmetal-alchemist-quiz-5_2026-05-25_12-10-17.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-5/renders/fullmetal-alchemist-quiz-5_2026-05-25_12-10-17_yt.mp4"
       },
       {
         "part": 6,
@@ -4886,7 +5009,7 @@
         "theme": "Emotions",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-6/renders/fullmetal-alchemist-quiz-6_2026-05-25_12-21-27.mp4",
+        "render_file": "fullmetal-alchemist-quiz-6/renders/fullmetal-alchemist-quiz-6_2026-05-25_12-21-27_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -4949,7 +5072,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-6/renders/fullmetal-alchemist-quiz-6_2026-05-25_12-21-27.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-6/renders/fullmetal-alchemist-quiz-6_2026-05-25_12-21-27.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-6/renders/fullmetal-alchemist-quiz-6_2026-05-25_12-21-27_yt.mp4"
       },
       {
         "part": 7,
@@ -4957,7 +5081,7 @@
         "theme": "Knowledge & Research",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-7/renders/fullmetal-alchemist-quiz-7_2026-05-25_12-32-02.mp4",
+        "render_file": "fullmetal-alchemist-quiz-7/renders/fullmetal-alchemist-quiz-7_2026-05-25_12-32-02_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5020,7 +5144,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-7/renders/fullmetal-alchemist-quiz-7_2026-05-25_12-32-02.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-7/renders/fullmetal-alchemist-quiz-7_2026-05-25_12-32-02.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-7/renders/fullmetal-alchemist-quiz-7_2026-05-25_12-32-02_yt.mp4"
       },
       {
         "part": 8,
@@ -5028,7 +5153,7 @@
         "theme": "Places",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-8/renders/fullmetal-alchemist-quiz-8_2026-05-25_12-42-49.mp4",
+        "render_file": "fullmetal-alchemist-quiz-8/renders/fullmetal-alchemist-quiz-8_2026-05-25_12-42-49_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5091,7 +5216,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-8/renders/fullmetal-alchemist-quiz-8_2026-05-25_12-42-49.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-8/renders/fullmetal-alchemist-quiz-8_2026-05-25_12-42-49.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-8/renders/fullmetal-alchemist-quiz-8_2026-05-25_12-42-49_yt.mp4"
       },
       {
         "part": 9,
@@ -5099,7 +5225,7 @@
         "theme": "Elements",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-9/renders/fullmetal-alchemist-quiz-9_2026-05-25_16-46-31.mp4",
+        "render_file": "fullmetal-alchemist-quiz-9/renders/fullmetal-alchemist-quiz-9_2026-05-25_16-46-31_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5162,7 +5288,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-9/renders/fullmetal-alchemist-quiz-9_2026-05-25_16-46-31.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-9/renders/fullmetal-alchemist-quiz-9_2026-05-25_16-46-31.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-9/renders/fullmetal-alchemist-quiz-9_2026-05-25_16-46-31_yt.mp4"
       },
       {
         "part": 10,
@@ -5170,7 +5297,7 @@
         "theme": "Action & Battle",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-10/renders/fullmetal-alchemist-quiz-10_2026-05-25_16-41-32.mp4",
+        "render_file": "fullmetal-alchemist-quiz-10/renders/fullmetal-alchemist-quiz-10_2026-05-25_16-41-32_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5233,7 +5360,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-10/renders/fullmetal-alchemist-quiz-10_2026-05-25_16-41-32.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-10/renders/fullmetal-alchemist-quiz-10_2026-05-25_16-41-32.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-10/renders/fullmetal-alchemist-quiz-10_2026-05-25_16-41-32_yt.mp4"
       },
       {
         "part": 11,
@@ -5241,7 +5369,7 @@
         "theme": "Character & Will",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-11/renders/fullmetal-alchemist-quiz-11_2026-05-25_13-14-20.mp4",
+        "render_file": "fullmetal-alchemist-quiz-11/renders/fullmetal-alchemist-quiz-11_2026-05-25_13-14-20_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5304,7 +5432,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-11/renders/fullmetal-alchemist-quiz-11_2026-05-25_13-14-20.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-11/renders/fullmetal-alchemist-quiz-11_2026-05-25_13-14-20.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-11/renders/fullmetal-alchemist-quiz-11_2026-05-25_13-14-20_yt.mp4"
       },
       {
         "part": 12,
@@ -5312,7 +5441,7 @@
         "theme": "Themes & Philosophy",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "fullmetal-alchemist-quiz-12/renders/fullmetal-alchemist-quiz-12_2026-05-25_16-43-58.mp4",
+        "render_file": "fullmetal-alchemist-quiz-12/renders/fullmetal-alchemist-quiz-12_2026-05-25_16-43-58_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5375,7 +5504,8 @@
             ]
           }
         },
-        "render_file_clean": "fullmetal-alchemist-quiz-12/renders/fullmetal-alchemist-quiz-12_2026-05-25_16-43-58.mp4"
+        "render_file_clean": "fullmetal-alchemist-quiz-12/renders/fullmetal-alchemist-quiz-12_2026-05-25_16-43-58.mp4",
+        "render_file_yt": "fullmetal-alchemist-quiz-12/renders/fullmetal-alchemist-quiz-12_2026-05-25_16-43-58_yt.mp4"
       }
     ],
     "used_words": [
@@ -5456,7 +5586,7 @@
         "theme": "The Virtual World",
         "status": "rendered",
         "created": "2026-05-23",
-        "render_file": "sword-art-online-quiz/renders/sword-art-online-quiz_2026-05-25_17-16-15.mp4",
+        "render_file": "sword-art-online-quiz/renders/sword-art-online-quiz_2026-05-25_17-16-15_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5519,7 +5649,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz/renders/sword-art-online-quiz_2026-05-25_17-16-15.mp4"
+        "render_file_clean": "sword-art-online-quiz/renders/sword-art-online-quiz_2026-05-25_17-16-15.mp4",
+        "render_file_yt": "sword-art-online-quiz/renders/sword-art-online-quiz_2026-05-25_17-16-15_yt.mp4"
       },
       {
         "part": 2,
@@ -5527,7 +5658,7 @@
         "theme": "Sword & Combat",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-2/renders/sword-art-online-quiz-2_2026-05-25_11-47-12.mp4",
+        "render_file": "sword-art-online-quiz-2/renders/sword-art-online-quiz-2_2026-05-25_11-47-12_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5590,7 +5721,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-2/renders/sword-art-online-quiz-2_2026-05-25_11-47-12.mp4"
+        "render_file_clean": "sword-art-online-quiz-2/renders/sword-art-online-quiz-2_2026-05-25_11-47-12.mp4",
+        "render_file_yt": "sword-art-online-quiz-2/renders/sword-art-online-quiz-2_2026-05-25_11-47-12_yt.mp4"
       },
       {
         "part": 3,
@@ -5598,7 +5730,7 @@
         "theme": "Life & Death",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-3/renders/sword-art-online-quiz-3_2026-05-25_12-00-15.mp4",
+        "render_file": "sword-art-online-quiz-3/renders/sword-art-online-quiz-3_2026-05-25_12-00-15_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5661,7 +5793,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-3/renders/sword-art-online-quiz-3_2026-05-25_12-00-15.mp4"
+        "render_file_clean": "sword-art-online-quiz-3/renders/sword-art-online-quiz-3_2026-05-25_12-00-15.mp4",
+        "render_file_yt": "sword-art-online-quiz-3/renders/sword-art-online-quiz-3_2026-05-25_12-00-15_yt.mp4"
       },
       {
         "part": 4,
@@ -5669,7 +5802,7 @@
         "theme": "Party & Bonds",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-4/renders/sword-art-online-quiz-4_2026-05-25_12-12-48.mp4",
+        "render_file": "sword-art-online-quiz-4/renders/sword-art-online-quiz-4_2026-05-25_12-12-48_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5732,7 +5865,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-4/renders/sword-art-online-quiz-4_2026-05-25_12-12-48.mp4"
+        "render_file_clean": "sword-art-online-quiz-4/renders/sword-art-online-quiz-4_2026-05-25_12-12-48.mp4",
+        "render_file_yt": "sword-art-online-quiz-4/renders/sword-art-online-quiz-4_2026-05-25_12-12-48_yt.mp4"
       },
       {
         "part": 5,
@@ -5740,7 +5874,7 @@
         "theme": "Emotions",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-5/renders/sword-art-online-quiz-5_2026-05-25_17-21-03.mp4",
+        "render_file": "sword-art-online-quiz-5/renders/sword-art-online-quiz-5_2026-05-25_17-21-03_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5803,7 +5937,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-5/renders/sword-art-online-quiz-5_2026-05-25_17-21-03.mp4"
+        "render_file_clean": "sword-art-online-quiz-5/renders/sword-art-online-quiz-5_2026-05-25_17-21-03.mp4",
+        "render_file_yt": "sword-art-online-quiz-5/renders/sword-art-online-quiz-5_2026-05-25_17-21-03_yt.mp4"
       },
       {
         "part": 6,
@@ -5811,7 +5946,7 @@
         "theme": "Victory & Challenge",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-6/renders/sword-art-online-quiz-6_2026-05-25_12-34-16.mp4",
+        "render_file": "sword-art-online-quiz-6/renders/sword-art-online-quiz-6_2026-05-25_12-34-16_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5874,7 +6009,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-6/renders/sword-art-online-quiz-6_2026-05-25_12-34-16.mp4"
+        "render_file_clean": "sword-art-online-quiz-6/renders/sword-art-online-quiz-6_2026-05-25_12-34-16.mp4",
+        "render_file_yt": "sword-art-online-quiz-6/renders/sword-art-online-quiz-6_2026-05-25_12-34-16_yt.mp4"
       },
       {
         "part": 7,
@@ -5882,7 +6018,7 @@
         "theme": "Places & Levels",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-7/renders/sword-art-online-quiz-7_2026-05-25_12-44-56.mp4",
+        "render_file": "sword-art-online-quiz-7/renders/sword-art-online-quiz-7_2026-05-25_12-44-56_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -5945,7 +6081,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-7/renders/sword-art-online-quiz-7_2026-05-25_12-44-56.mp4"
+        "render_file_clean": "sword-art-online-quiz-7/renders/sword-art-online-quiz-7_2026-05-25_12-44-56.mp4",
+        "render_file_yt": "sword-art-online-quiz-7/renders/sword-art-online-quiz-7_2026-05-25_12-44-56_yt.mp4"
       },
       {
         "part": 8,
@@ -5953,7 +6090,7 @@
         "theme": "The Real World",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-8/renders/sword-art-online-quiz-8_2026-05-25_12-55-26.mp4",
+        "render_file": "sword-art-online-quiz-8/renders/sword-art-online-quiz-8_2026-05-25_12-55-26_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6016,7 +6153,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-8/renders/sword-art-online-quiz-8_2026-05-25_12-55-26.mp4"
+        "render_file_clean": "sword-art-online-quiz-8/renders/sword-art-online-quiz-8_2026-05-25_12-55-26.mp4",
+        "render_file_yt": "sword-art-online-quiz-8/renders/sword-art-online-quiz-8_2026-05-25_12-55-26_yt.mp4"
       },
       {
         "part": 9,
@@ -6024,7 +6162,7 @@
         "theme": "Mind & Memory",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-9/renders/sword-art-online-quiz-9_2026-05-25_13-05-54.mp4",
+        "render_file": "sword-art-online-quiz-9/renders/sword-art-online-quiz-9_2026-05-25_13-05-54_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6087,7 +6225,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-9/renders/sword-art-online-quiz-9_2026-05-25_13-05-54.mp4"
+        "render_file_clean": "sword-art-online-quiz-9/renders/sword-art-online-quiz-9_2026-05-25_13-05-54.mp4",
+        "render_file_yt": "sword-art-online-quiz-9/renders/sword-art-online-quiz-9_2026-05-25_13-05-54_yt.mp4"
       },
       {
         "part": 10,
@@ -6095,7 +6234,7 @@
         "theme": "Growth & Power",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-10/renders/sword-art-online-quiz-10_2026-05-25_17-18-42.mp4",
+        "render_file": "sword-art-online-quiz-10/renders/sword-art-online-quiz-10_2026-05-25_17-18-42_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6158,7 +6297,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-10/renders/sword-art-online-quiz-10_2026-05-25_17-18-42.mp4"
+        "render_file_clean": "sword-art-online-quiz-10/renders/sword-art-online-quiz-10_2026-05-25_17-18-42.mp4",
+        "render_file_yt": "sword-art-online-quiz-10/renders/sword-art-online-quiz-10_2026-05-25_17-18-42_yt.mp4"
       },
       {
         "part": 11,
@@ -6166,7 +6306,7 @@
         "theme": "Love & Promise",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-11/renders/sword-art-online-quiz-11_2026-05-25_13-29-02.mp4",
+        "render_file": "sword-art-online-quiz-11/renders/sword-art-online-quiz-11_2026-05-25_13-29-02_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6229,7 +6369,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-11/renders/sword-art-online-quiz-11_2026-05-25_13-29-02.mp4"
+        "render_file_clean": "sword-art-online-quiz-11/renders/sword-art-online-quiz-11_2026-05-25_13-29-02.mp4",
+        "render_file_yt": "sword-art-online-quiz-11/renders/sword-art-online-quiz-11_2026-05-25_13-29-02_yt.mp4"
       },
       {
         "part": 12,
@@ -6237,7 +6378,7 @@
         "theme": "Themes & Destiny",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "sword-art-online-quiz-12/renders/sword-art-online-quiz-12_2026-05-25_13-35-20.mp4",
+        "render_file": "sword-art-online-quiz-12/renders/sword-art-online-quiz-12_2026-05-25_13-35-20_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6300,7 +6441,8 @@
             ]
           }
         },
-        "render_file_clean": "sword-art-online-quiz-12/renders/sword-art-online-quiz-12_2026-05-25_13-35-20.mp4"
+        "render_file_clean": "sword-art-online-quiz-12/renders/sword-art-online-quiz-12_2026-05-25_13-35-20.mp4",
+        "render_file_yt": "sword-art-online-quiz-12/renders/sword-art-online-quiz-12_2026-05-25_13-35-20_yt.mp4"
       }
     ],
     "used_words": [
@@ -6382,7 +6524,7 @@
         "theme": "Essential Questions",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz/renders/anime-core-quiz_2026-05-25_08-33-43.mp4",
+        "render_file": "anime-core-quiz/renders/anime-core-quiz_2026-05-25_08-33-43_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6445,7 +6587,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz/renders/anime-core-quiz_2026-05-25_08-33-43.mp4"
+        "render_file_clean": "anime-core-quiz/renders/anime-core-quiz_2026-05-25_08-33-43.mp4",
+        "render_file_yt": "anime-core-quiz/renders/anime-core-quiz_2026-05-25_08-33-43_yt.mp4"
       },
       {
         "part": 2,
@@ -6453,11 +6596,15 @@
         "theme": "Anime Reactions",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-2/renders/anime-core-quiz-2_2026-05-25_08-41-47.mp4",
+        "render_file": "anime-core-quiz-2/renders/anime-core-quiz-2_2026-05-25_08-41-47_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "XjCGdWPrQMI",
+            "scheduled_for": "2026-06-07T04:00:00.000Z",
+            "date": "2026-06-07"
+          }
         },
         "words": [
           {
@@ -6516,7 +6663,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-2/renders/anime-core-quiz-2_2026-05-25_08-41-47.mp4"
+        "render_file_clean": "anime-core-quiz-2/renders/anime-core-quiz-2_2026-05-25_08-41-47.mp4",
+        "render_file_yt": "anime-core-quiz-2/renders/anime-core-quiz-2_2026-05-25_08-41-47_yt.mp4"
       },
       {
         "part": 3,
@@ -6524,11 +6672,20 @@
         "theme": "Core Verbs I",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-3/renders/anime-core-quiz-3_2026-05-25_16-06-35.mp4",
+        "render_file": "anime-core-quiz-3/renders/anime-core-quiz-3_2026-05-25_16-06-35_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "Jz12TtVWyXY",
+            "scheduled_for": "2026-06-19T04:00:00.000Z",
+            "date": "2026-06-19"
+          },
+          "facebook": {
+            "id": "1697522884697607",
+            "scheduled_for": "2026-06-06T04:00:00.000Z",
+            "date": "2026-06-06"
+          }
         },
         "words": [
           {
@@ -6587,7 +6744,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-3/renders/anime-core-quiz-3_2026-05-25_16-06-35.mp4"
+        "render_file_clean": "anime-core-quiz-3/renders/anime-core-quiz-3_2026-05-25_16-06-35.mp4",
+        "render_file_yt": "anime-core-quiz-3/renders/anime-core-quiz-3_2026-05-25_16-06-35_yt.mp4"
       },
       {
         "part": 4,
@@ -6595,11 +6753,16 @@
         "theme": "Core Verbs II",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-4/renders/anime-core-quiz-4_2026-05-25_16-08-49.mp4",
+        "render_file": "anime-core-quiz-4/renders/anime-core-quiz-4_2026-05-25_16-08-49_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1513459437237013",
+            "scheduled_for": "2026-06-12T04:00:00.000Z",
+            "date": "2026-06-12"
+          }
         },
         "words": [
           {
@@ -6658,7 +6821,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-4/renders/anime-core-quiz-4_2026-05-25_16-08-49.mp4"
+        "render_file_clean": "anime-core-quiz-4/renders/anime-core-quiz-4_2026-05-25_16-08-49.mp4",
+        "render_file_yt": "anime-core-quiz-4/renders/anime-core-quiz-4_2026-05-25_16-08-49_yt.mp4"
       },
       {
         "part": 5,
@@ -6666,11 +6830,16 @@
         "theme": "Feelings",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-5/renders/anime-core-quiz-5_2026-05-25_09-17-57.mp4",
+        "render_file": "anime-core-quiz-5/renders/anime-core-quiz-5_2026-05-25_09-17-57_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "889729487471544",
+            "scheduled_for": "2026-06-18T04:00:00.000Z",
+            "date": "2026-06-18"
+          }
         },
         "words": [
           {
@@ -6729,7 +6898,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-5/renders/anime-core-quiz-5_2026-05-25_09-17-57.mp4"
+        "render_file_clean": "anime-core-quiz-5/renders/anime-core-quiz-5_2026-05-25_09-17-57.mp4",
+        "render_file_yt": "anime-core-quiz-5/renders/anime-core-quiz-5_2026-05-25_09-17-57_yt.mp4"
       },
       {
         "part": 6,
@@ -6737,7 +6907,7 @@
         "theme": "Strong & Fast",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-6/renders/anime-core-quiz-6_2026-05-25_09-30-16.mp4",
+        "render_file": "anime-core-quiz-6/renders/anime-core-quiz-6_2026-05-25_09-30-16_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6800,7 +6970,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-6/renders/anime-core-quiz-6_2026-05-25_09-30-16.mp4"
+        "render_file_clean": "anime-core-quiz-6/renders/anime-core-quiz-6_2026-05-25_09-30-16.mp4",
+        "render_file_yt": "anime-core-quiz-6/renders/anime-core-quiz-6_2026-05-25_09-30-16_yt.mp4"
       },
       {
         "part": 7,
@@ -6808,7 +6979,7 @@
         "theme": "People",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-7/renders/anime-core-quiz-7_2026-05-25_09-42-57.mp4",
+        "render_file": "anime-core-quiz-7/renders/anime-core-quiz-7_2026-05-25_09-42-57_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6871,7 +7042,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-7/renders/anime-core-quiz-7_2026-05-25_09-42-57.mp4"
+        "render_file_clean": "anime-core-quiz-7/renders/anime-core-quiz-7_2026-05-25_09-42-57.mp4",
+        "render_file_yt": "anime-core-quiz-7/renders/anime-core-quiz-7_2026-05-25_09-42-57_yt.mp4"
       },
       {
         "part": 8,
@@ -6879,7 +7051,7 @@
         "theme": "Time",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-8/renders/anime-core-quiz-8_2026-05-25_16-11-04.mp4",
+        "render_file": "anime-core-quiz-8/renders/anime-core-quiz-8_2026-05-25_16-11-04_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -6942,7 +7114,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-8/renders/anime-core-quiz-8_2026-05-25_16-11-04.mp4"
+        "render_file_clean": "anime-core-quiz-8/renders/anime-core-quiz-8_2026-05-25_16-11-04.mp4",
+        "render_file_yt": "anime-core-quiz-8/renders/anime-core-quiz-8_2026-05-25_16-11-04_yt.mp4"
       },
       {
         "part": 9,
@@ -6950,7 +7123,7 @@
         "theme": "Location",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-9/renders/anime-core-quiz-9_2026-05-25_16-13-33.mp4",
+        "render_file": "anime-core-quiz-9/renders/anime-core-quiz-9_2026-05-25_16-13-33_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7013,7 +7186,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-9/renders/anime-core-quiz-9_2026-05-25_16-13-33.mp4"
+        "render_file_clean": "anime-core-quiz-9/renders/anime-core-quiz-9_2026-05-25_16-13-33.mp4",
+        "render_file_yt": "anime-core-quiz-9/renders/anime-core-quiz-9_2026-05-25_16-13-33_yt.mp4"
       },
       {
         "part": 10,
@@ -7021,7 +7195,7 @@
         "theme": "Useful Phrases",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-10/renders/anime-core-quiz-10_2026-05-25_15-57-14.mp4",
+        "render_file": "anime-core-quiz-10/renders/anime-core-quiz-10_2026-05-25_15-57-14_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7084,7 +7258,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-10/renders/anime-core-quiz-10_2026-05-25_15-57-14.mp4"
+        "render_file_clean": "anime-core-quiz-10/renders/anime-core-quiz-10_2026-05-25_15-57-14.mp4",
+        "render_file_yt": "anime-core-quiz-10/renders/anime-core-quiz-10_2026-05-25_15-57-14_yt.mp4"
       },
       {
         "part": 11,
@@ -7092,7 +7267,7 @@
         "theme": "Nature & Elements",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-11/renders/anime-core-quiz-11_2026-05-25_15-59-38.mp4",
+        "render_file": "anime-core-quiz-11/renders/anime-core-quiz-11_2026-05-25_15-59-38_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7155,7 +7330,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-11/renders/anime-core-quiz-11_2026-05-25_15-59-38.mp4"
+        "render_file_clean": "anime-core-quiz-11/renders/anime-core-quiz-11_2026-05-25_15-59-38.mp4",
+        "render_file_yt": "anime-core-quiz-11/renders/anime-core-quiz-11_2026-05-25_15-59-38_yt.mp4"
       },
       {
         "part": 12,
@@ -7163,7 +7339,7 @@
         "theme": "Heart & Body",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-12/renders/anime-core-quiz-12_2026-05-25_16-01-53.mp4",
+        "render_file": "anime-core-quiz-12/renders/anime-core-quiz-12_2026-05-25_16-01-53_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7226,7 +7402,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-12/renders/anime-core-quiz-12_2026-05-25_16-01-53.mp4"
+        "render_file_clean": "anime-core-quiz-12/renders/anime-core-quiz-12_2026-05-25_16-01-53.mp4",
+        "render_file_yt": "anime-core-quiz-12/renders/anime-core-quiz-12_2026-05-25_16-01-53_yt.mp4"
       },
       {
         "part": 13,
@@ -7234,7 +7411,7 @@
         "theme": "Numbers I",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-13/renders/anime-core-quiz-13_2026-05-25_10-55-12.mp4",
+        "render_file": "anime-core-quiz-13/renders/anime-core-quiz-13_2026-05-25_10-55-12_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7297,7 +7474,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-13/renders/anime-core-quiz-13_2026-05-25_10-55-12.mp4"
+        "render_file_clean": "anime-core-quiz-13/renders/anime-core-quiz-13_2026-05-25_10-55-12.mp4",
+        "render_file_yt": "anime-core-quiz-13/renders/anime-core-quiz-13_2026-05-25_10-55-12_yt.mp4"
       },
       {
         "part": 14,
@@ -7305,7 +7483,7 @@
         "theme": "Numbers II",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-14/renders/anime-core-quiz-14_2026-05-25_11-07-46.mp4",
+        "render_file": "anime-core-quiz-14/renders/anime-core-quiz-14_2026-05-25_11-07-46_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7368,7 +7546,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-14/renders/anime-core-quiz-14_2026-05-25_11-07-46.mp4"
+        "render_file_clean": "anime-core-quiz-14/renders/anime-core-quiz-14_2026-05-25_11-07-46.mp4",
+        "render_file_yt": "anime-core-quiz-14/renders/anime-core-quiz-14_2026-05-25_11-07-46_yt.mp4"
       },
       {
         "part": 15,
@@ -7376,7 +7555,7 @@
         "theme": "Colors",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-15/renders/anime-core-quiz-15_2026-05-25_11-16-20.mp4",
+        "render_file": "anime-core-quiz-15/renders/anime-core-quiz-15_2026-05-25_11-16-20_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7439,7 +7618,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-15/renders/anime-core-quiz-15_2026-05-25_11-16-20.mp4"
+        "render_file_clean": "anime-core-quiz-15/renders/anime-core-quiz-15_2026-05-25_11-16-20.mp4",
+        "render_file_yt": "anime-core-quiz-15/renders/anime-core-quiz-15_2026-05-25_11-16-20_yt.mp4"
       },
       {
         "part": 16,
@@ -7447,7 +7627,7 @@
         "theme": "Greetings & Politeness",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-16/renders/anime-core-quiz-16_2026-05-25_11-28-54.mp4",
+        "render_file": "anime-core-quiz-16/renders/anime-core-quiz-16_2026-05-25_11-28-54_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7510,7 +7690,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-16/renders/anime-core-quiz-16_2026-05-25_11-28-54.mp4"
+        "render_file_clean": "anime-core-quiz-16/renders/anime-core-quiz-16_2026-05-25_11-28-54.mp4",
+        "render_file_yt": "anime-core-quiz-16/renders/anime-core-quiz-16_2026-05-25_11-28-54_yt.mp4"
       },
       {
         "part": 17,
@@ -7518,7 +7699,7 @@
         "theme": "Family",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-17/renders/anime-core-quiz-17_2026-05-25_11-40-18.mp4",
+        "render_file": "anime-core-quiz-17/renders/anime-core-quiz-17_2026-05-25_11-40-18_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7581,7 +7762,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-17/renders/anime-core-quiz-17_2026-05-25_11-40-18.mp4"
+        "render_file_clean": "anime-core-quiz-17/renders/anime-core-quiz-17_2026-05-25_11-40-18.mp4",
+        "render_file_yt": "anime-core-quiz-17/renders/anime-core-quiz-17_2026-05-25_11-40-18_yt.mp4"
       },
       {
         "part": 18,
@@ -7589,7 +7771,7 @@
         "theme": "Good & Bad",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-18/renders/anime-core-quiz-18_2026-05-25_11-49-41.mp4",
+        "render_file": "anime-core-quiz-18/renders/anime-core-quiz-18_2026-05-25_11-49-41_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7652,7 +7834,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-18/renders/anime-core-quiz-18_2026-05-25_11-49-41.mp4"
+        "render_file_clean": "anime-core-quiz-18/renders/anime-core-quiz-18_2026-05-25_11-49-41.mp4",
+        "render_file_yt": "anime-core-quiz-18/renders/anime-core-quiz-18_2026-05-25_11-49-41_yt.mp4"
       },
       {
         "part": 19,
@@ -7660,7 +7843,7 @@
         "theme": "Hot, Cold & More Adjectives",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-19/renders/anime-core-quiz-19_2026-05-25_12-02-48.mp4",
+        "render_file": "anime-core-quiz-19/renders/anime-core-quiz-19_2026-05-25_12-02-48_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7723,7 +7906,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-19/renders/anime-core-quiz-19_2026-05-25_12-02-48.mp4"
+        "render_file_clean": "anime-core-quiz-19/renders/anime-core-quiz-19_2026-05-25_12-02-48.mp4",
+        "render_file_yt": "anime-core-quiz-19/renders/anime-core-quiz-19_2026-05-25_12-02-48_yt.mp4"
       },
       {
         "part": 20,
@@ -7731,7 +7915,7 @@
         "theme": "Core Verbs III",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-20/renders/anime-core-quiz-20_2026-05-25_12-15-02.mp4",
+        "render_file": "anime-core-quiz-20/renders/anime-core-quiz-20_2026-05-25_12-15-02_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7794,7 +7978,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-20/renders/anime-core-quiz-20_2026-05-25_12-15-02.mp4"
+        "render_file_clean": "anime-core-quiz-20/renders/anime-core-quiz-20_2026-05-25_12-15-02.mp4",
+        "render_file_yt": "anime-core-quiz-20/renders/anime-core-quiz-20_2026-05-25_12-15-02_yt.mp4"
       },
       {
         "part": 21,
@@ -7802,7 +7987,7 @@
         "theme": "Core Verbs IV",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-21/renders/anime-core-quiz-21_2026-05-25_12-25-44.mp4",
+        "render_file": "anime-core-quiz-21/renders/anime-core-quiz-21_2026-05-25_12-25-44_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7865,7 +8050,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-21/renders/anime-core-quiz-21_2026-05-25_12-25-44.mp4"
+        "render_file_clean": "anime-core-quiz-21/renders/anime-core-quiz-21_2026-05-25_12-25-44.mp4",
+        "render_file_yt": "anime-core-quiz-21/renders/anime-core-quiz-21_2026-05-25_12-25-44_yt.mp4"
       },
       {
         "part": 22,
@@ -7873,7 +8059,7 @@
         "theme": "Battle Vocabulary",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-22/renders/anime-core-quiz-22_2026-05-25_12-36-25.mp4",
+        "render_file": "anime-core-quiz-22/renders/anime-core-quiz-22_2026-05-25_12-36-25_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -7936,7 +8122,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-22/renders/anime-core-quiz-22_2026-05-25_12-36-25.mp4"
+        "render_file_clean": "anime-core-quiz-22/renders/anime-core-quiz-22_2026-05-25_12-36-25.mp4",
+        "render_file_yt": "anime-core-quiz-22/renders/anime-core-quiz-22_2026-05-25_12-36-25_yt.mp4"
       },
       {
         "part": 23,
@@ -7944,7 +8131,7 @@
         "theme": "School & Learning",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-23/renders/anime-core-quiz-23_2026-05-25_12-47-03.mp4",
+        "render_file": "anime-core-quiz-23/renders/anime-core-quiz-23_2026-05-25_12-47-03_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8007,7 +8194,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-23/renders/anime-core-quiz-23_2026-05-25_12-47-03.mp4"
+        "render_file_clean": "anime-core-quiz-23/renders/anime-core-quiz-23_2026-05-25_12-47-03.mp4",
+        "render_file_yt": "anime-core-quiz-23/renders/anime-core-quiz-23_2026-05-25_12-47-03_yt.mp4"
       },
       {
         "part": 24,
@@ -8015,7 +8203,7 @@
         "theme": "Food & Drink",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-24/renders/anime-core-quiz-24_2026-05-25_12-57-33.mp4",
+        "render_file": "anime-core-quiz-24/renders/anime-core-quiz-24_2026-05-25_12-57-33_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8078,7 +8266,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-24/renders/anime-core-quiz-24_2026-05-25_12-57-33.mp4"
+        "render_file_clean": "anime-core-quiz-24/renders/anime-core-quiz-24_2026-05-25_12-57-33.mp4",
+        "render_file_yt": "anime-core-quiz-24/renders/anime-core-quiz-24_2026-05-25_12-57-33_yt.mp4"
       },
       {
         "part": 25,
@@ -8086,7 +8275,7 @@
         "theme": "Body Parts",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-25/renders/anime-core-quiz-25_2026-05-25_13-08-01.mp4",
+        "render_file": "anime-core-quiz-25/renders/anime-core-quiz-25_2026-05-25_13-08-01_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8149,7 +8338,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-25/renders/anime-core-quiz-25_2026-05-25_13-08-01.mp4"
+        "render_file_clean": "anime-core-quiz-25/renders/anime-core-quiz-25_2026-05-25_13-08-01.mp4",
+        "render_file_yt": "anime-core-quiz-25/renders/anime-core-quiz-25_2026-05-25_13-08-01_yt.mp4"
       },
       {
         "part": 26,
@@ -8157,7 +8347,7 @@
         "theme": "Everyday World",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-26/renders/anime-core-quiz-26_2026-05-25_16-04-20.mp4",
+        "render_file": "anime-core-quiz-26/renders/anime-core-quiz-26_2026-05-25_16-04-20_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8220,7 +8410,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-26/renders/anime-core-quiz-26_2026-05-25_16-04-20.mp4"
+        "render_file_clean": "anime-core-quiz-26/renders/anime-core-quiz-26_2026-05-25_16-04-20.mp4",
+        "render_file_yt": "anime-core-quiz-26/renders/anime-core-quiz-26_2026-05-25_16-04-20_yt.mp4"
       },
       {
         "part": 27,
@@ -8228,7 +8419,7 @@
         "theme": "Key Expressions",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-27/renders/anime-core-quiz-27_2026-05-25_17-30-26.mp4",
+        "render_file": "anime-core-quiz-27/renders/anime-core-quiz-27_2026-05-25_17-30-26_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8291,7 +8482,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-27/renders/anime-core-quiz-27_2026-05-25_17-30-26.mp4"
+        "render_file_clean": "anime-core-quiz-27/renders/anime-core-quiz-27_2026-05-25_17-30-26.mp4",
+        "render_file_yt": "anime-core-quiz-27/renders/anime-core-quiz-27_2026-05-25_17-30-26_yt.mp4"
       },
       {
         "part": 28,
@@ -8299,7 +8491,7 @@
         "theme": "Power & Spirit",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-28/renders/anime-core-quiz-28_2026-05-25_13-37-28.mp4",
+        "render_file": "anime-core-quiz-28/renders/anime-core-quiz-28_2026-05-25_13-37-28_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8362,7 +8554,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-28/renders/anime-core-quiz-28_2026-05-25_13-37-28.mp4"
+        "render_file_clean": "anime-core-quiz-28/renders/anime-core-quiz-28_2026-05-25_13-37-28.mp4",
+        "render_file_yt": "anime-core-quiz-28/renders/anime-core-quiz-28_2026-05-25_13-37-28_yt.mp4"
       },
       {
         "part": 29,
@@ -8370,7 +8563,7 @@
         "theme": "Dreams & Goals",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-29/renders/anime-core-quiz-29_2026-05-25_13-39-34.mp4",
+        "render_file": "anime-core-quiz-29/renders/anime-core-quiz-29_2026-05-25_13-39-34_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8433,7 +8626,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-29/renders/anime-core-quiz-29_2026-05-25_13-39-34.mp4"
+        "render_file_clean": "anime-core-quiz-29/renders/anime-core-quiz-29_2026-05-25_13-39-34.mp4",
+        "render_file_yt": "anime-core-quiz-29/renders/anime-core-quiz-29_2026-05-25_13-39-34_yt.mp4"
       },
       {
         "part": 30,
@@ -8441,7 +8635,7 @@
         "theme": "Friendship & Trust",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "anime-core-quiz-30/renders/anime-core-quiz-30_2026-05-25_13-41-40.mp4",
+        "render_file": "anime-core-quiz-30/renders/anime-core-quiz-30_2026-05-25_13-41-40_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -8504,7 +8698,8 @@
             ]
           }
         },
-        "render_file_clean": "anime-core-quiz-30/renders/anime-core-quiz-30_2026-05-25_13-41-40.mp4"
+        "render_file_clean": "anime-core-quiz-30/renders/anime-core-quiz-30_2026-05-25_13-41-40.mp4",
+        "render_file_yt": "anime-core-quiz-30/renders/anime-core-quiz-30_2026-05-25_13-41-40_yt.mp4"
       }
     ],
     "used_words": [
@@ -8660,7 +8855,7 @@
       "ai"
     ],
     "tiktok_sound": "anime quiz japanese",
-    "yt_music": "free/Elysian Fields - Jeremy Korpas, Rick Barry",
+    "yt_music": "free/Tokyo Taiko Beats - kaazoom",
     "music_start": 0
   },
   "dragon-ball": {
@@ -8674,11 +8869,21 @@
         "theme": "Power & Energy",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "dragon-ball-quiz/renders/dragon-ball-quiz_2026-05-25_08-35-49.mp4",
+        "render_file": "dragon-ball-quiz/renders/dragon-ball-quiz_2026-05-25_08-35-49_music.mp4",
         "posted": {
-          "instagram": null,
+          "instagram": {
+            "id": "18339185827218470",
+            "date": "2026-05-31"
+          },
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "crgwi_MJpl8",
+            "date": "2026-05-31"
+          },
+          "facebook": {
+            "id": "1797471571219522",
+            "date": "2026-05-31"
+          }
         },
         "words": [
           {
@@ -8737,7 +8942,8 @@
             ]
           }
         },
-        "render_file_clean": "dragon-ball-quiz/renders/dragon-ball-quiz_2026-05-25_08-35-49.mp4"
+        "render_file_clean": "dragon-ball-quiz/renders/dragon-ball-quiz_2026-05-25_08-35-49.mp4",
+        "render_file_yt": "dragon-ball-quiz/renders/dragon-ball-quiz_2026-05-25_08-35-49_yt.mp4"
       },
       {
         "part": 2,
@@ -8749,7 +8955,16 @@
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "T0dIE51vI-s",
+            "scheduled_for": "2026-06-13T04:00:00.000Z",
+            "date": "2026-06-13"
+          },
+          "facebook": {
+            "id": "4402073460043585",
+            "scheduled_for": "2026-06-03T04:00:00.000Z",
+            "date": "2026-06-03"
+          }
         },
         "words": [
           {
@@ -8820,7 +9035,12 @@
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1031905535835031",
+            "scheduled_for": "2026-06-09T04:00:00.000Z",
+            "date": "2026-06-09"
+          }
         },
         "words": [
           {
@@ -8891,7 +9111,12 @@
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "4341437592790285",
+            "scheduled_for": "2026-06-15T04:00:00.000Z",
+            "date": "2026-06-15"
+          }
         },
         "words": [
           {
@@ -8962,7 +9187,12 @@
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1041524668208495",
+            "scheduled_for": "2026-06-21T04:00:00.000Z",
+            "date": "2026-06-21"
+          }
         },
         "words": [
           {
@@ -9597,11 +9827,15 @@
         "theme": "Demons & Swords",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz/renders/demon-slayer-quiz_2026-05-25_08-39-49.mp4",
+        "render_file": "demon-slayer-quiz/renders/demon-slayer-quiz_2026-05-30_17-21-57_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "I41Lf6oMqqE",
+            "scheduled_for": "2026-06-05T04:00:00.000Z",
+            "date": "2026-06-05"
+          }
         },
         "words": [
           {
@@ -9660,7 +9894,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz/renders/demon-slayer-quiz_2026-05-25_08-39-49.mp4"
+        "render_file_clean": "demon-slayer-quiz/renders/demon-slayer-quiz_2026-05-25_08-39-49.mp4",
+        "render_file_yt": "demon-slayer-quiz/renders/demon-slayer-quiz_2026-05-30_17-21-57_yt.mp4"
       },
       {
         "part": 2,
@@ -9668,11 +9903,20 @@
         "theme": "Family & Stars",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-2/renders/demon-slayer-quiz-2_2026-05-25_08-51-42.mp4",
+        "render_file": "demon-slayer-quiz-2/renders/demon-slayer-quiz-2_2026-05-25_08-51-42_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": {
+            "id": "ipb-_aR8fo8",
+            "scheduled_for": "2026-06-17T04:00:00.000Z",
+            "date": "2026-06-17"
+          },
+          "facebook": {
+            "id": "971184532450282",
+            "scheduled_for": "2026-06-05T04:00:00.000Z",
+            "date": "2026-06-05"
+          }
         },
         "words": [
           {
@@ -9731,7 +9975,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-2/renders/demon-slayer-quiz-2_2026-05-25_08-51-42.mp4"
+        "render_file_clean": "demon-slayer-quiz-2/renders/demon-slayer-quiz-2_2026-05-25_08-51-42.mp4",
+        "render_file_yt": "demon-slayer-quiz-2/renders/demon-slayer-quiz-2_2026-05-25_08-51-42_yt.mp4"
       },
       {
         "part": 3,
@@ -9739,11 +9984,16 @@
         "theme": "Nature & Plants",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-3/renders/demon-slayer-quiz-3_2026-05-25_09-03-37.mp4",
+        "render_file": "demon-slayer-quiz-3/renders/demon-slayer-quiz-3_2026-05-25_09-03-37_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "1622951308775330",
+            "scheduled_for": "2026-06-11T04:00:00.000Z",
+            "date": "2026-06-11"
+          }
         },
         "words": [
           {
@@ -9802,7 +10052,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-3/renders/demon-slayer-quiz-3_2026-05-25_09-03-37.mp4"
+        "render_file_clean": "demon-slayer-quiz-3/renders/demon-slayer-quiz-3_2026-05-25_09-03-37.mp4",
+        "render_file_yt": "demon-slayer-quiz-3/renders/demon-slayer-quiz-3_2026-05-25_09-03-37_yt.mp4"
       },
       {
         "part": 4,
@@ -9810,11 +10061,16 @@
         "theme": "Colors & Time",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-4/renders/demon-slayer-quiz-4_2026-05-25_09-15-53.mp4",
+        "render_file": "demon-slayer-quiz-4/renders/demon-slayer-quiz-4_2026-05-25_09-15-53_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "790075860737718",
+            "scheduled_for": "2026-06-17T04:00:00.000Z",
+            "date": "2026-06-17"
+          }
         },
         "words": [
           {
@@ -9873,7 +10129,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-4/renders/demon-slayer-quiz-4_2026-05-25_09-15-53.mp4"
+        "render_file_clean": "demon-slayer-quiz-4/renders/demon-slayer-quiz-4_2026-05-25_09-15-53.mp4",
+        "render_file_yt": "demon-slayer-quiz-4/renders/demon-slayer-quiz-4_2026-05-25_09-15-53_yt.mp4"
       },
       {
         "part": 5,
@@ -9881,11 +10138,16 @@
         "theme": "Weapons & Marks",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-5/renders/demon-slayer-quiz-5_2026-05-25_09-28-10.mp4",
+        "render_file": "demon-slayer-quiz-5/renders/demon-slayer-quiz-5_2026-05-25_09-28-10_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
-          "youtube": null
+          "youtube": null,
+          "facebook": {
+            "id": "955815520661528",
+            "scheduled_for": "2026-06-23T04:00:00.000Z",
+            "date": "2026-06-23"
+          }
         },
         "words": [
           {
@@ -9944,7 +10206,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-5/renders/demon-slayer-quiz-5_2026-05-25_09-28-10.mp4"
+        "render_file_clean": "demon-slayer-quiz-5/renders/demon-slayer-quiz-5_2026-05-25_09-28-10.mp4",
+        "render_file_yt": "demon-slayer-quiz-5/renders/demon-slayer-quiz-5_2026-05-25_09-28-10_yt.mp4"
       },
       {
         "part": 6,
@@ -9952,7 +10215,7 @@
         "theme": "Creatures & Combat",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-6/renders/demon-slayer-quiz-6_2026-05-25_09-40-50.mp4",
+        "render_file": "demon-slayer-quiz-6/renders/demon-slayer-quiz-6_2026-05-25_09-40-50_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10015,7 +10278,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-6/renders/demon-slayer-quiz-6_2026-05-25_09-40-50.mp4"
+        "render_file_clean": "demon-slayer-quiz-6/renders/demon-slayer-quiz-6_2026-05-25_09-40-50.mp4",
+        "render_file_yt": "demon-slayer-quiz-6/renders/demon-slayer-quiz-6_2026-05-25_09-40-50_yt.mp4"
       },
       {
         "part": 7,
@@ -10023,7 +10287,7 @@
         "theme": "Legacy & Thunder",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-7/renders/demon-slayer-quiz-7_2026-05-25_09-53-24.mp4",
+        "render_file": "demon-slayer-quiz-7/renders/demon-slayer-quiz-7_2026-05-25_09-53-24_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10086,7 +10350,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-7/renders/demon-slayer-quiz-7_2026-05-25_09-53-24.mp4"
+        "render_file_clean": "demon-slayer-quiz-7/renders/demon-slayer-quiz-7_2026-05-25_09-53-24.mp4",
+        "render_file_yt": "demon-slayer-quiz-7/renders/demon-slayer-quiz-7_2026-05-25_09-53-24_yt.mp4"
       },
       {
         "part": 8,
@@ -10094,7 +10359,7 @@
         "theme": "Breathing Forms",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-8/renders/demon-slayer-quiz-8_2026-05-25_10-06-18.mp4",
+        "render_file": "demon-slayer-quiz-8/renders/demon-slayer-quiz-8_2026-05-25_10-06-18_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10157,7 +10422,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-8/renders/demon-slayer-quiz-8_2026-05-25_10-06-18.mp4"
+        "render_file_clean": "demon-slayer-quiz-8/renders/demon-slayer-quiz-8_2026-05-25_10-06-18.mp4",
+        "render_file_yt": "demon-slayer-quiz-8/renders/demon-slayer-quiz-8_2026-05-25_10-06-18_yt.mp4"
       },
       {
         "part": 9,
@@ -10165,7 +10431,7 @@
         "theme": "Senses & Speed",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-9/renders/demon-slayer-quiz-9_2026-05-25_16-31-45.mp4",
+        "render_file": "demon-slayer-quiz-9/renders/demon-slayer-quiz-9_2026-05-25_16-31-45_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10228,7 +10494,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-9/renders/demon-slayer-quiz-9_2026-05-25_16-31-45.mp4"
+        "render_file_clean": "demon-slayer-quiz-9/renders/demon-slayer-quiz-9_2026-05-25_16-31-45.mp4",
+        "render_file_yt": "demon-slayer-quiz-9/renders/demon-slayer-quiz-9_2026-05-25_16-31-45_yt.mp4"
       },
       {
         "part": 10,
@@ -10236,7 +10503,7 @@
         "theme": "Human Emotions",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-10/renders/demon-slayer-quiz-10_2026-05-25_10-31-25.mp4",
+        "render_file": "demon-slayer-quiz-10/renders/demon-slayer-quiz-10_2026-05-25_10-31-25_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10299,7 +10566,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-10/renders/demon-slayer-quiz-10_2026-05-25_10-31-25.mp4"
+        "render_file_clean": "demon-slayer-quiz-10/renders/demon-slayer-quiz-10_2026-05-25_10-31-25.mp4",
+        "render_file_yt": "demon-slayer-quiz-10/renders/demon-slayer-quiz-10_2026-05-25_10-31-25_yt.mp4"
       },
       {
         "part": 11,
@@ -10307,7 +10575,7 @@
         "theme": "Village & Daily Life",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-11/renders/demon-slayer-quiz-11_2026-05-25_10-44-04.mp4",
+        "render_file": "demon-slayer-quiz-11/renders/demon-slayer-quiz-11_2026-05-25_10-44-04_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10370,7 +10638,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-11/renders/demon-slayer-quiz-11_2026-05-25_10-44-04.mp4"
+        "render_file_clean": "demon-slayer-quiz-11/renders/demon-slayer-quiz-11_2026-05-25_10-44-04.mp4",
+        "render_file_yt": "demon-slayer-quiz-11/renders/demon-slayer-quiz-11_2026-05-25_10-44-04_yt.mp4"
       },
       {
         "part": 12,
@@ -10378,7 +10647,7 @@
         "theme": "Will & Legacy",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "demon-slayer-quiz-12/renders/demon-slayer-quiz-12_2026-05-25_11-14-18.mp4",
+        "render_file": "demon-slayer-quiz-12/renders/demon-slayer-quiz-12_2026-05-25_11-14-18_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10441,7 +10710,8 @@
             ]
           }
         },
-        "render_file_clean": "demon-slayer-quiz-12/renders/demon-slayer-quiz-12_2026-05-25_11-14-18.mp4"
+        "render_file_clean": "demon-slayer-quiz-12/renders/demon-slayer-quiz-12_2026-05-25_11-14-18.mp4",
+        "render_file_yt": "demon-slayer-quiz-12/renders/demon-slayer-quiz-12_2026-05-25_11-14-18_yt.mp4"
       }
     ],
     "used_words": [
@@ -10520,7 +10790,7 @@
         "theme": "Hero Society",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz/renders/my-hero-academia-quiz_2026-05-25_11-03-36.mp4",
+        "render_file": "my-hero-academia-quiz/renders/my-hero-academia-quiz_2026-05-25_11-03-36_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10583,7 +10853,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz/renders/my-hero-academia-quiz_2026-05-25_11-03-36.mp4"
+        "render_file_clean": "my-hero-academia-quiz/renders/my-hero-academia-quiz_2026-05-25_11-03-36.mp4",
+        "render_file_yt": "my-hero-academia-quiz/renders/my-hero-academia-quiz_2026-05-25_11-03-36_yt.mp4"
       },
       {
         "part": 2,
@@ -10591,7 +10862,7 @@
         "theme": "School & Exams",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-2/renders/my-hero-academia-quiz-2_2026-05-25_11-22-30.mp4",
+        "render_file": "my-hero-academia-quiz-2/renders/my-hero-academia-quiz-2_2026-05-25_11-22-30_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10654,7 +10925,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-2/renders/my-hero-academia-quiz-2_2026-05-25_11-22-30.mp4"
+        "render_file_clean": "my-hero-academia-quiz-2/renders/my-hero-academia-quiz-2_2026-05-25_11-22-30.mp4",
+        "render_file_yt": "my-hero-academia-quiz-2/renders/my-hero-academia-quiz-2_2026-05-25_11-22-30_yt.mp4"
       },
       {
         "part": 3,
@@ -10662,7 +10934,7 @@
         "theme": "Challenge & Perseverance",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-3/renders/my-hero-academia-quiz-3_2026-05-25_17-35-29.mp4",
+        "render_file": "my-hero-academia-quiz-3/renders/my-hero-academia-quiz-3_2026-05-25_17-35-29_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10725,7 +10997,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-3/renders/my-hero-academia-quiz-3_2026-05-25_17-35-29.mp4"
+        "render_file_clean": "my-hero-academia-quiz-3/renders/my-hero-academia-quiz-3_2026-05-25_17-35-29.mp4",
+        "render_file_yt": "my-hero-academia-quiz-3/renders/my-hero-academia-quiz-3_2026-05-25_17-35-29_yt.mp4"
       },
       {
         "part": 4,
@@ -10733,7 +11006,7 @@
         "theme": "Pride & Growth",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-4/renders/my-hero-academia-quiz-4_2026-05-25_16-49-10.mp4",
+        "render_file": "my-hero-academia-quiz-4/renders/my-hero-academia-quiz-4_2026-05-25_16-49-10_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10796,7 +11069,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-4/renders/my-hero-academia-quiz-4_2026-05-25_16-49-10.mp4"
+        "render_file_clean": "my-hero-academia-quiz-4/renders/my-hero-academia-quiz-4_2026-05-25_16-49-10.mp4",
+        "render_file_yt": "my-hero-academia-quiz-4/renders/my-hero-academia-quiz-4_2026-05-25_16-49-10_yt.mp4"
       },
       {
         "part": 5,
@@ -10804,7 +11078,7 @@
         "theme": "Powers & Elements",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-5/renders/my-hero-academia-quiz-5_2026-05-25_16-51-31.mp4",
+        "render_file": "my-hero-academia-quiz-5/renders/my-hero-academia-quiz-5_2026-05-25_16-51-31_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10867,7 +11141,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-5/renders/my-hero-academia-quiz-5_2026-05-25_16-51-31.mp4"
+        "render_file_clean": "my-hero-academia-quiz-5/renders/my-hero-academia-quiz-5_2026-05-25_16-51-31.mp4",
+        "render_file_yt": "my-hero-academia-quiz-5/renders/my-hero-academia-quiz-5_2026-05-25_16-51-31_yt.mp4"
       },
       {
         "part": 6,
@@ -10875,7 +11150,7 @@
         "theme": "Emotions & Willpower",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-6/renders/my-hero-academia-quiz-6_2026-05-25_12-27-49.mp4",
+        "render_file": "my-hero-academia-quiz-6/renders/my-hero-academia-quiz-6_2026-05-25_12-27-49_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -10938,7 +11213,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-6/renders/my-hero-academia-quiz-6_2026-05-25_12-27-49.mp4"
+        "render_file_clean": "my-hero-academia-quiz-6/renders/my-hero-academia-quiz-6_2026-05-25_12-27-49.mp4",
+        "render_file_yt": "my-hero-academia-quiz-6/renders/my-hero-academia-quiz-6_2026-05-25_12-27-49_yt.mp4"
       },
       {
         "part": 7,
@@ -10946,7 +11222,7 @@
         "theme": "Courage & Legacy",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-7/renders/my-hero-academia-quiz-7_2026-05-25_12-38-32.mp4",
+        "render_file": "my-hero-academia-quiz-7/renders/my-hero-academia-quiz-7_2026-05-25_12-38-32_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -11009,7 +11285,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-7/renders/my-hero-academia-quiz-7_2026-05-25_12-38-32.mp4"
+        "render_file_clean": "my-hero-academia-quiz-7/renders/my-hero-academia-quiz-7_2026-05-25_12-38-32.mp4",
+        "render_file_yt": "my-hero-academia-quiz-7/renders/my-hero-academia-quiz-7_2026-05-25_12-38-32_yt.mp4"
       },
       {
         "part": 8,
@@ -11017,7 +11294,7 @@
         "theme": "Training & Mastery",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-8/renders/my-hero-academia-quiz-8_2026-05-25_12-49-08.mp4",
+        "render_file": "my-hero-academia-quiz-8/renders/my-hero-academia-quiz-8_2026-05-25_12-49-08_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -11080,7 +11357,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-8/renders/my-hero-academia-quiz-8_2026-05-25_12-49-08.mp4"
+        "render_file_clean": "my-hero-academia-quiz-8/renders/my-hero-academia-quiz-8_2026-05-25_12-49-08.mp4",
+        "render_file_yt": "my-hero-academia-quiz-8/renders/my-hero-academia-quiz-8_2026-05-25_12-49-08_yt.mp4"
       },
       {
         "part": 9,
@@ -11088,7 +11366,7 @@
         "theme": "Society & Justice",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-9/renders/my-hero-academia-quiz-9_2026-05-25_16-53-59.mp4",
+        "render_file": "my-hero-academia-quiz-9/renders/my-hero-academia-quiz-9_2026-05-25_16-53-59_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -11151,7 +11429,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-9/renders/my-hero-academia-quiz-9_2026-05-25_16-53-59.mp4"
+        "render_file_clean": "my-hero-academia-quiz-9/renders/my-hero-academia-quiz-9_2026-05-25_16-53-59.mp4",
+        "render_file_yt": "my-hero-academia-quiz-9/renders/my-hero-academia-quiz-9_2026-05-25_16-53-59_yt.mp4"
       },
       {
         "part": 10,
@@ -11159,7 +11438,7 @@
         "theme": "Mind & Strategy",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-10/renders/my-hero-academia-quiz-10_2026-05-25_13-10-08.mp4",
+        "render_file": "my-hero-academia-quiz-10/renders/my-hero-academia-quiz-10_2026-05-25_13-10-08_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -11222,7 +11501,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-10/renders/my-hero-academia-quiz-10_2026-05-25_13-10-08.mp4"
+        "render_file_clean": "my-hero-academia-quiz-10/renders/my-hero-academia-quiz-10_2026-05-25_13-10-08.mp4",
+        "render_file_yt": "my-hero-academia-quiz-10/renders/my-hero-academia-quiz-10_2026-05-25_13-10-08_yt.mp4"
       },
       {
         "part": 11,
@@ -11230,7 +11510,7 @@
         "theme": "Body & Battle",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-11/renders/my-hero-academia-quiz-11_2026-05-25_13-20-34.mp4",
+        "render_file": "my-hero-academia-quiz-11/renders/my-hero-academia-quiz-11_2026-05-25_13-20-34_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -11293,7 +11573,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-11/renders/my-hero-academia-quiz-11_2026-05-25_13-20-34.mp4"
+        "render_file_clean": "my-hero-academia-quiz-11/renders/my-hero-academia-quiz-11_2026-05-25_13-20-34.mp4",
+        "render_file_yt": "my-hero-academia-quiz-11/renders/my-hero-academia-quiz-11_2026-05-25_13-20-34_yt.mp4"
       },
       {
         "part": 12,
@@ -11301,7 +11582,7 @@
         "theme": "Dreams & Purpose",
         "status": "rendered",
         "created": "2026-05-25",
-        "render_file": "my-hero-academia-quiz-12/renders/my-hero-academia-quiz-12_2026-05-25_13-26-55.mp4",
+        "render_file": "my-hero-academia-quiz-12/renders/my-hero-academia-quiz-12_2026-05-25_13-26-55_music.mp4",
         "posted": {
           "instagram": null,
           "tiktok": null,
@@ -11364,7 +11645,8 @@
             ]
           }
         },
-        "render_file_clean": "my-hero-academia-quiz-12/renders/my-hero-academia-quiz-12_2026-05-25_13-26-55.mp4"
+        "render_file_clean": "my-hero-academia-quiz-12/renders/my-hero-academia-quiz-12_2026-05-25_13-26-55.mp4",
+        "render_file_yt": "my-hero-academia-quiz-12/renders/my-hero-academia-quiz-12_2026-05-25_13-26-55_yt.mp4"
       }
     ],
     "used_words": [

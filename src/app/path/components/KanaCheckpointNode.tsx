@@ -63,7 +63,6 @@ export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNode
   let pillClass: string;
   let glyphClass = "text-[var(--color-text)]";
   let progressBar: React.ReactNode = null;
-  let mistOverlay: React.ReactNode = null;
   let ariaState: string;
 
   if (result.state === "mastered") {
@@ -88,22 +87,11 @@ export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNode
     );
     ariaState = `${result.progressPercent}% complete`;
   } else {
-    // locked
-    pillText = t('locked');
+    // not started
+    pillText = "0%";
     pillClass =
       "bg-[var(--color-card-2)] text-[var(--color-text-muted)]";
-    mistOverlay = (
-      <div
-        className="absolute inset-0 rounded-[var(--radius-lg)]"
-        style={{
-          background: "var(--mist-fill)",
-          pointerEvents: "none",
-        }}
-        aria-hidden="true"
-        data-testid={`kana-checkpoint-mist-${script}`}
-      />
-    );
-    ariaState = "locked";
+    ariaState = "0% complete";
   }
 
   // CONTEXT D-08 — size variant layout. Default "path" = byte-equivalent to 14.1 callers.
@@ -173,7 +161,6 @@ export function KanaCheckpointNode({ script, size = "path" }: KanaCheckpointNode
       )}
 
       {progressBar}
-      {mistOverlay}
     </CardLink>
   );
 }

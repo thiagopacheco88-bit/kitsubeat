@@ -16,6 +16,8 @@ import { applyStarDelta } from "@/lib/counters/mastery";
 interface CounterProgressState {
   mastery: CounterMasteryMap;   // counter.id -> stars 0..10
   sessionsCompleted: number;
+  streak: number;                // consecutive days with at least one session
+  lastPracticeDate: string | null;
   _hasHydrated: boolean;
 }
 
@@ -33,6 +35,8 @@ export const useCounterProgress = create<CounterProgressState & CounterProgressA
     (set) => ({
       mastery: {},
       sessionsCompleted: 0,
+      streak: 0,
+      lastPracticeDate: null,
       _hasHydrated: false,
 
       applyAnswer: (counterId, correct) =>
@@ -48,13 +52,21 @@ export const useCounterProgress = create<CounterProgressState & CounterProgressA
         })),
 
       incrementSessionsCompleted: () =>
-        set((s) => ({ sessionsCompleted: s.sessionsCompleted + 1 })),
+        set((s) => {
+          const today = new Date().toISOString().split("T")[0];
+          const yesterday = new Date(Date.now() - 86400000).toISOString().split("T")[0];
+          const newStreak =
+            s.lastPracticeDate === today ? s.streak
+            : s.lastPracticeDate === yesterday ? s.streak + 1
+            : 1;
+          return { sessionsCompleted: s.sessionsCompleted + 1, streak: newStreak, lastPracticeDate: today };
+        }),
 
       hydrateFrom: (mastery) => set({ mastery }),
 
       setHasHydrated: (v) => set({ _hasHydrated: v }),
 
-      __resetForTests: () => set({ mastery: {}, sessionsCompleted: 0 }),
+      __resetForTests: () => set({ mastery: {}, sessionsCompleted: 0, streak: 0, lastPracticeDate: null }),
     }),
     {
       name: "kitsubeat-counter-mastery-v1",

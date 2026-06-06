@@ -1,0 +1,176 @@
+=== attack-on-titan | Attack on Titan | emoji: 🏔️ ===
+Description: Humanity's desperate fight for survival against the Titans behind three massive walls.
+Words (surface|romaji|meaning|jlpt|existing_context):
+捕食|hoshoku|predation / devouring|N1|Titans exist to devour humans — and eating a Titan shifter is the only way a Pure Titan can inherit 
+項|unaji|nape of the neck|N1|A Titan's only fatal weak point — soldiers train their entire lives to slice a precise section of th
+変身|henshin|transformation|N3|The explosive moment a Titan shifter transforms — the burst of steam and electricity is both terrify
+硬化|kōka|hardening|N2|The ability to harden Titan flesh into crystal-like armor — used by the Armored Titan and later mast
+叫び|sakebi|scream / roar / cry|N3|Those of royal blood can scream to command Pure Titans — Zeke's Beast Titan scream transforms Ragako
+脊髄液|sekizuieki|spinal fluid|?|Zeke's wine laced with spinal fluid quietly turns Paradis soldiers into Titans — a devastating weapo
+座標|zahyō|coordinate / Founding Titan's power|N2|What early characters called the mysterious power at the heart of the Founding Titan — the ability t
+継承|keishō|inheritance / succession|N2|Titan powers are passed by eating the current inheritor — and each shifter carries only 13 years of 
+始祖の力|shiso no chikara|Founder's power|?|The ability to reshape Eldian bodies, erase memories, and command all Titans — locked away by royal 
+巨人の力|kyojin no chikara|Titan power|?|The general term for the abilities granted by inheriting one of the Nine Titans — both a gift and a 
+兵士|heishi|soldier|N3|Every recruit who joins the military to fight Titans — knowing the casualty rate means most will nev
+訓練兵|kunren hei|trainee / cadet|?|Eren, Mikasa, and Armin begin here — three years of grueling ODM training before they can choose the
+団長|danchō|commander / corps leader|N2|Erwin Smith holds this title for the Survey Corps — a strategist willing to sacrifice everything, in
+兵団|heidan|corps / military brigade|?|The overarching term for the military divisions of Paradis — each with its own role, rank, and relat
+立体機動装置|rittai kidō sōchi|ODM gear / omni-directional mobility gear|?|The harness, gas tanks, and grappling hooks that let soldiers swing through buildings and forests to
+超硬質ブレード|chō kōshitsu burēdo|ultra-hard blade|?|The replaceable blades used with ODM gear — they shatter quickly against hardened Titans and must be
+補給|hokyū|resupply / supply replenishment|N2|Running out of gas mid-expedition is a death sentence — resupply stations and wagons are critical li
+作戦|sakusen|operation / mission / strategy|N3|Erwin's tactical genius shows in operations like the Female Titan capture plan — elaborate, brutal, 
+囮作戦|otori sakusen|decoy operation|?|Erwin's long-range scouting formation — using signal flares and cavalry riders as decoys to keep Tit
+壁|kabe|wall|N4|The three concentric walls — Maria, Rose, and Sina — are the last bastions of human civilization, bu
+壁内|hekinai|inside the walls|?|The entire known civilization of humanity — a bubble of relative safety that for 100 years kept the 
+壁外|hekigai|outside the walls|?|The unknown world beyond the walls — territory of Titans, the ocean, and ultimately the entire civil
+城壁|jōheki|castle wall / fortification wall|N1|The massive fortifications housing cannons and garrisons — their defense is managed by the Garrison 
+崩壊|hōkai|collapse / fall / ruin|N2|The fall of Wall Maria — its collapse into rubble sent shockwaves through all of society and ignited
+自由|jiyū|freedom|N4|Eren's ultimate obsession — carved on his palm as a child, it drives every decision he makes, includ
+駆逐|kuchiku|extermination / eradication / drive out|N1|Eren's childhood vow to exterminate all Titans — the iconic line that defines his character arc from
+生き残る|ikinokoru|to survive|N3|Armin's philosophy — that only those willing to sacrifice something can survive, a lesson that haunt
+犠牲|gisei|sacrifice|N2|Erwin's core belief — progress for humanity always demands sacrifice, and leaders must decide whose 
+復讐|fukushū|revenge|N2|The emotion driving Eren after watching his mother eaten — but the series forces us to ask whether r
+怒り|ikari|anger / wrath|N3|The fuel of Eren's Titan power — his rage at helplessness transforms him into a weapon, but that sam
+絶望|zetsubō|despair|N2|The emotional baseline of AoT — soldiers watch comrades die, discover uncomfortable truths, and must
+希望|kibō|hope|N4|The counterweight to AoT's relentless darkness — embodied most fully in Armin, whose dream of the oc
+人類|jinrui|humanity / humankind|N3|Whose humanity matters? AoT constantly reframes this question — from the people of the walls to the 
+戦争|sensō|war|N4|AoT evolves from a monster survival story into a brutal examination of warfare — showing every side'
+虐殺|gyakusatsu|massacre / slaughter|N1|The Eldian Empire's historical massacres haunt the present — and the Rumbling threatens to make Eren
+地獄|jigoku|hell|N2|Used to describe both the horror of Titan attacks and the trenches of the Marley war — AoT refuses t
+呪い|noroi|curse|N2|Titan shifters only live 13 years after inheriting a power — called the Curse of Ymir, it means ever
+記憶|kioku|memory|N3|Memory is weaponized in AoT — the royal family erases it to maintain control, while the Attack Titan
+剣|ken|sword / blade|N3|The twin blades of ODM gear are a soldier's only weapons against Titans — and against fellow humans 
+討伐|tōbatsu|subjugation / extermination (of enemies)|N1|The official military term for a Titan-killing operation — Survey Corps expeditions are officially T
+
+=== bleach | Bleach | emoji: ⚔️ ===
+Description: Ichigo Kurosaki's journey as a Soul Reaper defending the living world and the Soul Society.
+Words (surface|romaji|meaning|jlpt|existing_context):
+魂魄|konpaku|soul / spirit|?|The spiritual essence that separates from the body at death — purifying lost souls is the fundamenta
+霊圧|reiatsu|spirit pressure / spiritual pressure|?|The tangible force exerted by a Soul Reaper's or Hollow's spiritual energy — when Ichigo's reiatsu e
+霊力|reiryoku|spiritual power / spirit energy|?|The raw spiritual energy that fuels every technique — a Soul Reaper's strength is measured by the vo
+護廷十三隊|Gotei Jūsantai|Gotei 13 / 13 Court Guard Squads|?|The thirteen military divisions of Soul Society — each led by a captain, they are the first and last
+斬魄刀|zanpakutō|zanpakuto / soul-slaying sword|?|The signature weapon of every Soul Reaper — each zanpakutō has its own name, spirit, and unique powe
+始解|shikai|shikai / first release|?|The first unlocked form of a zanpakutō, activated by calling its name — the minimum requirement to b
+卍解|bankai|bankai / final release|?|The ultimate form of a zanpakutō, typically requiring ten or more years to master — achieving bankai
+解号|kaigō|release command / invocation phrase|?|The verbal trigger spoken to activate shikai — phrases like 'Reign over the frosted heavens' or 'Sma
+内なる世界|uchinaru sekai|inner world|?|The spiritual landscape inside a Soul Reaper's soul where their zanpakutō spirit resides — Ichigo's 
+鬼道|kidō|kidō / demon arts / spirit art|?|Spell-based combat techniques used by Soul Reapers — divided into binding spells and destructive spe
+縛道|bakudō|bakudō / binding spells|?|The defensive and restraining branch of kidō — spells that immobilize, bind, or trap enemies without
+破道|hadō|hadō / destructive spells|?|The offensive branch of kidō — high-numbered hadō like Ryūjin Jakka's flames or Getsuga Tenshō-level
+虚化|Horō-ka|hollowfication|?|The terrifying process of a Soul Reaper merging with Hollow powers — Ichigo's inner Hollow represent
+仮面|kamen|mask|N3|The bone-white mask is the mark of a Hollow — when Ichigo's own mask appears in battle, it amplifies
+隊長|taichō|captain|N3|The leader of each of the Gotei 13's thirteen squads — captains wield bankai and are the most feared
+副隊長|fukutaichō|lieutenant / vice-captain|?|The second-in-command of each squad — Renji Abarai serves under Captain Byakuya while secretly pushi
+席官|sekkan|seated officer|?|Numbered officers within each squad, from 3rd seat down — Ichigo's friends Chad and Orihime would ra
+中央四十六室|Chūō Shijūroku-shitsu|Central 46 Chambers|?|The supreme governing body of Soul Society, composed of forty sages and six judges — their secret ma
+瞬歩|shunpo|shunpo / flash step|?|The high-speed movement technique of Soul Reapers — Yoruichi's mastery of shunpo earned her the titl
+斬撃|zangeki|slash / sword strike|N1|The fundamental attack of every Soul Reaper — Ichigo's raw slashing power overwhelms opponents even 
+封印|fūin|seal / sealing|N2|The act of binding or suppressing spiritual power — Rukia's powers are sealed inside Ichigo's body, 
+魂|tamashii|soul / spirit|N2|The central concept of Bleach — every conflict ultimately concerns the fate of souls, whether protec
+死|shi|death|N4|The series confronts death unflinchingly — Soul Reapers exist because of it, Hollows are born from i
+守護|shugo|protection / guardianship|N2|Ichigo's driving motivation — his absolute refusal to let anyone in his sight be hurt defines his fi
+覚悟|kakugo|resolve / readiness / acceptance|N2|A word repeated constantly in Bleach — warriors must steel themselves to face death, sacrifice, and 
+誇り|hokori|pride|N2|Byakuya Kuchiki embodies pride as a noble ideal — his pride in his clan's name forces him into tragi
+罪|tsumi|sin / crime / guilt|N3|Many Soul Reapers carry sins from their past — Aizen's crimes against Soul Society and his former su
+贖罪|shokuzai|atonement / redemption|N1|Characters like Gin Ichimaru and Renji Abarai are driven by the need to atone — their painful pasts 
+絆|kizuna|bonds / ties|N2|The bonds between Ichigo and his friends — Orihime, Chad, Uryu, and Rukia — are the source of his po
+裏切り|uragiri|betrayal / treachery|N2|Aizen's revelation that he manipulated Soul Society for centuries is the ultimate betrayal — few ani
+変革|henkaku|change / revolution / reform|N1|Aizen declares he will change the very order of Soul Society and the world — his ambition for change
+隊|tai|squad / unit / corps|N3|The basic organizational unit of the Gotei 13 — each of the thirteen squads has a distinct specialty
+総隊長|sōtaichō|captain-commander|?|The supreme military leader of the Gotei 13 — Genryūsai Shigekuni Yamamoto held this title for over 
+貴族|kizoku|noble / aristocrat|N2|The noble houses of Soul Society — the Kuchiki, Shiba, and other noble clans wield enormous politica
+技術開発局|Gijutsu Kaihatsu-kyoku|Shinigami Research and Development Institute|?|Mayuri Kurotsuchi's domain — a place of terrifying scientific experimentation where the boundary bet
+霊子|reishi|reishi / spirit particle|?|The fundamental building block of both Soul Society and Hueco Mundo — Quincies absorb reishi from th
+代行証|daikōshō|substitute soul reaper badge|?|The badge given to Ichigo that allows him to leave his body to fight as a Soul Reaper — later reveal
+義骸|gitai|gigai / artificial body|?|A false human body used by Soul Reapers to move in the living world undetected — Rukia uses one to a
+魂葬|konsō|soul burial / konsō|?|The ritual act of sending a Plus (wandering soul) to Soul Society by pressing a zanpakutō's hilt to 
+地縛霊|jibakurei|earthbound spirit / territorial spirit|?|Souls bound to a location by powerful attachments or unresolved emotions — they risk hollowfication 
+
+=== chainsaw-man | Chainsaw Man | emoji: 🔪 ===
+Description: Denji merges with his devil dog Pochita to become the Chainsaw Man, hunting devils for a shady government agency.
+Words (surface|romaji|meaning|jlpt|existing_context):
+血|chi|blood|N4|パワーは血の悪魔であり、血を自在に操る能力を持つ。
+肉|niku|flesh / meat|N4|デンジはチェンソーの刃で悪魔の肉を切り裂く。
+心臓|shinzō|heart (organ)|N4|ポチタはデンジの心臓の代わりになり、二人は融合した。
+悪魔|akuma|devil / demon|N3|悪魔は人間の恐怖から生まれ、世界中に存在する。
+死|shi|death|N4|デビルハンターにとって死は常に隣り合わせの存在だ。
+飯|meshi|meal / rice / food|N4|デンジは満足に飯も食えない貧しい生活を送っていた。
+恐怖|kyōfu|fear / terror|N3|悪魔は人間の恐怖から生まれ、その恐怖が強いほど悪魔も強くなる。
+命|inochi|life / one's life|N4|デビルハンターは毎日命がけで悪魔と戦っている。
+契約|keiyaku|contract / agreement|N3|デビルハンターは悪魔と契約を結んで特殊な力を得ることができる。
+猟師|ryōshi|hunter|N3|デビルハンターは悪魔を狩る猟師のような存在だ。
+組織|soshiki|organization|N3|公安の組織はデビルハンターを管理し悪魔の脅威に対抗している。
+戦闘|sentō|combat / battle|N3|デンジは戦闘になるとチェンソーの刃を額から引き出す。
+変身|henshin|transformation|N3|デンジは血を飲むことでチェンソーマンへの変身が完成する。
+犠牲|gisei|sacrifice|N3|多くのデビルハンターが任務のために犠牲になっていった。
+絶望|zetsubō|despair|N3|デンジはポチタを失った後、深い絶望に陥った。
+欲望|yokubō|desire / lust|N3|デンジのシンプルな欲望がチェンソーマンとしての動機となっている。
+孤独|kodoku|solitude / loneliness|N3|幼い頃から孤独だったデンジにとって、ポチタは唯一の家族だった。
+記憶|kioku|memory|N3|チェンソーマンは食べた悪魔の記憶を世界から消し去ることができる。
+感情|kanjō|emotion / feeling|N3|マキマは人間の感情を操り、他者を支配する能力を持つ。
+本能|hon'nō|instinct|N3|悪魔は人間の本能的な恐怖から生まれる存在だ。
+存在|sonzai|existence / being|N3|チェンソーマンは他の悪魔たちに恐れられる特別な存在だ。
+消滅|shōmetsu|annihilation / disappearance|N3|銃の悪魔は多くの人間を一瞬で消滅させる恐るべき力を持つ。
+融合|yūgō|fusion / merger|N3|デンジとポチタの融合によりチェンソーマンという存在が誕生した。
+決意|ketsui|determination / resolve|N3|デンジは普通の生活を手に入れるという決意を胸に戦い続ける。
+武器|buki|weapon|N3|アキは狐の悪魔との契約により特別な武器を使う。
+人間|ningen|human / person|N4|悪魔は人間の恐怖から生まれ、人間の血で強化される。
+任務|ninmu|mission / duty|N3|公安のデビルハンターは危険な任務を毎日こなしている。
+支配|shihai|control / domination|N3|マキマの支配の悪魔は他者を完全にコントロールする力を持つ。
+裏切り|uragiri|betrayal|N3|マキマの裏切りはデンジを深く傷つけた。
+犯罪|hanzai|crime|N3|フィーンドは犯罪に近い行動を取ることがある。
+再生|saisei|regeneration / revival|N3|チェンソーマンは血を飲むことで傷を再生させることができる。
+同盟|dōmei|alliance|N3|デビルハンターと悪魔の間には時に奇妙な同盟が結ばれる。
+抹消|masshō|erasure / elimination|N2|チェンソーマンが食べた悪魔は世界から完全に抹消される。
+腐食|fushoku|corrosion / decay|N2|腐食の悪魔は接触した物質を腐食させる力を持つ。
+憑依|hyōi|spirit possession|N2|フィーンドとは悪魔が人間の死体に憑依した存在のことだ。
+崩壊|hōkai|collapse / breakdown|N2|銃の悪魔の攻撃は街全体を崩壊させるほどの威力を持つ。
+凶暴|kyōbō|ferocious / savage|N2|チェンソーマンの戦闘スタイルは凶暴で容赦がない。
+廃棄|haiki|disposal / scrapping|N2|役に立たなくなったデビルハンターは廃棄されることがある。
+恨み|urami|grudge / resentment|N2|アキは銃の悪魔に対して深い恨みを抱いている。
+捕捉|hosoku|capture / apprehension|N2|公安は危険な悪魔の捕捉を最優先任務としている。
+
+=== code-geass | Code Geass | emoji: ♟️ ===
+Description: Exiled prince Lelouch vi Britannia acquires the power of absolute obedience and wages war to destroy an empire.
+Words (surface|romaji|meaning|jlpt|existing_context):
+命令|meirei|order/command|N4|Geass allows Lelouch to give any command that the target must obey without question.
+嘘|uso|lie|N4|Lelouch builds his entire identity as Zero on a foundation of carefully constructed lies.
+自由|jiyū|freedom|N4|The Japanese resistance fights to reclaim freedom for their occupied homeland.
+民|tami|people/citizens|N4|The Elevens are treated as second-class citizens stripped of rights by Britannia.
+革命|kakumei|revolution|N3|Zero leads a revolution against Britannia under the banner of justice and equality.
+反乱|hanran|rebellion/uprising|N3|The Black Knights' rebellion shakes the foundations of the Britannian empire.
+陰謀|inbō|conspiracy/plot|N3|The Britannian royal family is riven with conspiracies for power and succession.
+支配|shihai|domination/control|N3|Britannia's philosophy justifies military domination of weaker nations.
+正義|seigi|justice|N3|Suzaku believes in achieving justice by working within the system rather than destroying it.
+策略|sakuryaku|stratagem/tactic|N3|Lelouch is a chess genius whose strategies on the battlefield are unmatched.
+帝国|teikoku|empire|N3|The Holy Britannian Empire spans much of the world and rules through military supremacy.
+貴族|kizoku|nobility/aristocracy|N3|Britannian nobles enjoy enormous privilege over the conquered peoples of Area 11.
+犠牲|gisei|sacrifice|N3|Zero accepts terrible sacrifices in pursuit of his ultimate goal.
+復讐|fukushū|revenge|N3|Lelouch swears revenge on his father and the empire that exiled him and crippled his mother.
+孤独|kodoku|solitude/loneliness|N3|Lelouch is ultimately alone, unable to share his true identity or goals with those he loves.
+操る|ayatsuru|to manipulate/control|N3|Geass lets Lelouch manipulate anyone into following his commands absolutely.
+真実|shinjitsu|truth|N3|The truth behind Marianne's murder is a secret that drives the entire plot.
+運命|unmei|fate/destiny|N3|Lelouch refuses to accept the fate assigned to him and sets out to forge his own.
+誓い|chikai|vow/oath|N3|Lelouch swears an oath before his childhood friend Suzaku to destroy Britannia.
+覚悟|kakugo|resolve/preparedness|N3|Lelouch steels his resolve, accepting that he must become a villain for peace to exist.
+絶望|zetsubō|despair|N3|After the massacre at Narita, many in the Black Knights sink into despair.
+裏切り|uragiri|betrayal/treachery|N3|The Black Knights' betrayal of Zero is one of the most devastating moments in the series.
+代償|daishō|price/cost/compensation|N3|Every victory Zero achieves comes at an enormous personal and human cost.
+同盟|dōmei|alliance|N3|Zero forges uneasy alliances with various factions to challenge Britannian power.
+指揮|shiki|command/direction|N3|Lelouch's tactical command of the Black Knights earns him legendary status.
+解放|kaihō|liberation/release|N2|The liberation of Japan from Britannian rule is the rallying cry of the resistance.
+統治|tōchi|governance/rule|N2|Britannia's governance of occupied territories relies on brutal suppression of dissent.
+覇権|haken|hegemony/supremacy|N1|Britannia's drive for global hegemony is the root cause of the war in Code Geass.
+謀略|bōryaku|stratagem/intrigue|N1|Lelouch employs deep intrigue, exploiting Britannia's internal politics against itself.
+傀儡|kairai|puppet|N1|Honorary Britannians are seen as puppets of imperial power by the Japanese resistance.
+専制|sensei|autocracy/despotism|N1|Charles zi Britannia rules through autocracy, treating his subjects as tools of the state.
+搾取|sakushu|exploitation|N1|Britannia exploits the Sakuradite mines of Area 11 to fuel its military machine.
+屈辱|kutsujoku|humiliation|N1|The humiliation of defeat and exile fuels Lelouch's unending hatred of his father.
+抵抗|teikō|resistance|N2|The Japanese resistance refuses to yield despite overwhelming Britannian military force.
+君臨|kunrin|reign/dominion|N1|The Emperor of Britannia reigns over a global empire built on conquest and fear.
+崩壊|hōkai|collapse/breakdown|N2|Zero Requiem is designed to trigger the moral collapse of the old world order.
+粛清|shukusei|purge|N1|Internal purges within the Britannian royal family keep potential rivals in check.
+鎮圧|chin'atsu|suppression/crackdown|N1|Britannia sends Knightmare Frames to suppress any uprisings in occupied territories.
+宣言|sengen|declaration/proclamation|N2|Zero's public declarations inspire millions across the world to join the resistance.
+偽装|gisō|disguise/camouflage|N2|Lelouch maintains a convincing disguise as a normal student while leading the Black Knights.
+

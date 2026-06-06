@@ -15,7 +15,7 @@
       },
       "jlpt_level": "N5",
       "category": "world",
-      "context": "The stage for all of One Piece — the vast ocean that connects every island and arc."
+      "context": "The stage for all of One Piece. The vast ocean that connects every island and arc."
     },
     {
       "surface": "島",
@@ -93,7 +93,7 @@
       },
       "jlpt_level": null,
       "category": "world",
-      "context": "The second half of the Grand Line — the most dangerous waters in the world, ruled by the Four Emperors."
+      "context": "The second half of the Grand Line. The most dangerous waters in the world, ruled by the Four Emperors."
     },
     {
       "surface": "偉大なる航路",
@@ -106,7 +106,7 @@
       },
       "jlpt_level": null,
       "category": "world",
-      "context": "The legendary sea route that crosses the world — dangerous, unpredictable, and where the One Piece is said to lie."
+      "context": "The legendary sea route that crosses the world. Dangerous, unpredictable, and where the One Piece is said to lie."
     },
     {
       "surface": "空島",
@@ -132,7 +132,7 @@
       },
       "jlpt_level": "N2",
       "category": "world",
-      "context": "Devil Fruit users sink and cannot move in deep water — their greatest natural weakness."
+      "context": "Devil Fruit users sink and cannot move in deep water. Their greatest natural weakness."
     },
     {
       "surface": "王国",
@@ -145,7 +145,7 @@
       },
       "jlpt_level": "N3",
       "category": "world",
-      "context": "Many arcs center on kingdoms under threat — Alabasta, Dressrosa, Wano."
+      "context": "Many arcs center on kingdoms under threat. Alabasta, Dressrosa, Wano."
     },
     {
       "surface": "聖地",
@@ -157,7 +157,7 @@
         "es": "tierra sagrada"
       },
       "jlpt_level": "N2",
-      "context": "Mary Geoise (聖地マリージョア) — the sacred seat of power of the World Government and World Nobles.",
+      "context": "Mary Geoise (聖地マリージョア). The sacred seat of power of the World Government and World Nobles.",
       "category": "world"
     },
     {
@@ -171,7 +171,7 @@
       },
       "jlpt_level": "N3",
       "category": "world",
-      "context": "Every island has a port where ships dock and pirates are welcomed — or hunted."
+      "context": "Every island has a port where ships dock and pirates are welcomed. Or hunted."
     },
     {
       "surface": "海賊",
@@ -184,7 +184,7 @@
       },
       "jlpt_level": "N3",
       "category": "pirate",
-      "context": "The defining identity of the series — Luffy declares 'I'm going to be King of the Pirates!' in the very first episode."
+      "context": "The defining identity of the series. Luffy declares 'I'm going to be King of the Pirates!' in the very first episode."
     },
     {
       "surface": "海賊王",
@@ -223,7 +223,7 @@
       },
       "jlpt_level": "N3",
       "category": "pirate",
-      "context": "The emotional core of One Piece. Luffy's most powerful motivator — he will go to war for his nakama."
+      "context": "The emotional core of One Piece. Luffy's most powerful motivator. He will go to war for his nakama."
     },
     {
       "surface": "麦わら",
@@ -262,7 +262,7 @@
       },
       "jlpt_level": "N3",
       "category": "pirate",
-      "context": "What pirates sail for — and the One Piece (ひとつなぎの大秘宝) is the ultimate treasure."
+      "context": "What pirates sail for. And the One Piece (ひとつなぎの大秘宝) is the ultimate treasure."
     },
     {
       "surface": "ひとつなぎの大秘宝",
@@ -288,7 +288,7 @@
       },
       "jlpt_level": "N3",
       "category": "pirate",
-      "context": "Luffy is the 船長 of the Straw Hat Pirates. His word is final — and usually involves meat."
+      "context": "Luffy is the 船長 of the Straw Hat Pirates. His word is final. And usually involves meat."
     },
     {
       "surface": "冒険",
@@ -314,7 +314,7 @@
       },
       "jlpt_level": "N4",
       "category": "pirate",
-      "context": "The Straw Hats are always on the move — their voyage (旅) is the heart of the series."
+      "context": "The Straw Hats are always on the move. Their voyage (旅) is the heart of the series."
     },
     {
       "surface": "夢",
@@ -340,7 +340,7 @@
       },
       "jlpt_level": "N4",
       "category": "pirate",
-      "context": "The Pirate King is the freest person in the world — Roger's words that sparked the Great Pirate Era."
+      "context": "The Pirate King is the freest person in the world. Roger's words that sparked the Great Pirate Era."
     },
     {
       "surface": "大海賊時代",
@@ -366,7 +366,7 @@
       },
       "jlpt_level": "N1",
       "category": "pirate",
-      "context": "What villainous pirates do — notably NOT what the Straw Hats do, which makes them unusual heroes in a pirate world."
+      "context": "What villainous pirates do. Notably NOT what the Straw Hats do, which makes them unusual heroes in a pirate world."
     },
     {
       "surface": "海軍",
@@ -379,7 +379,7 @@
       },
       "jlpt_level": "N2",
       "category": "navy",
-      "context": "The military arm of the World Government. Their motto is 正義 (justice) — though what kind of justice is debatable."
+      "context": "The military arm of the World Government. Their motto is 正義 (justice). Though what kind of justice is debatable."
     },
     {
       "surface": "正義",
@@ -418,7 +418,7 @@
       },
       "jlpt_level": "N2",
       "category": "navy",
-      "context": "The three admirals — Akainu, Aokiji, Kizaru — are among the most powerful fighters in the world."
+      "context": "The three admirals. Akainu, Aokiji, Kizaru. Are among the most powerful fighters in the world."
     },
     {
       "surface": "中将",
@@ -431,7 +431,7 @@
       },
       "jlpt_level": "N2",
       "category": "navy",
-      "context": "Garp's rank — he refused promotions to admiral. Smoker and Coby both aim for this rank."
+      "context": "Garp's rank. He refused promotions to admiral. Smoker and Coby both aim for this rank."
     },
     {
       "surface": "大佐",
@@ -509,7 +509,7 @@
       },
       "jlpt_level": "N2",
       "category": "navy",
-      "context": "CP9 and CP0 — the World Government's covert assassin agencies operating in the shadows."
+      "context": "CP9 and CP0. The World Government's covert assassin agencies operating in the shadows."
     },
     {
       "surface": "四皇",
@@ -522,7 +522,7 @@
       },
       "jlpt_level": null,
       "category": "navy",
-      "context": "The four most powerful pirates in the New World — Whitebeard, Big Mom, Kaido, Shanks (later Luffy)."
+      "context": "The four most powerful pirates in the New World. Whitebeard, Big Mom, Kaido, Shanks (later Luffy)."
     },
     {
       "surface": "皇帝",
@@ -535,7 +535,7 @@
       },
       "jlpt_level": "N2",
       "category": "navy",
-      "context": "The title behind 四皇 — each emperor commands an enormous fleet and controls territory in the New World."
+      "context": "The title behind 四皇. Each emperor commands an enormous fleet and controls territory in the New World."
     },
     {
       "surface": "悪魔の実",
@@ -574,7 +574,7 @@
       },
       "jlpt_level": "N2",
       "category": "devil_fruit",
-      "context": "The highest stage of Devil Fruit mastery — when the power extends beyond the user's body to affect the environment."
+      "context": "The highest stage of Devil Fruit mastery. When the power extends beyond the user's body to affect the environment."
     },
     {
       "surface": "変身",
@@ -600,7 +600,7 @@
       },
       "jlpt_level": null,
       "category": "devil_fruit",
-      "context": "The most common Devil Fruit type — gives superhuman powers. Luffy's Gum-Gum Fruit is Paramecia (or was thought to be)."
+      "context": "The most common Devil Fruit type. Gives superhuman powers. Luffy's Gum-Gum Fruit is Paramecia (or was thought to be)."
     },
     {
       "surface": "自然系",
@@ -613,7 +613,7 @@
       },
       "jlpt_level": null,
       "category": "devil_fruit",
-      "context": "The rarest and most feared type — user becomes and controls a natural element. Akainu (magma), Aokiji (ice), Enel (lightning)."
+      "context": "The rarest and most feared type. User becomes and controls a natural element. Akainu (magma), Aokiji (ice), Enel (lightning)."
     },
     {
       "surface": "動物系",
@@ -639,7 +639,7 @@
       },
       "jlpt_level": "N4",
       "category": "devil_fruit",
-      "context": "The price of eating a Devil Fruit — the sea rejects you. Devil Fruit users who fall in the ocean will sink like hammers."
+      "context": "The price of eating a Devil Fruit. The sea rejects you. Devil Fruit users who fall in the ocean will sink like hammers."
     },
     {
       "surface": "覇気",
@@ -678,7 +678,7 @@
       },
       "jlpt_level": null,
       "category": "haki",
-      "context": "Allows the user to sense the presence, emotions, and attacks of others — including future sight at advanced levels."
+      "context": "Allows the user to sense the presence, emotions, and attacks of others. Including future sight at advanced levels."
     },
     {
       "surface": "覇王色の覇気",
@@ -691,7 +691,7 @@
       },
       "jlpt_level": null,
       "category": "haki",
-      "context": "The rarest Haki — only 1 in a million people can use it. It knocks out weak-willed enemies with pure force of will. Luffy, Shanks, and Kaido possess it."
+      "context": "The rarest Haki. Only 1 in a million people can use it. It knocks out weak-willed enemies with pure force of will. Luffy, Shanks, and Kaido possess it."
     },
     {
       "surface": "気配",
@@ -704,7 +704,7 @@
       },
       "jlpt_level": "N2",
       "category": "haki",
-      "context": "Skilled Haki users can sense others' 気配 — their presence, intent, and emotional state."
+      "context": "Skilled Haki users can sense others' 気配. Their presence, intent, and emotional state."
     },
     {
       "surface": "意志",
@@ -717,7 +717,7 @@
       },
       "jlpt_level": "N2",
       "category": "haki",
-      "context": "Haki is the manifestation of 意志 — willpower. Those with unbreakable will develop the strongest Haki."
+      "context": "Haki is the manifestation of 意志. Willpower. Those with unbreakable will develop the strongest Haki."
     },
     {
       "surface": "剣士",
@@ -730,7 +730,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "Zoro's identity — his goal is to be the world's greatest 剣士 (世界一の剣士)."
+      "context": "Zoro's identity. His goal is to be the world's greatest 剣士 (世界一の剣士)."
     },
     {
       "surface": "剣",
@@ -743,7 +743,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Zoro wields three swords simultaneously — a style called 三刀流 (santōryū)."
+      "context": "Zoro wields three swords simultaneously. A style called 三刀流 (santōryū)."
     },
     {
       "surface": "刀",
@@ -756,7 +756,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Zoro's swords are named katana — Wado Ichimonji, Sandai Kitetsu, and Enma among them."
+      "context": "Zoro's swords are named katana. Wado Ichimonji, Sandai Kitetsu, and Enma among them."
     },
     {
       "surface": "三刀流",
@@ -769,7 +769,7 @@
       },
       "jlpt_level": null,
       "category": "combat",
-      "context": "Zoro's signature fighting style — one sword in each hand, one in the mouth."
+      "context": "Zoro's signature fighting style. One sword in each hand, one in the mouth."
     },
     {
       "surface": "流",
@@ -795,7 +795,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Every character's named attacks are 技 — Gum-Gum Pistol, Oni Giri, Hana Hana..."
+      "context": "Every character's named attacks are 技. Gum-Gum Pistol, Oni Giri, Hana Hana..."
     },
     {
       "surface": "必殺技",
@@ -821,7 +821,7 @@
       },
       "jlpt_level": "N4",
       "category": "combat",
-      "context": "The constant cry of battle — Luffy launches 攻撃 after 攻撃 with no regard for his own safety."
+      "context": "The constant cry of battle. Luffy launches 攻撃 after 攻撃 with no regard for his own safety."
     },
     {
       "surface": "防御",
@@ -834,7 +834,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Luffy's rubber body gives him natural 防御 against blunt attacks — but Haki-coated blows still hurt him."
+      "context": "Luffy's rubber body gives him natural 防御 against blunt attacks. But Haki-coated blows still hurt him."
     },
     {
       "surface": "戦い",
@@ -847,7 +847,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "Every arc builds to a 戦い — but in One Piece, the fights are rarely just about power."
+      "context": "Every arc builds to a 戦い. But in One Piece, the fights are rarely just about power."
     },
     {
       "surface": "強さ",
@@ -860,7 +860,7 @@
       },
       "jlpt_level": "N4",
       "category": "combat",
-      "context": "One Piece's unspoken hierarchy — fans constantly debate who has the most 強さ."
+      "context": "One Piece's unspoken hierarchy. Fans constantly debate who has the most 強さ."
     },
     {
       "surface": "力",
@@ -873,7 +873,7 @@
       },
       "jlpt_level": "N4",
       "category": "combat",
-      "context": "Luffy doesn't seek 力 for its own sake — he wants it to protect his nakama and reach his dream."
+      "context": "Luffy doesn't seek 力 for its own sake. He wants it to protect his nakama and reach his dream."
     },
     {
       "surface": "武器",
@@ -886,7 +886,7 @@
       },
       "jlpt_level": "N3",
       "category": "combat",
-      "context": "From swords and cannons to slingsshots and hammers — every Straw Hat has their preferred 武器."
+      "context": "From swords and cannons to slingsshots and hammers. Every Straw Hat has their preferred 武器."
     },
     {
       "surface": "戦士",
@@ -899,7 +899,7 @@
       },
       "jlpt_level": "N2",
       "category": "combat",
-      "context": "Used of elite fighters — the Minks who fight as warriors, or the fishmen of Fishman Island."
+      "context": "Used of elite fighters. The Minks who fight as warriors, or the fishmen of Fishman Island."
     },
     {
       "surface": "船",
@@ -912,7 +912,7 @@
       },
       "jlpt_level": "N4",
       "category": "ship",
-      "context": "The Going Merry and Thousand Sunny — the Straw Hats' ships are beloved characters in their own right."
+      "context": "The Going Merry and Thousand Sunny. The Straw Hats' ships are beloved characters in their own right."
     },
     {
       "surface": "航海",
@@ -925,7 +925,7 @@
       },
       "jlpt_level": "N2",
       "category": "ship",
-      "context": "Nami's specialty — reading the weather and plotting the course for the crew's 航海 across the Grand Line."
+      "context": "Nami's specialty. Reading the weather and plotting the course for the crew's 航海 across the Grand Line."
     },
     {
       "surface": "航海士",
@@ -951,7 +951,7 @@
       },
       "jlpt_level": "N2",
       "category": "ship",
-      "context": "Nami's ultimate dream — to draw a 海図 of every ocean and island in the world."
+      "context": "Nami's ultimate dream. To draw a 海図 of every ocean and island in the world."
     },
     {
       "surface": "羅針盤",
@@ -1003,7 +1003,7 @@
       },
       "jlpt_level": "N1",
       "category": "ship",
-      "context": "The main deck of the Going Merry and Thousand Sunny — where the crew eats, trains, and celebrates."
+      "context": "The main deck of the Going Merry and Thousand Sunny. Where the crew eats, trains, and celebrates."
     },
     {
       "surface": "大砲",
@@ -1029,7 +1029,7 @@
       },
       "jlpt_level": null,
       "category": "roles",
-      "context": "Zoro is the Straw Hats' unofficial first mate — the crew's fighter and second in command."
+      "context": "Zoro is the Straw Hats' unofficial first mate. The crew's fighter and second in command."
     },
     {
       "surface": "料理人",
@@ -1042,7 +1042,7 @@
       },
       "jlpt_level": "N3",
       "category": "roles",
-      "context": "Sanji's role — he feeds the crew and fights with his legs only, never using his hands, to protect his cooking."
+      "context": "Sanji's role. He feeds the crew and fights with his legs only, never using his hands, to protect his cooking."
     },
     {
       "surface": "狙撃手",
@@ -1055,7 +1055,7 @@
       },
       "jlpt_level": "N2",
       "category": "roles",
-      "context": "Usopp's role — despite his cowardice, his marksmanship is extraordinary and grows to legendary precision."
+      "context": "Usopp's role. Despite his cowardice, his marksmanship is extraordinary and grows to legendary precision."
     },
     {
       "surface": "船医",
@@ -1068,7 +1068,7 @@
       },
       "jlpt_level": null,
       "category": "roles",
-      "context": "Tony Tony Chopper's role — he dreams of becoming a doctor who can cure any disease in the world."
+      "context": "Tony Tony Chopper's role. He dreams of becoming a doctor who can cure any disease in the world."
     },
     {
       "surface": "考古学者",
@@ -1081,7 +1081,7 @@
       },
       "jlpt_level": "N1",
       "category": "roles",
-      "context": "Robin's role and life purpose — she is the only person alive who can read the Poneglyphs."
+      "context": "Robin's role and life purpose. She is the only person alive who can read the Poneglyphs."
     },
     {
       "surface": "造船士",
@@ -1094,7 +1094,7 @@
       },
       "jlpt_level": null,
       "category": "roles",
-      "context": "Franky's role — he built the Thousand Sunny from the Adam Wood using his own bounty money."
+      "context": "Franky's role. He built the Thousand Sunny from the Adam Wood using his own bounty money."
     },
     {
       "surface": "音楽家",
@@ -1107,7 +1107,7 @@
       },
       "jlpt_level": "N3",
       "category": "roles",
-      "context": "Brook's role — he plays his violin to bring joy to the crew and to the world."
+      "context": "Brook's role. He plays his violin to bring joy to the crew and to the world."
     },
     {
       "surface": "泥棒",
@@ -1120,7 +1120,7 @@
       },
       "jlpt_level": "N3",
       "category": "roles",
-      "context": "What Nami was before joining the Straw Hats — stealing from pirates to buy back her village from Arlong."
+      "context": "What Nami was before joining the Straw Hats. Stealing from pirates to buy back her village from Arlong."
     },
     {
       "surface": "嘘つき",
@@ -1146,7 +1146,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "The bonds between the Straw Hats — forged through shared suffering, laughter, and sacrifice — are One Piece's true treasure."
+      "context": "The bonds between the Straw Hats. Forged through shared suffering, laughter, and sacrifice. Are One Piece's true treasure."
     },
     {
       "surface": "友情",
@@ -1159,7 +1159,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "The power that overcomes logic in One Piece — Luffy's 友情 inspires allies and terrifies enemies."
+      "context": "The power that overcomes logic in One Piece. Luffy's 友情 inspires allies and terrifies enemies."
     },
     {
       "surface": "信頼",
@@ -1172,7 +1172,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Luffy's leadership style is pure 信頼 — he trusts his crew completely and they follow him into the impossible."
+      "context": "Luffy's leadership style is pure 信頼. He trusts his crew completely and they follow him into the impossible."
     },
     {
       "surface": "誓い",
@@ -1185,7 +1185,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Zoro's oath to Kuina, Luffy's promise to Shanks, Nami's vow to her village — promises drive character arcs."
+      "context": "Zoro's oath to Kuina, Luffy's promise to Shanks, Nami's vow to her village. Promises drive character arcs."
     },
     {
       "surface": "誇り",
@@ -1198,7 +1198,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Zoro's 誇り as a swordsman is unshakable — he would rather die than abandon his ambition."
+      "context": "Zoro's 誇り as a swordsman is unshakable. He would rather die than abandon his ambition."
     },
     {
       "surface": "恥",
@@ -1211,7 +1211,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Losing without fighting, betraying a nakama, breaking a vow — these are 恥 in One Piece's moral code."
+      "context": "Losing without fighting, betraying a nakama, breaking a vow. These are 恥 in One Piece's moral code."
     },
     {
       "surface": "守る",
@@ -1224,7 +1224,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "The core motivation for nearly every Straw Hat — they each have someone or something they will die to 守る."
+      "context": "The core motivation for nearly every Straw Hat. They each have someone or something they will die to 守る."
     },
     {
       "surface": "別れ",
@@ -1237,7 +1237,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "The post-Marineford 別れ at Sabaody — Luffy and his crew are scattered, one of the series' most devastating moments."
+      "context": "The post-Marineford 別れ at Sabaody. Luffy and his crew are scattered, one of the series' most devastating moments."
     },
     {
       "surface": "再会",
@@ -1250,7 +1250,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "The 再会 after the two-year time skip at Sabaody — one of the most celebrated moments in the series."
+      "context": "The 再会 after the two-year time skip at Sabaody. One of the most celebrated moments in the series."
     },
     {
       "surface": "犠牲",
@@ -1263,7 +1263,7 @@
       },
       "jlpt_level": "N2",
       "category": "themes",
-      "context": "Ace's death, Whitebeard's stand at Marineford — One Piece's emotional peaks are built on 犠牲."
+      "context": "Ace's death, Whitebeard's stand at Marineford. One Piece's emotional peaks are built on 犠牲."
     },
     {
       "surface": "笑顔",
@@ -1276,7 +1276,7 @@
       },
       "jlpt_level": "N3",
       "category": "themes",
-      "context": "Luffy's permanent 笑顔 — his cheerfulness in the face of any danger is his most iconic trait."
+      "context": "Luffy's permanent 笑顔. His cheerfulness in the face of any danger is his most iconic trait."
     },
     {
       "surface": "泣く",
@@ -1289,7 +1289,7 @@
       },
       "jlpt_level": "N4",
       "category": "themes",
-      "context": "Luffy never 泣く for himself — but he cries freely for others. Nami's breakdown, Robin's 'I want to live' arc."
+      "context": "Luffy never 泣く for himself. But he cries freely for others. Nami's breakdown, Robin's 'I want to live' arc."
     },
     {
       "surface": "空白の百年",
@@ -1328,7 +1328,7 @@
       },
       "jlpt_level": "N4",
       "category": "lore",
-      "context": "The World Government controls the world's 歴史 — erasing anything that threatens their power."
+      "context": "The World Government controls the world's 歴史. Erasing anything that threatens their power."
     },
     {
       "surface": "古代兵器",
@@ -1341,7 +1341,7 @@
       },
       "jlpt_level": null,
       "category": "lore",
-      "context": "Pluton, Poseidon, and Uranus — three weapons of mass destruction from the Void Century that the World Government fears most."
+      "context": "Pluton, Poseidon, and Uranus. Three weapons of mass destruction from the Void Century that the World Government fears most."
     },
     {
       "surface": "伝説",
@@ -1354,7 +1354,7 @@
       },
       "jlpt_level": "N3",
       "category": "lore",
-      "context": "The One Piece is called a 伝説 — something most of the world believes is a myth."
+      "context": "The One Piece is called a 伝説. Something most of the world believes is a myth."
     },
     {
       "surface": "肉",
@@ -1367,7 +1367,7 @@
       },
       "jlpt_level": "N5",
       "category": "life",
-      "context": "Luffy's one great love. He will eat any meat at any time — including food that belongs to his enemies."
+      "context": "Luffy's one great love. He will eat any meat at any time. Including food that belongs to his enemies."
     },
     {
       "surface": "料理",
@@ -1380,7 +1380,7 @@
       },
       "jlpt_level": "N4",
       "category": "life",
-      "context": "Sanji's art and identity. The all-blue — a mythical sea where all world fish swim together — is his dream cooking ground."
+      "context": "Sanji's art and identity. The all-blue. A mythical sea where all world fish swim together. Is his dream cooking ground."
     },
     {
       "surface": "酒",
@@ -1406,7 +1406,7 @@
       },
       "jlpt_level": "N4",
       "category": "life",
-      "context": "'Those who cannot 笑う cannot be a pirate' — a recurring theme in One Piece's philosophy."
+      "context": "'Those who cannot 笑う cannot be a pirate'. A recurring theme in One Piece's philosophy."
     },
     {
       "surface": "仲間割れ",

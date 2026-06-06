@@ -18,7 +18,7 @@ import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { exerciseRatelimit } from "@/lib/rate-limit";
 import { UUID_RE } from "@/lib/uuid";
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { userVocabMastery } from "@/lib/db/schema";
 import { tierFor } from "@/lib/fsrs/tier";
@@ -89,11 +89,16 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // Fetch mastery rows for the requested vocab IDs
+  // Fetch mastery rows for the requested vocab IDs.
+  // GROUP BY + MAX(state): a word can have multiple rows (one per card_kind —
+  // romaji_meaning, kanji_kana). Without aggregation the loop below would
+  // non-deterministically overwrite the stateMap with whichever row Postgres
+  // returns last. MAX ensures the most-advanced state wins, so practicing a
+  // word on either track suppresses the LearnCard intro on the other.
   const rows = await db
     .select({
       vocab_item_id: userVocabMastery.vocab_item_id,
-      state: userVocabMastery.state,
+      state: sql<number>`MAX(${userVocabMastery.state})`,
     })
     .from(userVocabMastery)
     .where(
@@ -101,7 +106,8 @@ export async function GET(request: NextRequest) {
         eq(userVocabMastery.user_id, userId),
         inArray(userVocabMastery.vocab_item_id, idArray)
       )
-    );
+    )
+    .groupBy(userVocabMastery.vocab_item_id);
 
   // Build tier map from DB rows
   const tierMap: Record<string, Tier> = {};

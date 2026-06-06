@@ -1,24 +1,13 @@
-/**
- * LanternStreak — Phase 14.1 SPEC-REQ-3.
- *
- * Displays the user's day streak with a glowing lantern icon and a
- * hover tooltip. Icon is a PNG lantern; tooltip is pure CSS (no extra deps).
- *
- * Tiers (CONTEXT Specifics):
- *   count < 7   -> dim     (opacity 0.55)
- *   7 <= n < 30 -> warm    (opacity 0.80)
- *   count >= 30 -> blazing (opacity 1.0)
- *
- * W-5 testid discipline:
- *   - data-testid="lantern-streak"        on the root wrapper
- *   - data-testid="lantern-streak-count"  on the count <span> only
- */
+"use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 interface LanternStreakProps {
   count: number;
 }
+
+const STREAK_KEY = "kb_streak";
 
 function lanternOpacity(count: number): number {
   if (count >= 30) return 1;
@@ -34,9 +23,25 @@ function streakLabel(count: number): string {
 
 export function LanternStreak({ count }: LanternStreakProps) {
   const opacity = lanternOpacity(count);
+  const rootRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem(STREAK_KEY);
+    const prev = stored !== null ? Number(stored) : null;
+    if (prev !== null && count > prev && rootRef.current) {
+      rootRef.current.dataset.lanternPulsing = "1";
+      const t = setTimeout(() => {
+        if (rootRef.current) delete rootRef.current.dataset.lanternPulsing;
+      }, 700);
+      localStorage.setItem(STREAK_KEY, String(count));
+      return () => clearTimeout(t);
+    }
+    localStorage.setItem(STREAK_KEY, String(count));
+  }, [count]);
 
   return (
     <span
+      ref={rootRef}
       role="img"
       aria-label={`${count}-day streak`}
       className="relative inline-flex items-center gap-1.5 group cursor-default"

@@ -122,19 +122,30 @@ export function KanaSession({ mode }: Props) {
   // that Plan 06 will replace. The answerLog has already been written to sessionStorage by the
   // effect above so the summary screen can read it.
   if (index >= SESSION_LENGTH) {
+    const correct = answerLog.filter((a) => a.correct).length;
+    const accuracy = Math.round((correct / SESSION_LENGTH) * 100);
+    const starsGained = answerLog.reduce((sum, a) => sum + Math.max(0, a.starsAfter - a.starsBefore), 0);
     return (
-      <div className="flex flex-col items-center gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center shadow-[var(--shadow-card-ring-strong)]">
-        <h2 className="text-2xl font-bold text-[var(--color-text)]">
-          Session complete
-        </h2>
-        <p className="text-sm text-[var(--color-text-muted)]">
-          Answered {answerLog.filter((a) => a.correct).length}/{SESSION_LENGTH}.
-        </p>
+      <div className="flex flex-col items-center gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center shadow-[var(--shadow-card-ring-strong)]">
+        <div className="session-emoji-pop text-5xl">
+          {accuracy >= 80 ? "🎯" : accuracy >= 50 ? "📚" : "💪"}
+        </div>
+        <div className="flex flex-col gap-1">
+          <h2 className="text-2xl font-bold text-[var(--color-text)]">Session complete!</h2>
+          <p className="text-[var(--color-text-muted)]">
+            {correct} / {SESSION_LENGTH} correct · {accuracy}%
+          </p>
+          {starsGained > 0 && (
+            <p className="text-sm font-semibold text-[var(--color-jlpt-n5)]">
+              ★ +{starsGained} stars earned
+            </p>
+          )}
+        </div>
         <Link
           href="/kana/session/summary"
           className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-5 text-sm font-semibold [color:white] shadow-[var(--shadow-button-red)] hover:bg-[var(--color-accent)]/90"
         >
-          See summary
+          See summary →
         </Link>
       </div>
     );

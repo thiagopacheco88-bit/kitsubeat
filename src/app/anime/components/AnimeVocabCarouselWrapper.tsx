@@ -6,7 +6,7 @@ import type { AnimeMetadata } from "@/lib/db/schema";
 import type { Question } from "@/lib/exercises/generator";
 import type { AnimeCarouselSessionResult } from "@/app/actions/anime-carousel";
 import AnimeVocabCarousel from "./AnimeVocabCarousel";
-import AnimeCarouselExerciseSession from "./AnimeCarouselExerciseSession";
+import AnimeCarouselExerciseSession, { type WordResult } from "./AnimeCarouselExerciseSession";
 import AnimeSessionSummary from "./AnimeSessionSummary";
 
 type ViewMode = "carousel" | "session" | "summary";
@@ -29,14 +29,16 @@ export default function AnimeVocabCarouselWrapper({
   const [mode, setMode] = useState<ViewMode>("carousel");
   const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
   const [sessionResult, setSessionResult] = useState<AnimeCarouselSessionResult | null>(null);
+  const [sessionWordResults, setSessionWordResults] = useState<WordResult[]>([]);
 
   function handleStartPractice(questions: Question[]) {
     setSessionQuestions(questions);
     setMode("session");
   }
 
-  function handleSessionComplete(result: AnimeCarouselSessionResult) {
+  function handleSessionComplete(result: AnimeCarouselSessionResult, wordResults: WordResult[]) {
     setSessionResult(result);
+    setSessionWordResults(wordResults);
     setMode("summary");
   }
 
@@ -44,6 +46,7 @@ export default function AnimeVocabCarouselWrapper({
     setMode("carousel");
     setSessionQuestions([]);
     setSessionResult(null);
+    setSessionWordResults([]);
   }
 
   if (mode === "session") {
@@ -62,6 +65,7 @@ export default function AnimeVocabCarouselWrapper({
     return (
       <AnimeSessionSummary
         result={sessionResult}
+        wordResults={sessionWordResults}
         onBackToCarousel={handleBackToCarousel}
       />
     );

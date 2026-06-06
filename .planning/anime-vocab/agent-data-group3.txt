@@ -1,0 +1,176 @@
+=== fullmetal-alchemist | Fullmetal Alchemist | emoji: ⚗️ ===
+Description: Edward and Alphonse Elric's quest to restore their bodies through alchemy.
+Words (surface|romaji|meaning|jlpt|existing_context):
+錬金術|renkinjutsu|alchemy|N1|The central power system of FMA — the science of understanding, deconstructing, and reconstructing m
+錬成|rensei|transmutation|N1|The act of performing alchemy — transforming one substance into another. Edward can transmute withou
+等価交換|touka koukan|equivalent exchange|?|The fundamental law of alchemy: to obtain something, you must give something of equal value. This pr
+錬成陣|renseijin|transmutation circle|?|The geometric array drawn to focus alchemical energy and perform transmutation. Ed bypasses the need
+人体錬成|jintai rensei|human transmutation|?|The ultimate taboo in alchemy — attempting to create or resurrect a human. The Elric brothers attemp
+増幅|zoufuku|amplification|N1|The Philosopher's Stone amplifies an alchemist's power beyond normal limits, allowing feats that sho
+分解|bunkai|decomposition|N2|The first step of alchemical transmutation — breaking matter down to its base components before rebu
+再構成|saikousei|reconstruction|?|The final step of transmutation — rebuilding deconstructed matter into a new desired form. A skilled
+元素|genso|element|N2|Alchemists must understand the elemental composition of matter — carbon, iron, nitrogen, etc. — befo
+物質|busshitsu|matter|N2|All physical substance that alchemists can analyze and transmute. The law of equivalent exchange app
+理解|rikai|understanding/comprehension|N3|The first of the three steps of alchemy. An alchemist must fully understand the object before transm
+禁忌|kinki|taboo/forbidden|N1|Human transmutation is the ultimate taboo of alchemy. Those who attempt it face consequences beyond 
+科学|kagaku|science|N3|FMA portrays alchemy explicitly as a science rather than magic — based on understanding natural laws
+研究|kenkyuu|research/study|N3|State Alchemists are funded to conduct research in their specialty. Edward uses his researcher statu
+竜脈|ryuumyaku|dragon's pulse (earth's energy)|?|The Xingese concept of energy flowing through the earth like veins. Alkahestry taps into this flow i
+軍|gun|military/army|N3|The Amestrian military that rules the country with iron discipline. State Alchemists are called 'dog
+将軍|shougun|general|N2|High-ranking military commanders in the Amestrian armed forces. Some generals are secretly loyal to 
+大佐|taisa|colonel|N2|Roy Mustang holds this rank — ambitious, calculating, and determined to become Führer to change Ames
+少佐|shousa|major|N2|Alex Louis Armstrong, the 'Strong Arm Alchemist,' proudly holds this rank and never misses a chance 
+曹長|souchou|warrant officer/master sergeant|?|A non-commissioned officer rank in the Amestrian military, positioned below commissioned officers bu
+中尉|chuui|lieutenant|N2|Riza Hawkeye holds this rank under Mustang. She is his most loyal subordinate — a sharpshooter who w
+兵士|heishi|soldier|N3|Ordinary soldiers of the Amestrian military. Many are unwittingly part of the scheme to use the enti
+軍事国家|gunji kokka|military state|?|Amestris is a militaristic authoritarian nation. The military's control over alchemy and resources d
+命令|meirei|order/command|N3|Following orders is central to military life in Amestris — but throughout FMA, characters must decid
+作戦|sakusen|operation/strategy|N2|Military operations in FMA often serve a hidden purpose — advancing Father's grand scheme to create 
+反乱|hanran|rebellion/uprising|N2|Characters like Mustang and the Elrics ultimately rebel against the corrupt military leadership cont
+戦争|sensou|war|N3|Amestris has a history of engineered wars used to push its borders outward and create the necessary 
+内戦|naisen|civil war|N2|The Ishval Civil War scarred an entire generation of Amestrian soldiers. Mustang, Hawkeye, and many 
+虐殺|gyakusatsu|massacre/genocide|N1|The Amestrian military committed near-genocide against the Ishvalan people. This atrocity is central
+権力|kenryoku|power/authority|N2|Father seeks absolute power — to hold all human knowledge and become a perfect being. FMA consistent
+七つの大罪|nanatsu no taizai|seven deadly sins|?|The seven homunculi are each named after a deadly sin: Pride, Greed, Envy, Wrath, Sloth, Gluttony, a
+強欲|gouyoku|greed|N1|Greed is the homunculus who desires everything — but ultimately chooses to fight alongside the Elric
+憤怒|fundo|wrath|N1|Wrath is embodied by King Bradley, the Führer himself. His ultimate eye lets him calculate perfect a
+傲慢|gouman|pride/arrogance|N1|Pride is the most powerful homunculus — living inside a container as a being of living shadow who ca
+嫉妬|shitto|envy|N2|Envy is a shapeshifter who despises humans out of deep jealousy. Its true form is a grotesque beast 
+怠惰|taida|sloth|N1|Sloth is a massive, nearly unstoppable homunculus tasked with digging a tunnel beneath all of Amestr
+暴食|boushoku|gluttony|?|Gluttony harbors a false Gate of Truth in his stomach — a terrifying void that devours everything. H
+色欲|shikiyoku|lust|N1|Lust wields retractable lance-like fingers that can pierce anything. Despite her role as assassin, s
+不死身|fujimi|immortality/invincibility|?|Homunculi regenerate from virtually any wound thanks to the Philosopher's Stone within them. Only de
+再生|saisei|regeneration|N2|The defining trait of homunculi — they can regenerate injuries at will as long as their Philosopher'
+
+=== hunter-x-hunter | Hunter × Hunter | emoji: 🎯 ===
+Description: Gon Freecss searches for his absent father while navigating a world built on dangerous ambition.
+Words (surface|romaji|meaning|jlpt|existing_context):
+危険|kiken|danger / risk|N4|The Hunter world is built on danger — every mission, every exam, every arc escalates the threat beyo
+殺す|korosu|to kill|N3|Killua was trained from birth to kill — unlearning that conditioning is his real journey throughout 
+才能|sainō|talent / ability|N3|Gon's extraordinary talent is raw potential; Killua's is honed technique — together they're near uns
+契約|keiyaku|contract / agreement|N3|In Nen, a Vow and Limitation is a self-imposed contract that dramatically amplifies power in exchang
+条件|jōken|condition / requirement|N3|Nen abilities grow stronger when fighters place strict conditions on themselves — the harder the rul
+制約|seiyaku|restriction / limitation|N3|Kurapika's Scarlet Eyes restriction — to use his chain only against the Phantom Troupe — is Nen's mo
+誓い|chikai|oath / vow|N3|Kurapika's oath to avenge his clan is the emotional backbone of his entire arc — and the source of h
+仲間|nakama|comrade / companion|N3|The bond between Gon, Killua, Kurapika, and Leorio is tested at every turn — a friendship built in t
+殺意|satsui|killing intent / bloodlust|N2|Killua's bloodlust is a trained instinct — he can suppress it or release it as a weapon of pure psyc
+覚悟|kakugo|resolve / readiness|N3|Gon's resolve in the final arc transforms his entire personality — a disturbing glimpse at what pure
+欲望|yokubō|desire / greed|N3|The Greed Island arc is literally built from desire — a virtual game world designed around what peop
+記憶|kioku|memory|N3|The Chimera Ants retain fragmented memories of their human past — a source of tragedy and profound i
+犠牲|gisei|sacrifice|N3|Gon sacrifices his future — potentially his life — to access power beyond his limits in the final Ch
+闇|yami|darkness|N3|The series' true darkness is revealed in the Chimera Ant arc — a philosophical meditation on humanit
+本能|honnō|instinct|N2|Chimera Ants operate on instinct overlaid with human consciousness — their internal conflict mirrors
+抑制|yokusei|suppression / restraint|N2|Zetsu — total suppression of aura — is used for hiding Nen but leaves the user dangerously vulnerabl
+増幅|zōfuku|amplification / enhancement|N2|Ren — amplified aura output — multiplies physical strength beyond natural limits, the foundation of 
+領域|ryōiki|domain / territory|N2|A territory-type ability stakes out a space where the user's Nen rules are absolute — the most power
+免許|menkyo|licence / certificate|N2|A Hunter Licence grants access to restricted areas, secret information, and resources unavailable to
+念|Nen|Nen (life energy / aura system)|?|Nen is the life energy that underlies all combat in HxH — mastering its four base states unlocks sup
+強化系|kyōka-kei|Enhancement type (Nen category)|?|Enhancement is Gon's Nen type — the most straightforward category, amplifying physical strength and 
+変化系|henka-kei|Transformation type (Nen category)|?|Transformation is Killua's Nen type — allowing him to change his aura's properties into electricity 
+放出系|hōshutsukei|Emission type (Nen category)|?|Emission type allows aura to be separated from the body and projected — Leorio's potential and Gon's
+操作系|sōsa-kei|Manipulation type (Nen category)|?|Manipulation type controls people and objects with aura — Illumi uses it to plant a needle in Killua
+具現化系|gugenka-kei|Conjuration type (Nen category)|?|Conjuration type materializes real objects from aura — Kurapika's chains and Gon's rock are manifest
+特質系|tokushitsu-kei|Specialization type (Nen category)|?|Specialization is the rarest Nen type — Kurapika activates it in Scarlet Eyes mode, and the Phantom 
+感情|kanjō|emotion / feeling|N3|Nen ability power scales with emotion — the strength of a user's feelings, especially resolve, ampli
+集中|shūchū|concentration / focus|N3|Nen techniques require intense concentration — interrupting a user's focus during aura flow can dest
+友情|yūjō|friendship / bonds of friendship|N3|Gon and Killua's friendship — an unlikely bond between pure innocence and trained assassin — is the 
+信頼|shinrai|trust / confidence in someone|N3|Killua learns to trust others through Gon — a concept entirely foreign to a boy raised in an assassi
+裏切り|uragiri|betrayal / treachery|N3|Betrayal is a constant threat in the Hunter world — and the Yorknew arc shows how the Phantom Troupe
+希望|kibō|hope|N3|Gon embodies hope — his refusal to give in to despair is a beacon that changes everyone who encounte
+絶望|zetsubō|despair / hopelessness|N2|Gon's final-arc despair — a rage so total it ages him into an adult — is the series' darkest and mos
+葛藤|kattō|inner conflict / inner struggle|N2|Killua's inner conflict — between his trained instinct to kill and his desire to be Gon's friend — i
+成長|seichō|growth / development|N4|Every protagonist grows through the Hunter Exam and beyond — but growth in HxH always comes at a pai
+意志|ishi|will / determination|N3|Gon's iron will to find his father drives the entire narrative — a child's stubborn refusal to accep
+命|inochi|life / one's life|N3|Life is cheap in the Hunter world — but HxH never lets the audience forget the weight of each death 
+守る|mamoru|to protect / to defend|N4|Killua's entire arc converges on one truth: he must learn to protect Alluka, the sister he abandoned
+報酬|hōshū|reward / payment|N3|Hunter missions offer enormous rewards — but the danger level scales accordingly, and not every Hunt
+依頼|irai|request / commission / job|N3|Hunters take commissions from clients who need tasks beyond normal human capacity — the job board is
+
+=== jujutsu-kaisen | Jujutsu Kaisen | emoji: 💜 ===
+Description: Yuji Itadori swallows a cursed finger and becomes host to the King of Curses, Ryomen Sukuna.
+Words (surface|romaji|meaning|jlpt|existing_context):
+魂|tamashii|soul|N4|Gojo Satoru explains that a proper punch hits the soul directly, not just the body.
+死|shi|death|N4|Yuji's goal is to ensure people experience a proper death surrounded by others.
+拳|kobushi|fist|N4|Yuji's physical strength lets his fists deal real damage even to cursed spirits.
+血|chi|blood|N4|Nobara channels cursed energy through blood using her Straw Doll Technique.
+命|inochi|life|N4|Sorcerers risk their lives every time they face a special-grade cursed spirit.
+闇|yami|darkness|N4|Cursed spirits lurk in the darkness, feeding on negative human emotions.
+術師|jutsushi|sorcerer|N3|Jujutsu sorcerers are trained to exorcise cursed spirits and protect ordinary people.
+呪霊|jurei|cursed spirit|N3|Cursed spirits are born from the negative emotions of humans and threaten society.
+儚い|hakanai|fleeting; transient|N3|Human life is fleeting, which is precisely why jujutsu sorcerers protect it so fiercely.
+人間|ningen|human being|N3|Sukuna sees human beings as nothing more than lower lifeforms beneath his contempt.
+仲間|nakama|comrade; companion|N3|Yuji, Megumi, and Nobara become trusted comrades at Tokyo Jujutsu High.
+犠牲|gisei|sacrifice|N3|Many sorcerers make the ultimate sacrifice in the battle against cursed spirits.
+恐怖|kyōfu|fear; terror|N3|Cursed spirits are born from humanity's collective fear and negative emotions.
+感情|kanjō|emotion; feeling|N3|Negative emotions from humans give rise to the cursed energy that spawns cursed spirits.
+存在|sonzai|existence; being|N3|Yuji's very existence as Sukuna's vessel puts him at odds with jujutsu society.
+覚悟|kakugo|resolve; preparedness|N3|Sorcerers must have the resolve to face death every time they confront a cursed spirit.
+成長|seichō|growth; development|N3|Yuji's rapid growth as a sorcerer surprises even veteran fighters like Nanami.
+限界|genkai|limit; boundary|N3|Sorcerers push past their limits when protecting the people they care about.
+格|kaku|rank; grade|N3|Cursed spirits and sorcerers are assigned grades based on the level of their cursed energy.
+強さ|tsuyosa|strength; power|N3|Gojo Satoru's strength is so overwhelming that he is considered unrivalled among sorcerers.
+弱さ|yowasa|weakness|N3|Yuji's perceived weakness stems from his inability to use innate techniques at first.
+記憶|kioku|memory|N3|Yuji retains memories of everyone Sukuna kills while in control of his body.
+誓い|chikai|oath; vow|N3|Yuji makes a vow to his grandfather to protect others and not die alone.
+孤独|kodoku|solitude; loneliness|N3|Many sorcerers carry a deep loneliness, knowing ordinary people cannot understand their world.
+正義|seigi|justice; righteousness|N3|Yuji's sense of justice drives him to protect people even at the cost of his own life.
+運命|unmei|fate; destiny|N3|Yuji's fate as Sukuna's vessel was sealed the moment he swallowed the cursed finger.
+勇気|yūki|courage; bravery|N3|Yuji charges into battle with reckless courage to protect those around him.
+戦い|tatakai|battle; fight|N3|Every battle in Jujutsu Kaisen carries the risk of permanent death for both sides.
+守る|mamoru|to protect; to defend|N3|Yuji's core motivation is to protect people from meeting a cursed death.
+悪|aku|evil; wickedness|N3|Cursed spirits embody the evil that results from accumulated human negativity.
+絶望|zetsubō|despair; hopelessness|N3|The Shibuya Incident plunges Yuji into deep despair over his inability to save everyone.
+希望|kibō|hope|N3|Gojo represents the hope of a new generation that can change the corrupt jujutsu world.
+呪縛|jubaku|binding vow; curse binding|N2|Binding vows are contracts that boost cursed technique power at the cost of breaking them.
+憑依|hyōi|possession; inhabitation|N2|Sukuna possesses Yuji's body whenever Yuji allows it, taking full control.
+術式|jutsu-shiki|innate technique; cursed technique|N2|Each sorcerer is born with a unique innate technique that defines their fighting style.
+祓除|futsujо|exorcism; purification|N2|Jujutsu sorcerers specialize in the exorcism of cursed spirits to protect civilians.
+反転術式|hanten jutsu-shiki|reverse cursed technique|N2|The reverse cursed technique multiplies negative energy to produce positive energy for healing.
+抹消|masshō|erasure; deletion; annihilation|N2|Gojo's Blue technique creates a vacuum that draws everything toward a point of erasure.
+封印|fūin|seal; sealing|N2|Gojo Satoru is sealed within the Prison Realm during the Shibuya Incident.
+憎悪|zōo|hatred; abhorrence|N2|The hatred and resentment of humans over centuries gives birth to powerful cursed spirits.
+
+=== my-hero-academia | My Hero Academia | emoji: 💥 ===
+Description: In a world where almost everyone has a superpower, Izuku Midoriya is born without one — then inherits the greatest power of all.
+Words (surface|romaji|meaning|jlpt|existing_context):
+崩壊|hōkai|collapse; disintegration|N2|Shigaraki's Decay Quirk causes total collapse of anything he touches, making him terrifyingly destru
+革命|kakumei|revolution|N2|The Meta Liberation Army's ideology calls for a revolution to free Quirk usage from all restrictions
+暴力|bōryoku|violence; force|N2|Stain argues that heroes who act for fame perpetuate a cycle of violence disconnected from true just
+本能|honnō|instinct|N2|Izuku's instinct to save people, even without a Quirk, is what All Might recognized as a true hero t
+個性把握型|kosei haaku-gata|Quirk Apprehension Test type|?|The Quirk Apprehension Test at UA evaluates students by measuring the full scope of their Quirk abil
+消去|shōkyo|erasure; deletion|N2|Eraserhead's Quirk Erasure allows him to nullify anyone's Quirk as long as he keeps his eyes on them
+重力|jūryoku|gravity|N3|Uraraka's Zero Gravity Quirk removes the gravitational pull from anything she touches with all five 
+透明|tōmei|transparency; invisibility|N3|Toru Hagakure's Invisibility Quirk makes her entire body transparent, giving her a natural stealth a
+変身|henshin|transformation; metamorphosis|N3|Toga's Quirk allows her to transform into anyone whose blood she consumes, copying their appearance 
+誘惑|yūwaku|temptation; seduction|N2|Gentle Criminal's Elasticity Quirk and charming persona represent a villain driven by temptation for
+防衛|bōei|defense; protection|N2|UA's heightened defenses become a plot point when the League of Villains repeatedly targets the scho
+敗北|haiboku|defeat; loss|N3|Bakugo's first major defeat at the UA tournament arc shakes him into rethinking his approach to hero
+超人社会|chōjin shakai|super-powered society|?|The entire premise of the series is built on how humanity adapted to a super-powered society where Q
+解析|kaiseki|analysis; parsing|N2|Izuku fills notebooks with detailed analysis of heroes' Quirks, which becomes a core part of his tac
+覚醒|kakusei|awakening; arousal|N2|Several characters experience a Quirk Awakening during intense battles, unlocking new and stronger f
+結束|kessoku|unity; solidarity; cohesion|N2|The bond and unity of Class 1-A is what allows them to survive and overcome threats that individuals
+未来|mirai|future|N4|The next generation of heroes carries the weight of building a better future for everyone, Quirk or 
+闇|yami|darkness|N3|Izuku's Dark Deku arc shows him walking the edge of darkness, sacrificing his own body to save other
+誇り|hokori|pride; honor|N3|Bakugo's pride refuses to let him accept help, but it is also what drives his relentless self-improv
+絆|kizuna|bond; tie; connection|N2|The bonds between Izuku and his predecessors within One For All grow stronger with each passing epis
+英雄|eiyū|hero|N4|All Might is celebrated as the greatest hero in the world, a symbol of peace.
+悪|aku|evil; wickedness|N4|All For One represents absolute evil, hoarding Quirks and destroying everything heroes stand for.
+守る|mamoru|to protect; to defend|N4|Izuku's core motivation is to protect people, just like All Might always did.
+戦う|tatakau|to fight; to battle|N4|The hero students train tirelessly so they can fight villains and protect civilians.
+個性|kosei|individuality; Quirk (superpower)|N3|Almost 80% of humanity has a Quirk — a unique superpower that manifests in childhood.
+才能|sainō|talent; ability|N3|Bakugo's explosive Quirk and natural talent make him one of UA's top students.
+訓練|kunren|training; drill|N3|Class 1-A undergoes intense combat training to prepare for the hero licensing exam.
+仲間|nakama|comrade; ally; friend|N3|Izuku's bonds with his classmates give him the strength to keep pushing forward.
+犠牲|gisei|sacrifice|N3|Every previous user of One For All made great sacrifices to pass the power to the next generation.
+限界|genkai|limit; boundary|N3|Izuku constantly pushes past his limits, breaking his bones to unleash One For All's full power.
+覚悟|kakugo|resolve; preparedness; readiness|N3|All Might tells Izuku that receiving One For All requires absolute resolve and readiness.
+勇気|yūki|courage; bravery|N3|Izuku showed courage when he ran toward the Sludge Villain without a Quirk, moving All Might.
+希望|kibō|hope; wish|N3|All Might's smile was a symbol of hope for everyone in the world, heroes and civilians alike.
+正義|seigi|justice; righteousness|N3|Stain the Hero Killer challenges what true justice means for heroes in a commercialized world.
+成長|seichō|growth; development|N3|The series follows Izuku's remarkable growth from a powerless boy into a formidable hero.
+誓い|chikai|vow; pledge; oath|N3|Izuku makes a silent vow to become the greatest hero and carry on All Might's legacy.
+努力|doryoku|effort; hard work|N3|Izuku's countless notebooks full of hero analysis show his extraordinary effort and dedication.
+責任|sekinin|responsibility; duty|N3|Carrying One For All comes with immense responsibility — the weight of all previous users.
+継承|keishō|succession; inheritance|N3|One For All grows stronger with each succession, carrying the power of every user who came before.
+敵|teki|enemy; foe|N3|The League of Villains declares all heroes their enemies, seeking to destroy the hero society.
+

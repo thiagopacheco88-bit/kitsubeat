@@ -1,0 +1,318 @@
+{
+  "anime": "common-phrases",
+  "label": "Common Phrases",
+  "vocab": [
+    {
+      "surface": "凄い",
+      "reading": "すごい",
+      "romaji": "sugoi",
+      "meanings": {
+        "en": "amazing / incredible / wow",
+        "pt-BR": "incrível / nossa / uau",
+        "es": "increíble / impresionante / guau"
+      },
+      "jlpt_level": "N4",
+      "category": "reaction",
+      "context": "The word Genos said watching Saitama punch a meteor apart. The reaction that fills anime's most breathtaking moments — power, beauty, surprise — all one word."
+    },
+    {
+      "surface": "なるほど",
+      "reading": "なるほど",
+      "romaji": "naruhodo",
+      "meanings": {
+        "en": "I see / makes sense / aha",
+        "pt-BR": "entendi / faz sentido / ahá",
+        "es": "ya veo / tiene sentido / ajá"
+      },
+      "jlpt_level": "N4",
+      "category": "reaction",
+      "context": "The sound of something clicking. A strategist like Shikamaru or Lelouch says this right before explaining why they were ten steps ahead."
+    },
+    {
+      "surface": "よし",
+      "reading": "よし",
+      "romaji": "yoshi",
+      "meanings": {
+        "en": "alright / okay / let's go",
+        "pt-BR": "ótimo / vamos / certo",
+        "es": "muy bien / vamos / okay"
+      },
+      "jlpt_level": "N5",
+      "category": "action",
+      "context": "The sound of a decision being made. A fist clenched, a deep breath taken. 'Yoshi!' signals the hero is ready to face whatever comes next."
+    },
+    {
+      "surface": "やった",
+      "reading": "やった",
+      "romaji": "yatta",
+      "meanings": {
+        "en": "I did it! / yes! / hooray!",
+        "pt-BR": "consegui! / sim! / uhul!",
+        "es": "¡lo logré! / ¡sí! / ¡yupi!"
+      },
+      "jlpt_level": "N5",
+      "category": "reaction",
+      "context": "Pure triumph in two syllables. Shouted after landing a finishing blow, passing a test, or any hard-won victory. The past tense of 'yaru' (to do)."
+    },
+    {
+      "surface": "嘘",
+      "reading": "うそ",
+      "romaji": "uso",
+      "meanings": {
+        "en": "no way! / you're kidding! / lie",
+        "pt-BR": "não acredito! / mentira! / impossível!",
+        "es": "¡no puede ser! / ¡mentira! / no way"
+      },
+      "jlpt_level": "N3",
+      "category": "reaction",
+      "context": "Technically means 'lie/falsehood' but used constantly as a shocked reaction. 'USO DA!' is iconic from Clannad — a cry of disbelief and denial."
+    },
+    {
+      "surface": "ちょっと待って",
+      "reading": "ちょっとまって",
+      "romaji": "chotto matte",
+      "meanings": {
+        "en": "wait a moment / hold on",
+        "pt-BR": "espera um momento / peraí",
+        "es": "espera un momento / para"
+      },
+      "jlpt_level": "N5",
+      "category": "request",
+      "context": "'Chotto matte kudasai!' in polite form. The frantic chase scene staple — the protagonist running after someone who doesn't know the truth yet."
+    },
+    {
+      "surface": "ありがとう",
+      "reading": "ありがとう",
+      "romaji": "arigatou",
+      "meanings": {
+        "en": "thank you",
+        "pt-BR": "obrigado / obrigada",
+        "es": "gracias"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "The word Rock Lee says to Gai-sensei when told he can fight again. The word Violet Evergarden finally learns to write for others. When characters who rarely speak say this, the audience cries."
+    },
+    {
+      "surface": "ごめん",
+      "reading": "ごめん",
+      "romaji": "gomen",
+      "meanings": {
+        "en": "sorry / my bad / forgive me",
+        "pt-BR": "desculpa / me perdoa",
+        "es": "perdón / lo siento"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Casual apology. 'Gomen ne' is softer. 'Gomen nasai' is the formal version. In anime, often said with tears — the most emotional syllables in the language."
+    },
+    {
+      "surface": "大丈夫",
+      "reading": "だいじょうぶ",
+      "romaji": "daijoubu",
+      "meanings": {
+        "en": "it's okay / I'm fine / are you alright?",
+        "pt-BR": "tudo bem / estou bem / você está bem?",
+        "es": "estoy bien / está bien / ¿estás bien?"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Works as both a question and an answer. The wounded hero says 'daijoubu' through gritted teeth. The worried friend asks 'daijoubu?' with wide eyes."
+    },
+    {
+      "surface": "がんばれ",
+      "reading": "がんばれ",
+      "romaji": "ganbare",
+      "meanings": {
+        "en": "you can do it! / hang in there! / do your best!",
+        "pt-BR": "vai com tudo! / você consegue! / não desiste!",
+        "es": "¡tú puedes! / ¡ánimo! / ¡dale!"
+      },
+      "jlpt_level": "N5",
+      "category": "encouragement",
+      "context": "Screamed from the stands at the exact moment Deku's legs give out but he keeps moving. Imperative — 'you must not stop now.' The crowd's roar made into a single word."
+    },
+    {
+      "surface": "頑張って",
+      "reading": "がんばって",
+      "romaji": "ganbatte",
+      "meanings": {
+        "en": "good luck / do your best (to someone leaving)",
+        "pt-BR": "boa sorte / vai com tudo",
+        "es": "buena suerte / mucho ánimo"
+      },
+      "jlpt_level": "N5",
+      "category": "encouragement",
+      "context": "The quiet send-off. Said by Hinata to Naruto before the chunin exam. Not a command — a prayer. 'I'll be thinking of you.' Said to someone leaving, not mid-battle."
+    },
+    {
+      "surface": "わかった",
+      "reading": "わかった",
+      "romaji": "wakatta",
+      "meanings": {
+        "en": "understood / got it / okay",
+        "pt-BR": "entendido / certo / ok",
+        "es": "entendido / de acuerdo / ya"
+      },
+      "jlpt_level": "N5",
+      "category": "action",
+      "context": "The mission accepted. Past tense of 'wakaru' (to understand). Said before the hero runs off to do exactly what they just agreed to — or the opposite."
+    },
+    {
+      "surface": "まじで",
+      "reading": "まじで",
+      "romaji": "maji de",
+      "meanings": {
+        "en": "seriously? / for real? / no kidding?",
+        "pt-BR": "sério? / de verdade? / tá me zuando?",
+        "es": "¿en serio? / ¿de verdad? / ¿hablas en serio?"
+      },
+      "jlpt_level": "N3",
+      "category": "reaction",
+      "context": "The disbelieving double-take. Slightly informal — used more in modern slice-of-life than shonen. 'Maji de?!' with rising intonation = total shock."
+    },
+    {
+      "surface": "やばい",
+      "reading": "やばい",
+      "romaji": "yabai",
+      "meanings": {
+        "en": "oh no! / dangerous / amazing (context-dependent)",
+        "pt-BR": "que situação! / perigoso / incrível",
+        "es": "¡ay no! / peligroso / increíble"
+      },
+      "jlpt_level": null,
+      "category": "reaction",
+      "context": "Originally meant dangerous/bad, now also means 'amazingly good'. The same word covers a disaster and a stunning sunset. Context is everything."
+    },
+    {
+      "surface": "うん",
+      "reading": "うん",
+      "romaji": "un",
+      "meanings": {
+        "en": "yeah / uh-huh / yes (casual)",
+        "pt-BR": "uhum / sim (informal)",
+        "es": "sí / ajá (informal)"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Casual affirmation between friends. Softer than 'hai'. A quiet 'un' with a nod is one of the most intimate exchanges in slice-of-life anime."
+    },
+    {
+      "surface": "えっ",
+      "reading": "えっ",
+      "romaji": "e",
+      "meanings": {
+        "en": "huh? / what? / really? (surprise)",
+        "pt-BR": "hein? / o quê? / sério?",
+        "es": "¿qué? / ¿cómo? / ¿en serio?"
+      },
+      "jlpt_level": "N5",
+      "category": "reaction",
+      "context": "The sharp intake of breath turned into a word. Often followed by silence — the pause before the revelation hits. You'll hear it at every plot twist."
+    },
+    {
+      "surface": "任せろ",
+      "reading": "まかせろ",
+      "romaji": "makasero",
+      "meanings": {
+        "en": "leave it to me! / count on me!",
+        "pt-BR": "deixa comigo! / pode contar comigo!",
+        "es": "¡déjamelo a mí! / ¡puedes contar conmigo!"
+      },
+      "jlpt_level": "N4",
+      "category": "action",
+      "context": "The hero stepping forward. 'Ore ni makasero!' — Leave it to me! Said before the climactic fight or the moment of self-sacrifice. Maximum confidence."
+    },
+    {
+      "surface": "行くぞ",
+      "reading": "いくぞ",
+      "romaji": "ikuzo",
+      "meanings": {
+        "en": "let's go! / here we go! / move out!",
+        "pt-BR": "vamos! / é agora! / bora!",
+        "es": "¡vamos! / ¡allá vamos! / ¡a por ello!"
+      },
+      "jlpt_level": "N4",
+      "category": "action",
+      "context": "'Iku' (go) + 'zo' (assertive masculine particle). The rallying cry before every charge. Goku says it. Naruto says it. Your squad needs to hear it."
+    },
+    {
+      "surface": "ただいま",
+      "reading": "ただいま",
+      "romaji": "tadaima",
+      "meanings": {
+        "en": "I'm home / I'm back",
+        "pt-BR": "cheguei / estou em casa",
+        "es": "ya llegué / estoy en casa"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Said at the door, every time, without fail. The response is 'okaeri'. In anime, a character who comes home to silence — no okaeri — has already lost everything."
+    },
+    {
+      "surface": "おはよう",
+      "reading": "おはよう",
+      "romaji": "ohayou",
+      "meanings": {
+        "en": "good morning (casual)",
+        "pt-BR": "bom dia (informal)",
+        "es": "buenos días (informal)"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Every school anime begins with this. The formal version is 'ohayou gozaimasu' — you know which version classmates use and which homeroom teachers expect."
+    },
+    {
+      "surface": "おやすみ",
+      "reading": "おやすみ",
+      "romaji": "oyasumi",
+      "meanings": {
+        "en": "good night (casual)",
+        "pt-BR": "boa noite (despedida informal)",
+        "es": "buenas noches (informal)"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Said at lights-out in dorm arcs, after emotional conversations through a bedroom door, and in the quiet moment before a battle the next day. More weight than it looks."
+    },
+    {
+      "surface": "いただきます",
+      "reading": "いただきます",
+      "romaji": "itadakimasu",
+      "meanings": {
+        "en": "let's eat / I humbly receive (said before meals)",
+        "pt-BR": "bom apetite / vou receber (dito antes das refeições)",
+        "es": "buen provecho / lo recibo con gratitud (antes de comer)"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Hands together, eyes closed, a beat before the first bite. Every school lunch scene, every family dinner, every convenience store bench meal in an isekai. You cannot watch anime without hearing this daily."
+    },
+    {
+      "surface": "行ってきます",
+      "reading": "いってきます",
+      "romaji": "ittekimasu",
+      "meanings": {
+        "en": "I'm off / I'll be back (said when leaving home)",
+        "pt-BR": "estou indo / até logo (ao sair de casa)",
+        "es": "me voy / ahora vuelvo (al salir de casa)"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "Said at the door when leaving home. The expected response is 'itterasshai'. The hero says this before the decisive battle. The student before the entrance exam. Small words, enormous weight."
+    },
+    {
+      "surface": "行ってらっしゃい",
+      "reading": "いってらっしゃい",
+      "romaji": "itterasshai",
+      "meanings": {
+        "en": "take care / see you later (to someone leaving)",
+        "pt-BR": "vai com cuidado / até logo (para quem está saindo)",
+        "es": "cuídate / hasta luego (a quien se va)"
+      },
+      "jlpt_level": "N5",
+      "category": "social",
+      "context": "The response to ittekimasu — said by whoever stays behind. In anime, a character who leaves to silence — no itterasshai — has stepped into the unknown alone. The silence is the point."
+    }
+  ]
+}

@@ -24,9 +24,9 @@ const db = getDb();
 // Lower number = more popular. These are the "everyone knows these" tier.
 const CURATED_RANKINGS: Record<string, number> = {
   // Tier 1: Iconic (1-20) — universally recognized
-  "crossing-field-lisa": 1,               // SAO OP1 — the gateway anime song
+  "blue-bird-ikimonogakari": 1,           // Naruto Shippuden OP3 — ~600M views, broadest recognition
   "the-day-porno-graffitti": 2,           // My Hero Academia OP1
-  "blue-bird-ikimonogakari": 3,           // Naruto Shippuden OP3
+  "crossing-field-lisa": 3,               // SAO OP1 — gateway anime song
   "again-yui": 4,                         // FMA:B OP1
   "melissa-porno-graffitti": 5,           // FMA OP1
   "the-world-nightmare": 6,               // Death Note OP1

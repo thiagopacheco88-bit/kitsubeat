@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KitsuBeat — Anime Core Quiz Thumbnail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0E0E0E; }
+.frame {
+  width: 1080px; height: 1920px;
+  background: #0E0E0E;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 48px;
+  position: relative;
+}
+.frame::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 6px; background: #dc2626;
+}
+.fox-icon { width: 200px; height: 200px; object-fit: contain; filter: drop-shadow(0 16px 64px rgba(0,0,0,0.8)); }
+.quiz-on { font-family: Inter, system-ui, sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,245,244,0.4); }
+.anime-name { font-family: Inter, system-ui, sans-serif; font-size: 96px; font-weight: 900; color: #dc2626; line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; text-align: center; text-shadow: 0 0 80px rgba(220,38,38,0.3); }
+.subtitle { font-family: Inter, system-ui, sans-serif; font-size: 32px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(245,245,244,0.55); }
+.part-pill { background: #dc2626; color: white; font-family: Inter, system-ui, sans-serif; font-size: 28px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 48px; border-radius: 999px; box-shadow: 0 8px 32px rgba(220,38,38,0.4); }
+</style>
+</head>
+<body>
+<div class="frame">
+  <img class="fox-icon" src="../logo-transparent.png" alt="KitsuBeat">
+  <div class="quiz-on">Quiz on</div>
+  <div class="anime-name">Anime<br>Core</div>
+  <div class="subtitle">Essential Vocabulary</div>
+  <div class="part-pill">Part 1</div>
+</div>
+</body>
+</html>

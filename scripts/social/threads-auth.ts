@@ -14,24 +14,26 @@ import http from "http";
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
-const APP_ID = "27302992889336529";    // Threads API app ID (from Meta portal Settings page)
-const APP_SECRET_ENV = "THREADS_APP_SECRET_NEW";  // we'll read from env or prompt
 const REDIRECT = "http://localhost:3777";
 const SCOPE = "threads_basic,threads_content_publish,threads_delete";
 const ENV_PATH = join(process.cwd(), ".env.local");
 const BASE = "https://graph.threads.net";
 
-// Load .env.local to get the app secret
+// Load .env.local
 const envContent = readFileSync(ENV_PATH, "utf8");
-// Try to find the secret for app 27302992889336529
-// The secret is shown in the Meta portal Settings page for this app
-const secretLine = envContent.split("\n").find(l => l.startsWith("THREADS_APP_SECRET_NEW="));
-let APP_SECRET = secretLine?.split("=")[1]?.trim() ?? "";
+const getEnv = (key: string) => envContent.split("\n").find(l => l.startsWith(key + "="))?.split("=")[1]?.trim() ?? "";
 
+const APP_ID = getEnv("THREADS_APP_ID_V2");
+const APP_SECRET = getEnv("THREADS_APP_SECRET_NEW");
+
+if (!APP_ID) {
+  console.error("\n⚠️  THREADS_APP_ID_V2 not found in .env.local");
+  console.error("   Add: THREADS_APP_ID_V2=27302992889336529\n");
+  process.exit(1);
+}
 if (!APP_SECRET) {
   console.error("\n⚠️  THREADS_APP_SECRET_NEW not found in .env.local");
-  console.error("   Please add: THREADS_APP_SECRET_NEW=<secret_from_portal_settings_page>");
-  console.error("   The secret is shown when you click 'Show' next to 'Threads app secret' in the portal.\n");
+  console.error("   Add: THREADS_APP_SECRET_NEW=<value from portal Settings page → Show>\n");
   process.exit(1);
 }
 

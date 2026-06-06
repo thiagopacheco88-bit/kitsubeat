@@ -6,6 +6,7 @@ import type { ExerciseType } from "@/lib/exercises/generator";
 import { recordVocabAnswer } from "@/app/actions/exercises";
 import { saveAnimeCarouselSession } from "@/app/actions/anime-carousel";
 import type { AnimeCarouselSessionResult } from "@/app/actions/anime-carousel";
+import { speakJapanese } from "@/lib/tts";
 
 interface AnswerRecord {
   vocabItemId: string;
@@ -14,11 +15,18 @@ interface AnswerRecord {
   responseTimeMs: number;
 }
 
+export interface WordResult {
+  surface: string;
+  romaji: string;
+  meaning: string;
+  correct: boolean;
+}
+
 interface AnimeCarouselExerciseSessionProps {
   questions: Question[];
   animeSlug: string;
   userId: string | null;
-  onComplete: (result: AnimeCarouselSessionResult) => void;
+  onComplete: (result: AnimeCarouselSessionResult, wordResults: WordResult[]) => void;
   onExit: () => void;
 }
 
@@ -56,6 +64,9 @@ export default function AnimeCarouselExerciseSession({
       setSelectedAnswer(choice);
       setAnswerState(isCorrect ? "correct" : "incorrect");
 
+      // Speak the Japanese word on reveal — reinforces pronunciation regardless of correctness
+      speakJapanese(currentQuestion.vocabInfo.surface);
+
       const record: AnswerRecord = {
         vocabItemId: currentQuestion.vocabItemId,
         exerciseType: currentQuestion.type,
@@ -83,6 +94,12 @@ export default function AnimeCarouselExerciseSession({
         if (currentIndex + 1 >= questions.length) {
           // Session complete — save and show summary
           setIsSaving(true);
+          const wordResults: WordResult[] = updatedAnswers.map((a, i) => ({
+            surface: questions[i]?.vocabInfo?.surface ?? "",
+            romaji: questions[i]?.vocabInfo?.romaji ?? "",
+            meaning: questions[i]?.meaning_en ?? "",
+            correct: a.correct,
+          }));
           try {
             const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
             const result = await saveAnimeCarouselSession({
@@ -90,7 +107,7 @@ export default function AnimeCarouselExerciseSession({
               answers: updatedAnswers,
               tz,
             });
-            onComplete(result);
+            onComplete(result, wordResults);
           } catch (err) {
             console.error("Failed to save session:", err);
             // Degrade gracefully: show summary with local counts
@@ -100,7 +117,7 @@ export default function AnimeCarouselExerciseSession({
               streakDays: 0,
               correctCount: updatedAnswers.filter((a) => a.correct).length,
               totalCount: updatedAnswers.length,
-            });
+            }, wordResults);
           } finally {
             setIsSaving(false);
           }

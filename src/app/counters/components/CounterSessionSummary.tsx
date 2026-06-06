@@ -36,6 +36,8 @@ interface Props {
 
 export function CounterSessionSummary({ snapshot }: Props) {
   const incrementSessionsCompleted = useCounterProgress((s) => s.incrementSessionsCompleted);
+  const sessionsCompleted = useCounterProgress((s) => s.sessionsCompleted);
+  const streak = useCounterProgress((s) => s.streak);
   const mastery = useCounterProgress((s) => s.mastery);
 
   // Increment exactly once on mount — useRef guard defeats StrictMode double-fire.
@@ -117,6 +119,7 @@ export function CounterSessionSummary({ snapshot }: Props) {
   const total = snapshot.log.length;
   const correctCount = snapshot.log.filter((a) => a.correct).length;
   const accuracyPct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+  const starsGained = snapshot.log.reduce((sum, a) => sum + Math.max(0, a.starsAfter - a.starsBefore), 0);
 
   const unlockedLabels = snapshot.unlocked.map((id) => {
     const c = COUNTERS_CHART.find((x) => x.id === id);
@@ -125,11 +128,29 @@ export function CounterSessionSummary({ snapshot }: Props) {
 
   return (
     <div className="flex flex-col gap-6 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
-      <header className="text-center">
-        <h1 className="text-3xl font-bold text-[var(--color-text)]">Session complete</h1>
-        <p className="mt-2 text-lg text-[var(--color-text-muted)]">
-          {correctCount} / {total} correct · {accuracyPct}%
-        </p>
+      <header className="flex flex-col items-center gap-3 text-center">
+        <div className="session-emoji-pop text-5xl">
+          {accuracyPct >= 80 ? "🎯" : accuracyPct >= 50 ? "📚" : "💪"}
+        </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+            Session #{sessionsCompleted}
+          </p>
+          <h1 className="text-3xl font-bold text-[var(--color-text)]">Session complete!</h1>
+          <p className="mt-1 text-lg text-[var(--color-text-muted)]">
+            {correctCount} / {total} correct · {accuracyPct}%
+          </p>
+          {starsGained > 0 && (
+            <p className="mt-1 text-sm font-semibold text-[var(--color-jlpt-n5)]">
+              ★ +{starsGained} stars earned
+            </p>
+          )}
+          {streak > 0 && (
+            <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">
+              🔥 {streak} day streak
+            </p>
+          )}
+        </div>
       </header>
 
       {snapshot.unlocked.length > 0 && (

@@ -123,6 +123,113 @@ fetch('https://kitsubeat.app/songs/again-yui')
 
 ---
 
+## Phase 2.75 — Mobile UX
+
+Run these checks at **375px** (iPhone SE), **390px** (iPhone 14), and **430px** (iPhone 15 Pro Max) viewports in DevTools Device Mode. Use the browser's touch simulation so hover states don't mask mobile-only issues.
+
+> **When to run:** after any change to layout, nav, home components, path/kana/counter nodes, or GrammarRuleIntroCard. Skip for backend-only or data changes.
+
+---
+
+### 2.75A — Global layout
+
+- [ ] No horizontal scroll on any page (`/`, `/songs`, `/anime`, `/kana`, `/path`, `/journal`, `/profile`) — check with DevTools overflow highlight
+- [ ] Bottom safe area is respected on all pages — no interactive elements hidden behind the home indicator (test at 430px with `env(safe-area-inset-bottom)` visible)
+- [ ] Page content is not clipped by the viewport on either side — 16px minimum side padding
+- [ ] Text is legible at all three viewports — no font size below 16px for body copy (prevents iOS auto-zoom on inputs)
+
+---
+
+### 2.75B — Mobile nav sheet (MobileNavSheet)
+
+Open the hamburger menu at each viewport:
+
+- [ ] Hamburger icon is tappable — hit area ≥ 44×44px (use DevTools → Inspect → check bounding box)
+- [ ] Sheet slides in from the correct side (right) without clipping or overflow
+- [ ] All nav links are visible without scrolling at 375px: Path / Songs / Anime / Kana / Counters / Journal / Profile
+- [ ] Each nav link tap target is ≥ 44px tall
+- [ ] "Close" button is reachable — not hidden behind the home indicator bar
+- [ ] Tapping a nav link closes the sheet **and** navigates correctly
+- [ ] Tapping the overlay backdrop closes the sheet
+- [ ] Sheet does not leave a ghost overlay after closing (verify no residual `pointer-events` block by tapping the main content)
+- [ ] Sign-in / sign-out state reflects correctly in the sheet without a page reload
+
+---
+
+### 2.75C — Hero section (HeroFeatured)
+
+Open `/` at all three viewports:
+
+- [ ] Hero headline is fully visible — not truncated, not overflowing the card
+- [ ] CTA button ("Start learning" or equivalent) is visible **above the fold** at 375px — user should not need to scroll to see it
+- [ ] Featured song card fills the viewport width with appropriate padding (not full-bleed edge-to-edge without intent)
+- [ ] Cover image loads and is not distorted (aspect ratio preserved)
+- [ ] No text overlaps the image in a way that makes it unreadable
+
+---
+
+### 2.75D — Foundations section (home page)
+
+Open `/` at all three viewports and scroll to the Foundations section:
+
+- [ ] Section is visible and not collapsed
+- [ ] Kana and Counter tiles render in a grid — no single-column stack that makes tiles too small to read
+- [ ] Tile text (hiragana / counter label) is legible at 375px
+- [ ] "Start" or CTA buttons within the section are tappable (≥ 44px)
+- [ ] No content is clipped outside the card boundary
+
+---
+
+### 2.75E — Path checkpoint nodes (KanaCheckpointNode, CounterCheckpointNode)
+
+Open `/path` at all three viewports:
+
+- [ ] Checkpoint node cards fill the column width correctly — no overflow or undersized cards
+- [ ] Node tap target covers the full card (not just the icon)
+- [ ] Locked nodes display their lock state clearly — not visually identical to unlocked
+- [ ] Stars / mastery indicators are visible and not clipped
+- [ ] Scroll behaviour is smooth — the path column scrolls vertically without horizontal bleed
+- [ ] After tapping an unlocked node, the transition / modal appears without layout breaking
+
+---
+
+### 2.75F — Grammar rule intro card (GrammarRuleIntroCard)
+
+Open any song player at 375px and trigger a grammar exercise:
+
+- [ ] Card fits within the viewport — no horizontal overflow
+- [ ] Rule text is fully visible — not truncated by card edge
+- [ ] Example sentences are readable — not cut off on the right
+- [ ] "Got it" / dismiss button is reachable without scrolling (or scrollable within the card if content is long, not behind the viewport bottom)
+- [ ] If the card has a scroll area, it scrolls smoothly and does not interfere with page scroll
+
+---
+
+### 2.75G — Touch targets audit (spot check)
+
+Pick any 3 pages and use DevTools → Accessibility → "Show tap targets" (or manually inspect bounding boxes) to verify:
+
+- [ ] No interactive element below 44×44px (Apple HIG minimum) — buttons, links, nav items, exercise answer choices
+- [ ] Answer choice buttons in exercise sessions are full-width and ≥ 52px tall (easier to tap under time pressure)
+- [ ] Close (×) buttons on modals/sheets are ≥ 44px
+
+---
+
+### 2.75H — Regression: components changed in this session
+
+For each component in the current git diff that is UI-facing, do a quick open-and-look at 390px:
+
+```bash
+git diff --name-only HEAD | grep -E "\.tsx$"
+```
+
+For each file listed, open the route that renders it and confirm:
+- [ ] Component renders without layout breakage at 390px
+- [ ] No console errors on mount
+- [ ] Interactive elements respond to touch (tap, not hover)
+
+---
+
 ## Phase 3 — Manual UAT: Test Accounts
 
 Two dedicated accounts should be used. Set them up in Clerk if they don't exist yet.

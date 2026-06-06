@@ -34,7 +34,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef } from "react";
 import { useKanaProgress } from "@/stores/kanaProgress";
-import { HIRAGANA_ROWS, KATAKANA_ROWS } from "@/lib/kana/chart";
+import { HIRAGANA_ROWS, KATAKANA_ROWS, KANA_CHART } from "@/lib/kana/chart";
 import type { Script } from "@/lib/kana/types";
 
 interface AnswerLog {
@@ -58,6 +58,8 @@ interface Props {
 
 export function KanaSessionSummary({ snapshot }: Props) {
   const incrementSessionsCompleted = useKanaProgress((s) => s.incrementSessionsCompleted);
+  const sessionsCompleted = useKanaProgress((s) => s.sessionsCompleted);
+  const streak = useKanaProgress((s) => s.streak);
   const hiragana = useKanaProgress((s) => s.hiragana);
   const katakana = useKanaProgress((s) => s.katakana);
 
@@ -135,6 +137,7 @@ export function KanaSessionSummary({ snapshot }: Props) {
   const total = snapshot.log.length;
   const correctCount = snapshot.log.filter((a) => a.correct).length;
   const accuracyPct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+  const starsGained = snapshot.log.reduce((sum, a) => sum + Math.max(0, a.starsAfter - a.starsBefore), 0);
 
   const unlockLabels = snapshot.unlocked.map((id) => {
     // Try both row arrays — the snapshot doesn't carry script-per-unlock, but row labels are shared by id.
@@ -144,13 +147,31 @@ export function KanaSessionSummary({ snapshot }: Props) {
 
   return (
     <div className="flex flex-col gap-6 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-card)] p-4 shadow-[var(--shadow-card-ring-strong)] sm:p-6">
-      <header className="text-center">
-        <h1 className="text-3xl font-bold text-[var(--color-text)]">
-          Session complete
-        </h1>
-        <p className="mt-2 text-lg text-[var(--color-text-muted)]">
-          {correctCount} / {total} correct · {accuracyPct}%
-        </p>
+      <header className="flex flex-col items-center gap-3 text-center">
+        <div className="session-emoji-pop text-5xl">
+          {accuracyPct >= 80 ? "🎯" : accuracyPct >= 50 ? "📚" : "💪"}
+        </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
+            Session #{sessionsCompleted}
+          </p>
+          <h1 className="text-3xl font-bold text-[var(--color-text)]">
+            Session complete!
+          </h1>
+          <p className="mt-1 text-lg text-[var(--color-text-muted)]">
+            {correctCount} / {total} correct · {accuracyPct}%
+          </p>
+          {starsGained > 0 && (
+            <p className="mt-1 text-sm font-semibold text-[var(--color-jlpt-n5)]">
+              ★ +{starsGained} stars earned
+            </p>
+          )}
+          {streak > 0 && (
+            <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">
+              🔥 {streak} day streak
+            </p>
+          )}
+        </div>
       </header>
 
       {snapshot.unlocked.length > 0 && (
@@ -215,19 +236,29 @@ export function KanaSessionSummary({ snapshot }: Props) {
             Watch list
           </h2>
           <ul className="flex flex-wrap gap-2">
-            {weakest.map((w) => (
-              <li
-                key={`${w.script}:${w.kana}`}
-                className="rounded-[var(--radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-card-2)] px-3 py-1 text-sm"
-              >
-                <span className="text-base text-[var(--color-text)]">
-                  {w.kana}
-                </span>
-                <span className="ml-2 text-xs text-[var(--color-text-muted)]">
-                  {w.stars}★
-                </span>
-              </li>
-            ))}
+            {weakest.map((w) => {
+              const entry = KANA_CHART.find((c) =>
+                (w.script === "hiragana" ? c.hiragana : c.katakana) === w.kana
+              );
+              return (
+                <li
+                  key={`${w.script}:${w.kana}`}
+                  className="rounded-[var(--radius-md)] border border-[var(--color-border-strong)] bg-[var(--color-card-2)] px-3 py-1 text-sm"
+                >
+                  <span className="text-base text-[var(--color-text)]">
+                    {w.kana}
+                  </span>
+                  {entry && (
+                    <span className="ml-1 text-xs text-[var(--color-text-dim)]">
+                      ({entry.romaji})
+                    </span>
+                  )}
+                  <span className="ml-2 text-xs text-[var(--color-text-muted)]">
+                    {w.stars}★
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </section>
       )}

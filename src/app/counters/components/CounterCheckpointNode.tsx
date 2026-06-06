@@ -45,7 +45,6 @@ export function CounterCheckpointNode() {
   let pillClass: string;
   let glyphClass = "text-[var(--color-text)]";
   let progressBar: React.ReactNode = null;
-  let mistOverlay: React.ReactNode = null;
 
   if (state === "mastered") {
     pillText = t("mastered");
@@ -66,16 +65,8 @@ export function CounterCheckpointNode() {
       </div>
     );
   } else {
-    pillText = t("locked");
+    pillText = "0%";
     pillClass = "bg-[var(--color-card-2)] text-[var(--color-text-muted)]";
-    mistOverlay = (
-      <div
-        className="absolute inset-0 rounded-[var(--radius-lg)]"
-        style={{ background: "var(--mist-fill)", pointerEvents: "none" }}
-        aria-hidden="true"
-        data-testid="counter-checkpoint-mist"
-      />
-    );
   }
 
   return (
@@ -118,7 +109,6 @@ export function CounterCheckpointNode() {
       </div>
 
       {progressBar}
-      {mistOverlay}
     </CardLink>
   );
 }

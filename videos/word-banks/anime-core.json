@@ -1,0 +1,3637 @@
+{
+  "series": "anime-core",
+  "label": "Anime Core",
+  "note": "High-frequency Japanese words that appear across ALL anime. Framed through iconic anime moments, not tied to one series. Entry point for beginners.",
+  "parts": [
+    {
+      "part": 1,
+      "theme": "Essential Questions",
+      "words": [
+        {
+          "id": "nani",
+          "q": "How do you say \"What?\" in Japanese?",
+          "jp": "何",
+          "hiragana": "なに",
+          "romaji": "nani",
+          "en": "What",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "doko",
+              "e": "Where"
+            },
+            {
+              "r": "dare",
+              "e": "Who"
+            },
+            {
+              "r": "itsu",
+              "e": "When"
+            }
+          ]
+        },
+        {
+          "id": "doko",
+          "q": "How do you say \"Where?\" in Japanese?",
+          "jp": "どこ",
+          "hiragana": "どこ",
+          "romaji": "doko",
+          "en": "Where",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "itsu",
+              "e": "When"
+            },
+            {
+              "r": "naze",
+              "e": "Why"
+            },
+            {
+              "r": "dare",
+              "e": "Who"
+            }
+          ]
+        },
+        {
+          "id": "dare",
+          "q": "How do you say \"Who?\" in Japanese?",
+          "jp": "誰",
+          "hiragana": "だれ",
+          "romaji": "dare",
+          "en": "Who",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nani",
+              "e": "What"
+            },
+            {
+              "r": "naze",
+              "e": "Why"
+            },
+            {
+              "r": "doko",
+              "e": "Where"
+            }
+          ]
+        },
+        {
+          "id": "naze",
+          "q": "How do you say \"Why?\" in Japanese?",
+          "jp": "なぜ",
+          "hiragana": "なぜ",
+          "romaji": "naze",
+          "en": "Why",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nani",
+              "e": "What"
+            },
+            {
+              "r": "itsu",
+              "e": "When"
+            },
+            {
+              "r": "doko",
+              "e": "Where"
+            }
+          ]
+        },
+        {
+          "id": "itsu",
+          "q": "How do you say \"When?\" in Japanese?",
+          "jp": "いつ",
+          "hiragana": "いつ",
+          "romaji": "itsu",
+          "en": "When",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "doko",
+              "e": "Where"
+            },
+            {
+              "r": "dare",
+              "e": "Who"
+            },
+            {
+              "r": "naze",
+              "e": "Why"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "theme": "Anime Reactions",
+      "words": [
+        {
+          "id": "sugoi",
+          "q": "How do you say \"Amazing!\" in Japanese?",
+          "jp": "すごい",
+          "hiragana": "すごい",
+          "romaji": "sugoi",
+          "en": "Amazing",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kawaii",
+              "e": "Cute"
+            },
+            {
+              "r": "yabai",
+              "e": "Crazy"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            }
+          ]
+        },
+        {
+          "id": "kawaii",
+          "q": "How do you say \"Cute\" in Japanese?",
+          "jp": "可愛い",
+          "hiragana": "かわいい",
+          "romaji": "kawaii",
+          "en": "Cute",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "sugoi",
+              "e": "Amazing"
+            },
+            {
+              "r": "kirei",
+              "e": "Beautiful"
+            },
+            {
+              "r": "chiisai",
+              "e": "Small"
+            }
+          ]
+        },
+        {
+          "id": "yabai",
+          "q": "How do you say \"Crazy / Awful\" in Japanese?",
+          "jp": "やばい",
+          "hiragana": "やばい",
+          "romaji": "yabai",
+          "en": "Crazy",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "sugoi",
+              "e": "Amazing"
+            },
+            {
+              "r": "kawaii",
+              "e": "Cute"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            }
+          ]
+        },
+        {
+          "id": "uso",
+          "q": "How do you say \"Lie / No way!\" in Japanese?",
+          "jp": "嘘",
+          "hiragana": "うそ",
+          "romaji": "uso",
+          "en": "Lie / No way",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "honto",
+              "e": "Really"
+            },
+            {
+              "r": "yabai",
+              "e": "Crazy"
+            },
+            {
+              "r": "masaka",
+              "e": "Impossible"
+            }
+          ]
+        },
+        {
+          "id": "masaka",
+          "q": "How do you say \"No way / Impossible!\" in Japanese?",
+          "jp": "まさか",
+          "hiragana": "まさか",
+          "romaji": "masaka",
+          "en": "Impossible",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "uso",
+              "e": "No way"
+            },
+            {
+              "r": "honto",
+              "e": "Really"
+            },
+            {
+              "r": "daijōbu",
+              "e": "Okay"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "theme": "Core Verbs I",
+      "words": [
+        {
+          "id": "iku",
+          "q": "How do you say \"To go\" in Japanese?",
+          "jp": "行く",
+          "hiragana": "いく",
+          "romaji": "iku",
+          "en": "To go",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kuru",
+              "e": "To come"
+            },
+            {
+              "r": "kaeru",
+              "e": "To return"
+            },
+            {
+              "r": "hashiru",
+              "e": "To run"
+            }
+          ]
+        },
+        {
+          "id": "kuru",
+          "q": "How do you say \"To come\" in Japanese?",
+          "jp": "来る",
+          "hiragana": "くる",
+          "romaji": "kuru",
+          "en": "To come",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "iku",
+              "e": "To go"
+            },
+            {
+              "r": "kaeru",
+              "e": "To return"
+            },
+            {
+              "r": "tomaru",
+              "e": "To stop"
+            }
+          ]
+        },
+        {
+          "id": "miru",
+          "q": "How do you say \"To see / look\" in Japanese?",
+          "jp": "見る",
+          "hiragana": "みる",
+          "romaji": "miru",
+          "en": "To see",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kiku",
+              "e": "To listen"
+            },
+            {
+              "r": "yomu",
+              "e": "To read"
+            },
+            {
+              "r": "hanasu",
+              "e": "To speak"
+            }
+          ]
+        },
+        {
+          "id": "kiku",
+          "q": "How do you say \"To listen\" in Japanese?",
+          "jp": "聞く",
+          "hiragana": "きく",
+          "romaji": "kiku",
+          "en": "To listen",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "miru",
+              "e": "To see"
+            },
+            {
+              "r": "hanasu",
+              "e": "To speak"
+            },
+            {
+              "r": "yomu",
+              "e": "To read"
+            }
+          ]
+        },
+        {
+          "id": "wakaru",
+          "q": "How do you say \"To understand\" in Japanese?",
+          "jp": "分かる",
+          "hiragana": "わかる",
+          "romaji": "wakaru",
+          "en": "To understand",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shiru",
+              "e": "To know"
+            },
+            {
+              "r": "omou",
+              "e": "To think"
+            },
+            {
+              "r": "iu",
+              "e": "To say"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "theme": "Core Verbs II",
+      "words": [
+        {
+          "id": "taberu",
+          "q": "How do you say \"To eat\" in Japanese?",
+          "jp": "食べる",
+          "hiragana": "たべる",
+          "romaji": "taberu",
+          "en": "To eat",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nomu",
+              "e": "To drink"
+            },
+            {
+              "r": "neru",
+              "e": "To sleep"
+            },
+            {
+              "r": "hashiru",
+              "e": "To run"
+            }
+          ]
+        },
+        {
+          "id": "nomu",
+          "q": "How do you say \"To drink\" in Japanese?",
+          "jp": "飲む",
+          "hiragana": "のむ",
+          "romaji": "nomu",
+          "en": "To drink",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "taberu",
+              "e": "To eat"
+            },
+            {
+              "r": "neru",
+              "e": "To sleep"
+            },
+            {
+              "r": "okiru",
+              "e": "To wake up"
+            }
+          ]
+        },
+        {
+          "id": "neru",
+          "q": "How do you say \"To sleep\" in Japanese?",
+          "jp": "寝る",
+          "hiragana": "ねる",
+          "romaji": "neru",
+          "en": "To sleep",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "okiru",
+              "e": "To wake up"
+            },
+            {
+              "r": "taberu",
+              "e": "To eat"
+            },
+            {
+              "r": "hashiru",
+              "e": "To run"
+            }
+          ]
+        },
+        {
+          "id": "hashiru",
+          "q": "How do you say \"To run\" in Japanese?",
+          "jp": "走る",
+          "hiragana": "はしる",
+          "romaji": "hashiru",
+          "en": "To run",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "aruku",
+              "e": "To walk"
+            },
+            {
+              "r": "tobu",
+              "e": "To fly"
+            },
+            {
+              "r": "tomaru",
+              "e": "To stop"
+            }
+          ]
+        },
+        {
+          "id": "katsu",
+          "q": "How do you say \"To win\" in Japanese?",
+          "jp": "勝つ",
+          "hiragana": "かつ",
+          "romaji": "katsu",
+          "en": "To win",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "makeru",
+              "e": "To lose"
+            },
+            {
+              "r": "tatakau",
+              "e": "To fight"
+            },
+            {
+              "r": "nigeru",
+              "e": "To run away"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 5,
+      "theme": "Feelings",
+      "words": [
+        {
+          "id": "ureshii",
+          "q": "How do you say \"Happy\" in Japanese?",
+          "jp": "嬉しい",
+          "hiragana": "うれしい",
+          "romaji": "ureshii",
+          "en": "Happy",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kanashii",
+              "e": "Sad"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            },
+            {
+              "r": "sabishii",
+              "e": "Lonely"
+            }
+          ]
+        },
+        {
+          "id": "kanashii",
+          "q": "How do you say \"Sad\" in Japanese?",
+          "jp": "悲しい",
+          "hiragana": "かなしい",
+          "romaji": "kanashii",
+          "en": "Sad",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ureshii",
+              "e": "Happy"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            },
+            {
+              "r": "hazukashii",
+              "e": "Embarrassed"
+            }
+          ]
+        },
+        {
+          "id": "kowai",
+          "q": "How do you say \"Scary / Afraid\" in Japanese?",
+          "jp": "怖い",
+          "hiragana": "こわい",
+          "romaji": "kowai",
+          "en": "Scary",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ureshii",
+              "e": "Happy"
+            },
+            {
+              "r": "kanashii",
+              "e": "Sad"
+            },
+            {
+              "r": "samui",
+              "e": "Cold"
+            }
+          ]
+        },
+        {
+          "id": "hazukashii",
+          "q": "How do you say \"Embarrassing\" in Japanese?",
+          "jp": "恥ずかしい",
+          "hiragana": "はずかしい",
+          "romaji": "hazukashii",
+          "en": "Embarrassing",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "sabishii",
+              "e": "Lonely"
+            },
+            {
+              "r": "ureshii",
+              "e": "Happy"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            }
+          ]
+        },
+        {
+          "id": "sabishii",
+          "q": "How do you say \"Lonely\" in Japanese?",
+          "jp": "寂しい",
+          "hiragana": "さびしい",
+          "romaji": "sabishii",
+          "en": "Lonely",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kanashii",
+              "e": "Sad"
+            },
+            {
+              "r": "hazukashii",
+              "e": "Embarrassing"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 6,
+      "theme": "Strong & Fast",
+      "words": [
+        {
+          "id": "tsuyoi",
+          "q": "How do you say \"Strong\" in Japanese?",
+          "jp": "強い",
+          "hiragana": "つよい",
+          "romaji": "tsuyoi",
+          "en": "Strong",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hayai",
+              "e": "Fast"
+            },
+            {
+              "r": "ōkii",
+              "e": "Big"
+            },
+            {
+              "r": "yowai",
+              "e": "Weak"
+            }
+          ]
+        },
+        {
+          "id": "hayai",
+          "q": "How do you say \"Fast\" in Japanese?",
+          "jp": "速い",
+          "hiragana": "はやい",
+          "romaji": "hayai",
+          "en": "Fast",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "osoi",
+              "e": "Slow"
+            },
+            {
+              "r": "tsuyoi",
+              "e": "Strong"
+            },
+            {
+              "r": "takai",
+              "e": "High"
+            }
+          ]
+        },
+        {
+          "id": "yowai",
+          "q": "How do you say \"Weak\" in Japanese?",
+          "jp": "弱い",
+          "hiragana": "よわい",
+          "romaji": "yowai",
+          "en": "Weak",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "tsuyoi",
+              "e": "Strong"
+            },
+            {
+              "r": "hayai",
+              "e": "Fast"
+            },
+            {
+              "r": "chiisai",
+              "e": "Small"
+            }
+          ]
+        },
+        {
+          "id": "ōkii",
+          "q": "How do you say \"Big\" in Japanese?",
+          "jp": "大きい",
+          "hiragana": "おおきい",
+          "romaji": "ōkii",
+          "en": "Big",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "chiisai",
+              "e": "Small"
+            },
+            {
+              "r": "takai",
+              "e": "Tall"
+            },
+            {
+              "r": "tsuyoi",
+              "e": "Strong"
+            }
+          ]
+        },
+        {
+          "id": "chiisai",
+          "q": "How do you say \"Small\" in Japanese?",
+          "jp": "小さい",
+          "hiragana": "ちいさい",
+          "romaji": "chiisai",
+          "en": "Small",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ōkii",
+              "e": "Big"
+            },
+            {
+              "r": "hayai",
+              "e": "Fast"
+            },
+            {
+              "r": "yowai",
+              "e": "Weak"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 7,
+      "theme": "People",
+      "words": [
+        {
+          "id": "hito",
+          "q": "How do you say \"Person\" in Japanese?",
+          "jp": "人",
+          "hiragana": "ひと",
+          "romaji": "hito",
+          "en": "Person",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ko",
+              "e": "Child"
+            },
+            {
+              "r": "otoko",
+              "e": "Man"
+            },
+            {
+              "r": "onna",
+              "e": "Woman"
+            }
+          ]
+        },
+        {
+          "id": "otoko",
+          "q": "How do you say \"Man\" in Japanese?",
+          "jp": "男",
+          "hiragana": "おとこ",
+          "romaji": "otoko",
+          "en": "Man",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "onna",
+              "e": "Woman"
+            },
+            {
+              "r": "ko",
+              "e": "Child"
+            },
+            {
+              "r": "hito",
+              "e": "Person"
+            }
+          ]
+        },
+        {
+          "id": "onna",
+          "q": "How do you say \"Woman\" in Japanese?",
+          "jp": "女",
+          "hiragana": "おんな",
+          "romaji": "onna",
+          "en": "Woman",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "otoko",
+              "e": "Man"
+            },
+            {
+              "r": "ko",
+              "e": "Child"
+            },
+            {
+              "r": "hito",
+              "e": "Person"
+            }
+          ]
+        },
+        {
+          "id": "sensei-c",
+          "q": "How do you say \"Teacher\" in Japanese?",
+          "jp": "先生",
+          "hiragana": "せんせい",
+          "romaji": "sensei",
+          "en": "Teacher",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "gakusei",
+              "e": "Student"
+            },
+            {
+              "r": "tomodachi",
+              "e": "Friend"
+            },
+            {
+              "r": "teki",
+              "e": "Enemy"
+            }
+          ]
+        },
+        {
+          "id": "gakusei",
+          "q": "How do you say \"Student\" in Japanese?",
+          "jp": "学生",
+          "hiragana": "がくせい",
+          "romaji": "gakusei",
+          "en": "Student",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "sensei",
+              "e": "Teacher"
+            },
+            {
+              "r": "hito",
+              "e": "Person"
+            },
+            {
+              "r": "ko",
+              "e": "Child"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 8,
+      "theme": "Time",
+      "words": [
+        {
+          "id": "ima",
+          "q": "How do you say \"Now\" in Japanese?",
+          "jp": "今",
+          "hiragana": "いま",
+          "romaji": "ima",
+          "en": "Now",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ato",
+              "e": "Later"
+            },
+            {
+              "r": "mae",
+              "e": "Before"
+            },
+            {
+              "r": "asa",
+              "e": "Morning"
+            }
+          ]
+        },
+        {
+          "id": "ato-t",
+          "q": "How do you say \"Later / After\" in Japanese?",
+          "jp": "後",
+          "hiragana": "あと",
+          "romaji": "ato",
+          "en": "Later",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mae",
+              "e": "Before"
+            },
+            {
+              "r": "ima",
+              "e": "Now"
+            },
+            {
+              "r": "hayaku",
+              "e": "Quickly"
+            }
+          ]
+        },
+        {
+          "id": "mae-t",
+          "q": "How do you say \"Before / In front\" in Japanese?",
+          "jp": "前",
+          "hiragana": "まえ",
+          "romaji": "mae",
+          "en": "Before",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ato",
+              "e": "After"
+            },
+            {
+              "r": "ue",
+              "e": "Above"
+            },
+            {
+              "r": "shita",
+              "e": "Below"
+            }
+          ]
+        },
+        {
+          "id": "kyō",
+          "q": "How do you say \"Today\" in Japanese?",
+          "jp": "今日",
+          "hiragana": "きょう",
+          "romaji": "kyō",
+          "en": "Today",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ashita",
+              "e": "Tomorrow"
+            },
+            {
+              "r": "kinō",
+              "e": "Yesterday"
+            },
+            {
+              "r": "ima",
+              "e": "Now"
+            }
+          ]
+        },
+        {
+          "id": "ashita",
+          "q": "How do you say \"Tomorrow\" in Japanese?",
+          "jp": "明日",
+          "hiragana": "あした",
+          "romaji": "ashita",
+          "en": "Tomorrow",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kyō",
+              "e": "Today"
+            },
+            {
+              "r": "kinō",
+              "e": "Yesterday"
+            },
+            {
+              "r": "ato",
+              "e": "Later"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 9,
+      "theme": "Location",
+      "words": [
+        {
+          "id": "koko",
+          "q": "How do you say \"Here\" in Japanese?",
+          "jp": "ここ",
+          "hiragana": "ここ",
+          "romaji": "koko",
+          "en": "Here",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "soko",
+              "e": "There"
+            },
+            {
+              "r": "asoko",
+              "e": "Over there"
+            },
+            {
+              "r": "doko",
+              "e": "Where"
+            }
+          ]
+        },
+        {
+          "id": "soko",
+          "q": "How do you say \"There\" in Japanese?",
+          "jp": "そこ",
+          "hiragana": "そこ",
+          "romaji": "soko",
+          "en": "There",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "koko",
+              "e": "Here"
+            },
+            {
+              "r": "asoko",
+              "e": "Over there"
+            },
+            {
+              "r": "doko",
+              "e": "Where"
+            }
+          ]
+        },
+        {
+          "id": "ue-l",
+          "q": "How do you say \"Above / Up\" in Japanese?",
+          "jp": "上",
+          "hiragana": "うえ",
+          "romaji": "ue",
+          "en": "Above",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shita",
+              "e": "Below"
+            },
+            {
+              "r": "mae",
+              "e": "Front"
+            },
+            {
+              "r": "migi",
+              "e": "Right"
+            }
+          ]
+        },
+        {
+          "id": "shita-l",
+          "q": "How do you say \"Below / Down\" in Japanese?",
+          "jp": "下",
+          "hiragana": "した",
+          "romaji": "shita",
+          "en": "Below",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ue",
+              "e": "Above"
+            },
+            {
+              "r": "migi",
+              "e": "Right"
+            },
+            {
+              "r": "hidari",
+              "e": "Left"
+            }
+          ]
+        },
+        {
+          "id": "migi",
+          "q": "How do you say \"Right\" in Japanese?",
+          "jp": "右",
+          "hiragana": "みぎ",
+          "romaji": "migi",
+          "en": "Right",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hidari",
+              "e": "Left"
+            },
+            {
+              "r": "ue",
+              "e": "Above"
+            },
+            {
+              "r": "mae",
+              "e": "Front"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 10,
+      "theme": "Useful Phrases",
+      "words": [
+        {
+          "id": "daijōbu",
+          "q": "How do you say \"Okay / It's fine\" in Japanese?",
+          "jp": "大丈夫",
+          "hiragana": "だいじょうぶ",
+          "romaji": "daijōbu",
+          "en": "Okay",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "abunai",
+              "e": "Dangerous"
+            },
+            {
+              "r": "hayaku",
+              "e": "Quickly"
+            },
+            {
+              "r": "mada",
+              "e": "Not yet"
+            }
+          ]
+        },
+        {
+          "id": "mada",
+          "q": "How do you say \"Still / Not yet\" in Japanese?",
+          "jp": "まだ",
+          "hiragana": "まだ",
+          "romaji": "mada",
+          "en": "Not yet",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mō",
+              "e": "Already"
+            },
+            {
+              "r": "ima",
+              "e": "Now"
+            },
+            {
+              "r": "ato",
+              "e": "Later"
+            }
+          ]
+        },
+        {
+          "id": "mō",
+          "q": "How do you say \"Already / No more\" in Japanese?",
+          "jp": "もう",
+          "hiragana": "もう",
+          "romaji": "mō",
+          "en": "Already",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mada",
+              "e": "Not yet"
+            },
+            {
+              "r": "ima",
+              "e": "Now"
+            },
+            {
+              "r": "hayaku",
+              "e": "Quickly"
+            }
+          ]
+        },
+        {
+          "id": "honto",
+          "q": "How do you say \"Really / True\" in Japanese?",
+          "jp": "本当",
+          "hiragana": "ほんとう",
+          "romaji": "hontō",
+          "en": "Really",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "uso",
+              "e": "Lie"
+            },
+            {
+              "r": "sugoi",
+              "e": "Amazing"
+            },
+            {
+              "r": "masaka",
+              "e": "Impossible"
+            }
+          ]
+        },
+        {
+          "id": "hayaku-p",
+          "q": "How do you say \"Quickly / Hurry\" in Japanese?",
+          "jp": "早く",
+          "hiragana": "はやく",
+          "romaji": "hayaku",
+          "en": "Hurry",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "osoku",
+              "e": "Slowly"
+            },
+            {
+              "r": "ima",
+              "e": "Now"
+            },
+            {
+              "r": "mada",
+              "e": "Not yet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 11,
+      "theme": "Nature & Elements",
+      "words": [
+        {
+          "id": "hi-n",
+          "q": "How do you say \"Fire / Sun\" in Japanese?",
+          "jp": "火",
+          "hiragana": "ひ",
+          "romaji": "hi",
+          "en": "Fire",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mizu",
+              "e": "Water"
+            },
+            {
+              "r": "kaze",
+              "e": "Wind"
+            },
+            {
+              "r": "tsuchi",
+              "e": "Earth"
+            }
+          ]
+        },
+        {
+          "id": "tsuki-n",
+          "q": "How do you say \"Moon\" in Japanese?",
+          "jp": "月",
+          "hiragana": "つき",
+          "romaji": "tsuki",
+          "en": "Moon",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hoshi",
+              "e": "Star"
+            },
+            {
+              "r": "taiyō",
+              "e": "Sun"
+            },
+            {
+              "r": "sora",
+              "e": "Sky"
+            }
+          ]
+        },
+        {
+          "id": "hoshi",
+          "q": "How do you say \"Star\" in Japanese?",
+          "jp": "星",
+          "hiragana": "ほし",
+          "romaji": "hoshi",
+          "en": "Star",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "tsuki",
+              "e": "Moon"
+            },
+            {
+              "r": "sora",
+              "e": "Sky"
+            },
+            {
+              "r": "hi",
+              "e": "Fire"
+            }
+          ]
+        },
+        {
+          "id": "ame-n",
+          "q": "How do you say \"Rain\" in Japanese?",
+          "jp": "雨",
+          "hiragana": "あめ",
+          "romaji": "ame",
+          "en": "Rain",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "yuki",
+              "e": "Snow"
+            },
+            {
+              "r": "kaze",
+              "e": "Wind"
+            },
+            {
+              "r": "hi",
+              "e": "Fire"
+            }
+          ]
+        },
+        {
+          "id": "yuki-n",
+          "q": "How do you say \"Snow\" in Japanese?",
+          "jp": "雪",
+          "hiragana": "ゆき",
+          "romaji": "yuki",
+          "en": "Snow",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ame",
+              "e": "Rain"
+            },
+            {
+              "r": "kōri",
+              "e": "Ice"
+            },
+            {
+              "r": "kaze",
+              "e": "Wind"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 12,
+      "theme": "Heart & Body",
+      "words": [
+        {
+          "id": "te-c",
+          "q": "How do you say \"Hand\" in Japanese?",
+          "jp": "手",
+          "hiragana": "て",
+          "romaji": "te",
+          "en": "Hand",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ashi",
+              "e": "Foot / Leg"
+            },
+            {
+              "r": "me",
+              "e": "Eye"
+            },
+            {
+              "r": "mimi",
+              "e": "Ear"
+            }
+          ]
+        },
+        {
+          "id": "me-c",
+          "q": "How do you say \"Eye\" in Japanese?",
+          "jp": "目",
+          "hiragana": "め",
+          "romaji": "me",
+          "en": "Eye",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mimi",
+              "e": "Ear"
+            },
+            {
+              "r": "te",
+              "e": "Hand"
+            },
+            {
+              "r": "kuchi",
+              "e": "Mouth"
+            }
+          ]
+        },
+        {
+          "id": "kokoro-c",
+          "q": "How do you say \"Heart / Mind\" in Japanese?",
+          "jp": "心",
+          "hiragana": "こころ",
+          "romaji": "kokoro",
+          "en": "Heart",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "karada",
+              "e": "Body"
+            },
+            {
+              "r": "tamashii",
+              "e": "Soul"
+            },
+            {
+              "r": "kimochi",
+              "e": "Feeling"
+            }
+          ]
+        },
+        {
+          "id": "kotoba",
+          "q": "How do you say \"Words / Language\" in Japanese?",
+          "jp": "言葉",
+          "hiragana": "ことば",
+          "romaji": "kotoba",
+          "en": "Words",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "namae",
+              "e": "Name"
+            },
+            {
+              "r": "koe",
+              "e": "Voice"
+            },
+            {
+              "r": "hanashi",
+              "e": "Story"
+            }
+          ]
+        },
+        {
+          "id": "namae",
+          "q": "How do you say \"Name\" in Japanese?",
+          "jp": "名前",
+          "hiragana": "なまえ",
+          "romaji": "namae",
+          "en": "Name",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kotoba",
+              "e": "Words"
+            },
+            {
+              "r": "koe",
+              "e": "Voice"
+            },
+            {
+              "r": "kao",
+              "e": "Face"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 13,
+      "theme": "Numbers I",
+      "words": [
+        {
+          "id": "ichi",
+          "q": "How do you say \"One\" in Japanese?",
+          "jp": "一",
+          "hiragana": "いち",
+          "romaji": "ichi",
+          "en": "One",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ni",
+              "e": "Two"
+            },
+            {
+              "r": "san",
+              "e": "Three"
+            },
+            {
+              "r": "jū",
+              "e": "Ten"
+            }
+          ]
+        },
+        {
+          "id": "ni-n",
+          "q": "How do you say \"Two\" in Japanese?",
+          "jp": "二",
+          "hiragana": "に",
+          "romaji": "ni",
+          "en": "Two",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ichi",
+              "e": "One"
+            },
+            {
+              "r": "san",
+              "e": "Three"
+            },
+            {
+              "r": "yon",
+              "e": "Four"
+            }
+          ]
+        },
+        {
+          "id": "san",
+          "q": "How do you say \"Three\" in Japanese?",
+          "jp": "三",
+          "hiragana": "さん",
+          "romaji": "san",
+          "en": "Three",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ni",
+              "e": "Two"
+            },
+            {
+              "r": "yon",
+              "e": "Four"
+            },
+            {
+              "r": "go",
+              "e": "Five"
+            }
+          ]
+        },
+        {
+          "id": "yon",
+          "q": "How do you say \"Four\" in Japanese?",
+          "jp": "四",
+          "hiragana": "よん",
+          "romaji": "yon",
+          "en": "Four",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "san",
+              "e": "Three"
+            },
+            {
+              "r": "go",
+              "e": "Five"
+            },
+            {
+              "r": "roku",
+              "e": "Six"
+            }
+          ]
+        },
+        {
+          "id": "go-n",
+          "q": "How do you say \"Five\" in Japanese?",
+          "jp": "五",
+          "hiragana": "ご",
+          "romaji": "go",
+          "en": "Five",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "yon",
+              "e": "Four"
+            },
+            {
+              "r": "roku",
+              "e": "Six"
+            },
+            {
+              "r": "san",
+              "e": "Three"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 14,
+      "theme": "Numbers II",
+      "words": [
+        {
+          "id": "roku",
+          "q": "How do you say \"Six\" in Japanese?",
+          "jp": "六",
+          "hiragana": "ろく",
+          "romaji": "roku",
+          "en": "Six",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nana",
+              "e": "Seven"
+            },
+            {
+              "r": "go",
+              "e": "Five"
+            },
+            {
+              "r": "hachi",
+              "e": "Eight"
+            }
+          ]
+        },
+        {
+          "id": "nana",
+          "q": "How do you say \"Seven\" in Japanese?",
+          "jp": "七",
+          "hiragana": "なな",
+          "romaji": "nana",
+          "en": "Seven",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "roku",
+              "e": "Six"
+            },
+            {
+              "r": "hachi",
+              "e": "Eight"
+            },
+            {
+              "r": "kyū",
+              "e": "Nine"
+            }
+          ]
+        },
+        {
+          "id": "hachi",
+          "q": "How do you say \"Eight\" in Japanese?",
+          "jp": "八",
+          "hiragana": "はち",
+          "romaji": "hachi",
+          "en": "Eight",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nana",
+              "e": "Seven"
+            },
+            {
+              "r": "kyū",
+              "e": "Nine"
+            },
+            {
+              "r": "roku",
+              "e": "Six"
+            }
+          ]
+        },
+        {
+          "id": "kyū",
+          "q": "How do you say \"Nine\" in Japanese?",
+          "jp": "九",
+          "hiragana": "きゅう",
+          "romaji": "kyū",
+          "en": "Nine",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hachi",
+              "e": "Eight"
+            },
+            {
+              "r": "jū",
+              "e": "Ten"
+            },
+            {
+              "r": "nana",
+              "e": "Seven"
+            }
+          ]
+        },
+        {
+          "id": "jū",
+          "q": "How do you say \"Ten\" in Japanese?",
+          "jp": "十",
+          "hiragana": "じゅう",
+          "romaji": "jū",
+          "en": "Ten",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kyū",
+              "e": "Nine"
+            },
+            {
+              "r": "hyaku",
+              "e": "Hundred"
+            },
+            {
+              "r": "ichi",
+              "e": "One"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 15,
+      "theme": "Colors",
+      "words": [
+        {
+          "id": "aka",
+          "q": "How do you say \"Red\" in Japanese?",
+          "jp": "赤",
+          "hiragana": "あか",
+          "romaji": "aka",
+          "en": "Red",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ao",
+              "e": "Blue"
+            },
+            {
+              "r": "shiro",
+              "e": "White"
+            },
+            {
+              "r": "kuro",
+              "e": "Black"
+            }
+          ]
+        },
+        {
+          "id": "ao",
+          "q": "How do you say \"Blue\" in Japanese?",
+          "jp": "青",
+          "hiragana": "あお",
+          "romaji": "ao",
+          "en": "Blue",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "aka",
+              "e": "Red"
+            },
+            {
+              "r": "midori",
+              "e": "Green"
+            },
+            {
+              "r": "kiiro",
+              "e": "Yellow"
+            }
+          ]
+        },
+        {
+          "id": "shiro",
+          "q": "How do you say \"White\" in Japanese?",
+          "jp": "白",
+          "hiragana": "しろ",
+          "romaji": "shiro",
+          "en": "White",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kuro",
+              "e": "Black"
+            },
+            {
+              "r": "aka",
+              "e": "Red"
+            },
+            {
+              "r": "kiiro",
+              "e": "Yellow"
+            }
+          ]
+        },
+        {
+          "id": "kuro",
+          "q": "How do you say \"Black\" in Japanese?",
+          "jp": "黒",
+          "hiragana": "くろ",
+          "romaji": "kuro",
+          "en": "Black",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shiro",
+              "e": "White"
+            },
+            {
+              "r": "ao",
+              "e": "Blue"
+            },
+            {
+              "r": "aka",
+              "e": "Red"
+            }
+          ]
+        },
+        {
+          "id": "kiiro",
+          "q": "How do you say \"Yellow\" in Japanese?",
+          "jp": "黄色",
+          "hiragana": "きいろ",
+          "romaji": "kiiro",
+          "en": "Yellow",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "aka",
+              "e": "Red"
+            },
+            {
+              "r": "midori",
+              "e": "Green"
+            },
+            {
+              "r": "ao",
+              "e": "Blue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 16,
+      "theme": "Greetings & Politeness",
+      "words": [
+        {
+          "id": "ohayō",
+          "q": "How do you say \"Good morning\" in Japanese?",
+          "jp": "おはよう",
+          "hiragana": "おはよう",
+          "romaji": "ohayō",
+          "en": "Good morning",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "konnichiwa",
+              "e": "Hello"
+            },
+            {
+              "r": "konbanwa",
+              "e": "Good evening"
+            },
+            {
+              "r": "oyasumi",
+              "e": "Good night"
+            }
+          ]
+        },
+        {
+          "id": "arigatō",
+          "q": "How do you say \"Thank you\" in Japanese?",
+          "jp": "ありがとう",
+          "hiragana": "ありがとう",
+          "romaji": "arigatō",
+          "en": "Thank you",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "gomen",
+              "e": "Sorry"
+            },
+            {
+              "r": "sumimasen",
+              "e": "Excuse me"
+            },
+            {
+              "r": "ohayō",
+              "e": "Good morning"
+            }
+          ]
+        },
+        {
+          "id": "gomen",
+          "q": "How do you say \"Sorry\" in Japanese?",
+          "jp": "ごめん",
+          "hiragana": "ごめん",
+          "romaji": "gomen",
+          "en": "Sorry",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "arigatō",
+              "e": "Thank you"
+            },
+            {
+              "r": "daijōbu",
+              "e": "It's fine"
+            },
+            {
+              "r": "sumimasen",
+              "e": "Excuse me"
+            }
+          ]
+        },
+        {
+          "id": "sumimasen",
+          "q": "How do you say \"Excuse me\" in Japanese?",
+          "jp": "すみません",
+          "hiragana": "すみません",
+          "romaji": "sumimasen",
+          "en": "Excuse me",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "gomen",
+              "e": "Sorry"
+            },
+            {
+              "r": "arigatō",
+              "e": "Thank you"
+            },
+            {
+              "r": "daijōbu",
+              "e": "It's fine"
+            }
+          ]
+        },
+        {
+          "id": "yatta",
+          "q": "How do you say \"I did it! / Yes!\" in Japanese?",
+          "jp": "やった",
+          "hiragana": "やった",
+          "romaji": "yatta",
+          "en": "I did it!",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "uso",
+              "e": "No way"
+            },
+            {
+              "r": "masaka",
+              "e": "Impossible"
+            },
+            {
+              "r": "yabai",
+              "e": "Crazy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 17,
+      "theme": "Family",
+      "words": [
+        {
+          "id": "chichi-c",
+          "q": "How do you say \"Father\" in Japanese?",
+          "jp": "父",
+          "hiragana": "ちち",
+          "romaji": "chichi",
+          "en": "Father",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "haha",
+              "e": "Mother"
+            },
+            {
+              "r": "ani",
+              "e": "Older brother"
+            },
+            {
+              "r": "ojisan",
+              "e": "Uncle"
+            }
+          ]
+        },
+        {
+          "id": "haha-c",
+          "q": "How do you say \"Mother\" in Japanese?",
+          "jp": "母",
+          "hiragana": "はは",
+          "romaji": "haha",
+          "en": "Mother",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "chichi",
+              "e": "Father"
+            },
+            {
+              "r": "imōto",
+              "e": "Younger sister"
+            },
+            {
+              "r": "obasan",
+              "e": "Aunt"
+            }
+          ]
+        },
+        {
+          "id": "ani-c",
+          "q": "How do you say \"Older brother\" in Japanese?",
+          "jp": "兄",
+          "hiragana": "あに",
+          "romaji": "ani",
+          "en": "Older brother",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "otōto",
+              "e": "Younger brother"
+            },
+            {
+              "r": "imōto",
+              "e": "Younger sister"
+            },
+            {
+              "r": "chichi",
+              "e": "Father"
+            }
+          ]
+        },
+        {
+          "id": "imōto",
+          "q": "How do you say \"Younger sister\" in Japanese?",
+          "jp": "妹",
+          "hiragana": "いもうと",
+          "romaji": "imōto",
+          "en": "Younger sister",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ane",
+              "e": "Older sister"
+            },
+            {
+              "r": "ani",
+              "e": "Older brother"
+            },
+            {
+              "r": "haha",
+              "e": "Mother"
+            }
+          ]
+        },
+        {
+          "id": "kazoku-c",
+          "q": "How do you say \"Family\" in Japanese?",
+          "jp": "家族",
+          "hiragana": "かぞく",
+          "romaji": "kazoku",
+          "en": "Family",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "tomodachi",
+              "e": "Friend"
+            },
+            {
+              "r": "nakama",
+              "e": "Companions"
+            },
+            {
+              "r": "sensei",
+              "e": "Teacher"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 18,
+      "theme": "Good & Bad",
+      "words": [
+        {
+          "id": "ii",
+          "q": "How do you say \"Good\" in Japanese?",
+          "jp": "いい",
+          "hiragana": "いい",
+          "romaji": "ii",
+          "en": "Good",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "warui",
+              "e": "Bad"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            },
+            {
+              "r": "muzukashii",
+              "e": "Difficult"
+            }
+          ]
+        },
+        {
+          "id": "warui",
+          "q": "How do you say \"Bad\" in Japanese?",
+          "jp": "悪い",
+          "hiragana": "わるい",
+          "romaji": "warui",
+          "en": "Bad",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ii",
+              "e": "Good"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            },
+            {
+              "r": "hazukashii",
+              "e": "Embarrassing"
+            }
+          ]
+        },
+        {
+          "id": "tanoshii",
+          "q": "How do you say \"Fun\" in Japanese?",
+          "jp": "楽しい",
+          "hiragana": "たのしい",
+          "romaji": "tanoshii",
+          "en": "Fun",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "tsumaranai",
+              "e": "Boring"
+            },
+            {
+              "r": "muzukashii",
+              "e": "Difficult"
+            },
+            {
+              "r": "ureshii",
+              "e": "Happy"
+            }
+          ]
+        },
+        {
+          "id": "muzukashii",
+          "q": "How do you say \"Difficult\" in Japanese?",
+          "jp": "難しい",
+          "hiragana": "むずかしい",
+          "romaji": "muzukashii",
+          "en": "Difficult",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "yasashii",
+              "e": "Easy"
+            },
+            {
+              "r": "tanoshii",
+              "e": "Fun"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            }
+          ]
+        },
+        {
+          "id": "yasashii",
+          "q": "How do you say \"Kind / Easy\" in Japanese?",
+          "jp": "優しい",
+          "hiragana": "やさしい",
+          "romaji": "yasashii",
+          "en": "Kind",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "muzukashii",
+              "e": "Difficult"
+            },
+            {
+              "r": "warui",
+              "e": "Bad"
+            },
+            {
+              "r": "kowai",
+              "e": "Scary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 19,
+      "theme": "Hot, Cold & More Adjectives",
+      "words": [
+        {
+          "id": "atsui",
+          "q": "How do you say \"Hot\" in Japanese?",
+          "jp": "熱い",
+          "hiragana": "あつい",
+          "romaji": "atsui",
+          "en": "Hot",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "samui",
+              "e": "Cold"
+            },
+            {
+              "r": "takai",
+              "e": "High"
+            },
+            {
+              "r": "ōkii",
+              "e": "Big"
+            }
+          ]
+        },
+        {
+          "id": "samui",
+          "q": "How do you say \"Cold\" in Japanese?",
+          "jp": "寒い",
+          "hiragana": "さむい",
+          "romaji": "samui",
+          "en": "Cold",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "atsui",
+              "e": "Hot"
+            },
+            {
+              "r": "chiisai",
+              "e": "Small"
+            },
+            {
+              "r": "hayai",
+              "e": "Fast"
+            }
+          ]
+        },
+        {
+          "id": "takai",
+          "q": "How do you say \"High / Tall\" in Japanese?",
+          "jp": "高い",
+          "hiragana": "たかい",
+          "romaji": "takai",
+          "en": "High",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hikui",
+              "e": "Low"
+            },
+            {
+              "r": "ōkii",
+              "e": "Big"
+            },
+            {
+              "r": "hayai",
+              "e": "Fast"
+            }
+          ]
+        },
+        {
+          "id": "omoi",
+          "q": "How do you say \"Heavy\" in Japanese?",
+          "jp": "重い",
+          "hiragana": "おもい",
+          "romaji": "omoi",
+          "en": "Heavy",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "karui",
+              "e": "Light"
+            },
+            {
+              "r": "ōkii",
+              "e": "Big"
+            },
+            {
+              "r": "tsuyoi",
+              "e": "Strong"
+            }
+          ]
+        },
+        {
+          "id": "akarui",
+          "q": "How do you say \"Bright / Cheerful\" in Japanese?",
+          "jp": "明るい",
+          "hiragana": "あかるい",
+          "romaji": "akarui",
+          "en": "Bright",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kurai",
+              "e": "Dark"
+            },
+            {
+              "r": "ureshii",
+              "e": "Happy"
+            },
+            {
+              "r": "kirei",
+              "e": "Beautiful"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 20,
+      "theme": "Core Verbs III",
+      "words": [
+        {
+          "id": "hanasu",
+          "q": "How do you say \"To speak\" in Japanese?",
+          "jp": "話す",
+          "hiragana": "はなす",
+          "romaji": "hanasu",
+          "en": "To speak",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kiku",
+              "e": "To listen"
+            },
+            {
+              "r": "yomu",
+              "e": "To read"
+            },
+            {
+              "r": "kaku",
+              "e": "To write"
+            }
+          ]
+        },
+        {
+          "id": "yomu",
+          "q": "How do you say \"To read\" in Japanese?",
+          "jp": "読む",
+          "hiragana": "よむ",
+          "romaji": "yomu",
+          "en": "To read",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kaku",
+              "e": "To write"
+            },
+            {
+              "r": "hanasu",
+              "e": "To speak"
+            },
+            {
+              "r": "miru",
+              "e": "To see"
+            }
+          ]
+        },
+        {
+          "id": "kaku",
+          "q": "How do you say \"To write\" in Japanese?",
+          "jp": "書く",
+          "hiragana": "かく",
+          "romaji": "kaku",
+          "en": "To write",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "yomu",
+              "e": "To read"
+            },
+            {
+              "r": "kiku",
+              "e": "To listen"
+            },
+            {
+              "r": "miru",
+              "e": "To see"
+            }
+          ]
+        },
+        {
+          "id": "suru",
+          "q": "How do you say \"To do\" in Japanese?",
+          "jp": "する",
+          "hiragana": "する",
+          "romaji": "suru",
+          "en": "To do",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "naru",
+              "e": "To become"
+            },
+            {
+              "r": "iru",
+              "e": "To be"
+            },
+            {
+              "r": "iku",
+              "e": "To go"
+            }
+          ]
+        },
+        {
+          "id": "naru",
+          "q": "How do you say \"To become\" in Japanese?",
+          "jp": "なる",
+          "hiragana": "なる",
+          "romaji": "naru",
+          "en": "To become",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "suru",
+              "e": "To do"
+            },
+            {
+              "r": "iru",
+              "e": "To be"
+            },
+            {
+              "r": "kaeru",
+              "e": "To return"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 21,
+      "theme": "Core Verbs IV",
+      "words": [
+        {
+          "id": "matsu",
+          "q": "How do you say \"To wait\" in Japanese?",
+          "jp": "待つ",
+          "hiragana": "まつ",
+          "romaji": "matsu",
+          "en": "To wait",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "iku",
+              "e": "To go"
+            },
+            {
+              "r": "kuru",
+              "e": "To come"
+            },
+            {
+              "r": "tomaru",
+              "e": "To stop"
+            }
+          ]
+        },
+        {
+          "id": "au",
+          "q": "How do you say \"To meet\" in Japanese?",
+          "jp": "会う",
+          "hiragana": "あう",
+          "romaji": "au",
+          "en": "To meet",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "iku",
+              "e": "To go"
+            },
+            {
+              "r": "miru",
+              "e": "To see"
+            },
+            {
+              "r": "hanasu",
+              "e": "To speak"
+            }
+          ]
+        },
+        {
+          "id": "shiru",
+          "q": "How do you say \"To know\" in Japanese?",
+          "jp": "知る",
+          "hiragana": "しる",
+          "romaji": "shiru",
+          "en": "To know",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "wakaru",
+              "e": "To understand"
+            },
+            {
+              "r": "omou",
+              "e": "To think"
+            },
+            {
+              "r": "iu",
+              "e": "To say"
+            }
+          ]
+        },
+        {
+          "id": "omou",
+          "q": "How do you say \"To think\" in Japanese?",
+          "jp": "思う",
+          "hiragana": "おもう",
+          "romaji": "omou",
+          "en": "To think",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shiru",
+              "e": "To know"
+            },
+            {
+              "r": "wakaru",
+              "e": "To understand"
+            },
+            {
+              "r": "iu",
+              "e": "To say"
+            }
+          ]
+        },
+        {
+          "id": "mamoru-c",
+          "q": "How do you say \"To protect\" in Japanese?",
+          "jp": "守る",
+          "hiragana": "まもる",
+          "romaji": "mamoru",
+          "en": "To protect",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tatakau",
+              "e": "To fight"
+            },
+            {
+              "r": "nigeru",
+              "e": "To flee"
+            },
+            {
+              "r": "matsu",
+              "e": "To wait"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 22,
+      "theme": "Battle Vocabulary",
+      "words": [
+        {
+          "id": "teki-c",
+          "q": "How do you say \"Enemy\" in Japanese?",
+          "jp": "敵",
+          "hiragana": "てき",
+          "romaji": "teki",
+          "en": "Enemy",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mikata",
+              "e": "Ally"
+            },
+            {
+              "r": "tomodachi",
+              "e": "Friend"
+            },
+            {
+              "r": "sensei",
+              "e": "Teacher"
+            }
+          ]
+        },
+        {
+          "id": "mikata",
+          "q": "How do you say \"Ally / Friend\" in Japanese?",
+          "jp": "味方",
+          "hiragana": "みかた",
+          "romaji": "mikata",
+          "en": "Ally",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "teki",
+              "e": "Enemy"
+            },
+            {
+              "r": "senshi",
+              "e": "Warrior"
+            },
+            {
+              "r": "nakama",
+              "e": "Companions"
+            }
+          ]
+        },
+        {
+          "id": "waza",
+          "q": "How do you say \"Technique\" in Japanese?",
+          "jp": "技",
+          "hiragana": "わざ",
+          "romaji": "waza",
+          "en": "Technique",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "chikara",
+              "e": "Power"
+            },
+            {
+              "r": "jutsu",
+              "e": "Skill"
+            },
+            {
+              "r": "nōryoku",
+              "e": "Ability"
+            }
+          ]
+        },
+        {
+          "id": "mahou",
+          "q": "How do you say \"Magic\" in Japanese?",
+          "jp": "魔法",
+          "hiragana": "まほう",
+          "romaji": "mahou",
+          "en": "Magic",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "waza",
+              "e": "Technique"
+            },
+            {
+              "r": "jutsu",
+              "e": "Skill"
+            },
+            {
+              "r": "chikara",
+              "e": "Power"
+            }
+          ]
+        },
+        {
+          "id": "shōbu",
+          "q": "How do you say \"Match / Showdown\" in Japanese?",
+          "jp": "勝負",
+          "hiragana": "しょうぶ",
+          "romaji": "shōbu",
+          "en": "Showdown",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tatakau",
+              "e": "To fight"
+            },
+            {
+              "r": "katsu",
+              "e": "To win"
+            },
+            {
+              "r": "waza",
+              "e": "Technique"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 23,
+      "theme": "School & Learning",
+      "words": [
+        {
+          "id": "gakkō-c",
+          "q": "How do you say \"School\" in Japanese?",
+          "jp": "学校",
+          "hiragana": "がっこう",
+          "romaji": "gakkō",
+          "en": "School",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ie",
+              "e": "House"
+            },
+            {
+              "r": "mise",
+              "e": "Shop"
+            },
+            {
+              "r": "byōin",
+              "e": "Hospital"
+            }
+          ]
+        },
+        {
+          "id": "hon",
+          "q": "How do you say \"Book\" in Japanese?",
+          "jp": "本",
+          "hiragana": "ほん",
+          "romaji": "hon",
+          "en": "Book",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "nooto",
+              "e": "Notebook"
+            },
+            {
+              "r": "shinbun",
+              "e": "Newspaper"
+            },
+            {
+              "r": "tegami",
+              "e": "Letter"
+            }
+          ]
+        },
+        {
+          "id": "benkyō",
+          "q": "How do you say \"Study\" in Japanese?",
+          "jp": "勉強",
+          "hiragana": "べんきょう",
+          "romaji": "benkyō",
+          "en": "Study",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "shiken",
+              "e": "Exam"
+            },
+            {
+              "r": "gakkō",
+              "e": "School"
+            },
+            {
+              "r": "shugyō",
+              "e": "Training"
+            }
+          ]
+        },
+        {
+          "id": "shiken-c",
+          "q": "How do you say \"Exam / Test\" in Japanese?",
+          "jp": "試験",
+          "hiragana": "しけん",
+          "romaji": "shiken",
+          "en": "Exam",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "benkyō",
+              "e": "Study"
+            },
+            {
+              "r": "mondai",
+              "e": "Problem"
+            },
+            {
+              "r": "kotae",
+              "e": "Answer"
+            }
+          ]
+        },
+        {
+          "id": "kotae",
+          "q": "How do you say \"Answer\" in Japanese?",
+          "jp": "答え",
+          "hiragana": "こたえ",
+          "romaji": "kotae",
+          "en": "Answer",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mondai",
+              "e": "Question"
+            },
+            {
+              "r": "shiken",
+              "e": "Exam"
+            },
+            {
+              "r": "benkyō",
+              "e": "Study"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 24,
+      "theme": "Food & Drink",
+      "words": [
+        {
+          "id": "gohan",
+          "q": "How do you say \"Rice / Meal\" in Japanese?",
+          "jp": "ご飯",
+          "hiragana": "ごはん",
+          "romaji": "gohan",
+          "en": "Rice / Meal",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "niku",
+              "e": "Meat"
+            },
+            {
+              "r": "sakana",
+              "e": "Fish"
+            },
+            {
+              "r": "pan",
+              "e": "Bread"
+            }
+          ]
+        },
+        {
+          "id": "niku-c",
+          "q": "How do you say \"Meat\" in Japanese?",
+          "jp": "肉",
+          "hiragana": "にく",
+          "romaji": "niku",
+          "en": "Meat",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "sakana",
+              "e": "Fish"
+            },
+            {
+              "r": "yasai",
+              "e": "Vegetables"
+            },
+            {
+              "r": "gohan",
+              "e": "Rice"
+            }
+          ]
+        },
+        {
+          "id": "mizu-c",
+          "q": "How do you say \"Water\" in Japanese?",
+          "jp": "水",
+          "hiragana": "みず",
+          "romaji": "mizu",
+          "en": "Water",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ocha",
+              "e": "Tea"
+            },
+            {
+              "r": "gyūnyū",
+              "e": "Milk"
+            },
+            {
+              "r": "jūsu",
+              "e": "Juice"
+            }
+          ]
+        },
+        {
+          "id": "ocha",
+          "q": "How do you say \"Tea\" in Japanese?",
+          "jp": "お茶",
+          "hiragana": "おちゃ",
+          "romaji": "ocha",
+          "en": "Tea",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mizu",
+              "e": "Water"
+            },
+            {
+              "r": "kōhī",
+              "e": "Coffee"
+            },
+            {
+              "r": "sake",
+              "e": "Sake"
+            }
+          ]
+        },
+        {
+          "id": "oishii",
+          "q": "How do you say \"Delicious\" in Japanese?",
+          "jp": "美味しい",
+          "hiragana": "おいしい",
+          "romaji": "oishii",
+          "en": "Delicious",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mazui",
+              "e": "Disgusting"
+            },
+            {
+              "r": "amai",
+              "e": "Sweet"
+            },
+            {
+              "r": "karai",
+              "e": "Spicy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 25,
+      "theme": "Body Parts",
+      "words": [
+        {
+          "id": "atama",
+          "q": "How do you say \"Head\" in Japanese?",
+          "jp": "頭",
+          "hiragana": "あたま",
+          "romaji": "atama",
+          "en": "Head",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "karada",
+              "e": "Body"
+            },
+            {
+              "r": "kao",
+              "e": "Face"
+            },
+            {
+              "r": "kubi",
+              "e": "Neck"
+            }
+          ]
+        },
+        {
+          "id": "kao",
+          "q": "How do you say \"Face\" in Japanese?",
+          "jp": "顔",
+          "hiragana": "かお",
+          "romaji": "kao",
+          "en": "Face",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "atama",
+              "e": "Head"
+            },
+            {
+              "r": "me",
+              "e": "Eye"
+            },
+            {
+              "r": "kuchi",
+              "e": "Mouth"
+            }
+          ]
+        },
+        {
+          "id": "kuchi",
+          "q": "How do you say \"Mouth\" in Japanese?",
+          "jp": "口",
+          "hiragana": "くち",
+          "romaji": "kuchi",
+          "en": "Mouth",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "me",
+              "e": "Eye"
+            },
+            {
+              "r": "mimi",
+              "e": "Ear"
+            },
+            {
+              "r": "hana",
+              "e": "Nose"
+            }
+          ]
+        },
+        {
+          "id": "mimi",
+          "q": "How do you say \"Ear\" in Japanese?",
+          "jp": "耳",
+          "hiragana": "みみ",
+          "romaji": "mimi",
+          "en": "Ear",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "me",
+              "e": "Eye"
+            },
+            {
+              "r": "kuchi",
+              "e": "Mouth"
+            },
+            {
+              "r": "hana",
+              "e": "Nose"
+            }
+          ]
+        },
+        {
+          "id": "karada",
+          "q": "How do you say \"Body\" in Japanese?",
+          "jp": "体",
+          "hiragana": "からだ",
+          "romaji": "karada",
+          "en": "Body",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "atama",
+              "e": "Head"
+            },
+            {
+              "r": "kokoro",
+              "e": "Heart"
+            },
+            {
+              "r": "te",
+              "e": "Hand"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 26,
+      "theme": "Everyday World",
+      "words": [
+        {
+          "id": "ie",
+          "q": "How do you say \"House / Home\" in Japanese?",
+          "jp": "家",
+          "hiragana": "いえ",
+          "romaji": "ie",
+          "en": "House",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "machi",
+              "e": "Town"
+            },
+            {
+              "r": "gakkō",
+              "e": "School"
+            },
+            {
+              "r": "mise",
+              "e": "Shop"
+            }
+          ]
+        },
+        {
+          "id": "machi",
+          "q": "How do you say \"Town\" in Japanese?",
+          "jp": "町",
+          "hiragana": "まち",
+          "romaji": "machi",
+          "en": "Town",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ie",
+              "e": "House"
+            },
+            {
+              "r": "kuni",
+              "e": "Country"
+            },
+            {
+              "r": "michi",
+              "e": "Road"
+            }
+          ]
+        },
+        {
+          "id": "michi",
+          "q": "How do you say \"Road / Path\" in Japanese?",
+          "jp": "道",
+          "hiragana": "みち",
+          "romaji": "michi",
+          "en": "Road",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ie",
+              "e": "House"
+            },
+            {
+              "r": "hashi",
+              "e": "Bridge"
+            },
+            {
+              "r": "machi",
+              "e": "Town"
+            }
+          ]
+        },
+        {
+          "id": "mise",
+          "q": "How do you say \"Shop / Store\" in Japanese?",
+          "jp": "店",
+          "hiragana": "みせ",
+          "romaji": "mise",
+          "en": "Shop",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "gakkō",
+              "e": "School"
+            },
+            {
+              "r": "ie",
+              "e": "House"
+            },
+            {
+              "r": "byōin",
+              "e": "Hospital"
+            }
+          ]
+        },
+        {
+          "id": "okane",
+          "q": "How do you say \"Money\" in Japanese?",
+          "jp": "お金",
+          "hiragana": "おかね",
+          "romaji": "okane",
+          "en": "Money",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "takara",
+              "e": "Treasure"
+            },
+            {
+              "r": "mise",
+              "e": "Shop"
+            },
+            {
+              "r": "shigoto",
+              "e": "Work"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 27,
+      "theme": "Key Expressions",
+      "words": [
+        {
+          "id": "dame",
+          "q": "How do you say \"No good / Stop\" in Japanese?",
+          "jp": "ダメ",
+          "hiragana": "だめ",
+          "romaji": "dame",
+          "en": "No good",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ii",
+              "e": "Good"
+            },
+            {
+              "r": "daijōbu",
+              "e": "It's fine"
+            },
+            {
+              "r": "yatta",
+              "e": "I did it"
+            }
+          ]
+        },
+        {
+          "id": "matte",
+          "q": "How do you say \"Wait!\" in Japanese?",
+          "jp": "待って",
+          "hiragana": "まって",
+          "romaji": "matte",
+          "en": "Wait!",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ike",
+              "e": "Go!"
+            },
+            {
+              "r": "dame",
+              "e": "No good"
+            },
+            {
+              "r": "hayaku",
+              "e": "Hurry"
+            }
+          ]
+        },
+        {
+          "id": "ikuzo",
+          "q": "How do you say \"Let's go!\" in Japanese?",
+          "jp": "行くぞ",
+          "hiragana": "いくぞ",
+          "romaji": "ikuzo",
+          "en": "Let's go!",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "matte",
+              "e": "Wait"
+            },
+            {
+              "r": "dame",
+              "e": "No good"
+            },
+            {
+              "r": "kaero",
+              "e": "Let's go home"
+            }
+          ]
+        },
+        {
+          "id": "dekiru",
+          "q": "How do you say \"Can do / Possible\" in Japanese?",
+          "jp": "できる",
+          "hiragana": "できる",
+          "romaji": "dekiru",
+          "en": "Can do",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "dekinai",
+              "e": "Can't do"
+            },
+            {
+              "r": "wakaru",
+              "e": "Understand"
+            },
+            {
+              "r": "suru",
+              "e": "To do"
+            }
+          ]
+        },
+        {
+          "id": "suki",
+          "q": "How do you say \"Like\" in Japanese?",
+          "jp": "好き",
+          "hiragana": "すき",
+          "romaji": "suki",
+          "en": "Like",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kirai",
+              "e": "Dislike"
+            },
+            {
+              "r": "hoshii",
+              "e": "Want"
+            },
+            {
+              "r": "ii",
+              "e": "Good"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 28,
+      "theme": "Power & Spirit",
+      "words": [
+        {
+          "id": "chikara-c",
+          "q": "How do you say \"Power / Strength\" in Japanese?",
+          "jp": "力",
+          "hiragana": "ちから",
+          "romaji": "chikara",
+          "en": "Power",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "waza",
+              "e": "Technique"
+            },
+            {
+              "r": "mahou",
+              "e": "Magic"
+            },
+            {
+              "r": "seishin",
+              "e": "Spirit"
+            }
+          ]
+        },
+        {
+          "id": "seishin",
+          "q": "How do you say \"Spirit / Mind\" in Japanese?",
+          "jp": "精神",
+          "hiragana": "せいしん",
+          "romaji": "seishin",
+          "en": "Spirit",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tamashii",
+              "e": "Soul"
+            },
+            {
+              "r": "kokoro",
+              "e": "Heart"
+            },
+            {
+              "r": "chikara",
+              "e": "Power"
+            }
+          ]
+        },
+        {
+          "id": "inochi-c",
+          "q": "How do you say \"Life\" in Japanese?",
+          "jp": "命",
+          "hiragana": "いのち",
+          "romaji": "inochi",
+          "en": "Life",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "shi",
+              "e": "Death"
+            },
+            {
+              "r": "tamashii",
+              "e": "Soul"
+            },
+            {
+              "r": "kokoro",
+              "e": "Heart"
+            }
+          ]
+        },
+        {
+          "id": "yūki-c",
+          "q": "How do you say \"Courage\" in Japanese?",
+          "jp": "勇気",
+          "hiragana": "ゆうき",
+          "romaji": "yūki",
+          "en": "Courage",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "chikara",
+              "e": "Power"
+            },
+            {
+              "r": "seishin",
+              "e": "Spirit"
+            },
+            {
+              "r": "kibō",
+              "e": "Hope"
+            }
+          ]
+        },
+        {
+          "id": "kibō-c",
+          "q": "How do you say \"Hope\" in Japanese?",
+          "jp": "希望",
+          "hiragana": "きぼう",
+          "romaji": "kibō",
+          "en": "Hope",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "zetsubō",
+              "e": "Despair"
+            },
+            {
+              "r": "yume",
+              "e": "Dream"
+            },
+            {
+              "r": "yūki",
+              "e": "Courage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 29,
+      "theme": "Dreams & Goals",
+      "words": [
+        {
+          "id": "yume-c",
+          "q": "How do you say \"Dream\" in Japanese?",
+          "jp": "夢",
+          "hiragana": "ゆめ",
+          "romaji": "yume",
+          "en": "Dream",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kibō",
+              "e": "Hope"
+            },
+            {
+              "r": "mokuhyō",
+              "e": "Goal"
+            },
+            {
+              "r": "mirai",
+              "e": "Future"
+            }
+          ]
+        },
+        {
+          "id": "mokuhyō",
+          "q": "How do you say \"Goal / Target\" in Japanese?",
+          "jp": "目標",
+          "hiragana": "もくひょう",
+          "romaji": "mokuhyō",
+          "en": "Goal",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yume",
+              "e": "Dream"
+            },
+            {
+              "r": "kibō",
+              "e": "Hope"
+            },
+            {
+              "r": "shōrai",
+              "e": "Future"
+            }
+          ]
+        },
+        {
+          "id": "shōrai",
+          "q": "How do you say \"Future / Ambition\" in Japanese?",
+          "jp": "将来",
+          "hiragana": "しょうらい",
+          "romaji": "shōrai",
+          "en": "Future",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "mirai",
+              "e": "The Future (distant future)"
+            },
+            {
+              "r": "mokuhyō",
+              "e": "Goal"
+            },
+            {
+              "r": "kako",
+              "e": "Past"
+            }
+          ]
+        },
+        {
+          "id": "ganbaru-c",
+          "q": "How do you say \"To do your best\" in Japanese?",
+          "jp": "頑張る",
+          "hiragana": "がんばる",
+          "romaji": "ganbaru",
+          "en": "Do your best",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "akirameru",
+              "e": "Give up"
+            },
+            {
+              "r": "yasumu",
+              "e": "Rest"
+            },
+            {
+              "r": "matsu",
+              "e": "Wait"
+            }
+          ]
+        },
+        {
+          "id": "akirameru",
+          "q": "How do you say \"To give up\" in Japanese?",
+          "jp": "諦める",
+          "hiragana": "あきらめる",
+          "romaji": "akirameru",
+          "en": "Give up",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "ganbaru",
+              "e": "Do your best"
+            },
+            {
+              "r": "tatakau",
+              "e": "Fight"
+            },
+            {
+              "r": "matsu",
+              "e": "Wait"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 30,
+      "theme": "Friendship & Trust",
+      "words": [
+        {
+          "id": "nakama-c",
+          "q": "How do you say \"Companions / Crew\" in Japanese?",
+          "jp": "仲間",
+          "hiragana": "なかま",
+          "romaji": "nakama",
+          "en": "Companions",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tomodachi",
+              "e": "Friend"
+            },
+            {
+              "r": "teki",
+              "e": "Enemy"
+            },
+            {
+              "r": "kazoku",
+              "e": "Family"
+            }
+          ]
+        },
+        {
+          "id": "shinrai",
+          "q": "How do you say \"Trust\" in Japanese?",
+          "jp": "信頼",
+          "hiragana": "しんらい",
+          "romaji": "shinrai",
+          "en": "Trust",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "kizuna",
+              "e": "Bond"
+            },
+            {
+              "r": "yūjō",
+              "e": "Friendship"
+            },
+            {
+              "r": "ai",
+              "e": "Love"
+            }
+          ]
+        },
+        {
+          "id": "kizuna-c",
+          "q": "How do you say \"Bond / Connection\" in Japanese?",
+          "jp": "絆",
+          "hiragana": "きずな",
+          "romaji": "kizuna",
+          "en": "Bond",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "shinrai",
+              "e": "Trust"
+            },
+            {
+              "r": "nakama",
+              "e": "Companions"
+            },
+            {
+              "r": "yūjō",
+              "e": "Friendship"
+            }
+          ]
+        },
+        {
+          "id": "yūjō",
+          "q": "How do you say \"Friendship\" in Japanese?",
+          "jp": "友情",
+          "hiragana": "ゆうじょう",
+          "romaji": "yūjō",
+          "en": "Friendship",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "kizuna",
+              "e": "Bond"
+            },
+            {
+              "r": "ai",
+              "e": "Love"
+            },
+            {
+              "r": "shinrai",
+              "e": "Trust"
+            }
+          ]
+        },
+        {
+          "id": "ai-c",
+          "q": "How do you say \"Love\" in Japanese?",
+          "jp": "愛",
+          "hiragana": "あい",
+          "romaji": "ai",
+          "en": "Love",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "suki",
+              "e": "Like"
+            },
+            {
+              "r": "yūjō",
+              "e": "Friendship"
+            },
+            {
+              "r": "kizuna",
+              "e": "Bond"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

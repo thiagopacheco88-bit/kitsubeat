@@ -1,0 +1,1458 @@
+{
+  "series": "demon-slayer",
+  "label": "Demon Slayer",
+  "parts": [
+    {
+      "part": 1,
+      "theme": "Demons & Swords",
+      "words": [
+        {
+          "id": "oni",
+          "q": "How do you say \"Demon\" in Japanese?",
+          "jp": "鬼",
+          "hiragana": "おに",
+          "romaji": "oni",
+          "en": "Demon",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kami",
+              "e": "God"
+            },
+            {
+              "r": "mushi",
+              "e": "Insect"
+            },
+            {
+              "r": "tori",
+              "e": "Bird"
+            }
+          ]
+        },
+        {
+          "id": "katana",
+          "q": "What does 刀 mean in English?",
+          "jp": "刀",
+          "hiragana": "かたな",
+          "romaji": "Japanese Sword",
+          "en": "Japanese Sword",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "Bow",
+              "e": "Bow"
+            },
+            {
+              "r": "Shield",
+              "e": "Shield"
+            },
+            {
+              "r": "Spear",
+              "e": "Spear"
+            }
+          ]
+        },
+        {
+          "id": "yoru",
+          "q": "How do you say \"Night\" in Japanese?",
+          "jp": "夜",
+          "hiragana": "よる",
+          "romaji": "yoru",
+          "en": "Night",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "asa",
+              "e": "Morning"
+            },
+            {
+              "r": "hiru",
+              "e": "Noon"
+            },
+            {
+              "r": "yūgure",
+              "e": "Dusk"
+            }
+          ]
+        },
+        {
+          "id": "chi",
+          "q": "How do you say \"Blood\" in Japanese?",
+          "jp": "血",
+          "hiragana": "ち",
+          "romaji": "chi",
+          "en": "Blood",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "mizu",
+              "e": "Water"
+            },
+            {
+              "r": "namida",
+              "e": "Tears"
+            },
+            {
+              "r": "ase",
+              "e": "Sweat"
+            }
+          ]
+        },
+        {
+          "id": "kokyuu",
+          "q": "How do you say \"Breathing\" in Japanese?",
+          "jp": "呼吸",
+          "hiragana": "こきゅう",
+          "romaji": "kokyū",
+          "en": "Breathing",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "undō",
+              "e": "Exercise"
+            },
+            {
+              "r": "dōsa",
+              "e": "Movement"
+            },
+            {
+              "r": "waza",
+              "e": "Technique"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "theme": "Family & Stars",
+      "words": [
+        {
+          "id": "kazoku",
+          "q": "How do you say \"Family\" in Japanese?",
+          "jp": "家族",
+          "hiragana": "かぞく",
+          "romaji": "kazoku",
+          "en": "Family",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "tomodachi",
+              "e": "Friend"
+            },
+            {
+              "r": "sensei",
+              "e": "Teacher"
+            },
+            {
+              "r": "tonari",
+              "e": "Neighbor"
+            }
+          ]
+        },
+        {
+          "id": "taiyou",
+          "q": "How do you say \"Sun\" in Japanese?",
+          "jp": "太陽",
+          "hiragana": "たいよう",
+          "romaji": "taiyō",
+          "en": "Sun",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hikari",
+              "e": "Light"
+            },
+            {
+              "r": "hoshi",
+              "e": "Star"
+            },
+            {
+              "r": "kumo",
+              "e": "Cloud"
+            }
+          ]
+        },
+        {
+          "id": "tsuki",
+          "q": "How do you say \"Moon\" in Japanese?",
+          "jp": "月",
+          "hiragana": "つき",
+          "romaji": "tsuki",
+          "en": "Moon",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kumo",
+              "e": "Cloud"
+            },
+            {
+              "r": "hoshi",
+              "e": "Star"
+            },
+            {
+              "r": "yozora",
+              "e": "Night Sky"
+            }
+          ]
+        },
+        {
+          "id": "honoo",
+          "q": "How do you say \"Flame\" in Japanese?",
+          "jp": "炎",
+          "hiragana": "ほのお",
+          "romaji": "honō",
+          "en": "Flame",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kemuri",
+              "e": "Smoke"
+            },
+            {
+              "r": "hi",
+              "e": "Fire"
+            },
+            {
+              "r": "netsu",
+              "e": "Heat"
+            }
+          ]
+        },
+        {
+          "id": "hashira",
+          "q": "How do you say \"Pillar\" in Japanese?",
+          "jp": "柱",
+          "hiragana": "はしら",
+          "romaji": "hashira",
+          "en": "Pillar",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "kabe",
+              "e": "Wall"
+            },
+            {
+              "r": "tobira",
+              "e": "Door"
+            },
+            {
+              "r": "yuka",
+              "e": "Floor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "theme": "Nature & Plants",
+      "words": [
+        {
+          "id": "take",
+          "q": "How do you say \"Bamboo\" in Japanese?",
+          "jp": "竹",
+          "hiragana": "たけ",
+          "romaji": "take",
+          "en": "Bamboo",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ki",
+              "e": "Tree"
+            },
+            {
+              "r": "kusa",
+              "e": "Grass"
+            },
+            {
+              "r": "hana",
+              "e": "Flower"
+            }
+          ]
+        },
+        {
+          "id": "sumi",
+          "q": "How do you say \"Charcoal\" in Japanese?",
+          "jp": "炭",
+          "hiragana": "すみ",
+          "romaji": "sumi",
+          "en": "Charcoal",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hi",
+              "e": "Fire"
+            },
+            {
+              "r": "hai",
+              "e": "Ash"
+            },
+            {
+              "r": "kemuri",
+              "e": "Smoke"
+            }
+          ]
+        },
+        {
+          "id": "mamoru",
+          "q": "How do you say \"To Protect\" in Japanese?",
+          "jp": "守る",
+          "hiragana": "まもる",
+          "romaji": "mamoru",
+          "en": "To Protect",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tatakau",
+              "e": "To Fight"
+            },
+            {
+              "r": "nigeru",
+              "e": "To Flee"
+            },
+            {
+              "r": "okuru",
+              "e": "To Send"
+            }
+          ]
+        },
+        {
+          "id": "nioi",
+          "q": "How do you say \"Scent / Smell\" in Japanese?",
+          "jp": "匂い",
+          "hiragana": "におい",
+          "romaji": "nioi",
+          "en": "Scent / Smell",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "oto",
+              "e": "Sound"
+            },
+            {
+              "r": "iro",
+              "e": "Color"
+            },
+            {
+              "r": "aji",
+              "e": "Taste"
+            }
+          ]
+        },
+        {
+          "id": "fuji",
+          "q": "How do you say \"Wisteria\" in Japanese?",
+          "jp": "藤",
+          "hiragana": "ふじ",
+          "romaji": "fuji",
+          "en": "Wisteria",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "ume",
+              "e": "Plum Blossom"
+            },
+            {
+              "r": "sakura",
+              "e": "Cherry Blossom"
+            },
+            {
+              "r": "kiku",
+              "e": "Chrysanthemum"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "theme": "Colors & Time",
+      "words": [
+        {
+          "id": "kurenai",
+          "q": "How do you say \"Crimson\" in Japanese?",
+          "jp": "紅",
+          "hiragana": "くれない",
+          "romaji": "kurenai",
+          "en": "Crimson",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ao",
+              "e": "Blue"
+            },
+            {
+              "r": "shiro",
+              "e": "White"
+            },
+            {
+              "r": "ki",
+              "e": "Yellow"
+            }
+          ]
+        },
+        {
+          "id": "hajimari",
+          "q": "How do you say \"Beginning\" in Japanese?",
+          "jp": "始まり",
+          "hiragana": "はじまり",
+          "romaji": "hajimari",
+          "en": "Beginning",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ato",
+              "e": "After"
+            },
+            {
+              "r": "naka",
+              "e": "Middle"
+            },
+            {
+              "r": "mae",
+              "e": "Before"
+            }
+          ]
+        },
+        {
+          "id": "owari",
+          "q": "How do you say \"End\" in Japanese?",
+          "jp": "終わり",
+          "hiragana": "おわり",
+          "romaji": "owari",
+          "en": "End",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "mae",
+              "e": "Before"
+            },
+            {
+              "r": "tochū",
+              "e": "Midway"
+            },
+            {
+              "r": "naka",
+              "e": "Middle"
+            }
+          ]
+        },
+        {
+          "id": "jougen",
+          "q": "How do you say \"Upper Rank / Upper Moon\" in Japanese?",
+          "jp": "上弦",
+          "hiragana": "じょうげん",
+          "romaji": "jōgen",
+          "en": "Upper Moon",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "futsuu",
+              "e": "Ordinary"
+            },
+            {
+              "r": "chūkan",
+              "e": "Middle Rank"
+            },
+            {
+              "r": "saijō",
+              "e": "Top Level"
+            }
+          ]
+        },
+        {
+          "id": "kagen",
+          "q": "How do you say \"Lower Rank / Lower Moon\" in Japanese?",
+          "jp": "下弦",
+          "hiragana": "かげん",
+          "romaji": "kagen",
+          "en": "Lower Moon",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "futsuu",
+              "e": "Ordinary"
+            },
+            {
+              "r": "chūkan",
+              "e": "Middle Rank"
+            },
+            {
+              "r": "saiko",
+              "e": "Highest"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 5,
+      "theme": "Weapons & Marks",
+      "words": [
+        {
+          "id": "ken",
+          "q": "How do you say \"Sword / Blade\" in Japanese?",
+          "jp": "剣",
+          "hiragana": "けん",
+          "romaji": "ken",
+          "en": "Sword / Blade",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "katana",
+              "e": "Katana"
+            },
+            {
+              "r": "yari",
+              "e": "Spear"
+            },
+            {
+              "r": "yumi",
+              "e": "Bow"
+            }
+          ]
+        },
+        {
+          "id": "uroko",
+          "q": "How do you say \"Scales\" in Japanese?",
+          "jp": "鱗",
+          "hiragana": "うろこ",
+          "romaji": "uroko",
+          "en": "Scales",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "tsubasa",
+              "e": "Wings"
+            },
+            {
+              "r": "tsuno",
+              "e": "Horn"
+            },
+            {
+              "r": "shippo",
+              "e": "Tail"
+            }
+          ]
+        },
+        {
+          "id": "kasumi",
+          "q": "How do you say \"Haze / Mist\" in Japanese?",
+          "jp": "霞",
+          "hiragana": "かすみ",
+          "romaji": "kasumi",
+          "en": "Haze / Mist",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kiri",
+              "e": "Fog"
+            },
+            {
+              "r": "kumo",
+              "e": "Cloud"
+            },
+            {
+              "r": "yuki",
+              "e": "Snow"
+            }
+          ]
+        },
+        {
+          "id": "aza",
+          "q": "How do you say \"Mark / Scar\" in Japanese?",
+          "jp": "痣",
+          "hiragana": "あざ",
+          "romaji": "aza",
+          "en": "Mark / Scar",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kizu",
+              "e": "Wound"
+            },
+            {
+              "r": "shirushi",
+              "e": "Sign"
+            },
+            {
+              "r": "ato",
+              "e": "Trace"
+            }
+          ]
+        },
+        {
+          "id": "yuukaku",
+          "q": "How do you say \"Entertainment District\" in Japanese?",
+          "jp": "遊郭",
+          "hiragana": "ゆうかく",
+          "romaji": "yūkaku",
+          "en": "Entertainment District",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "shijō",
+              "e": "Market"
+            },
+            {
+              "r": "shinden",
+              "e": "Shrine"
+            },
+            {
+              "r": "yakushō",
+              "e": "Gov. Office"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 6,
+      "theme": "Creatures & Combat",
+      "words": [
+        {
+          "id": "yama",
+          "q": "How do you say \"Mountain\" in Japanese?",
+          "jp": "山",
+          "hiragana": "やま",
+          "romaji": "yama",
+          "en": "Mountain",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kawa",
+              "e": "River"
+            },
+            {
+              "r": "tani",
+              "e": "Valley"
+            },
+            {
+              "r": "oka",
+              "e": "Hill"
+            }
+          ]
+        },
+        {
+          "id": "doku",
+          "q": "How do you say \"Poison\" in Japanese?",
+          "jp": "毒",
+          "hiragana": "どく",
+          "romaji": "doku",
+          "en": "Poison",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kusuri",
+              "e": "Medicine"
+            },
+            {
+              "r": "chi",
+              "e": "Blood"
+            },
+            {
+              "r": "namida",
+              "e": "Tears"
+            }
+          ]
+        },
+        {
+          "id": "yaiba",
+          "q": "How do you say \"Blade / Edge\" in Japanese?",
+          "jp": "刃",
+          "hiragana": "やいば",
+          "romaji": "yaiba",
+          "en": "Blade / Edge",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tsuka",
+              "e": "Sword Handle"
+            },
+            {
+              "r": "saya",
+              "e": "Scabbard"
+            },
+            {
+              "r": "tate",
+              "e": "Shield"
+            }
+          ]
+        },
+        {
+          "id": "karasu",
+          "q": "How do you say \"Crow\" in Japanese?",
+          "jp": "烏",
+          "hiragana": "からす",
+          "romaji": "karasu",
+          "en": "Crow",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tori",
+              "e": "Bird"
+            },
+            {
+              "r": "washi",
+              "e": "Eagle"
+            },
+            {
+              "r": "taka",
+              "e": "Hawk"
+            }
+          ]
+        },
+        {
+          "id": "zenshuchuu",
+          "q": "How do you say \"Total Concentration\" in Japanese?",
+          "jp": "全集中",
+          "hiragana": "ぜんしゅうちゅう",
+          "romaji": "zenshūchū",
+          "en": "Total Concentration",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "chūi",
+              "e": "Caution"
+            },
+            {
+              "r": "shūchū",
+              "e": "Concentration"
+            },
+            {
+              "r": "dōka",
+              "e": "Assimilation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 7,
+      "theme": "Legacy & Thunder",
+      "words": [
+        {
+          "id": "ani",
+          "q": "How do you say \"Older Brother\" in Japanese?",
+          "jp": "兄",
+          "hiragana": "あに",
+          "romaji": "ani",
+          "en": "Older Brother",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "imōto",
+              "e": "Younger Sister"
+            },
+            {
+              "r": "otōto",
+              "e": "Younger Brother"
+            },
+            {
+              "r": "chichi",
+              "e": "Father"
+            }
+          ]
+        },
+        {
+          "id": "kaminari_ds",
+          "q": "How do you say \"Thunder\" in Japanese?",
+          "jp": "雷",
+          "hiragana": "かみなり",
+          "romaji": "kaminari",
+          "en": "Thunder",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kaze",
+              "e": "Wind"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            },
+            {
+              "r": "inazuma",
+              "e": "Lightning"
+            }
+          ]
+        },
+        {
+          "id": "kimetsu",
+          "q": "How do you say \"Demon Slaying\" in Japanese?",
+          "jp": "鬼滅",
+          "hiragana": "きめつ",
+          "romaji": "kimetsu",
+          "en": "Demon Slaying",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kessen",
+              "e": "Decisive Battle"
+            },
+            {
+              "r": "taiji",
+              "e": "Extermination"
+            },
+            {
+              "r": "gekitai",
+              "e": "Repulsion"
+            }
+          ]
+        },
+        {
+          "id": "rengoku",
+          "q": "How do you say \"Purgatory\" in Japanese?",
+          "jp": "煉獄",
+          "hiragana": "れんごく",
+          "romaji": "rengoku",
+          "en": "Purgatory",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tengoku",
+              "e": "Heaven"
+            },
+            {
+              "r": "jigoku",
+              "e": "Hell"
+            },
+            {
+              "r": "gokuraku",
+              "e": "Paradise"
+            }
+          ]
+        },
+        {
+          "id": "kumo_ds",
+          "q": "How do you say \"Spider\" in Japanese?",
+          "jp": "蜘蛛",
+          "hiragana": "くも",
+          "romaji": "kumo",
+          "en": "Spider",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "hebi",
+              "e": "Snake"
+            },
+            {
+              "r": "mushi",
+              "e": "Insect"
+            },
+            {
+              "r": "karasu",
+              "e": "Crow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 8,
+      "theme": "Breathing Forms",
+      "words": [
+        {
+          "id": "kaze",
+          "q": "How do you say \"Wind\" in Japanese?",
+          "jp": "風",
+          "hiragana": "かぜ",
+          "romaji": "kaze",
+          "en": "Wind",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ame",
+              "e": "Rain"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            },
+            {
+              "r": "kumo",
+              "e": "Cloud"
+            }
+          ]
+        },
+        {
+          "id": "mizu",
+          "q": "How do you say \"Water\" in Japanese?",
+          "jp": "水",
+          "hiragana": "みず",
+          "romaji": "mizu",
+          "en": "Water",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "hi",
+              "e": "Fire"
+            },
+            {
+              "r": "umi",
+              "e": "Sea"
+            },
+            {
+              "r": "kawa",
+              "e": "River"
+            }
+          ]
+        },
+        {
+          "id": "inazuma",
+          "q": "How do you say \"Lightning\" in Japanese?",
+          "jp": "稲妻",
+          "hiragana": "いなずま",
+          "romaji": "inazuma",
+          "en": "Lightning",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kaminari",
+              "e": "Thunder"
+            },
+            {
+              "r": "kaze",
+              "e": "Wind"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            }
+          ]
+        },
+        {
+          "id": "hi_ds",
+          "q": "How do you say \"Fire\" in Japanese?",
+          "jp": "火",
+          "hiragana": "ひ",
+          "romaji": "hi",
+          "en": "Fire",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "mizu",
+              "e": "Water"
+            },
+            {
+              "r": "honō",
+              "e": "Flame"
+            },
+            {
+              "r": "netsu",
+              "e": "Heat"
+            }
+          ]
+        },
+        {
+          "id": "hana",
+          "q": "How do you say \"Flower\" in Japanese?",
+          "jp": "花",
+          "hiragana": "はな",
+          "romaji": "hana",
+          "en": "Flower",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "ki",
+              "e": "Tree"
+            },
+            {
+              "r": "kusa",
+              "e": "Grass"
+            },
+            {
+              "r": "take",
+              "e": "Bamboo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 9,
+      "theme": "Senses & Speed",
+      "words": [
+        {
+          "id": "mimi",
+          "q": "How do you say \"Ear\" in Japanese?",
+          "jp": "耳",
+          "hiragana": "みみ",
+          "romaji": "mimi",
+          "en": "Ear",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "me",
+              "e": "Eye"
+            },
+            {
+              "r": "hana",
+              "e": "Nose"
+            },
+            {
+              "r": "kuchi",
+              "e": "Mouth"
+            }
+          ]
+        },
+        {
+          "id": "me",
+          "q": "How do you say \"Eye\" in Japanese?",
+          "jp": "目",
+          "hiragana": "め",
+          "romaji": "me",
+          "en": "Eye",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mimi",
+              "e": "Ear"
+            },
+            {
+              "r": "kuchi",
+              "e": "Mouth"
+            },
+            {
+              "r": "te",
+              "e": "Hand"
+            }
+          ]
+        },
+        {
+          "id": "koe",
+          "q": "How do you say \"Voice\" in Japanese?",
+          "jp": "声",
+          "hiragana": "こえ",
+          "romaji": "koe",
+          "en": "Voice",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "oto",
+              "e": "Sound"
+            },
+            {
+              "r": "kotoba",
+              "e": "Words"
+            },
+            {
+              "r": "uta",
+              "e": "Song"
+            }
+          ]
+        },
+        {
+          "id": "kizuato",
+          "q": "How do you say \"Scar\" in Japanese?",
+          "jp": "傷跡",
+          "hiragana": "きずあと",
+          "romaji": "kizuato",
+          "en": "Scar",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "aza",
+              "e": "Bruise"
+            },
+            {
+              "r": "kizu",
+              "e": "Wound"
+            },
+            {
+              "r": "ato",
+              "e": "Trace"
+            }
+          ]
+        },
+        {
+          "id": "hayasa_ds",
+          "q": "How do you say \"Speed\" in Japanese?",
+          "jp": "速さ",
+          "hiragana": "はやさ",
+          "romaji": "hayasa",
+          "en": "Speed",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "chikara",
+              "e": "Power"
+            },
+            {
+              "r": "takasa",
+              "e": "Height"
+            },
+            {
+              "r": "omosa",
+              "e": "Weight"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 10,
+      "theme": "Human Emotions",
+      "words": [
+        {
+          "id": "kanashimi",
+          "q": "How do you say \"Sadness\" in Japanese?",
+          "jp": "悲しみ",
+          "hiragana": "かなしみ",
+          "romaji": "kanashimi",
+          "en": "Sadness",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yorokobi",
+              "e": "Joy"
+            },
+            {
+              "r": "ikari",
+              "e": "Anger"
+            },
+            {
+              "r": "odoroki",
+              "e": "Surprise"
+            }
+          ]
+        },
+        {
+          "id": "yorokobi",
+          "q": "How do you say \"Joy\" in Japanese?",
+          "jp": "喜び",
+          "hiragana": "よろこび",
+          "romaji": "yorokobi",
+          "en": "Joy",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "kanashimi",
+              "e": "Sadness"
+            },
+            {
+              "r": "ikari",
+              "e": "Anger"
+            },
+            {
+              "r": "kyōfu",
+              "e": "Fear"
+            }
+          ]
+        },
+        {
+          "id": "ikari",
+          "q": "How do you say \"Anger\" in Japanese?",
+          "jp": "怒り",
+          "hiragana": "いかり",
+          "romaji": "ikari",
+          "en": "Anger",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "yorokobi",
+              "e": "Joy"
+            },
+            {
+              "r": "heiwa",
+              "e": "Peace"
+            },
+            {
+              "r": "yasashisa",
+              "e": "Kindness"
+            }
+          ]
+        },
+        {
+          "id": "kyoufu",
+          "q": "How do you say \"Fear\" in Japanese?",
+          "jp": "恐怖",
+          "hiragana": "きょうふ",
+          "romaji": "kyōfu",
+          "en": "Fear",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "yuuki",
+              "e": "Courage"
+            },
+            {
+              "r": "ikari",
+              "e": "Anger"
+            },
+            {
+              "r": "yorokobi",
+              "e": "Joy"
+            }
+          ]
+        },
+        {
+          "id": "ai_ds",
+          "q": "How do you say \"Love\" in Japanese?",
+          "jp": "愛",
+          "hiragana": "あい",
+          "romaji": "ai",
+          "en": "Love",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "nikushimi",
+              "e": "Hatred"
+            },
+            {
+              "r": "kizuna",
+              "e": "Bond"
+            },
+            {
+              "r": "yasashisa",
+              "e": "Kindness"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 11,
+      "theme": "Village & Daily Life",
+      "words": [
+        {
+          "id": "machi_ds",
+          "q": "How do you say \"Town\" in Japanese?",
+          "jp": "町",
+          "hiragana": "まち",
+          "romaji": "machi",
+          "en": "Town",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mura",
+              "e": "Village"
+            },
+            {
+              "r": "shiro",
+              "e": "Castle"
+            },
+            {
+              "r": "yama",
+              "e": "Mountain"
+            }
+          ]
+        },
+        {
+          "id": "ie",
+          "q": "How do you say \"House\" in Japanese?",
+          "jp": "家",
+          "hiragana": "いえ",
+          "romaji": "ie",
+          "en": "House",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "mise",
+              "e": "Shop"
+            },
+            {
+              "r": "tera",
+              "e": "Temple"
+            },
+            {
+              "r": "shiro",
+              "e": "Castle"
+            }
+          ]
+        },
+        {
+          "id": "shizen_ds",
+          "q": "How do you say \"Nature\" in Japanese?",
+          "jp": "自然",
+          "hiragana": "しぜん",
+          "romaji": "shizen",
+          "en": "Nature",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "kagaku",
+              "e": "Science"
+            },
+            {
+              "r": "sekai",
+              "e": "World"
+            },
+            {
+              "r": "toshi",
+              "e": "City"
+            }
+          ]
+        },
+        {
+          "id": "kisetsu",
+          "q": "How do you say \"Season\" in Japanese?",
+          "jp": "季節",
+          "hiragana": "きせつ",
+          "romaji": "kisetsu",
+          "en": "Season",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "tsuki",
+              "e": "Month"
+            },
+            {
+              "r": "nen",
+              "e": "Year"
+            },
+            {
+              "r": "hi",
+              "e": "Day"
+            }
+          ]
+        },
+        {
+          "id": "ame",
+          "q": "How do you say \"Rain\" in Japanese?",
+          "jp": "雨",
+          "hiragana": "あめ",
+          "romaji": "ame",
+          "en": "Rain",
+          "tier": "N5",
+          "wrong": [
+            {
+              "r": "yuki",
+              "e": "Snow"
+            },
+            {
+              "r": "kaze",
+              "e": "Wind"
+            },
+            {
+              "r": "arashi",
+              "e": "Storm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 12,
+      "theme": "Will & Legacy",
+      "words": [
+        {
+          "id": "ishi_ds",
+          "q": "How do you say \"Will / Determination\" in Japanese?",
+          "jp": "意志",
+          "hiragana": "いし",
+          "romaji": "ishi",
+          "en": "Will / Determination",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "negai",
+              "e": "Wish"
+            },
+            {
+              "r": "kibō",
+              "e": "Hope"
+            },
+            {
+              "r": "yume",
+              "e": "Dream"
+            }
+          ]
+        },
+        {
+          "id": "kioku_ds",
+          "q": "How do you say \"Memory\" in Japanese?",
+          "jp": "記憶",
+          "hiragana": "きおく",
+          "romaji": "kioku",
+          "en": "Memory",
+          "tier": "N3",
+          "wrong": [
+            {
+              "r": "yume",
+              "e": "Dream"
+            },
+            {
+              "r": "kako",
+              "e": "Past"
+            },
+            {
+              "r": "rekishi",
+              "e": "History"
+            }
+          ]
+        },
+        {
+          "id": "inochi_ds",
+          "q": "How do you say \"Life\" in Japanese?",
+          "jp": "命",
+          "hiragana": "いのち",
+          "romaji": "inochi",
+          "en": "Life",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "shi",
+              "e": "Death"
+            },
+            {
+              "r": "karada",
+              "e": "Body"
+            },
+            {
+              "r": "tamashii",
+              "e": "Soul"
+            }
+          ]
+        },
+        {
+          "id": "shi_ds",
+          "q": "How do you say \"Death\" in Japanese?",
+          "jp": "死",
+          "hiragana": "し",
+          "romaji": "shi",
+          "en": "Death",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "inochi",
+              "e": "Life"
+            },
+            {
+              "r": "yami",
+              "e": "Darkness"
+            },
+            {
+              "r": "owari",
+              "e": "End"
+            }
+          ]
+        },
+        {
+          "id": "kibou_ds",
+          "q": "How do you say \"Hope\" in Japanese?",
+          "jp": "希望",
+          "hiragana": "きぼう",
+          "romaji": "kibō",
+          "en": "Hope",
+          "tier": "N4",
+          "wrong": [
+            {
+              "r": "zetsubō",
+              "e": "Despair"
+            },
+            {
+              "r": "ishi",
+              "e": "Will"
+            },
+            {
+              "r": "yume",
+              "e": "Dream"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
