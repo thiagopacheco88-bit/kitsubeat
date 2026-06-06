@@ -52,13 +52,13 @@ describe("StarterPick — EmptyState fallback (Phase 14.1 D-01)", () => {
   it("Test 1: renders EmptyState with correct heading and CTA to /songs when candidates is empty", () => {
     render(<StarterPick candidates={[]} userId="u1" />);
 
-    // EmptyState heading should be visible
+    // EmptyState heading — mock t returns key: t('moreSongsHeading') => 'moreSongsHeading'
     expect(
-      screen.getByText("More starter songs coming soon")
+      screen.getByText("moreSongsHeading")
     ).toBeInTheDocument();
 
-    // CTA link should point to /songs
-    const ctaLink = screen.getByRole("link", { name: "Explore the catalog" });
+    // CTA link should point to /songs — mock t returns key: t('exploreCatalog') => 'exploreCatalog'
+    const ctaLink = screen.getByRole("link", { name: "exploreCatalog" });
     expect(ctaLink).toHaveAttribute("href", "/songs");
 
     // No starter-pick cards should be present
@@ -75,7 +75,7 @@ describe("StarterPick — EmptyState fallback (Phase 14.1 D-01)", () => {
 
     // No EmptyState heading
     expect(
-      screen.queryByText("More starter songs coming soon")
+      screen.queryByText("moreSongsHeading")
     ).not.toBeInTheDocument();
   });
 

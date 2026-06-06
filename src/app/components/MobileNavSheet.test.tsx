@@ -15,9 +15,20 @@
  */
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
-import { describe, it, expect, afterEach } from "vitest";
+import { describe, it, expect, afterEach, vi } from "vitest";
 import { render, cleanup, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest";
+
+vi.mock('@/app/actions/locale', () => ({
+  syncLocaleToClerk: vi.fn(),
+  setLocale: vi.fn(),
+}));
+
+vi.mock('next-intl', () => ({
+  useTranslations: () => (key: string) => key,
+  useLocale: () => 'en',
+}));
+
 import MobileNavSheet from "./MobileNavSheet";
 
 afterEach(() => cleanup());
@@ -81,14 +92,15 @@ describe("MobileNavSheet — open/close interactions", () => {
   });
 
   it("link click closes the sheet", async () => {
-    const { getByTestId, queryByTestId, getByRole } = render(
+    const { getByTestId, queryByTestId, container } = render(
       <MobileNavSheet isAdmin={false} isSignedIn={false} />
     );
     await act(async () => { fireEvent.click(getByTestId("mobile-nav-trigger")); });
     expect(getByTestId("mobile-nav-sheet")).toBeInTheDocument();
-    // Click the Path link
-    const pathLink = getByRole("link", { name: "Path" });
-    await act(async () => { fireEvent.click(pathLink); });
+    // Click the /path link — nav links use t("nav.path") => "nav.path" via mock
+    const pathLink = container.querySelector('a[href="/path"]');
+    expect(pathLink).not.toBeNull();
+    await act(async () => { fireEvent.click(pathLink!); });
     expect(queryByTestId("mobile-nav-sheet")).not.toBeInTheDocument();
   });
 });

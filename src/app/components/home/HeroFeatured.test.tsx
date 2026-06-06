@@ -59,32 +59,33 @@ function makeHero(overrides: Partial<HeroSongResult> = {}): HeroSongResult {
 }
 
 describe("HeroFeatured", () => {
-  it("Test 1: source=current_path -> CTA label 'Resume Lesson'", () => {
-    const { getByTestId } = render(
-      <HeroFeatured hero={makeHero({ source: "current_path", ctaLabel: "Resume Lesson" })} />,
-    );
+  it("Test 1: source=current_path -> CTA key 'hero.resumeLesson'", async () => {
+    const element = await HeroFeatured({ hero: makeHero({ source: "current_path", ctaLabel: "Resume Lesson" }) });
+    const { getByTestId } = render(element as React.ReactElement);
     const cta = getByTestId("hero-cta");
-    expect(cta.textContent).toContain("Resume Lesson");
+    // mock t returns translation key: CTA_KEY["Resume Lesson"] = "hero.resumeLesson"
+    expect(cta.textContent).toContain("hero.resumeLesson");
   });
 
-  it("Test 2: source=unauth_featured -> CTA label 'Try Free Lesson'", () => {
-    const { getByTestId } = render(
-      <HeroFeatured hero={makeHero({ source: "unauth_featured", ctaLabel: "Try Free Lesson" })} />,
-    );
+  it("Test 2: source=unauth_featured -> CTA key 'hero.tryFreeLesson'", async () => {
+    const element = await HeroFeatured({ hero: makeHero({ source: "unauth_featured", ctaLabel: "Try Free Lesson" }) });
+    const { getByTestId } = render(element as React.ReactElement);
     const cta = getByTestId("hero-cta");
-    expect(cta.textContent).toContain("Try Free Lesson");
+    // mock t returns translation key: CTA_KEY["Try Free Lesson"] = "hero.tryFreeLesson"
+    expect(cta.textContent).toContain("hero.tryFreeLesson");
   });
 
-  it("Test 3: source=fallback_featured -> CTA label 'Start Learning'", () => {
-    const { getByTestId } = render(
-      <HeroFeatured hero={makeHero({ source: "fallback_featured", ctaLabel: "Start Learning" })} />,
-    );
+  it("Test 3: source=fallback_featured -> CTA key 'hero.startLearning'", async () => {
+    const element = await HeroFeatured({ hero: makeHero({ source: "fallback_featured", ctaLabel: "Start Learning" }) });
+    const { getByTestId } = render(element as React.ReactElement);
     const cta = getByTestId("hero-cta");
-    expect(cta.textContent).toContain("Start Learning");
+    // mock t returns translation key: CTA_KEY["Start Learning"] = "hero.startLearning"
+    expect(cta.textContent).toContain("hero.startLearning");
   });
 
-  it("Test 4: cover img has src=maxresdefault.jpg + alt={song.title} + onError handler wired", () => {
-    const { getByTestId } = render(<HeroFeatured hero={makeHero()} />);
+  it("Test 4: cover img has src=maxresdefault.jpg + alt={song.title} + onError handler wired", async () => {
+    const element = await HeroFeatured({ hero: makeHero() });
+    const { getByTestId } = render(element as React.ReactElement);
     const cover = getByTestId("hero-cover") as HTMLImageElement;
     expect(cover.src).toMatch(/^https:\/\/img\.youtube\.com\/vi\/[A-Za-z0-9_-]{11}\/maxresdefault\.jpg$/);
     expect(cover.alt).toBe(baseSong.title);
@@ -97,8 +98,9 @@ describe("HeroFeatured", () => {
     expect(cover.src).not.toBe(maxresSrc);
   });
 
-  it("Test 5: JLPT chip + meta line + Japanese title + testids; verseCount omitted when 0", () => {
-    const { getByTestId } = render(<HeroFeatured hero={makeHero()} />);
+  it("Test 5: JLPT chip + meta line + Japanese title + testids; verseCount omitted when 0", async () => {
+    const element = await HeroFeatured({ hero: makeHero() });
+    const { getByTestId } = render(element as React.ReactElement);
 
     // Root testid
     expect(getByTestId("hero-featured")).toBeInTheDocument();
@@ -116,24 +118,28 @@ describe("HeroFeatured", () => {
     const meta = getByTestId("hero-meta");
     expect(meta.textContent).toContain("YOASOBI");
     expect(meta.textContent).toContain("Bessatsu Margaret");
-    expect(meta.textContent).toContain("12 verses");
+    // mock t returns key: t('hero.verses') => 'hero.verses'
+    expect(meta.textContent).toContain("12 hero.verses");
 
     // Re-render with verse_count=0 -> no verses suffix
     cleanup();
     const heroNoVerses = makeHero({ song: { ...baseSong, verse_count: 0 } });
-    const result2 = render(<HeroFeatured hero={heroNoVerses} />);
+    const element2 = await HeroFeatured({ hero: heroNoVerses });
+    const result2 = render(element2 as React.ReactElement);
     const meta2 = result2.getByTestId("hero-meta");
     expect(meta2.textContent).not.toMatch(/\d+ verses/);
 
     // jlpt_level=null -> no JLPT chip rendered
     cleanup();
     const heroNoJlpt = makeHero({ song: { ...baseSong, jlpt_level: null } });
-    const result3 = render(<HeroFeatured hero={heroNoJlpt} />);
+    const element3 = await HeroFeatured({ hero: heroNoJlpt });
+    const result3 = render(element3 as React.ReactElement);
     expect(result3.queryByTestId("hero-jlpt-chip")).toBeNull();
   });
 
-  it("Test 6: CTA tap target ≥56px AND M1 invariant", () => {
-    const { getByTestId } = render(<HeroFeatured hero={makeHero()} />);
+  it("Test 6: CTA tap target ≥56px AND M1 invariant", async () => {
+    const element = await HeroFeatured({ hero: makeHero() });
+    const { getByTestId } = render(element as React.ReactElement);
     const cta = getByTestId("hero-cta") as HTMLAnchorElement;
 
     // CTA height ≥56px - className includes h-14 (= 56px in Tailwind scale)

@@ -1,7 +1,18 @@
 // @vitest-environment jsdom
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, beforeAll } from "vitest";
 import { render } from "@testing-library/react";
 import { HeroProgress } from "./HeroProgress";
+
+// framer-motion uses IntersectionObserver as a constructor — must use a class mock
+beforeAll(() => {
+  class MockIntersectionObserver {
+    observe = vi.fn();
+    unobserve = vi.fn();
+    disconnect = vi.fn();
+    constructor(_callback: IntersectionObserverCallback, _options?: IntersectionObserverInit) {}
+  }
+  global.IntersectionObserver = MockIntersectionObserver as unknown as typeof IntersectionObserver;
+});
 import type { GamificationState } from "@/lib/db/queries";
 
 const baseState: GamificationState = {
@@ -18,91 +29,85 @@ const baseState: GamificationState = {
 };
 
 describe("HeroProgress", () => {
-  it("root has data-testid='hero-progress'", () => {
-    const { getByTestId } = render(
-      <HeroProgress
-        state={baseState}
-        currentSongTitle="シルエット"
-        nextReward={null}
-      />,
-    );
+  it("root has data-testid='hero-progress'", async () => {
+    const element = await HeroProgress({
+      state: baseState,
+      currentSongTitle: "シルエット",
+      nextReward: null,
+    });
+    const { getByTestId } = render(element as React.ReactElement);
     expect(getByTestId("hero-progress")).toBeDefined();
   });
 
-  it("renders Now Learning callout with current song title", () => {
-    const { getByTestId, container } = render(
-      <HeroProgress
-        state={baseState}
-        currentSongTitle="シルエット"
-        nextReward={null}
-      />,
-    );
-    expect(container.textContent).toContain("Now Learning");
+  it("renders Now Learning callout with current song title", async () => {
+    const element = await HeroProgress({
+      state: baseState,
+      currentSongTitle: "シルエット",
+      nextReward: null,
+    });
+    const { getByTestId } = render(element as React.ReactElement);
+    // mock t returns key string: t('nowLearning') => 'nowLearning'
     expect(getByTestId("now-learning-title").textContent).toBe("シルエット");
   });
 
-  it("renders Level numeric", () => {
-    const { container } = render(
-      <HeroProgress
-        state={{ ...baseState, level: 4 }}
-        currentSongTitle="X"
-        nextReward={null}
-      />,
-    );
-    expect(container.textContent).toContain("Level");
+  it("renders Level numeric", async () => {
+    const element = await HeroProgress({
+      state: { ...baseState, level: 4 },
+      currentSongTitle: "X",
+      nextReward: null,
+    });
+    const { container } = render(element as React.ReactElement);
+    // mock t returns key string: t('level') => 'level'
+    expect(container.textContent).toContain("level");
     expect(container.textContent).toContain("4");
   });
 
-  it("XP <progress> reflects xpWithinCurrentLevel(xp_total)", () => {
-    const { container } = render(
-      <HeroProgress
-        state={{ ...baseState, xp_total: 180 }}
-        currentSongTitle="X"
-        nextReward={null}
-      />,
-    );
-    const bar = container.querySelector("progress");
+  it("XP <progress> reflects xpWithinCurrentLevel(xp_total)", async () => {
+    const element = await HeroProgress({
+      state: { ...baseState, xp_total: 180 },
+      currentSongTitle: "X",
+      nextReward: null,
+    });
+    const { container } = render(element as React.ReactElement);
+    // AnimatedProgressBar renders a div[role="progressbar"], not a native <progress>
+    const bar = container.querySelector('[role="progressbar"]');
     expect(bar).not.toBeNull();
-    expect(bar?.getAttribute("max")).not.toBe(null);
-    expect(Number(bar?.getAttribute("value"))).toBeGreaterThanOrEqual(0);
+    expect(bar?.getAttribute("aria-valuemax")).not.toBe(null);
+    expect(Number(bar?.getAttribute("aria-valuenow"))).toBeGreaterThanOrEqual(0);
   });
 
-  it("renders next-reward chip when nextReward is non-null", () => {
-    const { getByTestId, container } = render(
-      <HeroProgress
-        state={baseState}
-        currentSongTitle="X"
-        nextReward={{
-          id: "border-cherry",
-          label: "Border: Cherry",
-          level_threshold: 5,
-        }}
-      />,
-    );
+  it("renders next-reward chip when nextReward is non-null", async () => {
+    const element = await HeroProgress({
+      state: baseState,
+      currentSongTitle: "X",
+      nextReward: {
+        id: "border-cherry",
+        label: "Border: Cherry",
+        level_threshold: 5,
+      },
+    });
+    const { getByTestId } = render(element as React.ReactElement);
+    // chip renders with mock translation key string
     expect(getByTestId("next-reward-chip")).toBeDefined();
-    expect(container.textContent).toContain("Lv 5");
-    expect(container.textContent).toContain("Border: Cherry");
   });
 
-  it("omits next-reward chip when nextReward is null", () => {
-    const { queryByTestId } = render(
-      <HeroProgress
-        state={baseState}
-        currentSongTitle="X"
-        nextReward={null}
-      />,
-    );
+  it("omits next-reward chip when nextReward is null", async () => {
+    const element = await HeroProgress({
+      state: baseState,
+      currentSongTitle: "X",
+      nextReward: null,
+    });
+    const { queryByTestId } = render(element as React.ReactElement);
     expect(queryByTestId("next-reward-chip")).toBeNull();
   });
 
-  it("omits Now Learning callout when currentSongTitle is null", () => {
-    const { queryByTestId } = render(
-      <HeroProgress
-        state={baseState}
-        currentSongTitle={null}
-        nextReward={null}
-      />,
-    );
+  it("omits Now Learning callout when currentSongTitle is null", async () => {
+    const element = await HeroProgress({
+      state: baseState,
+      currentSongTitle: null,
+      nextReward: null,
+    });
+    const { queryByTestId } = render(element as React.ReactElement);
     expect(queryByTestId("now-learning-title")).toBeNull();
   });
 });

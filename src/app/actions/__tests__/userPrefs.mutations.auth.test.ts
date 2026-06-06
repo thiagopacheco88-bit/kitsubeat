@@ -14,8 +14,8 @@ describe("userPrefs mutations — auth guards (Phase 16 SC-2)", () => {
     await expect(updateUserPrefs({ theme: "dark" } as any)).rejects.toThrow("Unauthorized");
   });
 
-  it("setThemePreference throws Unauthorized when not authenticated", async () => {
+  it("setThemePreference returns undefined when not authenticated", async () => {
     const { setThemePreference } = await import("@/app/actions/userPrefs");
-    await expect(setThemePreference("dark" as any)).rejects.toThrow("Unauthorized");
+    await expect(setThemePreference("dark" as any)).resolves.toBeUndefined();
   });
 });

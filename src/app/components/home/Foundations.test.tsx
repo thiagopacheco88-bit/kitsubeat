@@ -36,10 +36,12 @@ describe("Foundations", () => {
   });
 
   it("Test 2: renders SectionHeader 基礎 / Foundations + viewAll=/kana", () => {
-    const { getByText } = render(<Foundations />);
+    const { getByText, container } = render(<Foundations />);
     expect(getByText("基礎")).toBeInTheDocument();
     expect(getByText("Foundations")).toBeInTheDocument();
-    const viewAll = getByText(/Open Kana/i).closest("a");
+    // viewAllLabel is passed as aria-label on the link (not visible text per SectionHeader)
+    const viewAll = container.querySelector('a[aria-label="Open Kana"]');
+    expect(viewAll).not.toBeNull();
     expect(viewAll?.getAttribute("href")).toBe("/kana");
   });
 

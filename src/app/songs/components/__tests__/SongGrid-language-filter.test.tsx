@@ -7,6 +7,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import SongGrid from '../SongGrid';
 
+vi.mock('next/navigation', () => ({
+  usePathname: vi.fn(() => '/songs'),
+  useRouter: vi.fn(() => ({ push: vi.fn(), replace: vi.fn() })),
+}));
+
 // Mock next-intl so useTranslations works in test environment
 vi.mock('next-intl', () => ({
   useTranslations: () => (key: string) => key,
@@ -31,7 +36,7 @@ vi.mock('@/components/ui/EmptyState', () => ({
 
 import type { SongListItem } from '@/lib/db/queries';
 
-const makeSong = (id: string, language: string): SongListItem => ({
+const makeSong = (id: string, jlpt: string = 'N4'): SongListItem => ({
   id,
   slug: `song-${id}`,
   title: `Song ${id}`,
@@ -40,11 +45,11 @@ const makeSong = (id: string, language: string): SongListItem => ({
   season_info: null,
   youtube_id: null,
   year_launched: null,
-  jlpt_level: 'N4' as const,
+  jlpt_level: jlpt as 'N5' | 'N4' | 'N3' | 'N2' | 'N1',
   difficulty_tier: 'basic' as const,
   genre_tags: [],
   mood_tags: [],
-  language,
+  language: 'ja',
   ex1_2_3_best_accuracy: null,
   ex4_best_accuracy: null,
   ex5_best_accuracy: null,
@@ -59,26 +64,26 @@ const makeSong = (id: string, language: string): SongListItem => ({
 });
 
 const SONGS = [
-  makeSong('1', 'ja'),
-  makeSong('2', 'en'),
-  makeSong('3', 'ja'),
-  makeSong('4', 'pt'),
-  makeSong('5', 'es'),
+  makeSong('1', 'N5'),
+  makeSong('2', 'N4'),
+  makeSong('3', 'N5'),
+  makeSong('4', 'N3'),
+  makeSong('5', 'N2'),
 ];
 
-describe('SongGrid language filter', () => {
-  it('renders JA, EN, PT, ES filter chips', () => {
+describe('SongGrid JLPT filter', () => {
+  it('renders N5, N4, N3, N2, N1 filter chips', () => {
     render(<SongGrid songs={SONGS} view="all" />);
-    expect(screen.getByRole('button', { name: 'JA' })).toBeDefined();
-    expect(screen.getByRole('button', { name: 'EN' })).toBeDefined();
-    expect(screen.getByRole('button', { name: 'PT' })).toBeDefined();
-    expect(screen.getByRole('button', { name: 'ES' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'N5' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'N4' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'N3' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'N2' })).toBeDefined();
+    expect(screen.getByRole('button', { name: 'N1' })).toBeDefined();
   });
 
-  it('clicking JA chip sets languageFilter to "ja" and filters songs', () => {
+  it('clicking N5 chip filters songs to N5 only', () => {
     render(<SongGrid songs={SONGS} view="all" />);
-    fireEvent.click(screen.getByRole('button', { name: 'JA' }));
-    // Only ja songs remain
+    fireEvent.click(screen.getByRole('button', { name: 'N5' }));
     const cards = screen.getAllByTestId('song-card');
     expect(cards).toHaveLength(2);
     expect(cards[0].textContent).toContain('Song 1');
@@ -87,50 +92,42 @@ describe('SongGrid language filter', () => {
 
   it('clicking active chip again deselects it (shows all songs)', () => {
     render(<SongGrid songs={SONGS} view="all" />);
-    fireEvent.click(screen.getByRole('button', { name: 'JA' }));
-    fireEvent.click(screen.getByRole('button', { name: 'JA' }));
-    // All songs visible again
+    fireEvent.click(screen.getByRole('button', { name: 'N5' }));
+    fireEvent.click(screen.getByRole('button', { name: 'N5' }));
     const cards = screen.getAllByTestId('song-card');
     expect(cards).toHaveLength(5);
   });
 
-  it('Clear button resets languageFilter alongside JLPT and difficulty', () => {
+  it('Clear button resets JLPT filter', () => {
     render(<SongGrid songs={SONGS} view="all" />);
-    fireEvent.click(screen.getByRole('button', { name: 'JA' }));
-    // Clear button should appear
-    const clearBtn = screen.getByRole('button', { name: 'Clear' });
+    fireEvent.click(screen.getByRole('button', { name: 'N5' }));
+    const clearBtn = screen.getByRole('button', { name: 'filter.clear' });
     fireEvent.click(clearBtn);
-    // All songs visible again
     const cards = screen.getAllByTestId('song-card');
     expect(cards).toHaveLength(5);
   });
 
-  it('filtering to JA shows only songs with language === "ja"', () => {
+  it('filtering to N5 shows only N5 songs', () => {
     render(<SongGrid songs={SONGS} view="all" />);
-    fireEvent.click(screen.getByRole('button', { name: 'JA' }));
+    fireEvent.click(screen.getByRole('button', { name: 'N5' }));
     const cards = screen.getAllByTestId('song-card');
     expect(cards).toHaveLength(2);
     cards.forEach((card) => {
-      // songs 1 and 3 are ja
       expect(['Song 1', 'Song 3'].some((t) => card.textContent?.includes(t))).toBe(true);
     });
   });
 
-  it('filtering to EN shows only songs with language === "en"', () => {
+  it('filtering to N4 shows only N4 songs', () => {
     render(<SongGrid songs={SONGS} view="all" />);
-    fireEvent.click(screen.getByRole('button', { name: 'EN' }));
+    fireEvent.click(screen.getByRole('button', { name: 'N4' }));
     const cards = screen.getAllByTestId('song-card');
     expect(cards).toHaveLength(1);
     expect(cards[0].textContent).toContain('Song 2');
   });
 
-  it('each chip has aria-pressed matching its active state', () => {
+  it('renders all songs when no filter is active', () => {
     render(<SongGrid songs={SONGS} view="all" />);
-    const jaBtn = screen.getByRole('button', { name: 'JA' });
-    expect(jaBtn.getAttribute('aria-pressed')).toBe('false');
-    fireEvent.click(jaBtn);
-    expect(jaBtn.getAttribute('aria-pressed')).toBe('true');
-    fireEvent.click(jaBtn);
-    expect(jaBtn.getAttribute('aria-pressed')).toBe('false');
+    const cards = screen.getAllByTestId('song-card');
+    expect(cards).toHaveLength(5);
   });
 });

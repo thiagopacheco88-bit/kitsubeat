@@ -20,23 +20,26 @@ afterEach(() => cleanup());
 describe("TierDivider — bilingual label text", () => {
   it("renders 'Side A', '基礎', and 'Beginner' for tier='basic'", () => {
     const { container } = render(<TierDivider tier="basic" />);
-    expect(container.textContent).toContain("Side A");
+    // mock t returns key: t('tier.sideA') => 'tier.sideA', t('tier.beginner') => 'tier.beginner'
+    expect(container.textContent).toContain("tier.sideA");
     expect(container.textContent).toContain("基礎");
-    expect(container.textContent).toContain("Beginner");
+    expect(container.textContent).toContain("tier.beginner");
   });
 
   it("renders 'Side B', '中級', and 'Intermediate' for tier='intermediate'", () => {
     const { container } = render(<TierDivider tier="intermediate" />);
-    expect(container.textContent).toContain("Side B");
+    // mock t returns key: t('tier.sideB') => 'tier.sideB', t('tier.intermediate') => 'tier.intermediate'
+    expect(container.textContent).toContain("tier.sideB");
     expect(container.textContent).toContain("中級");
-    expect(container.textContent).toContain("Intermediate");
+    expect(container.textContent).toContain("tier.intermediate");
   });
 
   it("renders 'Side C', '上級', and 'Advanced' for tier='advanced'", () => {
     const { container } = render(<TierDivider tier="advanced" />);
-    expect(container.textContent).toContain("Side C");
+    // mock t returns key: t('tier.sideC') => 'tier.sideC', t('tier.advanced') => 'tier.advanced'
+    expect(container.textContent).toContain("tier.sideC");
     expect(container.textContent).toContain("上級");
-    expect(container.textContent).toContain("Advanced");
+    expect(container.textContent).toContain("tier.advanced");
   });
 });
 
@@ -60,17 +63,20 @@ describe("TierDivider — tier-specific SVG icons", () => {
 describe("TierDivider — aria-label (full bilingual text for screen readers)", () => {
   it("aria-label carries full 'Side A · 基礎 · Beginner' for tier='basic'", () => {
     const { getByLabelText } = render(<TierDivider tier="basic" />);
-    expect(getByLabelText("Side A · 基礎 · Beginner")).toBeDefined();
+    // mock t returns key: aria-label = "tier.sideA · 基礎 · tier.beginner"
+    expect(getByLabelText("tier.sideA · 基礎 · tier.beginner")).toBeDefined();
   });
 
   it("aria-label carries full 'Side B · 中級 · Intermediate' for tier='intermediate'", () => {
     const { getByLabelText } = render(<TierDivider tier="intermediate" />);
-    expect(getByLabelText("Side B · 中級 · Intermediate")).toBeDefined();
+    // mock t returns key: aria-label = "tier.sideB · 中級 · tier.intermediate"
+    expect(getByLabelText("tier.sideB · 中級 · tier.intermediate")).toBeDefined();
   });
 
   it("aria-label carries full 'Side C · 上級 · Advanced' for tier='advanced'", () => {
     const { getByLabelText } = render(<TierDivider tier="advanced" />);
-    expect(getByLabelText("Side C · 上級 · Advanced")).toBeDefined();
+    // mock t returns key: aria-label = "tier.sideC · 上級 · tier.advanced"
+    expect(getByLabelText("tier.sideC · 上級 · tier.advanced")).toBeDefined();
   });
 });
 

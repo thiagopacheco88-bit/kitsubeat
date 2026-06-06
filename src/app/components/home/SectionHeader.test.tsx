@@ -49,7 +49,7 @@ describe("SectionHeader", () => {
   });
 
   it("Test 4: viewAll present — renders <a href> with View all text", () => {
-    const { getByText } = render(
+    const { container } = render(
       <SectionHeader
         titleJp="特集"
         title="Featured Songs"
@@ -57,7 +57,7 @@ describe("SectionHeader", () => {
         viewAllLabel="Browse Songs"
       />,
     );
-    const link = getByText(/Browse Songs/i).closest("a");
+    const link = container.querySelector('a[aria-label="Browse Songs"]');
     expect(link).not.toBeNull();
     expect(link?.getAttribute("href")).toBe("/songs");
   });

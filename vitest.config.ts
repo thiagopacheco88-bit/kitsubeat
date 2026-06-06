@@ -52,8 +52,16 @@ export default defineConfig({
     setupFiles: ["./tests/integration/setup.ts"],
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "./src") },
+      {
+        find: /^next-intl\/server$/,
+        replacement: path.resolve(__dirname, "tests/support/mocks/next-intl-server.ts"),
+      },
+      {
+        find: /^next-intl$/,
+        replacement: path.resolve(__dirname, "tests/support/mocks/next-intl.ts"),
+      },
+    ],
   },
 });

@@ -53,25 +53,19 @@ describe("ThemeToggle", () => {
     expect(label).toMatch(/Theme/);
   });
 
-  it("cycles system -> light -> dark -> system on click", async () => {
+  it("cycles dark -> light -> dark on click", async () => {
     render(<ThemeToggle />);
     const btn = screen.getByRole("button");
 
-    // Initial: cookie absent → 'system'
-    // Wrap clicks in act() so React flushes state updates between them
-    // (the cycle handler reads pref via closure; it must re-render between clicks).
+    // Initial: cookie absent → 'dark' (ORDER[0])
+    // ORDER = ["dark", "light"]: dark → light → dark → light…
     await act(async () => {
-      fireEvent.click(btn); // → light
+      fireEvent.click(btn); // dark → light
     });
     expect(document.documentElement.getAttribute("data-theme")).toBe("light");
 
     await act(async () => {
-      fireEvent.click(btn); // → dark
-    });
-    expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
-
-    await act(async () => {
-      fireEvent.click(btn); // → system (resolves to dark via mocked matchMedia)
+      fireEvent.click(btn); // light → dark
     });
     expect(document.documentElement.getAttribute("data-theme")).toBe("dark");
   });

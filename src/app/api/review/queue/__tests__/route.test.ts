@@ -7,7 +7,38 @@
  * sufficient to lock the response shape against regression.
  */
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+
+vi.mock("@clerk/nextjs/server", () => ({
+  auth: vi.fn().mockResolvedValue({ userId: "test-user-id" }),
+  clerkClient: vi.fn(),
+}));
+
+vi.mock("@/lib/user-prefs", async (importOriginal) => {
+  const original = await importOriginal<typeof import("@/lib/user-prefs")>();
+  return {
+    ...original,
+    getCurrentUserId: vi.fn().mockResolvedValue("test-user-id"),
+  };
+});
+
+vi.mock("@/app/actions/userPrefs", async (importOriginal) => {
+  const original = await importOriginal<typeof import("@/app/actions/userPrefs")>();
+  return {
+    ...original,
+    isPremium: vi.fn().mockResolvedValue(true),
+  };
+});
+
+vi.mock("@/lib/db/queries", async (importOriginal) => {
+  const original = await importOriginal<typeof import("@/lib/db/queries")>();
+  return {
+    ...original,
+    getDueReviewQueue: vi.fn().mockResolvedValue({ due: [], new: [] }),
+    getNewCardBudget: vi.fn().mockResolvedValue(10),
+  };
+});
+
 import type { VocabRow, QueueResponse } from "../route";
 import type { ReviewQueueItem } from "@/lib/review/queue-builder";
 
