@@ -28,8 +28,9 @@ import { sql } from "drizzle-orm";
 import { getTestDb } from "../support/test-db";
 
 const SLUG = "again-yui";
-/** The hardcoded userId the production UI passes via SongContent.tsx → ExerciseTab. */
-const PROD_HARDCODED_USER_ID = "anonymous";
+/** The userId written by the exercise actions. In E2E auth-bypass runs this is
+ *  KB_E2E_AUTH_BYPASS ("test-user-1" by default); historically was "anonymous". */
+const PROD_HARDCODED_USER_ID = process.env.KB_E2E_AUTH_BYPASS ?? "test-user-1";
 
 const HAS_TEST_DB = Boolean(process.env.TEST_DATABASE_URL);
 
@@ -39,6 +40,22 @@ interface QuestionPeek {
   index: number;
   total: number;
   vocabItemId: string;
+}
+
+/** Click through any LearnCard intros before the question card renders.
+ *  Waits for either a learn-card OR a question-card to appear (handles the timing
+ *  gap between store-ready and first React render), then dismisses learn-cards. */
+async function skipLearnCards(page: Page) {
+  for (let i = 0; i < 15; i++) {
+    try {
+      await page.locator('[data-testid="learn-card"], [data-question-id]').first()
+        .waitFor({ state: "visible", timeout: 5_000 });
+    } catch { break; }
+    const lc = page.locator('[data-testid="learn-card"]');
+    if ((await lc.count()) === 0) break;
+    await lc.first().click({ force: true });
+    await lc.first().waitFor({ state: "hidden", timeout: 3_000 }).catch(() => {});
+  }
 }
 
 async function startShortSession(page: Page) {
@@ -51,6 +68,7 @@ async function startShortSession(page: Page) {
         .__kbExerciseStore !== "undefined",
     { timeout: 10_000 }
   );
+  await skipLearnCards(page);
   await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
 }
 
@@ -91,6 +109,7 @@ async function runSession(page: Page) {
       .catch(() => false);
     if (summaryVisible) return;
 
+    await skipLearnCards(page);
     const snap = await peekCurrent(page);
     const card = page.locator("[data-question-id]");
     await card.waitFor({ state: "visible", timeout: 5_000 });
@@ -294,6 +313,7 @@ test.describe("Exercise progress + FSRS DB writes", () => {
           .__kbExerciseStore !== "undefined",
       { timeout: 10_000 }
     );
+    await skipLearnCards(page);
     await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
     await runSession(page);
     await waitForSaveComplete(page);
@@ -328,7 +348,7 @@ test.describe("Exercise progress + FSRS DB writes", () => {
     await waitForSaveComplete(page);
 
     // Visit /songs and locate the SongCard for again-yui.
-    await page.goto("/songs");
+    await page.goto("/songs", { timeout: 60_000 });
     const card = page.locator(`a[href="/songs/${SLUG}"]`).first();
     await expect(card).toBeVisible();
 

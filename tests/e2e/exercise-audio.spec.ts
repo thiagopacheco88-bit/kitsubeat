@@ -27,6 +27,7 @@
 
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { resetTestProgress, TEST_USER_ID } from "../support/test-db";
 
 const SLUG = "again-yui";
 
@@ -162,6 +163,10 @@ test.describe("Exercise audio — TTS integration", () => {
 
   test.beforeAll(async ({ browser }) => {
     test.setTimeout(120_000);
+    // Reset FSRS progress so sessions always start with new-vocab questions.
+    if (process.env.TEST_DATABASE_URL) {
+      await resetTestProgress(TEST_USER_ID).catch(() => {});
+    }
     const ctx = await browser.newContext();
     const warmPage = await ctx.newPage();
     try {

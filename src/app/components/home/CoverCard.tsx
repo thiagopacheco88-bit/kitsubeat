@@ -38,6 +38,8 @@ interface CoverCardProps {
   opEd?: "OP" | "ED" | null;
   /** Phase 14.4 REQ-1 — "X listening now" chip. Only passed by home page. Absent → chip suppressed. */
   nowPlayingCount?: number;
+  /** Base path for the card link. Defaults to "/songs". Use "/scenes" for scene cards. */
+  basePath?: string;
 }
 
 // Spec dimensions (CONTEXT §Specifics line 258):
@@ -48,7 +50,7 @@ const COVER_CARD_W = 154; // px
 const COVER_CARD_H = 196; // px
 const COVER_PANEL_H = 116; // px (~60%)
 
-export function CoverCard({ song, stars = 0, showMastery, opEd, nowPlayingCount }: CoverCardProps) {
+export function CoverCard({ song, stars = 0, showMastery, opEd, nowPlayingCount, basePath = "/songs" }: CoverCardProps) {
   // Anonymous-catalog gate (D-14) — mirrors SongCard's showProgress precedent.
   const showMasteryBanner = showMastery && stars === 3;
   const showAura = showMastery && stars > 0;
@@ -59,7 +61,7 @@ export function CoverCard({ song, stars = 0, showMastery, opEd, nowPlayingCount 
 
   return (
     <CardLink
-      href={`/songs/${song.slug}`}
+      href={`${basePath}/${song.slug}`}
       variant="flat"
       size="sm"
       className="relative shrink-0 snap-start overflow-hidden rounded-[var(--radius-lg)] p-0 flex flex-col transition-transform duration-200 hover:-translate-y-1 hover:scale-[1.02]"

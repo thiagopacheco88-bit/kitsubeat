@@ -59,10 +59,10 @@ test("Each track card (Vocab/Grammar/Kanji) has Short and Long toggle buttons", 
   await page.goto(`/songs/${KANJI_SONG_SLUG}`);
   const practiceTab = page.locator("button").filter({ hasText: /^Practice$/i });
   await practiceTab.click();
-  await page.waitForTimeout(500);
 
-  // Each track card should have a radiogroup with Short and Long buttons
+  // Wait for hydration — ExerciseTab renders a skeleton until _hasHydrated is true.
   const radioGroups = page.getByRole("radiogroup");
+  await expect(radioGroups.first()).toBeVisible({ timeout: 10_000 });
   const groupCount = await radioGroups.count();
   // At minimum 3 track cards (Vocab, Grammar, Kanji) each have a radiogroup
   expect(groupCount).toBeGreaterThanOrEqual(3);
@@ -156,10 +156,10 @@ test("Click Vocabulary track Short + Start → ExerciseSession starts with ≤10
   const vocabHeading = page.getByRole("heading", { name: /vocabulary/i });
   await expect(vocabHeading).toBeVisible();
 
-  // Short should already be selected (default); click Start on the Vocabulary card
-  // The Start button is within the Vocabulary card — use the card's context
+  // Short should already be selected (default); click Start on the Vocabulary card.
+  // Cards use rounded-[var(--radius-xl)] — match by border instead (static class).
   const vocabCard = page
-    .locator(".rounded-xl")
+    .locator("div.border")
     .filter({ has: page.getByRole("heading", { name: /vocabulary/i }) });
   const startButton = vocabCard.getByRole("button", { name: /start/i });
   await startButton.click();

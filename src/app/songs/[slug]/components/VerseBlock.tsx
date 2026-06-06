@@ -71,7 +71,11 @@ export default function VerseBlock({
         {/* Phase 11.6 D-14: gold star next to dominated verses. Sits before
             the "Verse N" label so it reads as a badge on the verse. */}
         {isDominated && <VerseStarIcon />}
-        <span>Verse {verse.verse_number}</span>
+        {verse.speaker ? (
+          <span className="text-[var(--color-accent)] font-semibold">{verse.speaker}</span>
+        ) : (
+          <span>Verse {verse.verse_number}</span>
+        )}
         {isFiller && (
           <span className="rounded-[var(--radius-sm)] bg-[var(--color-card-2)] px-1.5 py-0.5 text-[var(--text-nano)] text-[var(--color-text-dim)]">
             placeholder
@@ -95,7 +99,7 @@ export default function VerseBlock({
 
       {/* Translation — filler verses skip the placeholder gloss */}
       {!isFiller && (
-        <p className="mb-1.5 text-sm leading-relaxed text-[var(--color-text-muted)]">
+        <p className="mb-1.5 text-sm leading-relaxed text-[var(--color-text-muted)]" data-testid="verse-translation">
           {translation}
         </p>
       )}

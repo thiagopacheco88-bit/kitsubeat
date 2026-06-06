@@ -145,6 +145,7 @@ function VocabRow({
 
   return (
     <div
+      data-testid="vocab-row"
       className="cursor-pointer rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 transition-colors hover:border-[var(--color-border-strong)]"
       onClick={onToggle}
     >

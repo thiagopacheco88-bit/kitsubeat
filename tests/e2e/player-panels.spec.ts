@@ -57,12 +57,9 @@ test.describe("Grammar + Vocabulary panels", () => {
       .filter({ has: page.locator("span.text-base") });
     await expect(grammarCards.first()).toBeVisible({ timeout: 5_000 });
 
-    // Color-coded items: at least one element in the panel uses the GRAMMAR_COLOR_CLASS
-    // palette (text-pink-, text-blue-, text-green-, text-yellow-, text-purple-, text-orange-).
-    // We restrict the search to the grammar tab area to avoid false positives elsewhere.
-    const colorCoded = page.locator(
-      "[class*='text-blue-'],[class*='text-pink-'],[class*='text-green-'],[class*='text-yellow-'],[class*='text-purple-'],[class*='text-orange-']"
-    );
+    // Color-coded items: at least one element uses the GRAMMAR_COLOR_CLASS palette
+    // (text-grammar-noun, text-grammar-verb, text-grammar-adjective, etc.).
+    const colorCoded = page.locator("[class*='text-grammar-']");
     expect(await colorCoded.count()).toBeGreaterThan(0);
   });
 
@@ -89,9 +86,7 @@ test.describe("Grammar + Vocabulary panels", () => {
 
     // Vocab rows are .cursor-pointer divs inside the vocabulary section — at least 5
     // for again-yui (the lesson seeds dozens of vocab entries).
-    const vocabRows = page.locator(
-      "div.cursor-pointer.rounded-lg.border.border-gray-800"
-    );
+    const vocabRows = page.locator('[data-testid="vocab-row"]');
     const rowCount = await vocabRows.count();
     expect(rowCount).toBeGreaterThanOrEqual(5);
   });
@@ -110,15 +105,15 @@ test.describe("Grammar + Vocabulary panels", () => {
     await page.getByRole("button", { name: /^All\s*\(/ }).click();
 
     const firstRow = page
-      .locator("div.cursor-pointer.rounded-lg.border.border-gray-800")
+      .locator('[data-testid="vocab-row"]')
       .first();
     await expect(firstRow).toBeVisible({ timeout: 5_000 });
 
     // Click to expand.
     await firstRow.click();
 
-    // Expanded detail is a .border-t.border-gray-800.pt-3 inside the row.
-    const expanded = firstRow.locator("div.border-t.border-gray-800.pt-3");
+    // Expanded detail: mt-3 border-t border-[var(--color-border)] pt-3 — match on static classes.
+    const expanded = firstRow.locator("div.mt-3.border-t.pt-3");
     await expect(expanded).toBeVisible({ timeout: 3_000 });
 
     // The expanded section contains the example_from_song quoted text — assert non-empty.

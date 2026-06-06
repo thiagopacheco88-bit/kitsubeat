@@ -6,7 +6,7 @@
  * The shared CoverCard + Carousel pattern is identical to Featured Songs.
  */
 
-import { getSongsBySkillLevel, getClassicSongs, getModernSongs } from "@/lib/db/queries";
+import { getSongsBySkillLevel, getClassicSongs, getModernSongs, getFeaturedScenes } from "@/lib/db/queries";
 import { SectionHeader } from "./SectionHeader";
 import { Carousel } from "./Carousel";
 import { CoverCard } from "./CoverCard";
@@ -119,5 +119,26 @@ export async function ModernCarousel({ showMastery, title = "Modern" }: Carousel
       showMastery={showMastery}
       testId="modern-songs"
     />
+  );
+}
+
+export async function SceneCarousel({ showMastery, title = "Famous Scenes" }: CarouselProps) {
+  const scenes = await getFeaturedScenes();
+  if (scenes.length === 0) return null;
+  return (
+    <section data-testid="famous-scenes" className="pb-8">
+      <SectionHeader titleJp="名場面" title={title} viewAll="/scenes" viewAllLabel="Browse Scenes" />
+      <Carousel testId="famous-scenes-carousel" ariaLabel={title}>
+        {scenes.map((scene) => (
+          <CoverCard
+            key={scene.slug}
+            song={scene}
+            stars={0}
+            showMastery={showMastery}
+            basePath="/scenes"
+          />
+        ))}
+      </Carousel>
+    </section>
   );
 }

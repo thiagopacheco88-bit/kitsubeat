@@ -56,6 +56,7 @@ export function LanternStreak({ count }: LanternStreakProps) {
         aria-hidden="true"
         className="flex-shrink-0 rounded-full"
         style={{ opacity }}
+        data-testid="lantern-flame"
       />
 
       {/* Streak count */}

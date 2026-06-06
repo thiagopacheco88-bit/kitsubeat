@@ -76,6 +76,8 @@ export interface Verse {
    * vocab, or grammar enrichment — UI renders it muted.
    */
   filler?: boolean;
+  /** Character name for scene dialogue lines. Absent for song verses. */
+  speaker?: string;
 }
 
 export interface VocabEntry {

@@ -26,6 +26,7 @@ import { STARTER_SONG_SLUGS } from "@/lib/gamification/starter-songs";
 import { getPostHogServer } from "@/lib/posthog-server";
 import { auth } from "@clerk/nextjs/server";
 import { exerciseRatelimit, sessionRatelimit } from "@/lib/rate-limit";
+import { getCurrentUserId } from "@/lib/user-prefs";
 
 // ---------------------------------------------------------------------------
 // Phase 10 Plan 06 — Advanced Drills access summary (server action).
@@ -221,7 +222,7 @@ interface SaveSessionResult {
 export async function saveSessionResults(
   input: SaveSessionInput
 ): Promise<SaveSessionResult> {
-  const { userId } = await auth();
+  const userId = await getCurrentUserId();
   if (!userId) throw new Error("Unauthorized");
 
   // Rate limit: 10 session saves/min per user (Phase 16 SC-4)
@@ -737,7 +738,7 @@ interface RecordAnswerResult {
 export async function recordVocabAnswer(
   input: RecordAnswerInput
 ): Promise<RecordAnswerResult> {
-  const { userId } = await auth();
+  const userId = await getCurrentUserId();
   if (!userId) throw new Error("Unauthorized");
 
   // Rate limit: 120 answers/min per user (Phase 16 SC-4)

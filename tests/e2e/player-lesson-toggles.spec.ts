@@ -71,9 +71,8 @@ test.describe("Player lesson toggles", () => {
     // Click the "Portugues" language button (PlayerControls renders this as a tab).
     await page.getByRole("button", { name: "Portugues" }).click();
 
-    // Verses still render translation lines (the .text-gray-300 paragraph in VerseBlock).
-    // Even if the song has no PT-BR translation, the fallback to "en" still renders text.
-    const translationLines = page.locator("[class*='text-gray-300']");
+    // Verses still render translation paragraphs (data-testid="verse-translation" in VerseBlock).
+    const translationLines = page.locator('[data-testid="verse-translation"]');
     await expect(translationLines.first()).toBeVisible({ timeout: 3_000 });
   });
 
@@ -88,8 +87,8 @@ test.describe("Player lesson toggles", () => {
     // Clicking the <ruby> directly works because it's inside the cursor-pointer span.
     await ruby.click();
 
-    // TokenPopup renders inside a div with class `z-50` and `rounded-lg`.
-    const popup = page.locator("[class*='z-50'][class*='rounded-lg']").first();
+    // TokenPopup has data-testid="token-popup".
+    const popup = page.locator('[data-testid="token-popup"]').first();
     await expect(popup).toBeVisible({ timeout: 3_000 });
 
     // Inside the popup: reading line is `<reading> &middot; <romaji>` — must NOT be empty.

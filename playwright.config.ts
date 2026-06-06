@@ -1,4 +1,9 @@
 import { defineConfig } from "@playwright/test";
+import { config as loadEnvFile } from "dotenv";
+
+// Load .env.test so TEST_DATABASE_URL is available to test fixtures (test-db.ts)
+// without needing to set it in the shell before every run.
+loadEnvFile({ path: ".env.test" });
 
 /**
  * Playwright configuration for the Kitsubeat E2E suite.
@@ -62,6 +67,12 @@ export default defineConfig({
     // This env var is benign in any other context — it only flips the test-only hooks.
     env: {
       NEXT_PUBLIC_APP_ENV: "test",
+      // When PLAYWRIGHT_AUTH=true (E2E auth-bypass runs), redirect DB writes to the test
+      // database so exercise-progress-fsrs and similar specs can assert on what they wrote.
+      // TEST_DATABASE_URL is loaded from .env.test by the loadEnvFile() call above.
+      ...(process.env.PLAYWRIGHT_AUTH === "true" && process.env.TEST_DATABASE_URL
+        ? { DATABASE_URL: process.env.TEST_DATABASE_URL }
+        : {}),
       // Phase 11.5: Pass Clerk env vars through to dev server if set in caller's environment.
       // Without these, /admin/* tests will hit the middleware and Clerk will throw.
       // Set NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY + CLERK_SECRET_KEY in .env.local to enable admin e2e.

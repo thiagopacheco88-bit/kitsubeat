@@ -31,6 +31,19 @@ interface QuestionPeek {
   total: number;
 }
 
+async function skipLearnCards(page: Page) {
+  for (let i = 0; i < 15; i++) {
+    try {
+      await page.locator('[data-testid="learn-card"], [data-question-id]').first()
+        .waitFor({ state: "visible", timeout: 5_000 });
+    } catch { break; }
+    const lc = page.locator('[data-testid="learn-card"]');
+    if ((await lc.count()) === 0) break;
+    await lc.first().click({ force: true });
+    await lc.first().waitFor({ state: "hidden", timeout: 3_000 }).catch(() => {});
+  }
+}
+
 async function startShortSession(page: Page) {
   await page.goto(`/songs/${SLUG}`);
   await page.getByRole("button", { name: /^practice$/i }).click();
@@ -41,6 +54,7 @@ async function startShortSession(page: Page) {
         .__kbExerciseStore !== "undefined",
     { timeout: 10_000 }
   );
+  await skipLearnCards(page);
   await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
 }
 
@@ -103,6 +117,7 @@ async function runSession(
       .catch(() => false);
     if (summaryVisible) return;
 
+    await skipLearnCards(page);
     const snap = await peekCurrent(page);
     const card = page.locator("[data-question-id]");
     await card.waitFor({ state: "visible", timeout: 5_000 });

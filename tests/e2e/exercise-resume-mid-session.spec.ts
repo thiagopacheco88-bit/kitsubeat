@@ -38,6 +38,19 @@ interface QuestionPeek {
   total: number;
 }
 
+async function skipLearnCards(page: Page) {
+  for (let i = 0; i < 15; i++) {
+    try {
+      await page.locator('[data-testid="learn-card"], [data-question-id]').first()
+        .waitFor({ state: "visible", timeout: 5_000 });
+    } catch { break; }
+    const lc = page.locator('[data-testid="learn-card"]');
+    if ((await lc.count()) === 0) break;
+    await lc.first().click({ force: true });
+    await lc.first().waitFor({ state: "hidden", timeout: 3_000 }).catch(() => {});
+  }
+}
+
 async function startShortSession(page: Page, slug: string) {
   await page.goto(`/songs/${slug}`);
   await page.getByRole("button", { name: /^practice$/i }).click();
@@ -48,6 +61,7 @@ async function startShortSession(page: Page, slug: string) {
         .__kbExerciseStore !== "undefined",
     { timeout: 10_000 }
   );
+  await skipLearnCards(page);
   await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
 }
 
@@ -75,6 +89,7 @@ async function peekCurrent(page: Page): Promise<QuestionPeek> {
 }
 
 async function answerCurrent(page: Page, useCorrect: boolean = true) {
+  await skipLearnCards(page);
   const snap = await peekCurrent(page);
   const card = page.locator("[data-question-id]");
   await card.waitFor({ state: "visible", timeout: 5_000 });
@@ -141,17 +156,20 @@ test.describe("Exercise resume mid-session", () => {
     // Reload the page (simulates closing & reopening the browser).
     await page.reload();
 
-    // Wait for hydration — the test hook reattaches AND the Zustand persist
-    // middleware fires onRehydrateStorage which sets _hasHydrated=true.
+    // Wait for hydration AND questions to be restored from localStorage.
     await page.waitForFunction(
-      () =>
-        typeof (window as unknown as { __kbExerciseStore?: unknown })
-          .__kbExerciseStore !== "undefined",
-      { timeout: 10_000 }
+      () => {
+        const store = (window as unknown as { __kbExerciseStore?: { getState: () => { questions: unknown[] } } }).__kbExerciseStore;
+        return !!store && store.getState().questions.length > 0;
+      },
+      { timeout: 15_000 }
     );
 
+    // Navigate to Practice tab (reload returns to default Words tab).
+    await page.getByRole("button", { name: /^practice$/i }).click();
     // After hydration, ExerciseTab's `hasActiveSession` (isSessionForSong)
     // returns true and we land directly in the session view (no resume prompt).
+    await skipLearnCards(page);
     await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
 
     // Verify localStorage still holds the session after reload.
@@ -223,6 +241,7 @@ test.describe("Exercise resume mid-session", () => {
 
     // Start a fresh session.
     await page.getByRole("button", { name: /^Start$/ }).first().click();
+    await skipLearnCards(page);
     await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
 
     // Index must be 0 (question 1).

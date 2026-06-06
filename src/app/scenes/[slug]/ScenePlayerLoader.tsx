@@ -11,9 +11,9 @@ import { db } from "@/lib/db/index";
 import { userSongProgress, songVersionGrammarRules, userExerciseLog } from "@/lib/db/schema";
 import { eq, and, inArray, sql } from "drizzle-orm";
 import { getPostHogServer } from "@/lib/posthog-server";
-import SongContent from "./components/SongContent";
+import SongContent from "@/app/songs/[slug]/components/SongContent";
 
-export async function SongPlayerLoader({
+export async function ScenePlayerLoader({
   slug,
   userId,
 }: {
@@ -24,21 +24,19 @@ export async function SongPlayerLoader({
   if (!song) notFound();
 
   if (song.quality_status !== "active") notFound();
-  if (song.language !== "ja") notFound();
-  if (song.content_type !== "song") notFound();
+  if (song.content_type !== "scene") notFound();
   const hasIdleVersion = song.versions.some((v) => v.pipeline_status === "idle");
   if (!hasIdleVersion) notFound();
 
-  // Analytics — non-fatal, must never block render
   try {
     const ph = getPostHogServer();
     ph.capture({
       distinctId: userId,
-      event: "song_opened",
+      event: "scene_opened",
       properties: {
-        song_slug: song.slug,
+        scene_slug: song.slug,
+        anime: song.anime,
         jlpt_level: song.jlpt_level ?? "unknown",
-        difficulty_tier: song.difficulty_tier ?? "unknown",
       },
     });
   } catch {
@@ -176,12 +174,6 @@ export async function SongPlayerLoader({
   const versionsWithPcts = versions.map((v) => {
     const progress = progressMap.get(v.id);
     const kanjiPct = progress?.kanji ?? (v.hasKanjiBearingVocab === false ? 100 : 0);
-    // Correct stale grammar_track_pct = 100% caused by the old auto-pass bug.
-    // Auto-pass wrote 100% when song_version_grammar_rules was empty (even if the
-    // lesson had grammar_points). Exercises may have since been generated, but the
-    // DB row still holds the stale 100%.
-    // Override to 0% when: DB says 100% AND the user has zero grammar exercise
-    // attempts in user_exercise_log (i.e. they never actually did grammar practice).
     const lessonGrammarCount = v.lesson.grammar_points?.length ?? 0;
     const grammarExercisesCount = grammarRuleCountMap.get(v.id) ?? 0;
     const grammarLogCount = grammarLogCountMap.get(v.id) ?? 0;
@@ -215,7 +207,7 @@ export async function SongPlayerLoader({
         season_info: song.season_info,
         jlpt_level: song.jlpt_level,
         difficulty_tier: song.difficulty_tier,
-        content_type: song.content_type as "song" | "scene",
+        content_type: "scene",
       }}
       versions={versionsWithPcts}
       songId={song.id}

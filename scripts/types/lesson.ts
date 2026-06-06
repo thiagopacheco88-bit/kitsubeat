@@ -71,6 +71,9 @@ export const VerseSchema = z.object({
   cultural_context: LocalizableSchema.optional().describe(
     "Multilingual cultural or emotional context note for this verse"
   ),
+  speaker: z.string().optional().describe(
+    "Character name who speaks this line (scenes only, absent for songs)"
+  ),
 });
 
 export type Verse = z.infer<typeof VerseSchema>;

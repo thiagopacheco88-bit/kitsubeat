@@ -50,6 +50,7 @@ export default function TokenPopup({
   return (
     <div
       ref={ref}
+      data-testid="token-popup"
       className={`absolute top-full z-50 mt-2 w-60 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-card)] p-3 shadow-[var(--shadow-card-ring-strong)] ${
         alignRight ? "right-0" : "left-1/2 -translate-x-1/2"
       }`}

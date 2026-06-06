@@ -119,7 +119,15 @@ export async function getAllSongSlugsForSitemap() {
   return db
     .select({ slug: songs.slug, updated_at: songs.updated_at })
     .from(songs)
-    .where(eq(songs.is_available, true))
+    .where(and(eq(songs.is_available, true), eq(songs.content_type, "song")))
+    .orderBy(asc(songs.slug));
+}
+
+export async function getAllSceneSlugsForSitemap() {
+  return db
+    .select({ slug: songs.slug, updated_at: songs.updated_at })
+    .from(songs)
+    .where(and(eq(songs.is_available, true), eq(songs.content_type, "scene")))
     .orderBy(asc(songs.slug));
 }
 
@@ -328,6 +336,7 @@ export async function getAllSongs(userId?: string | null, languageFilter?: strin
     ) ${languageFilter ? sql`AND ${songs.language} = ${languageFilter}` : sql``}
     AND ${songs.quality_status} = 'active'
     AND ${songs.is_available} = true
+    AND ${songs.content_type} = 'song'
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
@@ -368,6 +377,7 @@ export async function getFeaturedSongs(limit: number = 6) {
     ) AND ${songs.language} = 'ja'
     AND ${songs.quality_status} = 'active'
     AND ${songs.is_available} = true
+    AND ${songs.content_type} = 'song'
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
@@ -398,6 +408,17 @@ const activeSongWhere = () => and(
   eq(songs.language, "ja"),
   eq(songs.quality_status, "active"),
   eq(songs.is_available, true),
+  eq(songs.content_type, "song"),
+  sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle')`
+);
+
+// Shared active-scene filter fragments for scene carousel queries.
+const activeSceneWhere = () => and(
+  sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL)`,
+  eq(songs.language, "ja"),
+  eq(songs.quality_status, "active"),
+  eq(songs.is_available, true),
+  eq(songs.content_type, "scene"),
   sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle')`
 );
 
@@ -440,6 +461,117 @@ export const getModernSongs = unstable_cache(
       .limit(limit);
   },
   ["songs-modern"],
+  { revalidate: 3600 }
+);
+
+// ---------------------------------------------------------------------------
+// Scene queries
+// ---------------------------------------------------------------------------
+
+export async function getAllScenes(userId?: string | null) {
+  const userIdParam = userId ?? null;
+  return db
+    .select({
+      id: songs.id,
+      slug: songs.slug,
+      title: songs.title,
+      artist: songs.artist,
+      anime: songs.anime,
+      season_info: songs.season_info,
+      youtube_id: sql<string | null>`(
+        SELECT sv.youtube_id FROM song_versions sv
+        WHERE sv.song_id = songs.id AND sv.youtube_id IS NOT NULL
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END
+        LIMIT 1
+      )`,
+      jlpt_level: songs.jlpt_level,
+      difficulty_tier: songs.difficulty_tier,
+      language: songs.language,
+      genre_tags: songs.genre_tags,
+      mood_tags: songs.mood_tags,
+      ex1_2_3_best_accuracy: sql<number | null>`(
+        SELECT p.ex1_2_3_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      ex4_best_accuracy: sql<number | null>`(
+        SELECT p.ex4_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      ex5_best_accuracy: sql<number | null>`(
+        SELECT p.ex5_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      ex6_best_accuracy: sql<number | null>`(
+        SELECT p.ex6_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      ex7_best_accuracy: sql<number | null>`(
+        SELECT p.ex7_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      grammar_best_accuracy: sql<number | null>`(
+        SELECT p.grammar_best_accuracy FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      has_grammar: sql<boolean>`EXISTS (
+        SELECT 1 FROM song_version_grammar_rules svgr
+        INNER JOIN song_versions sv ON sv.id = svgr.song_version_id
+        WHERE sv.song_id = songs.id
+      )`,
+      completion_pct: sql<number | null>`(
+        SELECT p.completion_pct FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      avg_track_pct: sql<string | null>`(
+        SELECT ROUND((
+          COALESCE(p.vocab_track_pct, 0) +
+          COALESCE(p.grammar_track_pct, 0) +
+          COALESCE(p.kanji_track_pct, 0)
+        ) / 3.0, 0)::text
+        FROM user_song_progress p
+        INNER JOIN song_versions sv ON sv.id = p.song_version_id
+        WHERE sv.song_id = songs.id AND p.user_id = ${userIdParam}
+        ORDER BY CASE sv.version_type WHEN 'tv' THEN 0 ELSE 1 END LIMIT 1
+      )`,
+      learner_count: sql<number>`(
+        SELECT COUNT(DISTINCT COALESCE(sp.user_id, sp.session_key))::int
+        FROM song_plays sp
+        INNER JOIN song_versions sv ON sv.id = sp.song_version_id
+        WHERE sv.song_id = songs.id
+      )`,
+      verses_dominated_pct: sql<string | null>`NULL::text`,
+    })
+    .from(songs)
+    .where(and(activeSceneWhere()))
+    .orderBy(asc(songs.popularity_rank));
+}
+
+export type SceneListItem = Awaited<ReturnType<typeof getAllScenes>>[number];
+
+export const getFeaturedScenes = unstable_cache(
+  async (limit = 12) => {
+    return db
+      .select(HOME_SONG_SELECT)
+      .from(songs)
+      .where(activeSceneWhere())
+      .orderBy(asc(songs.popularity_rank))
+      .limit(limit);
+  },
+  ["scenes-featured"],
   { revalidate: 3600 }
 );
 
@@ -507,6 +639,7 @@ export async function getContinueLearning(
         sql`${userSongProgress.completion_pct} > 0`,
         eq(songs.language, "ja"),
         eq(songs.quality_status, "active"),
+        eq(songs.content_type, "song"),
       ),
     )
     .orderBy(desc(userSongProgress.updated_at))
@@ -600,6 +733,7 @@ async function selectHeroSongRowBySlug(slug: string): Promise<HeroSongRow | null
         eq(songs.slug, slug),
         eq(songs.language, "ja"),
         eq(songs.quality_status, "active"),
+        eq(songs.content_type, "song"),
         sql`EXISTS (SELECT 1 FROM song_versions sv WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL)`,
       ),
     )
@@ -639,6 +773,7 @@ async function selectTopFeaturedHeroRow(): Promise<HeroSongRow> {
       and(
         eq(songs.language, "ja"),
         eq(songs.quality_status, "active"),
+        eq(songs.content_type, "song"),
         sql`EXISTS (
           SELECT 1 FROM song_versions sv
           WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
@@ -753,6 +888,7 @@ async function _getTopAnimeFranchises(limit: number) {
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
     ) AND ${songs.language} = 'ja'
     AND ${songs.quality_status} = 'active'
+    AND ${songs.content_type} = 'song'
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
@@ -790,6 +926,7 @@ export async function getTopArtists(limit: number = 10) {
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
     ) AND ${songs.language} = 'ja'
     AND ${songs.quality_status} = 'active'
+    AND ${songs.content_type} = 'song'
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
@@ -857,6 +994,7 @@ export async function getBeginnerSongs(limit: number = 10) {
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
     ) AND ${songs.jlpt_level} IN ('N5', 'N4') AND ${songs.language} = 'ja'
     AND ${songs.quality_status} = 'active'
+    AND ${songs.content_type} = 'song'
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'
@@ -891,6 +1029,7 @@ export async function getRecentSongs(limit: number = 10) {
       WHERE sv.song_id = ${songs.id} AND sv.lesson IS NOT NULL
     ) AND ${songs.language} = 'ja'
     AND ${songs.quality_status} = 'active'
+    AND ${songs.content_type} = 'song'
     AND EXISTS (
       SELECT 1 FROM song_versions sv
       WHERE sv.song_id = ${songs.id} AND sv.pipeline_status = 'idle'

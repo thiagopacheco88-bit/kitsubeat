@@ -102,6 +102,17 @@ test.describe("Exercise full session", () => {
       { timeout: 10_000 }
     );
 
+    // Dismiss any LearnCard intros before the QuestionCard renders.
+    for (let i = 0; i < 15; i++) {
+      try {
+        await page.locator('[data-testid="learn-card"], [data-question-id]').first()
+          .waitFor({ state: "visible", timeout: 5_000 });
+      } catch { break; }
+      const lc = page.locator('[data-testid="learn-card"]');
+      if ((await lc.count()) === 0) break;
+      await lc.first().click({ force: true });
+      await lc.first().waitFor({ state: "hidden", timeout: 3_000 }).catch(() => {});
+    }
     // Wait for the first QuestionCard to render (data-question-id is the production-safe hook).
     await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
 
@@ -122,6 +133,17 @@ test.describe("Exercise full session", () => {
       // Read the current question via the test-only hook.
       const snap = await readCurrentQuestion(page);
 
+      // Skip any LearnCard intros (new vocab) before the question renders.
+      for (let i = 0; i < 15; i++) {
+        try {
+          await page.locator('[data-testid="learn-card"], [data-question-id]').first()
+            .waitFor({ state: "visible", timeout: 5_000 });
+        } catch { break; }
+        const lc = page.locator('[data-testid="learn-card"]');
+        if ((await lc.count()) === 0) break;
+        await lc.first().click({ force: true });
+        await lc.first().waitFor({ state: "hidden", timeout: 3_000 }).catch(() => {});
+      }
       // Find the answer button matching the correct text. Buttons are rendered as
       // <button>{option}</button> inside QuestionCard.
       const card = page.locator("[data-question-id]");
@@ -169,11 +191,13 @@ test.describe("Exercise full session", () => {
     await page.goto(`/songs/${SLUG}`);
     await page.getByRole("button", { name: /^practice$/i }).click();
     await page.getByRole("button", { name: /^Start$/ }).first().click();
+    // Wait for the store to exist AND for questions to be populated (not just store defined).
     await page.waitForFunction(
-      () =>
-        typeof (window as unknown as { __kbExerciseStore?: unknown })
-          .__kbExerciseStore !== "undefined",
-      { timeout: 10_000 }
+      () => {
+        const store = (window as unknown as { __kbExerciseStore?: { getState: () => { questions: unknown[] } } }).__kbExerciseStore;
+        return !!store && store.getState().questions.length > 0;
+      },
+      { timeout: 20_000 }
     );
 
     const types = await readQuestionTypes(page);

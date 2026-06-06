@@ -36,6 +36,7 @@ import {
   AdvancedCarousel,
   ClassicsCarousel,
   ModernCarousel,
+  SceneCarousel,
 } from "./components/home/SongCarousels";
 import { FadeInSection } from "@/components/ui/FadeInSection";
 import { db } from "@/lib/db";
@@ -161,6 +162,12 @@ export default async function HomePage() {
       </FadeInSection>
 
       {/* ── Below-fold carousels — streamed independently via Suspense ── */}
+
+      <FadeInSection>
+        <Suspense fallback={<CarouselSkeleton />}>
+          <SceneCarousel showMastery={isSignedIn} />
+        </Suspense>
+      </FadeInSection>
 
       <FadeInSection>
         <Suspense fallback={<CarouselSkeleton />}>

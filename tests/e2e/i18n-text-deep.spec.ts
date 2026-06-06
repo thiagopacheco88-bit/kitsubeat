@@ -85,6 +85,8 @@ test.describe('i18n — page content text changes with locale', () => {
     await page.getByRole('button', { name: 'Change language' }).click();
     await page.getByRole('option', { name: 'Português' }).click();
     await page.waitForURL(/\/pt-BR\//, { timeout: 25_000 });
+    // Wait for Clerk redirect chain + all cookie-setting responses to fully settle.
+    await page.waitForLoadState('networkidle');
 
     // Verify the kb_locale cookie is set correctly (it drives SSR locale selection).
     const cookies = await context.cookies();

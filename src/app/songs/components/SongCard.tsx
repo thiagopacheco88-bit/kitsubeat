@@ -10,6 +10,9 @@ import BonusBadgeIcon from "./BonusBadgeIcon";
 function formatSeasonInfo(info: string | null, anime: string): string | null {
   if (!info) return null;
 
+  // Scene episode badge: "S03E17" or "S3E17" → render as-is.
+  if (/^S\d+E\d+$/i.test(info.trim())) return info.trim().toUpperCase();
+
   // "Naruto Shippuden OP 3" or "Death Note ED" (first-slot no digit).
   const opEd = info.match(/\b(OP|ED)(?:\s+(\d+))?\b/i);
   if (opEd) {
@@ -51,6 +54,7 @@ interface SongCardProps {
   difficultyLabel?: string;
   learnersLabel?: string;
   dominatedLabel?: string;
+  basePath?: string;
 }
 
 /**
@@ -72,7 +76,7 @@ interface SongCardProps {
  * This is the CONTEXT-locked "don't show mastery decorations to signed-out
  * users" contract.
  */
-export default function SongCard({ song, difficultyLabel, learnersLabel, dominatedLabel }: SongCardProps) {
+export default function SongCard({ song, difficultyLabel, learnersLabel, dominatedLabel, basePath = "/songs" }: SongCardProps) {
   const thumbnailId = song.youtube_id;
   const thumbnail = thumbnailId
     ? `https://img.youtube.com/vi/${thumbnailId}/mqdefault.jpg`
@@ -130,7 +134,7 @@ export default function SongCard({ song, difficultyLabel, learnersLabel, dominat
 
   return (
     <CardLink
-      href={`/songs/${song.slug}`}
+      href={`${basePath}/${song.slug}`}
       variant="flat"
       size="sm"
       className="overflow-hidden rounded-[var(--radius-lg)] p-0"

@@ -40,6 +40,7 @@ interface SongMeta {
   season_info: string | null;
   jlpt_level: string | null;
   difficulty_tier: string | null;
+  content_type?: "song" | "scene";
 }
 
 interface VersionData {
@@ -150,15 +151,26 @@ function SongContentInner({
       <header className="flex min-w-0 flex-col gap-4 border-b border-[var(--color-border)] pb-4 lg:flex-row lg:items-end lg:justify-between">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-dim)]">
-            Now playing
+            {song.content_type === "scene" ? "Now watching" : "Now playing"}
           </p>
           <h1 className="mt-1 break-words text-2xl font-bold text-[var(--color-text)] sm:text-3xl">
             {song.title}
           </h1>
         <p className="mt-1 text-sm text-[var(--color-text-muted)]">
-          {song.artist} &middot; {song.anime}
-          {song.season_info && (
-            <span className="text-[var(--color-text-dim)]"> &middot; {song.season_info}</span>
+          {song.content_type === "scene" ? (
+            <>
+              {song.anime}
+              {song.season_info && (
+                <span className="text-[var(--color-text-dim)]"> &middot; {song.season_info}</span>
+              )}
+            </>
+          ) : (
+            <>
+              {song.artist} &middot; {song.anime}
+              {song.season_info && (
+                <span className="text-[var(--color-text-dim)]"> &middot; {song.season_info}</span>
+              )}
+            </>
           )}
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-2">

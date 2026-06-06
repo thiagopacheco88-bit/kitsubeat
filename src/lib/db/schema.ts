@@ -74,6 +74,12 @@ export const qualityStatusEnum = pgEnum("quality_status",
 export const cardKindEnum = pgEnum("card_kind", ["romaji_meaning", "kanji_kana"]);
 
 /**
+ * Content type enum — distinguishes songs (anime OP/ED/OST) from scenes
+ * (famous dialogue moments used as standalone lesson content).
+ */
+export const contentTypeEnum = pgEnum("content_type", ["song", "scene"]);
+
+/**
  * songs table — shared metadata for anime OP/ED songs.
  *
  * Version-specific data (lesson, lyrics, timing) lives in song_versions.
@@ -119,6 +125,10 @@ export const songs = pgTable("songs", {
   // removed, or made private. Checked by scripts/audit/check-video-availability.ts
   // via the YouTube oEmbed API. All public browse/catalog queries filter on true.
   is_available: boolean("is_available").default(true).notNull(),
+
+  // Scenes feature — "song" for OP/ED/OST tracks, "scene" for famous dialogue moments.
+  // Defaults to "song" so all existing rows are unaffected.
+  content_type: contentTypeEnum("content_type").default("song").notNull(),
 
   // Timestamps
   created_at: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
