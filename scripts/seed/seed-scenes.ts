@@ -33,6 +33,7 @@ const ROOT = resolve(__dirname, "../../");
 const MANIFEST_PATH = join(ROOT, "data/scenes-manifest.json");
 const LESSONS_DIR = join(ROOT, "data/lessons-cache");
 const TIMING_DIR = join(ROOT, "data/timing-cache");
+const SUBS_DIR = join(ROOT, "data/subs-cache");
 
 interface SceneManifestEntry {
   slug: string;
@@ -44,6 +45,7 @@ interface SceneManifestEntry {
   youtube_id: string;
   genre_tags: string[];
   mood_tags: string[];
+  jp_verified?: boolean;
 }
 
 interface TimingWord {
@@ -56,6 +58,7 @@ interface TimingWord {
 interface TimingCache {
   slug: string;
   youtube_id?: string;
+  detected_language?: string;
   words?: TimingWord[];
   segments?: Array<{ start: number; end: number; text: string }>;
 }
@@ -180,6 +183,7 @@ function buildSyncedLrcFromVerses(
 async function main() {
   const args = process.argv.slice(2);
   const slugArg = args.find((a) => a.startsWith("--slug="))?.split("=")[1];
+  const forceFlag = args.includes("--force");
   const slugFilter = slugArg ? new Set(slugArg.split(",")) : null;
 
   const manifest: SceneManifestEntry[] = JSON.parse(readFileSync(MANIFEST_PATH, "utf-8"));
@@ -200,6 +204,31 @@ async function main() {
     const lessonPath = join(LESSONS_DIR, `${entry.slug}.json`);
     const timingPath = join(TIMING_DIR, `${entry.slug}.json`);
 
+    // Block scenes that haven't been manually verified as Japanese audio.
+    // WhisperX is forced to --language ja, so English dubs produce hallucinated
+    // Japanese text that looks valid but is meaningless. Add jp_verified: true
+    // to the manifest entry after confirming the YouTube video is the JP original.
+    if (!entry.jp_verified) {
+      if (!forceFlag) {
+        console.error(`[BLOCK] ${entry.slug} — jp_verified not set. Confirm the YouTube video is Japanese audio, add jp_verified: true to scenes-manifest.json, or pass --force to override.`);
+        skipped++;
+        continue;
+      }
+      console.warn(`[WARN] ${entry.slug} — jp_verified not set, seeding anyway (--force)`);
+    }
+
+    // Secondary check: if 04-extract-timing.py recorded a detected_language, trust it.
+    // This catches English dubs that slipped through before jp_verified was enforced.
+    const timingCheck = existsSync(timingPath) ? JSON.parse(readFileSync(timingPath, "utf-8")) as TimingCache : null;
+    if (timingCheck?.detected_language && timingCheck.detected_language !== "ja") {
+      if (!forceFlag) {
+        console.error(`[BLOCK] ${entry.slug} — timing cache detected_language='${timingCheck.detected_language}', not Japanese. Re-run 04-extract-timing.py with a Japanese-dubbed source, or pass --force to override.`);
+        skipped++;
+        continue;
+      }
+      console.warn(`[WARN] ${entry.slug} — detected_language='${timingCheck.detected_language}', seeding anyway (--force)`);
+    }
+
     if (!existsSync(lessonPath)) {
       console.warn(`[SKIP] ${entry.slug} — no lesson cache (run lesson generation first)`);
       skipped++;
@@ -215,7 +244,17 @@ async function main() {
     }
 
     let syncedLrc: { startMs: number; text: string }[] | null = null;
-    if (existsSync(timingPath)) {
+    const subsPath = join(SUBS_DIR, `${entry.slug}.json`);
+    if (existsSync(subsPath)) {
+      // Official subtitle segments have accurate per-line timing — prefer over
+      // WhisperX word-matching which can drift when music/effects drown speech.
+      const subs = JSON.parse(readFileSync(subsPath, "utf-8")) as {
+        segments: Array<{ start_ms: number; end_ms: number; text: string }>;
+      };
+      if (subs.segments?.length) {
+        syncedLrc = subs.segments.map((s) => ({ startMs: s.start_ms, text: s.text }));
+      }
+    } else if (existsSync(timingPath)) {
       const timing: TimingCache = JSON.parse(readFileSync(timingPath, "utf-8"));
       const verses: Verse[] = lesson.verses ?? [];
       if (timing.words?.length && verses.length) {
@@ -274,7 +313,7 @@ async function main() {
         lesson: lesson,
         synced_lrc: syncedLrc,
         lyrics_offset_ms: 0,
-        lyrics_source: "whisper_transcription",
+        lyrics_source: existsSync(subsPath) ? "official_subtitles" : "whisper_transcription",
         pipeline_status: "idle",
       })
       .onConflictDoUpdate({
