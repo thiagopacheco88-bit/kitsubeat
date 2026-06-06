@@ -1074,17 +1074,19 @@ export async function recordVocabAnswer(
             AND (tok->>'vocab_item_id')::uuid = ${vocabItemId}::uuid
         ),
         verse_vocab AS (
-          -- All vocab items in the verse(s) containing this item, with their surface
+          -- All vocab items in the verse(s) containing this item, with their surface.
+          -- surface comes from the lesson JSONB token, not vocabulary_items
+          -- (vocabulary_items has dictionary_form/reading, not surface).
           SELECT DISTINCT
             (tok->>'vocab_item_id')::uuid AS vocab_item_id,
-            vi.surface,
+            tok->>'surface' AS surface,
             (verse_elem->>'verse_number')::int AS verse_number
           FROM song_versions sv,
             jsonb_array_elements(sv.lesson->'verses') AS verse_elem,
             jsonb_array_elements(verse_elem->'tokens') AS tok
-            JOIN vocabulary_items vi ON vi.id = (tok->>'vocab_item_id')::uuid
           WHERE sv.id = ${songVersionId}::uuid
             AND tok->>'type' = 'vocab'
+            AND (tok->>'vocab_item_id') IS NOT NULL
             AND (verse_elem->>'verse_number')::int IN (SELECT verse_number FROM this_verse)
         ),
         verse_complete AS (
