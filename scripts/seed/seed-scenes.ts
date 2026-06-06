@@ -60,9 +60,62 @@ interface TimingCache {
   segments?: Array<{ start: number; end: number; text: string }>;
 }
 
+interface Token {
+  surface: string;
+  reading?: string;
+  romaji?: string;
+  grammar?: string;
+  part_of_speech?: string;
+  meaning?: { en: string; es?: string; "pt-BR"?: string } | string;
+  jlpt_level?: string;
+}
+
 interface Verse {
   verse_number: number;
-  tokens: Array<{ surface: string }>;
+  tokens: Array<Token>;
+}
+
+const EXCLUDED_GRAMMAR = new Set(["particle", "other"]);
+const EXCLUDE_SURFACES = new Set([
+  "だ", "です", "ます", "ません", "ました", "でした",
+  "ている", "ていても", "んですか", "のか", "のだ", "んだ", "のに",
+  "ですか", "ですよね", "ですよ", "でしょう",
+  "ということですか", "ということだ", "そうだ", "そうです", "いや",
+]);
+
+/**
+ * Rebuild lesson.vocabulary from verse tokens so every content word in the
+ * dialogue is represented. The original lesson-generation prompt capped vocab
+ * at ~10 "key words" — this extracts all unique content words from the tokens
+ * which already have surface/reading/romaji/meaning/jlpt_level.
+ */
+function buildVocabFromVerses(verses: Verse[]) {
+  const seen = new Set<string>();
+  const vocab = [];
+  for (const verse of verses) {
+    const verseText = verse.tokens.map((t) => t.surface).join("");
+    for (const token of verse.tokens) {
+      if (seen.has(token.surface)) continue;
+      if (EXCLUDED_GRAMMAR.has(token.grammar ?? "")) continue;
+      if (EXCLUDE_SURFACES.has(token.surface)) continue;
+      if (!token.surface.trim()) continue;
+      if (/^[ぁ-ゖ]$/.test(token.surface)) continue;
+      seen.add(token.surface);
+      const meaning =
+        typeof token.meaning === "string" ? { en: token.meaning } : token.meaning;
+      vocab.push({
+        surface: token.surface,
+        reading: token.reading ?? token.surface,
+        romaji: token.romaji ?? "",
+        meaning: meaning ?? { en: "" },
+        jlpt_level: token.jlpt_level ?? null,
+        part_of_speech: token.part_of_speech ?? token.grammar ?? null,
+        example_from_song: verseText,
+        additional_examples: [],
+      });
+    }
+  }
+  return vocab;
 }
 
 function normalize(s: string): string {
@@ -154,6 +207,12 @@ async function main() {
     }
 
     const lesson = JSON.parse(readFileSync(lessonPath, "utf-8"));
+
+    // Rebuild vocabulary from verse tokens — the lesson cache only has ~10 "key"
+    // words from the generation prompt. Replace with all unique content words.
+    if (Array.isArray(lesson.verses)) {
+      lesson.vocabulary = buildVocabFromVerses(lesson.verses);
+    }
 
     let syncedLrc: { startMs: number; text: string }[] | null = null;
     if (existsSync(timingPath)) {
