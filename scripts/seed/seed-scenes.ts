@@ -60,35 +60,68 @@ interface TimingCache {
   segments?: Array<{ start: number; end: number; text: string }>;
 }
 
-function buildSyncedLrc(timing: TimingCache): { startMs: number; text: string }[] | null {
-  // Prefer segments (line-level) over word-level aggregation
-  if (timing.segments?.length) {
-    return timing.segments.map((seg) => ({
-      startMs: Math.round(seg.start * 1000),
-      text: seg.text.trim(),
-    }));
-  }
-  if (!timing.words?.length) return null;
-  // Group words into lines with ~5s gaps as natural breaks
-  const lines: { startMs: number; text: string }[] = [];
-  let lineWords: string[] = [];
-  let lineStart = timing.words[0].start;
-  let prevEnd = timing.words[0].end;
+interface Verse {
+  verse_number: number;
+  tokens: Array<{ surface: string }>;
+}
 
-  for (const word of timing.words) {
-    const gap = word.start - prevEnd;
-    if (gap > 1.5 && lineWords.length > 0) {
-      lines.push({ startMs: Math.round(lineStart * 1000), text: lineWords.join(" ").trim() });
-      lineWords = [];
-      lineStart = word.start;
+function normalize(s: string): string {
+  return s.replace(/[\s　、。！？・「」『』（）\-,.!?()"'…]/g, "").toLowerCase();
+}
+
+/**
+ * Build synced_lrc with one entry per lesson verse, using WhisperX word-level
+ * timing. This is what LyricsPanel.buildVerseTiming needs for auto-scroll.
+ * The naive word-grouping approach (grouping by silence gaps) produced too few
+ * lines and broke verse highlighting — always use this verse-aware approach.
+ */
+function buildSyncedLrcFromVerses(
+  words: TimingWord[],
+  verses: Verse[]
+): { startMs: number; text: string }[] {
+  if (!words.length || !verses.length) return [];
+
+  const allChars: Array<{ char: string; wordIdx: number }> = [];
+  for (let wi = 0; wi < words.length; wi++) {
+    for (const ch of words[wi].word) {
+      allChars.push({ char: ch, wordIdx: wi });
     }
-    lineWords.push(word.word);
-    prevEnd = word.end;
   }
-  if (lineWords.length > 0) {
-    lines.push({ startMs: Math.round(lineStart * 1000), text: lineWords.join(" ").trim() });
+  const allText = normalize(allChars.map((c) => c.char).join(""));
+  const result: { startMs: number; text: string }[] = [];
+  let searchPos = 0;
+
+  for (const verse of verses) {
+    const verseText = normalize(verse.tokens.map((t) => t.surface).join(""));
+    if (!verseText) continue;
+
+    let matchPos = -1;
+    for (let i = searchPos; i < allText.length; i++) {
+      if (allText.startsWith(verseText.slice(0, Math.ceil(verseText.length * 0.5)), i)) {
+        matchPos = i;
+        break;
+      }
+    }
+    if (matchPos === -1) {
+      for (let i = 0; i < allText.length; i++) {
+        if (allText.startsWith(verseText.slice(0, Math.min(3, verseText.length)), i)) {
+          matchPos = i;
+          break;
+        }
+      }
+    }
+
+    const rawText = verse.tokens.map((t) => t.surface).join("");
+    if (matchPos !== -1 && allChars[matchPos]) {
+      const startMs = Math.round(words[allChars[matchPos].wordIdx].start * 1000);
+      result.push({ startMs, text: rawText });
+      searchPos = matchPos + Math.floor(verseText.length * 0.8);
+    } else {
+      const lastMs = result.length > 0 ? result[result.length - 1].startMs + 3000 : 0;
+      result.push({ startMs: lastMs, text: rawText });
+    }
   }
-  return lines;
+  return result;
 }
 
 async function main() {
@@ -125,7 +158,14 @@ async function main() {
     let syncedLrc: { startMs: number; text: string }[] | null = null;
     if (existsSync(timingPath)) {
       const timing: TimingCache = JSON.parse(readFileSync(timingPath, "utf-8"));
-      syncedLrc = buildSyncedLrc(timing);
+      const verses: Verse[] = lesson.verses ?? [];
+      if (timing.words?.length && verses.length) {
+        // Build one synced_lrc line per lesson verse — verse-level timing
+        // for LyricsPanel auto-scroll. Do NOT use coarse word-gap grouping,
+        // which produces too few lines and breaks verse highlighting.
+        const built = buildSyncedLrcFromVerses(timing.words, verses);
+        syncedLrc = built.length > 0 ? built : null;
+      }
     }
 
     // Upsert the songs row
