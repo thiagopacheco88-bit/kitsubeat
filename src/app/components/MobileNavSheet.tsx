@@ -27,6 +27,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { LanguagePicker } from "@/components/ui/LanguagePicker";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 type Props = { isAdmin: boolean; isSignedIn: boolean };
 
@@ -40,6 +41,7 @@ export default function MobileNavSheet({ isAdmin }: Props) {
   const links: { href: string; label: string; testId?: string; isAdmin?: boolean }[] = [
     { href: "/path", label: t("nav.path") },
     { href: "/songs", label: t("nav.songs") },
+    { href: "/scenes", label: "Scenes" },
     { href: "/anime", label: t("nav.anime") },
     { href: "/kana", label: t("nav.kana") },
     { href: "/verbs", label: "Verbs" },
@@ -154,9 +156,10 @@ export default function MobileNavSheet({ isAdmin }: Props) {
                   {link.label}
                 </Link>
               ))}
-              {/* Language picker — global settings at foot of nav link list */}
-              <div className="flex items-center px-1 pt-2 border-t border-[var(--color-border-strong)]">
+              {/* Settings row — language + theme at foot of nav link list */}
+              <div className="flex items-center justify-between px-1 pt-2 border-t border-[var(--color-border-strong)]">
                 <LanguagePicker currentLocale={locale} />
+                <ThemeToggle />
               </div>
             </div>
           </div>

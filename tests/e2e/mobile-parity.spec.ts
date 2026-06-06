@@ -42,11 +42,7 @@ test.describe("Phase 14 / mobile parity (390x844)", () => {
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,
     );
-    // Plan 14-06: lenient threshold matches /songs/again-yui in Plan 14-05 to
-    // acknowledge the pre-existing global header / chrome overflow tracked in
-    // deferred-items D-PRE-08. Plan 14-06's catalog migrations don't introduce
-    // new overflow; this catches regressions while D-PRE-08 owns the path to <=0.
-    expect(overflow).toBeLessThanOrEqual(24);
+    expect(overflow).toBeLessThanOrEqual(0);
   });
 
   test("/songs — no horizontal scroll", async ({ page }) => {

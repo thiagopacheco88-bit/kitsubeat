@@ -207,6 +207,12 @@ export default async function RootLayout({
                   {t('nav.songs')}
                 </Link>
                 <Link
+                  href="/scenes"
+                  className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
+                >
+                  Scenes
+                </Link>
+                <Link
                   href="/kana"
                   className="whitespace-nowrap text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
@@ -266,8 +272,11 @@ export default async function RootLayout({
                   {t('nav.signIn')}
                 </Link>
               )}
-              <ThemeToggle userId={signedInUserId} />
-              <LanguagePicker currentLocale={locale as "en" | "pt-BR" | "es"} />
+              {/* Hidden on mobile — both live in MobileNavSheet for mobile users */}
+              <div className="hidden sm:contents">
+                <ThemeToggle userId={signedInUserId} />
+                <LanguagePicker currentLocale={locale as "en" | "pt-BR" | "es"} />
+              </div>
             </div>
           </nav>
         </header>
