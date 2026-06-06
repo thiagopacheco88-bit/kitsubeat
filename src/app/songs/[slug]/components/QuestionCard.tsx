@@ -287,8 +287,9 @@ export default function QuestionCard({
         </div>
       </div>
 
-      {/* Reveal reading button — visible only when unanswered, tier > 1, and not yet revealed */}
-      {chosen === null && targetTier !== 1 && !revealed && (
+      {/* Reveal reading button — only for vocab_meaning: other types either leak the answer
+          (reading_match options ARE romaji) or don't use effectiveTier in their prompt */}
+      {chosen === null && question.type === "vocab_meaning" && trackKind !== "vocab" && trackKind !== "grammar" && targetTier !== 1 && !revealed && (
         <button
           type="button"
           onClick={() => markRevealed(question.id)}
