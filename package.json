@@ -69,6 +69,7 @@
     "@radix-ui/react-dialog": "^1.1.15",
     "@sentry/nextjs": "^10.52.0",
     "@sglkc/kuromoji": "^1.1.0",
+    "@swc/helpers": "^0.5.23",
     "@tailwindcss/postcss": "^4.2.2",
     "@upstash/ratelimit": "^2.0.8",
     "@upstash/redis": "^1.38.0",
