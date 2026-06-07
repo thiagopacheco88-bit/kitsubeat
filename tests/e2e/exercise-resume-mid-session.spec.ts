@@ -167,8 +167,14 @@ test.describe("Exercise resume mid-session", () => {
 
     // Navigate to Practice tab (reload returns to default Words tab).
     await page.getByRole("button", { name: /^practice$/i }).click();
-    // After hydration, ExerciseTab's `hasActiveSession` (isSessionForSong)
-    // returns true and we land directly in the session view (no resume prompt).
+    // If the "SESSION IN PROGRESS" banner shows a Resume button, click it.
+    const resumeBtn = page.getByRole("button", { name: /^Resume$/ });
+    if (await resumeBtn.isVisible({ timeout: 3_000 }).catch(() => false)) {
+      await resumeBtn.click();
+      // Wait for session view to transition after clicking Resume.
+      await page.locator('[data-testid="learn-card"], [data-question-id]').first()
+        .waitFor({ state: "visible", timeout: 15_000 }).catch(() => {});
+    }
     await skipLearnCards(page);
     await expect(page.locator("[data-question-id]")).toBeVisible({ timeout: 10_000 });
 

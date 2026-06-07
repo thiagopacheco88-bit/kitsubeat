@@ -16,6 +16,7 @@ loadEnvFile({ path: ".env.test" });
  *   (`npm run test:report` to view).
  */
 export default defineConfig({
+  globalSetup: "./tests/support/global-setup.ts",
   testDir: "./tests",
   // Only collect Playwright .spec.ts files. tests/integration/**/*.test.ts are
   // vitest tests (plan 08.1-03) and would error on @vitest/expect imports if

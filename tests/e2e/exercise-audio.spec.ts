@@ -163,20 +163,26 @@ test.describe("Exercise audio — TTS integration", () => {
 
   test.beforeAll(async ({ browser }) => {
     test.setTimeout(120_000);
+    // Wait for server to stabilize after potential Fast Refresh full-reload on startup.
+    // Navigate twice: the first may abort mid-reload; the second lands on the stable server.
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const ctx = await browser.newContext();
+      const warmPage = await ctx.newPage();
+      try {
+        await warmPage.goto(`http://localhost:7000/songs/${SLUG}`, {
+          waitUntil: "domcontentloaded",
+          timeout: 60_000,
+        });
+        await warmPage.waitForTimeout(3_000);
+      } catch {
+        // First attempt may be aborted by hot-reload — that's expected; second will succeed.
+      } finally {
+        await ctx.close();
+      }
+    }
     // Reset FSRS progress so sessions always start with new-vocab questions.
     if (process.env.TEST_DATABASE_URL) {
       await resetTestProgress(TEST_USER_ID).catch(() => {});
-    }
-    const ctx = await browser.newContext();
-    const warmPage = await ctx.newPage();
-    try {
-      await warmPage.goto(`http://localhost:7000/songs/${SLUG}`, {
-        waitUntil: "load",
-        timeout: 90_000,
-      });
-      await warmPage.waitForTimeout(4_000);
-    } finally {
-      await ctx.close();
     }
   });
 

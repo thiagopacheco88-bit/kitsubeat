@@ -73,6 +73,7 @@ def download_audio(youtube_id: str, song_slug: str, tmp_dir: str) -> str:
         "--extract-audio",
         "--audio-format", "mp3",
         "--audio-quality", "0",
+        "--js-runtimes", "node",
         "-o", output_path,
         youtube_url,
     ]
@@ -86,14 +87,19 @@ def download_audio(youtube_id: str, song_slug: str, tmp_dir: str) -> str:
 # WhisperX transcription + alignment
 # ─────────────────────────────────────────────────────────────────────────────
 
-def run_whisperx(audio_path: str) -> list[dict]:
+def run_whisperx(audio_path: str) -> tuple[list[dict], str]:
     """
-    Run WhisperX on the audio file and return word-level timestamps.
+    Run WhisperX on the audio file and return (word-level timestamps, detected_language).
+
+    Performs a language pre-detection pass (auto-detect, no language forced) before
+    the full transcription. Raises ValueError if the detected language is not Japanese —
+    this prevents hallucinated Japanese output when the audio is an English dub.
 
     Returns a list of word dicts: { word, start, end, score }
     Detects GPU availability; falls back to CPU with int8 compute_type.
     """
     import whisperx
+    from faster_whisper import WhisperModel
 
     # Detect device
     try:
@@ -105,24 +111,41 @@ def run_whisperx(audio_path: str) -> list[dict]:
     compute_type = "float16" if device == "cuda" else "int8"
     print(f"  [whisperx] Device: {device}, compute_type: {compute_type}")
 
-    # Load Whisper model
-    print(f"  [whisperx] Loading model '{WHISPER_MODEL}' ...")
-    model = whisperx.load_model(
-        WHISPER_MODEL,
-        device,
-        compute_type=compute_type,
-        language=WHISPER_LANGUAGE,
-    )
+    # Load Whisper model via faster_whisper directly (avoids whisperx use_auth_token incompatibility)
+    print(f"  [whisperx] Loading model '{WHISPER_MODEL}' for language detection ...")
+    fw_model = WhisperModel(WHISPER_MODEL, device=device, compute_type=compute_type)
 
     # Load audio
     audio = whisperx.load_audio(audio_path)
 
-    # Transcribe
-    print(f"  [whisperx] Transcribing (batch_size={BATCH_SIZE}) ...")
-    result = model.transcribe(audio, batch_size=BATCH_SIZE, language=WHISPER_LANGUAGE)
+    # Auto-detect language on the first 30 seconds — fail fast for English dubs.
+    # Whisper forced to 'ja' hallucinates Japanese for English audio, producing
+    # lesson content that looks valid but is meaningless.
+    print(f"  [whisperx] Detecting language (first 30s) ...")
+    import tempfile, soundfile as sf
+    SAMPLE_RATE = 16000
+    audio_sample = audio[:30 * SAMPLE_RATE] if len(audio) > 30 * SAMPLE_RATE else audio
+    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp_wav:
+        sf.write(tmp_wav.name, audio_sample, SAMPLE_RATE)
+        _segs, info = fw_model.transcribe(tmp_wav.name, language=None)
+    detected_lang = info.language
+    print(f"  [whisperx] Detected language: {detected_lang}")
+
+    if detected_lang != "ja":
+        raise ValueError(
+            f"Detected language '{detected_lang}' — not Japanese. "
+            "This is likely an English-dubbed source. Use a Japanese-dubbed YouTube video."
+        )
+
+    # Full transcription with language forced to Japanese
+    print(f"  [whisperx] Transcribing ...")
+    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as full_wav:
+        sf.write(full_wav.name, audio, SAMPLE_RATE)
+        segments_gen, _info = fw_model.transcribe(full_wav.name, language=WHISPER_LANGUAGE)
+        segments_list = [{"start": s.start, "end": s.end, "text": s.text} for s in segments_gen]
 
     # Free model memory before loading alignment model
-    del model
+    del fw_model
     try:
         import gc
         gc.collect()
@@ -142,7 +165,7 @@ def run_whisperx(audio_path: str) -> list[dict]:
     # Run forced alignment for word-level timestamps
     print(f"  [whisperx] Running forced alignment ...")
     aligned = whisperx.align(
-        result["segments"],
+        segments_list,
         align_model,
         metadata,
         audio,
@@ -165,7 +188,7 @@ def run_whisperx(audio_path: str) -> list[dict]:
         words.append(word_entry)
 
     print(f"  [whisperx] Extracted {len(words)} words from alignment")
-    return words
+    return words, detected_lang
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -177,6 +200,7 @@ def write_timing_json(
     youtube_id: str,
     words: list[dict],
     output_dir: str,
+    detected_language: str = "ja",
 ) -> str:
     """Write timing JSON to {output_dir}/{song_slug}.json. Returns the path."""
     Path(output_dir).mkdir(parents=True, exist_ok=True)
@@ -193,6 +217,7 @@ def write_timing_json(
     payload = {
         "song_slug": song_slug,
         "youtube_id": youtube_id,
+        "detected_language": detected_language,
         "words": words,
         "low_confidence_count": low_confidence_count,
         "total_words": total_words,
@@ -273,12 +298,12 @@ def process_song(
         # Step 2: Download audio
         mp3_path = download_audio(youtube_id, song_slug, tmp_dir)
 
-        # Steps 3–6: WhisperX transcription + alignment
-        words = run_whisperx(mp3_path)
+        # Steps 3–6: WhisperX transcription + alignment + language detection
+        words, detected_lang = run_whisperx(mp3_path)
 
         # Step 7: Flag low-confidence words (already done in run_whisperx)
         # Step 8: Write timing JSON
-        output_path = write_timing_json(song_slug, youtube_id, words, output_dir)
+        output_path = write_timing_json(song_slug, youtube_id, words, output_dir, detected_language=detected_lang)
         print(f"  [output] Timing JSON written: {output_path}")
 
         # Step 9: Copy mp3 to public/audio/ and clean up tmp

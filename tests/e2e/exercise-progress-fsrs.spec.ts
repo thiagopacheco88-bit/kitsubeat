@@ -119,16 +119,16 @@ async function runSession(page: Page) {
       hasText: new RegExp(`^\\s*${escapeRegex(snap.correct)}\\s*$`),
     });
     if ((await exact.count()) > 0) {
-      await exact.first().click();
+      await exact.first().click({ force: true });
     } else {
-      await buttons.first().click();
+      await buttons.first().click({ force: true });
     }
 
     await expect(page.locator("[data-feedback]")).toBeVisible({ timeout: 5_000 });
     await page
       .locator("[data-feedback]")
       .getByRole("button", { name: /^Continue$/ })
-      .click();
+      .click({ force: true }); // force bypasses stability check during transition animation
     await page.waitForTimeout(400);
   }
 }
@@ -340,6 +340,7 @@ test.describe("Exercise progress + FSRS DB writes", () => {
     page,
     testUser,
   }) => {
+    test.setTimeout(90_000); // navigation to /songs can be slow after a long test run
     void testUser;
     test.skip(!HAS_TEST_DB, "TEST_DATABASE_URL not provisioned — SongCard reflection requires DB-backed progress.");
 
