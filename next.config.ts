@@ -1,11 +1,29 @@
 import type { NextConfig } from "next";
+import path from "path";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs";
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
 
+// @clerk/nextjs@7.4.3 ESM packaging bug: dist/esm/utils.js (barrel file) is missing;
+// only dist/esm/utils/ (directory) exists. Webpack strict-ESM resolution requires the
+// exact .js file and won't auto-fall-back to index.js. This alias redirects the broken
+// import to the correct barrel so the build succeeds.
+// Note: require.resolve('@clerk/nextjs/package.json') is blocked by the exports field on
+// Node 24; resolve the main entry (dist/cjs/index.js) and go up 3 levels instead.
+const clerkRoot = path.dirname(path.dirname(path.dirname(require.resolve("@clerk/nextjs"))));
+const clerkEsmUtilsAlias = path.join(clerkRoot, "dist/esm/utils.js");
+const clerkEsmUtilsTarget = path.join(clerkRoot, "dist/esm/utils/index.js");
+
 const nextConfig: NextConfig = {
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      [clerkEsmUtilsAlias]: clerkEsmUtilsTarget,
+    };
+    return config;
+  },
   // Phase 14 D-17: lint runs as a separate CI gate, not during build.
   eslint: {
     ignoreDuringBuilds: true,

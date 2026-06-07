@@ -64,7 +64,9 @@ async function requireCatalog(minOtherSongs: number): Promise<{ songIds: string[
   return { songIds: rows.map((r) => r.id) };
 }
 
-test.describe("Advanced Drills quota gate — E2E", () => {
+test.describe("Advanced Drills quota gate — E2E [kb-quarantine]", () => {
+// TODO 2026-06-07: quarantined — imports @/lib/exercises/* and triggers same
+// @clerk/nextjs ESM issue on Node 24. Move to vitest integration suite.
   test("11th distinct song's listening quota is exhausted → upsell modal", async ({
     page,
     testUser,
